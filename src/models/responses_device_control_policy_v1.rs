@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponsesDeviceControlPolicyV1 {
     /// The email of the user which created the policy
     #[serde(rename = "created_by")]

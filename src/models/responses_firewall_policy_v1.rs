@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponsesFirewallPolicyV1 {
     /// Channel file version for the policy
     #[serde(rename = "channel_version")]

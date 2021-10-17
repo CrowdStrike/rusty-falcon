@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestsSetPolicyPrecedenceReqV1 {
     /// The ids of all current prevention policies for the platform specified. The precedence will be set in the order the ids are specified
     #[serde(rename = "ids")]

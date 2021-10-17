@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponsesSensorUpdateSettingsV2 {
     /// The target build applied to devices in the policy
     #[serde(rename = "build")]

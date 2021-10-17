@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestsCreateGroupV1 {
     /// The FQL assignment rule for the group. This may only be specified if the groups type is 'dynamic'
     #[serde(rename = "assignment_rule", skip_serializing_if = "Option::is_none")]

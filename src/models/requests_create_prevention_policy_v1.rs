@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestsCreatePreventionPolicyV1 {
     /// If specified the settings of the prevention policy identified by the id will be used
     #[serde(rename = "clone_id", skip_serializing_if = "Option::is_none")]

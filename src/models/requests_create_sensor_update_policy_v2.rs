@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestsCreateSensorUpdatePolicyV2 {
     /// The description to use when creating the policy
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]

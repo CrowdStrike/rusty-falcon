@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestsCreateFirewallPolicyV1 {
     /// If specified the firewall rules of the firewall policy identified by the id will be used
     #[serde(rename = "clone_id", skip_serializing_if = "Option::is_none")]

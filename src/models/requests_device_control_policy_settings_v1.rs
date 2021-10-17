@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestsDeviceControlPolicySettingsV1 {
     /// Settings that apply to a USB Class
     #[serde(rename = "classes")]

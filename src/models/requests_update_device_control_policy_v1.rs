@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestsUpdateDeviceControlPolicyV1 {
     /// The new description to assign to the policy
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
