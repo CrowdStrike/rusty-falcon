@@ -13,4 +13,6 @@ url = "^2.2"
 version = "^0.11"
 features = ["json", "multipart"]
 
+
 [dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
