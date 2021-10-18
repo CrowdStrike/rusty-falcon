@@ -1,5 +1,5 @@
 [package]
-name = "openapi"
+name = "crowdstrike_falcon"
 version = "0.0.1"
 authors = ["CrowdStrike Inc"]
 edition = "2018"
