@@ -1,0 +1,16 @@
+[package]
+name = "crowdstrike_falcon"
+version = "0.0.1"
+authors = ["CrowdStrike Inc"]
+edition = "2018"
+
+[dependencies]
+serde = ">=1.0.130, <1.1.0"
+serde_derive = ">=1.0.130, <1.1.0"
+serde_json = ">=1.0.68, <1.1.0"
+url = "^2.2"
+[dependencies.reqwest]
+version = "^0.11"
+features = ["json", "multipart"]
+
+[dev-dependencies]
