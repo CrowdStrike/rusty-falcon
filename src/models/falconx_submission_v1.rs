@@ -23,6 +23,8 @@ pub struct FalconxSubmissionV1 {
     pub origin: Option<String>,
     #[serde(rename = "sandbox", skip_serializing_if = "Option::is_none")]
     pub sandbox: Option<Vec<crate::models::FalconxSandboxParametersV1>>,
+    #[serde(rename = "send_email_notification", skip_serializing_if = "Option::is_none")]
+    pub send_email_notification: Option<bool>,
     #[serde(rename = "state", skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     #[serde(rename = "user_id", skip_serializing_if = "Option::is_none")]
@@ -43,6 +45,7 @@ impl FalconxSubmissionV1 {
             id: None,
             origin: None,
             sandbox: None,
+            send_email_notification: None,
             state: None,
             user_id: None,
             user_name: None,

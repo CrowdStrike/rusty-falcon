@@ -272,7 +272,7 @@ pub async fn get_intel_report_entities(configuration: &configuration::Configurat
     }
 }
 
-pub async fn get_intel_report_pdf(configuration: &configuration::Configuration, id: &str) -> Result<(), Error<GetIntelReportPdfError>> {
+pub async fn get_intel_report_pdf(configuration: &configuration::Configuration, id: &str) -> Result<std::path::PathBuf, Error<GetIntelReportPdfError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -292,7 +292,7 @@ pub async fn get_intel_report_pdf(configuration: &configuration::Configuration, 
     let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        Ok(())
+        serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetIntelReportPdfError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
@@ -328,7 +328,7 @@ pub async fn get_intel_rule_entities(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn get_intel_rule_file(configuration: &configuration::Configuration, id: i32, accept: Option<&str>, format: Option<&str>) -> Result<(), Error<GetIntelRuleFileError>> {
+pub async fn get_intel_rule_file(configuration: &configuration::Configuration, id: i32, accept: Option<&str>, format: Option<&str>) -> Result<std::path::PathBuf, Error<GetIntelRuleFileError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -354,7 +354,7 @@ pub async fn get_intel_rule_file(configuration: &configuration::Configuration, i
     let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        Ok(())
+        serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetIntelRuleFileError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
@@ -362,7 +362,7 @@ pub async fn get_intel_rule_file(configuration: &configuration::Configuration, i
     }
 }
 
-pub async fn get_latest_intel_rule_file(configuration: &configuration::Configuration, _type: &str, accept: Option<&str>, format: Option<&str>) -> Result<(), Error<GetLatestIntelRuleFileError>> {
+pub async fn get_latest_intel_rule_file(configuration: &configuration::Configuration, _type: &str, accept: Option<&str>, format: Option<&str>, if_modified_since: Option<&str>) -> Result<std::path::PathBuf, Error<GetLatestIntelRuleFileError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -380,6 +380,9 @@ pub async fn get_latest_intel_rule_file(configuration: &configuration::Configura
     if let Some(local_var_param_value) = accept {
         local_var_req_builder = local_var_req_builder.header("Accept", local_var_param_value.to_string());
     }
+    if let Some(local_var_param_value) = if_modified_since {
+        local_var_req_builder = local_var_req_builder.header("If-Modified-Since", local_var_param_value.to_string());
+    }
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -388,7 +391,7 @@ pub async fn get_latest_intel_rule_file(configuration: &configuration::Configura
     let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        Ok(())
+        serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetLatestIntelRuleFileError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };

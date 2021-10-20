@@ -15,6 +15,8 @@
 pub struct FalconxSubmissionParametersV1 {
     #[serde(rename = "sandbox", skip_serializing_if = "Option::is_none")]
     pub sandbox: Option<Vec<crate::models::FalconxSandboxParametersV1>>,
+    #[serde(rename = "send_email_notification", skip_serializing_if = "Option::is_none")]
+    pub send_email_notification: Option<bool>,
     #[serde(rename = "user_tags", skip_serializing_if = "Option::is_none")]
     pub user_tags: Option<Vec<String>>,
 }
@@ -23,6 +25,7 @@ impl FalconxSubmissionParametersV1 {
     pub fn new() -> FalconxSubmissionParametersV1 {
         FalconxSubmissionParametersV1 {
             sandbox: None,
+            send_email_notification: None,
             user_tags: None,
         }
     }

@@ -23,6 +23,8 @@ pub struct FalconxSandboxParametersV1 {
     pub enable_tor: Option<bool>,
     #[serde(rename = "environment_id", skip_serializing_if = "Option::is_none")]
     pub environment_id: Option<i32>,
+    #[serde(rename = "network_settings", skip_serializing_if = "Option::is_none")]
+    pub network_settings: Option<String>,
     #[serde(rename = "sha256", skip_serializing_if = "Option::is_none")]
     pub sha256: Option<String>,
     #[serde(rename = "submit_name", skip_serializing_if = "Option::is_none")]
@@ -43,6 +45,7 @@ impl FalconxSandboxParametersV1 {
             document_password: None,
             enable_tor: None,
             environment_id: None,
+            network_settings: None,
             sha256: None,
             submit_name: None,
             system_date: None,
