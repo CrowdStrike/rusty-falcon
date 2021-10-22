@@ -12,21 +12,27 @@
 
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainSpapiVulnerabilitiesEntitiesResponseV2 {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::MsaApiError>>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::DomainMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<crate::models::DomainApiVulnerabilityV2>,
+pub struct ApiExecutionMetadataV1 {
+    #[serde(rename = "retry_allowed")]
+    pub retry_allowed: bool,
+    #[serde(rename = "retry_performed")]
+    pub retry_performed: bool,
+    #[serde(rename = "retry_report_execution_id")]
+    pub retry_report_execution_id: String,
+    #[serde(rename = "subtype")]
+    pub subtype: String,
+    #[serde(rename = "unscheduled_execution_type")]
+    pub unscheduled_execution_type: String,
 }
 
-impl DomainSpapiVulnerabilitiesEntitiesResponseV2 {
-    pub fn new(meta: crate::models::DomainMetaInfo, resources: Vec<crate::models::DomainApiVulnerabilityV2>) -> DomainSpapiVulnerabilitiesEntitiesResponseV2 {
-        DomainSpapiVulnerabilitiesEntitiesResponseV2 {
-            errors: None,
-            meta: Box::new(meta),
-            resources,
+impl ApiExecutionMetadataV1 {
+    pub fn new(retry_allowed: bool, retry_performed: bool, retry_report_execution_id: String, subtype: String, unscheduled_execution_type: String) -> ApiExecutionMetadataV1 {
+        ApiExecutionMetadataV1 {
+            retry_allowed,
+            retry_performed,
+            retry_report_execution_id,
+            subtype,
+            unscheduled_execution_type,
         }
     }
 }

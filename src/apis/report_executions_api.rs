@@ -49,6 +49,17 @@ pub enum ReportExecutionsQueryError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`report_executions_retry`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ReportExecutionsRetryError {
+    Status400(crate::models::MsaReplyMetaOnly),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::ApiReportExecutionsResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
 
 pub async fn report_executions_download_get(configuration: &configuration::Configuration, ids: &str) -> Result<Vec<i32>, Error<ReportExecutionsDownloadGetError>> {
     let local_var_configuration = configuration;
@@ -143,6 +154,38 @@ pub async fn report_executions_query(configuration: &configuration::Configuratio
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<ReportExecutionsQueryError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn report_executions_retry(configuration: &configuration::Configuration, X_CS_USERUUID: &str, body: Vec<crate::models::ApiReportExecutionRetryRequestV1>, X_CS_USERID: Option<&str>) -> Result<crate::models::ApiReportExecutionsResponseV1, Error<ReportExecutionsRetryError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/reports/entities/report-executions-retry/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = X_CS_USERID {
+        local_var_req_builder = local_var_req_builder.header("X-CS-USERID", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.header("X-CS-USERUUID", X_CS_USERUUID.to_string());
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ReportExecutionsRetryError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
