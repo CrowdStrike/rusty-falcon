@@ -12,18 +12,18 @@
 
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainSpapiVulnerabilitiesEntitiesResponseV2 {
+pub struct DomainSpapiCombinedVulnerabilitiesResponse {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<crate::models::MsaApiError>>,
     #[serde(rename = "meta")]
-    pub meta: Box<crate::models::DomainMetaInfo>,
+    pub meta: Box<crate::models::DomainSpapiQueryVulnerabilitiesMeta>,
     #[serde(rename = "resources")]
-    pub resources: Vec<crate::models::DomainApiVulnerabilityV2>,
+    pub resources: Vec<crate::models::DomainBaseApiVulnerabilityV2>,
 }
 
-impl DomainSpapiVulnerabilitiesEntitiesResponseV2 {
-    pub fn new(meta: crate::models::DomainMetaInfo, resources: Vec<crate::models::DomainApiVulnerabilityV2>) -> DomainSpapiVulnerabilitiesEntitiesResponseV2 {
-        DomainSpapiVulnerabilitiesEntitiesResponseV2 {
+impl DomainSpapiCombinedVulnerabilitiesResponse {
+    pub fn new(meta: crate::models::DomainSpapiQueryVulnerabilitiesMeta, resources: Vec<crate::models::DomainBaseApiVulnerabilityV2>) -> DomainSpapiCombinedVulnerabilitiesResponse {
+        DomainSpapiCombinedVulnerabilitiesResponse {
             errors: None,
             meta: Box::new(meta),
             resources,

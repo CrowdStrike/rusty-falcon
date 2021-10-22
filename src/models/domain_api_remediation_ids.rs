@@ -13,14 +13,14 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainApiRemediationIds {
-    #[serde(rename = "ids")]
-    pub ids: Vec<String>,
+    #[serde(rename = "ids", skip_serializing_if = "Option::is_none")]
+    pub ids: Option<Vec<String>>,
 }
 
 impl DomainApiRemediationIds {
-    pub fn new(ids: Vec<String>) -> DomainApiRemediationIds {
+    pub fn new() -> DomainApiRemediationIds {
         DomainApiRemediationIds {
-            ids,
+            ids: None,
         }
     }
 }

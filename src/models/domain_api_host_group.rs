@@ -13,6 +13,8 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainApiHostGroup {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
     #[serde(rename = "name")]
     pub name: String,
 }
@@ -20,6 +22,7 @@ pub struct DomainApiHostGroup {
 impl DomainApiHostGroup {
     pub fn new(name: String) -> DomainApiHostGroup {
         DomainApiHostGroup {
+            id: None,
             name,
         }
     }

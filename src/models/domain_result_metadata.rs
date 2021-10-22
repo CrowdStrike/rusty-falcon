@@ -13,12 +13,22 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainResultMetadata {
+    #[serde(rename = "execution_delay")]
+    pub execution_delay: i64,
     #[serde(rename = "execution_duration")]
     pub execution_duration: i64,
+    #[serde(rename = "execution_finish")]
+    pub execution_finish: String,
     #[serde(rename = "execution_start")]
     pub execution_start: String,
+    #[serde(rename = "queue_duration")]
+    pub queue_duration: i64,
+    #[serde(rename = "queue_start")]
+    pub queue_start: String,
     #[serde(rename = "report_file_name")]
     pub report_file_name: String,
+    #[serde(rename = "report_finish")]
+    pub report_finish: String,
     #[serde(rename = "result_count")]
     pub result_count: i32,
     #[serde(rename = "result_id")]
@@ -30,11 +40,16 @@ pub struct DomainResultMetadata {
 }
 
 impl DomainResultMetadata {
-    pub fn new(execution_duration: i64, execution_start: String, report_file_name: String, result_count: i32, result_id: String, search_window_end: String, search_window_start: String) -> DomainResultMetadata {
+    pub fn new(execution_delay: i64, execution_duration: i64, execution_finish: String, execution_start: String, queue_duration: i64, queue_start: String, report_file_name: String, report_finish: String, result_count: i32, result_id: String, search_window_end: String, search_window_start: String) -> DomainResultMetadata {
         DomainResultMetadata {
+            execution_delay,
             execution_duration,
+            execution_finish,
             execution_start,
+            queue_duration,
+            queue_start,
             report_file_name,
+            report_finish,
             result_count,
             result_id,
             search_window_end,

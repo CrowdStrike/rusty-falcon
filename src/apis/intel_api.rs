@@ -362,7 +362,7 @@ pub async fn get_intel_rule_file(configuration: &configuration::Configuration, i
     }
 }
 
-pub async fn get_latest_intel_rule_file(configuration: &configuration::Configuration, _type: &str, accept: Option<&str>, format: Option<&str>, if_modified_since: Option<&str>) -> Result<std::path::PathBuf, Error<GetLatestIntelRuleFileError>> {
+pub async fn get_latest_intel_rule_file(configuration: &configuration::Configuration, _type: &str, accept: Option<&str>, format: Option<&str>) -> Result<std::path::PathBuf, Error<GetLatestIntelRuleFileError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -379,9 +379,6 @@ pub async fn get_latest_intel_rule_file(configuration: &configuration::Configura
     }
     if let Some(local_var_param_value) = accept {
         local_var_req_builder = local_var_req_builder.header("Accept", local_var_param_value.to_string());
-    }
-    if let Some(local_var_param_value) = if_modified_since {
-        local_var_req_builder = local_var_req_builder.header("If-Modified-Since", local_var_param_value.to_string());
     }
 
     let local_var_req = local_var_req_builder.build()?;

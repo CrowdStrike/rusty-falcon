@@ -12,21 +12,18 @@
 
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainSpapiVulnerabilitiesEntitiesResponseV2 {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::MsaApiError>>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::DomainMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<crate::models::DomainApiVulnerabilityV2>,
+pub struct DomainQuota {
+    #[serde(rename = "total")]
+    pub total: i32,
+    #[serde(rename = "used")]
+    pub used: i32,
 }
 
-impl DomainSpapiVulnerabilitiesEntitiesResponseV2 {
-    pub fn new(meta: crate::models::DomainMetaInfo, resources: Vec<crate::models::DomainApiVulnerabilityV2>) -> DomainSpapiVulnerabilitiesEntitiesResponseV2 {
-        DomainSpapiVulnerabilitiesEntitiesResponseV2 {
-            errors: None,
-            meta: Box::new(meta),
-            resources,
+impl DomainQuota {
+    pub fn new(total: i32, used: i32) -> DomainQuota {
+        DomainQuota {
+            total,
+            used,
         }
     }
 }

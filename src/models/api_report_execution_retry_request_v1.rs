@@ -12,21 +12,15 @@
 
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainSpapiVulnerabilitiesEntitiesResponseV2 {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::MsaApiError>>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::DomainMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<crate::models::DomainApiVulnerabilityV2>,
+pub struct ApiReportExecutionRetryRequestV1 {
+    #[serde(rename = "id")]
+    pub id: String,
 }
 
-impl DomainSpapiVulnerabilitiesEntitiesResponseV2 {
-    pub fn new(meta: crate::models::DomainMetaInfo, resources: Vec<crate::models::DomainApiVulnerabilityV2>) -> DomainSpapiVulnerabilitiesEntitiesResponseV2 {
-        DomainSpapiVulnerabilitiesEntitiesResponseV2 {
-            errors: None,
-            meta: Box::new(meta),
-            resources,
+impl ApiReportExecutionRetryRequestV1 {
+    pub fn new(id: String) -> ApiReportExecutionRetryRequestV1 {
+        ApiReportExecutionRetryRequestV1 {
+            id,
         }
     }
 }

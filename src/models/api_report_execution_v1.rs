@@ -13,22 +13,24 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ApiReportExecutionV1 {
-    #[serde(rename = "can_write")]
-    pub can_write: bool,
+    #[serde(rename = "can_write", skip_serializing_if = "Option::is_none")]
+    pub can_write: Option<bool>,
     #[serde(rename = "created_on")]
     pub created_on: String,
     #[serde(rename = "customer_id")]
     pub customer_id: String,
+    #[serde(rename = "execution_metadata", skip_serializing_if = "Option::is_none")]
+    pub execution_metadata: Option<Box<crate::models::ApiExecutionMetadataV1>>,
     #[serde(rename = "expiration_on")]
     pub expiration_on: String,
     #[serde(rename = "id")]
     pub id: String,
-    #[serde(rename = "job_reference")]
-    pub job_reference: String,
+    #[serde(rename = "job_reference", skip_serializing_if = "Option::is_none")]
+    pub job_reference: Option<String>,
     #[serde(rename = "last_updated_on")]
     pub last_updated_on: String,
-    #[serde(rename = "report_file_reference")]
-    pub report_file_reference: String,
+    #[serde(rename = "report_file_reference", skip_serializing_if = "Option::is_none")]
+    pub report_file_reference: Option<String>,
     #[serde(rename = "result_metadata", skip_serializing_if = "Option::is_none")]
     pub result_metadata: Option<Box<crate::models::DomainResultMetadata>>,
     #[serde(rename = "scheduled_report_id")]
@@ -37,12 +39,14 @@ pub struct ApiReportExecutionV1 {
     pub shared_with: Vec<String>,
     #[serde(rename = "status")]
     pub status: String,
+    #[serde(rename = "status_display")]
+    pub status_display: String,
     #[serde(rename = "status_msg")]
     pub status_msg: String,
     #[serde(rename = "tracking", skip_serializing_if = "Option::is_none")]
     pub tracking: Option<String>,
-    #[serde(rename = "trigger_reference")]
-    pub trigger_reference: String,
+    #[serde(rename = "trigger_reference", skip_serializing_if = "Option::is_none")]
+    pub trigger_reference: Option<String>,
     #[serde(rename = "type")]
     pub _type: String,
     #[serde(rename = "user_id")]
@@ -52,23 +56,25 @@ pub struct ApiReportExecutionV1 {
 }
 
 impl ApiReportExecutionV1 {
-    pub fn new(can_write: bool, created_on: String, customer_id: String, expiration_on: String, id: String, job_reference: String, last_updated_on: String, report_file_reference: String, scheduled_report_id: String, shared_with: Vec<String>, status: String, status_msg: String, trigger_reference: String, _type: String, user_id: String, user_uuid: String) -> ApiReportExecutionV1 {
+    pub fn new(created_on: String, customer_id: String, expiration_on: String, id: String, last_updated_on: String, scheduled_report_id: String, shared_with: Vec<String>, status: String, status_display: String, status_msg: String, _type: String, user_id: String, user_uuid: String) -> ApiReportExecutionV1 {
         ApiReportExecutionV1 {
-            can_write,
+            can_write: None,
             created_on,
             customer_id,
+            execution_metadata: None,
             expiration_on,
             id,
-            job_reference,
+            job_reference: None,
             last_updated_on,
-            report_file_reference,
+            report_file_reference: None,
             result_metadata: None,
             scheduled_report_id,
             shared_with,
             status,
+            status_display,
             status_msg,
             tracking: None,
-            trigger_reference,
+            trigger_reference: None,
             _type,
             user_id,
             user_uuid,

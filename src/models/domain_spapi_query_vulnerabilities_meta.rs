@@ -19,6 +19,8 @@ pub struct DomainSpapiQueryVulnerabilitiesMeta {
     pub powered_by: Option<String>,
     #[serde(rename = "query_time")]
     pub query_time: f64,
+    #[serde(rename = "quota", skip_serializing_if = "Option::is_none")]
+    pub quota: Option<Box<crate::models::DomainQuota>>,
     #[serde(rename = "trace_id")]
     pub trace_id: String,
 }
@@ -29,6 +31,7 @@ impl DomainSpapiQueryVulnerabilitiesMeta {
             pagination: None,
             powered_by: None,
             query_time,
+            quota: None,
             trace_id,
         }
     }
