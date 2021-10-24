@@ -83,6 +83,9 @@ pub async fn oauth2_revoke_token(configuration: &configuration::Configuration, t
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
+        local_var_req_builder = local_var_req_builder.basic_auth(local_var_auth_conf.0.to_owned(), local_var_auth_conf.1.to_owned());
+    };
     let mut local_var_form_params = std::collections::HashMap::new();
     local_var_form_params.insert("token", token.to_string());
     local_var_req_builder = local_var_req_builder.form(&local_var_form_params);
