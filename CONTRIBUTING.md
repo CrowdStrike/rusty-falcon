@@ -1,10 +1,10 @@
 # Contributing to this repository <!-- omit in toc -->
 
 ## Getting started <!-- omit in toc -->
-_Welcome!_ We're excited you want to take part in the falcon-rs community! 
+_Welcome!_ We're excited you want to take part in the rusty-falcon community!
 
 Please review this document for details regarding getting started with your first contribution, packages you'll need to install as a developer, and our Pull Request process. If you have any questions, please let us know by
-posting your question as an [issue](https://github.com/CrowdStrike/falcon-rs/issues/new).
+posting your question as an [issue](https://github.com/CrowdStrike/rusty-falcon/issues/new).
 
 ### Before you begin
 - Have you read the [Code of Conduct](CODE_OF_CONDUCT.md)? The Code of Conduct helps us establish community norms and how they'll be enforced.
@@ -21,11 +21,11 @@ posting your question as an [issue](https://github.com/CrowdStrike/falcon-rs/iss
 - [Suggestions](#suggestions)
 
 ## How you can contribute
-- See something? Say something! Submit a [bug report](https://github.com/CrowdStrike/falcon-rs/issues) to let the community know what you've experienced or found. Bonus points if you suggest possible fixes or what you feel may resolve the issue. For example: "_Attempted to use the XZY API class but it errored out. Could a more descriptive error code be returned?_"
+- See something? Say something! Submit a [bug report](https://github.com/CrowdStrike/rusty-falcon/issues) to let the community know what you've experienced or found. Bonus points if you suggest possible fixes or what you feel may resolve the issue. For example: "_Attempted to use the XZY API class but it errored out. Could a more descriptive error code be returned?_"
 - Submit a [Pull Request](#pull-requests)
 
 ### Bug reporting and questions are handled using GitHub's issues
-We use GitHub issues to track bugs. Report a bug by opening a [new issue](https://github.com/CrowdStrike/falcon-rs/issues).
+We use GitHub issues to track bugs. Report a bug by opening a [new issue](https://github.com/CrowdStrike/rusty-falcon/issues).
 
 ## Pull Requests
 
@@ -58,4 +58,4 @@ All Pull Requests must be approved by at least one maintainer. Once approved, a 
 processes related to package deployment. At this time, contributors _do not_ have the ability to merge to the `main` branch.
 
 ## Suggestions
-If you have suggestions on how this process could be improved, please let us know by [posting an issue](https://github.com/CrowdStrike/falcon-rs/issues).
+If you have suggestions on how this process could be improved, please let us know by [posting an issue](https://github.com/CrowdStrike/rusty-falcon/issues).

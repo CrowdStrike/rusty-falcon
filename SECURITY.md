@@ -1,10 +1,10 @@
 # Security Policy
-This document outlines security policy and procedures for the CrowdStrike `falcon-rs` project.
-+ [Supported falcon-rs versions](#supported-falcon-rs-versions)
+This document outlines security policy and procedures for the CrowdStrike `rusty-falcon` project.
++ [Supported rusty-falcon versions](#supported-rusty-falcon-versions)
 + [Reporting a potential security vulnerability](#reporting-a-potential-security-vulnerability)
 + [Disclosure and Mitigation Process](#disclosure-and-mitigation-process)
 
-## Supported falcon-rs versions
+## Supported rusty-falcon versions
 
 When discovered, we release security vulnerability patches for the most recent release at an accelerated cadence.  
 
@@ -13,9 +13,9 @@ When discovered, we release security vulnerability patches for the most recent r
 We have multiple avenues to receive security-related vulnerability reports.
 
 Please report suspected security vulnerabilities by:
-+ Submitting a [bug](https://github.com/CrowdStrike/falcon-rs/issues)
-+ Submitting a [pull request](https://github.com/CrowdStrike/falcon-rs/pulls) to potentially resolve the issue
-+ Sending an email to __falcon-rs@crowdstrike.com__. 
++ Submitting a [bug](https://github.com/CrowdStrike/rusty-falcon/issues)
++ Submitting a [pull request](https://github.com/CrowdStrike/rusty-falcon/pulls) to potentially resolve the issue
++ Sending an email to __simon.lukasik [at] crowdstrike.com__. 
 
 ## Disclosure and mitigation process
 
@@ -31,4 +31,4 @@ process, involving the following steps:
     - Once merged, and after post-merge unit testing has been completed, the patch will be immediately published.
 
 ## Comments
-If you have suggestions on how this process could be improved, please let us know by [creating an issue](https://github.com/CrowdStrike/falcon-rs/issues).
+If you have suggestions on how this process could be improved, please let us know by [creating an issue](https://github.com/CrowdStrike/rusty-falcon/issues).
