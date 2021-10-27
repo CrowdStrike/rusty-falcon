@@ -1,4 +1,4 @@
-# falcon-rs Community Code of Conduct
+# rusty-falcon Community Code of Conduct
 
 ## Our Pledge
 
