@@ -15,4 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: dtolnay/rust-toolchain@clippy
-      - run: cargo clippy --tests -- -Dclippy::all -Dclippy::pedantic
+      - run: |
+          cargo clippy --tests -- -Dclippy::all -Dclippy::pedantic \
+              -Aclippy::struct-excessive-bools \
+              -Aclippy::fn-params-excessive-bools \
+              -Aclippy::similar-names \
+              -Aclippy::missing-errors-doc \
+              -Aclippy::doc-markdown
