@@ -1,6 +1,7 @@
 use std::env;
 use crate::easy::errors::{CredentialsError};
 
+#[derive(Debug, Clone, Copy)]
 pub enum FalconCloud {
     Us1,
     Us2,

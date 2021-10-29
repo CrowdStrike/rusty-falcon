@@ -5,20 +5,30 @@ use crate::apis::oauth2_api::{oauth2_access_token, Oauth2AccessTokenError};
 use crate::easy::errors::{CredentialsError};
 use crate::easy::cloud::{FalconCloud};
 
-pub async fn new_client(creds: Credentials) -> Result<Configuration, Error<Oauth2AccessTokenError>> {
-    let mut configuration = Configuration {
-        base_path: creds.falcon_cloud.base_path(),
-        ..Default::default()
-    };
+pub struct FalconHandle {
+    pub creds: Credentials,
+    pub cfg: Configuration,
+}
 
-    let response = oauth2_access_token(&configuration,
-                                       &creds.falcon_client_id,
-                                       &creds.falcon_client_secret,
-                                       creds.falcon_member_cid.as_ref().map(String::as_ref))
-        .await?;
+impl FalconHandle {
+    pub async fn from_cfg(creds: Credentials) -> Result<Self, Error<Oauth2AccessTokenError>> {
+        let mut configuration = Configuration {
+            base_path: creds.falcon_cloud.base_path(),
+            ..Default::default()
+        };
 
-    configuration.oauth_access_token = Some(response.access_token);
-    return Ok(configuration);
+        let response = oauth2_access_token(&configuration,
+                                           &creds.falcon_client_id,
+                                           &creds.falcon_client_secret,
+                                           creds.falcon_member_cid.as_ref().map(String::as_ref))
+            .await?;
+
+        configuration.oauth_access_token = Some(response.access_token);
+        return Ok(FalconHandle{
+            creds: creds,
+            cfg: configuration,
+        })
+    }
 }
 
 pub struct Credentials {
