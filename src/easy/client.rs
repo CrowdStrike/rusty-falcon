@@ -7,6 +7,7 @@ use crate::easy::cloud::{FalconCloud};
 
 pub async fn new_client(creds: Credentials) -> Result<Configuration, Error<Oauth2AccessTokenError>> {
     let mut configuration = Configuration {
+        base_path: creds.falcon_cloud.base_path(),
         ..Default::default()
     };
 
