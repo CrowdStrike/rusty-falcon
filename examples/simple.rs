@@ -1,7 +1,7 @@
-use crowdstrike_falcon::apis::{Error};
-use crowdstrike_falcon::apis::configuration::{Configuration};
-use crowdstrike_falcon::apis::oauth2_api::{oauth2_access_token, Oauth2AccessTokenError};
-use crowdstrike_falcon::apis::incidents_api::{crowd_score};
+use rusty_falcon::apis::{Error};
+use rusty_falcon::apis::configuration::{Configuration};
+use rusty_falcon::apis::oauth2_api::{oauth2_access_token, Oauth2AccessTokenError};
+use rusty_falcon::apis::incidents_api::{crowd_score};
 
 use std::env;
 
