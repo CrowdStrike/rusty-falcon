@@ -2,6 +2,7 @@ use std::env;
 use crate::apis::{Error};
 use crate::apis::configuration::{Configuration};
 use crate::apis::oauth2_api::{oauth2_access_token, Oauth2AccessTokenError};
+use crate::easy::errors::{CredentialsError}
 
 pub async fn new_client(creds: Credentials) -> Result<Configuration, Error<Oauth2AccessTokenError>> {
     let mut configuration = Configuration {
@@ -33,6 +34,3 @@ impl Credentials {
         });
     }
 }
-
-#[derive(Debug)]
-pub struct CredentialsError(String);
