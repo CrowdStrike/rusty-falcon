@@ -1,21 +1,9 @@
 use rusty_falcon::apis::incidents_api::{crowd_score};
 use rusty_falcon::easy::client::{new_client, Credentials};
 
-use std::env;
-
 #[tokio::main]
 async fn main() {
-    let falcon_client_id = env::var("FALCON_CLIENT_ID")
-        .expect("Missing FALCON_CLIENT_ID environment variable. Please provide your OAuth2 API Client ID for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.");
-    let falcon_client_secret = env::var("FALCON_CLIENT_SECRET")
-        .expect("Missing FALCON_CLIENT_SECRET environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.");
-
-    let credentials = Credentials{
-        falcon_client_id: falcon_client_id,
-        falcon_client_secret: falcon_client_secret,
-    };
-
-    let configuration = new_client(credentials)
+    let configuration = new_client(Credentials::from_env().unwrap())
         .await
         .expect("Could not authenticate with CrowdStrike API");
 
