@@ -37,10 +37,7 @@ async fn new_client(falcon_client_id: &str, falcon_client_secret: &str) -> Resul
         ..Default::default()
     };
 
-    let response = match oauth2_access_token(&configuration, &falcon_client_id, &falcon_client_secret, None).await {
-        Ok(r) => r,
-        Err(e) => return Err(e)
-    };
+    let response = oauth2_access_token(&configuration, &falcon_client_id, &falcon_client_secret, None).await?;
 
     configuration.oauth_access_token = Some(response.access_token);
     return Ok(configuration);
