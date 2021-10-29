@@ -1,0 +1,21 @@
+use rusty_falcon::easy::client::{FalconHandle, Credentials};
+use rusty_falcon::apis::sensor_download_api::{get_sensor_installers_ccidby_query};
+
+#[tokio::main]
+async fn main() {
+    let falcon = FalconHandle::from_cfg(Credentials::from_env().unwrap())
+        .await
+        .expect("Could not authenticate with CrowdStrike API");
+
+    let response = get_sensor_installers_ccidby_query(&falcon.cfg)
+        .await
+        .expect("Could not fetch CCID");
+
+    if ! response.errors.is_empty() {
+        eprintln!("Errors occured while getting Falcon CCID: {:?}", response.errors);
+    }
+    if response.resources.is_empty() {
+        eprintln!("No CCID returned")
+    }
+    print!("{}", response.resources[0])
+}
