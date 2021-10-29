@@ -15,8 +15,8 @@ pub async fn new_client(creds: Credentials) -> Result<Configuration, Error<Oauth
 }
 
 pub struct Credentials {
-    pub falcon_client_id: String,
-    pub falcon_client_secret: String,
+    falcon_client_id: String,
+    falcon_client_secret: String,
 }
 
 impl Credentials {
