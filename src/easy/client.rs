@@ -11,7 +11,11 @@ pub async fn new_client(creds: Credentials) -> Result<Configuration, Error<Oauth
         ..Default::default()
     };
 
-    let response = oauth2_access_token(&configuration, &creds.falcon_client_id, &creds.falcon_client_secret, None).await?;
+    let response = oauth2_access_token(&configuration,
+                                       &creds.falcon_client_id,
+                                       &creds.falcon_client_secret,
+                                       creds.falcon_member_cid.as_ref().map(String::as_ref))
+        .await?;
 
     configuration.oauth_access_token = Some(response.access_token);
     return Ok(configuration);
@@ -21,6 +25,7 @@ pub struct Credentials {
     falcon_cloud: FalconCloud,
     falcon_client_id: String,
     falcon_client_secret: String,
+    falcon_member_cid: Option<String>,
 }
 
 impl Credentials {
@@ -30,11 +35,13 @@ impl Credentials {
 
         let client_secret = env::var("FALCON_CLIENT_SECRET")
             .map_err(|_| CredentialsError("Missing FALCON_CLIENT_SECRET environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.".to_string()))?;
+        let member_cid = env::var("FALCON_MEMBER_CID").ok();
 
         return Ok(Credentials{
             falcon_cloud: FalconCloud::from_env()?,
             falcon_client_id: client_id,
             falcon_client_secret: client_secret,
+            falcon_member_cid: member_cid,
         });
     }
 }
