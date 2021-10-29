@@ -23,12 +23,12 @@ pub struct Credentials {
 }
 
 impl Credentials {
-    pub fn from_env() -> Result<Credentials, CredentialsError> {
+    pub fn from_env() -> Result<Self, CredentialsError> {
         let client_id = env::var("FALCON_CLIENT_ID")
-            .map_err(|_| CredentialsError(format!("Missing FALCON_CLIENT_ID environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.")))?;
+            .map_err(|_| CredentialsError("Missing FALCON_CLIENT_ID environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.".to_string()))?;
 
         let client_secret = env::var("FALCON_CLIENT_SECRET")
-            .map_err(|_| CredentialsError(format!("Missing FALCON_CLIENT_SECRET environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.")))?;
+            .map_err(|_| CredentialsError("Missing FALCON_CLIENT_SECRET environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys.".to_string()))?;
 
         return Ok(Credentials{
             falcon_cloud: FalconCloud::from_env()?,
