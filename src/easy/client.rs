@@ -12,22 +12,25 @@ pub struct FalconHandle {
 
 impl FalconHandle {
     pub async fn from_cfg(creds: Credentials) -> Result<Self, Error<Oauth2AccessTokenError>> {
-        let mut configuration = Configuration {
+        let configuration = Configuration {
             base_path: creds.falcon_cloud.base_path(),
             ..Default::default()
         };
 
-        let response = oauth2_access_token(&configuration,
-                                           &creds.falcon_client_id,
-                                           &creds.falcon_client_secret,
-                                           creds.falcon_member_cid.as_ref().map(String::as_ref))
-            .await?;
+        let mut handle = FalconHandle{creds: creds, cfg: configuration};
+        handle.authenticate().await?;
 
-        configuration.oauth_access_token = Some(response.access_token);
-        return Ok(FalconHandle{
-            creds: creds,
-            cfg: configuration,
-        })
+        return Ok(handle);
+    }
+
+    pub async fn authenticate(&mut self) -> Result<(), Error<Oauth2AccessTokenError>> {
+        let response = oauth2_access_token(&self.cfg,
+                                           &self.creds.falcon_client_id,
+                                           &self.creds.falcon_client_secret,
+                                           self.creds.falcon_member_cid.as_ref().map(String::as_ref))
+            .await?;
+        self.cfg.oauth_access_token = Some(response.access_token);
+        return Ok(());
     }
 }
 
