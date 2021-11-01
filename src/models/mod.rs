@@ -68,6 +68,8 @@ pub mod api_platforms_response;
 pub use self::api_platforms_response::ApiPlatformsResponse;
 pub mod api_process_detail;
 pub use self::api_process_detail::ApiProcessDetail;
+pub mod api_report_execution_launch_request_v1;
+pub use self::api_report_execution_launch_request_v1::ApiReportExecutionLaunchRequestV1;
 pub mod api_report_execution_retry_request_v1;
 pub use self::api_report_execution_retry_request_v1::ApiReportExecutionRetryRequestV1;
 pub mod api_report_execution_v1;
