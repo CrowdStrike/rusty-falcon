@@ -34,7 +34,7 @@ pub struct DomainNotificationDetailsV1 {
     /// The raw intelligence item title
     #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,
-    /// The ID of the notifications
+    /// The type of the raw intelligence item
     #[serde(rename = "type")]
     pub _type: String,
     /// The date when the raw intelligence item was updated

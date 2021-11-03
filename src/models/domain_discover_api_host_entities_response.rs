@@ -12,24 +12,21 @@
 
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainDetailedNotificationV1 {
-    #[serde(rename = "breach_details", skip_serializing_if = "Option::is_none")]
-    pub breach_details: Option<Box<crate::models::DomainBreachDetailsV1>>,
-    #[serde(rename = "details", skip_serializing_if = "Option::is_none")]
-    pub details: Option<Box<crate::models::DomainNotificationDetailsV1>>,
-    #[serde(rename = "id")]
-    pub id: String,
-    #[serde(rename = "notification")]
-    pub notification: Box<crate::models::DomainNotificationV1>,
+pub struct DomainDiscoverApiHostEntitiesResponse {
+    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
+    pub errors: Option<Vec<crate::models::MsaApiError>>,
+    #[serde(rename = "meta")]
+    pub meta: Box<crate::models::MsaMetaInfo>,
+    #[serde(rename = "resources")]
+    pub resources: Vec<crate::models::DomainDiscoverApiHost>,
 }
 
-impl DomainDetailedNotificationV1 {
-    pub fn new(id: String, notification: crate::models::DomainNotificationV1) -> DomainDetailedNotificationV1 {
-        DomainDetailedNotificationV1 {
-            breach_details: None,
-            details: None,
-            id,
-            notification: Box::new(notification),
+impl DomainDiscoverApiHostEntitiesResponse {
+    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainDiscoverApiHost>) -> DomainDiscoverApiHostEntitiesResponse {
+        DomainDiscoverApiHostEntitiesResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
         }
     }
 }
