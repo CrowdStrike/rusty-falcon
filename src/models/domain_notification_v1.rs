@@ -22,6 +22,8 @@ pub struct DomainNotificationV1 {
     /// The unique ID of the user who is assigned to this notification
     #[serde(rename = "assigned_to_uuid", skip_serializing_if = "Option::is_none")]
     pub assigned_to_uuid: Option<String>,
+    #[serde(rename = "breach_summary", skip_serializing_if = "Option::is_none")]
+    pub breach_summary: Option<Box<crate::models::DomainMatchedBreachSummaryV1>>,
     /// The date when the notification was generated
     #[serde(rename = "created_date")]
     pub created_date: String,
@@ -31,13 +33,19 @@ pub struct DomainNotificationV1 {
     /// The ID of the notification
     #[serde(rename = "id")]
     pub id: String,
-    /// Timestamp when the intelligence item is considered to have been posted
+    /// The author who posted the intelligence item
+    #[serde(rename = "item_author", skip_serializing_if = "Option::is_none")]
+    pub item_author: Option<String>,
+    /// Timestamp when the item is considered to have been created
     #[serde(rename = "item_date")]
     pub item_date: String,
-    /// ID of the intelligence item which generated the match
+    /// ID of the item which matched the rule
     #[serde(rename = "item_id")]
     pub item_id: String,
-    /// Type of intelligence item based on format, e.g. post, reply, botnet_config
+    /// The site where the intelligence item was found
+    #[serde(rename = "item_site", skip_serializing_if = "Option::is_none")]
+    pub item_site: Option<String>,
+    /// Type of the item which matched the rule: 'post', 'reply', 'botnet_config', 'breach', etc.
     #[serde(rename = "item_type")]
     pub item_type: String,
     /// The ID of the rule that generated this notification
@@ -46,11 +54,13 @@ pub struct DomainNotificationV1 {
     /// The name of the rule that generated this notification
     #[serde(rename = "rule_name")]
     pub rule_name: String,
+    /// The priority of the rule that generated this notification
     #[serde(rename = "rule_priority")]
     pub rule_priority: String,
+    /// The topic of the rule that generated this notification
     #[serde(rename = "rule_topic")]
     pub rule_topic: String,
-    /// The notification status. This can be one of: new, in-progress, closed-false-positive, closed-true-positive.
+    /// The notification status. This can be one of: 'new', 'in-progress', 'closed-false-positive', 'closed-true-positive'.
     #[serde(rename = "status")]
     pub status: String,
     /// The date when the notification was updated
@@ -64,11 +74,14 @@ impl DomainNotificationV1 {
             assigned_to_uid: None,
             assigned_to_username: None,
             assigned_to_uuid: None,
+            breach_summary: None,
             created_date,
             highlights: None,
             id,
+            item_author: None,
             item_date,
             item_id,
+            item_site: None,
             item_type,
             rule_id,
             rule_name,

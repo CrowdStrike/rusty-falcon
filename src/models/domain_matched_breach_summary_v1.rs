@@ -12,24 +12,24 @@
 
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainDetailedNotificationV1 {
-    #[serde(rename = "breach_details", skip_serializing_if = "Option::is_none")]
-    pub breach_details: Option<Box<crate::models::DomainBreachDetailsV1>>,
-    #[serde(rename = "details", skip_serializing_if = "Option::is_none")]
-    pub details: Option<Box<crate::models::DomainNotificationDetailsV1>>,
-    #[serde(rename = "id")]
-    pub id: String,
-    #[serde(rename = "notification")]
-    pub notification: Box<crate::models::DomainNotificationV1>,
+pub struct DomainMatchedBreachSummaryV1 {
+    /// The description of the breach
+    #[serde(rename = "description")]
+    pub description: String,
+    /// The set of fields which were breached: 'email', 'password', 'login_id', 'phone', etc.
+    #[serde(rename = "fields")]
+    pub fields: Vec<String>,
+    /// The name of the breach
+    #[serde(rename = "name")]
+    pub name: String,
 }
 
-impl DomainDetailedNotificationV1 {
-    pub fn new(id: String, notification: crate::models::DomainNotificationV1) -> DomainDetailedNotificationV1 {
-        DomainDetailedNotificationV1 {
-            breach_details: None,
-            details: None,
-            id,
-            notification: Box::new(notification),
+impl DomainMatchedBreachSummaryV1 {
+    pub fn new(description: String, fields: Vec<String>, name: String) -> DomainMatchedBreachSummaryV1 {
+        DomainMatchedBreachSummaryV1 {
+            description,
+            fields,
+            name,
         }
     }
 }
