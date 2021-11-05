@@ -13,26 +13,6 @@ use reqwest;
 use super::{configuration, Error};
 use crate::apis::ResponseContent;
 
-/// struct for typed errors of method [`create_ioc`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum CreateIocError {
-    Status403(crate::models::MsaReplyMetaOnly),
-    Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::ApiMsaReplyIoc),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`delete_ioc`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum DeleteIocError {
-    Status403(crate::models::MsaReplyMetaOnly),
-    Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::ApiMsaReplyIoc),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`devices_count`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -63,16 +43,6 @@ pub enum EntitiesProcessesError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_ioc`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetIocError {
-    Status403(crate::models::MsaReplyMetaOnly),
-    Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::ApiMsaReplyIoc),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`processes_ran_on`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -81,97 +51,6 @@ pub enum ProcessesRanOnError {
     Status429(crate::models::MsaReplyMetaOnly),
     DefaultResponse(crate::models::ApiMsaReplyProcessesRanOn),
     UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`query_iocs`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum QueryIocsError {
-    Status403(crate::models::MsaReplyMetaOnly),
-    Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::ApiMsaReplyIocids),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`update_ioc`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum UpdateIocError {
-    Status403(crate::models::MsaReplyMetaOnly),
-    Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::ApiMsaReplyIoc),
-    UnknownValue(serde_json::Value),
-}
-
-pub async fn create_ioc(configuration: &configuration::Configuration, body: Vec<crate::models::ApiIocViewRecord>) -> Result<crate::models::ApiMsaReplyIoc, Error<CreateIocError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/indicators/entities/iocs/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&body);
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<CreateIocError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn delete_ioc(configuration: &configuration::Configuration, _type: &str, value: &str) -> Result<crate::models::ApiMsaReplyIoc, Error<DeleteIocError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/indicators/entities/iocs/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
-
-    local_var_req_builder = local_var_req_builder.query(&[("type", &_type.to_string())]);
-    local_var_req_builder = local_var_req_builder.query(&[("value", &value.to_string())]);
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<DeleteIocError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
 }
 
 pub async fn devices_count(configuration: &configuration::Configuration, _type: &str, value: &str) -> Result<crate::models::ApiMsaReplyIocDevicesCount, Error<DevicesCountError>> {
@@ -287,42 +166,6 @@ pub async fn entities_processes(configuration: &configuration::Configuration, id
     }
 }
 
-pub async fn get_ioc(configuration: &configuration::Configuration, _type: &str, value: &str) -> Result<crate::models::ApiMsaReplyIoc, Error<GetIocError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/indicators/entities/iocs/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    local_var_req_builder = local_var_req_builder.query(&[("type", &_type.to_string())]);
-    local_var_req_builder = local_var_req_builder.query(&[("value", &value.to_string())]);
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<GetIocError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
 pub async fn processes_ran_on(configuration: &configuration::Configuration, _type: &str, value: &str, device_id: &str, limit: Option<&str>, offset: Option<&str>) -> Result<crate::models::ApiMsaReplyProcessesRanOn, Error<ProcessesRanOnError>> {
     let local_var_configuration = configuration;
 
@@ -357,119 +200,6 @@ pub async fn processes_ran_on(configuration: &configuration::Configuration, _typ
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<ProcessesRanOnError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn query_iocs(
-    configuration: &configuration::Configuration,
-    types: Option<&str>,
-    values: Option<&str>,
-    from_expiration_timestamp: Option<&str>,
-    to_expiration_timestamp: Option<&str>,
-    policies: Option<&str>,
-    sources: Option<&str>,
-    share_levels: Option<&str>,
-    created_by: Option<&str>,
-    deleted_by: Option<&str>,
-    include_deleted: Option<&str>,
-) -> Result<crate::models::ApiMsaReplyIocids, Error<QueryIocsError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/indicators/queries/iocs/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = types {
-        local_var_req_builder = local_var_req_builder.query(&[("types", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = values {
-        local_var_req_builder = local_var_req_builder.query(&[("values", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = from_expiration_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("from.expiration_timestamp", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = to_expiration_timestamp {
-        local_var_req_builder = local_var_req_builder.query(&[("to.expiration_timestamp", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = policies {
-        local_var_req_builder = local_var_req_builder.query(&[("policies", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = sources {
-        local_var_req_builder = local_var_req_builder.query(&[("sources", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = share_levels {
-        local_var_req_builder = local_var_req_builder.query(&[("share_levels", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = created_by {
-        local_var_req_builder = local_var_req_builder.query(&[("created_by", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = deleted_by {
-        local_var_req_builder = local_var_req_builder.query(&[("deleted_by", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = include_deleted {
-        local_var_req_builder = local_var_req_builder.query(&[("include_deleted", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<QueryIocsError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn update_ioc(configuration: &configuration::Configuration, _type: &str, value: &str, body: crate::models::ApiIocViewRecord) -> Result<crate::models::ApiMsaReplyIoc, Error<UpdateIocError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/indicators/entities/iocs/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
-
-    local_var_req_builder = local_var_req_builder.query(&[("type", &_type.to_string())]);
-    local_var_req_builder = local_var_req_builder.query(&[("value", &value.to_string())]);
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&body);
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<UpdateIocError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
