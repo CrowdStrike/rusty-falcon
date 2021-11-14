@@ -2,7 +2,14 @@
 name = "rusty_falcon"
 version = "0.0.1"
 authors = ["CrowdStrike Inc"]
+description = "Rust bindings for CrowdStrike Falcon API"
+homepage = "https://github.com/CrowdStrike/rusty-falcon"
+repository = "https://github.com/CrowdStrike/rusty-falcon"
+readme = "README.md"
 edition = "2018"
+license-file = "LICENSE"
+keywords = ["security", "api", "async", "audit", "vulnerability"]
+categories = ["API bindings", "Development tools"]
 
 [dependencies]
 serde = ">=1.0.130, <1.1.0"
