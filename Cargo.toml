@@ -9,7 +9,7 @@ readme = "README.md"
 edition = "2018"
 license-file = "LICENSE"
 keywords = ["security", "api", "async", "audit", "vulnerability"]
-categories = ["API bindings", "Development tools"]
+categories = ["api-bindings", "asynchronous"]
 
 [dependencies]
 serde = ">=1.0.130, <1.1.0"
