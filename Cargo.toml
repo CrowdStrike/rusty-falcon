@@ -9,7 +9,7 @@ readme = "README.md"
 edition = "2018"
 license-file = "LICENSE"
 keywords = ["api", "crowdstrike", "falcon", "security", "vulnerability"]
-categories = ["api-bindings", "asynchronous"]
+categories = ["api-bindings", "asynchronous", "web-programming"]
 
 [dependencies]
 serde = ">=1.0.130, <1.1.0"
