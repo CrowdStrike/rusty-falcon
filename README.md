@@ -2,6 +2,8 @@
 
 # rusty-falcon
 [![Build CI](https://github.com/CrowdStrike/rusty-falcon/actions/workflows/ci.yaml/badge.svg)](https://github.com/CrowdStrike/rusty-falcon/actions/workflows/ci.yaml)
+[![Latest version](https://img.shields.io/crates/v/rusty_falcon.svg)](https://crates.io/crates/rusty_falcon)
+[![Documentation](https://docs.rs/rusty_falcon/badge.svg)](https://docs.rs/rusty_falcon)
 
 **Experimental**
 
