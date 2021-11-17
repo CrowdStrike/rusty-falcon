@@ -40,3 +40,9 @@ pub enum UninstallProtection {
     #[serde(rename = "UNKNOWN")]
     UNKNOWN,
 }
+
+impl Default for UninstallProtection {
+    fn default() -> UninstallProtection {
+        Self::ENABLED
+    }
+}

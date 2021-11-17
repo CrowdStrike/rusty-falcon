@@ -90,3 +90,9 @@ pub enum PlatformName {
     #[serde(rename = "Linux")]
     Linux,
 }
+
+impl Default for PlatformName {
+    fn default() -> PlatformName {
+        Self::Windows
+    }
+}

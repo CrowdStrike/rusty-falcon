@@ -9,38 +9,21 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct RequestsSensorUpdateSettingsV2 {
-    /// The target build to apply to the policy
-    #[serde(rename = "build", skip_serializing_if = "Option::is_none")]
-    pub build: Option<String>,
-    /// The uninstall protection state to apply to the policy
-    #[serde(rename = "uninstall_protection", skip_serializing_if = "Option::is_none")]
-    pub uninstall_protection: Option<UninstallProtection>,
+pub struct DetectionHostNetwork {
+    #[serde(rename = "network_id", skip_serializing_if = "Option::is_none")]
+    pub network_id: Option<String>,
+    #[serde(rename = "network_interface_ids", skip_serializing_if = "Option::is_none")]
+    pub network_interface_ids: Option<String>,
+    #[serde(rename = "subnet_id", skip_serializing_if = "Option::is_none")]
+    pub subnet_id: Option<String>,
 }
 
-impl RequestsSensorUpdateSettingsV2 {
-    pub fn new() -> RequestsSensorUpdateSettingsV2 {
-        RequestsSensorUpdateSettingsV2 { build: None, uninstall_protection: None }
-    }
-}
-
-/// The uninstall protection state to apply to the policy
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum UninstallProtection {
-    #[serde(rename = "ENABLED")]
-    ENABLED,
-    #[serde(rename = "DISABLED")]
-    DISABLED,
-    #[serde(rename = "MAINTENANCE_MODE")]
-    MAINTENANCEMODE,
-    #[serde(rename = "IGNORE")]
-    IGNORE,
-    #[serde(rename = "UNKNOWN")]
-    UNKNOWN,
-}
-
-impl Default for UninstallProtection {
-    fn default() -> UninstallProtection {
-        Self::ENABLED
+impl DetectionHostNetwork {
+    pub fn new() -> DetectionHostNetwork {
+        DetectionHostNetwork {
+            network_id: None,
+            network_interface_ids: None,
+            subnet_id: None,
+        }
     }
 }

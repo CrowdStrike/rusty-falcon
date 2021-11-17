@@ -44,3 +44,9 @@ pub enum Type {
     #[serde(rename = "mlslider")]
     Mlslider,
 }
+
+impl Default for Type {
+    fn default() -> Type {
+        Self::Toggle
+    }
+}

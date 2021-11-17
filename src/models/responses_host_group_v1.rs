@@ -66,3 +66,9 @@ pub enum GroupType {
     #[serde(rename = "dynamic")]
     Dynamic,
 }
+
+impl Default for GroupType {
+    fn default() -> GroupType {
+        Self::_Static
+    }
+}

@@ -9,38 +9,15 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct RequestsSensorUpdateSettingsV2 {
-    /// The target build to apply to the policy
-    #[serde(rename = "build", skip_serializing_if = "Option::is_none")]
-    pub build: Option<String>,
-    /// The uninstall protection state to apply to the policy
-    #[serde(rename = "uninstall_protection", skip_serializing_if = "Option::is_none")]
-    pub uninstall_protection: Option<UninstallProtection>,
+pub struct RegistrationMsaPagingExtension {
+    #[serde(rename = "Paging")]
+    pub paging: Box<crate::models::MsaPaging>,
+    #[serde(rename = "next_token", skip_serializing_if = "Option::is_none")]
+    pub next_token: Option<String>,
 }
 
-impl RequestsSensorUpdateSettingsV2 {
-    pub fn new() -> RequestsSensorUpdateSettingsV2 {
-        RequestsSensorUpdateSettingsV2 { build: None, uninstall_protection: None }
-    }
-}
-
-/// The uninstall protection state to apply to the policy
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum UninstallProtection {
-    #[serde(rename = "ENABLED")]
-    ENABLED,
-    #[serde(rename = "DISABLED")]
-    DISABLED,
-    #[serde(rename = "MAINTENANCE_MODE")]
-    MAINTENANCEMODE,
-    #[serde(rename = "IGNORE")]
-    IGNORE,
-    #[serde(rename = "UNKNOWN")]
-    UNKNOWN,
-}
-
-impl Default for UninstallProtection {
-    fn default() -> UninstallProtection {
-        Self::ENABLED
+impl RegistrationMsaPagingExtension {
+    pub fn new(paging: crate::models::MsaPaging) -> RegistrationMsaPagingExtension {
+        RegistrationMsaPagingExtension { paging: Box::new(paging), next_token: None }
     }
 }

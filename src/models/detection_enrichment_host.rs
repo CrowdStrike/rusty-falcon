@@ -9,38 +9,33 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct RequestsSensorUpdateSettingsV2 {
-    /// The target build to apply to the policy
-    #[serde(rename = "build", skip_serializing_if = "Option::is_none")]
-    pub build: Option<String>,
-    /// The uninstall protection state to apply to the policy
-    #[serde(rename = "uninstall_protection", skip_serializing_if = "Option::is_none")]
-    pub uninstall_protection: Option<UninstallProtection>,
+pub struct DetectionEnrichmentHost {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "launch_time", skip_serializing_if = "Option::is_none")]
+    pub launch_time: Option<i32>,
+    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "network", skip_serializing_if = "Option::is_none")]
+    pub network: Option<Box<crate::models::DetectionHostNetwork>>,
+    #[serde(rename = "platform", skip_serializing_if = "Option::is_none")]
+    pub platform: Option<String>,
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub _type: Option<String>,
 }
 
-impl RequestsSensorUpdateSettingsV2 {
-    pub fn new() -> RequestsSensorUpdateSettingsV2 {
-        RequestsSensorUpdateSettingsV2 { build: None, uninstall_protection: None }
-    }
-}
-
-/// The uninstall protection state to apply to the policy
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum UninstallProtection {
-    #[serde(rename = "ENABLED")]
-    ENABLED,
-    #[serde(rename = "DISABLED")]
-    DISABLED,
-    #[serde(rename = "MAINTENANCE_MODE")]
-    MAINTENANCEMODE,
-    #[serde(rename = "IGNORE")]
-    IGNORE,
-    #[serde(rename = "UNKNOWN")]
-    UNKNOWN,
-}
-
-impl Default for UninstallProtection {
-    fn default() -> UninstallProtection {
-        Self::ENABLED
+impl DetectionEnrichmentHost {
+    pub fn new() -> DetectionEnrichmentHost {
+        DetectionEnrichmentHost {
+            id: None,
+            launch_time: None,
+            name: None,
+            network: None,
+            platform: None,
+            region: None,
+            _type: None,
+        }
     }
 }

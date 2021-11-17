@@ -34,6 +34,12 @@ pub enum EndUserNotification {
     #[serde(rename = "FALSE")]
     _FALSE,
 }
+
+impl Default for EndUserNotification {
+    fn default() -> EndUserNotification {
+        Self::_TRUE
+    }
+}
 /// [How] is this policy enforced
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum EnforcementMode {
@@ -41,4 +47,10 @@ pub enum EnforcementMode {
     ENFORCED,
     #[serde(rename = "MONITORY_ONLY")]
     MONITORYONLY,
+}
+
+impl Default for EnforcementMode {
+    fn default() -> EnforcementMode {
+        Self::ENFORCED
+    }
 }
