@@ -59,6 +59,30 @@ pub enum DeleteCspmAzureAccountError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_behavior_detections`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetBehaviorDetectionsError {
+    Status400(crate::models::RegistrationExternalIoaEventResponse),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::RegistrationExternalIoaEventResponse),
+    DefaultResponse(crate::models::RegistrationExternalIoaEventResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_configuration_detections`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetConfigurationDetectionsError {
+    Status400(crate::models::RegistrationExternalIomEventResponse),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::RegistrationExternalIomEventResponse),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_cspm_aws_account`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -372,6 +396,160 @@ pub async fn delete_cspm_azure_account(configuration: &configuration::Configurat
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<DeleteCspmAzureAccountError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn get_behavior_detections(
+    configuration: &configuration::Configuration,
+    cloud_provider: &str,
+    service: Option<&str>,
+    account_id: Option<&str>,
+    aws_account_id: Option<&str>,
+    azure_subscription_id: Option<&str>,
+    azure_tenant_id: Option<&str>,
+    state: Option<&str>,
+    date_time_since: Option<&str>,
+    severity: Option<&str>,
+    next_token: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::RegistrationExternalIoaEventResponse, Error<GetBehaviorDetectionsError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/detects/entities/ioa/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("cloud_provider", &cloud_provider.to_string())]);
+    if let Some(ref local_var_str) = service {
+        local_var_req_builder = local_var_req_builder.query(&[("service", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = account_id {
+        local_var_req_builder = local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = aws_account_id {
+        local_var_req_builder = local_var_req_builder.query(&[("aws_account_id", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = azure_subscription_id {
+        local_var_req_builder = local_var_req_builder.query(&[("azure_subscription_id", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = azure_tenant_id {
+        local_var_req_builder = local_var_req_builder.query(&[("azure_tenant_id", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = state {
+        local_var_req_builder = local_var_req_builder.query(&[("state", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = date_time_since {
+        local_var_req_builder = local_var_req_builder.query(&[("date_time_since", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = severity {
+        local_var_req_builder = local_var_req_builder.query(&[("severity", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = next_token {
+        local_var_req_builder = local_var_req_builder.query(&[("next_token", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetBehaviorDetectionsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn get_configuration_detections(
+    configuration: &configuration::Configuration,
+    cloud_provider: Option<&str>,
+    account_id: Option<&str>,
+    azure_subscription_id: Option<&str>,
+    azure_tenant_id: Option<&str>,
+    status: Option<&str>,
+    region: Option<&str>,
+    severity: Option<&str>,
+    service: Option<&str>,
+    next_token: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::RegistrationExternalIomEventResponse, Error<GetConfigurationDetectionsError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/detects/entities/iom/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = cloud_provider {
+        local_var_req_builder = local_var_req_builder.query(&[("cloud_provider", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = account_id {
+        local_var_req_builder = local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = azure_subscription_id {
+        local_var_req_builder = local_var_req_builder.query(&[("azure_subscription_id", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = azure_tenant_id {
+        local_var_req_builder = local_var_req_builder.query(&[("azure_tenant_id", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = status {
+        local_var_req_builder = local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = region {
+        local_var_req_builder = local_var_req_builder.query(&[("region", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = severity {
+        local_var_req_builder = local_var_req_builder.query(&[("severity", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = service {
+        local_var_req_builder = local_var_req_builder.query(&[("service", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = next_token {
+        local_var_req_builder = local_var_req_builder.query(&[("next_token", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetConfigurationDetectionsError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

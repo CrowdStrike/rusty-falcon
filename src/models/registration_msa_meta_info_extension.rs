@@ -9,17 +9,15 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct RegistrationExternalIoaEventResp {
-    #[serde(rename = "confidence")]
-    pub confidence: String,
-    #[serde(rename = "events")]
-    pub events: Vec<crate::models::RegistrationIoaEvent>,
-    #[serde(rename = "max_score")]
-    pub max_score: i32,
+pub struct RegistrationMsaMetaInfoExtension {
+    #[serde(rename = "MetaInfo")]
+    pub meta_info: Box<crate::models::MsaMetaInfo>,
+    #[serde(rename = "pagination", skip_serializing_if = "Option::is_none")]
+    pub pagination: Option<Box<crate::models::RegistrationMsaPagingExtension>>,
 }
 
-impl RegistrationExternalIoaEventResp {
-    pub fn new(confidence: String, events: Vec<crate::models::RegistrationIoaEvent>, max_score: i32) -> RegistrationExternalIoaEventResp {
-        RegistrationExternalIoaEventResp { confidence, events, max_score }
+impl RegistrationMsaMetaInfoExtension {
+    pub fn new(meta_info: crate::models::MsaMetaInfo) -> RegistrationMsaMetaInfoExtension {
+        RegistrationMsaMetaInfoExtension { meta_info: Box::new(meta_info), pagination: None }
     }
 }

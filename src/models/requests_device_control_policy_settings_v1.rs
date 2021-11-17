@@ -41,3 +41,9 @@ pub enum EndUserNotification {
     #[serde(rename = "FALSE")]
     _FALSE,
 }
+
+impl Default for EndUserNotification {
+    fn default() -> EndUserNotification {
+        Self::_TRUE
+    }
+}

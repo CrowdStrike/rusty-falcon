@@ -37,3 +37,9 @@ pub enum Action {
     #[serde(rename = "READ_ONLY")]
     READONLY,
 }
+
+impl Default for Action {
+    fn default() -> Action {
+        Self::FULLACCESS
+    }
+}

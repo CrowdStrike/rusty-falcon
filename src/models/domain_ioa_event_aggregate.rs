@@ -10,6 +10,8 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainIoaEventAggregate {
+    #[serde(rename = "cid_severity", skip_serializing_if = "Option::is_none")]
+    pub cid_severity: Option<i32>,
     #[serde(rename = "confidence", skip_serializing_if = "Option::is_none")]
     pub confidence: Option<i32>,
     #[serde(rename = "count", skip_serializing_if = "Option::is_none")]
@@ -33,6 +35,7 @@ pub struct DomainIoaEventAggregate {
 impl DomainIoaEventAggregate {
     pub fn new() -> DomainIoaEventAggregate {
         DomainIoaEventAggregate {
+            cid_severity: None,
             confidence: None,
             count: None,
             events: None,

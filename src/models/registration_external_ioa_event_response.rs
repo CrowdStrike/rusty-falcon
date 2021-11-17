@@ -13,13 +13,13 @@ pub struct RegistrationExternalIoaEventResponse {
     #[serde(rename = "errors")]
     pub errors: Vec<crate::models::MsaApiError>,
     #[serde(rename = "meta")]
-    pub meta: Box<crate::models::MsaMetaInfo>,
+    pub meta: Box<crate::models::RegistrationMsaMetaInfoExtension>,
     #[serde(rename = "resources")]
-    pub resources: Box<crate::models::RegistrationExternalIoaEventResp>,
+    pub resources: Box<crate::models::RegistrationExternalIoaResources>,
 }
 
 impl RegistrationExternalIoaEventResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: crate::models::RegistrationExternalIoaEventResp) -> RegistrationExternalIoaEventResponse {
+    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::RegistrationMsaMetaInfoExtension, resources: crate::models::RegistrationExternalIoaResources) -> RegistrationExternalIoaEventResponse {
         RegistrationExternalIoaEventResponse {
             errors,
             meta: Box::new(meta),

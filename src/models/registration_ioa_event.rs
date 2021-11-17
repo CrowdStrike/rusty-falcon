@@ -24,6 +24,8 @@ pub struct RegistrationIoaEvent {
     pub cloud_provider: String,
     #[serde(rename = "cloud_region", skip_serializing_if = "Option::is_none")]
     pub cloud_region: Option<String>,
+    #[serde(rename = "enrichments", skip_serializing_if = "Option::is_none")]
+    pub enrichments: Option<Box<crate::models::DomainIoaEnrichments>>,
     #[serde(rename = "error_code", skip_serializing_if = "Option::is_none")]
     pub error_code: Option<String>,
     #[serde(rename = "error_message", skip_serializing_if = "Option::is_none")]
@@ -46,6 +48,8 @@ pub struct RegistrationIoaEvent {
     pub management_event: Option<bool>,
     #[serde(rename = "policy_id")]
     pub policy_id: i32,
+    #[serde(rename = "policy_statement")]
+    pub policy_statement: String,
     #[serde(rename = "read_only", skip_serializing_if = "Option::is_none")]
     pub read_only: Option<bool>,
     #[serde(rename = "recipient_account_id", skip_serializing_if = "Option::is_none")]
@@ -58,8 +62,12 @@ pub struct RegistrationIoaEvent {
     pub resources: Option<String>,
     #[serde(rename = "response_elements", skip_serializing_if = "Option::is_none")]
     pub response_elements: Option<String>,
+    #[serde(rename = "service")]
+    pub service: String,
     #[serde(rename = "service_event_details", skip_serializing_if = "Option::is_none")]
     pub service_event_details: Option<String>,
+    #[serde(rename = "severity")]
+    pub severity: String,
     #[serde(rename = "shared_event_id", skip_serializing_if = "Option::is_none")]
     pub shared_event_id: Option<String>,
     #[serde(rename = "source_ip_address", skip_serializing_if = "Option::is_none")]
@@ -81,7 +89,7 @@ pub struct RegistrationIoaEvent {
 }
 
 impl RegistrationIoaEvent {
-    pub fn new(cid: String, cloud_provider: String, policy_id: i32, state: String, vertex_id: String, vertex_type: String) -> RegistrationIoaEvent {
+    pub fn new(cid: String, cloud_provider: String, policy_id: i32, policy_statement: String, service: String, severity: String, state: String, vertex_id: String, vertex_type: String) -> RegistrationIoaEvent {
         RegistrationIoaEvent {
             additional_event_data: None,
             aggregate: None,
@@ -90,6 +98,7 @@ impl RegistrationIoaEvent {
             cloud_account_id: None,
             cloud_provider,
             cloud_region: None,
+            enrichments: None,
             error_code: None,
             error_message: None,
             event_category: None,
@@ -101,13 +110,16 @@ impl RegistrationIoaEvent {
             group_id: None,
             management_event: None,
             policy_id,
+            policy_statement,
             read_only: None,
             recipient_account_id: None,
             request_id: None,
             request_parameters: None,
             resources: None,
             response_elements: None,
+            service,
             service_event_details: None,
+            severity,
             shared_event_id: None,
             source_ip_address: None,
             state,

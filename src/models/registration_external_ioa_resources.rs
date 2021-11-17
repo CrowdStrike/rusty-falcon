@@ -9,38 +9,17 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct RequestsSensorUpdateSettingsV2 {
-    /// The target build to apply to the policy
-    #[serde(rename = "build", skip_serializing_if = "Option::is_none")]
-    pub build: Option<String>,
-    /// The uninstall protection state to apply to the policy
-    #[serde(rename = "uninstall_protection", skip_serializing_if = "Option::is_none")]
-    pub uninstall_protection: Option<UninstallProtection>,
+pub struct RegistrationExternalIoaResources {
+    #[serde(rename = "confidence", skip_serializing_if = "Option::is_none")]
+    pub confidence: Option<String>,
+    #[serde(rename = "events")]
+    pub events: Vec<crate::models::RegistrationIoaEvent>,
+    #[serde(rename = "max_score", skip_serializing_if = "Option::is_none")]
+    pub max_score: Option<i32>,
 }
 
-impl RequestsSensorUpdateSettingsV2 {
-    pub fn new() -> RequestsSensorUpdateSettingsV2 {
-        RequestsSensorUpdateSettingsV2 { build: None, uninstall_protection: None }
-    }
-}
-
-/// The uninstall protection state to apply to the policy
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum UninstallProtection {
-    #[serde(rename = "ENABLED")]
-    ENABLED,
-    #[serde(rename = "DISABLED")]
-    DISABLED,
-    #[serde(rename = "MAINTENANCE_MODE")]
-    MAINTENANCEMODE,
-    #[serde(rename = "IGNORE")]
-    IGNORE,
-    #[serde(rename = "UNKNOWN")]
-    UNKNOWN,
-}
-
-impl Default for UninstallProtection {
-    fn default() -> UninstallProtection {
-        Self::ENABLED
+impl RegistrationExternalIoaResources {
+    pub fn new(events: Vec<crate::models::RegistrationIoaEvent>) -> RegistrationExternalIoaResources {
+        RegistrationExternalIoaResources { confidence: None, events, max_score: None }
     }
 }
