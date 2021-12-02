@@ -290,6 +290,8 @@ pub mod domain_cid_policy_assignments_nist_benchmark;
 pub use self::domain_cid_policy_assignments_nist_benchmark::DomainCidPolicyAssignmentsNistBenchmark;
 pub mod domain_cid_policy_assignments_pci_benchmark;
 pub use self::domain_cid_policy_assignments_pci_benchmark::DomainCidPolicyAssignmentsPciBenchmark;
+pub mod domain_cid_policy_assignments_soc2_benchmark;
+pub use self::domain_cid_policy_assignments_soc2_benchmark::DomainCidPolicyAssignmentsSoc2Benchmark;
 pub mod domain_cloud_account_id;
 pub use self::domain_cloud_account_id::DomainCloudAccountId;
 pub mod domain_command_execute_request;

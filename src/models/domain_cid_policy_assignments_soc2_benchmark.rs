@@ -9,30 +9,17 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct RegistrationPolicyExtV1 {
-    #[serde(rename = "account_id")]
-    pub account_id: String,
-    #[serde(rename = "enabled")]
-    pub enabled: bool,
-    #[serde(rename = "policy_id")]
-    pub policy_id: i32,
-    #[serde(rename = "regions")]
-    pub regions: Vec<String>,
-    #[serde(rename = "severity")]
-    pub severity: String,
-    #[serde(rename = "tag_excluded")]
-    pub tag_excluded: bool,
+pub struct DomainCidPolicyAssignmentsSoc2Benchmark {
+    #[serde(rename = "benchmark_short")]
+    pub benchmark_short: String,
+    #[serde(rename = "id")]
+    pub id: i32,
+    #[serde(rename = "recommendation_number")]
+    pub recommendation_number: String,
 }
 
-impl RegistrationPolicyExtV1 {
-    pub fn new(account_id: String, enabled: bool, policy_id: i32, regions: Vec<String>, severity: String, tag_excluded: bool) -> RegistrationPolicyExtV1 {
-        RegistrationPolicyExtV1 {
-            account_id,
-            enabled,
-            policy_id,
-            regions,
-            severity,
-            tag_excluded,
-        }
+impl DomainCidPolicyAssignmentsSoc2Benchmark {
+    pub fn new(benchmark_short: String, id: i32, recommendation_number: String) -> DomainCidPolicyAssignmentsSoc2Benchmark {
+        DomainCidPolicyAssignmentsSoc2Benchmark { benchmark_short, id, recommendation_number }
     }
 }

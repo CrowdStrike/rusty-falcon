@@ -14,12 +14,16 @@ pub struct DomainCidPolicyAssignments {
     pub cid: Option<String>,
     #[serde(rename = "cis_benchmark", skip_serializing_if = "Option::is_none")]
     pub cis_benchmark: Option<Vec<crate::models::DomainCidPolicyAssignmentsCisBenchmark>>,
+    #[serde(rename = "cloud_asset_type", skip_serializing_if = "Option::is_none")]
+    pub cloud_asset_type: Option<String>,
     #[serde(rename = "cloud_service", skip_serializing_if = "Option::is_none")]
     pub cloud_service: Option<String>,
     #[serde(rename = "cloud_service_subtype", skip_serializing_if = "Option::is_none")]
     pub cloud_service_subtype: Option<String>,
     #[serde(rename = "default_severity", skip_serializing_if = "Option::is_none")]
     pub default_severity: Option<String>,
+    #[serde(rename = "fql_policy", skip_serializing_if = "Option::is_none")]
+    pub fql_policy: Option<String>,
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     #[serde(rename = "nist_benchmark", skip_serializing_if = "Option::is_none")]
@@ -34,6 +38,8 @@ pub struct DomainCidPolicyAssignments {
     pub policy_timestamp: Option<String>,
     #[serde(rename = "policy_type", skip_serializing_if = "Option::is_none")]
     pub policy_type: Option<String>,
+    #[serde(rename = "soc2_benchmark", skip_serializing_if = "Option::is_none")]
+    pub soc2_benchmark: Option<Vec<crate::models::DomainCidPolicyAssignmentsSoc2Benchmark>>,
 }
 
 impl DomainCidPolicyAssignments {
@@ -41,9 +47,11 @@ impl DomainCidPolicyAssignments {
         DomainCidPolicyAssignments {
             cid: None,
             cis_benchmark: None,
+            cloud_asset_type: None,
             cloud_service: None,
             cloud_service_subtype: None,
             default_severity: None,
+            fql_policy: None,
             name: None,
             nist_benchmark: None,
             pci_benchmark: None,
@@ -51,6 +59,7 @@ impl DomainCidPolicyAssignments {
             policy_settings: None,
             policy_timestamp: None,
             policy_type: None,
+            soc2_benchmark: None,
         }
     }
 }
