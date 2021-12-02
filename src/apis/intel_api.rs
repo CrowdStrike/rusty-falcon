@@ -290,7 +290,7 @@ pub async fn get_intel_report_entities(configuration: &configuration::Configurat
     }
 }
 
-pub async fn get_intel_report_pdf(configuration: &configuration::Configuration, id: &str) -> Result<serde_json::Value, Error<GetIntelReportPdfError>> {
+pub async fn get_intel_report_pdf(configuration: &configuration::Configuration, id: &str) -> Result<std::path::PathBuf, Error<GetIntelReportPdfError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -360,7 +360,7 @@ pub async fn get_intel_rule_entities(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn get_intel_rule_file(configuration: &configuration::Configuration, id: i32, accept: Option<&str>, format: Option<&str>) -> Result<serde_json::Value, Error<GetIntelRuleFileError>> {
+pub async fn get_intel_rule_file(configuration: &configuration::Configuration, id: i32, accept: Option<&str>, format: Option<&str>) -> Result<std::path::PathBuf, Error<GetIntelRuleFileError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -401,7 +401,7 @@ pub async fn get_intel_rule_file(configuration: &configuration::Configuration, i
     }
 }
 
-pub async fn get_latest_intel_rule_file(configuration: &configuration::Configuration, _type: &str, accept: Option<&str>, format: Option<&str>, if_modified_since: Option<&str>) -> Result<serde_json::Value, Error<GetLatestIntelRuleFileError>> {
+pub async fn get_latest_intel_rule_file(configuration: &configuration::Configuration, _type: &str, accept: Option<&str>, format: Option<&str>, if_modified_since: Option<&str>) -> Result<std::path::PathBuf, Error<GetLatestIntelRuleFileError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
