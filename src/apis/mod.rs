@@ -85,6 +85,7 @@ pub mod ioc_api;
 pub mod iocs_api;
 pub mod kubernetes_protection_api;
 pub mod malquery_api;
+pub mod message_center_api;
 pub mod ml_exclusions_api;
 pub mod mssp_api;
 pub mod oauth2_api;

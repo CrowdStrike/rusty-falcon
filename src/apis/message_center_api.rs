@@ -13,109 +13,133 @@ use reqwest;
 use super::{configuration, Error};
 use crate::apis::ResponseContent;
 
-/// struct for typed errors of method [`entities_perform_action`]
+/// struct for typed errors of method [`aggregate_cases`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum EntitiesPerformActionError {
+pub enum AggregateCasesError {
     Status403(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::DeviceapiGroupsResponseV1),
+    DefaultResponse(crate::models::MsaAggregatesResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_device_details`]
+/// struct for typed errors of method [`case_add_activity`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetDeviceDetailsError {
+pub enum CaseAddActivityError {
+    Status400(crate::models::MsaReplyMetaOnly),
     Status403(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::DomainDeviceDetailsResponseSwagger),
+    Status500(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`perform_action_v2`]
+/// struct for typed errors of method [`case_add_attachment`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum PerformActionV2Error {
-    Status400(crate::models::MsaReplyAffectedEntities),
+pub enum CaseAddAttachmentError {
+    Status400(crate::models::MsaReplyMetaOnly),
     Status403(crate::models::MsaReplyMetaOnly),
-    Status409(crate::models::MsaReplyAffectedEntities),
     Status429(crate::models::MsaReplyMetaOnly),
-    Status500(crate::models::MsaReplyAffectedEntities),
+    Status500(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::ApiMessageCenterAttachmentUploadResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_device_login_history`]
+/// struct for typed errors of method [`case_download_attachment`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryDeviceLoginHistoryError {
+pub enum CaseDownloadAttachmentError {
+    Status400(crate::models::MsaReplyMetaOnly),
     Status403(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::DeviceapiLoginHistoryResponseV1),
+    Status500(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(String),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_devices_by_filter`]
+/// struct for typed errors of method [`create_case`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryDevicesByFilterError {
+pub enum CreateCaseError {
+    Status400(crate::models::MsaReplyMetaOnly),
     Status403(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::MsaReplyAffectedEntities),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_case_activity_by_ids`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetCaseActivityByIdsError {
+    Status400(crate::models::MsaReplyMetaOnly),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::ApiMessageCenterActivityResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_case_entities_by_ids`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetCaseEntitiesByIdsError {
+    Status400(crate::models::MsaReplyMetaOnly),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::ApiMessageCenterCasesResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`query_activity_by_case_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum QueryActivityByCaseIdError {
+    Status400(crate::models::MsaReplyMetaOnly),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaReplyMetaOnly),
     DefaultResponse(crate::models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_devices_by_filter_scroll`]
+/// struct for typed errors of method [`query_cases_ids_by_filter`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryDevicesByFilterScrollError {
+pub enum QueryCasesIdsByFilterError {
+    Status400(crate::models::MsaReplyMetaOnly),
     Status403(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::DomainDeviceResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`query_get_network_address_history_v1`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum QueryGetNetworkAddressHistoryV1Error {
-    Status403(crate::models::MsaReplyMetaOnly),
-    Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::DeviceapiNetworkAddressHistoryResponseV1),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`query_hidden_devices`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum QueryHiddenDevicesError {
-    Status403(crate::models::MsaReplyMetaOnly),
-    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaReplyMetaOnly),
     DefaultResponse(crate::models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`update_device_tags`]
+/// struct for typed errors of method [`update_case`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum UpdateDeviceTagsError {
-    Status400(crate::models::MsaReplyAffectedEntities),
+pub enum UpdateCaseError {
+    Status400(crate::models::MsaReplyMetaOnly),
     Status403(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::MsaEntitiesResponse),
+    Status500(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::MsaReplyAffectedEntities),
     UnknownValue(serde_json::Value),
 }
 
-pub async fn entities_perform_action(configuration: &configuration::Configuration, ids: Vec<String>, action_name: &str, body: crate::models::MsaEntityActionRequest) -> Result<crate::models::DeviceapiGroupsResponseV1, Error<EntitiesPerformActionError>> {
+pub async fn aggregate_cases(configuration: &configuration::Configuration, body: Vec<crate::models::MsaAggregateQueryRequest>) -> Result<crate::models::MsaAggregatesResponse, Error<AggregateCasesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/devices/entities/group-actions/v1", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/message-center/aggregates/cases/GET/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
-    local_var_req_builder = local_var_req_builder.query(&[("action_name", &action_name.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -133,7 +157,7 @@ pub async fn entities_perform_action(configuration: &configuration::Configuratio
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<EntitiesPerformActionError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AggregateCasesError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -143,15 +167,90 @@ pub async fn entities_perform_action(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn get_device_details(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainDeviceDetailsResponseSwagger, Error<GetDeviceDetailsError>> {
+pub async fn case_add_activity(configuration: &configuration::Configuration, body: crate::models::ApiActivityCreationRequest) -> Result<crate::models::MsaReplyMetaOnly, Error<CaseAddActivityError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/devices/entities/devices/v1", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/message-center/entities/case-activity/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CaseAddActivityError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Upload an attachment for the case. Maximum upload size allowed is *15 MB*.   Filename must start with *[a-zA-Z0-9_-]*. Allowed characters in file name are *[a-zA-Z0-9-_.\\s]*.    Maximum file name is *255* characters      Following attachment types are allowed:   - png   - bmp   - jpg   - jpeg   - gif   - pdf   - doc   - docx   - xls   - xlsx   - pptx   - txt   - csv
+pub async fn case_add_attachment(configuration: &configuration::Configuration, case_id: &str, user_uuid: &str, file: std::path::PathBuf) -> Result<crate::models::ApiMessageCenterAttachmentUploadResponse, Error<CaseAddAttachmentError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/message-center/entities/case-attachment/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    let mut local_var_form = reqwest::multipart::Form::new();
+    local_var_form = local_var_form.text("case_id", case_id.to_string());
+    local_var_form = local_var_form.text("user_uuid", user_uuid.to_string());
+    // TODO: support file upload for 'file' parameter
+    local_var_req_builder = local_var_req_builder.multipart(local_var_form);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CaseAddAttachmentError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn case_download_attachment(configuration: &configuration::Configuration, id: &str) -> Result<String, Error<CaseDownloadAttachmentError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/message-center/entities/case-attachment/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -168,7 +267,7 @@ pub async fn get_device_details(configuration: &configuration::Configuration, id
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetDeviceDetailsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CaseDownloadAttachmentError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -178,48 +277,12 @@ pub async fn get_device_details(configuration: &configuration::Configuration, id
     }
 }
 
-pub async fn perform_action_v2(configuration: &configuration::Configuration, action_name: &str, body: crate::models::MsaEntityActionRequestV2) -> Result<crate::models::MsaReplyAffectedEntities, Error<PerformActionV2Error>> {
+pub async fn create_case(configuration: &configuration::Configuration, body: crate::models::ApiCaseCreationRequest) -> Result<crate::models::MsaReplyAffectedEntities, Error<CreateCaseError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/devices/entities/devices-actions/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    local_var_req_builder = local_var_req_builder.query(&[("action_name", &action_name.to_string())]);
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&body);
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<PerformActionV2Error> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn query_device_login_history(configuration: &configuration::Configuration, body: crate::models::MsaIdsRequest) -> Result<crate::models::DeviceapiLoginHistoryResponseV1, Error<QueryDeviceLoginHistoryError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/devices/combined/devices/login-history/v1", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/message-center/entities/case/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -239,7 +302,7 @@ pub async fn query_device_login_history(configuration: &configuration::Configura
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryDeviceLoginHistoryError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateCaseError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -249,17 +312,84 @@ pub async fn query_device_login_history(configuration: &configuration::Configura
     }
 }
 
-pub async fn query_devices_by_filter(configuration: &configuration::Configuration, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QueryDevicesByFilterError>> {
+pub async fn get_case_activity_by_ids(configuration: &configuration::Configuration, body: crate::models::MsaIdsRequest) -> Result<crate::models::ApiMessageCenterActivityResponse, Error<GetCaseActivityByIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/devices/queries/devices/v1", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/message-center/entities/case-activities/GET/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetCaseActivityByIdsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn get_case_entities_by_ids(configuration: &configuration::Configuration, body: crate::models::MsaIdsRequest) -> Result<crate::models::ApiMessageCenterCasesResponse, Error<GetCaseEntitiesByIdsError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/message-center/entities/cases/GET/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetCaseEntitiesByIdsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn query_activity_by_case_id(configuration: &configuration::Configuration, case_id: &str, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, offset: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QueryActivityByCaseIdError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/message-center/queries/case-activities/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
-    }
     if let Some(ref local_var_str) = limit {
         local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
@@ -269,6 +399,10 @@ pub async fn query_devices_by_filter(configuration: &configuration::Configuratio
     if let Some(ref local_var_str) = filter {
         local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    local_var_req_builder = local_var_req_builder.query(&[("case_id", &case_id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -285,7 +419,7 @@ pub async fn query_devices_by_filter(configuration: &configuration::Configuratio
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryDevicesByFilterError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryActivityByCaseIdError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -295,17 +429,14 @@ pub async fn query_devices_by_filter(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn query_devices_by_filter_scroll(configuration: &configuration::Configuration, offset: Option<&str>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>) -> Result<crate::models::DomainDeviceResponse, Error<QueryDevicesByFilterScrollError>> {
+pub async fn query_cases_ids_by_filter(configuration: &configuration::Configuration, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, offset: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QueryCasesIdsByFilterError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/devices/queries/devices-scroll/v1", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/message-center/queries/cases/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
-    }
     if let Some(ref local_var_str) = limit {
         local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
@@ -315,87 +446,9 @@ pub async fn query_devices_by_filter_scroll(configuration: &configuration::Confi
     if let Some(ref local_var_str) = filter {
         local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<QueryDevicesByFilterScrollError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn query_get_network_address_history_v1(configuration: &configuration::Configuration, body: crate::models::MsaIdsRequest) -> Result<crate::models::DeviceapiNetworkAddressHistoryResponseV1, Error<QueryGetNetworkAddressHistoryV1Error>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/devices/combined/devices/network-address-history/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&body);
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<QueryGetNetworkAddressHistoryV1Error> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn query_hidden_devices(configuration: &configuration::Configuration, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QueryHiddenDevicesError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/devices/queries/devices-hidden/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
-    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -412,7 +465,7 @@ pub async fn query_hidden_devices(configuration: &configuration::Configuration, 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryHiddenDevicesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryCasesIdsByFilterError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -422,12 +475,12 @@ pub async fn query_hidden_devices(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn update_device_tags(configuration: &configuration::Configuration, body: crate::models::DomainUpdateDeviceTagsRequestV1) -> Result<crate::models::MsaEntitiesResponse, Error<UpdateDeviceTagsError>> {
+pub async fn update_case(configuration: &configuration::Configuration, body: crate::models::ApiCaseUpdateRequest) -> Result<crate::models::MsaReplyAffectedEntities, Error<UpdateCaseError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/devices/entities/devices/tags/v1", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/message-center/entities/case/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -447,7 +500,7 @@ pub async fn update_device_tags(configuration: &configuration::Configuration, bo
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateDeviceTagsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateCaseError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
