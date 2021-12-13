@@ -554,6 +554,7 @@ pub async fn query_intel_indicator_entities(
     filter: Option<&str>,
     q: Option<&str>,
     include_deleted: Option<bool>,
+    include_relations: Option<bool>,
 ) -> Result<crate::models::DomainPublicIndicatorsV3Response, Error<QueryIntelIndicatorEntitiesError>> {
     let local_var_configuration = configuration;
 
@@ -579,6 +580,9 @@ pub async fn query_intel_indicator_entities(
     }
     if let Some(ref local_var_str) = include_deleted {
         local_var_req_builder = local_var_req_builder.query(&[("include_deleted", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = include_relations {
+        local_var_req_builder = local_var_req_builder.query(&[("include_relations", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -606,7 +610,16 @@ pub async fn query_intel_indicator_entities(
     }
 }
 
-pub async fn query_intel_indicator_ids(configuration: &configuration::Configuration, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, q: Option<&str>, include_deleted: Option<bool>) -> Result<crate::models::MsaQueryResponse, Error<QueryIntelIndicatorIdsError>> {
+pub async fn query_intel_indicator_ids(
+    configuration: &configuration::Configuration,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    q: Option<&str>,
+    include_deleted: Option<bool>,
+    include_relations: Option<bool>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryIntelIndicatorIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -631,6 +644,9 @@ pub async fn query_intel_indicator_ids(configuration: &configuration::Configurat
     }
     if let Some(ref local_var_str) = include_deleted {
         local_var_req_builder = local_var_req_builder.query(&[("include_deleted", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = include_relations {
+        local_var_req_builder = local_var_req_builder.query(&[("include_relations", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
