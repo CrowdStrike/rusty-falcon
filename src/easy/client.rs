@@ -5,6 +5,7 @@ use crate::easy::cloud::FalconCloud;
 use crate::easy::errors::CredentialsError;
 use std::env;
 
+#[derive(Clone)]
 pub struct FalconHandle {
     pub creds: Credentials,
     pub cfg: Configuration,
@@ -30,6 +31,7 @@ impl FalconHandle {
     }
 }
 
+#[derive(Clone)]
 pub struct Credentials {
     falcon_cloud: FalconCloud,
     falcon_client_id: String,
