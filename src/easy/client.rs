@@ -29,6 +29,10 @@ impl FalconHandle {
         self.cfg.oauth_access_token = Some(response.access_token);
         return Ok(());
     }
+
+    pub async fn from_env() -> Result<Self, Box<dyn std::error::Error>> {
+        return Ok(FalconHandle::from_cfg(Credentials::from_env()?).await?);
+    }
 }
 
 #[derive(Clone)]
