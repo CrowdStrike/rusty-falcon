@@ -491,7 +491,10 @@ pub async fn delete_cid_groups(configuration: &configuration::Configuration, cid
     let local_var_uri_str = format!("{}/mssp/entities/cid-groups/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("cid_group_ids", &cid_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&cid_group_ids.into_iter().map(|p| ("cid_group_ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("cid_group_ids", &cid_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -561,7 +564,10 @@ pub async fn delete_user_groups(configuration: &configuration::Configuration, us
     let local_var_uri_str = format!("{}/mssp/entities/user-groups/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("user_group_ids", &user_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&user_group_ids.into_iter().map(|p| ("user_group_ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("user_group_ids", &user_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -631,7 +637,10 @@ pub async fn get_children(configuration: &configuration::Configuration, ids: Vec
     let local_var_uri_str = format!("{}/mssp/entities/children/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -666,7 +675,10 @@ pub async fn get_cid_group_by_id(configuration: &configuration::Configuration, c
     let local_var_uri_str = format!("{}/mssp/entities/cid-groups/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("cid_group_ids", &cid_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&cid_group_ids.into_iter().map(|p| ("cid_group_ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("cid_group_ids", &cid_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -701,7 +713,10 @@ pub async fn get_cid_group_members_by(configuration: &configuration::Configurati
     let local_var_uri_str = format!("{}/mssp/entities/cid-group-members/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("cid_group_ids", &cid_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&cid_group_ids.into_iter().map(|p| ("cid_group_ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("cid_group_ids", &cid_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -736,7 +751,10 @@ pub async fn get_roles_by_id(configuration: &configuration::Configuration, ids: 
     let local_var_uri_str = format!("{}/mssp/entities/mssp-roles/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+    local_var_req_builder = match "csv" {
+        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -771,7 +789,10 @@ pub async fn get_user_group_members_by_id(configuration: &configuration::Configu
     let local_var_uri_str = format!("{}/mssp/entities/user-group-members/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("user_group_ids", &user_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&user_group_ids.into_iter().map(|p| ("user_group_ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("user_group_ids", &user_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -806,7 +827,10 @@ pub async fn get_user_groups_by_id(configuration: &configuration::Configuration,
     let local_var_uri_str = format!("{}/mssp/entities/user-groups/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("user_group_ids", &user_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&user_group_ids.into_iter().map(|p| ("user_group_ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("user_group_ids", &user_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
