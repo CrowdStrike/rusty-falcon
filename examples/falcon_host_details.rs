@@ -18,13 +18,13 @@ async fn get_all_hosts(configuration: &configuration::Configuration, sort: Optio
     let mut details = Vec::<models::DomainDeviceSwagger>::new();
     for page in 0.. {
         let response = query_devices_by_filter_page(configuration, sort, filter, page).await?;
-        if last_page(response.meta.pagination) {
-            break;
-        }
         if response.resources.len() == 0 {
             break;
         }
         details.append(&mut get_device_details(configuration, response.resources).await?);
+        if last_page(response.meta.pagination) {
+            break;
+        }
     }
     return Ok(details);
 }
@@ -46,10 +46,10 @@ async fn query_devices_by_filter_page(configuration: &configuration::Configurati
 }
 
 fn last_page(pagination: Option<Box<models::MsaPaging>>) -> bool {
-    match pagination {
+    return match pagination {
         None => false,
         Some(p) => (p.total - i64::from(p.offset)) <= 0,
-    }
+    };
 }
 
 #[derive(Debug, Clone)]
