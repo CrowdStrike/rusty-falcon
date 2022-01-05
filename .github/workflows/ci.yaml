@@ -21,7 +21,11 @@ jobs:
         with:
           toolchain: ${{matrix.rust}}
           components: rustfmt
-      - run: cargo test
+      - run: |
+          cargo test --lib --bins --examples --benches
+      - run: |
+          # We expect doc example to fail without Falcon Credentials
+          cargo test --doc | grep 'Missing FALCON_CLIENT_ID environment variable.'
       - name: rustfmt
         run: |
           cargo fmt
@@ -41,7 +45,11 @@ jobs:
       - uses: dtolnay/rust-toolchain@nightly
         with:
           components: rust-src
-      - run: cargo test
+      - run: |
+          cargo test --lib --bins --examples --benches
+      - run: |
+          # We expect doc example to fail without Falcon Credentials
+          cargo test --doc | grep 'Missing FALCON_CLIENT_ID environment variable.'
       - run: cargo update -Z minimal-versions
       - run: cargo build
 
