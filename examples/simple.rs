@@ -1,9 +1,9 @@
 use rusty_falcon::apis::incidents_api::crowd_score;
-use rusty_falcon::easy::client::{Credentials, FalconHandle};
+use rusty_falcon::easy::client::FalconHandle;
 
 #[tokio::main]
 async fn main() {
-    let falcon = FalconHandle::from_cfg(Credentials::from_env().unwrap()).await.expect("Could not authenticate with CrowdStrike API");
+    let falcon = FalconHandle::from_env().await.expect("Could not authenticate with CrowdStrike API");
 
     let crowd_score_response = crowd_score(&falcon.cfg, None, None, None, None).await.expect("Could not fetch CrowdScore");
 

@@ -1,13 +1,13 @@
 use rusty_falcon::apis::configuration;
 use rusty_falcon::apis::hosts_api;
-use rusty_falcon::easy::client::{Credentials, FalconHandle};
+use rusty_falcon::easy::client::FalconHandle;
 use rusty_falcon::models;
 use std::error;
 use std::fmt;
 
 #[tokio::main]
 async fn main() {
-    let falcon = FalconHandle::from_cfg(Credentials::from_env().unwrap()).await.expect("Could not authenticate with CrowdStrike API");
+    let falcon = FalconHandle::from_env().await.expect("Could not authenticate with CrowdStrike API");
 
     let hosts = get_all_hosts(&falcon.cfg, None, None).await.expect("Could not list devices");
     let all_host_details = serde_json::json!(hosts);
