@@ -75,6 +75,9 @@ pub struct DomainDiscoverApiHost {
     /// The unique ID of the asset.
     #[serde(rename = "id")]
     pub id: String,
+    /// Whether the asset is exposed to the internet (Yes or Unknown)
+    #[serde(rename = "internet_exposure", skip_serializing_if = "Option::is_none")]
+    pub internet_exposure: Option<String>,
     /// For Linux and Mac hosts: the major version, minor version, and patch version of the kernel for the asset. For Windows hosts: the build number of the asset.
     #[serde(rename = "kernel_version", skip_serializing_if = "Option::is_none")]
     pub kernel_version: Option<String>,
@@ -150,6 +153,7 @@ impl DomainDiscoverApiHost {
             groups: None,
             hostname: None,
             id,
+            internet_exposure: None,
             kernel_version: None,
             last_discoverer_aid: None,
             last_seen_timestamp: None,
