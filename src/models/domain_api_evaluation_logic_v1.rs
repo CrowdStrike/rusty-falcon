@@ -9,17 +9,30 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainSpapiCombinedVulnerabilitiesResponse {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::MsaApiError>>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::DomainSpapiQueryMeta>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<crate::models::DomainBaseApiVulnerabilityV2>,
+pub struct DomainApiEvaluationLogicV1 {
+    #[serde(rename = "aid", skip_serializing_if = "Option::is_none")]
+    pub aid: Option<String>,
+    #[serde(rename = "cid", skip_serializing_if = "Option::is_none")]
+    pub cid: Option<String>,
+    #[serde(rename = "created_timestamp", skip_serializing_if = "Option::is_none")]
+    pub created_timestamp: Option<String>,
+    #[serde(rename = "id")]
+    pub id: String,
+    #[serde(rename = "logic", skip_serializing_if = "Option::is_none")]
+    pub logic: Option<Vec<crate::models::DomainApiEvaluationLogicItemV1>>,
+    #[serde(rename = "updated_timestamp", skip_serializing_if = "Option::is_none")]
+    pub updated_timestamp: Option<String>,
 }
 
-impl DomainSpapiCombinedVulnerabilitiesResponse {
-    pub fn new(meta: crate::models::DomainSpapiQueryMeta, resources: Vec<crate::models::DomainBaseApiVulnerabilityV2>) -> DomainSpapiCombinedVulnerabilitiesResponse {
-        DomainSpapiCombinedVulnerabilitiesResponse { errors: None, meta: Box::new(meta), resources }
+impl DomainApiEvaluationLogicV1 {
+    pub fn new(id: String) -> DomainApiEvaluationLogicV1 {
+        DomainApiEvaluationLogicV1 {
+            aid: None,
+            cid: None,
+            created_timestamp: None,
+            id,
+            logic: None,
+            updated_timestamp: None,
+        }
     }
 }

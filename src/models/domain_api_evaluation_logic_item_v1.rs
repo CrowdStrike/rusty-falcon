@@ -9,17 +9,17 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainSpapiCombinedVulnerabilitiesResponse {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::MsaApiError>>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::DomainSpapiQueryMeta>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<crate::models::DomainBaseApiVulnerabilityV2>,
+pub struct DomainApiEvaluationLogicItemV1 {
+    #[serde(rename = "id")]
+    pub id: i32,
+    #[serde(rename = "title")]
+    pub title: String,
+    #[serde(rename = "type")]
+    pub _type: String,
 }
 
-impl DomainSpapiCombinedVulnerabilitiesResponse {
-    pub fn new(meta: crate::models::DomainSpapiQueryMeta, resources: Vec<crate::models::DomainBaseApiVulnerabilityV2>) -> DomainSpapiCombinedVulnerabilitiesResponse {
-        DomainSpapiCombinedVulnerabilitiesResponse { errors: None, meta: Box::new(meta), resources }
+impl DomainApiEvaluationLogicItemV1 {
+    pub fn new(id: i32, title: String, _type: String) -> DomainApiEvaluationLogicItemV1 {
+        DomainApiEvaluationLogicItemV1 { id, title, _type }
     }
 }

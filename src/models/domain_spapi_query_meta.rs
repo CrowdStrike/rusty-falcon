@@ -9,17 +9,27 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainSpapiCombinedVulnerabilitiesResponse {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::MsaApiError>>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::DomainSpapiQueryMeta>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<crate::models::DomainBaseApiVulnerabilityV2>,
+pub struct DomainSpapiQueryMeta {
+    #[serde(rename = "pagination", skip_serializing_if = "Option::is_none")]
+    pub pagination: Option<Box<crate::models::DomainSpapiQueryPaging>>,
+    #[serde(rename = "powered_by", skip_serializing_if = "Option::is_none")]
+    pub powered_by: Option<String>,
+    #[serde(rename = "query_time")]
+    pub query_time: f64,
+    #[serde(rename = "quota", skip_serializing_if = "Option::is_none")]
+    pub quota: Option<Box<crate::models::DomainQuota>>,
+    #[serde(rename = "trace_id")]
+    pub trace_id: String,
 }
 
-impl DomainSpapiCombinedVulnerabilitiesResponse {
-    pub fn new(meta: crate::models::DomainSpapiQueryMeta, resources: Vec<crate::models::DomainBaseApiVulnerabilityV2>) -> DomainSpapiCombinedVulnerabilitiesResponse {
-        DomainSpapiCombinedVulnerabilitiesResponse { errors: None, meta: Box::new(meta), resources }
+impl DomainSpapiQueryMeta {
+    pub fn new(query_time: f64, trace_id: String) -> DomainSpapiQueryMeta {
+        DomainSpapiQueryMeta {
+            pagination: None,
+            powered_by: None,
+            query_time,
+            quota: None,
+            trace_id,
+        }
     }
 }
