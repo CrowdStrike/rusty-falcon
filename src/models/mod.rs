@@ -1194,3 +1194,7 @@ pub mod sadomain_create_rule_request_v1;
 pub use self::sadomain_create_rule_request_v1::SadomainCreateRuleRequestV1;
 pub mod sadomain_rule;
 pub use self::sadomain_rule::SadomainRule;
+pub mod state_online_state_resp_v1;
+pub use self::state_online_state_resp_v1::StateOnlineStateRespV1;
+pub mod state_online_state_result_v1;
+pub use self::state_online_state_result_v1::StateOnlineStateResultV1;
