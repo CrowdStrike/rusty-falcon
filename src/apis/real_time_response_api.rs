@@ -126,6 +126,17 @@ pub enum RTrDeleteFileError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`r_tr_delete_file_v2`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum RTrDeleteFileV2Error {
+    Status400(crate::models::DomainApiError),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::DomainApiError),
+    Status429(crate::models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`r_tr_delete_queued_session`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -213,6 +224,18 @@ pub enum RTrListFilesError {
     Status404(crate::models::DomainApiError),
     Status429(crate::models::MsaReplyMetaOnly),
     DefaultResponse(crate::models::DomainListFilesResponseWrapper),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`r_tr_list_files_v2`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum RTrListFilesV2Error {
+    Status400(crate::models::DomainApiError),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::DomainApiError),
+    Status429(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::DomainListFilesV2ResponseWrapper),
     UnknownValue(serde_json::Value),
 }
 
@@ -641,6 +664,42 @@ pub async fn r_tr_delete_file(configuration: &configuration::Configuration, ids:
     }
 }
 
+pub async fn r_tr_delete_file_v2(configuration: &configuration::Configuration, ids: &str, session_id: &str) -> Result<crate::models::MsaReplyMetaOnly, Error<RTrDeleteFileV2Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/real-time-response/entities/file/v2", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("ids", &ids.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("session_id", &session_id.to_string())]);
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<RTrDeleteFileV2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn r_tr_delete_queued_session(configuration: &configuration::Configuration, session_id: &str, cloud_request_id: &str) -> Result<crate::models::MsaReplyMetaOnly, Error<RTrDeleteQueuedSessionError>> {
     let local_var_configuration = configuration;
 
@@ -928,6 +987,41 @@ pub async fn r_tr_list_files(configuration: &configuration::Configuration, sessi
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<RTrListFilesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn r_tr_list_files_v2(configuration: &configuration::Configuration, session_id: &str) -> Result<crate::models::DomainListFilesV2ResponseWrapper, Error<RTrListFilesV2Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/real-time-response/entities/file/v2", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("session_id", &session_id.to_string())]);
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<RTrListFilesV2Error> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
