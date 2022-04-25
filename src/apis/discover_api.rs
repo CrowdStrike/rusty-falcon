@@ -13,6 +13,18 @@ use reqwest;
 use super::{configuration, Error};
 use crate::apis::ResponseContent;
 
+/// struct for typed errors of method [`get_accounts`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetAccountsError {
+    Status400(crate::models::MsaReplyMetaOnly),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::DomainDiscoverApiAccountEntitiesResponse),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_hosts`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -22,6 +34,30 @@ pub enum GetHostsError {
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::MsaReplyMetaOnly),
     DefaultResponse(crate::models::DomainDiscoverApiHostEntitiesResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_logins`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetLoginsError {
+    Status400(crate::models::MsaReplyMetaOnly),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::DomainDiscoverApiLoginEntitiesResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`query_accounts`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum QueryAccountsError {
+    Status400(crate::models::MsaReplyMetaOnly),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -35,6 +71,56 @@ pub enum QueryHostsError {
     Status500(crate::models::MsaReplyMetaOnly),
     DefaultResponse(crate::models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`query_logins`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum QueryLoginsError {
+    Status400(crate::models::MsaReplyMetaOnly),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::MsaQueryResponse),
+    UnknownValue(serde_json::Value),
+}
+
+pub async fn get_accounts(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainDiscoverApiAccountEntitiesResponse, Error<GetAccountsError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/discover/entities/accounts/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetAccountsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
 }
 
 pub async fn get_hosts(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainDiscoverApiHostEntitiesResponse, Error<GetHostsError>> {
@@ -66,6 +152,90 @@ pub async fn get_hosts(configuration: &configuration::Configuration, ids: Vec<St
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetHostsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn get_logins(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainDiscoverApiLoginEntitiesResponse, Error<GetLoginsError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/discover/entities/logins/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetLoginsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn query_accounts(configuration: &configuration::Configuration, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QueryAccountsError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/discover/queries/accounts/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = filter {
+        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<QueryAccountsError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -112,6 +282,52 @@ pub async fn query_hosts(configuration: &configuration::Configuration, offset: O
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<QueryHostsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn query_logins(configuration: &configuration::Configuration, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QueryLoginsError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/discover/queries/logins/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = filter {
+        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<QueryLoginsError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
