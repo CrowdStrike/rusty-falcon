@@ -841,7 +841,7 @@ pub async fn r_tr_execute_command(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn r_tr_get_extracted_file_contents(configuration: &configuration::Configuration, session_id: &str, sha256: &str, filename: Option<&str>) -> Result<Vec<i32>, Error<RTrGetExtractedFileContentsError>> {
+pub async fn r_tr_get_extracted_file_contents(configuration: &configuration::Configuration, session_id: &str, sha256: &str, filename: Option<&str>) -> Result<std::path::PathBuf, Error<RTrGetExtractedFileContentsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
