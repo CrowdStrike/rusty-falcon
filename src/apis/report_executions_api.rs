@@ -180,7 +180,7 @@ pub async fn report_executions_query(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn report_executions_retry(configuration: &configuration::Configuration, X_CS_USERUUID: &str, body: Vec<crate::models::ApiReportExecutionRetryRequestV1>, X_CS_USERID: Option<&str>) -> Result<crate::models::ApiReportExecutionsResponseV1, Error<ReportExecutionsRetryError>> {
+pub async fn report_executions_retry(configuration: &configuration::Configuration, body: Vec<crate::models::ApiReportExecutionRetryRequestV1>) -> Result<crate::models::ApiReportExecutionsResponseV1, Error<ReportExecutionsRetryError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -191,10 +191,6 @@ pub async fn report_executions_retry(configuration: &configuration::Configuratio
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(local_var_param_value) = X_CS_USERID {
-        local_var_req_builder = local_var_req_builder.header("X-CS-USERID", local_var_param_value.to_string());
-    }
-    local_var_req_builder = local_var_req_builder.header("X-CS-USERUUID", X_CS_USERUUID.to_string());
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
     };

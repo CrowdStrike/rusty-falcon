@@ -20,16 +20,22 @@ pub struct ApiExecutionMetadataV1 {
     pub subtype: String,
     #[serde(rename = "unscheduled_execution_type")]
     pub unscheduled_execution_type: String,
+    #[serde(rename = "xdr_data")]
+    pub xdr_data: Box<crate::models::DomainXdrData>,
+    #[serde(rename = "xdr_params")]
+    pub xdr_params: Box<crate::models::DomainXdrParams>,
 }
 
 impl ApiExecutionMetadataV1 {
-    pub fn new(retry_allowed: bool, retry_performed: bool, retry_report_execution_id: String, subtype: String, unscheduled_execution_type: String) -> ApiExecutionMetadataV1 {
+    pub fn new(retry_allowed: bool, retry_performed: bool, retry_report_execution_id: String, subtype: String, unscheduled_execution_type: String, xdr_data: crate::models::DomainXdrData, xdr_params: crate::models::DomainXdrParams) -> ApiExecutionMetadataV1 {
         ApiExecutionMetadataV1 {
             retry_allowed,
             retry_performed,
             retry_report_execution_id,
             subtype,
             unscheduled_execution_type,
+            xdr_data: Box::new(xdr_data),
+            xdr_params: Box::new(xdr_params),
         }
     }
 }
