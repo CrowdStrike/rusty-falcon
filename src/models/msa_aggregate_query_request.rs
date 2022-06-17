@@ -16,6 +16,8 @@ pub struct MsaAggregateQueryRequest {
     pub field: String,
     #[serde(rename = "filter")]
     pub filter: String,
+    #[serde(rename = "from")]
+    pub from: i32,
     #[serde(rename = "include")]
     pub include: String,
     #[serde(rename = "interval")]
@@ -47,6 +49,7 @@ impl MsaAggregateQueryRequest {
         date_ranges: Vec<crate::models::MsaDateRangeSpec>,
         field: String,
         filter: String,
+        from: i32,
         include: String,
         interval: String,
         min_doc_count: i64,
@@ -64,6 +67,7 @@ impl MsaAggregateQueryRequest {
             date_ranges,
             field,
             filter,
+            from,
             include,
             interval,
             min_doc_count,
