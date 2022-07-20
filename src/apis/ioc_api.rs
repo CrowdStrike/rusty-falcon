@@ -127,7 +127,7 @@ pub async fn indicator_combined_v1(configuration: &configuration::Configuration,
 pub async fn indicator_create_v1(
     configuration: &configuration::Configuration,
     body: crate::models::ApiIndicatorCreateReqsV1,
-    X_CS_USERNAME: Option<&str>,
+    x_cs_username: Option<&str>,
     retrodetects: Option<serde_json::Value>,
     ignore_warnings: Option<serde_json::Value>,
 ) -> Result<crate::models::ApiIndicatorRespV1, Error<IndicatorCreateV1Error>> {
@@ -147,7 +147,7 @@ pub async fn indicator_create_v1(
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(local_var_param_value) = X_CS_USERNAME {
+    if let Some(local_var_param_value) = x_cs_username {
         local_var_req_builder = local_var_req_builder.header("X-CS-USERNAME", local_var_param_value.to_string());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
@@ -310,7 +310,7 @@ pub async fn indicator_search_v1(configuration: &configuration::Configuration, f
 pub async fn indicator_update_v1(
     configuration: &configuration::Configuration,
     body: crate::models::ApiIndicatorUpdateReqsV1,
-    X_CS_USERNAME: Option<&str>,
+    x_cs_username: Option<&str>,
     retrodetects: Option<serde_json::Value>,
     ignore_warnings: Option<serde_json::Value>,
 ) -> Result<crate::models::ApiIndicatorRespV1, Error<IndicatorUpdateV1Error>> {
@@ -330,7 +330,7 @@ pub async fn indicator_update_v1(
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(local_var_param_value) = X_CS_USERNAME {
+    if let Some(local_var_param_value) = x_cs_username {
         local_var_req_builder = local_var_req_builder.header("X-CS-USERNAME", local_var_param_value.to_string());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
