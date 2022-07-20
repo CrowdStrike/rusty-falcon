@@ -11,7 +11,7 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainApiEvaluationLogicItemV1 {
     #[serde(rename = "id")]
-    pub id: String,
+    pub id: i32,
     #[serde(rename = "title")]
     pub title: String,
     #[serde(rename = "type")]
@@ -19,7 +19,7 @@ pub struct DomainApiEvaluationLogicItemV1 {
 }
 
 impl DomainApiEvaluationLogicItemV1 {
-    pub fn new(id: String, title: String, _type: String) -> DomainApiEvaluationLogicItemV1 {
+    pub fn new(id: i32, title: String, _type: String) -> DomainApiEvaluationLogicItemV1 {
         DomainApiEvaluationLogicItemV1 { id, title, _type }
     }
 }

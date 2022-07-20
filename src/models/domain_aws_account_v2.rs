@@ -15,7 +15,7 @@ pub struct DomainAwsAccountV2 {
     #[serde(rename = "DeletedAt")]
     pub deleted_at: String,
     #[serde(rename = "ID")]
-    pub ID: i32,
+    pub id: i32,
     #[serde(rename = "UpdatedAt")]
     pub updated_at: String,
     /// 12 digit AWS provided unique identifier for the account.
@@ -55,11 +55,11 @@ pub struct DomainAwsAccountV2 {
 }
 
 impl DomainAwsAccountV2 {
-    pub fn new(created_at: String, deleted_at: String, ID: i32, updated_at: String, aws_permissions_status: Vec<crate::models::DomainPermission>, is_master: bool) -> DomainAwsAccountV2 {
+    pub fn new(created_at: String, deleted_at: String, id: i32, updated_at: String, aws_permissions_status: Vec<crate::models::DomainPermission>, is_master: bool) -> DomainAwsAccountV2 {
         DomainAwsAccountV2 {
             created_at,
             deleted_at,
-            ID,
+            id,
             updated_at,
             account_id: None,
             aws_cloudtrail_bucket_name: None,

@@ -15,7 +15,7 @@ pub struct DomainPolicyInfo {
     #[serde(rename = "DeletedAt")]
     pub deleted_at: String,
     #[serde(rename = "ID")]
-    pub ID: i32,
+    pub id: i32,
     #[serde(rename = "UpdatedAt")]
     pub updated_at: String,
     #[serde(rename = "alert_logic", skip_serializing_if = "Option::is_none")]
@@ -61,11 +61,11 @@ pub struct DomainPolicyInfo {
 }
 
 impl DomainPolicyInfo {
-    pub fn new(created_at: String, deleted_at: String, ID: i32, updated_at: String) -> DomainPolicyInfo {
+    pub fn new(created_at: String, deleted_at: String, id: i32, updated_at: String) -> DomainPolicyInfo {
         DomainPolicyInfo {
             created_at,
             deleted_at,
-            ID,
+            id,
             updated_at,
             alert_logic: None,
             api_command: None,

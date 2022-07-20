@@ -9,39 +9,15 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainAzureAccountV1 {
-    #[serde(rename = "CreatedAt")]
-    pub created_at: String,
-    #[serde(rename = "DeletedAt")]
-    pub deleted_at: String,
-    #[serde(rename = "ID")]
-    pub id: i32,
-    #[serde(rename = "UpdatedAt")]
-    pub updated_at: String,
-    #[serde(rename = "cid")]
-    pub cid: String,
-    /// Account registration status.
-    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<String>,
-    /// Azure Subscription ID.
-    #[serde(rename = "subscription_id", skip_serializing_if = "Option::is_none")]
-    pub subscription_id: Option<String>,
-    /// Azure Tenant ID to use.
-    #[serde(rename = "tenant_id", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<String>,
+pub struct DetectsapiPatchEntitiesInvestigatablesV2Request {
+    #[serde(rename = "action_parameters", skip_serializing_if = "Option::is_none")]
+    pub action_parameters: Option<Vec<crate::models::MsaspecActionParameter>>,
+    #[serde(rename = "ids")]
+    pub ids: Vec<String>,
 }
 
-impl DomainAzureAccountV1 {
-    pub fn new(created_at: String, deleted_at: String, id: i32, updated_at: String, cid: String) -> DomainAzureAccountV1 {
-        DomainAzureAccountV1 {
-            created_at,
-            deleted_at,
-            id,
-            updated_at,
-            cid,
-            status: None,
-            subscription_id: None,
-            tenant_id: None,
-        }
+impl DetectsapiPatchEntitiesInvestigatablesV2Request {
+    pub fn new(ids: Vec<String>) -> DetectsapiPatchEntitiesInvestigatablesV2Request {
+        DetectsapiPatchEntitiesInvestigatablesV2Request { action_parameters: None, ids }
     }
 }
