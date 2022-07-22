@@ -9,17 +9,27 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainSpapiQueryVulnerabilitiesPaging {
-    #[serde(rename = "after")]
-    pub after: String,
-    #[serde(rename = "limit")]
-    pub limit: i32,
-    #[serde(rename = "total")]
-    pub total: i64,
+pub struct MsaspecMetaInfo {
+    #[serde(rename = "pagination", skip_serializing_if = "Option::is_none")]
+    pub pagination: Option<Box<crate::models::MsaspecPaging>>,
+    #[serde(rename = "powered_by", skip_serializing_if = "Option::is_none")]
+    pub powered_by: Option<String>,
+    #[serde(rename = "query_time")]
+    pub query_time: f64,
+    #[serde(rename = "trace_id")]
+    pub trace_id: String,
+    #[serde(rename = "writes", skip_serializing_if = "Option::is_none")]
+    pub writes: Option<Box<crate::models::MsaspecWrites>>,
 }
 
-impl DomainSpapiQueryVulnerabilitiesPaging {
-    pub fn new(after: String, limit: i32, total: i64) -> DomainSpapiQueryVulnerabilitiesPaging {
-        DomainSpapiQueryVulnerabilitiesPaging { after, limit, total }
+impl MsaspecMetaInfo {
+    pub fn new(query_time: f64, trace_id: String) -> MsaspecMetaInfo {
+        MsaspecMetaInfo {
+            pagination: None,
+            powered_by: None,
+            query_time,
+            trace_id,
+            writes: None,
+        }
     }
 }

@@ -9,27 +9,15 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainSpapiQueryVulnerabilitiesMeta {
-    #[serde(rename = "pagination", skip_serializing_if = "Option::is_none")]
-    pub pagination: Option<Box<crate::models::DomainSpapiQueryVulnerabilitiesPaging>>,
-    #[serde(rename = "powered_by", skip_serializing_if = "Option::is_none")]
-    pub powered_by: Option<String>,
-    #[serde(rename = "query_time")]
-    pub query_time: f64,
-    #[serde(rename = "quota", skip_serializing_if = "Option::is_none")]
-    pub quota: Option<Box<crate::models::DomainQuota>>,
-    #[serde(rename = "trace_id")]
-    pub trace_id: String,
+pub struct DetectsapiPatchEntitiesInvestigatablesV2Request {
+    #[serde(rename = "action_parameters", skip_serializing_if = "Option::is_none")]
+    pub action_parameters: Option<Vec<crate::models::MsaspecActionParameter>>,
+    #[serde(rename = "ids")]
+    pub ids: Vec<String>,
 }
 
-impl DomainSpapiQueryVulnerabilitiesMeta {
-    pub fn new(query_time: f64, trace_id: String) -> DomainSpapiQueryVulnerabilitiesMeta {
-        DomainSpapiQueryVulnerabilitiesMeta {
-            pagination: None,
-            powered_by: None,
-            query_time,
-            quota: None,
-            trace_id,
-        }
+impl DetectsapiPatchEntitiesInvestigatablesV2Request {
+    pub fn new(ids: Vec<String>) -> DetectsapiPatchEntitiesInvestigatablesV2Request {
+        DetectsapiPatchEntitiesInvestigatablesV2Request { action_parameters: None, ids }
     }
 }

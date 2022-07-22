@@ -49,11 +49,11 @@ pub enum GetVulnerabilitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryVulnerabilitiesError {
-    Status400(crate::models::DomainSpapiQueryVulnerabilitiesResponse),
+    Status400(crate::models::DomainSpapiQueryResponse),
     Status403(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    Status500(crate::models::DomainSpapiQueryVulnerabilitiesResponse),
-    DefaultResponse(crate::models::DomainSpapiQueryVulnerabilitiesResponse),
+    Status500(crate::models::DomainSpapiQueryResponse),
+    DefaultResponse(crate::models::DomainSpapiQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -190,7 +190,7 @@ pub async fn get_vulnerabilities(configuration: &configuration::Configuration, i
     }
 }
 
-pub async fn query_vulnerabilities(configuration: &configuration::Configuration, filter: &str, after: Option<&str>, limit: Option<i32>, sort: Option<&str>) -> Result<crate::models::DomainSpapiQueryVulnerabilitiesResponse, Error<QueryVulnerabilitiesError>> {
+pub async fn query_vulnerabilities(configuration: &configuration::Configuration, filter: &str, after: Option<&str>, limit: Option<i32>, sort: Option<&str>) -> Result<crate::models::DomainSpapiQueryResponse, Error<QueryVulnerabilitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

@@ -9,17 +9,15 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainSpapiQueryVulnerabilitiesResponse {
+pub struct MsaspecResponseFields {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::MsaApiError>>,
+    pub errors: Option<Vec<crate::models::MsaspecError>>,
     #[serde(rename = "meta")]
-    pub meta: Box<crate::models::DomainSpapiQueryVulnerabilitiesMeta>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+    pub meta: Box<crate::models::MsaspecMetaInfo>,
 }
 
-impl DomainSpapiQueryVulnerabilitiesResponse {
-    pub fn new(meta: crate::models::DomainSpapiQueryVulnerabilitiesMeta, resources: Vec<String>) -> DomainSpapiQueryVulnerabilitiesResponse {
-        DomainSpapiQueryVulnerabilitiesResponse { errors: None, meta: Box::new(meta), resources }
+impl MsaspecResponseFields {
+    pub fn new(meta: crate::models::MsaspecMetaInfo) -> MsaspecResponseFields {
+        MsaspecResponseFields { errors: None, meta: Box::new(meta) }
     }
 }
