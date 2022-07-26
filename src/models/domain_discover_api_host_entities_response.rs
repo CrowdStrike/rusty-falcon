@@ -13,13 +13,13 @@ pub struct DomainDiscoverApiHostEntitiesResponse {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<crate::models::MsaApiError>>,
     #[serde(rename = "meta")]
-    pub meta: Box<crate::models::MsaMetaInfo>,
+    pub meta: Box<crate::models::MsaspecMetaInfo>,
     #[serde(rename = "resources")]
     pub resources: Vec<crate::models::DomainDiscoverApiHost>,
 }
 
 impl DomainDiscoverApiHostEntitiesResponse {
-    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainDiscoverApiHost>) -> DomainDiscoverApiHostEntitiesResponse {
+    pub fn new(meta: crate::models::MsaspecMetaInfo, resources: Vec<crate::models::DomainDiscoverApiHost>) -> DomainDiscoverApiHostEntitiesResponse {
         DomainDiscoverApiHostEntitiesResponse { errors: None, meta: Box::new(meta), resources }
     }
 }
