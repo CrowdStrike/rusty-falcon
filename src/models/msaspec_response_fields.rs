@@ -13,11 +13,11 @@ pub struct MsaspecResponseFields {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
     pub errors: Option<Vec<crate::models::MsaApiError>>,
     #[serde(rename = "meta")]
-    pub meta: Box<crate::models::MsaspecMetaInfo>,
+    pub meta: Box<crate::models::MsaMetaInfo>,
 }
 
 impl MsaspecResponseFields {
-    pub fn new(meta: crate::models::MsaspecMetaInfo) -> MsaspecResponseFields {
+    pub fn new(meta: crate::models::MsaMetaInfo) -> MsaspecResponseFields {
         MsaspecResponseFields { errors: None, meta: Box::new(meta) }
     }
 }

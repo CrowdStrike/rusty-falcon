@@ -13,13 +13,13 @@ pub struct MsaQueryResponse {
     #[serde(rename = "errors")]
     pub errors: Vec<crate::models::MsaApiError>,
     #[serde(rename = "meta")]
-    pub meta: Box<crate::models::MsaspecMetaInfo>,
+    pub meta: Box<crate::models::MsaMetaInfo>,
     #[serde(rename = "resources")]
     pub resources: Vec<String>,
 }
 
 impl MsaQueryResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaspecMetaInfo, resources: Vec<String>) -> MsaQueryResponse {
+    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> MsaQueryResponse {
         MsaQueryResponse { errors, meta: Box::new(meta), resources }
     }
 }
