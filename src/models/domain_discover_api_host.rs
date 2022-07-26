@@ -12,12 +12,21 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainDiscoverApiHost {
+    /// Whether the asset is account-enabled in Active Directory (Yes or No).
+    #[serde(rename = "account_enabled", skip_serializing_if = "Option::is_none")]
+    pub account_enabled: Option<String>,
+    /// The user account control properties in Active Directory.
+    #[serde(rename = "ad_user_account_control", skip_serializing_if = "Option::is_none")]
+    pub ad_user_account_control: Option<i32>,
     /// The version of the Falcon sensor that's installed on the asset.
     #[serde(rename = "agent_version", skip_serializing_if = "Option::is_none")]
     pub agent_version: Option<String>,
     /// The agent ID of the Falcon sensor installed on the asset.
     #[serde(rename = "aid", skip_serializing_if = "Option::is_none")]
     pub aid: Option<String>,
+    /// The first and last name of the person who is assigned to this asset.
+    #[serde(rename = "assigned_to", skip_serializing_if = "Option::is_none")]
+    pub assigned_to: Option<String>,
     /// The name of the asset's BIOS manufacturer.
     #[serde(rename = "bios_manufacturer", skip_serializing_if = "Option::is_none")]
     pub bios_manufacturer: Option<String>,
@@ -30,15 +39,36 @@ pub struct DomainDiscoverApiHost {
     /// The name of the city where the asset is located.
     #[serde(rename = "city", skip_serializing_if = "Option::is_none")]
     pub city: Option<String>,
+    /// How the server is classified, such as production, development, disaster recovery, or user acceptance testing.
+    #[serde(rename = "classification", skip_serializing_if = "Option::is_none")]
+    pub classification: Option<String>,
     /// The level of confidence that the asset is a corporate asset (25 = low confidence, 50 = medium confidence, 75 = high confidence).
     #[serde(rename = "confidence", skip_serializing_if = "Option::is_none")]
     pub confidence: Option<i32>,
     /// The name of the country where the asset is located.
     #[serde(rename = "country", skip_serializing_if = "Option::is_none")]
     pub country: Option<String>,
+    /// The manufacturer of the asset's CPU.
+    #[serde(rename = "cpu_manufacturer", skip_serializing_if = "Option::is_none")]
+    pub cpu_manufacturer: Option<String>,
+    /// The time the asset was created in Active Directory, according to LDAP info.
+    #[serde(rename = "creation_timestamp", skip_serializing_if = "Option::is_none")]
+    pub creation_timestamp: Option<String>,
     /// The last seen local IPv4 address of the asset.
     #[serde(rename = "current_local_ip", skip_serializing_if = "Option::is_none")]
     pub current_local_ip: Option<String>,
+    /// Where the data about the asset came from (such as CrowdStrike, ServiceNow, or Active Directory).
+    #[serde(rename = "data_providers", skip_serializing_if = "Option::is_none")]
+    pub data_providers: Option<Vec<String>>,
+    /// How many services provided data about the asset.
+    #[serde(rename = "data_providers_count", skip_serializing_if = "Option::is_none")]
+    pub data_providers_count: Option<i32>,
+    /// The department where the asset is used.
+    #[serde(rename = "department", skip_serializing_if = "Option::is_none")]
+    pub department: Option<String>,
+    /// The descriptions of the asset in Active Directory (Cannot be used for filtering, sorting, or querying).
+    #[serde(rename = "descriptions", skip_serializing_if = "Option::is_none")]
+    pub descriptions: Option<Vec<String>>,
     /// The agent IDs of the Falcon sensors installed on the sources that discovered the asset.
     #[serde(rename = "discoverer_aids", skip_serializing_if = "Option::is_none")]
     pub discoverer_aids: Option<Vec<String>>,
@@ -54,28 +84,37 @@ pub struct DomainDiscoverApiHost {
     /// The tags of the sources that discovered the asset.
     #[serde(rename = "discoverer_tags", skip_serializing_if = "Option::is_none")]
     pub discoverer_tags: Option<Vec<String>>,
+    /// The email of the asset as listed in Active Directory.
+    #[serde(rename = "email", skip_serializing_if = "Option::is_none")]
+    pub email: Option<String>,
     /// The type of asset (managed, unmanaged, unsupported).
     #[serde(rename = "entity_type", skip_serializing_if = "Option::is_none")]
     pub entity_type: Option<String>,
     /// The external IPv4 address of the asset.
     #[serde(rename = "external_ip", skip_serializing_if = "Option::is_none")]
     pub external_ip: Option<String>,
+    /// Lists the data providers for each property in the response (Cannot be used for filtering, sorting, or querying).
+    #[serde(rename = "field_metadata", skip_serializing_if = "Option::is_none")]
+    pub field_metadata: Option<::std::collections::HashMap<String, crate::models::DomainDiscoverApiFieldMetadata>>,
     /// The agent ID of the Falcon sensor on the source that first discovered the asset.
     #[serde(rename = "first_discoverer_aid", skip_serializing_if = "Option::is_none")]
     pub first_discoverer_aid: Option<String>,
     /// The first time the asset was seen in your environment.
     #[serde(rename = "first_seen_timestamp", skip_serializing_if = "Option::is_none")]
     pub first_seen_timestamp: Option<String>,
+    /// The fully qualified domain name of the asset.
+    #[serde(rename = "fqdn", skip_serializing_if = "Option::is_none")]
+    pub fqdn: Option<String>,
     /// The host management groups the asset is part of.
     #[serde(rename = "groups", skip_serializing_if = "Option::is_none")]
     pub groups: Option<Vec<String>>,
-    /// The asset's hostname .
+    /// The asset's hostname.
     #[serde(rename = "hostname", skip_serializing_if = "Option::is_none")]
     pub hostname: Option<String>,
     /// The unique ID of the asset.
     #[serde(rename = "id")]
     pub id: String,
-    /// Whether the asset is exposed to the internet (Yes or Unknown)
+    /// Whether the asset is exposed to the internet (Yes or Unknown).
     #[serde(rename = "internet_exposure", skip_serializing_if = "Option::is_none")]
     pub internet_exposure: Option<String>,
     /// For Linux and Mac hosts: the major version, minor version, and patch version of the kernel for the asset. For Windows hosts: the build number of the asset.
@@ -87,33 +126,78 @@ pub struct DomainDiscoverApiHost {
     /// The most recent time the asset was seen in your environment.
     #[serde(rename = "last_seen_timestamp", skip_serializing_if = "Option::is_none")]
     pub last_seen_timestamp: Option<String>,
+    /// Historical local IPv4 addresses associated with the asset.
+    #[serde(rename = "local_ip_addresses", skip_serializing_if = "Option::is_none")]
+    pub local_ip_addresses: Option<Vec<String>>,
     /// The number of historical local IPv4 addresses the asset has had.
     #[serde(rename = "local_ips_count", skip_serializing_if = "Option::is_none")]
     pub local_ips_count: Option<i32>,
-    /// The domain name the asset is currently joined to (applies only to Windows hosts).
+    /// The location of the asset.
+    #[serde(rename = "location", skip_serializing_if = "Option::is_none")]
+    pub location: Option<String>,
+    /// Historical MAC addresses associated with the asset.
+    #[serde(rename = "mac_addresses", skip_serializing_if = "Option::is_none")]
+    pub mac_addresses: Option<Vec<String>>,
+    /// The domain name the asset is currently joined to.
     #[serde(rename = "machine_domain", skip_serializing_if = "Option::is_none")]
     pub machine_domain: Option<String>,
-    /// The asset's network interfaces.
+    /// The first and last name of the person who manages this asset.
+    #[serde(rename = "managed_by", skip_serializing_if = "Option::is_none")]
+    pub managed_by: Option<String>,
+    /// The asset's network interfaces (Cannot be used for filtering, sorting, or querying).
     #[serde(rename = "network_interfaces", skip_serializing_if = "Option::is_none")]
     pub network_interfaces: Option<Vec<crate::models::DomainDiscoverApiNetworkInterface>>,
+    /// The number of active physical drives available on the system.
+    #[serde(rename = "number_of_disk_drives", skip_serializing_if = "Option::is_none")]
+    pub number_of_disk_drives: Option<i32>,
+    /// The globally unique identifier (GUID) of the asset in Active Directory.
+    #[serde(rename = "object_guid", skip_serializing_if = "Option::is_none")]
+    pub object_guid: Option<String>,
+    /// The security identifier (SID) of the asset in Active Directory.
+    #[serde(rename = "object_sid", skip_serializing_if = "Option::is_none")]
+    pub object_sid: Option<String>,
+    /// Whether the asset is at end of support (Yes, No, or Unknown).
+    #[serde(rename = "os_is_eol", skip_serializing_if = "Option::is_none")]
+    pub os_is_eol: Option<String>,
+    /// The OS service pack on the asset.
+    #[serde(rename = "os_service_pack", skip_serializing_if = "Option::is_none")]
+    pub os_service_pack: Option<String>,
     /// The OS version of the asset.
     #[serde(rename = "os_version", skip_serializing_if = "Option::is_none")]
     pub os_version: Option<String>,
-    /// The organizational unit of the asset (applies only to Windows hosts).
+    /// The organizational unit of the asset.
     #[serde(rename = "ou", skip_serializing_if = "Option::is_none")]
     pub ou: Option<String>,
+    /// The first and last name of the person who owns this asset.
+    #[serde(rename = "owned_by", skip_serializing_if = "Option::is_none")]
+    pub owned_by: Option<String>,
+    /// The number of physical CPU cores available on the system.
+    #[serde(rename = "physical_core_count", skip_serializing_if = "Option::is_none")]
+    pub physical_core_count: Option<i32>,
     /// The platform name of the asset (Windows, Mac, Linux).
     #[serde(rename = "platform_name", skip_serializing_if = "Option::is_none")]
     pub platform_name: Option<String>,
+    /// The number of physical processors available on the system.
+    #[serde(rename = "processor_package_count", skip_serializing_if = "Option::is_none")]
+    pub processor_package_count: Option<i32>,
     /// The product type of the asset represented as a number (1 = Workstation, 2 = Domain Controller, 3 = Server).
     #[serde(rename = "product_type", skip_serializing_if = "Option::is_none")]
     pub product_type: Option<String>,
     /// The product type of the asset (Workstation, Domain Controller, Server).
     #[serde(rename = "product_type_desc", skip_serializing_if = "Option::is_none")]
     pub product_type_desc: Option<String>,
+    /// Whether the asset is in reduced functionality mode (Yes or No).
+    #[serde(rename = "reduced_functionality_mode", skip_serializing_if = "Option::is_none")]
+    pub reduced_functionality_mode: Option<String>,
+    /// The unique identifier of the asset from ServiceNow, if any.
+    #[serde(rename = "servicenow_id", skip_serializing_if = "Option::is_none")]
+    pub servicenow_id: Option<String>,
     /// The site name of the domain the asset is joined to (applies only to Windows hosts).
     #[serde(rename = "site_name", skip_serializing_if = "Option::is_none")]
     pub site_name: Option<String>,
+    /// The name of the U.S. state where the asset is located.
+    #[serde(rename = "state", skip_serializing_if = "Option::is_none")]
+    pub state: Option<String>,
     /// The asset's system manufacturer.
     #[serde(rename = "system_manufacturer", skip_serializing_if = "Option::is_none")]
     pub system_manufacturer: Option<String>,
@@ -126,30 +210,46 @@ pub struct DomainDiscoverApiHost {
     /// The sensor and cloud tags of the asset.
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<String>>,
+    /// What the asset is used for, such as production, staging, or QA.
+    #[serde(rename = "used_for", skip_serializing_if = "Option::is_none")]
+    pub used_for: Option<String>,
 }
 
 impl DomainDiscoverApiHost {
     /// Represents information about a managed, an unmanaged or an unsupported asset.
     pub fn new(cid: String, id: String) -> DomainDiscoverApiHost {
         DomainDiscoverApiHost {
+            account_enabled: None,
+            ad_user_account_control: None,
             agent_version: None,
             aid: None,
+            assigned_to: None,
             bios_manufacturer: None,
             bios_version: None,
             cid,
             city: None,
+            classification: None,
             confidence: None,
             country: None,
+            cpu_manufacturer: None,
+            creation_timestamp: None,
             current_local_ip: None,
+            data_providers: None,
+            data_providers_count: None,
+            department: None,
+            descriptions: None,
             discoverer_aids: None,
             discoverer_count: None,
             discoverer_platform_names: None,
             discoverer_product_type_descs: None,
             discoverer_tags: None,
+            email: None,
             entity_type: None,
             external_ip: None,
+            field_metadata: None,
             first_discoverer_aid: None,
             first_seen_timestamp: None,
+            fqdn: None,
             groups: None,
             hostname: None,
             id,
@@ -157,19 +257,35 @@ impl DomainDiscoverApiHost {
             kernel_version: None,
             last_discoverer_aid: None,
             last_seen_timestamp: None,
+            local_ip_addresses: None,
             local_ips_count: None,
+            location: None,
+            mac_addresses: None,
             machine_domain: None,
+            managed_by: None,
             network_interfaces: None,
+            number_of_disk_drives: None,
+            object_guid: None,
+            object_sid: None,
+            os_is_eol: None,
+            os_service_pack: None,
             os_version: None,
             ou: None,
+            owned_by: None,
+            physical_core_count: None,
             platform_name: None,
+            processor_package_count: None,
             product_type: None,
             product_type_desc: None,
+            reduced_functionality_mode: None,
+            servicenow_id: None,
             site_name: None,
+            state: None,
             system_manufacturer: None,
             system_product_name: None,
             system_serial_number: None,
             tags: None,
+            used_for: None,
         }
     }
 }
