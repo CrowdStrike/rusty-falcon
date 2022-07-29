@@ -331,7 +331,7 @@ pub async fn create_actions_v1(configuration: &configuration::Configuration, bod
     }
 }
 
-pub async fn create_rules_v1(configuration: &configuration::Configuration, body: Vec<crate::models::SadomainCreateRuleRequestV1>, x_cs_useruuid: Option<&str>) -> Result<crate::models::DomainRulesEntitiesResponseV1, Error<CreateRulesV1Error>> {
+pub async fn create_rules_v1(configuration: &configuration::Configuration, body: Vec<crate::models::SadomainCreateRuleRequestV1>) -> Result<crate::models::DomainRulesEntitiesResponseV1, Error<CreateRulesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -341,9 +341,6 @@ pub async fn create_rules_v1(configuration: &configuration::Configuration, body:
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = x_cs_useruuid {
-        local_var_req_builder = local_var_req_builder.header("X-CS-USERUUID", local_var_param_value.to_string());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -442,7 +439,7 @@ pub async fn delete_notifications_v1(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn delete_rules_v1(configuration: &configuration::Configuration, ids: Vec<String>, x_cs_useruuid: Option<&str>) -> Result<crate::models::DomainRuleQueryResponseV1, Error<DeleteRulesV1Error>> {
+pub async fn delete_rules_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainRuleQueryResponseV1, Error<DeleteRulesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -456,9 +453,6 @@ pub async fn delete_rules_v1(configuration: &configuration::Configuration, ids: 
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = x_cs_useruuid {
-        local_var_req_builder = local_var_req_builder.header("X-CS-USERUUID", local_var_param_value.to_string());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -673,7 +667,7 @@ pub async fn get_notifications_v1(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn get_rules_v1(configuration: &configuration::Configuration, ids: Vec<String>, x_cs_useruuid: Option<&str>) -> Result<crate::models::DomainRulesEntitiesResponseV1, Error<GetRulesV1Error>> {
+pub async fn get_rules_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainRulesEntitiesResponseV1, Error<GetRulesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -687,9 +681,6 @@ pub async fn get_rules_v1(configuration: &configuration::Configuration, ids: Vec
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = x_cs_useruuid {
-        local_var_req_builder = local_var_req_builder.header("X-CS-USERUUID", local_var_param_value.to_string());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -714,7 +705,7 @@ pub async fn get_rules_v1(configuration: &configuration::Configuration, ids: Vec
     }
 }
 
-pub async fn preview_rule_v1(configuration: &configuration::Configuration, body: crate::models::DomainRulePreviewRequest, x_cs_useruuid: Option<&str>) -> Result<crate::models::DomainAggregatesResponse, Error<PreviewRuleV1Error>> {
+pub async fn preview_rule_v1(configuration: &configuration::Configuration, body: crate::models::DomainRulePreviewRequest) -> Result<crate::models::DomainAggregatesResponse, Error<PreviewRuleV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -724,9 +715,6 @@ pub async fn preview_rule_v1(configuration: &configuration::Configuration, body:
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = x_cs_useruuid {
-        local_var_req_builder = local_var_req_builder.header("X-CS-USERUUID", local_var_param_value.to_string());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -850,7 +838,7 @@ pub async fn query_notifications_v1(configuration: &configuration::Configuration
     }
 }
 
-pub async fn query_rules_v1(configuration: &configuration::Configuration, x_cs_useruuid: Option<&str>, offset: Option<&str>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, q: Option<&str>) -> Result<crate::models::DomainRuleQueryResponseV1, Error<QueryRulesV1Error>> {
+pub async fn query_rules_v1(configuration: &configuration::Configuration, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, q: Option<&str>) -> Result<crate::models::DomainRuleQueryResponseV1, Error<QueryRulesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -875,9 +863,6 @@ pub async fn query_rules_v1(configuration: &configuration::Configuration, x_cs_u
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = x_cs_useruuid {
-        local_var_req_builder = local_var_req_builder.header("X-CS-USERUUID", local_var_param_value.to_string());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -972,7 +957,7 @@ pub async fn update_notifications_v1(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn update_rules_v1(configuration: &configuration::Configuration, body: Vec<crate::models::DomainUpdateRuleRequestV1>, x_cs_useruuid: Option<&str>) -> Result<crate::models::DomainRulesEntitiesResponseV1, Error<UpdateRulesV1Error>> {
+pub async fn update_rules_v1(configuration: &configuration::Configuration, body: Vec<crate::models::DomainUpdateRuleRequestV1>) -> Result<crate::models::DomainRulesEntitiesResponseV1, Error<UpdateRulesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -982,9 +967,6 @@ pub async fn update_rules_v1(configuration: &configuration::Configuration, body:
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = x_cs_useruuid {
-        local_var_req_builder = local_var_req_builder.header("X-CS-USERUUID", local_var_param_value.to_string());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());

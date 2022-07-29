@@ -10,12 +10,15 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct SadomainRule {
+    /// Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required.
+    #[serde(rename = "breach_monitoring_enabled")]
+    pub breach_monitoring_enabled: bool,
     #[serde(rename = "cid")]
     pub cid: String,
     /// The creation time for a given rule
     #[serde(rename = "created_timestamp")]
     pub created_timestamp: String,
-    /// The FQL filter contained in a rule and used for searching
+    /// The FQL filter contained in a rule and used for searching. Parentheses may be added automatically for clarity.
     #[serde(rename = "filter")]
     pub filter: String,
     /// The ID of a given rule
@@ -24,6 +27,8 @@ pub struct SadomainRule {
     /// The name for a given rule
     #[serde(rename = "name")]
     pub name: String,
+    #[serde(rename = "ownership_assets", skip_serializing_if = "Option::is_none")]
+    pub ownership_assets: Option<Box<crate::models::SadomainCustomerAssets>>,
     /// The permissions of a given rule
     #[serde(rename = "permissions")]
     pub permissions: String,
@@ -54,13 +59,15 @@ pub struct SadomainRule {
 }
 
 impl SadomainRule {
-    pub fn new(cid: String, created_timestamp: String, filter: String, id: String, name: String, permissions: String, priority: String, status: String, topic: String, updated_timestamp: String, user_uuid: String) -> SadomainRule {
+    pub fn new(breach_monitoring_enabled: bool, cid: String, created_timestamp: String, filter: String, id: String, name: String, permissions: String, priority: String, status: String, topic: String, updated_timestamp: String, user_uuid: String) -> SadomainRule {
         SadomainRule {
+            breach_monitoring_enabled,
             cid,
             created_timestamp,
             filter,
             id,
             name,
+            ownership_assets: None,
             permissions,
             priority,
             status,
