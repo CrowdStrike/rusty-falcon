@@ -9,36 +9,15 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainUpdateRuleRequestV1 {
-    /// Whether to monitor for breach data
-    #[serde(rename = "breach_monitoring_enabled")]
-    pub breach_monitoring_enabled: bool,
-    /// The filter to be used for searching
-    #[serde(rename = "filter")]
-    pub filter: String,
-    /// The rule ID to be updated
-    #[serde(rename = "id")]
-    pub id: String,
-    /// The name of a particular rule
-    #[serde(rename = "name")]
-    pub name: String,
-    /// The permissions for a particular rule which specifies the rule's access by other users. Possible values: [public private]
-    #[serde(rename = "permissions")]
-    pub permissions: String,
-    /// The priority for a particular rule. Possible values: [low medium high]
-    #[serde(rename = "priority")]
-    pub priority: String,
+pub struct SadomainCustomerAssets {
+    #[serde(rename = "domains", skip_serializing_if = "Option::is_none")]
+    pub domains: Option<Vec<String>>,
+    #[serde(rename = "emails", skip_serializing_if = "Option::is_none")]
+    pub emails: Option<Vec<String>>,
 }
 
-impl DomainUpdateRuleRequestV1 {
-    pub fn new(breach_monitoring_enabled: bool, filter: String, id: String, name: String, permissions: String, priority: String) -> DomainUpdateRuleRequestV1 {
-        DomainUpdateRuleRequestV1 {
-            breach_monitoring_enabled,
-            filter,
-            id,
-            name,
-            permissions,
-            priority,
-        }
+impl SadomainCustomerAssets {
+    pub fn new() -> SadomainCustomerAssets {
+        SadomainCustomerAssets { domains: None, emails: None }
     }
 }

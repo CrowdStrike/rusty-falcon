@@ -10,25 +10,35 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct SadomainCreateRuleRequestV1 {
+    /// Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required.
+    #[serde(rename = "breach_monitoring_enabled")]
+    pub breach_monitoring_enabled: bool,
     /// The filter to be used for searching
     #[serde(rename = "filter")]
     pub filter: String,
     /// The name of a particular rule
     #[serde(rename = "name")]
     pub name: String,
-    /// The permissions for a particular rule which specifies the rule's access by other users. Possible values: [public private]
+    /// The permissions for a particular rule which specifies the rule's access by other users. Possible values: [private public]
     #[serde(rename = "permissions")]
     pub permissions: String,
-    /// The priority for a particular rule. Possible values: [medium high low]
+    /// The priority for a particular rule. Possible values: [low medium high]
     #[serde(rename = "priority")]
     pub priority: String,
-    /// The topic of a given rule. Possible values: [SA_THIRD_PARTY SA_CVE SA_ALIAS SA_AUTHOR SA_BRAND_PRODUCT SA_VIP SA_IP SA_BIN SA_DOMAIN SA_EMAIL SA_CUSTOM]
+    /// The topic of a given rule. Possible values: [SA_BRAND_PRODUCT SA_THIRD_PARTY SA_IP SA_CVE SA_DOMAIN SA_AUTHOR SA_CUSTOM SA_VIP SA_BIN SA_EMAIL SA_ALIAS]
     #[serde(rename = "topic")]
     pub topic: String,
 }
 
 impl SadomainCreateRuleRequestV1 {
-    pub fn new(filter: String, name: String, permissions: String, priority: String, topic: String) -> SadomainCreateRuleRequestV1 {
-        SadomainCreateRuleRequestV1 { filter, name, permissions, priority, topic }
+    pub fn new(breach_monitoring_enabled: bool, filter: String, name: String, permissions: String, priority: String, topic: String) -> SadomainCreateRuleRequestV1 {
+        SadomainCreateRuleRequestV1 {
+            breach_monitoring_enabled,
+            filter,
+            name,
+            permissions,
+            priority,
+            topic,
+        }
     }
 }

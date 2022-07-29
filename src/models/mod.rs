@@ -1230,6 +1230,8 @@ pub mod responses_uninstall_token_v1;
 pub use self::responses_uninstall_token_v1::ResponsesUninstallTokenV1;
 pub mod sadomain_create_rule_request_v1;
 pub use self::sadomain_create_rule_request_v1::SadomainCreateRuleRequestV1;
+pub mod sadomain_customer_assets;
+pub use self::sadomain_customer_assets::SadomainCustomerAssets;
 pub mod sadomain_rule;
 pub use self::sadomain_rule::SadomainRule;
 pub mod state_online_state_resp_v1;

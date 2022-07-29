@@ -24,7 +24,7 @@ pub struct DomainRuleMetaInfo {
     #[serde(rename = "trace_id")]
     pub trace_id: String,
     #[serde(rename = "writes", skip_serializing_if = "Option::is_none")]
-    pub writes: Option<Box<crate::models::MsaResources>>,
+    pub writes: Option<Box<crate::models::MsaspecWrites>>,
 }
 
 impl DomainRuleMetaInfo {
