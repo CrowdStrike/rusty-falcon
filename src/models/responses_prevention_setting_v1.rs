@@ -10,7 +10,7 @@
 
 /// ResponsesPreventionSettingV1 : A prevention policy setting
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ResponsesPreventionSettingV1 {
     /// The human readable description of the setting
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]

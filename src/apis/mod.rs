@@ -89,6 +89,7 @@ pub mod kubernetes_protection_api;
 pub mod malquery_api;
 pub mod message_center_api;
 pub mod ml_exclusions_api;
+pub mod mobile_enrollment_api;
 pub mod mssp_api;
 pub mod oauth2_api;
 pub mod overwatch_dashboard_api;

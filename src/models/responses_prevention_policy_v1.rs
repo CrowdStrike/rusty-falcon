@@ -10,7 +10,7 @@
 
 /// ResponsesPreventionPolicyV1 : A fully formed prevention policy
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ResponsesPreventionPolicyV1 {
     /// The customer id associated with the policy
     #[serde(rename = "cid")]
