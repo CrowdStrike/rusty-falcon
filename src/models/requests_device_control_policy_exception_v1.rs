@@ -10,65 +10,51 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct RequestsDeviceControlPolicyExceptionV1 {
-    #[serde(rename = "action")]
-    pub action: String,
-    /// USB Class ID to apply the exception. If empty it applies to all classes
-    #[serde(rename = "class")]
-    pub class: String,
-    #[serde(rename = "combined_id")]
-    pub combined_id: String,
+    #[serde(rename = "action", skip_serializing_if = "Option::is_none")]
+    pub action: Option<String>,
+    #[serde(rename = "combined_id", skip_serializing_if = "Option::is_none")]
+    pub combined_id: Option<String>,
+    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "expiration_time", skip_serializing_if = "Option::is_none")]
+    pub expiration_time: Option<String>,
     /// Unique identifier for an exception
-    #[serde(rename = "id")]
-    pub id: String,
-    #[serde(rename = "match_method")]
-    pub match_method: String,
-    #[serde(rename = "product_id")]
-    pub product_id: String,
-    #[serde(rename = "product_id_decimal")]
-    pub product_id_decimal: String,
-    #[serde(rename = "product_name")]
-    pub product_name: String,
-    #[serde(rename = "serial_number")]
-    pub serial_number: String,
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "product_id", skip_serializing_if = "Option::is_none")]
+    pub product_id: Option<String>,
+    #[serde(rename = "product_id_decimal", skip_serializing_if = "Option::is_none")]
+    pub product_id_decimal: Option<String>,
+    #[serde(rename = "product_name", skip_serializing_if = "Option::is_none")]
+    pub product_name: Option<String>,
+    #[serde(rename = "serial_number", skip_serializing_if = "Option::is_none")]
+    pub serial_number: Option<String>,
     /// Hexadecimal VendorID used to apply the exception
-    #[serde(rename = "vendor_id")]
-    pub vendor_id: String,
+    #[serde(rename = "vendor_id", skip_serializing_if = "Option::is_none")]
+    pub vendor_id: Option<String>,
     /// Hexadecimal VendorID used to apply the exception
-    #[serde(rename = "vendor_id_decimal")]
-    pub vendor_id_decimal: String,
+    #[serde(rename = "vendor_id_decimal", skip_serializing_if = "Option::is_none")]
+    pub vendor_id_decimal: Option<String>,
     /// Vendor Name, optional
-    #[serde(rename = "vendor_name")]
-    pub vendor_name: String,
+    #[serde(rename = "vendor_name", skip_serializing_if = "Option::is_none")]
+    pub vendor_name: Option<String>,
 }
 
 impl RequestsDeviceControlPolicyExceptionV1 {
-    pub fn new(
-        action: String,
-        class: String,
-        combined_id: String,
-        id: String,
-        match_method: String,
-        product_id: String,
-        product_id_decimal: String,
-        product_name: String,
-        serial_number: String,
-        vendor_id: String,
-        vendor_id_decimal: String,
-        vendor_name: String,
-    ) -> RequestsDeviceControlPolicyExceptionV1 {
+    pub fn new() -> RequestsDeviceControlPolicyExceptionV1 {
         RequestsDeviceControlPolicyExceptionV1 {
-            action,
-            class,
-            combined_id,
-            id,
-            match_method,
-            product_id,
-            product_id_decimal,
-            product_name,
-            serial_number,
-            vendor_id,
-            vendor_id_decimal,
-            vendor_name,
+            action: None,
+            combined_id: None,
+            description: None,
+            expiration_time: None,
+            id: None,
+            product_id: None,
+            product_id_decimal: None,
+            product_name: None,
+            serial_number: None,
+            vendor_id: None,
+            vendor_id_decimal: None,
+            vendor_name: None,
         }
     }
 }

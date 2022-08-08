@@ -10,7 +10,7 @@
 
 /// ResponsesRtResponsePolicyV1 : A fully formed RTR policy
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ResponsesRtResponsePolicyV1 {
     /// The email of the user which created the policy
     #[serde(rename = "created_by")]

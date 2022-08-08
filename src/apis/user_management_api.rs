@@ -13,6 +13,18 @@ use reqwest;
 use super::{configuration, Error};
 use crate::apis::ResponseContent;
 
+/// struct for typed errors of method [`combined_user_roles_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CombinedUserRolesV1Error {
+    Status400(crate::models::DomainMsaUserGrantsResponse),
+    Status403(crate::models::DomainMsaUserGrantsResponse),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::DomainMsaUserGrantsResponse),
+    DefaultResponse(crate::models::DomainMsaUserGrantsResponse),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`create_user`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -20,6 +32,17 @@ pub enum CreateUserError {
     Status400(crate::models::MsaEntitiesResponse),
     Status403(crate::models::MsaEntitiesResponse),
     Status429(crate::models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_user_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateUserV1Error {
+    Status400(crate::models::DomainMsaEntitiesUsersResponse),
+    Status403(crate::models::DomainMsaEntitiesUsersResponse),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::DomainMsaEntitiesUsersResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -32,6 +55,31 @@ pub enum DeleteUserError {
     Status404(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
     DefaultResponse(crate::models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_user_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteUserV1Error {
+    Status400(crate::models::MsaReplyMetaOnly),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`entities_roles_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum EntitiesRolesV1Error {
+    Status400(crate::models::DomainMsaEntitiesRolesResponse),
+    Status403(crate::models::DomainMsaEntitiesRolesResponse),
+    Status404(crate::models::DomainMsaEntitiesRolesResponse),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::DomainMsaEntitiesRolesResponse),
+    DefaultResponse(crate::models::DomainMsaEntitiesRolesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -83,6 +131,30 @@ pub enum GrantUserRoleIdsError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`queries_roles_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum QueriesRolesV1Error {
+    Status400(crate::models::MsaQueryResponse),
+    Status403(crate::models::MsaErrorsOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaQueryResponse),
+    DefaultResponse(crate::models::MsaQueryResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`query_user_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum QueryUserV1Error {
+    Status400(crate::models::MsaQueryResponse),
+    Status403(crate::models::MsaQueryResponse),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaQueryResponse),
+    DefaultResponse(crate::models::MsaQueryResponse),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`retrieve_emails_by_cid`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -129,6 +201,18 @@ pub enum RetrieveUserUuidsByCidError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`retrieve_users_getv1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum RetrieveUsersGetv1Error {
+    Status400(crate::models::DomainMsaEntitiesUsersResponse),
+    Status403(crate::models::DomainMsaEntitiesUsersResponse),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::DomainMsaEntitiesUsersResponse),
+    DefaultResponse(crate::models::DomainMsaEntitiesUsersResponse),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`revoke_user_role_ids`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -150,6 +234,104 @@ pub enum UpdateUserError {
     Status429(crate::models::MsaReplyMetaOnly),
     DefaultResponse(crate::models::DomainUserMetaDataResponse),
     UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_user_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateUserV1Error {
+    Status400(crate::models::DomainMsaEntitiesUsersResponse),
+    Status403(crate::models::DomainMsaEntitiesUsersResponse),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::DomainMsaEntitiesUsersResponse),
+    DefaultResponse(crate::models::DomainMsaEntitiesUsersResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`user_action_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UserActionV1Error {
+    Status400(crate::models::MsaReplyMetaOnly),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`user_roles_action_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UserRolesActionV1Error {
+    Status400(crate::models::MsaReplyMetaOnly),
+    Status403(crate::models::MsaErrorsOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+pub async fn combined_user_roles_v1(
+    configuration: &configuration::Configuration,
+    user_uuid: &str,
+    cid: Option<&str>,
+    direct_only: Option<bool>,
+    filter: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+) -> Result<crate::models::DomainMsaUserGrantsResponse, Error<CombinedUserRolesV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/user-management/combined/user-roles/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("user_uuid", &user_uuid.to_string())]);
+    if let Some(ref local_var_str) = cid {
+        local_var_req_builder = local_var_req_builder.query(&[("cid", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = direct_only {
+        local_var_req_builder = local_var_req_builder.query(&[("direct_only", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = filter {
+        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CombinedUserRolesV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
 }
 
 pub async fn create_user(configuration: &configuration::Configuration, body: crate::models::DomainUserCreateRequest) -> Result<crate::models::DomainUserMetaDataResponse, Error<CreateUserError>> {
@@ -187,6 +369,44 @@ pub async fn create_user(configuration: &configuration::Configuration, body: cra
     }
 }
 
+pub async fn create_user_v1(configuration: &configuration::Configuration, body: crate::models::DomainCreateUserRequest, validate_only: Option<bool>) -> Result<crate::models::DomainMsaEntitiesUsersResponse, Error<CreateUserV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/user-management/entities/users/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = validate_only {
+        local_var_req_builder = local_var_req_builder.query(&[("validate_only", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CreateUserV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn delete_user(configuration: &configuration::Configuration, user_uuid: &str) -> Result<crate::models::MsaReplyMetaOnly, Error<DeleteUserError>> {
     let local_var_configuration = configuration;
 
@@ -213,6 +433,82 @@ pub async fn delete_user(configuration: &configuration::Configuration, user_uuid
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<DeleteUserError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn delete_user_v1(configuration: &configuration::Configuration, user_uuid: &str) -> Result<crate::models::MsaReplyMetaOnly, Error<DeleteUserV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/user-management/entities/users/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("user_uuid", &user_uuid.to_string())]);
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<DeleteUserV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn entities_roles_v1(configuration: &configuration::Configuration, ids: Vec<String>, cid: Option<&str>) -> Result<crate::models::DomainMsaEntitiesRolesResponse, Error<EntitiesRolesV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/user-management/entities/roles/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = cid {
+        local_var_req_builder = local_var_req_builder.query(&[("cid", &local_var_str.to_string())]);
+    }
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<EntitiesRolesV1Error> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -356,6 +652,92 @@ pub async fn grant_user_role_ids(configuration: &configuration::Configuration, u
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GrantUserRoleIdsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn queries_roles_v1(configuration: &configuration::Configuration, cid: Option<&str>, user_uuid: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QueriesRolesV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/user-management/queries/roles/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = cid {
+        local_var_req_builder = local_var_req_builder.query(&[("cid", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = user_uuid {
+        local_var_req_builder = local_var_req_builder.query(&[("user_uuid", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<QueriesRolesV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn query_user_v1(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QueryUserV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/user-management/queries/users/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = filter {
+        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<QueryUserV1Error> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -509,6 +891,41 @@ pub async fn retrieve_user_uuids_by_cid(configuration: &configuration::Configura
     }
 }
 
+pub async fn retrieve_users_getv1(configuration: &configuration::Configuration, body: crate::models::MsaIdsRequest) -> Result<crate::models::DomainMsaEntitiesUsersResponse, Error<RetrieveUsersGetv1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/user-management/entities/users/GET/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<RetrieveUsersGetv1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn revoke_user_role_ids(configuration: &configuration::Configuration, user_uuid: &str, ids: Vec<String>) -> Result<crate::models::DomainUserRoleIdsResponse, Error<RevokeUserRoleIdsError>> {
     let local_var_configuration = configuration;
 
@@ -575,6 +992,112 @@ pub async fn update_user(configuration: &configuration::Configuration, user_uuid
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<UpdateUserError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn update_user_v1(configuration: &configuration::Configuration, user_uuid: &str, body: crate::models::DomainUpdateUserRequest) -> Result<crate::models::DomainMsaEntitiesUsersResponse, Error<UpdateUserV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/user-management/entities/users/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("user_uuid", &user_uuid.to_string())]);
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UpdateUserV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn user_action_v1(configuration: &configuration::Configuration, body: crate::models::DomainUserActionRequest) -> Result<crate::models::MsaReplyMetaOnly, Error<UserActionV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/user-management/entities/user-actions/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UserActionV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn user_roles_action_v1(configuration: &configuration::Configuration, body: crate::models::DomainActionUserRolesRequest) -> Result<crate::models::MsaReplyMetaOnly, Error<UserRolesActionV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/user-management/entities/user-role-actions/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UserRolesActionV1Error> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
