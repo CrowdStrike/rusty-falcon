@@ -9,15 +9,17 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DeviceDeviceMeta {
-    #[serde(rename = "version", skip_serializing_if = "Option::is_none")]
-    pub version: Option<String>,
-    #[serde(rename = "version_string", skip_serializing_if = "Option::is_none")]
-    pub version_string: Option<String>,
+pub struct DeviceapiDeviceDetailsResponseSwagger {
+    #[serde(rename = "errors")]
+    pub errors: Vec<crate::models::MsaApiError>,
+    #[serde(rename = "meta")]
+    pub meta: Box<crate::models::MsaMetaInfo>,
+    #[serde(rename = "resources")]
+    pub resources: Vec<crate::models::DeviceapiDeviceSwagger>,
 }
 
-impl DeviceDeviceMeta {
-    pub fn new() -> DeviceDeviceMeta {
-        DeviceDeviceMeta { version: None, version_string: None }
+impl DeviceapiDeviceDetailsResponseSwagger {
+    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DeviceapiDeviceSwagger>) -> DeviceapiDeviceDetailsResponseSwagger {
+        DeviceapiDeviceDetailsResponseSwagger { errors, meta: Box::new(meta), resources }
     }
 }

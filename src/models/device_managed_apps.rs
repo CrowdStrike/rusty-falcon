@@ -16,6 +16,8 @@ pub struct DeviceManagedApps {
     pub automox: Option<Box<crate::models::DeviceManagedApp>>,
     #[serde(rename = "identity-protection", skip_serializing_if = "Option::is_none")]
     pub identity_protection: Option<Box<crate::models::DeviceManagedApp>>,
+    #[serde(rename = "jumpcloud", skip_serializing_if = "Option::is_none")]
+    pub jumpcloud: Option<Box<crate::models::DeviceManagedApp>>,
     #[serde(rename = "netskope", skip_serializing_if = "Option::is_none")]
     pub netskope: Option<Box<crate::models::DeviceManagedApp>>,
 }
@@ -26,6 +28,7 @@ impl DeviceManagedApps {
             airlock: None,
             automox: None,
             identity_protection: None,
+            jumpcloud: None,
             netskope: None,
         }
     }
