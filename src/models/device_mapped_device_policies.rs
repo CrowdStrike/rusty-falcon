@@ -16,12 +16,16 @@ pub struct DeviceMappedDevicePolicies {
     pub automox: Option<Box<crate::models::DeviceDevicePolicy>>,
     #[serde(rename = "device_control", skip_serializing_if = "Option::is_none")]
     pub device_control: Option<Box<crate::models::DeviceDevicePolicy>>,
+    #[serde(rename = "fim", skip_serializing_if = "Option::is_none")]
+    pub fim: Option<Box<crate::models::DeviceDevicePolicy>>,
     #[serde(rename = "firewall", skip_serializing_if = "Option::is_none")]
     pub firewall: Option<Box<crate::models::DeviceDevicePolicy>>,
     #[serde(rename = "global_config", skip_serializing_if = "Option::is_none")]
     pub global_config: Option<Box<crate::models::DeviceDevicePolicy>>,
     #[serde(rename = "identity-protection", skip_serializing_if = "Option::is_none")]
     pub identity_protection: Option<Box<crate::models::DeviceDevicePolicy>>,
+    #[serde(rename = "jumpcloud", skip_serializing_if = "Option::is_none")]
+    pub jumpcloud: Option<Box<crate::models::DeviceDevicePolicy>>,
     #[serde(rename = "mobile", skip_serializing_if = "Option::is_none")]
     pub mobile: Option<Box<crate::models::DeviceDevicePolicy>>,
     #[serde(rename = "netskope", skip_serializing_if = "Option::is_none")]
@@ -40,9 +44,11 @@ impl DeviceMappedDevicePolicies {
             airlock: None,
             automox: None,
             device_control: None,
+            fim: None,
             firewall: None,
             global_config: None,
             identity_protection: None,
+            jumpcloud: None,
             mobile: None,
             netskope: None,
             prevention: None,
