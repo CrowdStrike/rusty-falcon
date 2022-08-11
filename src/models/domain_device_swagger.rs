@@ -56,6 +56,10 @@ pub struct DomainDeviceSwagger {
     pub hostname: Option<String>,
     #[serde(rename = "instance_id", skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
+    #[serde(rename = "internet_exposure", skip_serializing_if = "Option::is_none")]
+    pub internet_exposure: Option<String>,
+    #[serde(rename = "kernel_version", skip_serializing_if = "Option::is_none")]
+    pub kernel_version: Option<String>,
     #[serde(rename = "last_login_timestamp", skip_serializing_if = "Option::is_none")]
     pub last_login_timestamp: Option<String>,
     #[serde(rename = "last_seen", skip_serializing_if = "Option::is_none")]
@@ -78,6 +82,8 @@ pub struct DomainDeviceSwagger {
     pub modified_timestamp: Option<String>,
     #[serde(rename = "notes", skip_serializing_if = "Option::is_none")]
     pub notes: Option<Vec<String>>,
+    #[serde(rename = "os_build", skip_serializing_if = "Option::is_none")]
+    pub os_build: Option<String>,
     #[serde(rename = "os_version", skip_serializing_if = "Option::is_none")]
     pub os_version: Option<String>,
     #[serde(rename = "ou", skip_serializing_if = "Option::is_none")]
@@ -134,8 +140,6 @@ pub struct DomainDeviceSwagger {
     pub service_provider_account_id: Option<String>,
     #[serde(rename = "site_name", skip_serializing_if = "Option::is_none")]
     pub site_name: Option<String>,
-    #[serde(rename = "slow_changing_modified_timestamp", skip_serializing_if = "Option::is_none")]
-    pub slow_changing_modified_timestamp: Option<String>,
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
     #[serde(rename = "system_manufacturer", skip_serializing_if = "Option::is_none")]
@@ -174,6 +178,8 @@ impl DomainDeviceSwagger {
             host_hidden_status: None,
             hostname: None,
             instance_id: None,
+            internet_exposure: None,
+            kernel_version: None,
             last_login_timestamp: None,
             last_seen: None,
             local_ip: None,
@@ -185,6 +191,7 @@ impl DomainDeviceSwagger {
             minor_version: None,
             modified_timestamp: None,
             notes: None,
+            os_build: None,
             os_version: None,
             ou: None,
             platform_id: None,
@@ -213,7 +220,6 @@ impl DomainDeviceSwagger {
             service_provider: None,
             service_provider_account_id: None,
             site_name: None,
-            slow_changing_modified_timestamp: None,
             status: None,
             system_manufacturer: None,
             system_product_name: None,

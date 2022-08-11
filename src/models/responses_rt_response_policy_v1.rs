@@ -12,6 +12,9 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ResponsesRtResponsePolicyV1 {
+    /// The customer id associated with the policy
+    #[serde(rename = "cid")]
+    pub cid: String,
     /// The email of the user which created the policy
     #[serde(rename = "created_by")]
     pub created_by: String,
@@ -50,6 +53,7 @@ pub struct ResponsesRtResponsePolicyV1 {
 impl ResponsesRtResponsePolicyV1 {
     /// A fully formed RTR policy
     pub fn new(
+        cid: String,
         created_by: String,
         created_timestamp: String,
         description: String,
@@ -63,6 +67,7 @@ impl ResponsesRtResponsePolicyV1 {
         settings: Vec<crate::models::ResponsesPreventionCategoryV1>,
     ) -> ResponsesRtResponsePolicyV1 {
         ResponsesRtResponsePolicyV1 {
+            cid,
             created_by,
             created_timestamp,
             description,

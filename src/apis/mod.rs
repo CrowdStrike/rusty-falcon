@@ -68,7 +68,6 @@ pub mod custom_ioa_api;
 pub mod d4c_registration_api;
 pub mod detects_api;
 pub mod device_control_policies_api;
-pub mod devices_api;
 pub mod discover_api;
 pub mod event_streams_api;
 pub mod falcon_complete_dashboard_api;
