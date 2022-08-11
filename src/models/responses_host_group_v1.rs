@@ -65,6 +65,8 @@ pub enum GroupType {
     _Static,
     #[serde(rename = "dynamic")]
     Dynamic,
+    #[serde(rename = "staticByID")]
+    StaticByID,
 }
 
 impl Default for GroupType {
