@@ -275,7 +275,13 @@ pub enum RTrPulseSessionError {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn batch_active_responder_cmd(configuration: &configuration::Configuration, body: crate::models::DomainBatchExecuteCommandRequest, timeout: Option<i32>, timeout_duration: Option<&str>) -> Result<crate::models::DomainMultiCommandExecuteResponseWrapper, Error<BatchActiveResponderCmdError>> {
+pub async fn batch_active_responder_cmd(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainBatchExecuteCommandRequest,
+    timeout: Option<i32>,
+    timeout_duration: Option<&str>,
+    host_timeout_duration: Option<&str>,
+) -> Result<crate::models::DomainMultiCommandExecuteResponseWrapper, Error<BatchActiveResponderCmdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -288,6 +294,9 @@ pub async fn batch_active_responder_cmd(configuration: &configuration::Configura
     }
     if let Some(ref local_var_str) = timeout_duration {
         local_var_req_builder = local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = host_timeout_duration {
+        local_var_req_builder = local_var_req_builder.query(&[("host_timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -316,7 +325,13 @@ pub async fn batch_active_responder_cmd(configuration: &configuration::Configura
     }
 }
 
-pub async fn batch_cmd(configuration: &configuration::Configuration, body: crate::models::DomainBatchExecuteCommandRequest, timeout: Option<i32>, timeout_duration: Option<&str>) -> Result<crate::models::DomainMultiCommandExecuteResponseWrapper, Error<BatchCmdError>> {
+pub async fn batch_cmd(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainBatchExecuteCommandRequest,
+    timeout: Option<i32>,
+    timeout_duration: Option<&str>,
+    host_timeout_duration: Option<&str>,
+) -> Result<crate::models::DomainMultiCommandExecuteResponseWrapper, Error<BatchCmdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -329,6 +344,9 @@ pub async fn batch_cmd(configuration: &configuration::Configuration, body: crate
     }
     if let Some(ref local_var_str) = timeout_duration {
         local_var_req_builder = local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = host_timeout_duration {
+        local_var_req_builder = local_var_req_builder.query(&[("host_timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -357,7 +375,7 @@ pub async fn batch_cmd(configuration: &configuration::Configuration, body: crate
     }
 }
 
-pub async fn batch_get_cmd(configuration: &configuration::Configuration, body: crate::models::DomainBatchGetCommandRequest, timeout: Option<i32>, timeout_duration: Option<&str>) -> Result<crate::models::DomainBatchGetCommandResponse, Error<BatchGetCmdError>> {
+pub async fn batch_get_cmd(configuration: &configuration::Configuration, body: crate::models::DomainBatchGetCommandRequest, timeout: Option<i32>, timeout_duration: Option<&str>, host_timeout_duration: Option<&str>) -> Result<crate::models::DomainBatchGetCommandResponse, Error<BatchGetCmdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -370,6 +388,9 @@ pub async fn batch_get_cmd(configuration: &configuration::Configuration, body: c
     }
     if let Some(ref local_var_str) = timeout_duration {
         local_var_req_builder = local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = host_timeout_duration {
+        local_var_req_builder = local_var_req_builder.query(&[("host_timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -439,7 +460,13 @@ pub async fn batch_get_cmd_status(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn batch_init_sessions(configuration: &configuration::Configuration, body: crate::models::DomainBatchInitSessionRequest, timeout: Option<i32>, timeout_duration: Option<&str>) -> Result<crate::models::DomainBatchInitSessionResponse, Error<BatchInitSessionsError>> {
+pub async fn batch_init_sessions(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainBatchInitSessionRequest,
+    timeout: Option<i32>,
+    timeout_duration: Option<&str>,
+    host_timeout_duration: Option<&str>,
+) -> Result<crate::models::DomainBatchInitSessionResponse, Error<BatchInitSessionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -452,6 +479,9 @@ pub async fn batch_init_sessions(configuration: &configuration::Configuration, b
     }
     if let Some(ref local_var_str) = timeout_duration {
         local_var_req_builder = local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = host_timeout_duration {
+        local_var_req_builder = local_var_req_builder.query(&[("host_timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

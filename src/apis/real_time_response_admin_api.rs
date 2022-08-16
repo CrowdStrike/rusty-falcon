@@ -174,7 +174,13 @@ pub enum RTrUpdateScriptsError {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn batch_admin_cmd(configuration: &configuration::Configuration, body: crate::models::DomainBatchExecuteCommandRequest, timeout: Option<i32>, timeout_duration: Option<&str>) -> Result<crate::models::DomainMultiCommandExecuteResponseWrapper, Error<BatchAdminCmdError>> {
+pub async fn batch_admin_cmd(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainBatchExecuteCommandRequest,
+    timeout: Option<i32>,
+    timeout_duration: Option<&str>,
+    host_timeout_duration: Option<&str>,
+) -> Result<crate::models::DomainMultiCommandExecuteResponseWrapper, Error<BatchAdminCmdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -187,6 +193,9 @@ pub async fn batch_admin_cmd(configuration: &configuration::Configuration, body:
     }
     if let Some(ref local_var_str) = timeout_duration {
         local_var_req_builder = local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = host_timeout_duration {
+        local_var_req_builder = local_var_req_builder.query(&[("host_timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
