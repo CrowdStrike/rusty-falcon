@@ -14,42 +14,44 @@ async fn main() {
     print!("{}", all_host_details);
 }
 
-async fn get_all_hosts(configuration: &configuration::Configuration, sort: Option<&str>, filter: Option<&str>) -> Result<Vec<models::DomainDeviceSwagger>, Box<dyn error::Error>> {
-    let mut details = Vec::<models::DomainDeviceSwagger>::new();
-    for page in 0.. {
-        let response = query_devices_by_filter_page(configuration, sort, filter, page).await?;
-        if response.resources.len() == 0 {
+async fn get_all_hosts(configuration: &configuration::Configuration, sort: Option<&str>, filter: Option<&str>) -> Result<Vec<models::DeviceapiDeviceSwagger>, Box<dyn error::Error>> {
+    let mut details = Vec::<models::DeviceapiDeviceSwagger>::new();
+    let mut offset = String::from("");
+    loop {
+        let response = query_devices_by_filter_offset(configuration, sort, filter, offset).await?;
+        let resources_count = response.resources.len();
+        if resources_count == 0 {
             break;
         }
+        offset = response.resources[resources_count - 1].clone();
         details.append(&mut get_device_details(configuration, response.resources).await?);
-        if last_page(response.meta.pagination) {
+        if resources_count < 5000 {
             break;
         }
     }
     return Ok(details);
 }
 
-async fn get_device_details(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<Vec<models::DomainDeviceSwagger>, Box<dyn error::Error>> {
-    let response = hosts_api::get_device_details(configuration, ids).await?;
-    if !response.errors.is_empty() {
-        return Err(ApiError(format!("while getting Falcon Host Details: '{:?}", response.errors)).into());
+async fn get_device_details(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<Vec<models::DeviceapiDeviceSwagger>, Box<dyn error::Error>> {
+    let response = hosts_api::post_device_details_v2(configuration, crate::models::MsaIdsRequest::new(ids)).await?;
+
+    let errors = match response.errors {
+        None => Vec::new(),
+        Some(errors) => errors,
+    };
+    if !errors.is_empty() {
+        return Err(ApiError(format!("while getting Falcon Host IDs: '{:?}'", errors)).into());
     }
+
     return Ok(response.resources);
 }
 
-async fn query_devices_by_filter_page(configuration: &configuration::Configuration, sort: Option<&str>, filter: Option<&str>, page: i32) -> Result<models::MsaQueryResponse, Box<dyn error::Error>> {
-    let response = hosts_api::query_devices_by_filter(configuration, Some(page * 500), Some(500), sort, filter).await?;
+async fn query_devices_by_filter_offset(configuration: &configuration::Configuration, sort: Option<&str>, filter: Option<&str>, offset: std::string::String) -> Result<models::DomainDeviceResponse, Box<dyn error::Error>> {
+    let response = hosts_api::query_devices_by_filter_scroll(configuration, Some(offset.as_str()), Some(5000), sort, filter).await?;
     if !response.errors.is_empty() {
         return Err(ApiError(format!("while getting Falcon Host IDs: '{:?}'", response.errors)).into());
     }
     return Ok(response);
-}
-
-fn last_page(pagination: Option<Box<models::MsaPaging>>) -> bool {
-    return match pagination {
-        None => false,
-        Some(p) => (p.total - i64::from(p.offset)) <= 0,
-    };
 }
 
 #[derive(Debug, Clone)]
