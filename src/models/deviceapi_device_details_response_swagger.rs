@@ -11,7 +11,7 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DeviceapiDeviceDetailsResponseSwagger {
     #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::MsaApiError>,
+    pub errors: Option<Vec<crate::models::MsaApiError>>,
     #[serde(rename = "meta")]
     pub meta: Box<crate::models::MsaMetaInfo>,
     #[serde(rename = "resources")]
@@ -19,7 +19,7 @@ pub struct DeviceapiDeviceDetailsResponseSwagger {
 }
 
 impl DeviceapiDeviceDetailsResponseSwagger {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DeviceapiDeviceSwagger>) -> DeviceapiDeviceDetailsResponseSwagger {
+    pub fn new(errors: Option<Vec<crate::models::MsaApiError>>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DeviceapiDeviceSwagger>) -> DeviceapiDeviceDetailsResponseSwagger {
         DeviceapiDeviceDetailsResponseSwagger { errors, meta: Box::new(meta), resources }
     }
 }
