@@ -124,13 +124,7 @@ pub async fn indicator_combined_v1(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn indicator_create_v1(
-    configuration: &configuration::Configuration,
-    body: crate::models::ApiIndicatorCreateReqsV1,
-    x_cs_username: Option<&str>,
-    retrodetects: Option<serde_json::Value>,
-    ignore_warnings: Option<serde_json::Value>,
-) -> Result<crate::models::ApiIndicatorRespV1, Error<IndicatorCreateV1Error>> {
+pub async fn indicator_create_v1(configuration: &configuration::Configuration, body: crate::models::ApiIndicatorCreateReqsV1, x_cs_username: Option<&str>, retrodetects: Option<bool>, ignore_warnings: Option<bool>) -> Result<crate::models::ApiIndicatorRespV1, Error<IndicatorCreateV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -307,13 +301,7 @@ pub async fn indicator_search_v1(configuration: &configuration::Configuration, f
     }
 }
 
-pub async fn indicator_update_v1(
-    configuration: &configuration::Configuration,
-    body: crate::models::ApiIndicatorUpdateReqsV1,
-    x_cs_username: Option<&str>,
-    retrodetects: Option<serde_json::Value>,
-    ignore_warnings: Option<serde_json::Value>,
-) -> Result<crate::models::ApiIndicatorRespV1, Error<IndicatorUpdateV1Error>> {
+pub async fn indicator_update_v1(configuration: &configuration::Configuration, body: crate::models::ApiIndicatorUpdateReqsV1, x_cs_username: Option<&str>, retrodetects: Option<bool>, ignore_warnings: Option<bool>) -> Result<crate::models::ApiIndicatorRespV1, Error<IndicatorUpdateV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
