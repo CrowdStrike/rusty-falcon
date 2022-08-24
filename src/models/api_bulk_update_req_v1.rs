@@ -20,8 +20,12 @@ pub struct ApiBulkUpdateReqV1 {
     pub expiration: Option<String>,
     #[serde(rename = "filter", skip_serializing_if = "Option::is_none")]
     pub filter: Option<String>,
+    #[serde(rename = "from_parent", skip_serializing_if = "Option::is_none")]
+    pub from_parent: Option<bool>,
     #[serde(rename = "host_groups", skip_serializing_if = "Option::is_none")]
     pub host_groups: Option<Vec<String>>,
+    #[serde(rename = "metadata", skip_serializing_if = "Option::is_none")]
+    pub metadata: Option<Box<crate::models::ApiMetadataReqV1>>,
     #[serde(rename = "mobile_action", skip_serializing_if = "Option::is_none")]
     pub mobile_action: Option<String>,
     #[serde(rename = "platforms", skip_serializing_if = "Option::is_none")]
@@ -42,7 +46,9 @@ impl ApiBulkUpdateReqV1 {
             description: None,
             expiration: None,
             filter: None,
+            from_parent: None,
             host_groups: None,
+            metadata: None,
             mobile_action: None,
             platforms: None,
             severity: None,
