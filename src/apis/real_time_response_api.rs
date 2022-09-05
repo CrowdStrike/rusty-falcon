@@ -910,7 +910,7 @@ pub async fn r_tr_get_extracted_file_contents(configuration: &configuration::Con
     }
 }
 
-pub async fn r_tr_init_session(configuration: &configuration::Configuration, body: crate::models::DomainInitRequest) -> Result<crate::models::DomainInitResponseWrapper, Error<RTrInitSessionError>> {
+pub async fn r_tr_init_session(configuration: &configuration::Configuration, body: crate::models::DomainInitRequest, timeout: Option<i32>, timeout_duration: Option<&str>) -> Result<crate::models::DomainInitResponseWrapper, Error<RTrInitSessionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -918,6 +918,12 @@ pub async fn r_tr_init_session(configuration: &configuration::Configuration, bod
     let local_var_uri_str = format!("{}/real-time-response/entities/sessions/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
+    if let Some(ref local_var_str) = timeout {
+        local_var_req_builder = local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = timeout_duration {
+        local_var_req_builder = local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
