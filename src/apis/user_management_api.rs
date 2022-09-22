@@ -104,7 +104,7 @@ pub enum GetRolesError {
     Status404(crate::models::MsaEntitiesResponse),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::MsaEntitiesResponse),
-    DefaultResponse(crate::models::DomainUserRoleResponse),
+    DefaultResponse(crate::models::ApiUserRoleResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -127,7 +127,7 @@ pub enum GrantUserRoleIdsError {
     Status400(crate::models::MsaEntitiesResponse),
     Status403(crate::models::MsaEntitiesResponse),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::DomainUserRoleIdsResponse),
+    DefaultResponse(crate::models::ApiUserRoleIdsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -174,7 +174,7 @@ pub enum RetrieveUserError {
     Status403(crate::models::MsaEntitiesResponse),
     Status404(crate::models::MsaEntitiesResponse),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::DomainUserMetaDataResponse),
+    DefaultResponse(crate::models::ApiUserMetadataResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -220,7 +220,7 @@ pub enum RevokeUserRoleIdsError {
     Status400(crate::models::MsaEntitiesResponse),
     Status403(crate::models::MsaEntitiesResponse),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::DomainUserRoleIdsResponse),
+    DefaultResponse(crate::models::ApiUserRoleIdsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -232,7 +232,7 @@ pub enum UpdateUserError {
     Status403(crate::models::MsaEntitiesResponse),
     Status404(crate::models::MsaEntitiesResponse),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::DomainUserMetaDataResponse),
+    DefaultResponse(crate::models::ApiUserMetadataResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -334,7 +334,7 @@ pub async fn combined_user_roles_v1(
     }
 }
 
-pub async fn create_user(configuration: &configuration::Configuration, body: crate::models::DomainUserCreateRequest) -> Result<crate::models::DomainUserMetaDataResponse, Error<CreateUserError>> {
+pub async fn create_user(configuration: &configuration::Configuration, body: crate::models::DomainUserCreateRequest) -> Result<crate::models::ApiUserMetadataResponse, Error<CreateUserError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -552,7 +552,7 @@ pub async fn get_available_role_ids(configuration: &configuration::Configuration
     }
 }
 
-pub async fn get_roles(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainUserRoleResponse, Error<GetRolesError>> {
+pub async fn get_roles(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiUserRoleResponse, Error<GetRolesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -625,7 +625,7 @@ pub async fn get_user_role_ids(configuration: &configuration::Configuration, use
     }
 }
 
-pub async fn grant_user_role_ids(configuration: &configuration::Configuration, user_uuid: &str, body: crate::models::DomainRoleIds) -> Result<crate::models::DomainUserRoleIdsResponse, Error<GrantUserRoleIdsError>> {
+pub async fn grant_user_role_ids(configuration: &configuration::Configuration, user_uuid: &str, body: crate::models::DomainRoleIds) -> Result<crate::models::ApiUserRoleIdsResponse, Error<GrantUserRoleIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -781,7 +781,7 @@ pub async fn retrieve_emails_by_cid(configuration: &configuration::Configuration
     }
 }
 
-pub async fn retrieve_user(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainUserMetaDataResponse, Error<RetrieveUserError>> {
+pub async fn retrieve_user(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiUserMetadataResponse, Error<RetrieveUserError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -926,7 +926,7 @@ pub async fn retrieve_users_getv1(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn revoke_user_role_ids(configuration: &configuration::Configuration, user_uuid: &str, ids: Vec<String>) -> Result<crate::models::DomainUserRoleIdsResponse, Error<RevokeUserRoleIdsError>> {
+pub async fn revoke_user_role_ids(configuration: &configuration::Configuration, user_uuid: &str, ids: Vec<String>) -> Result<crate::models::ApiUserRoleIdsResponse, Error<RevokeUserRoleIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -965,7 +965,7 @@ pub async fn revoke_user_role_ids(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn update_user(configuration: &configuration::Configuration, user_uuid: &str, body: crate::models::DomainUpdateUserFields) -> Result<crate::models::DomainUserMetaDataResponse, Error<UpdateUserError>> {
+pub async fn update_user(configuration: &configuration::Configuration, user_uuid: &str, body: crate::models::DomainUpdateUserFields) -> Result<crate::models::ApiUserMetadataResponse, Error<UpdateUserError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
