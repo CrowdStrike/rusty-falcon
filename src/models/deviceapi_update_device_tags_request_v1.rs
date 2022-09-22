@@ -9,7 +9,7 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainUpdateDeviceTagsRequestV1 {
+pub struct DeviceapiUpdateDeviceTagsRequestV1 {
     #[serde(rename = "action")]
     pub action: String,
     #[serde(rename = "device_ids")]
@@ -18,8 +18,8 @@ pub struct DomainUpdateDeviceTagsRequestV1 {
     pub tags: Vec<String>,
 }
 
-impl DomainUpdateDeviceTagsRequestV1 {
-    pub fn new(action: String, device_ids: Vec<String>, tags: Vec<String>) -> DomainUpdateDeviceTagsRequestV1 {
-        DomainUpdateDeviceTagsRequestV1 { action, device_ids, tags }
+impl DeviceapiUpdateDeviceTagsRequestV1 {
+    pub fn new(action: String, device_ids: Vec<String>, tags: Vec<String>) -> DeviceapiUpdateDeviceTagsRequestV1 {
+        DeviceapiUpdateDeviceTagsRequestV1 { action, device_ids, tags }
     }
 }

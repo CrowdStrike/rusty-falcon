@@ -9,17 +9,19 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainUserRoleIdsResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::MsaApiError>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::MsaMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct DeviceapiUpdateDeviceDetailsResponseV1 {
+    #[serde(rename = "code", skip_serializing_if = "Option::is_none")]
+    pub code: Option<i32>,
+    #[serde(rename = "device_id")]
+    pub device_id: String,
+    #[serde(rename = "error", skip_serializing_if = "Option::is_none")]
+    pub error: Option<String>,
+    #[serde(rename = "updated")]
+    pub updated: bool,
 }
 
-impl DomainUserRoleIdsResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> DomainUserRoleIdsResponse {
-        DomainUserRoleIdsResponse { errors, meta: Box::new(meta), resources }
+impl DeviceapiUpdateDeviceDetailsResponseV1 {
+    pub fn new(device_id: String, updated: bool) -> DeviceapiUpdateDeviceDetailsResponseV1 {
+        DeviceapiUpdateDeviceDetailsResponseV1 { code: None, device_id, error: None, updated }
     }
 }

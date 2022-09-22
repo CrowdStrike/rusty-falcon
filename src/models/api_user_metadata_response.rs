@@ -9,17 +9,17 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainUserRoleResponse {
+pub struct ApiUserMetadataResponse {
     #[serde(rename = "errors")]
     pub errors: Vec<crate::models::MsaApiError>,
     #[serde(rename = "meta")]
     pub meta: Box<crate::models::MsaMetaInfo>,
     #[serde(rename = "resources")]
-    pub resources: Vec<crate::models::DomainUserRole>,
+    pub resources: Vec<crate::models::DomainUserMetadata>,
 }
 
-impl DomainUserRoleResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainUserRole>) -> DomainUserRoleResponse {
-        DomainUserRoleResponse { errors, meta: Box::new(meta), resources }
+impl ApiUserMetadataResponse {
+    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainUserMetadata>) -> ApiUserMetadataResponse {
+        ApiUserMetadataResponse { errors, meta: Box::new(meta), resources }
     }
 }

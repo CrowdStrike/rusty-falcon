@@ -132,7 +132,6 @@ pub enum UpdateDeviceTagsError {
     Status400(crate::models::MsaReplyAffectedEntities),
     Status403(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::MsaEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -569,7 +568,7 @@ pub async fn query_hidden_devices(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn update_device_tags(configuration: &configuration::Configuration, body: crate::models::DomainUpdateDeviceTagsRequestV1) -> Result<crate::models::MsaEntitiesResponse, Error<UpdateDeviceTagsError>> {
+pub async fn update_device_tags(configuration: &configuration::Configuration, body: crate::models::DeviceapiUpdateDeviceTagsRequestV1) -> Result<crate::models::DeviceapiUpdateDeviceTagsSwaggerV1, Error<UpdateDeviceTagsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
