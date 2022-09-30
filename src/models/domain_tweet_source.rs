@@ -9,17 +9,31 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainQueryResponse {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::MsaApiError>>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::DomainMsaMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct DomainTweetSource {
+    /// The username of the tweet's author
+    #[serde(rename = "author_name")]
+    pub author_name: String,
+    /// The language of the tweet
+    #[serde(rename = "language")]
+    pub language: String,
+    #[serde(rename = "legacy_source", skip_serializing_if = "Option::is_none")]
+    pub legacy_source: Option<serde_json::Value>,
+    /// The link to the tweet
+    #[serde(rename = "source_link")]
+    pub source_link: String,
+    /// The tweet ID
+    #[serde(rename = "tweet_id")]
+    pub tweet_id: i64,
 }
 
-impl DomainQueryResponse {
-    pub fn new(meta: crate::models::DomainMsaMetaInfo, resources: Vec<String>) -> DomainQueryResponse {
-        DomainQueryResponse { errors: None, meta: Box::new(meta), resources }
+impl DomainTweetSource {
+    pub fn new(author_name: String, language: String, source_link: String, tweet_id: i64) -> DomainTweetSource {
+        DomainTweetSource {
+            author_name,
+            language,
+            legacy_source: None,
+            source_link,
+            tweet_id,
+        }
     }
 }
