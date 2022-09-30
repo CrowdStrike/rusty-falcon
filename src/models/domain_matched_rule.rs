@@ -9,17 +9,20 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainQueryResponse {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::MsaApiError>>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::DomainMsaMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct DomainMatchedRule {
+    /// The customer ID
+    #[serde(rename = "customer_id", skip_serializing_if = "Option::is_none")]
+    pub customer_id: Option<String>,
+    /// The matched rule hit ID
+    #[serde(rename = "hit_id", skip_serializing_if = "Option::is_none")]
+    pub hit_id: Option<String>,
+    /// The matched rule ID
+    #[serde(rename = "rule_id", skip_serializing_if = "Option::is_none")]
+    pub rule_id: Option<String>,
 }
 
-impl DomainQueryResponse {
-    pub fn new(meta: crate::models::DomainMsaMetaInfo, resources: Vec<String>) -> DomainQueryResponse {
-        DomainQueryResponse { errors: None, meta: Box::new(meta), resources }
+impl DomainMatchedRule {
+    pub fn new() -> DomainMatchedRule {
+        DomainMatchedRule { customer_id: None, hit_id: None, rule_id: None }
     }
 }

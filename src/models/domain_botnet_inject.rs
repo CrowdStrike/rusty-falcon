@@ -9,17 +9,17 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainQueryResponse {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::MsaApiError>>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::DomainMsaMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct DomainBotnetInject {
+    /// The injected data. Populated for inject botnets
+    #[serde(rename = "inject")]
+    pub inject: String,
+    /// The targeted pattern of data. Populated for inject botnets
+    #[serde(rename = "pattern")]
+    pub pattern: String,
 }
 
-impl DomainQueryResponse {
-    pub fn new(meta: crate::models::DomainMsaMetaInfo, resources: Vec<String>) -> DomainQueryResponse {
-        DomainQueryResponse { errors: None, meta: Box::new(meta), resources }
+impl DomainBotnetInject {
+    pub fn new(inject: String, pattern: String) -> DomainBotnetInject {
+        DomainBotnetInject { inject, pattern }
     }
 }

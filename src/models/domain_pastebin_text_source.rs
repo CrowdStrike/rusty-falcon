@@ -9,17 +9,31 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainQueryResponse {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::MsaApiError>>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::DomainMsaMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct DomainPastebinTextSource {
+    /// The name of the author
+    #[serde(rename = "author_name")]
+    pub author_name: String,
+    #[serde(rename = "legacy_source", skip_serializing_if = "Option::is_none")]
+    pub legacy_source: Option<serde_json::Value>,
+    /// Unique ID of the Pastebin content
+    #[serde(rename = "pastebin_id")]
+    pub pastebin_id: String,
+    /// The Pastebin URL
+    #[serde(rename = "source_link")]
+    pub source_link: String,
+    /// The title of the Pastebin content
+    #[serde(rename = "title")]
+    pub title: String,
 }
 
-impl DomainQueryResponse {
-    pub fn new(meta: crate::models::DomainMsaMetaInfo, resources: Vec<String>) -> DomainQueryResponse {
-        DomainQueryResponse { errors: None, meta: Box::new(meta), resources }
+impl DomainPastebinTextSource {
+    pub fn new(author_name: String, pastebin_id: String, source_link: String, title: String) -> DomainPastebinTextSource {
+        DomainPastebinTextSource {
+            author_name,
+            legacy_source: None,
+            pastebin_id,
+            source_link,
+            title,
+        }
     }
 }

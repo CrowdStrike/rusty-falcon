@@ -9,17 +9,15 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainQueryResponse {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::MsaApiError>>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::DomainMsaMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct DomainMsaMetaInfo {
+    #[serde(rename = "pagination", skip_serializing_if = "Option::is_none")]
+    pub pagination: Option<Box<crate::models::MsaPaging>>,
+    #[serde(rename = "queryTime")]
+    pub query_time: f64,
 }
 
-impl DomainQueryResponse {
-    pub fn new(meta: crate::models::DomainMsaMetaInfo, resources: Vec<String>) -> DomainQueryResponse {
-        DomainQueryResponse { errors: None, meta: Box::new(meta), resources }
+impl DomainMsaMetaInfo {
+    pub fn new(query_time: f64) -> DomainMsaMetaInfo {
+        DomainMsaMetaInfo { pagination: None, query_time }
     }
 }
