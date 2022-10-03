@@ -13,6 +13,8 @@ pub struct ResponsesSensorUpdateSettingsV2 {
     /// The target build applied to devices in the policy
     #[serde(rename = "build")]
     pub build: String,
+    #[serde(rename = "sensor_version")]
+    pub sensor_version: String,
     /// The uninstall protection setting to apply to devices in the policy
     #[serde(rename = "uninstall_protection")]
     pub uninstall_protection: UninstallProtection,
@@ -21,8 +23,8 @@ pub struct ResponsesSensorUpdateSettingsV2 {
 }
 
 impl ResponsesSensorUpdateSettingsV2 {
-    pub fn new(build: String, uninstall_protection: UninstallProtection, variants: Vec<crate::models::ResponsesSensorUpdateBuildV1>) -> ResponsesSensorUpdateSettingsV2 {
-        ResponsesSensorUpdateSettingsV2 { build, uninstall_protection, variants }
+    pub fn new(build: String, sensor_version: String, uninstall_protection: UninstallProtection, variants: Vec<crate::models::ResponsesSensorUpdateBuildV1>) -> ResponsesSensorUpdateSettingsV2 {
+        ResponsesSensorUpdateSettingsV2 { build, sensor_version, uninstall_protection, variants }
     }
 }
 

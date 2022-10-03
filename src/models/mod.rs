@@ -1172,6 +1172,8 @@ pub mod requests_prevention_setting_v1;
 pub use self::requests_prevention_setting_v1::RequestsPreventionSettingV1;
 pub mod requests_reveal_uninstall_token_v1;
 pub use self::requests_reveal_uninstall_token_v1::RequestsRevealUninstallTokenV1;
+pub mod requests_sensor_update_build_v1;
+pub use self::requests_sensor_update_build_v1::RequestsSensorUpdateBuildV1;
 pub mod requests_sensor_update_settings_v1;
 pub use self::requests_sensor_update_settings_v1::RequestsSensorUpdateSettingsV1;
 pub mod requests_sensor_update_settings_v2;
