@@ -10,6 +10,9 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ResponsesSensorUpdatePolicyV2 {
+    /// The customer id associated with the policy
+    #[serde(rename = "cid")]
+    pub cid: String,
     /// The email of the user which created the policy
     #[serde(rename = "created_by")]
     pub created_by: String,
@@ -46,6 +49,7 @@ pub struct ResponsesSensorUpdatePolicyV2 {
 
 impl ResponsesSensorUpdatePolicyV2 {
     pub fn new(
+        cid: String,
         created_by: String,
         created_timestamp: String,
         description: String,
@@ -59,6 +63,7 @@ impl ResponsesSensorUpdatePolicyV2 {
         settings: crate::models::ResponsesSensorUpdateSettingsV2,
     ) -> ResponsesSensorUpdatePolicyV2 {
         ResponsesSensorUpdatePolicyV2 {
+            cid,
             created_by,
             created_timestamp,
             description,

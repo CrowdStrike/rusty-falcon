@@ -9,17 +9,15 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct ResponsesSensorUpdateBuildV1 {
+pub struct RequestsSensorUpdateBuildV1 {
     #[serde(rename = "build")]
     pub build: String,
     #[serde(rename = "platform")]
     pub platform: String,
-    #[serde(rename = "sensor_version")]
-    pub sensor_version: String,
 }
 
-impl ResponsesSensorUpdateBuildV1 {
-    pub fn new(build: String, platform: String, sensor_version: String) -> ResponsesSensorUpdateBuildV1 {
-        ResponsesSensorUpdateBuildV1 { build, platform, sensor_version }
+impl RequestsSensorUpdateBuildV1 {
+    pub fn new(build: String, platform: String) -> RequestsSensorUpdateBuildV1 {
+        RequestsSensorUpdateBuildV1 { build, platform }
     }
 }
