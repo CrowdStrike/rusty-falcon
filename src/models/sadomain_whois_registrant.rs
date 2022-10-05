@@ -9,17 +9,20 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainQueryResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::DomainReconApiError>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::MsaMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct SadomainWhoisRegistrant {
+    /// The email of the entity who registered a given domain
+    #[serde(rename = "email")]
+    pub email: String,
+    /// The name of the entity who registered a given domain
+    #[serde(rename = "name")]
+    pub name: String,
+    /// The organization who registered a given domain
+    #[serde(rename = "org")]
+    pub org: String,
 }
 
-impl DomainQueryResponse {
-    pub fn new(errors: Vec<crate::models::DomainReconApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> DomainQueryResponse {
-        DomainQueryResponse { errors, meta: Box::new(meta), resources }
+impl SadomainWhoisRegistrant {
+    pub fn new(email: String, name: String, org: String) -> SadomainWhoisRegistrant {
+        SadomainWhoisRegistrant { email, name, org }
     }
 }

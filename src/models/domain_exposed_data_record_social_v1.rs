@@ -9,17 +9,36 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainQueryResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::DomainReconApiError>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::MsaMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct DomainExposedDataRecordSocialV1 {
+    #[serde(rename = "aim_id")]
+    pub aim_id: String,
+    #[serde(rename = "facebook_id")]
+    pub facebook_id: String,
+    #[serde(rename = "icq_id")]
+    pub icq_id: String,
+    #[serde(rename = "instagram_id")]
+    pub instagram_id: String,
+    #[serde(rename = "msn_id")]
+    pub msn_id: String,
+    #[serde(rename = "skype_id")]
+    pub skype_id: String,
+    #[serde(rename = "twitter_id")]
+    pub twitter_id: String,
+    #[serde(rename = "vk_id")]
+    pub vk_id: String,
 }
 
-impl DomainQueryResponse {
-    pub fn new(errors: Vec<crate::models::DomainReconApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> DomainQueryResponse {
-        DomainQueryResponse { errors, meta: Box::new(meta), resources }
+impl DomainExposedDataRecordSocialV1 {
+    pub fn new(aim_id: String, facebook_id: String, icq_id: String, instagram_id: String, msn_id: String, skype_id: String, twitter_id: String, vk_id: String) -> DomainExposedDataRecordSocialV1 {
+        DomainExposedDataRecordSocialV1 {
+            aim_id,
+            facebook_id,
+            icq_id,
+            instagram_id,
+            msn_id,
+            skype_id,
+            twitter_id,
+            vk_id,
+        }
     }
 }

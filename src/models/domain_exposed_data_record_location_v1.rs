@@ -9,17 +9,30 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainQueryResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::DomainReconApiError>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::MsaMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct DomainExposedDataRecordLocationV1 {
+    #[serde(rename = "city")]
+    pub city: String,
+    #[serde(rename = "country_code")]
+    pub country_code: String,
+    #[serde(rename = "federal_admin_region")]
+    pub federal_admin_region: String,
+    #[serde(rename = "federal_district")]
+    pub federal_district: String,
+    #[serde(rename = "postal_code")]
+    pub postal_code: String,
+    #[serde(rename = "state")]
+    pub state: String,
 }
 
-impl DomainQueryResponse {
-    pub fn new(errors: Vec<crate::models::DomainReconApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> DomainQueryResponse {
-        DomainQueryResponse { errors, meta: Box::new(meta), resources }
+impl DomainExposedDataRecordLocationV1 {
+    pub fn new(city: String, country_code: String, federal_admin_region: String, federal_district: String, postal_code: String, state: String) -> DomainExposedDataRecordLocationV1 {
+        DomainExposedDataRecordLocationV1 {
+            city,
+            country_code,
+            federal_admin_region,
+            federal_district,
+            postal_code,
+            state,
+        }
     }
 }

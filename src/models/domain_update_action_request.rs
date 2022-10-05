@@ -10,6 +10,8 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainUpdateActionRequest {
+    #[serde(rename = "content_format")]
+    pub content_format: String,
     #[serde(rename = "frequency")]
     pub frequency: String,
     #[serde(rename = "id")]
@@ -18,10 +20,19 @@ pub struct DomainUpdateActionRequest {
     pub recipients: Vec<String>,
     #[serde(rename = "status")]
     pub status: String,
+    #[serde(rename = "trigger_matchless")]
+    pub trigger_matchless: bool,
 }
 
 impl DomainUpdateActionRequest {
-    pub fn new(frequency: String, id: String, recipients: Vec<String>, status: String) -> DomainUpdateActionRequest {
-        DomainUpdateActionRequest { frequency, id, recipients, status }
+    pub fn new(content_format: String, frequency: String, id: String, recipients: Vec<String>, status: String, trigger_matchless: bool) -> DomainUpdateActionRequest {
+        DomainUpdateActionRequest {
+            content_format,
+            frequency,
+            id,
+            recipients,
+            status,
+            trigger_matchless,
+        }
     }
 }

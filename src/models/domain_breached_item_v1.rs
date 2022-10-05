@@ -10,15 +10,29 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainBreachedItemV1 {
+    #[serde(rename = "company", skip_serializing_if = "Option::is_none")]
+    pub company: Option<String>,
+    #[serde(rename = "credentials_ip", skip_serializing_if = "Option::is_none")]
+    pub credentials_ip: Option<String>,
+    #[serde(rename = "credentials_url", skip_serializing_if = "Option::is_none")]
+    pub credentials_url: Option<String>,
+    #[serde(rename = "display_name", skip_serializing_if = "Option::is_none")]
+    pub display_name: Option<String>,
     /// The domain associated with the breached account.
     #[serde(rename = "domain")]
     pub domain: String,
     /// The email of the breached account.
     #[serde(rename = "email")]
     pub email: String,
+    #[serde(rename = "financial", skip_serializing_if = "Option::is_none")]
+    pub financial: Option<Box<crate::models::DomainExposedDataRecordFinancialV1>>,
     /// The original hashing algorithm applied to the breached password. Possible values: 'plain', 'unknown', 'base64', 'md5', 'sha1', 'bcrypt', etc. The value 'plain' means that the password was originally found as plaintext.
     #[serde(rename = "hash_type")]
     pub hash_type: String,
+    #[serde(rename = "job_position", skip_serializing_if = "Option::is_none")]
+    pub job_position: Option<String>,
+    #[serde(rename = "location", skip_serializing_if = "Option::is_none")]
+    pub location: Option<Box<crate::models::DomainExposedDataRecordLocationV1>>,
     /// The username of the breached account.
     #[serde(rename = "login_id")]
     pub login_id: String,
@@ -28,21 +42,43 @@ pub struct DomainBreachedItemV1 {
     /// The breached password. Passwords are returned as salted hashes, generated using the SHA256 algorithm and the CID as the salt.
     #[serde(rename = "password")]
     pub password: String,
+    #[serde(rename = "password_hash", skip_serializing_if = "Option::is_none")]
+    pub password_hash: Option<String>,
+    #[serde(rename = "password_salt", skip_serializing_if = "Option::is_none")]
+    pub password_salt: Option<String>,
     /// The phone number of the person associated with the breached account.
     #[serde(rename = "phone")]
     pub phone: String,
+    #[serde(rename = "social", skip_serializing_if = "Option::is_none")]
+    pub social: Option<Box<crate::models::DomainExposedDataRecordSocialV1>>,
+    #[serde(rename = "user_id", skip_serializing_if = "Option::is_none")]
+    pub user_id: Option<String>,
+    #[serde(rename = "user_ip", skip_serializing_if = "Option::is_none")]
+    pub user_ip: Option<String>,
 }
 
 impl DomainBreachedItemV1 {
     pub fn new(domain: String, email: String, hash_type: String, login_id: String, name: String, password: String, phone: String) -> DomainBreachedItemV1 {
         DomainBreachedItemV1 {
+            company: None,
+            credentials_ip: None,
+            credentials_url: None,
+            display_name: None,
             domain,
             email,
+            financial: None,
             hash_type,
+            job_position: None,
+            location: None,
             login_id,
             name,
             password,
+            password_hash: None,
+            password_salt: None,
             phone,
+            social: None,
+            user_id: None,
+            user_ip: None,
         }
     }
 }

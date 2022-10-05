@@ -9,17 +9,20 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainQueryResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::DomainReconApiError>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::MsaMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct SadomainTyposquattingParentDomain {
+    /// The ID of the domain
+    #[serde(rename = "id")]
+    pub id: String,
+    /// The Punycode representation of the domain, i.e. starting with `xn--`
+    #[serde(rename = "punycode_format")]
+    pub punycode_format: String,
+    /// The Unicode representation of the domain
+    #[serde(rename = "unicode_format")]
+    pub unicode_format: String,
 }
 
-impl DomainQueryResponse {
-    pub fn new(errors: Vec<crate::models::DomainReconApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> DomainQueryResponse {
-        DomainQueryResponse { errors, meta: Box::new(meta), resources }
+impl SadomainTyposquattingParentDomain {
+    pub fn new(id: String, punycode_format: String, unicode_format: String) -> SadomainTyposquattingParentDomain {
+        SadomainTyposquattingParentDomain { id, punycode_format, unicode_format }
     }
 }

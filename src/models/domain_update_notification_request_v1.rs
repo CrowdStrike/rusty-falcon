@@ -10,13 +10,13 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainUpdateNotificationRequestV1 {
-    /// The unique ID of the user who is assigned to this notification. The value 'unassigned' can be used to unassign a notification.
+    /// The unique ID of the user who is assigned to this notification. The value `unassigned` can be used to unassign a notification.
     #[serde(rename = "assigned_to_uuid")]
     pub assigned_to_uuid: String,
     /// The ID of the notifications
     #[serde(rename = "id")]
     pub id: String,
-    /// The notification status. This can be one of: 'new', 'in-progress', 'closed-false-positive', 'closed-true-positive'.
+    /// The notification status. This can be one of: `new`, `in-progress`, `closed-false-positive`, `closed-true-positive`.
     #[serde(rename = "status")]
     pub status: String,
 }

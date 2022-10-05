@@ -9,17 +9,30 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainQueryResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::DomainReconApiError>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::MsaMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct SadomainTyposquattingComponent {
+    #[serde(rename = "base_domain")]
+    pub base_domain: Box<crate::models::SadomainTyposquattingBaseDomain>,
+    /// The ID of the infrastructure component
+    #[serde(rename = "id")]
+    pub id: String,
+    #[serde(rename = "parent_domain")]
+    pub parent_domain: Box<crate::models::SadomainTyposquattingParentDomain>,
+    /// The Punycode representation of the infrastructure component, i.e. starting with `xn--`
+    #[serde(rename = "punycode_format")]
+    pub punycode_format: String,
+    /// The Unicode representation of the infrastructure component
+    #[serde(rename = "unicode_format")]
+    pub unicode_format: String,
 }
 
-impl DomainQueryResponse {
-    pub fn new(errors: Vec<crate::models::DomainReconApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> DomainQueryResponse {
-        DomainQueryResponse { errors, meta: Box::new(meta), resources }
+impl SadomainTyposquattingComponent {
+    pub fn new(base_domain: crate::models::SadomainTyposquattingBaseDomain, id: String, parent_domain: crate::models::SadomainTyposquattingParentDomain, punycode_format: String, unicode_format: String) -> SadomainTyposquattingComponent {
+        SadomainTyposquattingComponent {
+            base_domain: Box::new(base_domain),
+            id,
+            parent_domain: Box::new(parent_domain),
+            punycode_format,
+            unicode_format,
+        }
     }
 }

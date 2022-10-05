@@ -9,17 +9,35 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainQueryResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::DomainReconApiError>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::MsaMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct SadomainTyposquattingBaseDomain {
+    /// The date when the domain was registered
+    #[serde(rename = "created_date", skip_serializing_if = "Option::is_none")]
+    pub created_date: Option<String>,
+    /// The ID of the domain
+    #[serde(rename = "id")]
+    pub id: String,
+    /// Whether the domain has a valid Whois record
+    #[serde(rename = "is_registered")]
+    pub is_registered: bool,
+    /// The Punycode representation of the domain, i.e. starting with `xn--`
+    #[serde(rename = "punycode_format")]
+    pub punycode_format: String,
+    /// The Unicode representation of the domain
+    #[serde(rename = "unicode_format")]
+    pub unicode_format: String,
+    #[serde(rename = "whois", skip_serializing_if = "Option::is_none")]
+    pub whois: Option<Box<crate::models::SadomainWhoisRecord>>,
 }
 
-impl DomainQueryResponse {
-    pub fn new(errors: Vec<crate::models::DomainReconApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> DomainQueryResponse {
-        DomainQueryResponse { errors, meta: Box::new(meta), resources }
+impl SadomainTyposquattingBaseDomain {
+    pub fn new(id: String, is_registered: bool, punycode_format: String, unicode_format: String) -> SadomainTyposquattingBaseDomain {
+        SadomainTyposquattingBaseDomain {
+            created_date: None,
+            id,
+            is_registered,
+            punycode_format,
+            unicode_format,
+            whois: None,
+        }
     }
 }
