@@ -9,17 +9,23 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainQueryResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::DomainReconApiError>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::MsaMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct DomainFileDetailsV1 {
+    /// (Boolean) If it's a complete dataset or not.
+    #[serde(rename = "complete_data_set")]
+    pub complete_data_set: bool,
+    /// A list of download urls for this file.
+    #[serde(rename = "download_urls")]
+    pub download_urls: Vec<String>,
+    /// The name of the file containing the exposed record(s).
+    #[serde(rename = "name")]
+    pub name: String,
+    /// The size of the file.
+    #[serde(rename = "size")]
+    pub size: i32,
 }
 
-impl DomainQueryResponse {
-    pub fn new(errors: Vec<crate::models::DomainReconApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> DomainQueryResponse {
-        DomainQueryResponse { errors, meta: Box::new(meta), resources }
+impl DomainFileDetailsV1 {
+    pub fn new(complete_data_set: bool, download_urls: Vec<String>, name: String, size: i32) -> DomainFileDetailsV1 {
+        DomainFileDetailsV1 { complete_data_set, download_urls, name, size }
     }
 }

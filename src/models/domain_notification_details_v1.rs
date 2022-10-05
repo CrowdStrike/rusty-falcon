@@ -13,7 +13,7 @@ pub struct DomainNotificationDetailsV1 {
     /// The raw intelligence item author username
     #[serde(rename = "author", skip_serializing_if = "Option::is_none")]
     pub author: Option<String>,
-    /// Highlighted content based on the rule that generated the notifications. Highlights are surrounded with a <cs-highlight> tag
+    /// Highlighted content based on the rule that generated the notifications. Highlights are surrounded with a `<cs-highlight>` tag
     #[serde(rename = "content")]
     pub content: String,
     /// The date when the raw intelligence item was created

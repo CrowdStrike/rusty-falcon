@@ -740,7 +740,7 @@ pub async fn preview_rule_v1(configuration: &configuration::Configuration, body:
     }
 }
 
-pub async fn query_actions_v1(configuration: &configuration::Configuration, offset: Option<&str>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, q: Option<&str>) -> Result<crate::models::DomainQueryResponse, Error<QueryActionsV1Error>> {
+pub async fn query_actions_v1(configuration: &configuration::Configuration, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, q: Option<&str>) -> Result<crate::models::DomainQueryResponse, Error<QueryActionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

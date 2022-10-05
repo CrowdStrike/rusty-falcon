@@ -10,28 +10,31 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainUpdateRuleRequestV1 {
-    /// Whether to monitor for breach data
+    /// Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required
     #[serde(rename = "breach_monitoring_enabled")]
     pub breach_monitoring_enabled: bool,
-    /// The filter to be used for searching
+    /// The FQL filter to be used for searching
     #[serde(rename = "filter")]
     pub filter: String,
     /// The rule ID to be updated
     #[serde(rename = "id")]
     pub id: String,
-    /// The name of a particular rule
+    /// The name of a given rule
     #[serde(rename = "name")]
     pub name: String,
-    /// The permissions for a particular rule which specifies the rule's access by other users. Possible values: [public private]
+    /// The permissions for a given rule which specifies the rule's access by other users. Possible values: `public`, `private`
     #[serde(rename = "permissions")]
     pub permissions: String,
-    /// The priority for a particular rule. Possible values: [low medium high]
+    /// The priority for a given rule. Possible values: `low`, `medium`, `high`
     #[serde(rename = "priority")]
     pub priority: String,
+    /// Whether to monitor for substring matches. Only available for the `Typosquatting` topic.
+    #[serde(rename = "substring_matching_enabled")]
+    pub substring_matching_enabled: bool,
 }
 
 impl DomainUpdateRuleRequestV1 {
-    pub fn new(breach_monitoring_enabled: bool, filter: String, id: String, name: String, permissions: String, priority: String) -> DomainUpdateRuleRequestV1 {
+    pub fn new(breach_monitoring_enabled: bool, filter: String, id: String, name: String, permissions: String, priority: String, substring_matching_enabled: bool) -> DomainUpdateRuleRequestV1 {
         DomainUpdateRuleRequestV1 {
             breach_monitoring_enabled,
             filter,
@@ -39,6 +42,7 @@ impl DomainUpdateRuleRequestV1 {
             name,
             permissions,
             priority,
+            substring_matching_enabled,
         }
     }
 }

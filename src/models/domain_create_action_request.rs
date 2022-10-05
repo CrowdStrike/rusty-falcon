@@ -10,16 +10,26 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainCreateActionRequest {
+    #[serde(rename = "content_format")]
+    pub content_format: String,
     #[serde(rename = "frequency")]
     pub frequency: String,
     #[serde(rename = "recipients")]
     pub recipients: Vec<String>,
+    #[serde(rename = "trigger_matchless")]
+    pub trigger_matchless: bool,
     #[serde(rename = "type")]
     pub _type: String,
 }
 
 impl DomainCreateActionRequest {
-    pub fn new(frequency: String, recipients: Vec<String>, _type: String) -> DomainCreateActionRequest {
-        DomainCreateActionRequest { frequency, recipients, _type }
+    pub fn new(content_format: String, frequency: String, recipients: Vec<String>, trigger_matchless: bool, _type: String) -> DomainCreateActionRequest {
+        DomainCreateActionRequest {
+            content_format,
+            frequency,
+            recipients,
+            trigger_matchless,
+            _type,
+        }
     }
 }

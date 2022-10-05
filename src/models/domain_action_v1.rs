@@ -13,9 +13,13 @@ pub struct DomainActionV1 {
     /// The ID of the customer who created the action
     #[serde(rename = "cid")]
     pub cid: String,
+    /// The level of detail in which the content will be delivered
+    #[serde(rename = "content_format")]
+    pub content_format: String,
     /// The date when the action was created
     #[serde(rename = "created_timestamp")]
     pub created_timestamp: String,
+    /// The time interval between the action's triggers
     #[serde(rename = "frequency")]
     pub frequency: String,
     /// The ID of the action
@@ -30,6 +34,9 @@ pub struct DomainActionV1 {
     /// The action status. It can be either 'enabled' or 'muted'.
     #[serde(rename = "status")]
     pub status: String,
+    /// Whether to periodically trigger the action based on the frequency, even when there are no new matches for the associated monitoring rule
+    #[serde(rename = "trigger_matchless")]
+    pub trigger_matchless: bool,
     /// The action type. The only type currently supported is 'email'
     #[serde(rename = "type")]
     pub _type: String,
@@ -42,15 +49,17 @@ pub struct DomainActionV1 {
 }
 
 impl DomainActionV1 {
-    pub fn new(cid: String, created_timestamp: String, frequency: String, id: String, recipients: Vec<String>, rule_id: String, status: String, _type: String, updated_timestamp: String, user_uuid: String) -> DomainActionV1 {
+    pub fn new(cid: String, content_format: String, created_timestamp: String, frequency: String, id: String, recipients: Vec<String>, rule_id: String, status: String, trigger_matchless: bool, _type: String, updated_timestamp: String, user_uuid: String) -> DomainActionV1 {
         DomainActionV1 {
             cid,
+            content_format,
             created_timestamp,
             frequency,
             id,
             recipients,
             rule_id,
             status,
+            trigger_matchless,
             _type,
             updated_timestamp,
             user_uuid,

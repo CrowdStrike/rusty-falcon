@@ -10,7 +10,7 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct SadomainRule {
-    /// Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required.
+    /// Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required
     #[serde(rename = "breach_monitoring_enabled")]
     pub breach_monitoring_enabled: bool,
     #[serde(rename = "cid")]
@@ -18,13 +18,13 @@ pub struct SadomainRule {
     /// The creation time for a given rule
     #[serde(rename = "created_timestamp")]
     pub created_timestamp: String,
-    /// The FQL filter contained in a rule and used for searching. Parentheses may be added automatically for clarity.
+    /// The FQL filter contained in a rule and used for searching. Parentheses may be added automatically for clarity
     #[serde(rename = "filter")]
     pub filter: String,
     /// The ID of a given rule
     #[serde(rename = "id")]
     pub id: String,
-    /// The name for a given rule
+    /// The name of a given rule
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "ownership_assets", skip_serializing_if = "Option::is_none")]
@@ -35,12 +35,15 @@ pub struct SadomainRule {
     /// The priority of a given rule
     #[serde(rename = "priority")]
     pub priority: String,
-    /// The status of a rule
+    /// The status of a given rule
     #[serde(rename = "status")]
     pub status: String,
-    /// The detailed status message
+    /// The detailed status message of a given rule
     #[serde(rename = "status_message", skip_serializing_if = "Option::is_none")]
     pub status_message: Option<String>,
+    /// Whether to monitor for substring matches. Only available for the `Typosquatting` rule topic
+    #[serde(rename = "substring_matching_enabled")]
+    pub substring_matching_enabled: bool,
     /// The topic of a given rule
     #[serde(rename = "topic")]
     pub topic: String,
@@ -59,7 +62,7 @@ pub struct SadomainRule {
 }
 
 impl SadomainRule {
-    pub fn new(breach_monitoring_enabled: bool, cid: String, created_timestamp: String, filter: String, id: String, name: String, permissions: String, priority: String, status: String, topic: String, updated_timestamp: String, user_uuid: String) -> SadomainRule {
+    pub fn new(breach_monitoring_enabled: bool, cid: String, created_timestamp: String, filter: String, id: String, name: String, permissions: String, priority: String, status: String, substring_matching_enabled: bool, topic: String, updated_timestamp: String, user_uuid: String) -> SadomainRule {
         SadomainRule {
             breach_monitoring_enabled,
             cid,
@@ -72,6 +75,7 @@ impl SadomainRule {
             priority,
             status,
             status_message: None,
+            substring_matching_enabled,
             topic,
             updated_timestamp,
             user_id: None,

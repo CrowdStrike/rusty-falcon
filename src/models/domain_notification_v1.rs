@@ -21,10 +21,12 @@ pub struct DomainNotificationV1 {
     pub assigned_to_uuid: Option<String>,
     #[serde(rename = "breach_summary", skip_serializing_if = "Option::is_none")]
     pub breach_summary: Option<Box<crate::models::DomainMatchedBreachSummaryV1>>,
+    #[serde(rename = "cid")]
+    pub cid: String,
     /// The date when the notification was generated
     #[serde(rename = "created_date")]
     pub created_date: String,
-    /// Highlighted content based on the rule that generated the notifications. Highlights are surrounded with a <cs-highlight> tag
+    /// Highlighted content based on the rule that generated the notifications. Highlights are surrounded with a `<cs-highlight>` tag
     #[serde(rename = "highlights", skip_serializing_if = "Option::is_none")]
     pub highlights: Option<Vec<String>>,
     /// The ID of the notification
@@ -33,6 +35,9 @@ pub struct DomainNotificationV1 {
     /// The author who posted the intelligence item
     #[serde(rename = "item_author", skip_serializing_if = "Option::is_none")]
     pub item_author: Option<String>,
+    /// The ID of the author who posted the intelligence item
+    #[serde(rename = "item_author_id", skip_serializing_if = "Option::is_none")]
+    pub item_author_id: Option<String>,
     /// Timestamp when the item is considered to have been created
     #[serde(rename = "item_date")]
     pub item_date: String,
@@ -42,9 +47,15 @@ pub struct DomainNotificationV1 {
     /// The site where the intelligence item was found
     #[serde(rename = "item_site", skip_serializing_if = "Option::is_none")]
     pub item_site: Option<String>,
-    /// Type of the item which matched the rule: 'post', 'reply', 'botnet_config', 'breach', etc.
+    /// The ID of the site where the intelligence item was found
+    #[serde(rename = "item_site_id", skip_serializing_if = "Option::is_none")]
+    pub item_site_id: Option<String>,
+    /// Type of the item which matched the rule: `post`, `reply`, `botnet_config`, `breach`, etc.
     #[serde(rename = "item_type")]
     pub item_type: String,
+    /// ID of the raw intel item that matched the rule
+    #[serde(rename = "raw_intel_id")]
+    pub raw_intel_id: String,
     /// The ID of the rule that generated this notification
     #[serde(rename = "rule_id")]
     pub rule_id: String,
@@ -57,34 +68,45 @@ pub struct DomainNotificationV1 {
     /// The topic of the rule that generated this notification
     #[serde(rename = "rule_topic")]
     pub rule_topic: String,
-    /// The notification status. This can be one of: 'new', 'in-progress', 'closed-false-positive', 'closed-true-positive'.
+    /// Category of the source that generated the notification
+    #[serde(rename = "source_category", skip_serializing_if = "Option::is_none")]
+    pub source_category: Option<String>,
+    /// The notification status. This can be one of: `new`, `in-progress`, `closed-false-positive`, `closed-true-positive`.
     #[serde(rename = "status")]
     pub status: String,
+    #[serde(rename = "typosquatting", skip_serializing_if = "Option::is_none")]
+    pub typosquatting: Option<Box<crate::models::SadomainTyposquattingComponent>>,
     /// The date when the notification was updated
     #[serde(rename = "updated_date")]
     pub updated_date: String,
 }
 
 impl DomainNotificationV1 {
-    pub fn new(created_date: String, id: String, item_date: String, item_id: String, item_type: String, rule_id: String, rule_name: String, rule_priority: String, rule_topic: String, status: String, updated_date: String) -> DomainNotificationV1 {
+    pub fn new(cid: String, created_date: String, id: String, item_date: String, item_id: String, item_type: String, raw_intel_id: String, rule_id: String, rule_name: String, rule_priority: String, rule_topic: String, status: String, updated_date: String) -> DomainNotificationV1 {
         DomainNotificationV1 {
             assigned_to_uid: None,
             assigned_to_username: None,
             assigned_to_uuid: None,
             breach_summary: None,
+            cid,
             created_date,
             highlights: None,
             id,
             item_author: None,
+            item_author_id: None,
             item_date,
             item_id,
             item_site: None,
+            item_site_id: None,
             item_type,
+            raw_intel_id,
             rule_id,
             rule_name,
             rule_priority,
             rule_topic,
+            source_category: None,
             status,
+            typosquatting: None,
             updated_date,
         }
     }

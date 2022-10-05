@@ -9,17 +9,17 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainQueryResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::DomainReconApiError>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::MsaMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct DomainExposedDataRecordFinancialV1 {
+    #[serde(rename = "bank_account")]
+    pub bank_account: String,
+    #[serde(rename = "credit_card")]
+    pub credit_card: String,
+    #[serde(rename = "crypto_currency_address")]
+    pub crypto_currency_address: String,
 }
 
-impl DomainQueryResponse {
-    pub fn new(errors: Vec<crate::models::DomainReconApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> DomainQueryResponse {
-        DomainQueryResponse { errors, meta: Box::new(meta), resources }
+impl DomainExposedDataRecordFinancialV1 {
+    pub fn new(bank_account: String, credit_card: String, crypto_currency_address: String) -> DomainExposedDataRecordFinancialV1 {
+        DomainExposedDataRecordFinancialV1 { bank_account, credit_card, crypto_currency_address }
     }
 }
