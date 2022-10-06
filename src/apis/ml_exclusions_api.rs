@@ -33,7 +33,6 @@ pub enum DeleteMlExclusionsV1Error {
     Status403(crate::models::MsaErrorsOnly),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::ResponsesMlExclusionRespV1),
-    DefaultResponse(crate::models::ResponsesMlExclusionRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -45,7 +44,6 @@ pub enum GetMlExclusionsV1Error {
     Status403(crate::models::MsaErrorsOnly),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::ResponsesMlExclusionRespV1),
-    DefaultResponse(crate::models::ResponsesMlExclusionRespV1),
     UnknownValue(serde_json::Value),
 }
 

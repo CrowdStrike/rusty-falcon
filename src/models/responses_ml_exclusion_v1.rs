@@ -17,7 +17,7 @@ pub struct ResponsesMlExclusionV1 {
     #[serde(rename = "created_on")]
     pub created_on: String,
     #[serde(rename = "excluded_from", skip_serializing_if = "Option::is_none")]
-    pub excluded_from: Option<Vec<serde_json::Value>>,
+    pub excluded_from: Option<Vec<String>>,
     #[serde(rename = "groups")]
     pub groups: Vec<crate::models::ResponsesHostGroupV1>,
     #[serde(rename = "id")]

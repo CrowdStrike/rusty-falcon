@@ -33,7 +33,6 @@ pub enum DeleteFirewallPoliciesError {
     Status404(crate::models::MsaQueryResponse),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::MsaQueryResponse),
-    DefaultResponse(crate::models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -45,7 +44,6 @@ pub enum GetFirewallPoliciesError {
     Status404(crate::models::ResponsesFirewallPoliciesV1),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::ResponsesFirewallPoliciesV1),
-    DefaultResponse(crate::models::ResponsesFirewallPoliciesV1),
     UnknownValue(serde_json::Value),
 }
 

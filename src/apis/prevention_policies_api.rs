@@ -33,7 +33,6 @@ pub enum DeletePreventionPoliciesError {
     Status404(crate::models::MsaQueryResponse),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::MsaQueryResponse),
-    DefaultResponse(crate::models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -45,7 +44,6 @@ pub enum GetPreventionPoliciesError {
     Status404(crate::models::ResponsesPreventionPoliciesV1),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::ResponsesPreventionPoliciesV1),
-    DefaultResponse(crate::models::ResponsesPreventionPoliciesV1),
     UnknownValue(serde_json::Value),
 }
 
