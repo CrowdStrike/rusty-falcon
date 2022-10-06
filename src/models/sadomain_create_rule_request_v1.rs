@@ -19,16 +19,16 @@ pub struct SadomainCreateRuleRequestV1 {
     /// The name of a given rule
     #[serde(rename = "name")]
     pub name: String,
-    /// The permissions for a given rule which specifies the rule's access by other users. Possible values: `public`, `private`
+    /// The permissions for a given rule which specifies the rule's access by other users. Possible values: `private`, `public`
     #[serde(rename = "permissions")]
     pub permissions: String,
-    /// The priority for a given rule. Possible values: `high`, `low`, `medium`
+    /// The priority for a given rule. Possible values: `low`, `medium`, `high`
     #[serde(rename = "priority")]
     pub priority: String,
     /// Whether to monitor for substring matches. Only available for the `Typosquatting` topic.
     #[serde(rename = "substring_matching_enabled")]
     pub substring_matching_enabled: bool,
-    /// The topic of a given rule. Possible values: `SA_BIN`, `SA_DOMAIN`, `SA_ALIAS`, `SA_TYPOSQUATTING`, `SA_IP`, `SA_VIP`, `SA_THIRD_PARTY`, `SA_CVE`, `SA_EMAIL`, `SA_AUTHOR`, `SA_CUSTOM`, `SA_BRAND_PRODUCT`
+    /// The topic of a given rule. Possible values: `SA_VIP`, `SA_IP`, `SA_CVE`, `SA_BIN`, `SA_DOMAIN`, `SA_EMAIL`, `SA_ALIAS`, `SA_BRAND_PRODUCT`, `SA_CUSTOM`, `SA_TYPOSQUATTING`, `SA_AUTHOR`, `SA_THIRD_PARTY`
     #[serde(rename = "topic")]
     pub topic: String,
 }

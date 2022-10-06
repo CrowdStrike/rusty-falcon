@@ -45,7 +45,6 @@ pub enum DeleteSensorUpdatePoliciesError {
     Status404(crate::models::MsaQueryResponse),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::MsaQueryResponse),
-    DefaultResponse(crate::models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -57,7 +56,6 @@ pub enum GetSensorUpdatePoliciesError {
     Status404(crate::models::ResponsesSensorUpdatePoliciesV1),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::ResponsesSensorUpdatePoliciesV1),
-    DefaultResponse(crate::models::ResponsesSensorUpdatePoliciesV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -69,7 +67,6 @@ pub enum GetSensorUpdatePoliciesV2Error {
     Status404(crate::models::ResponsesSensorUpdatePoliciesV2),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::ResponsesSensorUpdatePoliciesV2),
-    DefaultResponse(crate::models::ResponsesSensorUpdatePoliciesV2),
     UnknownValue(serde_json::Value),
 }
 

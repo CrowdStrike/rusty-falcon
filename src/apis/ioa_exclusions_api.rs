@@ -33,7 +33,6 @@ pub enum DeleteIoaExclusionsV1Error {
     Status403(crate::models::MsaErrorsOnly),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::MsaQueryResponse),
-    DefaultResponse(crate::models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -45,7 +44,6 @@ pub enum GetIoaExclusionsV1Error {
     Status403(crate::models::MsaErrorsOnly),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::ResponsesIoaExclusionRespV1),
-    DefaultResponse(crate::models::ResponsesIoaExclusionRespV1),
     UnknownValue(serde_json::Value),
 }
 

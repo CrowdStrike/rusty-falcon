@@ -33,7 +33,6 @@ pub enum DeleteRtResponsePoliciesError {
     Status404(crate::models::MsaQueryResponse),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::MsaQueryResponse),
-    DefaultResponse(crate::models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -45,7 +44,6 @@ pub enum GetRtResponsePoliciesError {
     Status404(crate::models::ResponsesRtResponsePoliciesV1),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::ResponsesRtResponsePoliciesV1),
-    DefaultResponse(crate::models::ResponsesRtResponsePoliciesV1),
     UnknownValue(serde_json::Value),
 }
 

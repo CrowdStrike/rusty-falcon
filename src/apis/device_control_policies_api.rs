@@ -33,7 +33,6 @@ pub enum DeleteDeviceControlPoliciesError {
     Status404(crate::models::MsaQueryResponse),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::MsaQueryResponse),
-    DefaultResponse(crate::models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -45,7 +44,6 @@ pub enum GetDeviceControlPoliciesError {
     Status404(crate::models::ResponsesDeviceControlPoliciesV1),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::ResponsesDeviceControlPoliciesV1),
-    DefaultResponse(crate::models::ResponsesDeviceControlPoliciesV1),
     UnknownValue(serde_json::Value),
 }
 

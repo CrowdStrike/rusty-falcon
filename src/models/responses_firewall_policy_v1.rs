@@ -13,6 +13,9 @@ pub struct ResponsesFirewallPolicyV1 {
     /// Channel file version for the policy
     #[serde(rename = "channel_version")]
     pub channel_version: i32,
+    /// The customer id associated with the policy
+    #[serde(rename = "cid")]
+    pub cid: String,
     /// The email of the user which created the policy
     #[serde(rename = "created_by")]
     pub created_by: String,
@@ -51,6 +54,7 @@ pub struct ResponsesFirewallPolicyV1 {
 impl ResponsesFirewallPolicyV1 {
     pub fn new(
         channel_version: i32,
+        cid: String,
         created_by: String,
         created_timestamp: String,
         description: String,
@@ -65,6 +69,7 @@ impl ResponsesFirewallPolicyV1 {
     ) -> ResponsesFirewallPolicyV1 {
         ResponsesFirewallPolicyV1 {
             channel_version,
+            cid,
             created_by,
             created_timestamp,
             description,
