@@ -12,10 +12,12 @@
 pub struct DomainMsaMetaInfo {
     #[serde(rename = "pagination", skip_serializing_if = "Option::is_none")]
     pub pagination: Option<Box<crate::models::MsaPaging>>,
+    #[serde(rename = "queryTime")]
+    pub query_time: f64,
 }
 
 impl DomainMsaMetaInfo {
-    pub fn new() -> DomainMsaMetaInfo {
-        DomainMsaMetaInfo { pagination: None }
+    pub fn new(query_time: f64) -> DomainMsaMetaInfo {
+        DomainMsaMetaInfo { pagination: None, query_time }
     }
 }
