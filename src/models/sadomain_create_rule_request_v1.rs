@@ -28,7 +28,7 @@ pub struct SadomainCreateRuleRequestV1 {
     /// Whether to monitor for substring matches. Only available for the `Typosquatting` topic.
     #[serde(rename = "substring_matching_enabled")]
     pub substring_matching_enabled: bool,
-    /// The topic of a given rule. Possible values: `SA_VIP`, `SA_IP`, `SA_CVE`, `SA_BIN`, `SA_DOMAIN`, `SA_EMAIL`, `SA_ALIAS`, `SA_BRAND_PRODUCT`, `SA_CUSTOM`, `SA_TYPOSQUATTING`, `SA_AUTHOR`, `SA_THIRD_PARTY`
+    /// The topic of a given rule. Possible values: `SA_BRAND_PRODUCT`, `SA_VIP`, `SA_IP`, `SA_CVE`, `SA_BIN`, `SA_DOMAIN`, `SA_TYPOSQUATTING`, `SA_THIRD_PARTY`, `SA_EMAIL`, `SA_ALIAS`, `SA_AUTHOR`, `SA_CUSTOM`
     #[serde(rename = "topic")]
     pub topic: String,
 }

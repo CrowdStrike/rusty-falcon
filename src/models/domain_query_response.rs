@@ -10,16 +10,16 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainQueryResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::DomainReconApiError>,
+    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
+    pub errors: Option<Vec<crate::models::MsaApiError>>,
     #[serde(rename = "meta")]
-    pub meta: Box<crate::models::MsaMetaInfo>,
+    pub meta: Box<crate::models::DomainMsaMetaInfo>,
     #[serde(rename = "resources")]
     pub resources: Vec<String>,
 }
 
 impl DomainQueryResponse {
-    pub fn new(errors: Vec<crate::models::DomainReconApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> DomainQueryResponse {
-        DomainQueryResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(meta: crate::models::DomainMsaMetaInfo, resources: Vec<String>) -> DomainQueryResponse {
+        DomainQueryResponse { errors: None, meta: Box::new(meta), resources }
     }
 }
