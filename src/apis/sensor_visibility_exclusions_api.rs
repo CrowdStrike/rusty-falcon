@@ -114,7 +114,7 @@ pub async fn delete_sensor_visibility_exclusions_v1(configuration: &configuratio
     let local_var_uri_str = format!("{}/policy/entities/sv-exclusions/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
-    local_var_req_builder = match "csv" {
+    local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
         _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
     };
@@ -155,7 +155,7 @@ pub async fn get_sensor_visibility_exclusions_v1(configuration: &configuration::
     let local_var_uri_str = format!("{}/policy/entities/sv-exclusions/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = match "csv" {
+    local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
         _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
     };
