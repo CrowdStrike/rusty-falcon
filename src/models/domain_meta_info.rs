@@ -10,23 +10,14 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainMetaInfo {
-    #[serde(rename = "pagination", skip_serializing_if = "Option::is_none")]
-    pub pagination: Option<Box<crate::models::DomainAssessmentPaging>>,
-    #[serde(rename = "powered_by", skip_serializing_if = "Option::is_none")]
-    pub powered_by: Option<String>,
-    #[serde(rename = "query_time")]
-    pub query_time: f64,
-    #[serde(rename = "trace_id")]
-    pub trace_id: String,
+    #[serde(rename = "MsaMetaInfo")]
+    pub msa_meta_info: Box<crate::models::MsaMetaInfo>,
+    #[serde(rename = "quota", skip_serializing_if = "Option::is_none")]
+    pub quota: Option<Box<crate::models::DomainQuota>>,
 }
 
 impl DomainMetaInfo {
-    pub fn new(query_time: f64, trace_id: String) -> DomainMetaInfo {
-        DomainMetaInfo {
-            pagination: None,
-            powered_by: None,
-            query_time,
-            trace_id,
-        }
+    pub fn new(msa_meta_info: crate::models::MsaMetaInfo) -> DomainMetaInfo {
+        DomainMetaInfo { msa_meta_info: Box::new(msa_meta_info), quota: None }
     }
 }

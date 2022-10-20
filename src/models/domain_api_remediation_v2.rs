@@ -20,10 +20,12 @@ pub struct DomainApiRemediationV2 {
     pub reference: String,
     #[serde(rename = "title")]
     pub title: String,
+    #[serde(rename = "vendor_url")]
+    pub vendor_url: String,
 }
 
 impl DomainApiRemediationV2 {
-    pub fn new(action: String, id: String, link: String, reference: String, title: String) -> DomainApiRemediationV2 {
-        DomainApiRemediationV2 { action, id, link, reference, title }
+    pub fn new(action: String, id: String, link: String, reference: String, title: String, vendor_url: String) -> DomainApiRemediationV2 {
+        DomainApiRemediationV2 { action, id, link, reference, title, vendor_url }
     }
 }
