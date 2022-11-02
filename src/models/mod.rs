@@ -1,3 +1,7 @@
+pub mod api_action_resp_v1;
+pub use self::api_action_resp_v1::ApiActionRespV1;
+pub mod api_action_v1;
+pub use self::api_action_v1::ApiActionV1;
 pub mod api_activity_creation_request;
 pub use self::api_activity_creation_request::ApiActivityCreationRequest;
 pub mod api_audit_event_details_resource_v1;
@@ -36,6 +40,10 @@ pub mod api_indicators_query_meta;
 pub use self::api_indicators_query_meta::ApiIndicatorsQueryMeta;
 pub mod api_indicators_query_paging;
 pub use self::api_indicators_query_paging::ApiIndicatorsQueryPaging;
+pub mod api_indicators_report_request;
+pub use self::api_indicators_report_request::ApiIndicatorsReportRequest;
+pub mod api_indicators_sorted_search;
+pub use self::api_indicators_sorted_search::ApiIndicatorsSortedSearch;
 pub mod api_ioc_devices_count;
 pub use self::api_ioc_devices_count::ApiIocDevicesCount;
 pub mod api_message_center_activity_response;
