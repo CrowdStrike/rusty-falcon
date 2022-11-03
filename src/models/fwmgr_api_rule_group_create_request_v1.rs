@@ -16,12 +16,14 @@ pub struct FwmgrApiRuleGroupCreateRequestV1 {
     pub enabled: bool,
     #[serde(rename = "name")]
     pub name: String,
+    #[serde(rename = "platform")]
+    pub platform: String,
     #[serde(rename = "rules")]
     pub rules: Vec<crate::models::FwmgrApiRuleCreateRequestV1>,
 }
 
 impl FwmgrApiRuleGroupCreateRequestV1 {
-    pub fn new(description: String, enabled: bool, name: String, rules: Vec<crate::models::FwmgrApiRuleCreateRequestV1>) -> FwmgrApiRuleGroupCreateRequestV1 {
-        FwmgrApiRuleGroupCreateRequestV1 { description, enabled, name, rules }
+    pub fn new(description: String, enabled: bool, name: String, platform: String, rules: Vec<crate::models::FwmgrApiRuleCreateRequestV1>) -> FwmgrApiRuleGroupCreateRequestV1 {
+        FwmgrApiRuleGroupCreateRequestV1 { description, enabled, name, platform, rules }
     }
 }

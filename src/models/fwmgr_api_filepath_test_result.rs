@@ -9,17 +9,17 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct FwmgrMsaQueryResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::FwmgrMsaspecError>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::FwmgrMsaspecMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct FwmgrApiFilepathTestResult {
+    #[serde(rename = "filepath_pattern")]
+    pub filepath_pattern: String,
+    #[serde(rename = "filepath_test_string")]
+    pub filepath_test_string: String,
+    #[serde(rename = "is_match")]
+    pub is_match: bool,
 }
 
-impl FwmgrMsaQueryResponse {
-    pub fn new(errors: Vec<crate::models::FwmgrMsaspecError>, meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<String>) -> FwmgrMsaQueryResponse {
-        FwmgrMsaQueryResponse { errors, meta: Box::new(meta), resources }
+impl FwmgrApiFilepathTestResult {
+    pub fn new(filepath_pattern: String, filepath_test_string: String, is_match: bool) -> FwmgrApiFilepathTestResult {
+        FwmgrApiFilepathTestResult { filepath_pattern, filepath_test_string, is_match }
     }
 }

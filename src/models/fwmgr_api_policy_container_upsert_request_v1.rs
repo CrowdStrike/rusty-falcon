@@ -18,6 +18,8 @@ pub struct FwmgrApiPolicyContainerUpsertRequestV1 {
     pub enforce: bool,
     #[serde(rename = "is_default_policy", skip_serializing_if = "Option::is_none")]
     pub is_default_policy: Option<bool>,
+    #[serde(rename = "local_logging")]
+    pub local_logging: bool,
     #[serde(rename = "platform_id")]
     pub platform_id: String,
     #[serde(rename = "policy_id")]
@@ -31,12 +33,13 @@ pub struct FwmgrApiPolicyContainerUpsertRequestV1 {
 }
 
 impl FwmgrApiPolicyContainerUpsertRequestV1 {
-    pub fn new(default_inbound: String, default_outbound: String, enforce: bool, platform_id: String, policy_id: String, rule_group_ids: Vec<String>, test_mode: bool) -> FwmgrApiPolicyContainerUpsertRequestV1 {
+    pub fn new(default_inbound: String, default_outbound: String, enforce: bool, local_logging: bool, platform_id: String, policy_id: String, rule_group_ids: Vec<String>, test_mode: bool) -> FwmgrApiPolicyContainerUpsertRequestV1 {
         FwmgrApiPolicyContainerUpsertRequestV1 {
             default_inbound,
             default_outbound,
             enforce,
             is_default_policy: None,
+            local_logging,
             platform_id,
             policy_id,
             rule_group_ids,

@@ -34,8 +34,6 @@ pub struct FwmgrApiRuleCreateRequestV1 {
     pub monitor: Box<crate::models::FwmgrDomainMonitoring>,
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "platform_ids")]
-    pub platform_ids: Vec<String>,
     #[serde(rename = "protocol")]
     pub protocol: String,
     #[serde(rename = "remote_address")]
@@ -60,7 +58,6 @@ impl FwmgrApiRuleCreateRequestV1 {
         log: bool,
         monitor: crate::models::FwmgrDomainMonitoring,
         name: String,
-        platform_ids: Vec<String>,
         protocol: String,
         remote_address: Vec<crate::models::FwmgrDomainAddressRange>,
         remote_port: Vec<crate::models::FwmgrDomainPortRange>,
@@ -79,7 +76,6 @@ impl FwmgrApiRuleCreateRequestV1 {
             log,
             monitor: Box::new(monitor),
             name,
-            platform_ids,
             protocol,
             remote_address,
             remote_port,

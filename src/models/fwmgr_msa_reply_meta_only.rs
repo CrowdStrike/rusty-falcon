@@ -11,13 +11,13 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct FwmgrMsaReplyMetaOnly {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::FwmgrMsaApiError>>,
+    pub errors: Option<Vec<crate::models::FwmgrMsaspecError>>,
     #[serde(rename = "meta")]
-    pub meta: Box<crate::models::FwmgrMsaMetaInfo>,
+    pub meta: Box<crate::models::FwmgrMsaspecMetaInfo>,
 }
 
 impl FwmgrMsaReplyMetaOnly {
-    pub fn new(meta: crate::models::FwmgrMsaMetaInfo) -> FwmgrMsaReplyMetaOnly {
+    pub fn new(meta: crate::models::FwmgrMsaspecMetaInfo) -> FwmgrMsaReplyMetaOnly {
         FwmgrMsaReplyMetaOnly { errors: None, meta: Box::new(meta) }
     }
 }

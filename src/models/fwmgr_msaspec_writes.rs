@@ -9,17 +9,13 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct FwmgrMsaQueryResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::FwmgrMsaspecError>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::FwmgrMsaspecMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct FwmgrMsaspecWrites {
+    #[serde(rename = "resources_affected")]
+    pub resources_affected: i32,
 }
 
-impl FwmgrMsaQueryResponse {
-    pub fn new(errors: Vec<crate::models::FwmgrMsaspecError>, meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<String>) -> FwmgrMsaQueryResponse {
-        FwmgrMsaQueryResponse { errors, meta: Box::new(meta), resources }
+impl FwmgrMsaspecWrites {
+    pub fn new(resources_affected: i32) -> FwmgrMsaspecWrites {
+        FwmgrMsaspecWrites { resources_affected }
     }
 }
