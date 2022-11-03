@@ -68,6 +68,16 @@ pub enum CreateRuleGroupError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`create_rule_group_validation`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateRuleGroupValidationError {
+    Status400(crate::models::FwmgrMsaReplyMetaOnly),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`delete_rule_groups`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -218,6 +228,17 @@ pub enum UpdatePolicyContainerError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`update_policy_container_0`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdatePolicyContainer0Error {
+    Status400(crate::models::FwmgrMsaReplyMetaOnly),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::FwmgrMsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`update_rule_group`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -226,6 +247,28 @@ pub enum UpdateRuleGroupError {
     Status403(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
     DefaultResponse(crate::models::FwmgrApiQueryResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_rule_group_validation`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateRuleGroupValidationError {
+    Status400(crate::models::FwmgrMsaReplyMetaOnly),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::FwmgrMsaQueryResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`validate_filepath_pattern`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ValidateFilepathPatternError {
+    Status400(crate::models::FwmgrMsaReplyMetaOnly),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    DefaultResponse(crate::models::FwmgrApiValidateFilepathResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -404,6 +447,56 @@ pub async fn create_rule_group(configuration: &configuration::Configuration, bod
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<CreateRuleGroupError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn create_rule_group_validation(
+    configuration: &configuration::Configuration,
+    body: crate::models::FwmgrApiRuleGroupCreateRequestV1,
+    clone_id: Option<&str>,
+    library: Option<&str>,
+    comment: Option<&str>,
+) -> Result<crate::models::FwmgrMsaQueryResponse, Error<CreateRuleGroupValidationError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/fwmgr/entities/rule-groups/validation/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = clone_id {
+        local_var_req_builder = local_var_req_builder.query(&[("clone_id", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = library {
+        local_var_req_builder = local_var_req_builder.query(&[("library", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = comment {
+        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CreateRuleGroupValidationError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1008,6 +1101,41 @@ pub async fn update_policy_container(configuration: &configuration::Configuratio
     }
 }
 
+pub async fn update_policy_container_0(configuration: &configuration::Configuration, body: crate::models::FwmgrApiPolicyContainerUpsertRequestV1) -> Result<crate::models::FwmgrMsaReplyMetaOnly, Error<UpdatePolicyContainer0Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/fwmgr/entities/policies/v2", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UpdatePolicyContainer0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn update_rule_group(configuration: &configuration::Configuration, body: crate::models::FwmgrApiRuleGroupModifyRequestV1, comment: Option<&str>) -> Result<crate::models::FwmgrApiQueryResponse, Error<UpdateRuleGroupError>> {
     let local_var_configuration = configuration;
 
@@ -1037,6 +1165,79 @@ pub async fn update_rule_group(configuration: &configuration::Configuration, bod
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<UpdateRuleGroupError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn update_rule_group_validation(configuration: &configuration::Configuration, body: crate::models::FwmgrApiRuleGroupModifyRequestV1, comment: Option<&str>) -> Result<crate::models::FwmgrMsaQueryResponse, Error<UpdateRuleGroupValidationError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/fwmgr/entities/rule-groups/validation/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = comment {
+        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UpdateRuleGroupValidationError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn validate_filepath_pattern(configuration: &configuration::Configuration, body: crate::models::FwmgrApiFilepathTestRequest) -> Result<crate::models::FwmgrApiValidateFilepathResponse, Error<ValidateFilepathPatternError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/fwmgr/entities/rules/validate-filepath/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ValidateFilepathPatternError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

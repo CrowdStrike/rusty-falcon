@@ -9,17 +9,17 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct FwmgrMsaQueryResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::FwmgrMsaspecError>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::FwmgrMsaspecMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct FwmgrMsaspecPaging {
+    #[serde(rename = "limit")]
+    pub limit: i32,
+    #[serde(rename = "offset")]
+    pub offset: i32,
+    #[serde(rename = "total")]
+    pub total: i64,
 }
 
-impl FwmgrMsaQueryResponse {
-    pub fn new(errors: Vec<crate::models::FwmgrMsaspecError>, meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<String>) -> FwmgrMsaQueryResponse {
-        FwmgrMsaQueryResponse { errors, meta: Box::new(meta), resources }
+impl FwmgrMsaspecPaging {
+    pub fn new(limit: i32, offset: i32, total: i64) -> FwmgrMsaspecPaging {
+        FwmgrMsaspecPaging { limit, offset, total }
     }
 }

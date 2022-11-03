@@ -9,17 +9,17 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct FwmgrMsaQueryResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::FwmgrMsaspecError>,
+pub struct FwmgrApiValidateFilepathResponse {
+    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
+    pub errors: Option<Vec<crate::models::FwmgrMsaspecError>>,
     #[serde(rename = "meta")]
     pub meta: Box<crate::models::FwmgrMsaspecMetaInfo>,
     #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+    pub resources: Vec<crate::models::FwmgrApiFilepathTestResult>,
 }
 
-impl FwmgrMsaQueryResponse {
-    pub fn new(errors: Vec<crate::models::FwmgrMsaspecError>, meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<String>) -> FwmgrMsaQueryResponse {
-        FwmgrMsaQueryResponse { errors, meta: Box::new(meta), resources }
+impl FwmgrApiValidateFilepathResponse {
+    pub fn new(meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<crate::models::FwmgrApiFilepathTestResult>) -> FwmgrApiValidateFilepathResponse {
+        FwmgrApiValidateFilepathResponse { errors: None, meta: Box::new(meta), resources }
     }
 }

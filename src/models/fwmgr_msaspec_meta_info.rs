@@ -9,17 +9,27 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct FwmgrMsaQueryResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::FwmgrMsaspecError>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::FwmgrMsaspecMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct FwmgrMsaspecMetaInfo {
+    #[serde(rename = "pagination", skip_serializing_if = "Option::is_none")]
+    pub pagination: Option<Box<crate::models::FwmgrMsaspecPaging>>,
+    #[serde(rename = "powered_by", skip_serializing_if = "Option::is_none")]
+    pub powered_by: Option<String>,
+    #[serde(rename = "query_time")]
+    pub query_time: f64,
+    #[serde(rename = "trace_id")]
+    pub trace_id: String,
+    #[serde(rename = "writes", skip_serializing_if = "Option::is_none")]
+    pub writes: Option<Box<crate::models::FwmgrMsaspecWrites>>,
 }
 
-impl FwmgrMsaQueryResponse {
-    pub fn new(errors: Vec<crate::models::FwmgrMsaspecError>, meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<String>) -> FwmgrMsaQueryResponse {
-        FwmgrMsaQueryResponse { errors, meta: Box::new(meta), resources }
+impl FwmgrMsaspecMetaInfo {
+    pub fn new(query_time: f64, trace_id: String) -> FwmgrMsaspecMetaInfo {
+        FwmgrMsaspecMetaInfo {
+            pagination: None,
+            powered_by: None,
+            query_time,
+            trace_id,
+            writes: None,
+        }
     }
 }
