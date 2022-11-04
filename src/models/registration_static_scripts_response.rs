@@ -9,17 +9,17 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct FwmgrApiAggregatesResponse {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::FwmgrMsaspecError>>,
+pub struct RegistrationStaticScriptsResponse {
+    #[serde(rename = "errors")]
+    pub errors: Vec<crate::models::MsaApiError>,
     #[serde(rename = "meta")]
-    pub meta: Box<crate::models::FwmgrMsaspecMetaInfo>,
+    pub meta: Box<crate::models::MsaMetaInfo>,
     #[serde(rename = "resources")]
-    pub resources: Vec<crate::models::FwmgrMsaAggregationResult>,
+    pub resources: Vec<serde_json::Value>,
 }
 
-impl FwmgrApiAggregatesResponse {
-    pub fn new(meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<crate::models::FwmgrMsaAggregationResult>) -> FwmgrApiAggregatesResponse {
-        FwmgrApiAggregatesResponse { errors: None, meta: Box::new(meta), resources }
+impl RegistrationStaticScriptsResponse {
+    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<serde_json::Value>) -> RegistrationStaticScriptsResponse {
+        RegistrationStaticScriptsResponse { errors, meta: Box::new(meta), resources }
     }
 }

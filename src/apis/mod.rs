@@ -72,6 +72,7 @@ pub mod discover_api;
 pub mod event_streams_api;
 pub mod falcon_complete_dashboard_api;
 pub mod falcon_container_api;
+pub mod falcon_container_cli_api;
 pub mod falconx_sandbox_api;
 pub mod filevantage_api;
 pub mod firewall_management_api;

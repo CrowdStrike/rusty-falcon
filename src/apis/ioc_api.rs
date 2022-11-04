@@ -78,7 +78,7 @@ pub enum IndicatorCreateV1Error {
 pub enum IndicatorDeleteV1Error {
     Status403(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::ApiIndicatorQueryResponse),
+    DefaultResponse(crate::models::ApiIndicatorQueryRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -391,7 +391,7 @@ pub async fn indicator_create_v1(configuration: &configuration::Configuration, b
     }
 }
 
-pub async fn indicator_delete_v1(configuration: &configuration::Configuration, filter: Option<&str>, ids: Option<Vec<String>>, comment: Option<&str>) -> Result<crate::models::ApiIndicatorQueryResponse, Error<IndicatorDeleteV1Error>> {
+pub async fn indicator_delete_v1(configuration: &configuration::Configuration, filter: Option<&str>, ids: Option<Vec<String>>, comment: Option<&str>, from_parent: Option<bool>) -> Result<crate::models::ApiIndicatorQueryRespV1, Error<IndicatorDeleteV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -410,6 +410,9 @@ pub async fn indicator_delete_v1(configuration: &configuration::Configuration, f
     }
     if let Some(ref local_var_str) = comment {
         local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = from_parent {
+        local_var_req_builder = local_var_req_builder.query(&[("from_parent", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

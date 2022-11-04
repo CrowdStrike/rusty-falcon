@@ -9,17 +9,15 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct FwmgrApiAggregatesResponse {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::FwmgrMsaspecError>>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::FwmgrMsaspecMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<crate::models::FwmgrMsaAggregationResult>,
+pub struct ApiImageLookupRequest {
+    #[serde(rename = "osversion")]
+    pub osversion: String,
+    #[serde(rename = "packages")]
+    pub packages: Vec<crate::models::ModelsPackageInfoType>,
 }
 
-impl FwmgrApiAggregatesResponse {
-    pub fn new(meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<crate::models::FwmgrMsaAggregationResult>) -> FwmgrApiAggregatesResponse {
-        FwmgrApiAggregatesResponse { errors: None, meta: Box::new(meta), resources }
+impl ApiImageLookupRequest {
+    pub fn new(osversion: String, packages: Vec<crate::models::ModelsPackageInfoType>) -> ApiImageLookupRequest {
+        ApiImageLookupRequest { osversion, packages }
     }
 }

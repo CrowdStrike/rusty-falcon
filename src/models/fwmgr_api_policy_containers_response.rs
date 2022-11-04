@@ -11,15 +11,15 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct FwmgrApiPolicyContainersResponse {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::FwmgrMsaApiError>>,
+    pub errors: Option<Vec<crate::models::FwmgrMsaspecError>>,
     #[serde(rename = "meta")]
-    pub meta: Box<crate::models::FwmgrMsaMetaInfo>,
+    pub meta: Box<crate::models::FwmgrMsaspecMetaInfo>,
     #[serde(rename = "resources")]
     pub resources: Vec<crate::models::FwmgrFirewallPolicyContainerV1>,
 }
 
 impl FwmgrApiPolicyContainersResponse {
-    pub fn new(meta: crate::models::FwmgrMsaMetaInfo, resources: Vec<crate::models::FwmgrFirewallPolicyContainerV1>) -> FwmgrApiPolicyContainersResponse {
+    pub fn new(meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<crate::models::FwmgrFirewallPolicyContainerV1>) -> FwmgrApiPolicyContainersResponse {
         FwmgrApiPolicyContainersResponse { errors: None, meta: Box::new(meta), resources }
     }
 }

@@ -26,12 +26,14 @@ pub struct FwmgrFirewallRuleGroupSummaryV1 {
     pub modified_on: String,
     #[serde(rename = "name")]
     pub name: String,
+    #[serde(rename = "platform")]
+    pub platform: String,
     #[serde(rename = "policy_ids")]
     pub policy_ids: Vec<String>,
 }
 
 impl FwmgrFirewallRuleGroupSummaryV1 {
-    pub fn new(created_by: String, created_on: String, description: String, enabled: bool, id: String, modified_by: String, modified_on: String, name: String, policy_ids: Vec<String>) -> FwmgrFirewallRuleGroupSummaryV1 {
+    pub fn new(created_by: String, created_on: String, description: String, enabled: bool, id: String, modified_by: String, modified_on: String, name: String, platform: String, policy_ids: Vec<String>) -> FwmgrFirewallRuleGroupSummaryV1 {
         FwmgrFirewallRuleGroupSummaryV1 {
             created_by,
             created_on,
@@ -41,6 +43,7 @@ impl FwmgrFirewallRuleGroupSummaryV1 {
             modified_by,
             modified_on,
             name,
+            platform,
             policy_ids,
         }
     }

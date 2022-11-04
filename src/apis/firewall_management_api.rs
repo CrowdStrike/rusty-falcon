@@ -228,10 +228,10 @@ pub enum UpdatePolicyContainerError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`update_policy_container_0`]
+/// struct for typed errors of method [`update_policy_container_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum UpdatePolicyContainer0Error {
+pub enum UpdatePolicyContainerV1Error {
     Status400(crate::models::FwmgrMsaReplyMetaOnly),
     Status403(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
@@ -1071,7 +1071,7 @@ pub async fn update_policy_container(configuration: &configuration::Configuratio
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/policies/v1", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/fwmgr/entities/policies/v2", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -1101,12 +1101,12 @@ pub async fn update_policy_container(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn update_policy_container_0(configuration: &configuration::Configuration, body: crate::models::FwmgrApiPolicyContainerUpsertRequestV1) -> Result<crate::models::FwmgrMsaReplyMetaOnly, Error<UpdatePolicyContainer0Error>> {
+pub async fn update_policy_container_v1(configuration: &configuration::Configuration, body: crate::models::FwmgrApiPolicyContainerUpsertRequestV1) -> Result<crate::models::FwmgrMsaReplyMetaOnly, Error<UpdatePolicyContainerV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/policies/v2", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/fwmgr/entities/policies/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -1126,7 +1126,7 @@ pub async fn update_policy_container_0(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdatePolicyContainer0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdatePolicyContainerV1Error> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

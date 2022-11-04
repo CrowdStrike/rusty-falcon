@@ -48,6 +48,8 @@ pub struct FwmgrFirewallMatchEventResponse {
     pub network_profile: String,
     #[serde(rename = "pid")]
     pub pid: String,
+    #[serde(rename = "platform")]
+    pub platform: String,
     #[serde(rename = "policy_id")]
     pub policy_id: String,
     #[serde(rename = "policy_name")]
@@ -99,6 +101,7 @@ impl FwmgrFirewallMatchEventResponse {
         match_count_since_last_event: String,
         network_profile: String,
         pid: String,
+        platform: String,
         policy_id: String,
         policy_name: String,
         protocol: String,
@@ -134,6 +137,7 @@ impl FwmgrFirewallMatchEventResponse {
             match_count_since_last_event,
             network_profile,
             pid,
+            platform,
             policy_id,
             policy_name,
             protocol,
