@@ -9,17 +9,27 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct ApiIndicatorQueryResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::MsaApiError>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::ApiIndicatorsQueryMeta>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<String>,
+pub struct DomainAwsd4COrganizationAccountV1 {
+    /// 12 digit AWS provided unique identifier for the account.
+    #[serde(rename = "account_id", skip_serializing_if = "Option::is_none")]
+    pub account_id: Option<String>,
+    #[serde(rename = "cid", skip_serializing_if = "Option::is_none")]
+    pub cid: Option<String>,
+    /// Up to 34 character AWS provided unique identifier for the organization.
+    #[serde(rename = "organization_id", skip_serializing_if = "Option::is_none")]
+    pub organization_id: Option<String>,
+    /// 12 digit AWS provided unique identifier for the account.
+    #[serde(rename = "root_account_id", skip_serializing_if = "Option::is_none")]
+    pub root_account_id: Option<String>,
 }
 
-impl ApiIndicatorQueryResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::ApiIndicatorsQueryMeta, resources: Vec<String>) -> ApiIndicatorQueryResponse {
-        ApiIndicatorQueryResponse { errors, meta: Box::new(meta), resources }
+impl DomainAwsd4COrganizationAccountV1 {
+    pub fn new() -> DomainAwsd4COrganizationAccountV1 {
+        DomainAwsd4COrganizationAccountV1 {
+            account_id: None,
+            cid: None,
+            organization_id: None,
+            root_account_id: None,
+        }
     }
 }

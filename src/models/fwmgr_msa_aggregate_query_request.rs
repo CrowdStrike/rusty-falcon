@@ -16,6 +16,10 @@ pub struct FwmgrMsaAggregateQueryRequest {
     pub field: String,
     #[serde(rename = "filter")]
     pub filter: String,
+    #[serde(rename = "from")]
+    pub from: i32,
+    #[serde(rename = "include")]
+    pub include: String,
     #[serde(rename = "interval")]
     pub interval: String,
     #[serde(rename = "min_doc_count")]
@@ -45,6 +49,8 @@ impl FwmgrMsaAggregateQueryRequest {
         date_ranges: Vec<crate::models::FwmgrMsaDateRangeSpec>,
         field: String,
         filter: String,
+        from: i32,
+        include: String,
         interval: String,
         min_doc_count: i64,
         missing: String,
@@ -61,6 +67,8 @@ impl FwmgrMsaAggregateQueryRequest {
             date_ranges,
             field,
             filter,
+            from,
+            include,
             interval,
             min_doc_count,
             missing,

@@ -9,17 +9,31 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct FwmgrApiAggregatesResponse {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::FwmgrMsaspecError>>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::FwmgrMsaspecMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<crate::models::FwmgrMsaAggregationResult>,
+pub struct DomainAwsd4CAccountV1 {
+    /// 12 digit AWS provided unique identifier for the account.
+    #[serde(rename = "account_id", skip_serializing_if = "Option::is_none")]
+    pub account_id: Option<String>,
+    #[serde(rename = "cid", skip_serializing_if = "Option::is_none")]
+    pub cid: Option<String>,
+    #[serde(rename = "iam_role_arn", skip_serializing_if = "Option::is_none")]
+    pub iam_role_arn: Option<String>,
+    #[serde(rename = "intermediate_role_arn", skip_serializing_if = "Option::is_none")]
+    pub intermediate_role_arn: Option<String>,
+    #[serde(rename = "organization", skip_serializing_if = "Option::is_none")]
+    pub organization: Option<Box<crate::models::DomainAwsd4COrganizationAccountV1>>,
+    #[serde(rename = "status")]
+    pub status: String,
 }
 
-impl FwmgrApiAggregatesResponse {
-    pub fn new(meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<crate::models::FwmgrMsaAggregationResult>) -> FwmgrApiAggregatesResponse {
-        FwmgrApiAggregatesResponse { errors: None, meta: Box::new(meta), resources }
+impl DomainAwsd4CAccountV1 {
+    pub fn new(status: String) -> DomainAwsd4CAccountV1 {
+        DomainAwsd4CAccountV1 {
+            account_id: None,
+            cid: None,
+            iam_role_arn: None,
+            intermediate_role_arn: None,
+            organization: None,
+            status,
+        }
     }
 }

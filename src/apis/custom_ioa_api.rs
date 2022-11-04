@@ -40,7 +40,6 @@ pub enum DeleteRuleGroupsMixin0Error {
     Status403(crate::models::MsaReplyMetaOnly),
     Status404(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,7 +50,6 @@ pub enum DeleteRulesError {
     Status403(crate::models::MsaReplyMetaOnly),
     Status404(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -82,7 +80,6 @@ pub enum GetRuleGroupsMixin0Error {
     Status403(crate::models::MsaReplyMetaOnly),
     Status404(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::ApiRuleGroupsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -104,7 +101,6 @@ pub enum GetRulesGetError {
     Status403(crate::models::MsaReplyMetaOnly),
     Status404(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::ApiRulesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -115,7 +111,6 @@ pub enum GetRulesMixin0Error {
     Status403(crate::models::MsaReplyMetaOnly),
     Status404(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::ApiRulesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -146,7 +141,6 @@ pub enum QueryRuleGroupsFullError {
     Status403(crate::models::MsaReplyMetaOnly),
     Status404(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -157,7 +151,6 @@ pub enum QueryRuleGroupsMixin0Error {
     Status403(crate::models::MsaReplyMetaOnly),
     Status404(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -178,7 +171,6 @@ pub enum QueryRulesMixin0Error {
     Status403(crate::models::MsaReplyMetaOnly),
     Status404(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -189,7 +181,6 @@ pub enum UpdateRuleGroupMixin0Error {
     Status403(crate::models::MsaReplyMetaOnly),
     Status404(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::ApiRuleGroupsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -200,7 +191,6 @@ pub enum UpdateRulesError {
     Status403(crate::models::MsaReplyMetaOnly),
     Status404(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::ApiRulesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -211,7 +201,6 @@ pub enum ValidateError {
     Status403(crate::models::MsaReplyMetaOnly),
     Status404(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::ApiValidationResponseV1),
     UnknownValue(serde_json::Value),
 }
 

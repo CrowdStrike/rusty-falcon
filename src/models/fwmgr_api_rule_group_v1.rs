@@ -30,6 +30,8 @@ pub struct FwmgrApiRuleGroupV1 {
     pub modified_on: String,
     #[serde(rename = "name")]
     pub name: String,
+    #[serde(rename = "platform")]
+    pub platform: String,
     #[serde(rename = "policy_ids")]
     pub policy_ids: Vec<String>,
     #[serde(rename = "rule_ids")]
@@ -39,7 +41,22 @@ pub struct FwmgrApiRuleGroupV1 {
 }
 
 impl FwmgrApiRuleGroupV1 {
-    pub fn new(created_by: String, created_on: String, customer_id: String, deleted: bool, description: String, enabled: bool, id: String, modified_by: String, modified_on: String, name: String, policy_ids: Vec<String>, rule_ids: Vec<String>, tracking: String) -> FwmgrApiRuleGroupV1 {
+    pub fn new(
+        created_by: String,
+        created_on: String,
+        customer_id: String,
+        deleted: bool,
+        description: String,
+        enabled: bool,
+        id: String,
+        modified_by: String,
+        modified_on: String,
+        name: String,
+        platform: String,
+        policy_ids: Vec<String>,
+        rule_ids: Vec<String>,
+        tracking: String,
+    ) -> FwmgrApiRuleGroupV1 {
         FwmgrApiRuleGroupV1 {
             created_by,
             created_on,
@@ -51,6 +68,7 @@ impl FwmgrApiRuleGroupV1 {
             modified_by,
             modified_on,
             name,
+            platform,
             policy_ids,
             rule_ids,
             tracking,

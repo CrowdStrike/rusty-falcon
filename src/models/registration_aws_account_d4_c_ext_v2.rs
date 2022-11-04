@@ -9,17 +9,27 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct FwmgrApiAggregatesResponse {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::FwmgrMsaspecError>>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::FwmgrMsaspecMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<crate::models::FwmgrMsaAggregationResult>,
+pub struct RegistrationAwsAccountD4CExtV2 {
+    #[serde(rename = "account_id")]
+    pub account_id: String,
+    #[serde(rename = "account_type", skip_serializing_if = "Option::is_none")]
+    pub account_type: Option<String>,
+    #[serde(rename = "cloudtrail_region")]
+    pub cloudtrail_region: String,
+    #[serde(rename = "is_master", skip_serializing_if = "Option::is_none")]
+    pub is_master: Option<bool>,
+    #[serde(rename = "organization_id")]
+    pub organization_id: String,
 }
 
-impl FwmgrApiAggregatesResponse {
-    pub fn new(meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<crate::models::FwmgrMsaAggregationResult>) -> FwmgrApiAggregatesResponse {
-        FwmgrApiAggregatesResponse { errors: None, meta: Box::new(meta), resources }
+impl RegistrationAwsAccountD4CExtV2 {
+    pub fn new(account_id: String, cloudtrail_region: String, organization_id: String) -> RegistrationAwsAccountD4CExtV2 {
+        RegistrationAwsAccountD4CExtV2 {
+            account_id,
+            account_type: None,
+            cloudtrail_region,
+            is_master: None,
+            organization_id,
+        }
     }
 }
