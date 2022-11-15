@@ -21,7 +21,6 @@ pub enum CombinedUserRolesV1Error {
     Status403(crate::models::DomainMsaUserGrantsResponse),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::DomainMsaUserGrantsResponse),
-    DefaultResponse(crate::models::DomainMsaUserGrantsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -151,7 +150,6 @@ pub enum QueryUserV1Error {
     Status403(crate::models::MsaQueryResponse),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::MsaQueryResponse),
-    DefaultResponse(crate::models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
