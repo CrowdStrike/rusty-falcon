@@ -9,21 +9,17 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainSchedule {
-    #[serde(rename = "ignored_by_channelfile", skip_serializing_if = "Option::is_none")]
-    pub ignored_by_channelfile: Option<bool>,
-    #[serde(rename = "interval", skip_serializing_if = "Option::is_none")]
-    pub interval: Option<i32>,
-    #[serde(rename = "start_timestamp", skip_serializing_if = "Option::is_none")]
-    pub start_timestamp: Option<String>,
+pub struct StoreMsaspecPaging {
+    #[serde(rename = "limit")]
+    pub limit: i32,
+    #[serde(rename = "offset")]
+    pub offset: i32,
+    #[serde(rename = "total")]
+    pub total: i64,
 }
 
-impl DomainSchedule {
-    pub fn new() -> DomainSchedule {
-        DomainSchedule {
-            ignored_by_channelfile: None,
-            interval: None,
-            start_timestamp: None,
-        }
+impl StoreMsaspecPaging {
+    pub fn new(limit: i32, offset: i32, total: i64) -> StoreMsaspecPaging {
+        StoreMsaspecPaging { limit, offset, total }
     }
 }

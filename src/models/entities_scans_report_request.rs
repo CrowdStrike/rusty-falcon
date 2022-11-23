@@ -9,21 +9,17 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainSchedule {
-    #[serde(rename = "ignored_by_channelfile", skip_serializing_if = "Option::is_none")]
-    pub ignored_by_channelfile: Option<bool>,
-    #[serde(rename = "interval", skip_serializing_if = "Option::is_none")]
-    pub interval: Option<i32>,
-    #[serde(rename = "start_timestamp", skip_serializing_if = "Option::is_none")]
-    pub start_timestamp: Option<String>,
+pub struct EntitiesScansReportRequest {
+    #[serde(rename = "is_schedule")]
+    pub is_schedule: bool,
+    #[serde(rename = "report_format")]
+    pub report_format: String,
+    #[serde(rename = "search")]
+    pub search: Box<crate::models::EntitiesScansSortedSearch>,
 }
 
-impl DomainSchedule {
-    pub fn new() -> DomainSchedule {
-        DomainSchedule {
-            ignored_by_channelfile: None,
-            interval: None,
-            start_timestamp: None,
-        }
+impl EntitiesScansReportRequest {
+    pub fn new(is_schedule: bool, report_format: String, search: crate::models::EntitiesScansSortedSearch) -> EntitiesScansReportRequest {
+        EntitiesScansReportRequest { is_schedule, report_format, search: Box::new(search) }
     }
 }

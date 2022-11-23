@@ -13,203 +13,159 @@ use reqwest;
 use super::{configuration, Error};
 use crate::apis::ResponseContent;
 
-/// struct for typed errors of method [`create_rule`]
+/// struct for typed errors of method [`aggregate_scans`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CreateRuleError {
+pub enum AggregateScansError {
     Status403(crate::models::MsaReplyMetaOnly),
-    Status404(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::MsaspecResponseFields),
     Status429(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`create_rule_group_mixin0`]
+/// struct for typed errors of method [`aggregate_scheduled_scans`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CreateRuleGroupMixin0Error {
+pub enum AggregateScheduledScansError {
     Status403(crate::models::MsaReplyMetaOnly),
-    Status404(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::MsaspecResponseFields),
     Status429(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`delete_rule_groups_mixin0`]
+/// struct for typed errors of method [`cancel_scans`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum DeleteRuleGroupsMixin0Error {
+pub enum CancelScansError {
     Status403(crate::models::MsaReplyMetaOnly),
-    Status404(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::MsaspecResponseFields),
     Status429(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`delete_rules`]
+/// struct for typed errors of method [`create_scan`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum DeleteRulesError {
+pub enum CreateScanError {
     Status403(crate::models::MsaReplyMetaOnly),
-    Status404(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_patterns`]
+/// struct for typed errors of method [`delete_scheduled_scans`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetPatternsError {
+pub enum DeleteScheduledScansError {
     Status403(crate::models::MsaReplyMetaOnly),
-    Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::ApiPatternsResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_platforms_mixin0`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetPlatformsMixin0Error {
-    Status403(crate::models::MsaReplyMetaOnly),
-    Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::ApiPlatformsResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_rule_groups_mixin0`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetRuleGroupsMixin0Error {
-    Status403(crate::models::MsaReplyMetaOnly),
-    Status404(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::MsaspecResponseFields),
     Status429(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_rule_types`]
+/// struct for typed errors of method [`get_malicious_files_by_ids`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetRuleTypesError {
+pub enum GetMaliciousFilesByIdsError {
     Status403(crate::models::MsaReplyMetaOnly),
-    Status404(crate::models::MsaReplyMetaOnly),
-    Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::ApiRuleTypesResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_rules_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetRulesGetError {
-    Status403(crate::models::MsaReplyMetaOnly),
-    Status404(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::MsaspecResponseFields),
     Status429(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_rules_mixin0`]
+/// struct for typed errors of method [`get_scan_host_metadata_by_ids`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetRulesMixin0Error {
+pub enum GetScanHostMetadataByIdsError {
     Status403(crate::models::MsaReplyMetaOnly),
-    Status404(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::MsaspecResponseFields),
     Status429(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_patterns`]
+/// struct for typed errors of method [`get_scans_by_scan_ids`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryPatternsError {
+pub enum GetScansByScanIdsError {
     Status403(crate::models::MsaReplyMetaOnly),
-    Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::MsaQueryResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`query_platforms_mixin0`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum QueryPlatformsMixin0Error {
-    Status403(crate::models::MsaReplyMetaOnly),
-    Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::MsaQueryResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`query_rule_groups_full`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum QueryRuleGroupsFullError {
-    Status403(crate::models::MsaReplyMetaOnly),
-    Status404(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::MsaspecResponseFields),
     Status429(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_rule_groups_mixin0`]
+/// struct for typed errors of method [`get_scheduled_scans_by_scan_ids`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryRuleGroupsMixin0Error {
+pub enum GetScheduledScansByScanIdsError {
     Status403(crate::models::MsaReplyMetaOnly),
-    Status404(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::MsaspecResponseFields),
     Status429(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_rule_types`]
+/// struct for typed errors of method [`query_malicious_files`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryRuleTypesError {
+pub enum QueryMaliciousFilesError {
     Status403(crate::models::MsaReplyMetaOnly),
-    Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::MsaQueryResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`query_rules_mixin0`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum QueryRulesMixin0Error {
-    Status403(crate::models::MsaReplyMetaOnly),
-    Status404(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::MsaspecResponseFields),
     Status429(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`update_rule_group_mixin0`]
+/// struct for typed errors of method [`query_scan_host_metadata`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum UpdateRuleGroupMixin0Error {
+pub enum QueryScanHostMetadataError {
     Status403(crate::models::MsaReplyMetaOnly),
-    Status404(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::MsaspecResponseFields),
     Status429(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`update_rules`]
+/// struct for typed errors of method [`query_scans`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum UpdateRulesError {
+pub enum QueryScansError {
     Status403(crate::models::MsaReplyMetaOnly),
-    Status404(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::MsaspecResponseFields),
     Status429(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`validate`]
+/// struct for typed errors of method [`query_scheduled_scans`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ValidateError {
+pub enum QueryScheduledScansError {
     Status403(crate::models::MsaReplyMetaOnly),
-    Status404(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::MsaspecResponseFields),
     Status429(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-pub async fn create_rule(configuration: &configuration::Configuration, body: crate::models::ApiRuleCreateV1) -> Result<crate::models::ApiRulesResponse, Error<CreateRuleError>> {
+/// struct for typed errors of method [`scans_report`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ScansReportError {
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`schedule_scan`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ScheduleScanError {
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+pub async fn aggregate_scans(configuration: &configuration::Configuration, body: Vec<crate::models::MsaAggregateQueryRequest>) -> Result<crate::models::MsaAggregatesResponse, Error<AggregateScansError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rules/v1", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/ods/aggregates/scans/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -229,7 +185,7 @@ pub async fn create_rule(configuration: &configuration::Configuration, body: cra
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateRuleError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AggregateScansError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -239,12 +195,12 @@ pub async fn create_rule(configuration: &configuration::Configuration, body: cra
     }
 }
 
-pub async fn create_rule_group_mixin0(configuration: &configuration::Configuration, body: crate::models::ApiRuleGroupCreateRequestV1) -> Result<crate::models::ApiRuleGroupsResponse, Error<CreateRuleGroupMixin0Error>> {
+pub async fn aggregate_scheduled_scans(configuration: &configuration::Configuration, body: Vec<crate::models::MsaAggregateQueryRequest>) -> Result<crate::models::MsaAggregatesResponse, Error<AggregateScheduledScansError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rule-groups/v1", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/ods/aggregates/scheduled-scans/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -264,7 +220,7 @@ pub async fn create_rule_group_mixin0(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateRuleGroupMixin0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AggregateScheduledScansError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -274,21 +230,91 @@ pub async fn create_rule_group_mixin0(configuration: &configuration::Configurati
     }
 }
 
-pub async fn delete_rule_groups_mixin0(configuration: &configuration::Configuration, ids: Vec<String>, comment: Option<&str>) -> Result<crate::models::MsaReplyMetaOnly, Error<DeleteRuleGroupsMixin0Error>> {
+pub async fn cancel_scans(configuration: &configuration::Configuration, body: crate::models::EntitiesOdsCancelScanRequest) -> Result<crate::models::MsaspecQueryResponse, Error<CancelScansError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rule-groups/v1", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/ods/entities/scan-control-actions/cancel/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CancelScansError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn create_scan(configuration: &configuration::Configuration, body: crate::models::EntitiesOdsScanRequest) -> Result<crate::models::EntitiesOdsScanResponse, Error<CreateScanError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/ods/entities/scans/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CreateScanError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn delete_scheduled_scans(configuration: &configuration::Configuration, ids: Vec<String>, filter: Option<&str>) -> Result<crate::models::MsaspecQueryResponse, Error<DeleteScheduledScansError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/ods/entities/scheduled-scans/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = comment {
-        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
-    }
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
         _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
     };
+    if let Some(ref local_var_str) = filter {
+        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -305,7 +331,7 @@ pub async fn delete_rule_groups_mixin0(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteRuleGroupsMixin0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteScheduledScansError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -315,54 +341,12 @@ pub async fn delete_rule_groups_mixin0(configuration: &configuration::Configurat
     }
 }
 
-pub async fn delete_rules(configuration: &configuration::Configuration, rule_group_id: &str, ids: Vec<String>, comment: Option<&str>) -> Result<crate::models::MsaReplyMetaOnly, Error<DeleteRulesError>> {
+pub async fn get_malicious_files_by_ids(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::EntitiesOdsScanMaliciousFileResponse, Error<GetMaliciousFilesByIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
-
-    local_var_req_builder = local_var_req_builder.query(&[("rule_group_id", &rule_group_id.to_string())]);
-    if let Some(ref local_var_str) = comment {
-        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
-    }
-    local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
-    };
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<DeleteRulesError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn get_patterns(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiPatternsResponse, Error<GetPatternsError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/ioarules/entities/pattern-severities/v1", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/ods/entities/malicious-files/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
@@ -385,7 +369,7 @@ pub async fn get_patterns(configuration: &configuration::Configuration, ids: Vec
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetPatternsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetMaliciousFilesByIdsError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -395,12 +379,12 @@ pub async fn get_patterns(configuration: &configuration::Configuration, ids: Vec
     }
 }
 
-pub async fn get_platforms_mixin0(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiPlatformsResponse, Error<GetPlatformsMixin0Error>> {
+pub async fn get_scan_host_metadata_by_ids(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::EntitiesOdsScanHostResponse, Error<GetScanHostMetadataByIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/platforms/v1", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/ods/entities/scan-hosts/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
@@ -423,7 +407,7 @@ pub async fn get_platforms_mixin0(configuration: &configuration::Configuration, 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetPlatformsMixin0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetScanHostMetadataByIdsError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -433,12 +417,12 @@ pub async fn get_platforms_mixin0(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn get_rule_groups_mixin0(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiRuleGroupsResponse, Error<GetRuleGroupsMixin0Error>> {
+pub async fn get_scans_by_scan_ids(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::EntitiesOdsScanResponse, Error<GetScansByScanIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rule-groups/v1", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/ods/entities/scans/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
@@ -461,7 +445,7 @@ pub async fn get_rule_groups_mixin0(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetRuleGroupsMixin0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetScansByScanIdsError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -471,12 +455,12 @@ pub async fn get_rule_groups_mixin0(configuration: &configuration::Configuration
     }
 }
 
-pub async fn get_rule_types(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiRuleTypesResponse, Error<GetRuleTypesError>> {
+pub async fn get_scheduled_scans_by_scan_ids(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::EntitiesOdsScheduleScanResponse, Error<GetScheduledScansByScanIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rule-types/v1", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/ods/entities/scheduled-scans/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
@@ -499,7 +483,7 @@ pub async fn get_rule_types(configuration: &configuration::Configuration, ids: V
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetRuleTypesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetScheduledScansByScanIdsError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -509,12 +493,196 @@ pub async fn get_rule_types(configuration: &configuration::Configuration, ids: V
     }
 }
 
-pub async fn get_rules_get(configuration: &configuration::Configuration, body: crate::models::ApiRulesGetRequestV1) -> Result<crate::models::ApiRulesResponse, Error<GetRulesGetError>> {
+pub async fn query_malicious_files(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>) -> Result<crate::models::MsaspecQueryResponse, Error<QueryMaliciousFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rules/GET/v1", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/ods/queries/malicious-files/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = filter {
+        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<QueryMaliciousFilesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn query_scan_host_metadata(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>) -> Result<crate::models::MsaspecQueryResponse, Error<QueryScanHostMetadataError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/ods/queries/scan-hosts/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = filter {
+        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<QueryScanHostMetadataError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn query_scans(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>) -> Result<crate::models::MsaspecQueryResponse, Error<QueryScansError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/ods/queries/scans/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = filter {
+        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<QueryScansError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn query_scheduled_scans(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>) -> Result<crate::models::MsaspecQueryResponse, Error<QueryScheduledScansError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/ods/queries/scheduled-scans/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = filter {
+        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<QueryScheduledScansError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn scans_report(configuration: &configuration::Configuration, body: crate::models::EntitiesScansReportRequest) -> Result<crate::models::EntitiesOdsReportResponse, Error<ScansReportError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/ods/entities/scans-reports/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -534,7 +702,7 @@ pub async fn get_rules_get(configuration: &configuration::Configuration, body: c
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetRulesGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ScansReportError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -544,387 +712,12 @@ pub async fn get_rules_get(configuration: &configuration::Configuration, body: c
     }
 }
 
-pub async fn get_rules_mixin0(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiRulesResponse, Error<GetRulesMixin0Error>> {
+pub async fn schedule_scan(configuration: &configuration::Configuration, body: crate::models::EntitiesOdsScheduleScanRequest) -> Result<crate::models::EntitiesOdsScheduleScanResponse, Error<ScheduleScanError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
-    };
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<GetRulesMixin0Error> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn query_patterns(configuration: &configuration::Configuration, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QueryPatternsError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/ioarules/queries/pattern-severities/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<QueryPatternsError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn query_platforms_mixin0(configuration: &configuration::Configuration, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QueryPlatformsMixin0Error>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/ioarules/queries/platforms/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<QueryPlatformsMixin0Error> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn query_rule_groups_full(configuration: &configuration::Configuration, sort: Option<&str>, filter: Option<&str>, q: Option<&str>, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::ApiRuleGroupsResponse, Error<QueryRuleGroupsFullError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/ioarules/queries/rule-groups-full/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = q {
-        local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<QueryRuleGroupsFullError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn query_rule_groups_mixin0(configuration: &configuration::Configuration, sort: Option<&str>, filter: Option<&str>, q: Option<&str>, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QueryRuleGroupsMixin0Error>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/ioarules/queries/rule-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = q {
-        local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<QueryRuleGroupsMixin0Error> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn query_rule_types(configuration: &configuration::Configuration, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QueryRuleTypesError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/ioarules/queries/rule-types/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<QueryRuleTypesError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn query_rules_mixin0(configuration: &configuration::Configuration, sort: Option<&str>, filter: Option<&str>, q: Option<&str>, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QueryRulesMixin0Error>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/ioarules/queries/rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = q {
-        local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<QueryRulesMixin0Error> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn update_rule_group_mixin0(configuration: &configuration::Configuration, body: crate::models::ApiRuleGroupModifyRequestV1) -> Result<crate::models::ApiRuleGroupsResponse, Error<UpdateRuleGroupMixin0Error>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/ioarules/entities/rule-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&body);
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<UpdateRuleGroupMixin0Error> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn update_rules(configuration: &configuration::Configuration, body: crate::models::ApiRuleUpdatesRequestV1) -> Result<crate::models::ApiRulesResponse, Error<UpdateRulesError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/ioarules/entities/rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&body);
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<UpdateRulesError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn validate(configuration: &configuration::Configuration, body: crate::models::ApiValidationRequestV1) -> Result<crate::models::ApiValidationResponseV1, Error<ValidateError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/ioarules/entities/rules/validate/v1", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/ods/entities/scheduled-scans/v1", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -944,7 +737,7 @@ pub async fn validate(configuration: &configuration::Configuration, body: crate:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ValidateError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ScheduleScanError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

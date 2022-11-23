@@ -9,21 +9,24 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainSchedule {
-    #[serde(rename = "ignored_by_channelfile", skip_serializing_if = "Option::is_none")]
-    pub ignored_by_channelfile: Option<bool>,
-    #[serde(rename = "interval", skip_serializing_if = "Option::is_none")]
-    pub interval: Option<i32>,
-    #[serde(rename = "start_timestamp", skip_serializing_if = "Option::is_none")]
-    pub start_timestamp: Option<String>,
+pub struct DomainFileCount {
+    #[serde(rename = "malicious", skip_serializing_if = "Option::is_none")]
+    pub malicious: Option<i32>,
+    #[serde(rename = "quarantined", skip_serializing_if = "Option::is_none")]
+    pub quarantined: Option<i32>,
+    #[serde(rename = "scanned", skip_serializing_if = "Option::is_none")]
+    pub scanned: Option<i32>,
+    #[serde(rename = "skipped", skip_serializing_if = "Option::is_none")]
+    pub skipped: Option<i32>,
 }
 
-impl DomainSchedule {
-    pub fn new() -> DomainSchedule {
-        DomainSchedule {
-            ignored_by_channelfile: None,
-            interval: None,
-            start_timestamp: None,
+impl DomainFileCount {
+    pub fn new() -> DomainFileCount {
+        DomainFileCount {
+            malicious: None,
+            quarantined: None,
+            scanned: None,
+            skipped: None,
         }
     }
 }

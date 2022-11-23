@@ -9,21 +9,15 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainSchedule {
-    #[serde(rename = "ignored_by_channelfile", skip_serializing_if = "Option::is_none")]
-    pub ignored_by_channelfile: Option<bool>,
-    #[serde(rename = "interval", skip_serializing_if = "Option::is_none")]
-    pub interval: Option<i32>,
-    #[serde(rename = "start_timestamp", skip_serializing_if = "Option::is_none")]
-    pub start_timestamp: Option<String>,
+pub struct StoreDomainAppActionRequest {
+    #[serde(rename = "action_parameters", skip_serializing_if = "Option::is_none")]
+    pub action_parameters: Option<Vec<crate::models::StoreMsaspecActionParameter>>,
+    #[serde(rename = "ids")]
+    pub ids: Vec<String>,
 }
 
-impl DomainSchedule {
-    pub fn new() -> DomainSchedule {
-        DomainSchedule {
-            ignored_by_channelfile: None,
-            interval: None,
-            start_timestamp: None,
-        }
+impl StoreDomainAppActionRequest {
+    pub fn new(ids: Vec<String>) -> StoreDomainAppActionRequest {
+        StoreDomainAppActionRequest { action_parameters: None, ids }
     }
 }

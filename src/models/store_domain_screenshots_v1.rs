@@ -9,21 +9,15 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainSchedule {
-    #[serde(rename = "ignored_by_channelfile", skip_serializing_if = "Option::is_none")]
-    pub ignored_by_channelfile: Option<bool>,
-    #[serde(rename = "interval", skip_serializing_if = "Option::is_none")]
-    pub interval: Option<i32>,
-    #[serde(rename = "start_timestamp", skip_serializing_if = "Option::is_none")]
-    pub start_timestamp: Option<String>,
+pub struct StoreDomainScreenshotsV1 {
+    #[serde(rename = "alt", skip_serializing_if = "Option::is_none")]
+    pub alt: Option<String>,
+    #[serde(rename = "url")]
+    pub url: String,
 }
 
-impl DomainSchedule {
-    pub fn new() -> DomainSchedule {
-        DomainSchedule {
-            ignored_by_channelfile: None,
-            interval: None,
-            start_timestamp: None,
-        }
+impl StoreDomainScreenshotsV1 {
+    pub fn new(url: String) -> StoreDomainScreenshotsV1 {
+        StoreDomainScreenshotsV1 { alt: None, url }
     }
 }
