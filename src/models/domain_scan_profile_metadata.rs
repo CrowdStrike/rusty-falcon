@@ -9,21 +9,17 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainSchedule {
-    #[serde(rename = "ignored_by_channelfile", skip_serializing_if = "Option::is_none")]
-    pub ignored_by_channelfile: Option<bool>,
-    #[serde(rename = "interval", skip_serializing_if = "Option::is_none")]
-    pub interval: Option<i32>,
-    #[serde(rename = "start_timestamp", skip_serializing_if = "Option::is_none")]
-    pub start_timestamp: Option<String>,
+pub struct DomainScanProfileMetadata {
+    #[serde(rename = "host_id")]
+    pub host_id: String,
+    #[serde(rename = "last_updated", skip_serializing_if = "Option::is_none")]
+    pub last_updated: Option<String>,
+    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
+    pub status: Option<String>,
 }
 
-impl DomainSchedule {
-    pub fn new() -> DomainSchedule {
-        DomainSchedule {
-            ignored_by_channelfile: None,
-            interval: None,
-            start_timestamp: None,
-        }
+impl DomainScanProfileMetadata {
+    pub fn new(host_id: String) -> DomainScanProfileMetadata {
+        DomainScanProfileMetadata { host_id, last_updated: None, status: None }
     }
 }
