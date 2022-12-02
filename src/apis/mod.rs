@@ -82,6 +82,7 @@ pub mod hosts_api;
 pub mod identity_protection_api;
 pub mod incidents_api;
 pub mod installation_tokens_api;
+pub mod installation_tokens_settings_api;
 pub mod intel_api;
 pub mod ioa_exclusions_api;
 pub mod ioc_api;

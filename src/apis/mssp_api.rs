@@ -134,6 +134,16 @@ pub enum GetChildrenError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_children_v2`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetChildrenV2Error {
+    Status400(crate::models::MsaspecResponseFields),
+    Status403(crate::models::MsaspecResponseFields),
+    Status429(crate::models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_cid_group_by_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -145,6 +155,16 @@ pub enum GetCidGroupByIdError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_cid_group_by_id_v2`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetCidGroupByIdV2Error {
+    Status400(crate::models::MsaErrorsOnly),
+    Status403(crate::models::MsaErrorsOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_cid_group_members_by`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -153,6 +173,16 @@ pub enum GetCidGroupMembersByError {
     Status403(crate::models::MsaErrorsOnly),
     Status429(crate::models::MsaReplyMetaOnly),
     DefaultResponse(crate::models::DomainCidGroupMembersResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_cid_group_members_by_v2`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetCidGroupMembersByV2Error {
+    Status400(crate::models::MsaErrorsOnly),
+    Status403(crate::models::MsaErrorsOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -178,6 +208,16 @@ pub enum GetUserGroupMembersByIdError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_user_group_members_by_idv2`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetUserGroupMembersByIdv2Error {
+    Status400(crate::models::MsaErrorsOnly),
+    Status403(crate::models::MsaErrorsOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_user_groups_by_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -186,6 +226,16 @@ pub enum GetUserGroupsByIdError {
     Status403(crate::models::MsaErrorsOnly),
     Status429(crate::models::MsaReplyMetaOnly),
     DefaultResponse(crate::models::DomainUserGroupsResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_user_groups_by_idv2`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetUserGroupsByIdv2Error {
+    Status400(crate::models::MsaErrorsOnly),
+    Status403(crate::models::MsaErrorsOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -667,6 +717,41 @@ pub async fn get_children(configuration: &configuration::Configuration, ids: Vec
     }
 }
 
+pub async fn get_children_v2(configuration: &configuration::Configuration, body: crate::models::MsaspecIdsRequest) -> Result<crate::models::DomainChildrenResponseV1, Error<GetChildrenV2Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/mssp/entities/children/GET/v2", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetChildrenV2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn get_cid_group_by_id(configuration: &configuration::Configuration, cid_group_ids: Vec<String>) -> Result<crate::models::DomainCidGroupsResponseV1, Error<GetCidGroupByIdError>> {
     let local_var_configuration = configuration;
 
@@ -705,6 +790,44 @@ pub async fn get_cid_group_by_id(configuration: &configuration::Configuration, c
     }
 }
 
+pub async fn get_cid_group_by_id_v2(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainCidGroupsResponseV1, Error<GetCidGroupByIdV2Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/mssp/entities/cid-groups/v2", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetCidGroupByIdV2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn get_cid_group_members_by(configuration: &configuration::Configuration, cid_group_ids: Vec<String>) -> Result<crate::models::DomainCidGroupMembersResponseV1, Error<GetCidGroupMembersByError>> {
     let local_var_configuration = configuration;
 
@@ -734,6 +857,44 @@ pub async fn get_cid_group_members_by(configuration: &configuration::Configurati
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetCidGroupMembersByError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn get_cid_group_members_by_v2(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainCidGroupMembersResponseV1, Error<GetCidGroupMembersByV2Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/mssp/entities/cid-group-members/v2", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetCidGroupMembersByV2Error> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -819,6 +980,44 @@ pub async fn get_user_group_members_by_id(configuration: &configuration::Configu
     }
 }
 
+pub async fn get_user_group_members_by_idv2(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainUserGroupMembersResponseV1, Error<GetUserGroupMembersByIdv2Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/mssp/entities/user-group-members/v2", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetUserGroupMembersByIdv2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn get_user_groups_by_id(configuration: &configuration::Configuration, user_group_ids: Vec<String>) -> Result<crate::models::DomainUserGroupsResponseV1, Error<GetUserGroupsByIdError>> {
     let local_var_configuration = configuration;
 
@@ -848,6 +1047,44 @@ pub async fn get_user_groups_by_id(configuration: &configuration::Configuration,
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetUserGroupsByIdError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn get_user_groups_by_idv2(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainUserGroupsResponseV1, Error<GetUserGroupsByIdv2Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/mssp/entities/user-groups/v2", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetUserGroupsByIdv2Error> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
