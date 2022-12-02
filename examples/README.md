@@ -57,3 +57,16 @@ List hosts and agent versions as key-value dictionary
 FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
     cargo run  --example falcon_host_details | jq -r ' map( { (.hostname) : .agent_version } ) | add'
 ```
+
+## falcon_spotlight_vulnerabilities
+
+[falcon_spotlight_vulnerabilities.rs](falcon_spotlight_vulnerabilities.rs)
+
+Stand-alone tool that uses Falcon Spotlight API to query the vulnerabilities affecting your environment and outputs those vulnerabilities in JSON format to the stdout. This tool can be used together with JSON parsing tools like `jq` in order to build reports of your liking.
+
+Get all open vulnerabilities affecting your env
+
+```
+FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
+    cargo run  --example falcon_spotlight_vulnerabilities | jq
+```
