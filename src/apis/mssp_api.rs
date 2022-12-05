@@ -151,7 +151,6 @@ pub enum GetCidGroupByIdError {
     Status400(crate::models::MsaErrorsOnly),
     Status403(crate::models::MsaErrorsOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::DomainCidGroupsResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -172,7 +171,6 @@ pub enum GetCidGroupMembersByError {
     Status400(crate::models::MsaErrorsOnly),
     Status403(crate::models::MsaErrorsOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::DomainCidGroupMembersResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -204,7 +202,6 @@ pub enum GetUserGroupMembersByIdError {
     Status400(crate::models::MsaErrorsOnly),
     Status403(crate::models::MsaErrorsOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::DomainUserGroupMembersResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -225,7 +222,6 @@ pub enum GetUserGroupsByIdError {
     Status400(crate::models::MsaErrorsOnly),
     Status403(crate::models::MsaErrorsOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::DomainUserGroupsResponseV1),
     UnknownValue(serde_json::Value),
 }
 
