@@ -1,6 +1,6 @@
 [package]
 name = "rusty_falcon"
-version = "0.2.6"
+version = "0.2.7"
 authors = ["CrowdStrike Inc"]
 description = "Rust bindings for CrowdStrike Falcon API"
 homepage = "https://github.com/CrowdStrike/rusty-falcon"
