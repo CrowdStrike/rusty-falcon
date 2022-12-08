@@ -95,6 +95,18 @@ pub enum GetLatestIntelRuleFileError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_vulnerabilities`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetVulnerabilitiesError {
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::MsaErrorsOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaErrorsOnly),
+    DefaultResponse(crate::models::DomainVulnerabilityResponse),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`query_intel_actor_entities`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -173,6 +185,18 @@ pub enum QueryIntelReportIdsError {
 pub enum QueryIntelRuleIdsError {
     Status400(crate::models::MsaErrorsOnly),
     Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaErrorsOnly),
+    DefaultResponse(crate::models::MsaQueryResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`query_vulnerabilities`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum QueryVulnerabilitiesError {
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status404(crate::models::MsaErrorsOnly),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::MsaErrorsOnly),
     DefaultResponse(crate::models::MsaQueryResponse),
@@ -451,6 +475,41 @@ pub async fn get_latest_intel_rule_file(configuration: &configuration::Configura
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetLatestIntelRuleFileError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn get_vulnerabilities(configuration: &configuration::Configuration, body: crate::models::MsaIdsRequest) -> Result<crate::models::DomainVulnerabilityResponse, Error<GetVulnerabilitiesError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/intel/entities/vulnerabilities/GET/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetVulnerabilitiesError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -870,6 +929,55 @@ pub async fn query_intel_rule_ids(
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<QueryIntelRuleIdsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn query_vulnerabilities(configuration: &configuration::Configuration, offset: Option<&str>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, q: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QueryVulnerabilitiesError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/intel/queries/vulnerabilities/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = filter {
+        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = q {
+        local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<QueryVulnerabilitiesError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

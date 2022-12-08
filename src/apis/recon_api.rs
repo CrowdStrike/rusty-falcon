@@ -13,6 +13,19 @@ use reqwest;
 use super::{configuration, Error};
 use crate::apis::ResponseContent;
 
+/// struct for typed errors of method [`aggregate_notifications_exposed_data_records_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum AggregateNotificationsExposedDataRecordsV1Error {
+    Status400(crate::models::DomainErrorsOnly),
+    Status401(crate::models::DomainErrorsOnly),
+    Status403(crate::models::DomainErrorsOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::DomainErrorsOnly),
+    DefaultResponse(crate::models::DomainAggregatesResponse),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`aggregate_notifications_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -40,6 +53,20 @@ pub enum CreateActionsV1Error {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`create_export_jobs_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateExportJobsV1Error {
+    Status400(crate::models::DomainErrorsOnly),
+    Status401(crate::models::DomainErrorsOnly),
+    Status403(crate::models::DomainErrorsOnly),
+    Status404(crate::models::DomainErrorsOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::DomainErrorsOnly),
+    DefaultResponse(crate::models::DomainLaunchExportJobResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`create_rules_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -63,6 +90,19 @@ pub enum DeleteActionV1Error {
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::DomainErrorsOnly),
     DefaultResponse(crate::models::DomainQueryResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_export_jobs_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteExportJobsV1Error {
+    Status400(crate::models::MsaspecResponseFields),
+    Status401(crate::models::MsaspecResponseFields),
+    Status403(crate::models::MsaspecResponseFields),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaspecResponseFields),
+    DefaultResponse(crate::models::DomainExportJobIdResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -105,6 +145,32 @@ pub enum GetActionsV1Error {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_export_jobs_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetExportJobsV1Error {
+    Status400(crate::models::DomainErrorsOnly),
+    Status401(crate::models::DomainErrorsOnly),
+    Status403(crate::models::DomainErrorsOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::DomainErrorsOnly),
+    DefaultResponse(crate::models::DomainExportJobEntitiesResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_file_content_for_export_jobs_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetFileContentForExportJobsV1Error {
+    Status400(crate::models::DomainErrorsOnly),
+    Status401(crate::models::DomainErrorsOnly),
+    Status403(crate::models::DomainErrorsOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::DomainErrorsOnly),
+    DefaultResponse(Vec<i32>),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_notifications_detailed_translated_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -128,6 +194,19 @@ pub enum GetNotificationsDetailedV1Error {
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::DomainErrorsOnly),
     DefaultResponse(crate::models::DomainNotificationDetailsResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_notifications_exposed_data_records_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetNotificationsExposedDataRecordsV1Error {
+    Status400(crate::models::DomainErrorsOnly),
+    Status401(crate::models::DomainErrorsOnly),
+    Status403(crate::models::DomainErrorsOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::DomainErrorsOnly),
+    DefaultResponse(crate::models::ApiNotificationExposedDataRecordEntitiesResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -187,6 +266,19 @@ pub enum PreviewRuleV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryActionsV1Error {
+    Status400(crate::models::DomainErrorsOnly),
+    Status401(crate::models::DomainErrorsOnly),
+    Status403(crate::models::DomainErrorsOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::DomainErrorsOnly),
+    DefaultResponse(crate::models::DomainQueryResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`query_notifications_exposed_data_records_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum QueryNotificationsExposedDataRecordsV1Error {
     Status400(crate::models::DomainErrorsOnly),
     Status401(crate::models::DomainErrorsOnly),
     Status403(crate::models::DomainErrorsOnly),
@@ -261,6 +353,41 @@ pub enum UpdateRulesV1Error {
     UnknownValue(serde_json::Value),
 }
 
+pub async fn aggregate_notifications_exposed_data_records_v1(configuration: &configuration::Configuration, body: Vec<crate::models::MsaAggregateQueryRequest>) -> Result<crate::models::DomainAggregatesResponse, Error<AggregateNotificationsExposedDataRecordsV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/recon/aggregates/notifications-exposed-data-records/GET/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<AggregateNotificationsExposedDataRecordsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn aggregate_notifications_v1(configuration: &configuration::Configuration, body: Vec<crate::models::MsaAggregateQueryRequest>) -> Result<crate::models::DomainAggregatesResponse, Error<AggregateNotificationsV1Error>> {
     let local_var_configuration = configuration;
 
@@ -331,6 +458,41 @@ pub async fn create_actions_v1(configuration: &configuration::Configuration, bod
     }
 }
 
+pub async fn create_export_jobs_v1(configuration: &configuration::Configuration, body: Vec<crate::models::DomainLaunchExportJobRequestV1>) -> Result<crate::models::DomainLaunchExportJobResponseV1, Error<CreateExportJobsV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/recon/entities/exports/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CreateExportJobsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn create_rules_v1(configuration: &configuration::Configuration, body: Vec<crate::models::SadomainCreateRuleRequestV1>) -> Result<crate::models::DomainRulesEntitiesResponseV1, Error<CreateRulesV1Error>> {
     let local_var_configuration = configuration;
 
@@ -392,6 +554,44 @@ pub async fn delete_action_v1(configuration: &configuration::Configuration, id: 
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<DeleteActionV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn delete_export_jobs_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainExportJobIdResponseV1, Error<DeleteExportJobsV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/recon/entities/exports/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<DeleteExportJobsV1Error> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -515,6 +715,79 @@ pub async fn get_actions_v1(configuration: &configuration::Configuration, ids: V
     }
 }
 
+pub async fn get_export_jobs_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainExportJobEntitiesResponseV1, Error<GetExportJobsV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/recon/entities/exports/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetExportJobsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn get_file_content_for_export_jobs_v1(configuration: &configuration::Configuration, id: &str) -> Result<Vec<i32>, Error<GetFileContentForExportJobsV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/recon/entities/export-files/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetFileContentForExportJobsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn get_notifications_detailed_translated_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainNotificationDetailsResponseV1, Error<GetNotificationsDetailedTranslatedV1Error>> {
     let local_var_configuration = configuration;
 
@@ -582,6 +855,44 @@ pub async fn get_notifications_detailed_v1(configuration: &configuration::Config
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetNotificationsDetailedV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn get_notifications_exposed_data_records_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiNotificationExposedDataRecordEntitiesResponseV1, Error<GetNotificationsExposedDataRecordsV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/recon/entities/notifications-exposed-data-records/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetNotificationsExposedDataRecordsV1Error> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -780,6 +1091,62 @@ pub async fn query_actions_v1(configuration: &configuration::Configuration, offs
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<QueryActionsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn query_notifications_exposed_data_records_v1(
+    configuration: &configuration::Configuration,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    q: Option<&str>,
+) -> Result<crate::models::DomainQueryResponse, Error<QueryNotificationsExposedDataRecordsV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/recon/queries/notifications-exposed-data-records/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = filter {
+        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = q {
+        local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<QueryNotificationsExposedDataRecordsV1Error> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
