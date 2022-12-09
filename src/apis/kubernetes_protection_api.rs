@@ -24,6 +24,17 @@ pub enum CreateAwsAccountError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`create_azure_subscription`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateAzureSubscriptionError {
+    Status400(crate::models::MsaBaseEntitiesResponse),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaBaseEntitiesResponse),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`delete_aws_accounts_mixin0`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -33,6 +44,17 @@ pub enum DeleteAwsAccountsMixin0Error {
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::MsaMetaInfo),
     DefaultResponse(crate::models::MsaMetaInfo),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_azure_subscription`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteAzureSubscriptionError {
+    Status400(crate::models::MsaBaseEntitiesResponse),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::MsaBaseEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -81,6 +103,28 @@ pub enum GetLocationsError {
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::K8sregGetLocationsResp),
     DefaultResponse(crate::models::K8sregGetLocationsResp),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`list_azure_accounts`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ListAzureAccountsError {
+    Status400(crate::models::K8sregGetAzureSubscriptionsResp),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::K8sregGetAzureSubscriptionsResp),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`patch_azure_service_principal`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchAzureServicePrincipalError {
+    Status400(crate::models::K8sregGetAzureTenantConfigResp),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::K8sregGetAzureTenantConfigResp),
     UnknownValue(serde_json::Value),
 }
 
@@ -154,6 +198,41 @@ pub async fn create_aws_account(configuration: &configuration::Configuration, bo
     }
 }
 
+pub async fn create_azure_subscription(configuration: &configuration::Configuration, body: crate::models::K8sregCreateAzureSubReq) -> Result<crate::models::MsaBaseEntitiesResponse, Error<CreateAzureSubscriptionError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/kubernetes-protection/entities/accounts/azure/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CreateAzureSubscriptionError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn delete_aws_accounts_mixin0(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::MsaMetaInfo, Error<DeleteAwsAccountsMixin0Error>> {
     let local_var_configuration = configuration;
 
@@ -183,6 +262,46 @@ pub async fn delete_aws_accounts_mixin0(configuration: &configuration::Configura
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<DeleteAwsAccountsMixin0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn delete_azure_subscription(configuration: &configuration::Configuration, ids: Option<Vec<String>>) -> Result<crate::models::MsaBaseEntitiesResponse, Error<DeleteAzureSubscriptionError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/kubernetes-protection/entities/accounts/azure/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = ids {
+        local_var_req_builder = match "csv" {
+            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => local_var_req_builder.query(&[("ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<DeleteAzureSubscriptionError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -376,6 +495,108 @@ pub async fn get_locations(configuration: &configuration::Configuration, clouds:
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetLocationsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn list_azure_accounts(
+    configuration: &configuration::Configuration,
+    ids: Option<Vec<String>>,
+    subscription_id: Option<Vec<String>>,
+    status: Option<&str>,
+    is_horizon_acct: Option<&str>,
+    limit: Option<i32>,
+    offset: Option<i32>,
+) -> Result<crate::models::K8sregGetAzureSubscriptionsResp, Error<ListAzureAccountsError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/kubernetes-protection/entities/accounts/azure/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = ids {
+        local_var_req_builder = match "csv" {
+            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => local_var_req_builder.query(&[("ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref local_var_str) = subscription_id {
+        local_var_req_builder = match "csv" {
+            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("subscription_id".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => local_var_req_builder.query(&[("subscription_id", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref local_var_str) = status {
+        local_var_req_builder = local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = is_horizon_acct {
+        local_var_req_builder = local_var_req_builder.query(&[("is_horizon_acct", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ListAzureAccountsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn patch_azure_service_principal(configuration: &configuration::Configuration, id: &str, client_id: &str) -> Result<crate::models::K8sregGetAzureTenantConfigResp, Error<PatchAzureServicePrincipalError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/kubernetes-protection/entities/service-principal/azure/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("client_id", &client_id.to_string())]);
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<PatchAzureServicePrincipalError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
