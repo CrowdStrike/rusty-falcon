@@ -49,6 +49,18 @@ pub enum ArchiveListV1Error {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`archive_upload_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ArchiveUploadV1Error {
+    Status400(crate::models::ClientArchiveCreateResponseV1),
+    Status403(crate::models::MsaReplyMetaOnly),
+    Status429(crate::models::MsaReplyMetaOnly),
+    Status500(crate::models::ClientArchiveCreateResponseV1),
+    DefaultResponse(crate::models::ClientArchiveCreateResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`archive_upload_v2`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -240,6 +252,51 @@ pub async fn archive_list_v1(configuration: &configuration::Configuration, id: &
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<ArchiveListV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn archive_upload_v1(configuration: &configuration::Configuration, name: &str, body: Vec<i32>, password: Option<&str>, is_confidential: Option<bool>, comment: Option<&str>) -> Result<crate::models::ClientArchiveCreateResponseV1, Error<ArchiveUploadV1Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/archives/entities/archives/v1", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("name", &name.to_string())]);
+    if let Some(ref local_var_str) = password {
+        local_var_req_builder = local_var_req_builder.query(&[("password", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = is_confidential {
+        local_var_req_builder = local_var_req_builder.query(&[("is_confidential", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = comment {
+        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ArchiveUploadV1Error> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
