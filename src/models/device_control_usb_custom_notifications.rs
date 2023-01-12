@@ -9,17 +9,18 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct EntitiesScansReportRequest {
-    #[serde(rename = "is_schedule")]
-    pub is_schedule: bool,
-    #[serde(rename = "report_format")]
-    pub report_format: String,
-    #[serde(rename = "search")]
-    pub search: Box<crate::models::EntitiesScansSortedSearch>,
+pub struct DeviceControlUsbCustomNotifications {
+    #[serde(rename = "blocked_notification", skip_serializing_if = "Option::is_none")]
+    pub blocked_notification: Option<Box<crate::models::DeviceControlUsbCustomNotification>>,
+    #[serde(rename = "restricted_notification", skip_serializing_if = "Option::is_none")]
+    pub restricted_notification: Option<Box<crate::models::DeviceControlUsbCustomNotification>>,
 }
 
-impl EntitiesScansReportRequest {
-    pub fn new(is_schedule: bool, report_format: String, search: crate::models::EntitiesScansSortedSearch) -> EntitiesScansReportRequest {
-        EntitiesScansReportRequest { is_schedule, report_format, search: Box::new(search) }
+impl DeviceControlUsbCustomNotifications {
+    pub fn new() -> DeviceControlUsbCustomNotifications {
+        DeviceControlUsbCustomNotifications {
+            blocked_notification: None,
+            restricted_notification: None,
+        }
     }
 }

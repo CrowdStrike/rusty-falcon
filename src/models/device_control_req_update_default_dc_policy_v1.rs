@@ -9,15 +9,13 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct EntitiesScansSortedSearch {
-    #[serde(rename = "filter")]
-    pub filter: String,
-    #[serde(rename = "sort")]
-    pub sort: String,
+pub struct DeviceControlReqUpdateDefaultDcPolicyV1 {
+    #[serde(rename = "custom_notifications", skip_serializing_if = "Option::is_none")]
+    pub custom_notifications: Option<Box<crate::models::DeviceControlUsbCustomNotifications>>,
 }
 
-impl EntitiesScansSortedSearch {
-    pub fn new(filter: String, sort: String) -> EntitiesScansSortedSearch {
-        EntitiesScansSortedSearch { filter, sort }
+impl DeviceControlReqUpdateDefaultDcPolicyV1 {
+    pub fn new() -> DeviceControlReqUpdateDefaultDcPolicyV1 {
+        DeviceControlReqUpdateDefaultDcPolicyV1 { custom_notifications: None }
     }
 }
