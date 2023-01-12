@@ -9,15 +9,37 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainJobWithLink {
-    #[serde(rename = "href")]
-    pub href: String,
+pub struct DeviceControlUsbClassExceptionsResponse {
+    /// Policy action
+    #[serde(rename = "action")]
+    pub action: Action,
+    /// Exceptions to the rules of this policy setting
+    #[serde(rename = "exceptions")]
+    pub exceptions: Vec<crate::models::DeviceControlExceptionRespV1>,
+    /// USB Class id
     #[serde(rename = "id")]
     pub id: String,
 }
 
-impl DomainJobWithLink {
-    pub fn new(href: String, id: String) -> DomainJobWithLink {
-        DomainJobWithLink { href, id }
+impl DeviceControlUsbClassExceptionsResponse {
+    pub fn new(action: Action, exceptions: Vec<crate::models::DeviceControlExceptionRespV1>, id: String) -> DeviceControlUsbClassExceptionsResponse {
+        DeviceControlUsbClassExceptionsResponse { action, exceptions, id }
+    }
+}
+
+/// Policy action
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum Action {
+    #[serde(rename = "FULL_ACCESS")]
+    FULLACCESS,
+    #[serde(rename = "FULL_BLOCK")]
+    FULLBLOCK,
+    #[serde(rename = "READ_ONLY")]
+    READONLY,
+}
+
+impl Default for Action {
+    fn default() -> Action {
+        Self::FULLACCESS
     }
 }

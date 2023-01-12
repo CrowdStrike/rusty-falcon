@@ -9,17 +9,18 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct EntitiesOdsReportResponse {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::MsaApiError>>,
+pub struct DeviceControlRespV1 {
+    /// A collection of any errors which occurred during execution of the request
+    #[serde(rename = "errors")]
+    pub errors: Vec<crate::models::MsaApiError>,
     #[serde(rename = "meta")]
     pub meta: Box<crate::models::MsaMetaInfo>,
     #[serde(rename = "resources")]
-    pub resources: Vec<crate::models::DomainJobWithLink>,
+    pub resources: Vec<crate::models::DeviceControlPolicyV1>,
 }
 
-impl EntitiesOdsReportResponse {
-    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainJobWithLink>) -> EntitiesOdsReportResponse {
-        EntitiesOdsReportResponse { errors: None, meta: Box::new(meta), resources }
+impl DeviceControlRespV1 {
+    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DeviceControlPolicyV1>) -> DeviceControlRespV1 {
+        DeviceControlRespV1 { errors, meta: Box::new(meta), resources }
     }
 }
