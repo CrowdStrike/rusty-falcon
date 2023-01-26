@@ -27,6 +27,27 @@ pub struct DomainDiscoverApiHost {
     /// The first and last name of the person who is assigned to this asset.
     #[serde(rename = "assigned_to", skip_serializing_if = "Option::is_none")]
     pub assigned_to: Option<String>,
+    /// The available disk space in the last 15 minutes on the host
+    #[serde(rename = "available_disk_space", skip_serializing_if = "Option::is_none")]
+    pub available_disk_space: Option<i32>,
+    /// The available disk space percent in the last 15 minutes on the host
+    #[serde(rename = "available_disk_space_pct", skip_serializing_if = "Option::is_none")]
+    pub available_disk_space_pct: Option<i32>,
+    /// The average memory usage in the last 15 minutes on the host
+    #[serde(rename = "average_memory_usage", skip_serializing_if = "Option::is_none")]
+    pub average_memory_usage: Option<i32>,
+    /// The average memory usage percent in the last 15 minutes on the host
+    #[serde(rename = "average_memory_usage_pct", skip_serializing_if = "Option::is_none")]
+    pub average_memory_usage_pct: Option<i32>,
+    /// The average processor usage in the last 15 minutes on the host
+    #[serde(rename = "average_processor_usage", skip_serializing_if = "Option::is_none")]
+    pub average_processor_usage: Option<i32>,
+    /// The list of found sha256 and their measurement types
+    #[serde(rename = "bios_hashes_data", skip_serializing_if = "Option::is_none")]
+    pub bios_hashes_data: Option<Vec<crate::models::DomainDiscoverApiBiosHashesData>>,
+    /// The id of the bios on the host
+    #[serde(rename = "bios_id", skip_serializing_if = "Option::is_none")]
+    pub bios_id: Option<String>,
     /// The name of the asset's BIOS manufacturer.
     #[serde(rename = "bios_manufacturer", skip_serializing_if = "Option::is_none")]
     pub bios_manufacturer: Option<String>,
@@ -51,6 +72,9 @@ pub struct DomainDiscoverApiHost {
     /// The manufacturer of the asset's CPU.
     #[serde(rename = "cpu_manufacturer", skip_serializing_if = "Option::is_none")]
     pub cpu_manufacturer: Option<String>,
+    /// The name of the processor on the system
+    #[serde(rename = "cpu_processor_name", skip_serializing_if = "Option::is_none")]
+    pub cpu_processor_name: Option<String>,
     /// The time the asset was created in Active Directory, according to LDAP info.
     #[serde(rename = "creation_timestamp", skip_serializing_if = "Option::is_none")]
     pub creation_timestamp: Option<String>,
@@ -84,9 +108,21 @@ pub struct DomainDiscoverApiHost {
     /// The tags of the sources that discovered the asset.
     #[serde(rename = "discoverer_tags", skip_serializing_if = "Option::is_none")]
     pub discoverer_tags: Option<Vec<String>>,
+    /// The names and sizes of the disks on the asset
+    #[serde(rename = "disk_sizes", skip_serializing_if = "Option::is_none")]
+    pub disk_sizes: Option<Vec<crate::models::DomainDiscoverApiDiskSize>>,
     /// The email of the asset as listed in Active Directory.
     #[serde(rename = "email", skip_serializing_if = "Option::is_none")]
     pub email: Option<String>,
+    /// The list of encrypted drives on the host
+    #[serde(rename = "encrypted_drives", skip_serializing_if = "Option::is_none")]
+    pub encrypted_drives: Option<Vec<String>>,
+    /// The count of encrypted drives on the host
+    #[serde(rename = "encrypted_drives_count", skip_serializing_if = "Option::is_none")]
+    pub encrypted_drives_count: Option<i32>,
+    /// The encryption status of the host
+    #[serde(rename = "encryption_status", skip_serializing_if = "Option::is_none")]
+    pub encryption_status: Option<String>,
     /// The type of asset (managed, unmanaged, unsupported).
     #[serde(rename = "entity_type", skip_serializing_if = "Option::is_none")]
     pub entity_type: Option<String>,
@@ -135,6 +171,9 @@ pub struct DomainDiscoverApiHost {
     /// The location of the asset.
     #[serde(rename = "location", skip_serializing_if = "Option::is_none")]
     pub location: Option<String>,
+    /// The number of logical cores available on the system
+    #[serde(rename = "logical_core_count", skip_serializing_if = "Option::is_none")]
+    pub logical_core_count: Option<i32>,
     /// Historical MAC addresses associated with the asset.
     #[serde(rename = "mac_addresses", skip_serializing_if = "Option::is_none")]
     pub mac_addresses: Option<Vec<String>>,
@@ -144,6 +183,18 @@ pub struct DomainDiscoverApiHost {
     /// The first and last name of the person who manages this asset.
     #[serde(rename = "managed_by", skip_serializing_if = "Option::is_none")]
     pub managed_by: Option<String>,
+    /// The max memory usage in the last 15 minutes on the host
+    #[serde(rename = "max_memory_usage", skip_serializing_if = "Option::is_none")]
+    pub max_memory_usage: Option<i32>,
+    /// The max memory usage percent in the last 15 minutes on the host
+    #[serde(rename = "max_memory_usage_pct", skip_serializing_if = "Option::is_none")]
+    pub max_memory_usage_pct: Option<i32>,
+    /// The max processor usage in the last 15 minutes on the host
+    #[serde(rename = "max_processor_usage", skip_serializing_if = "Option::is_none")]
+    pub max_processor_usage: Option<i32>,
+    /// The path, used and available space on mounted disks
+    #[serde(rename = "mount_storage_info", skip_serializing_if = "Option::is_none")]
+    pub mount_storage_info: Option<Vec<crate::models::DomainDiscoverApiMountStorageInfo>>,
     /// The asset's network interfaces (Cannot be used for filtering, sorting, or querying).
     #[serde(rename = "network_interfaces", skip_serializing_if = "Option::is_none")]
     pub network_interfaces: Option<Vec<crate::models::DomainDiscoverApiNetworkInterface>>,
@@ -159,6 +210,8 @@ pub struct DomainDiscoverApiHost {
     /// Whether the asset is at end of support (Yes, No, or Unknown).
     #[serde(rename = "os_is_eol", skip_serializing_if = "Option::is_none")]
     pub os_is_eol: Option<String>,
+    #[serde(rename = "os_security", skip_serializing_if = "Option::is_none")]
+    pub os_security: Option<Box<crate::models::DomainDiscoverApiosSecurity>>,
     /// The OS service pack on the asset.
     #[serde(rename = "os_service_pack", skip_serializing_if = "Option::is_none")]
     pub os_service_pack: Option<String>,
@@ -210,6 +263,27 @@ pub struct DomainDiscoverApiHost {
     /// The sensor and cloud tags of the asset.
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<String>>,
+    /// The count of bios files measured by the firmware image
+    #[serde(rename = "total_bios_files", skip_serializing_if = "Option::is_none")]
+    pub total_bios_files: Option<i32>,
+    /// Total amount of disk space available on the system
+    #[serde(rename = "total_disk_space", skip_serializing_if = "Option::is_none")]
+    pub total_disk_space: Option<i32>,
+    /// The total memory of the asset
+    #[serde(rename = "total_memory", skip_serializing_if = "Option::is_none")]
+    pub total_memory: Option<i32>,
+    /// The list of unencrypted drives on the host
+    #[serde(rename = "unencrypted_drives", skip_serializing_if = "Option::is_none")]
+    pub unencrypted_drives: Option<Vec<String>>,
+    /// The count of unencrypted drives on the host
+    #[serde(rename = "unencrypted_drives_count", skip_serializing_if = "Option::is_none")]
+    pub unencrypted_drives_count: Option<i32>,
+    /// The used disk space in the last 15 minutes on the host
+    #[serde(rename = "used_disk_space", skip_serializing_if = "Option::is_none")]
+    pub used_disk_space: Option<i32>,
+    /// The used disk space percent in the last 15 minutes on the host
+    #[serde(rename = "used_disk_space_pct", skip_serializing_if = "Option::is_none")]
+    pub used_disk_space_pct: Option<i32>,
     /// What the asset is used for, such as production, staging, or QA.
     #[serde(rename = "used_for", skip_serializing_if = "Option::is_none")]
     pub used_for: Option<String>,
@@ -224,6 +298,13 @@ impl DomainDiscoverApiHost {
             agent_version: None,
             aid: None,
             assigned_to: None,
+            available_disk_space: None,
+            available_disk_space_pct: None,
+            average_memory_usage: None,
+            average_memory_usage_pct: None,
+            average_processor_usage: None,
+            bios_hashes_data: None,
+            bios_id: None,
             bios_manufacturer: None,
             bios_version: None,
             cid,
@@ -232,6 +313,7 @@ impl DomainDiscoverApiHost {
             confidence: None,
             country: None,
             cpu_manufacturer: None,
+            cpu_processor_name: None,
             creation_timestamp: None,
             current_local_ip: None,
             data_providers: None,
@@ -243,7 +325,11 @@ impl DomainDiscoverApiHost {
             discoverer_platform_names: None,
             discoverer_product_type_descs: None,
             discoverer_tags: None,
+            disk_sizes: None,
             email: None,
+            encrypted_drives: None,
+            encrypted_drives_count: None,
+            encryption_status: None,
             entity_type: None,
             external_ip: None,
             field_metadata: None,
@@ -260,14 +346,20 @@ impl DomainDiscoverApiHost {
             local_ip_addresses: None,
             local_ips_count: None,
             location: None,
+            logical_core_count: None,
             mac_addresses: None,
             machine_domain: None,
             managed_by: None,
+            max_memory_usage: None,
+            max_memory_usage_pct: None,
+            max_processor_usage: None,
+            mount_storage_info: None,
             network_interfaces: None,
             number_of_disk_drives: None,
             object_guid: None,
             object_sid: None,
             os_is_eol: None,
+            os_security: None,
             os_service_pack: None,
             os_version: None,
             ou: None,
@@ -285,6 +377,13 @@ impl DomainDiscoverApiHost {
             system_product_name: None,
             system_serial_number: None,
             tags: None,
+            total_bios_files: None,
+            total_disk_space: None,
+            total_memory: None,
+            unencrypted_drives: None,
+            unencrypted_drives_count: None,
+            used_disk_space: None,
+            used_disk_space_pct: None,
             used_for: None,
         }
     }

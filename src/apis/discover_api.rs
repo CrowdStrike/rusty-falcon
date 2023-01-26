@@ -29,11 +29,10 @@ pub enum GetAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetHostsError {
-    Status400(crate::models::MsaReplyMetaOnly),
+    Status400(crate::models::MsaspecResponseFields),
     Status403(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    Status500(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::DomainDiscoverApiHostEntitiesResponse),
+    Status500(crate::models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -65,11 +64,10 @@ pub enum QueryAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryHostsError {
-    Status400(crate::models::MsaReplyMetaOnly),
+    Status400(crate::models::MsaspecResponseFields),
     Status403(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    Status500(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::MsaQueryResponse),
+    Status500(crate::models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -245,7 +243,7 @@ pub async fn query_accounts(configuration: &configuration::Configuration, offset
     }
 }
 
-pub async fn query_hosts(configuration: &configuration::Configuration, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QueryHostsError>> {
+pub async fn query_hosts(configuration: &configuration::Configuration, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>) -> Result<crate::models::MsaspecQueryResponse, Error<QueryHostsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
