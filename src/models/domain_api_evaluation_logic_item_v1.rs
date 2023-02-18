@@ -10,8 +10,20 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainApiEvaluationLogicItemV1 {
-    #[serde(rename = "id")]
-    pub id: i32,
+    #[serde(rename = "comparison_check", skip_serializing_if = "Option::is_none")]
+    pub comparison_check: Option<String>,
+    #[serde(rename = "comparisons", skip_serializing_if = "Option::is_none")]
+    pub comparisons: Option<Box<crate::models::DomainApiEvaluationLogicComparisonsV1>>,
+    #[serde(rename = "determined_by_comparison", skip_serializing_if = "Option::is_none")]
+    pub determined_by_comparison: Option<bool>,
+    #[serde(rename = "existence_check", skip_serializing_if = "Option::is_none")]
+    pub existence_check: Option<String>,
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<i32>,
+    #[serde(rename = "items", skip_serializing_if = "Option::is_none")]
+    pub items: Option<Vec<serde_json::Value>>,
+    #[serde(rename = "negate", skip_serializing_if = "Option::is_none")]
+    pub negate: Option<bool>,
     #[serde(rename = "title")]
     pub title: String,
     #[serde(rename = "type")]
@@ -19,7 +31,17 @@ pub struct DomainApiEvaluationLogicItemV1 {
 }
 
 impl DomainApiEvaluationLogicItemV1 {
-    pub fn new(id: i32, title: String, _type: String) -> DomainApiEvaluationLogicItemV1 {
-        DomainApiEvaluationLogicItemV1 { id, title, _type }
+    pub fn new(title: String, _type: String) -> DomainApiEvaluationLogicItemV1 {
+        DomainApiEvaluationLogicItemV1 {
+            comparison_check: None,
+            comparisons: None,
+            determined_by_comparison: None,
+            existence_check: None,
+            id: None,
+            items: None,
+            negate: None,
+            title,
+            _type,
+        }
     }
 }
