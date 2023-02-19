@@ -21,7 +21,6 @@ pub enum CombinedQueryEvaluationLogicError {
     Status403(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(),
-    DefaultResponse(crate::models::DomainSpapiEvaluationLogicCombinedResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -33,7 +32,6 @@ pub enum GetEvaluationLogicError {
     Status403(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(),
-    DefaultResponse(crate::models::DomainSpapiEvaluationLogicEntitiesResponseV1),
     UnknownValue(serde_json::Value),
 }
 

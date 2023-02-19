@@ -21,7 +21,6 @@ pub enum CombinedQueryVulnerabilitiesError {
     Status403(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::DomainSpapiCombinedVulnerabilitiesResponse),
-    DefaultResponse(crate::models::DomainSpapiCombinedVulnerabilitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,7 +40,6 @@ pub enum GetRemediationsV2Error {
 pub enum GetVulnerabilitiesError {
     Status403(crate::models::MsaReplyMetaOnly),
     Status429(crate::models::MsaReplyMetaOnly),
-    DefaultResponse(crate::models::DomainSpapiVulnerabilitiesEntitiesResponseV2),
     UnknownValue(serde_json::Value),
 }
 
