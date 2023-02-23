@@ -13,13 +13,13 @@ pub struct DomainActionV1 {
     /// The ID of the customer who created the action
     #[serde(rename = "cid")]
     pub cid: String,
-    /// The level of detail in which the content will be delivered
+    /// The level of detail in which the content will be delivered. It can be either 'standard' or 'enhanced'
     #[serde(rename = "content_format")]
     pub content_format: String,
     /// The date when the action was created
     #[serde(rename = "created_timestamp")]
     pub created_timestamp: String,
-    /// The time interval between the action's triggers
+    /// The time interval between the action's triggers. It can be one of the values: 'asap', 'daily' or 'weekly'
     #[serde(rename = "frequency")]
     pub frequency: String,
     /// The ID of the action

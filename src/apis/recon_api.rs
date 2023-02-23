@@ -49,7 +49,6 @@ pub enum CreateActionsV1Error {
     Status404(crate::models::MsaErrorsOnly),
     Status429(crate::models::MsaReplyMetaOnly),
     Status500(crate::models::MsaErrorsOnly),
-    DefaultResponse(crate::models::DomainActionEntitiesResponseV1),
     UnknownValue(serde_json::Value),
 }
 
