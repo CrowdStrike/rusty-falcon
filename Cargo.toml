@@ -6,20 +6,23 @@ description = "Rust bindings for CrowdStrike Falcon API"
 homepage = "https://github.com/CrowdStrike/rusty-falcon"
 repository = "https://github.com/CrowdStrike/rusty-falcon"
 readme = "README.md"
-edition = "2018"
+edition = "2021"
 license-file = "LICENSE"
 keywords = ["api", "crowdstrike", "falcon", "security", "vulnerability"]
 categories = ["api-bindings", "asynchronous", "web-programming"]
 
 [dependencies]
-serde = ">=1.0.130, <1.1.0"
-serde_derive = ">=1.0.130, <1.1.0"
-serde_json = ">=1.0.68, <1.1.0"
-url = "^2.2"
-[dependencies.reqwest]
-version = "^0.11"
-features = ["json", "multipart"]
+serde = "1.0.183"
+serde_derive = "1.0.183"
+serde_json = "1.0.104"
+url = "2.4.0"
+reqwest = { version = "0.11.18", features = [
+    "json",
+    "multipart",
+    "rustls-tls-native-roots",
+] }
 
+openssl-sys = "0.9.91"
 
 [dev-dependencies]
-tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+tokio = { version = "1.30", features = ["rt-multi-thread", "macros"] }
