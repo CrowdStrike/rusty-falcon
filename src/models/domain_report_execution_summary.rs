@@ -25,7 +25,14 @@ pub struct DomainReportExecutionSummary {
 }
 
 impl DomainReportExecutionSummary {
-    pub fn new(id: String, last_updated_on: String, report_file_reference: String, result_metadata: crate::models::DomainResultMetadata, status: String, status_msg: String) -> DomainReportExecutionSummary {
+    pub fn new(
+        id: String,
+        last_updated_on: String,
+        report_file_reference: String,
+        result_metadata: crate::models::DomainResultMetadata,
+        status: String,
+        status_msg: String,
+    ) -> DomainReportExecutionSummary {
         DomainReportExecutionSummary {
             id,
             last_updated_on,

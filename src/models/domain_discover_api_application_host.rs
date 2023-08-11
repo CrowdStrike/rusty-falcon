@@ -28,10 +28,16 @@ pub struct DomainDiscoverApiApplicationHost {
     #[serde(rename = "current_local_ip", skip_serializing_if = "Option::is_none")]
     pub current_local_ip: Option<String>,
     /// The last seen MAC address of the asset.
-    #[serde(rename = "current_mac_address", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "current_mac_address",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub current_mac_address: Option<String>,
     /// The last seen network prefix of the asset.
-    #[serde(rename = "current_network_prefix", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "current_network_prefix",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub current_network_prefix: Option<String>,
     /// The external IPv4 address of the asset.
     #[serde(rename = "external_ip", skip_serializing_if = "Option::is_none")]
@@ -73,13 +79,22 @@ pub struct DomainDiscoverApiApplicationHost {
     #[serde(rename = "site_name", skip_serializing_if = "Option::is_none")]
     pub site_name: Option<String>,
     /// The asset's system manufacturer.
-    #[serde(rename = "system_manufacturer", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "system_manufacturer",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub system_manufacturer: Option<String>,
     /// The asset's system product name.
-    #[serde(rename = "system_product_name", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "system_product_name",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub system_product_name: Option<String>,
     /// The asset's system serial number.
-    #[serde(rename = "system_serial_number", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "system_serial_number",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub system_serial_number: Option<String>,
     /// The sensor and cloud tags of the asset.
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]

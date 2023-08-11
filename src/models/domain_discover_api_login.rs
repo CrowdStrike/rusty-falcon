@@ -25,7 +25,10 @@ pub struct DomainDiscoverApiLogin {
     #[serde(rename = "admin_privileges", skip_serializing_if = "Option::is_none")]
     pub admin_privileges: Option<String>,
     /// A login represents an aggregation of login attempts made in a window of time (1-hour window for logins in the past day, or 24-hour window for logins older than a day).
-    #[serde(rename = "aggregation_time_interval", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "aggregation_time_interval",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub aggregation_time_interval: Option<String>,
     /// The agent ID of the Falcon sensor installed on the asset where the login took place.
     #[serde(rename = "aid", skip_serializing_if = "Option::is_none")]
@@ -34,7 +37,10 @@ pub struct DomainDiscoverApiLogin {
     #[serde(rename = "cid", skip_serializing_if = "Option::is_none")]
     pub cid: Option<String>,
     /// The description of the reason why the login failed, if login_status=\"Failed\".<ul><li>There are currently no login servers available to service the login request.</li><li>User login with misspelled or bad user account</li><li>User login with misspelled or bad password</li><li>This is either due to a bad username or authentication information</li><li>Unknown user name or bad password.</li><li>User login outside authorized hours</li><li>User login from unauthorized workstation</li><li>User login with expired password</li><li>User login to account disabled by administrator</li><li>Indicates the Sam Server was in the wrong state to perform the desired operation.</li><li>Clocks between DC and other computer too far out of sync</li><li>The user has not been granted the requested login type (aka login right) at this machine</li><li>The login request failed because the trust relationship between the primary domain and the trusted domain failed.</li><li>An attempt was made to login, but the Netlogon service was not started.</li><li>User login with expired account</li><li>User is required to change password at next login</li><li>Evidently a bug in Windows and not a risk</li><li>User login with account locked</li><li>Failure Reason: An Error occurred during Login</li><li>Login Failure: The machine you are logging in to is protected by an authentication firewall. The specified account is not allowed to authenticate to the machine.</li><li>Status OK.</li><li>Invalid password entered</li></ul>
-    #[serde(rename = "failure_description", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "failure_description",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub failure_description: Option<String>,
     /// The name of the city where the asset is located where the login took place.
     #[serde(rename = "host_city", skip_serializing_if = "Option::is_none")]

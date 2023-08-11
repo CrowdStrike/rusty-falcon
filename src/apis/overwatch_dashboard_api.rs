@@ -63,17 +63,25 @@ pub enum AggregatesOwEventsGlobalCountsError {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn aggregates_detections_global_counts(configuration: &configuration::Configuration, filter: &str) -> Result<crate::models::MsaFacetsResponse, Error<AggregatesDetectionsGlobalCountsError>> {
+pub async fn aggregates_detections_global_counts(
+    configuration: &configuration::Configuration,
+    filter: &str,
+) -> Result<crate::models::MsaFacetsResponse, Error<AggregatesDetectionsGlobalCountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/overwatch-dashboards/aggregates/detections-global-counts/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/overwatch-dashboards/aggregates/detections-global-counts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("filter", &filter.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -88,7 +96,8 @@ pub async fn aggregates_detections_global_counts(configuration: &configuration::
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<AggregatesDetectionsGlobalCountsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AggregatesDetectionsGlobalCountsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -98,16 +107,24 @@ pub async fn aggregates_detections_global_counts(configuration: &configuration::
     }
 }
 
-pub async fn aggregates_events(configuration: &configuration::Configuration, body: Vec<crate::models::MsaAggregateQueryRequest>) -> Result<crate::models::MsaAggregatesResponse, Error<AggregatesEventsError>> {
+pub async fn aggregates_events(
+    configuration: &configuration::Configuration,
+    body: Vec<crate::models::MsaAggregateQueryRequest>,
+) -> Result<crate::models::MsaAggregatesResponse, Error<AggregatesEventsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/overwatch-dashboards/aggregates/events/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/overwatch-dashboards/aggregates/events/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -123,7 +140,8 @@ pub async fn aggregates_events(configuration: &configuration::Configuration, bod
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<AggregatesEventsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AggregatesEventsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -133,16 +151,24 @@ pub async fn aggregates_events(configuration: &configuration::Configuration, bod
     }
 }
 
-pub async fn aggregates_events_collections(configuration: &configuration::Configuration, body: Vec<crate::models::MsaAggregateQueryRequest>) -> Result<crate::models::MsaAggregatesResponse, Error<AggregatesEventsCollectionsError>> {
+pub async fn aggregates_events_collections(
+    configuration: &configuration::Configuration,
+    body: Vec<crate::models::MsaAggregateQueryRequest>,
+) -> Result<crate::models::MsaAggregatesResponse, Error<AggregatesEventsCollectionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/overwatch-dashboards/aggregates/events-collections/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/overwatch-dashboards/aggregates/events-collections/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -158,7 +184,8 @@ pub async fn aggregates_events_collections(configuration: &configuration::Config
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<AggregatesEventsCollectionsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AggregatesEventsCollectionsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -168,17 +195,25 @@ pub async fn aggregates_events_collections(configuration: &configuration::Config
     }
 }
 
-pub async fn aggregates_incidents_global_counts(configuration: &configuration::Configuration, filter: &str) -> Result<crate::models::MsaFacetsResponse, Error<AggregatesIncidentsGlobalCountsError>> {
+pub async fn aggregates_incidents_global_counts(
+    configuration: &configuration::Configuration,
+    filter: &str,
+) -> Result<crate::models::MsaFacetsResponse, Error<AggregatesIncidentsGlobalCountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/overwatch-dashboards/aggregates/incidents-global-counts/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/overwatch-dashboards/aggregates/incidents-global-counts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("filter", &filter.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -193,7 +228,8 @@ pub async fn aggregates_incidents_global_counts(configuration: &configuration::C
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<AggregatesIncidentsGlobalCountsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AggregatesIncidentsGlobalCountsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -203,17 +239,25 @@ pub async fn aggregates_incidents_global_counts(configuration: &configuration::C
     }
 }
 
-pub async fn aggregates_ow_events_global_counts(configuration: &configuration::Configuration, filter: &str) -> Result<crate::models::MsaFacetsResponse, Error<AggregatesOwEventsGlobalCountsError>> {
+pub async fn aggregates_ow_events_global_counts(
+    configuration: &configuration::Configuration,
+    filter: &str,
+) -> Result<crate::models::MsaFacetsResponse, Error<AggregatesOwEventsGlobalCountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/overwatch-dashboards/aggregates/ow-events-global-counts/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/overwatch-dashboards/aggregates/ow-events-global-counts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("filter", &filter.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -228,7 +272,8 @@ pub async fn aggregates_ow_events_global_counts(configuration: &configuration::C
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<AggregatesOwEventsGlobalCountsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AggregatesOwEventsGlobalCountsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

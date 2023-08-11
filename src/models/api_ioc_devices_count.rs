@@ -24,6 +24,12 @@ pub struct ApiIocDevicesCount {
 
 impl ApiIocDevicesCount {
     pub fn new(device_count: i32, id: String, _type: String, value: String) -> ApiIocDevicesCount {
-        ApiIocDevicesCount { device_count, id, limit_exceeded: None, _type, value }
+        ApiIocDevicesCount {
+            device_count,
+            id,
+            limit_exceeded: None,
+            _type,
+            value,
+        }
     }
 }

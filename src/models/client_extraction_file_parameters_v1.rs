@@ -20,6 +20,10 @@ pub struct ClientExtractionFileParametersV1 {
 
 impl ClientExtractionFileParametersV1 {
     pub fn new() -> ClientExtractionFileParametersV1 {
-        ClientExtractionFileParametersV1 { comment: None, is_confidential: None, name: None }
+        ClientExtractionFileParametersV1 {
+            comment: None,
+            is_confidential: None,
+            name: None,
+        }
     }
 }

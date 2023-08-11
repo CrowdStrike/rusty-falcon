@@ -19,7 +19,14 @@ pub struct DomainSpapiEvaluationLogicEntitiesResponseV1 {
 }
 
 impl DomainSpapiEvaluationLogicEntitiesResponseV1 {
-    pub fn new(meta: crate::models::DomainMetaInfo, resources: Vec<crate::models::DomainApiEvaluationLogicV1>) -> DomainSpapiEvaluationLogicEntitiesResponseV1 {
-        DomainSpapiEvaluationLogicEntitiesResponseV1 { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::DomainMetaInfo,
+        resources: Vec<crate::models::DomainApiEvaluationLogicV1>,
+    ) -> DomainSpapiEvaluationLogicEntitiesResponseV1 {
+        DomainSpapiEvaluationLogicEntitiesResponseV1 {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

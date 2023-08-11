@@ -16,7 +16,10 @@ pub struct FalconxMalqueryResource {
     pub file_size: Option<i32>,
     #[serde(rename = "file_type", skip_serializing_if = "Option::is_none")]
     pub file_type: Option<String>,
-    #[serde(rename = "first_seen_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "first_seen_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub first_seen_timestamp: Option<String>,
     #[serde(rename = "label", skip_serializing_if = "Option::is_none")]
     pub label: Option<String>,

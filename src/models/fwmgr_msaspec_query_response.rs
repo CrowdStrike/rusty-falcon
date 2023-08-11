@@ -19,7 +19,14 @@ pub struct FwmgrMsaspecQueryResponse {
 }
 
 impl FwmgrMsaspecQueryResponse {
-    pub fn new(meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<String>) -> FwmgrMsaspecQueryResponse {
-        FwmgrMsaspecQueryResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::FwmgrMsaspecMetaInfo,
+        resources: Vec<String>,
+    ) -> FwmgrMsaspecQueryResponse {
+        FwmgrMsaspecQueryResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

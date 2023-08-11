@@ -26,7 +26,13 @@ pub struct SadomainTyposquattingComponent {
 }
 
 impl SadomainTyposquattingComponent {
-    pub fn new(base_domain: crate::models::SadomainTyposquattingBaseDomain, id: String, parent_domain: crate::models::SadomainTyposquattingParentDomain, punycode_format: String, unicode_format: String) -> SadomainTyposquattingComponent {
+    pub fn new(
+        base_domain: crate::models::SadomainTyposquattingBaseDomain,
+        id: String,
+        parent_domain: crate::models::SadomainTyposquattingParentDomain,
+        punycode_format: String,
+        unicode_format: String,
+    ) -> SadomainTyposquattingComponent {
         SadomainTyposquattingComponent {
             base_domain: Box::new(base_domain),
             id,

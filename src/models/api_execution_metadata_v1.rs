@@ -27,7 +27,15 @@ pub struct ApiExecutionMetadataV1 {
 }
 
 impl ApiExecutionMetadataV1 {
-    pub fn new(retry_allowed: bool, retry_performed: bool, retry_report_execution_id: String, subtype: String, unscheduled_execution_type: String, xdr_data: crate::models::DomainXdrData, xdr_params: crate::models::DomainXdrParams) -> ApiExecutionMetadataV1 {
+    pub fn new(
+        retry_allowed: bool,
+        retry_performed: bool,
+        retry_report_execution_id: String,
+        subtype: String,
+        unscheduled_execution_type: String,
+        xdr_data: crate::models::DomainXdrData,
+        xdr_params: crate::models::DomainXdrParams,
+    ) -> ApiExecutionMetadataV1 {
         ApiExecutionMetadataV1 {
             retry_allowed,
             retry_performed,

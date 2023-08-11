@@ -22,8 +22,16 @@ pub struct DeviceControlUsbClassExceptionsResponse {
 }
 
 impl DeviceControlUsbClassExceptionsResponse {
-    pub fn new(action: Action, exceptions: Vec<crate::models::DeviceControlExceptionRespV1>, id: String) -> DeviceControlUsbClassExceptionsResponse {
-        DeviceControlUsbClassExceptionsResponse { action, exceptions, id }
+    pub fn new(
+        action: Action,
+        exceptions: Vec<crate::models::DeviceControlExceptionRespV1>,
+        id: String,
+    ) -> DeviceControlUsbClassExceptionsResponse {
+        DeviceControlUsbClassExceptionsResponse {
+            action,
+            exceptions,
+            id,
+        }
     }
 }
 

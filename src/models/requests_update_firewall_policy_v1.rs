@@ -23,6 +23,10 @@ pub struct RequestsUpdateFirewallPolicyV1 {
 
 impl RequestsUpdateFirewallPolicyV1 {
     pub fn new(id: String) -> RequestsUpdateFirewallPolicyV1 {
-        RequestsUpdateFirewallPolicyV1 { description: None, id, name: None }
+        RequestsUpdateFirewallPolicyV1 {
+            description: None,
+            id,
+            name: None,
+        }
     }
 }

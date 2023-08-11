@@ -19,7 +19,14 @@ pub struct ApiPlatformsResponse {
 }
 
 impl ApiPlatformsResponse {
-    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainPlatform>) -> ApiPlatformsResponse {
-        ApiPlatformsResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainPlatform>,
+    ) -> ApiPlatformsResponse {
+        ApiPlatformsResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

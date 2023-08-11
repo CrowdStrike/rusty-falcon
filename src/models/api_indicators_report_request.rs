@@ -17,7 +17,13 @@ pub struct ApiIndicatorsReportRequest {
 }
 
 impl ApiIndicatorsReportRequest {
-    pub fn new(report_format: String, search: crate::models::ApiIndicatorsSortedSearch) -> ApiIndicatorsReportRequest {
-        ApiIndicatorsReportRequest { report_format, search: Box::new(search) }
+    pub fn new(
+        report_format: String,
+        search: crate::models::ApiIndicatorsSortedSearch,
+    ) -> ApiIndicatorsReportRequest {
+        ApiIndicatorsReportRequest {
+            report_format,
+            search: Box::new(search),
+        }
     }
 }

@@ -27,7 +27,15 @@ pub struct K8sregAzureSubscriptionResp {
 }
 
 impl K8sregAzureSubscriptionResp {
-    pub fn new(azure_permissions_status: Vec<crate::models::K8sregAccountPermissionsStatus>, created_at: String, from_cspm: bool, status: String, subscription_id: String, tenant_id: String, updated_at: String) -> K8sregAzureSubscriptionResp {
+    pub fn new(
+        azure_permissions_status: Vec<crate::models::K8sregAccountPermissionsStatus>,
+        created_at: String,
+        from_cspm: bool,
+        status: String,
+        subscription_id: String,
+        tenant_id: String,
+        updated_at: String,
+    ) -> K8sregAzureSubscriptionResp {
         K8sregAzureSubscriptionResp {
             azure_permissions_status,
             created_at,

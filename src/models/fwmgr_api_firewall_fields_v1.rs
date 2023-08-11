@@ -21,7 +21,12 @@ pub struct FwmgrApiFirewallFieldsV1 {
 }
 
 impl FwmgrApiFirewallFieldsV1 {
-    pub fn new(default_monitor: crate::models::FwmgrDomainMonitoring, id: String, platform: String, platform_fields: Vec<crate::models::FwmgrDomainField>) -> FwmgrApiFirewallFieldsV1 {
+    pub fn new(
+        default_monitor: crate::models::FwmgrDomainMonitoring,
+        id: String,
+        platform: String,
+        platform_fields: Vec<crate::models::FwmgrDomainField>,
+    ) -> FwmgrApiFirewallFieldsV1 {
         FwmgrApiFirewallFieldsV1 {
             default_monitor: Box::new(default_monitor),
             id,

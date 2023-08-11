@@ -19,7 +19,15 @@ pub struct DeviceapiLoginHistoryResponseV1 {
 }
 
 impl DeviceapiLoginHistoryResponseV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DeviceapiLoginDetailV1>) -> DeviceapiLoginHistoryResponseV1 {
-        DeviceapiLoginHistoryResponseV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DeviceapiLoginDetailV1>,
+    ) -> DeviceapiLoginHistoryResponseV1 {
+        DeviceapiLoginHistoryResponseV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

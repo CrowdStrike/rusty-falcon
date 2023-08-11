@@ -18,6 +18,9 @@ pub struct FwmgrDomainIcmp {
 
 impl FwmgrDomainIcmp {
     pub fn new(icmp_code: String, icmp_type: String) -> FwmgrDomainIcmp {
-        FwmgrDomainIcmp { icmp_code, icmp_type }
+        FwmgrDomainIcmp {
+            icmp_code,
+            icmp_type,
+        }
     }
 }

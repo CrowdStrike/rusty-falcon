@@ -352,16 +352,27 @@ pub enum UpdateRulesV1Error {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn aggregate_notifications_exposed_data_records_v1(configuration: &configuration::Configuration, body: Vec<crate::models::MsaAggregateQueryRequest>) -> Result<crate::models::DomainAggregatesResponse, Error<AggregateNotificationsExposedDataRecordsV1Error>> {
+pub async fn aggregate_notifications_exposed_data_records_v1(
+    configuration: &configuration::Configuration,
+    body: Vec<crate::models::MsaAggregateQueryRequest>,
+) -> Result<
+    crate::models::DomainAggregatesResponse,
+    Error<AggregateNotificationsExposedDataRecordsV1Error>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/aggregates/notifications-exposed-data-records/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/aggregates/notifications-exposed-data-records/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -377,7 +388,8 @@ pub async fn aggregate_notifications_exposed_data_records_v1(configuration: &con
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<AggregateNotificationsExposedDataRecordsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AggregateNotificationsExposedDataRecordsV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -387,16 +399,24 @@ pub async fn aggregate_notifications_exposed_data_records_v1(configuration: &con
     }
 }
 
-pub async fn aggregate_notifications_v1(configuration: &configuration::Configuration, body: Vec<crate::models::MsaAggregateQueryRequest>) -> Result<crate::models::DomainAggregatesResponse, Error<AggregateNotificationsV1Error>> {
+pub async fn aggregate_notifications_v1(
+    configuration: &configuration::Configuration,
+    body: Vec<crate::models::MsaAggregateQueryRequest>,
+) -> Result<crate::models::DomainAggregatesResponse, Error<AggregateNotificationsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/aggregates/notifications/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/aggregates/notifications/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -412,7 +432,8 @@ pub async fn aggregate_notifications_v1(configuration: &configuration::Configura
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<AggregateNotificationsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AggregateNotificationsV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -422,16 +443,24 @@ pub async fn aggregate_notifications_v1(configuration: &configuration::Configura
     }
 }
 
-pub async fn create_actions_v1(configuration: &configuration::Configuration, body: crate::models::DomainRegisterActionsRequest) -> Result<crate::models::DomainActionEntitiesResponseV1, Error<CreateActionsV1Error>> {
+pub async fn create_actions_v1(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainRegisterActionsRequest,
+) -> Result<crate::models::DomainActionEntitiesResponseV1, Error<CreateActionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/actions/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/actions/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -447,7 +476,8 @@ pub async fn create_actions_v1(configuration: &configuration::Configuration, bod
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateActionsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateActionsV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -457,16 +487,24 @@ pub async fn create_actions_v1(configuration: &configuration::Configuration, bod
     }
 }
 
-pub async fn create_export_jobs_v1(configuration: &configuration::Configuration, body: Vec<crate::models::DomainLaunchExportJobRequestV1>) -> Result<crate::models::DomainLaunchExportJobResponseV1, Error<CreateExportJobsV1Error>> {
+pub async fn create_export_jobs_v1(
+    configuration: &configuration::Configuration,
+    body: Vec<crate::models::DomainLaunchExportJobRequestV1>,
+) -> Result<crate::models::DomainLaunchExportJobResponseV1, Error<CreateExportJobsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/exports/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/exports/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -482,7 +520,8 @@ pub async fn create_export_jobs_v1(configuration: &configuration::Configuration,
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateExportJobsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateExportJobsV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -492,16 +531,24 @@ pub async fn create_export_jobs_v1(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn create_rules_v1(configuration: &configuration::Configuration, body: Vec<crate::models::SadomainCreateRuleRequestV1>) -> Result<crate::models::DomainRulesEntitiesResponseV1, Error<CreateRulesV1Error>> {
+pub async fn create_rules_v1(
+    configuration: &configuration::Configuration,
+    body: Vec<crate::models::SadomainCreateRuleRequestV1>,
+) -> Result<crate::models::DomainRulesEntitiesResponseV1, Error<CreateRulesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/rules/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -517,7 +564,8 @@ pub async fn create_rules_v1(configuration: &configuration::Configuration, body:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateRulesV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateRulesV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -527,17 +575,25 @@ pub async fn create_rules_v1(configuration: &configuration::Configuration, body:
     }
 }
 
-pub async fn delete_action_v1(configuration: &configuration::Configuration, id: &str) -> Result<crate::models::DomainQueryResponse, Error<DeleteActionV1Error>> {
+pub async fn delete_action_v1(
+    configuration: &configuration::Configuration,
+    id: &str,
+) -> Result<crate::models::DomainQueryResponse, Error<DeleteActionV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/actions/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/actions/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -552,7 +608,8 @@ pub async fn delete_action_v1(configuration: &configuration::Configuration, id: 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteActionV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteActionV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -562,20 +619,39 @@ pub async fn delete_action_v1(configuration: &configuration::Configuration, id: 
     }
 }
 
-pub async fn delete_export_jobs_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainExportJobIdResponseV1, Error<DeleteExportJobsV1Error>> {
+pub async fn delete_export_jobs_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainExportJobIdResponseV1, Error<DeleteExportJobsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/exports/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/exports/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -590,7 +666,8 @@ pub async fn delete_export_jobs_v1(configuration: &configuration::Configuration,
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteExportJobsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteExportJobsV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -600,20 +677,39 @@ pub async fn delete_export_jobs_v1(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn delete_notifications_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainNotificationIdResponse, Error<DeleteNotificationsV1Error>> {
+pub async fn delete_notifications_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainNotificationIdResponse, Error<DeleteNotificationsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/notifications/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/notifications/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -628,7 +724,8 @@ pub async fn delete_notifications_v1(configuration: &configuration::Configuratio
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteNotificationsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteNotificationsV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -638,20 +735,39 @@ pub async fn delete_notifications_v1(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn delete_rules_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainRuleQueryResponseV1, Error<DeleteRulesV1Error>> {
+pub async fn delete_rules_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainRuleQueryResponseV1, Error<DeleteRulesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/rules/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -666,7 +782,8 @@ pub async fn delete_rules_v1(configuration: &configuration::Configuration, ids: 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteRulesV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteRulesV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -676,20 +793,39 @@ pub async fn delete_rules_v1(configuration: &configuration::Configuration, ids: 
     }
 }
 
-pub async fn get_actions_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainActionEntitiesResponseV1, Error<GetActionsV1Error>> {
+pub async fn get_actions_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainActionEntitiesResponseV1, Error<GetActionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/actions/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/actions/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -704,7 +840,8 @@ pub async fn get_actions_v1(configuration: &configuration::Configuration, ids: V
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetActionsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetActionsV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -714,20 +851,39 @@ pub async fn get_actions_v1(configuration: &configuration::Configuration, ids: V
     }
 }
 
-pub async fn get_export_jobs_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainExportJobEntitiesResponseV1, Error<GetExportJobsV1Error>> {
+pub async fn get_export_jobs_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainExportJobEntitiesResponseV1, Error<GetExportJobsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/exports/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/exports/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -742,7 +898,8 @@ pub async fn get_export_jobs_v1(configuration: &configuration::Configuration, id
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetExportJobsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetExportJobsV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -752,17 +909,25 @@ pub async fn get_export_jobs_v1(configuration: &configuration::Configuration, id
     }
 }
 
-pub async fn get_file_content_for_export_jobs_v1(configuration: &configuration::Configuration, id: &str) -> Result<Vec<i32>, Error<GetFileContentForExportJobsV1Error>> {
+pub async fn get_file_content_for_export_jobs_v1(
+    configuration: &configuration::Configuration,
+    id: &str,
+) -> Result<Vec<i32>, Error<GetFileContentForExportJobsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/export-files/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/export-files/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -777,7 +942,8 @@ pub async fn get_file_content_for_export_jobs_v1(configuration: &configuration::
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetFileContentForExportJobsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetFileContentForExportJobsV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -787,20 +953,42 @@ pub async fn get_file_content_for_export_jobs_v1(configuration: &configuration::
     }
 }
 
-pub async fn get_notifications_detailed_translated_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainNotificationDetailsResponseV1, Error<GetNotificationsDetailedTranslatedV1Error>> {
+pub async fn get_notifications_detailed_translated_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<
+    crate::models::DomainNotificationDetailsResponseV1,
+    Error<GetNotificationsDetailedTranslatedV1Error>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/notifications-detailed-translated/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/notifications-detailed-translated/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -815,7 +1003,8 @@ pub async fn get_notifications_detailed_translated_v1(configuration: &configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetNotificationsDetailedTranslatedV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetNotificationsDetailedTranslatedV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -825,20 +1014,42 @@ pub async fn get_notifications_detailed_translated_v1(configuration: &configurat
     }
 }
 
-pub async fn get_notifications_detailed_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainNotificationDetailsResponseV1, Error<GetNotificationsDetailedV1Error>> {
+pub async fn get_notifications_detailed_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<
+    crate::models::DomainNotificationDetailsResponseV1,
+    Error<GetNotificationsDetailedV1Error>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/notifications-detailed/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/notifications-detailed/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -853,7 +1064,8 @@ pub async fn get_notifications_detailed_v1(configuration: &configuration::Config
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetNotificationsDetailedV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetNotificationsDetailedV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -863,20 +1075,42 @@ pub async fn get_notifications_detailed_v1(configuration: &configuration::Config
     }
 }
 
-pub async fn get_notifications_exposed_data_records_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiNotificationExposedDataRecordEntitiesResponseV1, Error<GetNotificationsExposedDataRecordsV1Error>> {
+pub async fn get_notifications_exposed_data_records_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<
+    crate::models::ApiNotificationExposedDataRecordEntitiesResponseV1,
+    Error<GetNotificationsExposedDataRecordsV1Error>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/notifications-exposed-data-records/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/notifications-exposed-data-records/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -891,7 +1125,8 @@ pub async fn get_notifications_exposed_data_records_v1(configuration: &configura
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetNotificationsExposedDataRecordsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetNotificationsExposedDataRecordsV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -901,20 +1136,42 @@ pub async fn get_notifications_exposed_data_records_v1(configuration: &configura
     }
 }
 
-pub async fn get_notifications_translated_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainNotificationEntitiesResponseV1, Error<GetNotificationsTranslatedV1Error>> {
+pub async fn get_notifications_translated_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<
+    crate::models::DomainNotificationEntitiesResponseV1,
+    Error<GetNotificationsTranslatedV1Error>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/notifications-translated/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/notifications-translated/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -929,7 +1186,8 @@ pub async fn get_notifications_translated_v1(configuration: &configuration::Conf
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetNotificationsTranslatedV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetNotificationsTranslatedV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -939,20 +1197,39 @@ pub async fn get_notifications_translated_v1(configuration: &configuration::Conf
     }
 }
 
-pub async fn get_notifications_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainNotificationEntitiesResponseV1, Error<GetNotificationsV1Error>> {
+pub async fn get_notifications_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainNotificationEntitiesResponseV1, Error<GetNotificationsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/notifications/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/notifications/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -967,7 +1244,8 @@ pub async fn get_notifications_v1(configuration: &configuration::Configuration, 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetNotificationsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetNotificationsV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -977,20 +1255,39 @@ pub async fn get_notifications_v1(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn get_rules_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainRulesEntitiesResponseV1, Error<GetRulesV1Error>> {
+pub async fn get_rules_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainRulesEntitiesResponseV1, Error<GetRulesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/rules/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1005,7 +1302,8 @@ pub async fn get_rules_v1(configuration: &configuration::Configuration, ids: Vec
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetRulesV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetRulesV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1015,16 +1313,24 @@ pub async fn get_rules_v1(configuration: &configuration::Configuration, ids: Vec
     }
 }
 
-pub async fn preview_rule_v1(configuration: &configuration::Configuration, body: crate::models::DomainRulePreviewRequest) -> Result<crate::models::DomainAggregatesResponse, Error<PreviewRuleV1Error>> {
+pub async fn preview_rule_v1(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainRulePreviewRequest,
+) -> Result<crate::models::DomainAggregatesResponse, Error<PreviewRuleV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/aggregates/rules-preview/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/aggregates/rules-preview/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1040,7 +1346,8 @@ pub async fn preview_rule_v1(configuration: &configuration::Configuration, body:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<PreviewRuleV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<PreviewRuleV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1050,31 +1357,47 @@ pub async fn preview_rule_v1(configuration: &configuration::Configuration, body:
     }
 }
 
-pub async fn query_actions_v1(configuration: &configuration::Configuration, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, q: Option<&str>) -> Result<crate::models::DomainQueryResponse, Error<QueryActionsV1Error>> {
+pub async fn query_actions_v1(
+    configuration: &configuration::Configuration,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    q: Option<&str>,
+) -> Result<crate::models::DomainQueryResponse, Error<QueryActionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/queries/actions/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/queries/actions/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = q {
         local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1089,7 +1412,8 @@ pub async fn query_actions_v1(configuration: &configuration::Configuration, offs
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryActionsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryActionsV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1106,31 +1430,41 @@ pub async fn query_notifications_exposed_data_records_v1(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<crate::models::DomainQueryResponse, Error<QueryNotificationsExposedDataRecordsV1Error>> {
+) -> Result<crate::models::DomainQueryResponse, Error<QueryNotificationsExposedDataRecordsV1Error>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/queries/notifications-exposed-data-records/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/queries/notifications-exposed-data-records/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = q {
         local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1145,7 +1479,8 @@ pub async fn query_notifications_exposed_data_records_v1(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryNotificationsExposedDataRecordsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryNotificationsExposedDataRecordsV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1155,31 +1490,47 @@ pub async fn query_notifications_exposed_data_records_v1(
     }
 }
 
-pub async fn query_notifications_v1(configuration: &configuration::Configuration, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, q: Option<&str>) -> Result<crate::models::DomainQueryResponse, Error<QueryNotificationsV1Error>> {
+pub async fn query_notifications_v1(
+    configuration: &configuration::Configuration,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    q: Option<&str>,
+) -> Result<crate::models::DomainQueryResponse, Error<QueryNotificationsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/queries/notifications/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/queries/notifications/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = q {
         local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1194,7 +1545,8 @@ pub async fn query_notifications_v1(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryNotificationsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryNotificationsV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1204,31 +1556,47 @@ pub async fn query_notifications_v1(configuration: &configuration::Configuration
     }
 }
 
-pub async fn query_rules_v1(configuration: &configuration::Configuration, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, q: Option<&str>) -> Result<crate::models::DomainRuleQueryResponseV1, Error<QueryRulesV1Error>> {
+pub async fn query_rules_v1(
+    configuration: &configuration::Configuration,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    q: Option<&str>,
+) -> Result<crate::models::DomainRuleQueryResponseV1, Error<QueryRulesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/queries/rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/queries/rules/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = q {
         local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1243,7 +1611,8 @@ pub async fn query_rules_v1(configuration: &configuration::Configuration, offset
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryRulesV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryRulesV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1253,16 +1622,24 @@ pub async fn query_rules_v1(configuration: &configuration::Configuration, offset
     }
 }
 
-pub async fn update_action_v1(configuration: &configuration::Configuration, body: crate::models::DomainUpdateActionRequest) -> Result<crate::models::DomainActionEntitiesResponseV1, Error<UpdateActionV1Error>> {
+pub async fn update_action_v1(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainUpdateActionRequest,
+) -> Result<crate::models::DomainActionEntitiesResponseV1, Error<UpdateActionV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/actions/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/actions/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1278,7 +1655,8 @@ pub async fn update_action_v1(configuration: &configuration::Configuration, body
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateActionV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateActionV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1288,16 +1666,25 @@ pub async fn update_action_v1(configuration: &configuration::Configuration, body
     }
 }
 
-pub async fn update_notifications_v1(configuration: &configuration::Configuration, body: Vec<crate::models::DomainUpdateNotificationRequestV1>) -> Result<crate::models::DomainNotificationEntitiesResponseV1, Error<UpdateNotificationsV1Error>> {
+pub async fn update_notifications_v1(
+    configuration: &configuration::Configuration,
+    body: Vec<crate::models::DomainUpdateNotificationRequestV1>,
+) -> Result<crate::models::DomainNotificationEntitiesResponseV1, Error<UpdateNotificationsV1Error>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/notifications/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/notifications/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1313,7 +1700,8 @@ pub async fn update_notifications_v1(configuration: &configuration::Configuratio
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateNotificationsV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateNotificationsV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1323,16 +1711,24 @@ pub async fn update_notifications_v1(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn update_rules_v1(configuration: &configuration::Configuration, body: Vec<crate::models::DomainUpdateRuleRequestV1>) -> Result<crate::models::DomainRulesEntitiesResponseV1, Error<UpdateRulesV1Error>> {
+pub async fn update_rules_v1(
+    configuration: &configuration::Configuration,
+    body: Vec<crate::models::DomainUpdateRuleRequestV1>,
+) -> Result<crate::models::DomainRulesEntitiesResponseV1, Error<UpdateRulesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/recon/entities/rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/recon/entities/rules/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1348,7 +1744,8 @@ pub async fn update_rules_v1(configuration: &configuration::Configuration, body:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateRulesV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateRulesV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

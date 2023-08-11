@@ -18,13 +18,22 @@ pub struct FalconxDnsRequest {
     pub country: Option<String>,
     #[serde(rename = "domain", skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
-    #[serde(rename = "registrar_creation_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "registrar_creation_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub registrar_creation_timestamp: Option<String>,
     #[serde(rename = "registrar_name", skip_serializing_if = "Option::is_none")]
     pub registrar_name: Option<String>,
-    #[serde(rename = "registrar_name_servers", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "registrar_name_servers",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub registrar_name_servers: Option<String>,
-    #[serde(rename = "registrar_organization", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "registrar_organization",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub registrar_organization: Option<String>,
 }
 

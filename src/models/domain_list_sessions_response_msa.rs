@@ -19,7 +19,15 @@ pub struct DomainListSessionsResponseMsa {
 }
 
 impl DomainListSessionsResponseMsa {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> DomainListSessionsResponseMsa {
-        DomainListSessionsResponseMsa { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<String>,
+    ) -> DomainListSessionsResponseMsa {
+        DomainListSessionsResponseMsa {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

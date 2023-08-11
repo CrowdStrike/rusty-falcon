@@ -17,7 +17,13 @@ pub struct ApiImageLookupRequest {
 }
 
 impl ApiImageLookupRequest {
-    pub fn new(osversion: String, packages: Vec<crate::models::ModelsPackageInfoType>) -> ApiImageLookupRequest {
-        ApiImageLookupRequest { osversion, packages }
+    pub fn new(
+        osversion: String,
+        packages: Vec<crate::models::ModelsPackageInfoType>,
+    ) -> ApiImageLookupRequest {
+        ApiImageLookupRequest {
+            osversion,
+            packages,
+        }
     }
 }

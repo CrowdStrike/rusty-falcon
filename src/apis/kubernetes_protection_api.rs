@@ -218,16 +218,24 @@ pub enum UpdateAwsAccountError {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn create_aws_account(configuration: &configuration::Configuration, body: crate::models::K8sregCreateAwsAccReq) -> Result<crate::models::K8sregCreateAwsAccReq, Error<CreateAwsAccountError>> {
+pub async fn create_aws_account(
+    configuration: &configuration::Configuration,
+    body: crate::models::K8sregCreateAwsAccReq,
+) -> Result<crate::models::K8sregCreateAwsAccReq, Error<CreateAwsAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/accounts/aws/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/accounts/aws/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -243,7 +251,8 @@ pub async fn create_aws_account(configuration: &configuration::Configuration, bo
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateAwsAccountError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateAwsAccountError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -253,16 +262,24 @@ pub async fn create_aws_account(configuration: &configuration::Configuration, bo
     }
 }
 
-pub async fn create_azure_subscription(configuration: &configuration::Configuration, body: crate::models::K8sregCreateAzureSubReq) -> Result<crate::models::MsaBaseEntitiesResponse, Error<CreateAzureSubscriptionError>> {
+pub async fn create_azure_subscription(
+    configuration: &configuration::Configuration,
+    body: crate::models::K8sregCreateAzureSubReq,
+) -> Result<crate::models::MsaBaseEntitiesResponse, Error<CreateAzureSubscriptionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/accounts/azure/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/accounts/azure/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -278,7 +295,8 @@ pub async fn create_azure_subscription(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateAzureSubscriptionError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateAzureSubscriptionError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -288,20 +306,39 @@ pub async fn create_azure_subscription(configuration: &configuration::Configurat
     }
 }
 
-pub async fn delete_aws_accounts_mixin0(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::MsaMetaInfo, Error<DeleteAwsAccountsMixin0Error>> {
+pub async fn delete_aws_accounts_mixin0(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::MsaMetaInfo, Error<DeleteAwsAccountsMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/accounts/aws/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/accounts/aws/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = match "csv" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -316,7 +353,8 @@ pub async fn delete_aws_accounts_mixin0(configuration: &configuration::Configura
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteAwsAccountsMixin0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteAwsAccountsMixin0Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -326,22 +364,43 @@ pub async fn delete_aws_accounts_mixin0(configuration: &configuration::Configura
     }
 }
 
-pub async fn delete_azure_subscription(configuration: &configuration::Configuration, ids: Option<Vec<String>>) -> Result<crate::models::MsaBaseEntitiesResponse, Error<DeleteAzureSubscriptionError>> {
+pub async fn delete_azure_subscription(
+    configuration: &configuration::Configuration,
+    ids: Option<Vec<String>>,
+) -> Result<crate::models::MsaBaseEntitiesResponse, Error<DeleteAzureSubscriptionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/accounts/azure/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/accounts/azure/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = ids {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -356,7 +415,8 @@ pub async fn delete_azure_subscription(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteAzureSubscriptionError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteAzureSubscriptionError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -366,31 +426,58 @@ pub async fn delete_azure_subscription(configuration: &configuration::Configurat
     }
 }
 
-pub async fn get_aws_accounts_mixin0(configuration: &configuration::Configuration, ids: Option<Vec<String>>, status: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::K8sregGetAwsAccountsResp, Error<GetAwsAccountsMixin0Error>> {
+pub async fn get_aws_accounts_mixin0(
+    configuration: &configuration::Configuration,
+    ids: Option<Vec<String>>,
+    status: Option<&str>,
+    limit: Option<i32>,
+    offset: Option<i32>,
+) -> Result<crate::models::K8sregGetAwsAccountsResp, Error<GetAwsAccountsMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/accounts/aws/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/accounts/aws/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = ids {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = status {
-        local_var_req_builder = local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -405,7 +492,8 @@ pub async fn get_aws_accounts_mixin0(configuration: &configuration::Configuratio
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetAwsAccountsMixin0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetAwsAccountsMixin0Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -415,25 +503,47 @@ pub async fn get_aws_accounts_mixin0(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn get_azure_install_script(configuration: &configuration::Configuration, id: Option<&str>, subscription_id: Option<Vec<String>>) -> Result<crate::models::K8sregGetAzureBashScriptResp, Error<GetAzureInstallScriptError>> {
+pub async fn get_azure_install_script(
+    configuration: &configuration::Configuration,
+    id: Option<&str>,
+    subscription_id: Option<Vec<String>>,
+) -> Result<crate::models::K8sregGetAzureBashScriptResp, Error<GetAzureInstallScriptError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/user-script/azure/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/user-script/azure/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = id {
         local_var_req_builder = local_var_req_builder.query(&[("id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = subscription_id {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("subscription_id".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("subscription_id", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("subscription_id".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "subscription_id",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -448,7 +558,8 @@ pub async fn get_azure_install_script(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetAzureInstallScriptError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetAzureInstallScriptError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -458,28 +569,53 @@ pub async fn get_azure_install_script(configuration: &configuration::Configurati
     }
 }
 
-pub async fn get_azure_tenant_config(configuration: &configuration::Configuration, ids: Option<Vec<String>>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::K8sregGetAzureTenantConfigResp, Error<GetAzureTenantConfigError>> {
+pub async fn get_azure_tenant_config(
+    configuration: &configuration::Configuration,
+    ids: Option<Vec<String>>,
+    limit: Option<i32>,
+    offset: Option<i32>,
+) -> Result<crate::models::K8sregGetAzureTenantConfigResp, Error<GetAzureTenantConfigError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/config/azure/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/config/azure/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = ids {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -494,7 +630,8 @@ pub async fn get_azure_tenant_config(configuration: &configuration::Configuratio
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetAzureTenantConfigError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetAzureTenantConfigError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -504,31 +641,58 @@ pub async fn get_azure_tenant_config(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn get_azure_tenant_ids(configuration: &configuration::Configuration, ids: Option<Vec<String>>, status: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::K8sregGetAzureTenantInfoResp, Error<GetAzureTenantIdsError>> {
+pub async fn get_azure_tenant_ids(
+    configuration: &configuration::Configuration,
+    ids: Option<Vec<String>>,
+    status: Option<&str>,
+    limit: Option<i32>,
+    offset: Option<i32>,
+) -> Result<crate::models::K8sregGetAzureTenantInfoResp, Error<GetAzureTenantIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/tenants/azure/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/tenants/azure/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = ids {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = status {
-        local_var_req_builder = local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -543,7 +707,8 @@ pub async fn get_azure_tenant_ids(configuration: &configuration::Configuration, 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetAzureTenantIdsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetAzureTenantIdsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -566,38 +731,85 @@ pub async fn get_clusters(
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/kubernetes/clusters/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/kubernetes/clusters/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = cluster_names {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("cluster_names".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("cluster_names", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("cluster_names".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "cluster_names",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = account_ids {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("account_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("account_ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "account_ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = locations {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("locations".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("locations", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("locations".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "locations",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = cluster_service {
-        local_var_req_builder = local_var_req_builder.query(&[("cluster_service", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("cluster_service", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -612,7 +824,8 @@ pub async fn get_clusters(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetClustersError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetClustersError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -635,41 +848,100 @@ pub async fn get_combined_cloud_clusters(
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/cloud_cluster/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/cloud_cluster/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = locations {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("locations".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("locations", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("locations".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "locations",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = ids {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = cluster_service {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("cluster_service".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("cluster_service", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("cluster_service".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "cluster_service",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = cluster_status {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("cluster_status".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("cluster_status", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("cluster_status".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "cluster_status",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -684,7 +956,8 @@ pub async fn get_combined_cloud_clusters(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetCombinedCloudClustersError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCombinedCloudClustersError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -694,17 +967,26 @@ pub async fn get_combined_cloud_clusters(
     }
 }
 
-pub async fn get_helm_values_yaml(configuration: &configuration::Configuration, cluster_name: &str) -> Result<serde_json::Value, Error<GetHelmValuesYamlError>> {
+pub async fn get_helm_values_yaml(
+    configuration: &configuration::Configuration,
+    cluster_name: &str,
+) -> Result<serde_json::Value, Error<GetHelmValuesYamlError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/integration/agent/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/integration/agent/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("cluster_name", &cluster_name.to_string())]);
+    local_var_req_builder =
+        local_var_req_builder.query(&[("cluster_name", &cluster_name.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -719,7 +1001,8 @@ pub async fn get_helm_values_yaml(configuration: &configuration::Configuration, 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetHelmValuesYamlError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetHelmValuesYamlError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -729,22 +1012,43 @@ pub async fn get_helm_values_yaml(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn get_locations(configuration: &configuration::Configuration, clouds: Option<Vec<String>>) -> Result<crate::models::K8sregGetLocationsResp, Error<GetLocationsError>> {
+pub async fn get_locations(
+    configuration: &configuration::Configuration,
+    clouds: Option<Vec<String>>,
+) -> Result<crate::models::K8sregGetLocationsResp, Error<GetLocationsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/cloud-locations/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/cloud-locations/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = clouds {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("clouds".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("clouds", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("clouds".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "clouds",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -759,7 +1063,8 @@ pub async fn get_locations(configuration: &configuration::Configuration, clouds:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetLocationsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetLocationsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -769,16 +1074,23 @@ pub async fn get_locations(configuration: &configuration::Configuration, clouds:
     }
 }
 
-pub async fn get_static_scripts(configuration: &configuration::Configuration) -> Result<crate::models::K8sregGetScriptsResp, Error<GetStaticScriptsError>> {
+pub async fn get_static_scripts(
+    configuration: &configuration::Configuration,
+) -> Result<crate::models::K8sregGetScriptsResp, Error<GetStaticScriptsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/gen/scripts/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/gen/scripts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -793,7 +1105,8 @@ pub async fn get_static_scripts(configuration: &configuration::Configuration) ->
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetStaticScriptsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetStaticScriptsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -816,35 +1129,70 @@ pub async fn list_azure_accounts(
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/accounts/azure/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/accounts/azure/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = ids {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = subscription_id {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("subscription_id".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("subscription_id", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("subscription_id".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "subscription_id",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = status {
-        local_var_req_builder = local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = is_horizon_acct {
-        local_var_req_builder = local_var_req_builder.query(&[("is_horizon_acct", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("is_horizon_acct", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -859,7 +1207,8 @@ pub async fn list_azure_accounts(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ListAzureAccountsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ListAzureAccountsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -869,18 +1218,27 @@ pub async fn list_azure_accounts(
     }
 }
 
-pub async fn patch_azure_service_principal(configuration: &configuration::Configuration, id: &str, client_id: &str) -> Result<crate::models::K8sregGetAzureTenantConfigResp, Error<PatchAzureServicePrincipalError>> {
+pub async fn patch_azure_service_principal(
+    configuration: &configuration::Configuration,
+    id: &str,
+    client_id: &str,
+) -> Result<crate::models::K8sregGetAzureTenantConfigResp, Error<PatchAzureServicePrincipalError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/service-principal/azure/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/service-principal/azure/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
     local_var_req_builder = local_var_req_builder.query(&[("client_id", &client_id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -895,7 +1253,8 @@ pub async fn patch_azure_service_principal(configuration: &configuration::Config
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<PatchAzureServicePrincipalError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<PatchAzureServicePrincipalError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -905,16 +1264,23 @@ pub async fn patch_azure_service_principal(configuration: &configuration::Config
     }
 }
 
-pub async fn regenerate_api_key(configuration: &configuration::Configuration) -> Result<crate::models::K8sregRegenApiKeyResp, Error<RegenerateApiKeyError>> {
+pub async fn regenerate_api_key(
+    configuration: &configuration::Configuration,
+) -> Result<crate::models::K8sregRegenApiKeyResp, Error<RegenerateApiKeyError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/integration/api-key/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/integration/api-key/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -929,7 +1295,8 @@ pub async fn regenerate_api_key(configuration: &configuration::Configuration) ->
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RegenerateApiKeyError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RegenerateApiKeyError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -939,17 +1306,25 @@ pub async fn regenerate_api_key(configuration: &configuration::Configuration) ->
     }
 }
 
-pub async fn trigger_scan(configuration: &configuration::Configuration, scan_type: &str) -> Result<crate::models::MsaBaseEntitiesResponse, Error<TriggerScanError>> {
+pub async fn trigger_scan(
+    configuration: &configuration::Configuration,
+    scan_type: &str,
+) -> Result<crate::models::MsaBaseEntitiesResponse, Error<TriggerScanError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/scan/trigger/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/scan/trigger/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("scan_type", &scan_type.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -964,7 +1339,8 @@ pub async fn trigger_scan(configuration: &configuration::Configuration, scan_typ
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<TriggerScanError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<TriggerScanError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -974,23 +1350,44 @@ pub async fn trigger_scan(configuration: &configuration::Configuration, scan_typ
     }
 }
 
-pub async fn update_aws_account(configuration: &configuration::Configuration, ids: Vec<String>, region: Option<&str>) -> Result<crate::models::MsaBaseEntitiesResponse, Error<UpdateAwsAccountError>> {
+pub async fn update_aws_account(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+    region: Option<&str>,
+) -> Result<crate::models::MsaBaseEntitiesResponse, Error<UpdateAwsAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/kubernetes-protection/entities/accounts/aws/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/kubernetes-protection/entities/accounts/aws/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     local_var_req_builder = match "csv" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_str) = region {
-        local_var_req_builder = local_var_req_builder.query(&[("region", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("region", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1005,7 +1402,8 @@ pub async fn update_aws_account(configuration: &configuration::Configuration, id
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateAwsAccountError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateAwsAccountError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

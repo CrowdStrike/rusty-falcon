@@ -18,6 +18,9 @@ pub struct FwmgrDomainAddressRange {
 
 impl FwmgrDomainAddressRange {
     pub fn new(address: String) -> FwmgrDomainAddressRange {
-        FwmgrDomainAddressRange { address, netmask: None }
+        FwmgrDomainAddressRange {
+            address,
+            netmask: None,
+        }
     }
 }

@@ -25,7 +25,12 @@ pub struct RequestsDeviceControlPolicySettingsV1 {
 }
 
 impl RequestsDeviceControlPolicySettingsV1 {
-    pub fn new(classes: Vec<crate::models::RequestsDeviceControlPolicyClassSettingsV1>, delete_exceptions: Vec<String>, end_user_notification: EndUserNotification, enforcement_mode: EnforcementMode) -> RequestsDeviceControlPolicySettingsV1 {
+    pub fn new(
+        classes: Vec<crate::models::RequestsDeviceControlPolicyClassSettingsV1>,
+        delete_exceptions: Vec<String>,
+        end_user_notification: EndUserNotification,
+        enforcement_mode: EnforcementMode,
+    ) -> RequestsDeviceControlPolicySettingsV1 {
         RequestsDeviceControlPolicySettingsV1 {
             classes,
             delete_exceptions,

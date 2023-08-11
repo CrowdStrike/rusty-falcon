@@ -20,6 +20,10 @@ pub struct DomainSpapiQueryPaging {
 
 impl DomainSpapiQueryPaging {
     pub fn new(after: String, limit: i32, total: i64) -> DomainSpapiQueryPaging {
-        DomainSpapiQueryPaging { after, limit, total }
+        DomainSpapiQueryPaging {
+            after,
+            limit,
+            total,
+        }
     }
 }

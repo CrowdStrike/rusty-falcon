@@ -19,7 +19,11 @@ pub struct DomainMultiCommandExecuteResponseWrapper {
 }
 
 impl DomainMultiCommandExecuteResponseWrapper {
-    pub fn new(combined: crate::models::DomainMultiCommandExecuteResponse, errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo) -> DomainMultiCommandExecuteResponseWrapper {
+    pub fn new(
+        combined: crate::models::DomainMultiCommandExecuteResponse,
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+    ) -> DomainMultiCommandExecuteResponseWrapper {
         DomainMultiCommandExecuteResponseWrapper {
             combined: Box::new(combined),
             errors,

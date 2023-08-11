@@ -20,7 +20,10 @@ pub struct DomainScanMetadata {
     pub host_scan_id: Option<String>,
     #[serde(rename = "last_updated", skip_serializing_if = "Option::is_none")]
     pub last_updated: Option<String>,
-    #[serde(rename = "scan_host_metadata_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "scan_host_metadata_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub scan_host_metadata_id: Option<String>,
     #[serde(rename = "severity", skip_serializing_if = "Option::is_none")]
     pub severity: Option<i32>,

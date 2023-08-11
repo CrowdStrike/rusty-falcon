@@ -62,32 +62,56 @@ pub async fn combined_query_vulnerabilities(
     limit: Option<i32>,
     sort: Option<&str>,
     facet: Option<Vec<String>>,
-) -> Result<crate::models::DomainSpapiCombinedVulnerabilitiesResponse, Error<CombinedQueryVulnerabilitiesError>> {
+) -> Result<
+    crate::models::DomainSpapiCombinedVulnerabilitiesResponse,
+    Error<CombinedQueryVulnerabilitiesError>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/spotlight/combined/vulnerabilities/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/spotlight/combined/vulnerabilities/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = after {
-        local_var_req_builder = local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     local_var_req_builder = local_var_req_builder.query(&[("filter", &filter.to_string())]);
     if let Some(ref local_var_str) = facet {
         local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("facet".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("facet", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("facet".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "facet",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -102,7 +126,8 @@ pub async fn combined_query_vulnerabilities(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CombinedQueryVulnerabilitiesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CombinedQueryVulnerabilitiesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -112,20 +137,40 @@ pub async fn combined_query_vulnerabilities(
     }
 }
 
-pub async fn get_remediations_v2(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainSpapiRemediationEntitiesResponseV2, Error<GetRemediationsV2Error>> {
+pub async fn get_remediations_v2(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainSpapiRemediationEntitiesResponseV2, Error<GetRemediationsV2Error>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/spotlight/entities/remediations/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/spotlight/entities/remediations/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -140,7 +185,8 @@ pub async fn get_remediations_v2(configuration: &configuration::Configuration, i
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetRemediationsV2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetRemediationsV2Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -150,20 +196,42 @@ pub async fn get_remediations_v2(configuration: &configuration::Configuration, i
     }
 }
 
-pub async fn get_vulnerabilities(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainSpapiVulnerabilitiesEntitiesResponseV2, Error<GetVulnerabilitiesError>> {
+pub async fn get_vulnerabilities(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<
+    crate::models::DomainSpapiVulnerabilitiesEntitiesResponseV2,
+    Error<GetVulnerabilitiesError>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/spotlight/entities/vulnerabilities/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/spotlight/entities/vulnerabilities/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -178,7 +246,8 @@ pub async fn get_vulnerabilities(configuration: &configuration::Configuration, i
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetVulnerabilitiesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetVulnerabilitiesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -188,26 +257,40 @@ pub async fn get_vulnerabilities(configuration: &configuration::Configuration, i
     }
 }
 
-pub async fn query_vulnerabilities(configuration: &configuration::Configuration, filter: &str, after: Option<&str>, limit: Option<i32>, sort: Option<&str>) -> Result<crate::models::DomainSpapiQueryResponse, Error<QueryVulnerabilitiesError>> {
+pub async fn query_vulnerabilities(
+    configuration: &configuration::Configuration,
+    filter: &str,
+    after: Option<&str>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+) -> Result<crate::models::DomainSpapiQueryResponse, Error<QueryVulnerabilitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/spotlight/queries/vulnerabilities/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/spotlight/queries/vulnerabilities/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = after {
-        local_var_req_builder = local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     local_var_req_builder = local_var_req_builder.query(&[("filter", &filter.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -222,7 +305,8 @@ pub async fn query_vulnerabilities(configuration: &configuration::Configuration,
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryVulnerabilitiesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryVulnerabilitiesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

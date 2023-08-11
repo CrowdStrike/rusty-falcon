@@ -22,8 +22,16 @@ pub struct ResponsesDeviceControlPolicyClassSettingsV1 {
 }
 
 impl ResponsesDeviceControlPolicyClassSettingsV1 {
-    pub fn new(action: Action, exceptions: Vec<crate::models::ResponsesDeviceControlPolicyExceptionV1>, id: String) -> ResponsesDeviceControlPolicyClassSettingsV1 {
-        ResponsesDeviceControlPolicyClassSettingsV1 { action, exceptions, id }
+    pub fn new(
+        action: Action,
+        exceptions: Vec<crate::models::ResponsesDeviceControlPolicyExceptionV1>,
+        id: String,
+    ) -> ResponsesDeviceControlPolicyClassSettingsV1 {
+        ResponsesDeviceControlPolicyClassSettingsV1 {
+            action,
+            exceptions,
+            id,
+        }
     }
 }
 

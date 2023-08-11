@@ -32,7 +32,13 @@ pub struct DomainAzureAccountV1 {
 }
 
 impl DomainAzureAccountV1 {
-    pub fn new(created_at: String, deleted_at: String, id: i32, updated_at: String, cid: String) -> DomainAzureAccountV1 {
+    pub fn new(
+        created_at: String,
+        deleted_at: String,
+        id: i32,
+        updated_at: String,
+        cid: String,
+    ) -> DomainAzureAccountV1 {
         DomainAzureAccountV1 {
             created_at,
             deleted_at,

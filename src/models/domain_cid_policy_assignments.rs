@@ -18,7 +18,10 @@ pub struct DomainCidPolicyAssignments {
     pub cloud_asset_type: Option<String>,
     #[serde(rename = "cloud_service", skip_serializing_if = "Option::is_none")]
     pub cloud_service: Option<String>,
-    #[serde(rename = "cloud_service_subtype", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "cloud_service_subtype",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub cloud_service_subtype: Option<String>,
     #[serde(rename = "default_severity", skip_serializing_if = "Option::is_none")]
     pub default_severity: Option<String>,

@@ -22,6 +22,11 @@ pub struct DomainUserGroup {
 
 impl DomainUserGroup {
     pub fn new(description: String, name: String) -> DomainUserGroup {
-        DomainUserGroup { cid: None, description, name, user_group_id: None }
+        DomainUserGroup {
+            cid: None,
+            description,
+            name,
+            user_group_id: None,
+        }
     }
 }

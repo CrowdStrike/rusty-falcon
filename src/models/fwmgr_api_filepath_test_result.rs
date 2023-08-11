@@ -19,7 +19,15 @@ pub struct FwmgrApiFilepathTestResult {
 }
 
 impl FwmgrApiFilepathTestResult {
-    pub fn new(filepath_pattern: String, filepath_test_string: String, is_match: bool) -> FwmgrApiFilepathTestResult {
-        FwmgrApiFilepathTestResult { filepath_pattern, filepath_test_string, is_match }
+    pub fn new(
+        filepath_pattern: String,
+        filepath_test_string: String,
+        is_match: bool,
+    ) -> FwmgrApiFilepathTestResult {
+        FwmgrApiFilepathTestResult {
+            filepath_pattern,
+            filepath_test_string,
+            is_match,
+        }
     }
 }

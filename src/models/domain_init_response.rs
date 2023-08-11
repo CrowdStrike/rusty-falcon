@@ -27,7 +27,13 @@ pub struct DomainInitResponse {
 }
 
 impl DomainInitResponse {
-    pub fn new(created_at: String, existing_aid_sessions: i32, offline_queued: bool, scripts: Vec<crate::models::DomainScriptHelp>, session_id: String) -> DomainInitResponse {
+    pub fn new(
+        created_at: String,
+        existing_aid_sessions: i32,
+        offline_queued: bool,
+        scripts: Vec<crate::models::DomainScriptHelp>,
+        session_id: String,
+    ) -> DomainInitResponse {
         DomainInitResponse {
             created_at,
             existing_aid_sessions,

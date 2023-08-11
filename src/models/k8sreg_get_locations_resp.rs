@@ -19,7 +19,15 @@ pub struct K8sregGetLocationsResp {
 }
 
 impl K8sregGetLocationsResp {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::K8sregLocationResp>) -> K8sregGetLocationsResp {
-        K8sregGetLocationsResp { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::K8sregLocationResp>,
+    ) -> K8sregGetLocationsResp {
+        K8sregGetLocationsResp {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

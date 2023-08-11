@@ -22,6 +22,11 @@ pub struct DomainActionUserRolesRequest {
 
 impl DomainActionUserRolesRequest {
     pub fn new() -> DomainActionUserRolesRequest {
-        DomainActionUserRolesRequest { action: None, cid: None, role_ids: None, uuid: None }
+        DomainActionUserRolesRequest {
+            action: None,
+            cid: None,
+            role_ids: None,
+            uuid: None,
+        }
     }
 }

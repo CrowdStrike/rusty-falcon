@@ -23,7 +23,19 @@ pub struct MessagesAuthor {
 }
 
 impl MessagesAuthor {
-    pub fn new(display_name: String, first_name: String, last_name: String, uid: String, uuid: String) -> MessagesAuthor {
-        MessagesAuthor { display_name, first_name, last_name, uid, uuid }
+    pub fn new(
+        display_name: String,
+        first_name: String,
+        last_name: String,
+        uid: String,
+        uuid: String,
+    ) -> MessagesAuthor {
+        MessagesAuthor {
+            display_name,
+            first_name,
+            last_name,
+            uid,
+            uuid,
+        }
     }
 }

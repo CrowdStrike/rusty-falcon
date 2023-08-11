@@ -62,7 +62,21 @@ pub struct SadomainRule {
 }
 
 impl SadomainRule {
-    pub fn new(breach_monitoring_enabled: bool, cid: String, created_timestamp: String, filter: String, id: String, name: String, permissions: String, priority: String, status: String, substring_matching_enabled: bool, topic: String, updated_timestamp: String, user_uuid: String) -> SadomainRule {
+    pub fn new(
+        breach_monitoring_enabled: bool,
+        cid: String,
+        created_timestamp: String,
+        filter: String,
+        id: String,
+        name: String,
+        permissions: String,
+        priority: String,
+        status: String,
+        substring_matching_enabled: bool,
+        topic: String,
+        updated_timestamp: String,
+        user_uuid: String,
+    ) -> SadomainRule {
         SadomainRule {
             breach_monitoring_enabled,
             cid,

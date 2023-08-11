@@ -231,16 +231,25 @@ pub enum UpdateSensorUpdatePoliciesV2Error {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn create_sensor_update_policies(configuration: &configuration::Configuration, body: crate::models::RequestsCreateSensorUpdatePoliciesV1) -> Result<crate::models::ResponsesSensorUpdatePoliciesV1, Error<CreateSensorUpdatePoliciesError>> {
+pub async fn create_sensor_update_policies(
+    configuration: &configuration::Configuration,
+    body: crate::models::RequestsCreateSensorUpdatePoliciesV1,
+) -> Result<crate::models::ResponsesSensorUpdatePoliciesV1, Error<CreateSensorUpdatePoliciesError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/entities/sensor-update/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/entities/sensor-update/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -256,7 +265,8 @@ pub async fn create_sensor_update_policies(configuration: &configuration::Config
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateSensorUpdatePoliciesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateSensorUpdatePoliciesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -266,16 +276,25 @@ pub async fn create_sensor_update_policies(configuration: &configuration::Config
     }
 }
 
-pub async fn create_sensor_update_policies_v2(configuration: &configuration::Configuration, body: crate::models::RequestsCreateSensorUpdatePoliciesV2) -> Result<crate::models::ResponsesSensorUpdatePoliciesV2, Error<CreateSensorUpdatePoliciesV2Error>> {
+pub async fn create_sensor_update_policies_v2(
+    configuration: &configuration::Configuration,
+    body: crate::models::RequestsCreateSensorUpdatePoliciesV2,
+) -> Result<crate::models::ResponsesSensorUpdatePoliciesV2, Error<CreateSensorUpdatePoliciesV2Error>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/entities/sensor-update/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/entities/sensor-update/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -291,7 +310,8 @@ pub async fn create_sensor_update_policies_v2(configuration: &configuration::Con
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateSensorUpdatePoliciesV2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateSensorUpdatePoliciesV2Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -301,20 +321,39 @@ pub async fn create_sensor_update_policies_v2(configuration: &configuration::Con
     }
 }
 
-pub async fn delete_sensor_update_policies(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::MsaQueryResponse, Error<DeleteSensorUpdatePoliciesError>> {
+pub async fn delete_sensor_update_policies(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::MsaQueryResponse, Error<DeleteSensorUpdatePoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/entities/sensor-update/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/entities/sensor-update/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -329,7 +368,8 @@ pub async fn delete_sensor_update_policies(configuration: &configuration::Config
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteSensorUpdatePoliciesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteSensorUpdatePoliciesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -339,20 +379,39 @@ pub async fn delete_sensor_update_policies(configuration: &configuration::Config
     }
 }
 
-pub async fn get_sensor_update_policies(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ResponsesSensorUpdatePoliciesV1, Error<GetSensorUpdatePoliciesError>> {
+pub async fn get_sensor_update_policies(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::ResponsesSensorUpdatePoliciesV1, Error<GetSensorUpdatePoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/entities/sensor-update/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/entities/sensor-update/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -367,7 +426,8 @@ pub async fn get_sensor_update_policies(configuration: &configuration::Configura
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetSensorUpdatePoliciesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetSensorUpdatePoliciesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -377,20 +437,39 @@ pub async fn get_sensor_update_policies(configuration: &configuration::Configura
     }
 }
 
-pub async fn get_sensor_update_policies_v2(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ResponsesSensorUpdatePoliciesV2, Error<GetSensorUpdatePoliciesV2Error>> {
+pub async fn get_sensor_update_policies_v2(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::ResponsesSensorUpdatePoliciesV2, Error<GetSensorUpdatePoliciesV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/entities/sensor-update/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/entities/sensor-update/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -405,7 +484,8 @@ pub async fn get_sensor_update_policies_v2(configuration: &configuration::Config
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetSensorUpdatePoliciesV2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetSensorUpdatePoliciesV2Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -415,17 +495,30 @@ pub async fn get_sensor_update_policies_v2(configuration: &configuration::Config
     }
 }
 
-pub async fn perform_sensor_update_policies_action(configuration: &configuration::Configuration, action_name: &str, body: crate::models::MsaEntityActionRequestV2) -> Result<crate::models::ResponsesSensorUpdatePoliciesV1, Error<PerformSensorUpdatePoliciesActionError>> {
+pub async fn perform_sensor_update_policies_action(
+    configuration: &configuration::Configuration,
+    action_name: &str,
+    body: crate::models::MsaEntityActionRequestV2,
+) -> Result<
+    crate::models::ResponsesSensorUpdatePoliciesV1,
+    Error<PerformSensorUpdatePoliciesActionError>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/entities/sensor-update-actions/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/entities/sensor-update-actions/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("action_name", &action_name.to_string())]);
+    local_var_req_builder =
+        local_var_req_builder.query(&[("action_name", &action_name.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -441,7 +534,8 @@ pub async fn perform_sensor_update_policies_action(configuration: &configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<PerformSensorUpdatePoliciesActionError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<PerformSensorUpdatePoliciesActionError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -451,19 +545,29 @@ pub async fn perform_sensor_update_policies_action(configuration: &configuration
     }
 }
 
-pub async fn query_combined_sensor_update_builds(configuration: &configuration::Configuration, platform: Option<&str>) -> Result<crate::models::ResponsesSensorUpdateBuildsV1, Error<QueryCombinedSensorUpdateBuildsError>> {
+pub async fn query_combined_sensor_update_builds(
+    configuration: &configuration::Configuration,
+    platform: Option<&str>,
+) -> Result<crate::models::ResponsesSensorUpdateBuildsV1, Error<QueryCombinedSensorUpdateBuildsError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/combined/sensor-update-builds/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/combined/sensor-update-builds/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = platform {
-        local_var_req_builder = local_var_req_builder.query(&[("platform", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("platform", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -478,7 +582,8 @@ pub async fn query_combined_sensor_update_builds(configuration: &configuration::
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryCombinedSensorUpdateBuildsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryCombinedSensorUpdateBuildsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -488,25 +593,41 @@ pub async fn query_combined_sensor_update_builds(configuration: &configuration::
     }
 }
 
-pub async fn query_combined_sensor_update_kernels(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>) -> Result<crate::models::ResponsesSensorUpdateKernelsV1, Error<QueryCombinedSensorUpdateKernelsError>> {
+pub async fn query_combined_sensor_update_kernels(
+    configuration: &configuration::Configuration,
+    filter: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+) -> Result<
+    crate::models::ResponsesSensorUpdateKernelsV1,
+    Error<QueryCombinedSensorUpdateKernelsError>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/combined/sensor-update-kernels/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/combined/sensor-update-kernels/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -521,7 +642,8 @@ pub async fn query_combined_sensor_update_kernels(configuration: &configuration:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryCombinedSensorUpdateKernelsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryCombinedSensorUpdateKernelsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -531,28 +653,46 @@ pub async fn query_combined_sensor_update_kernels(configuration: &configuration:
     }
 }
 
-pub async fn query_combined_sensor_update_policies(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>) -> Result<crate::models::ResponsesSensorUpdatePoliciesV1, Error<QueryCombinedSensorUpdatePoliciesError>> {
+pub async fn query_combined_sensor_update_policies(
+    configuration: &configuration::Configuration,
+    filter: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+) -> Result<
+    crate::models::ResponsesSensorUpdatePoliciesV1,
+    Error<QueryCombinedSensorUpdatePoliciesError>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/combined/sensor-update/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/combined/sensor-update/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -567,7 +707,8 @@ pub async fn query_combined_sensor_update_policies(configuration: &configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryCombinedSensorUpdatePoliciesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryCombinedSensorUpdatePoliciesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -577,28 +718,46 @@ pub async fn query_combined_sensor_update_policies(configuration: &configuration
     }
 }
 
-pub async fn query_combined_sensor_update_policies_v2(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>) -> Result<crate::models::ResponsesSensorUpdatePoliciesV2, Error<QueryCombinedSensorUpdatePoliciesV2Error>> {
+pub async fn query_combined_sensor_update_policies_v2(
+    configuration: &configuration::Configuration,
+    filter: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+) -> Result<
+    crate::models::ResponsesSensorUpdatePoliciesV2,
+    Error<QueryCombinedSensorUpdatePoliciesV2Error>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/combined/sensor-update/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/combined/sensor-update/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -613,7 +772,8 @@ pub async fn query_combined_sensor_update_policies_v2(configuration: &configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryCombinedSensorUpdatePoliciesV2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryCombinedSensorUpdatePoliciesV2Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -630,31 +790,43 @@ pub async fn query_combined_sensor_update_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::ResponsesPolicyMembersRespV1, Error<QueryCombinedSensorUpdatePolicyMembersError>> {
+) -> Result<
+    crate::models::ResponsesPolicyMembersRespV1,
+    Error<QueryCombinedSensorUpdatePolicyMembersError>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/combined/sensor-update-members/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/combined/sensor-update-members/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = id {
         local_var_req_builder = local_var_req_builder.query(&[("id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -669,7 +841,8 @@ pub async fn query_combined_sensor_update_policy_members(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryCombinedSensorUpdatePolicyMembersError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryCombinedSensorUpdatePolicyMembersError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -679,25 +852,40 @@ pub async fn query_combined_sensor_update_policy_members(
     }
 }
 
-pub async fn query_sensor_update_kernels_distinct(configuration: &configuration::Configuration, distinct_field: &str, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QuerySensorUpdateKernelsDistinctError>> {
+pub async fn query_sensor_update_kernels_distinct(
+    configuration: &configuration::Configuration,
+    distinct_field: &str,
+    filter: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+) -> Result<crate::models::MsaQueryResponse, Error<QuerySensorUpdateKernelsDistinctError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/queries/sensor-update-kernels/{distinct_field}/v1", local_var_configuration.base_path, distinct_field = crate::apis::urlencode(distinct_field));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/queries/sensor-update-kernels/{distinct_field}/v1",
+        local_var_configuration.base_path,
+        distinct_field = crate::apis::urlencode(distinct_field)
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -712,7 +900,8 @@ pub async fn query_sensor_update_kernels_distinct(configuration: &configuration:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QuerySensorUpdateKernelsDistinctError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QuerySensorUpdateKernelsDistinctError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -722,28 +911,43 @@ pub async fn query_sensor_update_kernels_distinct(configuration: &configuration:
     }
 }
 
-pub async fn query_sensor_update_policies(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QuerySensorUpdatePoliciesError>> {
+pub async fn query_sensor_update_policies(
+    configuration: &configuration::Configuration,
+    filter: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+) -> Result<crate::models::MsaQueryResponse, Error<QuerySensorUpdatePoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/queries/sensor-update/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/queries/sensor-update/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -758,7 +962,8 @@ pub async fn query_sensor_update_policies(configuration: &configuration::Configu
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QuerySensorUpdatePoliciesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QuerySensorUpdatePoliciesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -768,31 +973,47 @@ pub async fn query_sensor_update_policies(configuration: &configuration::Configu
     }
 }
 
-pub async fn query_sensor_update_policy_members(configuration: &configuration::Configuration, id: Option<&str>, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QuerySensorUpdatePolicyMembersError>> {
+pub async fn query_sensor_update_policy_members(
+    configuration: &configuration::Configuration,
+    id: Option<&str>,
+    filter: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+) -> Result<crate::models::MsaQueryResponse, Error<QuerySensorUpdatePolicyMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/queries/sensor-update-members/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/queries/sensor-update-members/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = id {
         local_var_req_builder = local_var_req_builder.query(&[("id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -807,7 +1028,8 @@ pub async fn query_sensor_update_policy_members(configuration: &configuration::C
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QuerySensorUpdatePolicyMembersError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QuerySensorUpdatePolicyMembersError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -817,16 +1039,24 @@ pub async fn query_sensor_update_policy_members(configuration: &configuration::C
     }
 }
 
-pub async fn reveal_uninstall_token(configuration: &configuration::Configuration, body: crate::models::RequestsRevealUninstallTokenV1) -> Result<crate::models::ResponsesRevealUninstallTokenRespV1, Error<RevealUninstallTokenError>> {
+pub async fn reveal_uninstall_token(
+    configuration: &configuration::Configuration,
+    body: crate::models::RequestsRevealUninstallTokenV1,
+) -> Result<crate::models::ResponsesRevealUninstallTokenRespV1, Error<RevealUninstallTokenError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/combined/reveal-uninstall-token/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/combined/reveal-uninstall-token/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -842,7 +1072,8 @@ pub async fn reveal_uninstall_token(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RevealUninstallTokenError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RevealUninstallTokenError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -852,16 +1083,24 @@ pub async fn reveal_uninstall_token(configuration: &configuration::Configuration
     }
 }
 
-pub async fn set_sensor_update_policies_precedence(configuration: &configuration::Configuration, body: crate::models::RequestsSetPolicyPrecedenceReqV1) -> Result<crate::models::MsaQueryResponse, Error<SetSensorUpdatePoliciesPrecedenceError>> {
+pub async fn set_sensor_update_policies_precedence(
+    configuration: &configuration::Configuration,
+    body: crate::models::RequestsSetPolicyPrecedenceReqV1,
+) -> Result<crate::models::MsaQueryResponse, Error<SetSensorUpdatePoliciesPrecedenceError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/entities/sensor-update-precedence/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/entities/sensor-update-precedence/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -877,7 +1116,8 @@ pub async fn set_sensor_update_policies_precedence(configuration: &configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<SetSensorUpdatePoliciesPrecedenceError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<SetSensorUpdatePoliciesPrecedenceError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -887,16 +1127,25 @@ pub async fn set_sensor_update_policies_precedence(configuration: &configuration
     }
 }
 
-pub async fn update_sensor_update_policies(configuration: &configuration::Configuration, body: crate::models::RequestsUpdateSensorUpdatePoliciesV1) -> Result<crate::models::ResponsesSensorUpdatePoliciesV1, Error<UpdateSensorUpdatePoliciesError>> {
+pub async fn update_sensor_update_policies(
+    configuration: &configuration::Configuration,
+    body: crate::models::RequestsUpdateSensorUpdatePoliciesV1,
+) -> Result<crate::models::ResponsesSensorUpdatePoliciesV1, Error<UpdateSensorUpdatePoliciesError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/entities/sensor-update/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/entities/sensor-update/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -912,7 +1161,8 @@ pub async fn update_sensor_update_policies(configuration: &configuration::Config
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateSensorUpdatePoliciesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateSensorUpdatePoliciesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -922,16 +1172,25 @@ pub async fn update_sensor_update_policies(configuration: &configuration::Config
     }
 }
 
-pub async fn update_sensor_update_policies_v2(configuration: &configuration::Configuration, body: crate::models::RequestsUpdateSensorUpdatePoliciesV2) -> Result<crate::models::ResponsesSensorUpdatePoliciesV2, Error<UpdateSensorUpdatePoliciesV2Error>> {
+pub async fn update_sensor_update_policies_v2(
+    configuration: &configuration::Configuration,
+    body: crate::models::RequestsUpdateSensorUpdatePoliciesV2,
+) -> Result<crate::models::ResponsesSensorUpdatePoliciesV2, Error<UpdateSensorUpdatePoliciesV2Error>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/policy/entities/sensor-update/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/policy/entities/sensor-update/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -947,7 +1206,8 @@ pub async fn update_sensor_update_policies_v2(configuration: &configuration::Con
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateSensorUpdatePoliciesV2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateSensorUpdatePoliciesV2Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

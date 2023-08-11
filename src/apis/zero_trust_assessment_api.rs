@@ -36,20 +36,39 @@ pub enum GetComplianceV1Error {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn get_assessment_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainAssessmentsResponse, Error<GetAssessmentV1Error>> {
+pub async fn get_assessment_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainAssessmentsResponse, Error<GetAssessmentV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/zero-trust-assessment/entities/assessments/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/zero-trust-assessment/entities/assessments/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -64,7 +83,8 @@ pub async fn get_assessment_v1(configuration: &configuration::Configuration, ids
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetAssessmentV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetAssessmentV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -74,16 +94,23 @@ pub async fn get_assessment_v1(configuration: &configuration::Configuration, ids
     }
 }
 
-pub async fn get_compliance_v1(configuration: &configuration::Configuration) -> Result<crate::models::DomainComplianceResponse, Error<GetComplianceV1Error>> {
+pub async fn get_compliance_v1(
+    configuration: &configuration::Configuration,
+) -> Result<crate::models::DomainComplianceResponse, Error<GetComplianceV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/zero-trust-assessment/entities/audit/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/zero-trust-assessment/entities/audit/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -98,7 +125,8 @@ pub async fn get_compliance_v1(configuration: &configuration::Configuration) -> 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetComplianceV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetComplianceV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

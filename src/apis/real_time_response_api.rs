@@ -281,25 +281,36 @@ pub async fn batch_active_responder_cmd(
     timeout: Option<i32>,
     timeout_duration: Option<&str>,
     host_timeout_duration: Option<&str>,
-) -> Result<crate::models::DomainMultiCommandExecuteResponseWrapper, Error<BatchActiveResponderCmdError>> {
+) -> Result<
+    crate::models::DomainMultiCommandExecuteResponseWrapper,
+    Error<BatchActiveResponderCmdError>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/combined/batch-active-responder-command/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/combined/batch-active-responder-command/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = timeout {
-        local_var_req_builder = local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = timeout_duration {
-        local_var_req_builder = local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = host_timeout_duration {
-        local_var_req_builder = local_var_req_builder.query(&[("host_timeout_duration", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("host_timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -315,7 +326,8 @@ pub async fn batch_active_responder_cmd(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<BatchActiveResponderCmdError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<BatchActiveResponderCmdError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -336,20 +348,28 @@ pub async fn batch_cmd(
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/combined/batch-command/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/combined/batch-command/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = timeout {
-        local_var_req_builder = local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = timeout_duration {
-        local_var_req_builder = local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = host_timeout_duration {
-        local_var_req_builder = local_var_req_builder.query(&[("host_timeout_duration", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("host_timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -375,25 +395,39 @@ pub async fn batch_cmd(
     }
 }
 
-pub async fn batch_get_cmd(configuration: &configuration::Configuration, body: crate::models::DomainBatchGetCommandRequest, timeout: Option<i32>, timeout_duration: Option<&str>, host_timeout_duration: Option<&str>) -> Result<crate::models::DomainBatchGetCommandResponse, Error<BatchGetCmdError>> {
+pub async fn batch_get_cmd(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainBatchGetCommandRequest,
+    timeout: Option<i32>,
+    timeout_duration: Option<&str>,
+    host_timeout_duration: Option<&str>,
+) -> Result<crate::models::DomainBatchGetCommandResponse, Error<BatchGetCmdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/combined/batch-get-command/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/combined/batch-get-command/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = timeout {
-        local_var_req_builder = local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = timeout_duration {
-        local_var_req_builder = local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = host_timeout_duration {
-        local_var_req_builder = local_var_req_builder.query(&[("host_timeout_duration", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("host_timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -409,7 +443,8 @@ pub async fn batch_get_cmd(configuration: &configuration::Configuration, body: c
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<BatchGetCmdError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<BatchGetCmdError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -419,23 +454,36 @@ pub async fn batch_get_cmd(configuration: &configuration::Configuration, body: c
     }
 }
 
-pub async fn batch_get_cmd_status(configuration: &configuration::Configuration, batch_get_cmd_req_id: &str, timeout: Option<i32>, timeout_duration: Option<&str>) -> Result<crate::models::DomainBatchGetCmdStatusResponse, Error<BatchGetCmdStatusError>> {
+pub async fn batch_get_cmd_status(
+    configuration: &configuration::Configuration,
+    batch_get_cmd_req_id: &str,
+    timeout: Option<i32>,
+    timeout_duration: Option<&str>,
+) -> Result<crate::models::DomainBatchGetCmdStatusResponse, Error<BatchGetCmdStatusError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/combined/batch-get-command/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/combined/batch-get-command/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = timeout {
-        local_var_req_builder = local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = timeout_duration {
-        local_var_req_builder = local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
     }
-    local_var_req_builder = local_var_req_builder.query(&[("batch_get_cmd_req_id", &batch_get_cmd_req_id.to_string())]);
+    local_var_req_builder =
+        local_var_req_builder.query(&[("batch_get_cmd_req_id", &batch_get_cmd_req_id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -450,7 +498,8 @@ pub async fn batch_get_cmd_status(configuration: &configuration::Configuration, 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<BatchGetCmdStatusError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<BatchGetCmdStatusError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -471,20 +520,28 @@ pub async fn batch_init_sessions(
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/combined/batch-init-session/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/combined/batch-init-session/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = timeout {
-        local_var_req_builder = local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = timeout_duration {
-        local_var_req_builder = local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = host_timeout_duration {
-        local_var_req_builder = local_var_req_builder.query(&[("host_timeout_duration", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("host_timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -500,7 +557,8 @@ pub async fn batch_init_sessions(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<BatchInitSessionsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<BatchInitSessionsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -510,22 +568,34 @@ pub async fn batch_init_sessions(
     }
 }
 
-pub async fn batch_refresh_sessions(configuration: &configuration::Configuration, body: crate::models::DomainBatchRefreshSessionRequest, timeout: Option<i32>, timeout_duration: Option<&str>) -> Result<crate::models::DomainBatchRefreshSessionResponse, Error<BatchRefreshSessionsError>> {
+pub async fn batch_refresh_sessions(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainBatchRefreshSessionRequest,
+    timeout: Option<i32>,
+    timeout_duration: Option<&str>,
+) -> Result<crate::models::DomainBatchRefreshSessionResponse, Error<BatchRefreshSessionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/combined/batch-refresh-session/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/combined/batch-refresh-session/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = timeout {
-        local_var_req_builder = local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = timeout_duration {
-        local_var_req_builder = local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -541,7 +611,8 @@ pub async fn batch_refresh_sessions(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<BatchRefreshSessionsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<BatchRefreshSessionsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -551,16 +622,24 @@ pub async fn batch_refresh_sessions(configuration: &configuration::Configuration
     }
 }
 
-pub async fn r_tr_aggregate_sessions(configuration: &configuration::Configuration, body: Vec<crate::models::MsaAggregateQueryRequest>) -> Result<crate::models::MsaAggregatesResponse, Error<RTrAggregateSessionsError>> {
+pub async fn r_tr_aggregate_sessions(
+    configuration: &configuration::Configuration,
+    body: Vec<crate::models::MsaAggregateQueryRequest>,
+) -> Result<crate::models::MsaAggregatesResponse, Error<RTrAggregateSessionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/aggregates/sessions/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/aggregates/sessions/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -576,7 +655,8 @@ pub async fn r_tr_aggregate_sessions(configuration: &configuration::Configuratio
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrAggregateSessionsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrAggregateSessionsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -586,18 +666,32 @@ pub async fn r_tr_aggregate_sessions(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn r_tr_check_active_responder_command_status(configuration: &configuration::Configuration, cloud_request_id: &str, sequence_id: i32) -> Result<crate::models::DomainStatusResponseWrapper, Error<RTrCheckActiveResponderCommandStatusError>> {
+pub async fn r_tr_check_active_responder_command_status(
+    configuration: &configuration::Configuration,
+    cloud_request_id: &str,
+    sequence_id: i32,
+) -> Result<
+    crate::models::DomainStatusResponseWrapper,
+    Error<RTrCheckActiveResponderCommandStatusError>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/active-responder-command/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/active-responder-command/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("cloud_request_id", &cloud_request_id.to_string())]);
-    local_var_req_builder = local_var_req_builder.query(&[("sequence_id", &sequence_id.to_string())]);
+    local_var_req_builder =
+        local_var_req_builder.query(&[("cloud_request_id", &cloud_request_id.to_string())]);
+    local_var_req_builder =
+        local_var_req_builder.query(&[("sequence_id", &sequence_id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -612,7 +706,8 @@ pub async fn r_tr_check_active_responder_command_status(configuration: &configur
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrCheckActiveResponderCommandStatusError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrCheckActiveResponderCommandStatusError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -622,18 +717,29 @@ pub async fn r_tr_check_active_responder_command_status(configuration: &configur
     }
 }
 
-pub async fn r_tr_check_command_status(configuration: &configuration::Configuration, cloud_request_id: &str, sequence_id: i32) -> Result<crate::models::DomainStatusResponseWrapper, Error<RTrCheckCommandStatusError>> {
+pub async fn r_tr_check_command_status(
+    configuration: &configuration::Configuration,
+    cloud_request_id: &str,
+    sequence_id: i32,
+) -> Result<crate::models::DomainStatusResponseWrapper, Error<RTrCheckCommandStatusError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/command/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/command/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("cloud_request_id", &cloud_request_id.to_string())]);
-    local_var_req_builder = local_var_req_builder.query(&[("sequence_id", &sequence_id.to_string())]);
+    local_var_req_builder =
+        local_var_req_builder.query(&[("cloud_request_id", &cloud_request_id.to_string())]);
+    local_var_req_builder =
+        local_var_req_builder.query(&[("sequence_id", &sequence_id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -648,7 +754,8 @@ pub async fn r_tr_check_command_status(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrCheckCommandStatusError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrCheckCommandStatusError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -658,18 +765,27 @@ pub async fn r_tr_check_command_status(configuration: &configuration::Configurat
     }
 }
 
-pub async fn r_tr_delete_file(configuration: &configuration::Configuration, ids: &str, session_id: &str) -> Result<crate::models::MsaReplyMetaOnly, Error<RTrDeleteFileError>> {
+pub async fn r_tr_delete_file(
+    configuration: &configuration::Configuration,
+    ids: &str,
+    session_id: &str,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<RTrDeleteFileError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/file/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/file/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("ids", &ids.to_string())]);
     local_var_req_builder = local_var_req_builder.query(&[("session_id", &session_id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -684,7 +800,8 @@ pub async fn r_tr_delete_file(configuration: &configuration::Configuration, ids:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrDeleteFileError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrDeleteFileError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -694,18 +811,27 @@ pub async fn r_tr_delete_file(configuration: &configuration::Configuration, ids:
     }
 }
 
-pub async fn r_tr_delete_file_v2(configuration: &configuration::Configuration, ids: &str, session_id: &str) -> Result<crate::models::MsaReplyMetaOnly, Error<RTrDeleteFileV2Error>> {
+pub async fn r_tr_delete_file_v2(
+    configuration: &configuration::Configuration,
+    ids: &str,
+    session_id: &str,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<RTrDeleteFileV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/file/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/file/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("ids", &ids.to_string())]);
     local_var_req_builder = local_var_req_builder.query(&[("session_id", &session_id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -720,7 +846,8 @@ pub async fn r_tr_delete_file_v2(configuration: &configuration::Configuration, i
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrDeleteFileV2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrDeleteFileV2Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -730,18 +857,28 @@ pub async fn r_tr_delete_file_v2(configuration: &configuration::Configuration, i
     }
 }
 
-pub async fn r_tr_delete_queued_session(configuration: &configuration::Configuration, session_id: &str, cloud_request_id: &str) -> Result<crate::models::MsaReplyMetaOnly, Error<RTrDeleteQueuedSessionError>> {
+pub async fn r_tr_delete_queued_session(
+    configuration: &configuration::Configuration,
+    session_id: &str,
+    cloud_request_id: &str,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<RTrDeleteQueuedSessionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/queued-sessions/command/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/queued-sessions/command/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("session_id", &session_id.to_string())]);
-    local_var_req_builder = local_var_req_builder.query(&[("cloud_request_id", &cloud_request_id.to_string())]);
+    local_var_req_builder =
+        local_var_req_builder.query(&[("cloud_request_id", &cloud_request_id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -756,7 +893,8 @@ pub async fn r_tr_delete_queued_session(configuration: &configuration::Configura
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrDeleteQueuedSessionError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrDeleteQueuedSessionError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -766,17 +904,25 @@ pub async fn r_tr_delete_queued_session(configuration: &configuration::Configura
     }
 }
 
-pub async fn r_tr_delete_session(configuration: &configuration::Configuration, session_id: &str) -> Result<crate::models::MsaReplyMetaOnly, Error<RTrDeleteSessionError>> {
+pub async fn r_tr_delete_session(
+    configuration: &configuration::Configuration,
+    session_id: &str,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<RTrDeleteSessionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/sessions/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/sessions/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("session_id", &session_id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -791,7 +937,8 @@ pub async fn r_tr_delete_session(configuration: &configuration::Configuration, s
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrDeleteSessionError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrDeleteSessionError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -801,16 +948,27 @@ pub async fn r_tr_delete_session(configuration: &configuration::Configuration, s
     }
 }
 
-pub async fn r_tr_execute_active_responder_command(configuration: &configuration::Configuration, body: crate::models::DomainCommandExecuteRequest) -> Result<crate::models::DomainCommandExecuteResponseWrapper, Error<RTrExecuteActiveResponderCommandError>> {
+pub async fn r_tr_execute_active_responder_command(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainCommandExecuteRequest,
+) -> Result<
+    crate::models::DomainCommandExecuteResponseWrapper,
+    Error<RTrExecuteActiveResponderCommandError>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/active-responder-command/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/active-responder-command/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -826,7 +984,8 @@ pub async fn r_tr_execute_active_responder_command(configuration: &configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrExecuteActiveResponderCommandError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrExecuteActiveResponderCommandError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -836,16 +995,24 @@ pub async fn r_tr_execute_active_responder_command(configuration: &configuration
     }
 }
 
-pub async fn r_tr_execute_command(configuration: &configuration::Configuration, body: crate::models::DomainCommandExecuteRequest) -> Result<crate::models::DomainCommandExecuteResponseWrapper, Error<RTrExecuteCommandError>> {
+pub async fn r_tr_execute_command(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainCommandExecuteRequest,
+) -> Result<crate::models::DomainCommandExecuteResponseWrapper, Error<RTrExecuteCommandError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/command/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/command/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -861,7 +1028,8 @@ pub async fn r_tr_execute_command(configuration: &configuration::Configuration, 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrExecuteCommandError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrExecuteCommandError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -871,21 +1039,32 @@ pub async fn r_tr_execute_command(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn r_tr_get_extracted_file_contents(configuration: &configuration::Configuration, session_id: &str, sha256: &str, filename: Option<&str>) -> Result<std::path::PathBuf, Error<RTrGetExtractedFileContentsError>> {
+pub async fn r_tr_get_extracted_file_contents(
+    configuration: &configuration::Configuration,
+    session_id: &str,
+    sha256: &str,
+    filename: Option<&str>,
+) -> Result<std::path::PathBuf, Error<RTrGetExtractedFileContentsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/extracted-file-contents/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/extracted-file-contents/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("session_id", &session_id.to_string())]);
     local_var_req_builder = local_var_req_builder.query(&[("sha256", &sha256.to_string())]);
     if let Some(ref local_var_str) = filename {
-        local_var_req_builder = local_var_req_builder.query(&[("filename", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filename", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -900,7 +1079,8 @@ pub async fn r_tr_get_extracted_file_contents(configuration: &configuration::Con
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrGetExtractedFileContentsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrGetExtractedFileContentsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -910,22 +1090,34 @@ pub async fn r_tr_get_extracted_file_contents(configuration: &configuration::Con
     }
 }
 
-pub async fn r_tr_init_session(configuration: &configuration::Configuration, body: crate::models::DomainInitRequest, timeout: Option<i32>, timeout_duration: Option<&str>) -> Result<crate::models::DomainInitResponseWrapper, Error<RTrInitSessionError>> {
+pub async fn r_tr_init_session(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainInitRequest,
+    timeout: Option<i32>,
+    timeout_duration: Option<&str>,
+) -> Result<crate::models::DomainInitResponseWrapper, Error<RTrInitSessionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/sessions/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/sessions/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = timeout {
-        local_var_req_builder = local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = timeout_duration {
-        local_var_req_builder = local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -941,7 +1133,8 @@ pub async fn r_tr_init_session(configuration: &configuration::Configuration, bod
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrInitSessionError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrInitSessionError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -951,28 +1144,43 @@ pub async fn r_tr_init_session(configuration: &configuration::Configuration, bod
     }
 }
 
-pub async fn r_tr_list_all_sessions(configuration: &configuration::Configuration, offset: Option<&str>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>) -> Result<crate::models::DomainListSessionsResponseMsa, Error<RTrListAllSessionsError>> {
+pub async fn r_tr_list_all_sessions(
+    configuration: &configuration::Configuration,
+    offset: Option<&str>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    filter: Option<&str>,
+) -> Result<crate::models::DomainListSessionsResponseMsa, Error<RTrListAllSessionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/queries/sessions/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/queries/sessions/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -987,7 +1195,8 @@ pub async fn r_tr_list_all_sessions(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrListAllSessionsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrListAllSessionsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -997,17 +1206,25 @@ pub async fn r_tr_list_all_sessions(configuration: &configuration::Configuration
     }
 }
 
-pub async fn r_tr_list_files(configuration: &configuration::Configuration, session_id: &str) -> Result<crate::models::DomainListFilesResponseWrapper, Error<RTrListFilesError>> {
+pub async fn r_tr_list_files(
+    configuration: &configuration::Configuration,
+    session_id: &str,
+) -> Result<crate::models::DomainListFilesResponseWrapper, Error<RTrListFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/file/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/file/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("session_id", &session_id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1022,7 +1239,8 @@ pub async fn r_tr_list_files(configuration: &configuration::Configuration, sessi
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrListFilesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrListFilesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1032,17 +1250,25 @@ pub async fn r_tr_list_files(configuration: &configuration::Configuration, sessi
     }
 }
 
-pub async fn r_tr_list_files_v2(configuration: &configuration::Configuration, session_id: &str) -> Result<crate::models::DomainListFilesV2ResponseWrapper, Error<RTrListFilesV2Error>> {
+pub async fn r_tr_list_files_v2(
+    configuration: &configuration::Configuration,
+    session_id: &str,
+) -> Result<crate::models::DomainListFilesV2ResponseWrapper, Error<RTrListFilesV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/file/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/file/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("session_id", &session_id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1057,7 +1283,8 @@ pub async fn r_tr_list_files_v2(configuration: &configuration::Configuration, se
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrListFilesV2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrListFilesV2Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1067,16 +1294,24 @@ pub async fn r_tr_list_files_v2(configuration: &configuration::Configuration, se
     }
 }
 
-pub async fn r_tr_list_queued_sessions(configuration: &configuration::Configuration, body: crate::models::MsaIdsRequest) -> Result<crate::models::DomainQueuedSessionResponseWrapper, Error<RTrListQueuedSessionsError>> {
+pub async fn r_tr_list_queued_sessions(
+    configuration: &configuration::Configuration,
+    body: crate::models::MsaIdsRequest,
+) -> Result<crate::models::DomainQueuedSessionResponseWrapper, Error<RTrListQueuedSessionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/queued-sessions/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/queued-sessions/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1092,7 +1327,8 @@ pub async fn r_tr_list_queued_sessions(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrListQueuedSessionsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrListQueuedSessionsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1102,16 +1338,24 @@ pub async fn r_tr_list_queued_sessions(configuration: &configuration::Configurat
     }
 }
 
-pub async fn r_tr_list_sessions(configuration: &configuration::Configuration, body: crate::models::MsaIdsRequest) -> Result<crate::models::DomainSessionResponseWrapper, Error<RTrListSessionsError>> {
+pub async fn r_tr_list_sessions(
+    configuration: &configuration::Configuration,
+    body: crate::models::MsaIdsRequest,
+) -> Result<crate::models::DomainSessionResponseWrapper, Error<RTrListSessionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/sessions/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/sessions/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1127,7 +1371,8 @@ pub async fn r_tr_list_sessions(configuration: &configuration::Configuration, bo
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrListSessionsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrListSessionsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1137,16 +1382,24 @@ pub async fn r_tr_list_sessions(configuration: &configuration::Configuration, bo
     }
 }
 
-pub async fn r_tr_pulse_session(configuration: &configuration::Configuration, body: crate::models::DomainInitRequest) -> Result<crate::models::DomainInitResponseWrapper, Error<RTrPulseSessionError>> {
+pub async fn r_tr_pulse_session(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainInitRequest,
+) -> Result<crate::models::DomainInitResponseWrapper, Error<RTrPulseSessionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/refresh-session/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/refresh-session/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1162,7 +1415,8 @@ pub async fn r_tr_pulse_session(configuration: &configuration::Configuration, bo
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrPulseSessionError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrPulseSessionError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

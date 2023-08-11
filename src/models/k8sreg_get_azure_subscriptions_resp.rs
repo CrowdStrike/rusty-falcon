@@ -19,7 +19,15 @@ pub struct K8sregGetAzureSubscriptionsResp {
 }
 
 impl K8sregGetAzureSubscriptionsResp {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::K8sregAzureSubscriptionResp>) -> K8sregGetAzureSubscriptionsResp {
-        K8sregGetAzureSubscriptionsResp { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::K8sregAzureSubscriptionResp>,
+    ) -> K8sregGetAzureSubscriptionsResp {
+        K8sregGetAzureSubscriptionsResp {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

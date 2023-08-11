@@ -42,7 +42,18 @@ pub struct DomainDdosTargetDetails {
 }
 
 impl DomainDdosTargetDetails {
-    pub fn new(asn: i32, asn_name: String, cidr: String, city: String, company_name: String, connection_type: String, country: String, country_code: String, pdns: Vec<String>, rdns: String) -> DomainDdosTargetDetails {
+    pub fn new(
+        asn: i32,
+        asn_name: String,
+        cidr: String,
+        city: String,
+        company_name: String,
+        connection_type: String,
+        country: String,
+        country_code: String,
+        pdns: Vec<String>,
+        rdns: String,
+    ) -> DomainDdosTargetDetails {
         DomainDdosTargetDetails {
             asn,
             asn_name,

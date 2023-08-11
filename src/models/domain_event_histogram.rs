@@ -25,7 +25,14 @@ pub struct DomainEventHistogram {
 }
 
 impl DomainEventHistogram {
-    pub fn new(count: i32, has_detect: bool, has_overwatch: bool, has_prevented: bool, timestamp_max: i64, timestamp_min: i64) -> DomainEventHistogram {
+    pub fn new(
+        count: i32,
+        has_detect: bool,
+        has_overwatch: bool,
+        has_prevented: bool,
+        timestamp_max: i64,
+        timestamp_min: i64,
+    ) -> DomainEventHistogram {
         DomainEventHistogram {
             count,
             has_detect,

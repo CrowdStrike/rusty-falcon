@@ -18,6 +18,9 @@ pub struct MsaEntityActionRequestV2 {
 
 impl MsaEntityActionRequestV2 {
     pub fn new(ids: Vec<String>) -> MsaEntityActionRequestV2 {
-        MsaEntityActionRequestV2 { action_parameters: None, ids }
+        MsaEntityActionRequestV2 {
+            action_parameters: None,
+            ids,
+        }
     }
 }

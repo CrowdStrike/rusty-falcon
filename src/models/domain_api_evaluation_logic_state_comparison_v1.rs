@@ -17,7 +17,13 @@ pub struct DomainApiEvaluationLogicStateComparisonV1 {
 }
 
 impl DomainApiEvaluationLogicStateComparisonV1 {
-    pub fn new(entity_comparisons: Vec<crate::models::DomainApiEvaluationLogicEntityComparisonV1>, entity_operator: String) -> DomainApiEvaluationLogicStateComparisonV1 {
-        DomainApiEvaluationLogicStateComparisonV1 { entity_comparisons, entity_operator }
+    pub fn new(
+        entity_comparisons: Vec<crate::models::DomainApiEvaluationLogicEntityComparisonV1>,
+        entity_operator: String,
+    ) -> DomainApiEvaluationLogicStateComparisonV1 {
+        DomainApiEvaluationLogicStateComparisonV1 {
+            entity_comparisons,
+            entity_operator,
+        }
     }
 }

@@ -19,7 +19,15 @@ pub struct Resources {
 }
 
 impl Resources {
-    pub fn new(default_subscription_id: String, subscription_ids: Vec<String>, tenant_id: String) -> Resources {
-        Resources { default_subscription_id, subscription_ids, tenant_id }
+    pub fn new(
+        default_subscription_id: String,
+        subscription_ids: Vec<String>,
+        tenant_id: String,
+    ) -> Resources {
+        Resources {
+            default_subscription_id,
+            subscription_ids,
+            tenant_id,
+        }
     }
 }

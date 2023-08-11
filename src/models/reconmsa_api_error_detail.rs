@@ -20,6 +20,10 @@ pub struct ReconmsaApiErrorDetail {
 
 impl ReconmsaApiErrorDetail {
     pub fn new(field: String, message: String, message_key: String) -> ReconmsaApiErrorDetail {
-        ReconmsaApiErrorDetail { field, message, message_key }
+        ReconmsaApiErrorDetail {
+            field,
+            message,
+            message_key,
+        }
     }
 }

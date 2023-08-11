@@ -19,7 +19,14 @@ pub struct DomainRuleEntitiesResponse {
 }
 
 impl DomainRuleEntitiesResponse {
-    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainRule>) -> DomainRuleEntitiesResponse {
-        DomainRuleEntitiesResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainRule>,
+    ) -> DomainRuleEntitiesResponse {
+        DomainRuleEntitiesResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

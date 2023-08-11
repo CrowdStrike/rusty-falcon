@@ -17,7 +17,13 @@ pub struct MsaBaseEntitiesResponse {
 }
 
 impl MsaBaseEntitiesResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo) -> MsaBaseEntitiesResponse {
-        MsaBaseEntitiesResponse { errors, meta: Box::new(meta) }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+    ) -> MsaBaseEntitiesResponse {
+        MsaBaseEntitiesResponse {
+            errors,
+            meta: Box::new(meta),
+        }
     }
 }

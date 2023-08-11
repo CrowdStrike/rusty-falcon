@@ -20,6 +20,10 @@ pub struct K8sregVersionResp {
 
 impl K8sregVersionResp {
     pub fn new(major: i32, minor: i32) -> K8sregVersionResp {
-        K8sregVersionResp { bugfix: None, major, minor }
+        K8sregVersionResp {
+            bugfix: None,
+            major,
+            minor,
+        }
     }
 }

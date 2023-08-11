@@ -19,7 +19,14 @@ pub struct DomainMsaPfResponseV2 {
 }
 
 impl DomainMsaPfResponseV2 {
-    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainRemoteCommandPutFileV2>) -> DomainMsaPfResponseV2 {
-        DomainMsaPfResponseV2 { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainRemoteCommandPutFileV2>,
+    ) -> DomainMsaPfResponseV2 {
+        DomainMsaPfResponseV2 {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

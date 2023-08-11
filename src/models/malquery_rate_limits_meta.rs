@@ -43,7 +43,16 @@ pub struct MalqueryRateLimitsMeta {
 }
 
 impl MalqueryRateLimitsMeta {
-    pub fn new(days_left: i32, download_count: i32, download_limit: i32, hunt_count: i32, hunt_limit: i32, monitor_count: i32, monitor_limit: i32, refresh_time: String) -> MalqueryRateLimitsMeta {
+    pub fn new(
+        days_left: i32,
+        download_count: i32,
+        download_limit: i32,
+        hunt_count: i32,
+        hunt_limit: i32,
+        monitor_count: i32,
+        monitor_limit: i32,
+        refresh_time: String,
+    ) -> MalqueryRateLimitsMeta {
         MalqueryRateLimitsMeta {
             days_left,
             download_count,

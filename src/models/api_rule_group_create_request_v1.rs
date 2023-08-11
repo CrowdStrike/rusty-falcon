@@ -21,7 +21,17 @@ pub struct ApiRuleGroupCreateRequestV1 {
 }
 
 impl ApiRuleGroupCreateRequestV1 {
-    pub fn new(comment: String, description: String, name: String, platform: String) -> ApiRuleGroupCreateRequestV1 {
-        ApiRuleGroupCreateRequestV1 { comment, description, name, platform }
+    pub fn new(
+        comment: String,
+        description: String,
+        name: String,
+        platform: String,
+    ) -> ApiRuleGroupCreateRequestV1 {
+        ApiRuleGroupCreateRequestV1 {
+            comment,
+            description,
+            name,
+            platform,
+        }
     }
 }

@@ -19,7 +19,15 @@ pub struct DomainMsaQfResponse {
 }
 
 impl DomainMsaQfResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::QuarantineQuarantinedFile>) -> DomainMsaQfResponse {
-        DomainMsaQfResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::QuarantineQuarantinedFile>,
+    ) -> DomainMsaQfResponse {
+        DomainMsaQfResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

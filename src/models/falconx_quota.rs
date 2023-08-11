@@ -20,6 +20,10 @@ pub struct FalconxQuota {
 
 impl FalconxQuota {
     pub fn new(in_progress: i32, total: i32, used: i32) -> FalconxQuota {
-        FalconxQuota { in_progress, total, used }
+        FalconxQuota {
+            in_progress,
+            total,
+            used,
+        }
     }
 }

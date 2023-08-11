@@ -19,7 +19,15 @@ pub struct RegistrationAzureServicePrincipalResponseV1 {
 }
 
 impl RegistrationAzureServicePrincipalResponseV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainAzureClientServicePrincipalV1>) -> RegistrationAzureServicePrincipalResponseV1 {
-        RegistrationAzureServicePrincipalResponseV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainAzureClientServicePrincipalV1>,
+    ) -> RegistrationAzureServicePrincipalResponseV1 {
+        RegistrationAzureServicePrincipalResponseV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

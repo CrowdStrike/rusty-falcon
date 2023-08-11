@@ -21,7 +21,17 @@ pub struct CommonOsCompliance {
 }
 
 impl CommonOsCompliance {
-    pub fn new(average_overall_score: f64, compliance: ::std::collections::HashMap<String, f32>, name: String, num_aids: i32) -> CommonOsCompliance {
-        CommonOsCompliance { average_overall_score, compliance, name, num_aids }
+    pub fn new(
+        average_overall_score: f64,
+        compliance: ::std::collections::HashMap<String, f32>,
+        name: String,
+        num_aids: i32,
+    ) -> CommonOsCompliance {
+        CommonOsCompliance {
+            average_overall_score,
+            compliance,
+            name,
+            num_aids,
+        }
     }
 }

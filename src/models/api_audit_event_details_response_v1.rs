@@ -19,7 +19,15 @@ pub struct ApiAuditEventDetailsResponseV1 {
 }
 
 impl ApiAuditEventDetailsResponseV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::ApiAuditEventDetailsResourceV1>) -> ApiAuditEventDetailsResponseV1 {
-        ApiAuditEventDetailsResponseV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::ApiAuditEventDetailsResourceV1>,
+    ) -> ApiAuditEventDetailsResponseV1 {
+        ApiAuditEventDetailsResponseV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

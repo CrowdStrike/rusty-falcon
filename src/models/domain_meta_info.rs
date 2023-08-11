@@ -18,6 +18,9 @@ pub struct DomainMetaInfo {
 
 impl DomainMetaInfo {
     pub fn new(msa_meta_info: crate::models::MsaMetaInfo) -> DomainMetaInfo {
-        DomainMetaInfo { msa_meta_info: Box::new(msa_meta_info), quota: None }
+        DomainMetaInfo {
+            msa_meta_info: Box::new(msa_meta_info),
+            quota: None,
+        }
     }
 }

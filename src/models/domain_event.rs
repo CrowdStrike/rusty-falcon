@@ -19,7 +19,10 @@ pub struct DomainEvent {
     /// Link to the event, can be missing
     #[serde(rename = "body_link", skip_serializing_if = "Option::is_none")]
     pub body_link: Option<String>,
-    #[serde(rename = "botnet_config_source", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "botnet_config_source",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub botnet_config_source: Option<Box<crate::models::DomainBotnetConfigSource>>,
     /// The date the event was created (in UTC format)
     #[serde(rename = "created_date")]
@@ -38,7 +41,10 @@ pub struct DomainEvent {
     /// List of objects with rules that matched the event
     #[serde(rename = "matched_rules", skip_serializing_if = "Option::is_none")]
     pub matched_rules: Option<Vec<crate::models::DomainMatchedRule>>,
-    #[serde(rename = "pastebin_text_source", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "pastebin_text_source",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub pastebin_text_source: Option<Box<crate::models::DomainPastebinTextSource>>,
     /// A list of tags summarizing event content
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
@@ -51,7 +57,15 @@ pub struct DomainEvent {
 }
 
 impl DomainEvent {
-    pub fn new(body: String, body_is_truncated: bool, created_date: String, event_type: String, fingerprint: String, id: String, updated_date: String) -> DomainEvent {
+    pub fn new(
+        body: String,
+        body_is_truncated: bool,
+        created_date: String,
+        event_type: String,
+        fingerprint: String,
+        id: String,
+        updated_date: String,
+    ) -> DomainEvent {
         DomainEvent {
             body,
             body_is_truncated,

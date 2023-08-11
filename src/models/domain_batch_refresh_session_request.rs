@@ -18,6 +18,9 @@ pub struct DomainBatchRefreshSessionRequest {
 
 impl DomainBatchRefreshSessionRequest {
     pub fn new(batch_id: String, hosts_to_remove: Vec<String>) -> DomainBatchRefreshSessionRequest {
-        DomainBatchRefreshSessionRequest { batch_id, hosts_to_remove }
+        DomainBatchRefreshSessionRequest {
+            batch_id,
+            hosts_to_remove,
+        }
     }
 }

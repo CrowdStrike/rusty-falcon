@@ -22,7 +22,15 @@ pub struct DomainUpdateNotificationRequestV1 {
 }
 
 impl DomainUpdateNotificationRequestV1 {
-    pub fn new(assigned_to_uuid: String, id: String, status: String) -> DomainUpdateNotificationRequestV1 {
-        DomainUpdateNotificationRequestV1 { assigned_to_uuid, id, status }
+    pub fn new(
+        assigned_to_uuid: String,
+        id: String,
+        status: String,
+    ) -> DomainUpdateNotificationRequestV1 {
+        DomainUpdateNotificationRequestV1 {
+            assigned_to_uuid,
+            id,
+            status,
+        }
     }
 }

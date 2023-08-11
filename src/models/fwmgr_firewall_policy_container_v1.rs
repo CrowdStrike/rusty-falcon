@@ -43,7 +43,16 @@ pub struct FwmgrFirewallPolicyContainerV1 {
 }
 
 impl FwmgrFirewallPolicyContainerV1 {
-    pub fn new(default_inbound: String, default_outbound: String, enforce: bool, local_logging: bool, platform_id: String, policy_id: String, rule_group_ids: Vec<String>, test_mode: bool) -> FwmgrFirewallPolicyContainerV1 {
+    pub fn new(
+        default_inbound: String,
+        default_outbound: String,
+        enforce: bool,
+        local_logging: bool,
+        platform_id: String,
+        policy_id: String,
+        rule_group_ids: Vec<String>,
+        test_mode: bool,
+    ) -> FwmgrFirewallPolicyContainerV1 {
         FwmgrFirewallPolicyContainerV1 {
             created_by: None,
             created_on: None,

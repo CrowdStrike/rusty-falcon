@@ -15,7 +15,9 @@ pub struct RegistrationGcpAccountCreateRequestExtV1 {
 }
 
 impl RegistrationGcpAccountCreateRequestExtV1 {
-    pub fn new(resources: Vec<crate::models::RegistrationGcpAccountExtV1>) -> RegistrationGcpAccountCreateRequestExtV1 {
+    pub fn new(
+        resources: Vec<crate::models::RegistrationGcpAccountExtV1>,
+    ) -> RegistrationGcpAccountCreateRequestExtV1 {
         RegistrationGcpAccountCreateRequestExtV1 { resources }
     }
 }

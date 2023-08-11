@@ -18,6 +18,9 @@ pub struct FwmgrDomainDnsResolutionTargetsWithPolling {
 
 impl FwmgrDomainDnsResolutionTargetsWithPolling {
     pub fn new(polling_interval: i32) -> FwmgrDomainDnsResolutionTargetsWithPolling {
-        FwmgrDomainDnsResolutionTargetsWithPolling { polling_interval, targets: None }
+        FwmgrDomainDnsResolutionTargetsWithPolling {
+            polling_interval,
+            targets: None,
+        }
     }
 }

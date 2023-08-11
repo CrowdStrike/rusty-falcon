@@ -18,6 +18,9 @@ pub struct DomainUserGroupMembers {
 
 impl DomainUserGroupMembers {
     pub fn new(user_group_id: String, user_uuids: Vec<String>) -> DomainUserGroupMembers {
-        DomainUserGroupMembers { user_group_id, user_uuids }
+        DomainUserGroupMembers {
+            user_group_id,
+            user_uuids,
+        }
     }
 }

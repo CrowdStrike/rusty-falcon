@@ -19,7 +19,15 @@ pub struct ModelsAwsAccountsV1 {
 }
 
 impl ModelsAwsAccountsV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::ModelsAwsAccountV1>) -> ModelsAwsAccountsV1 {
-        ModelsAwsAccountsV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::ModelsAwsAccountV1>,
+    ) -> ModelsAwsAccountsV1 {
+        ModelsAwsAccountsV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

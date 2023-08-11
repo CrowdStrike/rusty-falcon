@@ -25,7 +25,21 @@ pub struct ApiCaseCreationRequest {
 }
 
 impl ApiCaseCreationRequest {
-    pub fn new(body: String, detections: Vec<crate::models::MessagesDetection>, incidents: Vec<crate::models::MessagesIncident>, title: String, _type: String, user_uuid: String) -> ApiCaseCreationRequest {
-        ApiCaseCreationRequest { body, detections, incidents, title, _type, user_uuid }
+    pub fn new(
+        body: String,
+        detections: Vec<crate::models::MessagesDetection>,
+        incidents: Vec<crate::models::MessagesIncident>,
+        title: String,
+        _type: String,
+        user_uuid: String,
+    ) -> ApiCaseCreationRequest {
+        ApiCaseCreationRequest {
+            body,
+            detections,
+            incidents,
+            title,
+            _type,
+            user_uuid,
+        }
     }
 }

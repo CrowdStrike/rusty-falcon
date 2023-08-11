@@ -23,7 +23,18 @@ pub struct MlscannerSamplesScanResult {
 }
 
 impl MlscannerSamplesScanResult {
-    pub fn new(cid: String, id: String, samples: Vec<crate::models::MlscannerScannedSample>, status: String) -> MlscannerSamplesScanResult {
-        MlscannerSamplesScanResult { cid, created_timestamp: None, id, samples, status }
+    pub fn new(
+        cid: String,
+        id: String,
+        samples: Vec<crate::models::MlscannerScannedSample>,
+        status: String,
+    ) -> MlscannerSamplesScanResult {
+        MlscannerSamplesScanResult {
+            cid,
+            created_timestamp: None,
+            id,
+            samples,
+            status,
+        }
     }
 }

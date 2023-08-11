@@ -20,6 +20,9 @@ pub struct RegistrationAzureAccountExternalV1 {
 
 impl RegistrationAzureAccountExternalV1 {
     pub fn new() -> RegistrationAzureAccountExternalV1 {
-        RegistrationAzureAccountExternalV1 { subscription_id: None, tenant_id: None }
+        RegistrationAzureAccountExternalV1 {
+            subscription_id: None,
+            tenant_id: None,
+        }
     }
 }

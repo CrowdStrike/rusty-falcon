@@ -27,7 +27,12 @@ pub struct DomainStatusResponse {
 }
 
 impl DomainStatusResponse {
-    pub fn new(complete: bool, session_id: String, stderr: String, stdout: String) -> DomainStatusResponse {
+    pub fn new(
+        complete: bool,
+        session_id: String,
+        stderr: String,
+        stdout: String,
+    ) -> DomainStatusResponse {
         DomainStatusResponse {
             base_command: None,
             complete,

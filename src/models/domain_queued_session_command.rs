@@ -29,7 +29,15 @@ pub struct DomainQueuedSessionCommand {
 }
 
 impl DomainQueuedSessionCommand {
-    pub fn new(base_command: String, cloud_request_id: String, command_string: String, created_at: String, deleted_at: String, status: String, updated_at: String) -> DomainQueuedSessionCommand {
+    pub fn new(
+        base_command: String,
+        cloud_request_id: String,
+        command_string: String,
+        created_at: String,
+        deleted_at: String,
+        status: String,
+        updated_at: String,
+    ) -> DomainQueuedSessionCommand {
         DomainQueuedSessionCommand {
             base_command,
             cloud_request_id,

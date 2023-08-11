@@ -10,12 +10,17 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DeviceControlReqUpdateDefaultDcPolicyV1 {
-    #[serde(rename = "custom_notifications", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "custom_notifications",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub custom_notifications: Option<Box<crate::models::DeviceControlUsbCustomNotifications>>,
 }
 
 impl DeviceControlReqUpdateDefaultDcPolicyV1 {
     pub fn new() -> DeviceControlReqUpdateDefaultDcPolicyV1 {
-        DeviceControlReqUpdateDefaultDcPolicyV1 { custom_notifications: None }
+        DeviceControlReqUpdateDefaultDcPolicyV1 {
+            custom_notifications: None,
+        }
     }
 }

@@ -19,7 +19,14 @@ pub struct ExternalGetChangesResponse {
 }
 
 impl ExternalGetChangesResponse {
-    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::ExternalChange>) -> ExternalGetChangesResponse {
-        ExternalGetChangesResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::ExternalChange>,
+    ) -> ExternalGetChangesResponse {
+        ExternalGetChangesResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

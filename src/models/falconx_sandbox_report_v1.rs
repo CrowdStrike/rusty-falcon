@@ -14,13 +14,19 @@ pub struct FalconxSandboxReportV1 {
     pub architecture: Option<String>,
     #[serde(rename = "classification", skip_serializing_if = "Option::is_none")]
     pub classification: Option<Vec<String>>,
-    #[serde(rename = "classification_tags", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "classification_tags",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub classification_tags: Option<Vec<String>>,
     #[serde(rename = "contacted_hosts", skip_serializing_if = "Option::is_none")]
     pub contacted_hosts: Option<Vec<crate::models::FalconxContactedHost>>,
     #[serde(rename = "dns_requests", skip_serializing_if = "Option::is_none")]
     pub dns_requests: Option<Vec<crate::models::FalconxDnsRequest>>,
-    #[serde(rename = "environment_description", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "environment_description",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub environment_description: Option<String>,
     #[serde(rename = "environment_id", skip_serializing_if = "Option::is_none")]
     pub environment_id: Option<i32>,
@@ -32,8 +38,12 @@ pub struct FalconxSandboxReportV1 {
     pub error_type: Option<String>,
     #[serde(rename = "extracted_files", skip_serializing_if = "Option::is_none")]
     pub extracted_files: Option<Vec<crate::models::FalconxExtractedFile>>,
-    #[serde(rename = "extracted_interesting_strings", skip_serializing_if = "Option::is_none")]
-    pub extracted_interesting_strings: Option<Vec<crate::models::FalconxExtractedInterestingString>>,
+    #[serde(
+        rename = "extracted_interesting_strings",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub extracted_interesting_strings:
+        Option<Vec<crate::models::FalconxExtractedInterestingString>>,
     #[serde(rename = "file_imports", skip_serializing_if = "Option::is_none")]
     pub file_imports: Option<Vec<crate::models::FalconxFileImport>>,
     #[serde(rename = "file_metadata", skip_serializing_if = "Option::is_none")]
@@ -48,25 +58,40 @@ pub struct FalconxSandboxReportV1 {
     pub http_requests: Option<Vec<crate::models::FalconxHttpRequest>>,
     #[serde(rename = "incidents", skip_serializing_if = "Option::is_none")]
     pub incidents: Option<Vec<crate::models::FalconxIncident>>,
-    #[serde(rename = "ioc_report_broad_artifact_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "ioc_report_broad_artifact_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub ioc_report_broad_artifact_id: Option<String>,
-    #[serde(rename = "ioc_report_strict_artifact_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "ioc_report_strict_artifact_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub ioc_report_strict_artifact_id: Option<String>,
     #[serde(rename = "memory_forensics", skip_serializing_if = "Option::is_none")]
     pub memory_forensics: Option<Vec<crate::models::FalconxMemoryForensic>>,
-    #[serde(rename = "memory_strings_artifact_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "memory_strings_artifact_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub memory_strings_artifact_id: Option<String>,
     #[serde(rename = "mitre_attacks", skip_serializing_if = "Option::is_none")]
     pub mitre_attacks: Option<Vec<crate::models::FalconxMitreAttack>>,
     #[serde(rename = "packer", skip_serializing_if = "Option::is_none")]
     pub packer: Option<String>,
-    #[serde(rename = "pcap_report_artifact_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "pcap_report_artifact_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub pcap_report_artifact_id: Option<String>,
     #[serde(rename = "processes", skip_serializing_if = "Option::is_none")]
     pub processes: Option<Vec<crate::models::FalconxProcess>>,
     #[serde(rename = "sample_flags", skip_serializing_if = "Option::is_none")]
     pub sample_flags: Option<Vec<String>>,
-    #[serde(rename = "screenshots_artifact_ids", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "screenshots_artifact_ids",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub screenshots_artifact_ids: Option<Vec<String>>,
     #[serde(rename = "sha256", skip_serializing_if = "Option::is_none")]
     pub sha256: Option<String>,
@@ -88,15 +113,30 @@ pub struct FalconxSandboxReportV1 {
     pub verdict: Option<String>,
     #[serde(rename = "version_info", skip_serializing_if = "Option::is_none")]
     pub version_info: Option<Vec<crate::models::FalconxVersionInfo>>,
-    #[serde(rename = "windows_version_bitness", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "windows_version_bitness",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub windows_version_bitness: Option<i32>,
-    #[serde(rename = "windows_version_edition", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "windows_version_edition",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub windows_version_edition: Option<String>,
-    #[serde(rename = "windows_version_name", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "windows_version_name",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub windows_version_name: Option<String>,
-    #[serde(rename = "windows_version_service_pack", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "windows_version_service_pack",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub windows_version_service_pack: Option<String>,
-    #[serde(rename = "windows_version_version", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "windows_version_version",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub windows_version_version: Option<String>,
 }
 

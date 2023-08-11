@@ -22,6 +22,11 @@ pub struct ApiIndicatorsQueryPaging {
 
 impl ApiIndicatorsQueryPaging {
     pub fn new(limit: i32, total: i64) -> ApiIndicatorsQueryPaging {
-        ApiIndicatorsQueryPaging { after: None, limit, offset: None, total }
+        ApiIndicatorsQueryPaging {
+            after: None,
+            limit,
+            offset: None,
+            total,
+        }
     }
 }

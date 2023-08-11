@@ -26,7 +26,12 @@ pub struct RequestsCreateFirewallPolicyV1 {
 
 impl RequestsCreateFirewallPolicyV1 {
     pub fn new(name: String, platform_name: PlatformName) -> RequestsCreateFirewallPolicyV1 {
-        RequestsCreateFirewallPolicyV1 { clone_id: None, description: None, name, platform_name }
+        RequestsCreateFirewallPolicyV1 {
+            clone_id: None,
+            description: None,
+            name,
+            platform_name,
+        }
     }
 }
 

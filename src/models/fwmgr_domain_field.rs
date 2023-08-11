@@ -21,7 +21,17 @@ pub struct FwmgrDomainField {
 }
 
 impl FwmgrDomainField {
-    pub fn new(label: String, name: String, options: Vec<crate::models::FwmgrDomainValueItem>, _type: String) -> FwmgrDomainField {
-        FwmgrDomainField { label, name, options, _type }
+    pub fn new(
+        label: String,
+        name: String,
+        options: Vec<crate::models::FwmgrDomainValueItem>,
+        _type: String,
+    ) -> FwmgrDomainField {
+        FwmgrDomainField {
+            label,
+            name,
+            options,
+            _type,
+        }
     }
 }

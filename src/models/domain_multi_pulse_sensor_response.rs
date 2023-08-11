@@ -19,7 +19,15 @@ pub struct DomainMultiPulseSensorResponse {
 }
 
 impl DomainMultiPulseSensorResponse {
-    pub fn new(aid: String, errors: Vec<crate::models::MsaApiError>, session_id: String) -> DomainMultiPulseSensorResponse {
-        DomainMultiPulseSensorResponse { aid, errors, session_id }
+    pub fn new(
+        aid: String,
+        errors: Vec<crate::models::MsaApiError>,
+        session_id: String,
+    ) -> DomainMultiPulseSensorResponse {
+        DomainMultiPulseSensorResponse {
+            aid,
+            errors,
+            session_id,
+        }
     }
 }

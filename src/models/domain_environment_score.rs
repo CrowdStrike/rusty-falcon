@@ -20,6 +20,10 @@ pub struct DomainEnvironmentScore {
 
 impl DomainEnvironmentScore {
     pub fn new(id: String, score: i32, timestamp: String) -> DomainEnvironmentScore {
-        DomainEnvironmentScore { id, score, timestamp }
+        DomainEnvironmentScore {
+            id,
+            score,
+            timestamp,
+        }
     }
 }

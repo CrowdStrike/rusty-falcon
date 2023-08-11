@@ -22,6 +22,11 @@ pub struct StateOnlineStateResultV1 {
 
 impl StateOnlineStateResultV1 {
     pub fn new(id: String, state: String) -> StateOnlineStateResultV1 {
-        StateOnlineStateResultV1 { cid: None, id, last_seen: None, state }
+        StateOnlineStateResultV1 {
+            cid: None,
+            id,
+            last_seen: None,
+            state,
+        }
     }
 }

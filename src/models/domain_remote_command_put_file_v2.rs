@@ -10,7 +10,10 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainRemoteCommandPutFileV2 {
-    #[serde(rename = "comments_for_audit_log", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "comments_for_audit_log",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub comments_for_audit_log: Option<String>,
     #[serde(rename = "content", skip_serializing_if = "Option::is_none")]
     pub content: Option<String>,
@@ -48,18 +51,29 @@ pub struct DomainRemoteCommandPutFileV2 {
     pub share_with_workflow: bool,
     #[serde(rename = "size", skip_serializing_if = "Option::is_none")]
     pub size: Option<i32>,
-    #[serde(rename = "workflow_input_schema", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "workflow_input_schema",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub workflow_input_schema: Option<String>,
     #[serde(rename = "workflow_is_disruptive")]
     pub workflow_is_disruptive: bool,
-    #[serde(rename = "workflow_output_schema", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "workflow_output_schema",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub workflow_output_schema: Option<String>,
     #[serde(rename = "write_access", skip_serializing_if = "Option::is_none")]
     pub write_access: Option<bool>,
 }
 
 impl DomainRemoteCommandPutFileV2 {
-    pub fn new(run_attempt_count: i32, run_success_count: i32, share_with_workflow: bool, workflow_is_disruptive: bool) -> DomainRemoteCommandPutFileV2 {
+    pub fn new(
+        run_attempt_count: i32,
+        run_success_count: i32,
+        share_with_workflow: bool,
+        workflow_is_disruptive: bool,
+    ) -> DomainRemoteCommandPutFileV2 {
         DomainRemoteCommandPutFileV2 {
             comments_for_audit_log: None,
             content: None,

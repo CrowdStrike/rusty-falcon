@@ -19,7 +19,14 @@ pub struct ApiValidationResponseV1 {
 }
 
 impl ApiValidationResponseV1 {
-    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainFieldValidation>) -> ApiValidationResponseV1 {
-        ApiValidationResponseV1 { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainFieldValidation>,
+    ) -> ApiValidationResponseV1 {
+        ApiValidationResponseV1 {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

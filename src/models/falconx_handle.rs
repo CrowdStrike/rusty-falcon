@@ -20,6 +20,10 @@ pub struct FalconxHandle {
 
 impl FalconxHandle {
     pub fn new() -> FalconxHandle {
-        FalconxHandle { id: None, path: None, _type: None }
+        FalconxHandle {
+            id: None,
+            path: None,
+            _type: None,
+        }
     }
 }

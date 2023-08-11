@@ -20,6 +20,10 @@ pub struct FwmgrMsaApiError {
 
 impl FwmgrMsaApiError {
     pub fn new(code: i32, message: String) -> FwmgrMsaApiError {
-        FwmgrMsaApiError { code, id: None, message }
+        FwmgrMsaApiError {
+            code,
+            id: None,
+            message,
+        }
     }
 }

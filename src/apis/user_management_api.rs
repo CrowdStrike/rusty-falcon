@@ -284,30 +284,40 @@ pub async fn combined_user_roles_v1(
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/user-management/combined/user-roles/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/user-management/combined/user-roles/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("user_uuid", &user_uuid.to_string())]);
     if let Some(ref local_var_str) = cid {
         local_var_req_builder = local_var_req_builder.query(&[("cid", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = direct_only {
-        local_var_req_builder = local_var_req_builder.query(&[("direct_only", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("direct_only", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -322,7 +332,8 @@ pub async fn combined_user_roles_v1(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CombinedUserRolesV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CombinedUserRolesV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -332,16 +343,24 @@ pub async fn combined_user_roles_v1(
     }
 }
 
-pub async fn create_user(configuration: &configuration::Configuration, body: crate::models::DomainUserCreateRequest) -> Result<crate::models::ApiUserMetadataResponse, Error<CreateUserError>> {
+pub async fn create_user(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainUserCreateRequest,
+) -> Result<crate::models::ApiUserMetadataResponse, Error<CreateUserError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/users/entities/users/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/users/entities/users/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -357,7 +376,8 @@ pub async fn create_user(configuration: &configuration::Configuration, body: cra
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateUserError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateUserError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -367,19 +387,29 @@ pub async fn create_user(configuration: &configuration::Configuration, body: cra
     }
 }
 
-pub async fn create_user_v1(configuration: &configuration::Configuration, body: crate::models::DomainCreateUserRequest, validate_only: Option<bool>) -> Result<crate::models::DomainMsaEntitiesUsersResponse, Error<CreateUserV1Error>> {
+pub async fn create_user_v1(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainCreateUserRequest,
+    validate_only: Option<bool>,
+) -> Result<crate::models::DomainMsaEntitiesUsersResponse, Error<CreateUserV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/user-management/entities/users/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/user-management/entities/users/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = validate_only {
-        local_var_req_builder = local_var_req_builder.query(&[("validate_only", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("validate_only", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -395,7 +425,8 @@ pub async fn create_user_v1(configuration: &configuration::Configuration, body: 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateUserV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateUserV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -405,17 +436,25 @@ pub async fn create_user_v1(configuration: &configuration::Configuration, body: 
     }
 }
 
-pub async fn delete_user(configuration: &configuration::Configuration, user_uuid: &str) -> Result<crate::models::MsaReplyMetaOnly, Error<DeleteUserError>> {
+pub async fn delete_user(
+    configuration: &configuration::Configuration,
+    user_uuid: &str,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<DeleteUserError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/users/entities/users/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/users/entities/users/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("user_uuid", &user_uuid.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -430,7 +469,8 @@ pub async fn delete_user(configuration: &configuration::Configuration, user_uuid
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteUserError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteUserError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -440,17 +480,25 @@ pub async fn delete_user(configuration: &configuration::Configuration, user_uuid
     }
 }
 
-pub async fn delete_user_v1(configuration: &configuration::Configuration, user_uuid: &str) -> Result<crate::models::MsaReplyMetaOnly, Error<DeleteUserV1Error>> {
+pub async fn delete_user_v1(
+    configuration: &configuration::Configuration,
+    user_uuid: &str,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<DeleteUserV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/user-management/entities/users/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/user-management/entities/users/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("user_uuid", &user_uuid.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -465,7 +513,8 @@ pub async fn delete_user_v1(configuration: &configuration::Configuration, user_u
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteUserV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteUserV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -475,23 +524,43 @@ pub async fn delete_user_v1(configuration: &configuration::Configuration, user_u
     }
 }
 
-pub async fn entities_roles_v1(configuration: &configuration::Configuration, ids: Vec<String>, cid: Option<&str>) -> Result<crate::models::DomainMsaEntitiesRolesResponse, Error<EntitiesRolesV1Error>> {
+pub async fn entities_roles_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+    cid: Option<&str>,
+) -> Result<crate::models::DomainMsaEntitiesRolesResponse, Error<EntitiesRolesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/user-management/entities/roles/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/user-management/entities/roles/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = cid {
         local_var_req_builder = local_var_req_builder.query(&[("cid", &local_var_str.to_string())]);
     }
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -506,7 +575,8 @@ pub async fn entities_roles_v1(configuration: &configuration::Configuration, ids
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<EntitiesRolesV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<EntitiesRolesV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -516,16 +586,23 @@ pub async fn entities_roles_v1(configuration: &configuration::Configuration, ids
     }
 }
 
-pub async fn get_available_role_ids(configuration: &configuration::Configuration) -> Result<crate::models::MsaQueryResponse, Error<GetAvailableRoleIdsError>> {
+pub async fn get_available_role_ids(
+    configuration: &configuration::Configuration,
+) -> Result<crate::models::MsaQueryResponse, Error<GetAvailableRoleIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/user-roles/queries/user-role-ids-by-cid/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/user-roles/queries/user-role-ids-by-cid/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -540,7 +617,8 @@ pub async fn get_available_role_ids(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetAvailableRoleIdsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetAvailableRoleIdsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -550,20 +628,39 @@ pub async fn get_available_role_ids(configuration: &configuration::Configuration
     }
 }
 
-pub async fn get_roles(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiUserRoleResponse, Error<GetRolesError>> {
+pub async fn get_roles(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::ApiUserRoleResponse, Error<GetRolesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/user-roles/entities/user-roles/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/user-roles/entities/user-roles/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -588,17 +685,25 @@ pub async fn get_roles(configuration: &configuration::Configuration, ids: Vec<St
     }
 }
 
-pub async fn get_user_role_ids(configuration: &configuration::Configuration, user_uuid: &str) -> Result<crate::models::MsaQueryResponse, Error<GetUserRoleIdsError>> {
+pub async fn get_user_role_ids(
+    configuration: &configuration::Configuration,
+    user_uuid: &str,
+) -> Result<crate::models::MsaQueryResponse, Error<GetUserRoleIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/user-roles/queries/user-role-ids-by-user-uuid/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/user-roles/queries/user-role-ids-by-user-uuid/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("user_uuid", &user_uuid.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -613,7 +718,8 @@ pub async fn get_user_role_ids(configuration: &configuration::Configuration, use
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetUserRoleIdsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetUserRoleIdsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -623,17 +729,26 @@ pub async fn get_user_role_ids(configuration: &configuration::Configuration, use
     }
 }
 
-pub async fn grant_user_role_ids(configuration: &configuration::Configuration, user_uuid: &str, body: crate::models::DomainRoleIds) -> Result<crate::models::ApiUserRoleIdsResponse, Error<GrantUserRoleIdsError>> {
+pub async fn grant_user_role_ids(
+    configuration: &configuration::Configuration,
+    user_uuid: &str,
+    body: crate::models::DomainRoleIds,
+) -> Result<crate::models::ApiUserRoleIdsResponse, Error<GrantUserRoleIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/user-roles/entities/user-roles/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/user-roles/entities/user-roles/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("user_uuid", &user_uuid.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -649,7 +764,8 @@ pub async fn grant_user_role_ids(configuration: &configuration::Configuration, u
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GrantUserRoleIdsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GrantUserRoleIdsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -659,22 +775,32 @@ pub async fn grant_user_role_ids(configuration: &configuration::Configuration, u
     }
 }
 
-pub async fn queries_roles_v1(configuration: &configuration::Configuration, cid: Option<&str>, user_uuid: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QueriesRolesV1Error>> {
+pub async fn queries_roles_v1(
+    configuration: &configuration::Configuration,
+    cid: Option<&str>,
+    user_uuid: Option<&str>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueriesRolesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/user-management/queries/roles/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/user-management/queries/roles/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = cid {
         local_var_req_builder = local_var_req_builder.query(&[("cid", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = user_uuid {
-        local_var_req_builder = local_var_req_builder.query(&[("user_uuid", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("user_uuid", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -689,7 +815,8 @@ pub async fn queries_roles_v1(configuration: &configuration::Configuration, cid:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueriesRolesV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueriesRolesV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -699,28 +826,43 @@ pub async fn queries_roles_v1(configuration: &configuration::Configuration, cid:
     }
 }
 
-pub async fn query_user_v1(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QueryUserV1Error>> {
+pub async fn query_user_v1(
+    configuration: &configuration::Configuration,
+    filter: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryUserV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/user-management/queries/users/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/user-management/queries/users/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -735,7 +877,8 @@ pub async fn query_user_v1(configuration: &configuration::Configuration, filter:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryUserV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryUserV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -745,16 +888,23 @@ pub async fn query_user_v1(configuration: &configuration::Configuration, filter:
     }
 }
 
-pub async fn retrieve_emails_by_cid(configuration: &configuration::Configuration) -> Result<crate::models::MsaQueryResponse, Error<RetrieveEmailsByCidError>> {
+pub async fn retrieve_emails_by_cid(
+    configuration: &configuration::Configuration,
+) -> Result<crate::models::MsaQueryResponse, Error<RetrieveEmailsByCidError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/users/queries/emails-by-cid/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/users/queries/emails-by-cid/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -769,7 +919,8 @@ pub async fn retrieve_emails_by_cid(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RetrieveEmailsByCidError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RetrieveEmailsByCidError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -779,20 +930,39 @@ pub async fn retrieve_emails_by_cid(configuration: &configuration::Configuration
     }
 }
 
-pub async fn retrieve_user(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiUserMetadataResponse, Error<RetrieveUserError>> {
+pub async fn retrieve_user(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::ApiUserMetadataResponse, Error<RetrieveUserError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/users/entities/users/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/users/entities/users/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -807,7 +977,8 @@ pub async fn retrieve_user(configuration: &configuration::Configuration, ids: Ve
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RetrieveUserError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RetrieveUserError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -817,20 +988,39 @@ pub async fn retrieve_user(configuration: &configuration::Configuration, ids: Ve
     }
 }
 
-pub async fn retrieve_user_uuid(configuration: &configuration::Configuration, uid: Vec<String>) -> Result<crate::models::MsaQueryResponse, Error<RetrieveUserUuidError>> {
+pub async fn retrieve_user_uuid(
+    configuration: &configuration::Configuration,
+    uid: Vec<String>,
+) -> Result<crate::models::MsaQueryResponse, Error<RetrieveUserUuidError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/users/queries/user-uuids-by-email/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/users/queries/user-uuids-by-email/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&uid.into_iter().map(|p| ("uid".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("uid", &uid.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &uid.into_iter()
+                .map(|p| ("uid".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "uid",
+            &uid.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -845,7 +1035,8 @@ pub async fn retrieve_user_uuid(configuration: &configuration::Configuration, ui
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RetrieveUserUuidError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RetrieveUserUuidError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -855,16 +1046,23 @@ pub async fn retrieve_user_uuid(configuration: &configuration::Configuration, ui
     }
 }
 
-pub async fn retrieve_user_uuids_by_cid(configuration: &configuration::Configuration) -> Result<crate::models::MsaQueryResponse, Error<RetrieveUserUuidsByCidError>> {
+pub async fn retrieve_user_uuids_by_cid(
+    configuration: &configuration::Configuration,
+) -> Result<crate::models::MsaQueryResponse, Error<RetrieveUserUuidsByCidError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/users/queries/user-uuids-by-cid/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/users/queries/user-uuids-by-cid/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -879,7 +1077,8 @@ pub async fn retrieve_user_uuids_by_cid(configuration: &configuration::Configura
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RetrieveUserUuidsByCidError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RetrieveUserUuidsByCidError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -889,16 +1088,24 @@ pub async fn retrieve_user_uuids_by_cid(configuration: &configuration::Configura
     }
 }
 
-pub async fn retrieve_users_getv1(configuration: &configuration::Configuration, body: crate::models::MsaIdsRequest) -> Result<crate::models::DomainMsaEntitiesUsersResponse, Error<RetrieveUsersGetv1Error>> {
+pub async fn retrieve_users_getv1(
+    configuration: &configuration::Configuration,
+    body: crate::models::MsaIdsRequest,
+) -> Result<crate::models::DomainMsaEntitiesUsersResponse, Error<RetrieveUsersGetv1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/user-management/entities/users/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/user-management/entities/users/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -914,7 +1121,8 @@ pub async fn retrieve_users_getv1(configuration: &configuration::Configuration, 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RetrieveUsersGetv1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RetrieveUsersGetv1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -924,21 +1132,41 @@ pub async fn retrieve_users_getv1(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn revoke_user_role_ids(configuration: &configuration::Configuration, user_uuid: &str, ids: Vec<String>) -> Result<crate::models::ApiUserRoleIdsResponse, Error<RevokeUserRoleIdsError>> {
+pub async fn revoke_user_role_ids(
+    configuration: &configuration::Configuration,
+    user_uuid: &str,
+    ids: Vec<String>,
+) -> Result<crate::models::ApiUserRoleIdsResponse, Error<RevokeUserRoleIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/user-roles/entities/user-roles/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/user-roles/entities/user-roles/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("user_uuid", &user_uuid.to_string())]);
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -953,7 +1181,8 @@ pub async fn revoke_user_role_ids(configuration: &configuration::Configuration, 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RevokeUserRoleIdsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RevokeUserRoleIdsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -963,17 +1192,26 @@ pub async fn revoke_user_role_ids(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn update_user(configuration: &configuration::Configuration, user_uuid: &str, body: crate::models::DomainUpdateUserFields) -> Result<crate::models::ApiUserMetadataResponse, Error<UpdateUserError>> {
+pub async fn update_user(
+    configuration: &configuration::Configuration,
+    user_uuid: &str,
+    body: crate::models::DomainUpdateUserFields,
+) -> Result<crate::models::ApiUserMetadataResponse, Error<UpdateUserError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/users/entities/users/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/users/entities/users/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("user_uuid", &user_uuid.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -989,7 +1227,8 @@ pub async fn update_user(configuration: &configuration::Configuration, user_uuid
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateUserError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateUserError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -999,17 +1238,26 @@ pub async fn update_user(configuration: &configuration::Configuration, user_uuid
     }
 }
 
-pub async fn update_user_v1(configuration: &configuration::Configuration, user_uuid: &str, body: crate::models::DomainUpdateUserRequest) -> Result<crate::models::DomainMsaEntitiesUsersResponse, Error<UpdateUserV1Error>> {
+pub async fn update_user_v1(
+    configuration: &configuration::Configuration,
+    user_uuid: &str,
+    body: crate::models::DomainUpdateUserRequest,
+) -> Result<crate::models::DomainMsaEntitiesUsersResponse, Error<UpdateUserV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/user-management/entities/users/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/user-management/entities/users/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("user_uuid", &user_uuid.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1025,7 +1273,8 @@ pub async fn update_user_v1(configuration: &configuration::Configuration, user_u
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateUserV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateUserV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1035,16 +1284,24 @@ pub async fn update_user_v1(configuration: &configuration::Configuration, user_u
     }
 }
 
-pub async fn user_action_v1(configuration: &configuration::Configuration, body: crate::models::DomainUserActionRequest) -> Result<crate::models::MsaReplyMetaOnly, Error<UserActionV1Error>> {
+pub async fn user_action_v1(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainUserActionRequest,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<UserActionV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/user-management/entities/user-actions/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/user-management/entities/user-actions/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1060,7 +1317,8 @@ pub async fn user_action_v1(configuration: &configuration::Configuration, body: 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UserActionV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UserActionV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1070,16 +1328,24 @@ pub async fn user_action_v1(configuration: &configuration::Configuration, body: 
     }
 }
 
-pub async fn user_roles_action_v1(configuration: &configuration::Configuration, body: crate::models::DomainActionUserRolesRequest) -> Result<crate::models::MsaReplyMetaOnly, Error<UserRolesActionV1Error>> {
+pub async fn user_roles_action_v1(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainActionUserRolesRequest,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<UserRolesActionV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/user-management/entities/user-role-actions/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/user-management/entities/user-role-actions/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1095,7 +1361,8 @@ pub async fn user_roles_action_v1(configuration: &configuration::Configuration, 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UserRolesActionV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UserRolesActionV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

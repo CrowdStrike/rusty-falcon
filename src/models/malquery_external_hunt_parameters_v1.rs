@@ -19,6 +19,9 @@ pub struct MalqueryExternalHuntParametersV1 {
 
 impl MalqueryExternalHuntParametersV1 {
     pub fn new(yara_rule: String) -> MalqueryExternalHuntParametersV1 {
-        MalqueryExternalHuntParametersV1 { options: None, yara_rule }
+        MalqueryExternalHuntParametersV1 {
+            options: None,
+            yara_rule,
+        }
     }
 }

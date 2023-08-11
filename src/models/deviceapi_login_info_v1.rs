@@ -18,6 +18,9 @@ pub struct DeviceapiLoginInfoV1 {
 
 impl DeviceapiLoginInfoV1 {
     pub fn new() -> DeviceapiLoginInfoV1 {
-        DeviceapiLoginInfoV1 { login_time: None, user_name: None }
+        DeviceapiLoginInfoV1 {
+            login_time: None,
+            user_name: None,
+        }
     }
 }

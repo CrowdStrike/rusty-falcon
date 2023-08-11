@@ -19,7 +19,15 @@ pub struct StateOnlineStateRespV1 {
 }
 
 impl StateOnlineStateRespV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::StateOnlineStateResultV1>) -> StateOnlineStateRespV1 {
-        StateOnlineStateRespV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::StateOnlineStateResultV1>,
+    ) -> StateOnlineStateRespV1 {
+        StateOnlineStateRespV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

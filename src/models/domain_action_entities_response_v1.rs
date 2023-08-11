@@ -19,7 +19,15 @@ pub struct DomainActionEntitiesResponseV1 {
 }
 
 impl DomainActionEntitiesResponseV1 {
-    pub fn new(errors: Vec<crate::models::DomainReconApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainActionV1>) -> DomainActionEntitiesResponseV1 {
-        DomainActionEntitiesResponseV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::DomainReconApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainActionV1>,
+    ) -> DomainActionEntitiesResponseV1 {
+        DomainActionEntitiesResponseV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

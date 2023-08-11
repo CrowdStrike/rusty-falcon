@@ -10,13 +10,22 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainScan {
-    #[serde(rename = "affected_hosts_count", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "affected_hosts_count",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub affected_hosts_count: Option<i32>,
     #[serde(rename = "cid", skip_serializing_if = "Option::is_none")]
     pub cid: Option<String>,
-    #[serde(rename = "cloud_ml_level_detection", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "cloud_ml_level_detection",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub cloud_ml_level_detection: Option<i32>,
-    #[serde(rename = "cloud_ml_level_prevention", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "cloud_ml_level_prevention",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub cloud_ml_level_prevention: Option<i32>,
     #[serde(rename = "cpu_priority", skip_serializing_if = "Option::is_none")]
     pub cpu_priority: Option<i32>,
@@ -26,7 +35,10 @@ pub struct DomainScan {
     pub created_on: Option<String>,
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "endpoint_notification", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "endpoint_notification",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub endpoint_notification: Option<bool>,
     #[serde(rename = "file_paths", skip_serializing_if = "Option::is_none")]
     pub file_paths: Option<Vec<String>>,
@@ -52,7 +64,10 @@ pub struct DomainScan {
     pub pause_duration: Option<i32>,
     #[serde(rename = "policy_setting", skip_serializing_if = "Option::is_none")]
     pub policy_setting: Option<Vec<i32>>,
-    #[serde(rename = "preemption_priority", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "preemption_priority",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub preemption_priority: Option<i32>,
     #[serde(rename = "profile_id", skip_serializing_if = "Option::is_none")]
     pub profile_id: Option<String>,
@@ -66,9 +81,15 @@ pub struct DomainScan {
     pub scan_inclusions: Option<Vec<String>>,
     #[serde(rename = "scan_started_on", skip_serializing_if = "Option::is_none")]
     pub scan_started_on: Option<String>,
-    #[serde(rename = "sensor_ml_level_detection", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "sensor_ml_level_detection",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub sensor_ml_level_detection: Option<i32>,
-    #[serde(rename = "sensor_ml_level_prevention", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "sensor_ml_level_prevention",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub sensor_ml_level_prevention: Option<i32>,
     #[serde(rename = "severity", skip_serializing_if = "Option::is_none")]
     pub severity: Option<i32>,

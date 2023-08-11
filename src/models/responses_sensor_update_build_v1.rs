@@ -19,7 +19,15 @@ pub struct ResponsesSensorUpdateBuildV1 {
 }
 
 impl ResponsesSensorUpdateBuildV1 {
-    pub fn new(build: String, platform: String, sensor_version: String) -> ResponsesSensorUpdateBuildV1 {
-        ResponsesSensorUpdateBuildV1 { build, platform, sensor_version }
+    pub fn new(
+        build: String,
+        platform: String,
+        sensor_version: String,
+    ) -> ResponsesSensorUpdateBuildV1 {
+        ResponsesSensorUpdateBuildV1 {
+            build,
+            platform,
+            sensor_version,
+        }
     }
 }

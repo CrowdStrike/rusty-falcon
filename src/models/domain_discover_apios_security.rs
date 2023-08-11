@@ -11,34 +11,64 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainDiscoverApiosSecurity {
     /// The credential guard status of the host
-    #[serde(rename = "credential_guard_status", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "credential_guard_status",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub credential_guard_status: Option<bool>,
     /// The device guard status of the host
-    #[serde(rename = "device_guard_status", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "device_guard_status",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub device_guard_status: Option<bool>,
     /// The iommu protection status of the host
-    #[serde(rename = "iommu_protection_status", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "iommu_protection_status",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub iommu_protection_status: Option<String>,
     /// The kernel dma protection status of the host
-    #[serde(rename = "kernel_dma_protection_status", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "kernel_dma_protection_status",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub kernel_dma_protection_status: Option<bool>,
     /// The secure boot enabled status of the host
-    #[serde(rename = "secure_boot_enabled_status", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "secure_boot_enabled_status",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub secure_boot_enabled_status: Option<bool>,
     /// The secure boot requested status of the host
-    #[serde(rename = "secure_boot_requested_status", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "secure_boot_requested_status",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub secure_boot_requested_status: Option<bool>,
     /// The secure memory overwrite requested status of the host
-    #[serde(rename = "secure_memory_overwrite_requested_status", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "secure_memory_overwrite_requested_status",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub secure_memory_overwrite_requested_status: Option<String>,
     /// The system guard status of the host
-    #[serde(rename = "system_guard_status", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "system_guard_status",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub system_guard_status: Option<String>,
     /// The uefi memory protection status of the host
-    #[serde(rename = "uefi_memory_protection_status", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "uefi_memory_protection_status",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub uefi_memory_protection_status: Option<String>,
     /// The virtualization based security status of the host
-    #[serde(rename = "virtualization_based_security_status", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "virtualization_based_security_status",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub virtualization_based_security_status: Option<bool>,
 }
 

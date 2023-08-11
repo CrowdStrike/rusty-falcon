@@ -20,6 +20,10 @@ pub struct FwmgrMsaPaging {
 
 impl FwmgrMsaPaging {
     pub fn new(limit: i32, offset: i32, total: i64) -> FwmgrMsaPaging {
-        FwmgrMsaPaging { limit, offset, total }
+        FwmgrMsaPaging {
+            limit,
+            offset,
+            total,
+        }
     }
 }

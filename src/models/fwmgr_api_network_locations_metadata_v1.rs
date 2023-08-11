@@ -19,7 +19,11 @@ pub struct FwmgrApiNetworkLocationsMetadataV1 {
 }
 
 impl FwmgrApiNetworkLocationsMetadataV1 {
-    pub fn new(dns_resolution_targets_polling_interval: i32, https_reachable_hosts_polling_interval: i32, icmp_request_targets_polling_interval: i32) -> FwmgrApiNetworkLocationsMetadataV1 {
+    pub fn new(
+        dns_resolution_targets_polling_interval: i32,
+        https_reachable_hosts_polling_interval: i32,
+        icmp_request_targets_polling_interval: i32,
+    ) -> FwmgrApiNetworkLocationsMetadataV1 {
         FwmgrApiNetworkLocationsMetadataV1 {
             dns_resolution_targets_polling_interval,
             https_reachable_hosts_polling_interval,

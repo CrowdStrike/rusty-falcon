@@ -10,7 +10,10 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct K8sregAwsClusterItemResp {
-    #[serde(rename = "cloud_formation_url", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "cloud_formation_url",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub cloud_formation_url: Option<String>,
     #[serde(rename = "is_master")]
     pub is_master: bool,

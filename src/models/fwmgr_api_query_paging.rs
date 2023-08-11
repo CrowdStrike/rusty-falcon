@@ -22,6 +22,11 @@ pub struct FwmgrApiQueryPaging {
 
 impl FwmgrApiQueryPaging {
     pub fn new(limit: i32, total: i64) -> FwmgrApiQueryPaging {
-        FwmgrApiQueryPaging { after: None, limit, offset: None, total }
+        FwmgrApiQueryPaging {
+            after: None,
+            limit,
+            offset: None,
+            total,
+        }
     }
 }

@@ -21,7 +21,12 @@ pub struct DomainBatchGetCommandResponse {
 }
 
 impl DomainBatchGetCommandResponse {
-    pub fn new(batch_get_cmd_req_id: String, combined: crate::models::DomainMultiCommandExecuteResponse, errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo) -> DomainBatchGetCommandResponse {
+    pub fn new(
+        batch_get_cmd_req_id: String,
+        combined: crate::models::DomainMultiCommandExecuteResponse,
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+    ) -> DomainBatchGetCommandResponse {
         DomainBatchGetCommandResponse {
             batch_get_cmd_req_id,
             combined: Box::new(combined),

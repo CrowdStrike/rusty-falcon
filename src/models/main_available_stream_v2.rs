@@ -21,7 +21,12 @@ pub struct MainAvailableStreamV2 {
 }
 
 impl MainAvailableStreamV2 {
-    pub fn new(data_feed_url: String, refresh_active_session_interval: i32, refresh_active_session_url: String, session_token: crate::models::MainSessionToken) -> MainAvailableStreamV2 {
+    pub fn new(
+        data_feed_url: String,
+        refresh_active_session_interval: i32,
+        refresh_active_session_url: String,
+        session_token: crate::models::MainSessionToken,
+    ) -> MainAvailableStreamV2 {
         MainAvailableStreamV2 {
             data_feed_url,
             refresh_active_session_interval,

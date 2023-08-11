@@ -29,7 +29,16 @@ pub struct ModelSessionLog {
 }
 
 impl ModelSessionLog {
-    pub fn new(base_command: String, cloud_request_id: String, command_string: String, created_at: String, current_directory: String, id: i32, session_id: String, updated_at: String) -> ModelSessionLog {
+    pub fn new(
+        base_command: String,
+        cloud_request_id: String,
+        command_string: String,
+        created_at: String,
+        current_directory: String,
+        id: i32,
+        session_id: String,
+        updated_at: String,
+    ) -> ModelSessionLog {
         ModelSessionLog {
             base_command,
             cloud_request_id,

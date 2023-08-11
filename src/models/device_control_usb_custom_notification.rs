@@ -20,6 +20,9 @@ pub struct DeviceControlUsbCustomNotification {
 
 impl DeviceControlUsbCustomNotification {
     pub fn new(custom_message: String, use_custom: bool) -> DeviceControlUsbCustomNotification {
-        DeviceControlUsbCustomNotification { custom_message, use_custom }
+        DeviceControlUsbCustomNotification {
+            custom_message,
+            use_custom,
+        }
     }
 }

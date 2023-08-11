@@ -37,7 +37,16 @@ pub struct DomainBotnetConfigSource {
 }
 
 impl DomainBotnetConfigSource {
-    pub fn new(actions: Vec<crate::models::DomainKeyValuePair>, body: String, botnet: String, config_type: String, injects: Vec<crate::models::DomainBotnetInject>, sub_botnet: String, subject: String, variables: Vec<crate::models::DomainKeyValuePair>) -> DomainBotnetConfigSource {
+    pub fn new(
+        actions: Vec<crate::models::DomainKeyValuePair>,
+        body: String,
+        botnet: String,
+        config_type: String,
+        injects: Vec<crate::models::DomainBotnetInject>,
+        sub_botnet: String,
+        subject: String,
+        variables: Vec<crate::models::DomainKeyValuePair>,
+    ) -> DomainBotnetConfigSource {
         DomainBotnetConfigSource {
             actions,
             body,

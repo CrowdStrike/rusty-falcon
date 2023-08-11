@@ -43,7 +43,12 @@ pub struct DomainNotificationDetailsV1 {
 }
 
 impl DomainNotificationDetailsV1 {
-    pub fn new(content: String, created_date: String, _type: String, updated_date: String) -> DomainNotificationDetailsV1 {
+    pub fn new(
+        content: String,
+        created_date: String,
+        _type: String,
+        updated_date: String,
+    ) -> DomainNotificationDetailsV1 {
         DomainNotificationDetailsV1 {
             author: None,
             content,

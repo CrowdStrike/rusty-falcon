@@ -16,7 +16,10 @@ pub struct DomainDiscoverApiNetworkInterface {
     #[serde(rename = "interface_alias", skip_serializing_if = "Option::is_none")]
     pub interface_alias: Option<String>,
     /// The description of the network interface associated with the asset.
-    #[serde(rename = "interface_description", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "interface_description",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub interface_description: Option<String>,
     /// The local IPv4 address or addresses of the network interface associated with the asset over time
     #[serde(rename = "local_ip", skip_serializing_if = "Option::is_none")]

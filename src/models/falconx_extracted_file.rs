@@ -12,7 +12,10 @@
 pub struct FalconxExtractedFile {
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "file_available_to_download", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "file_available_to_download",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub file_available_to_download: Option<bool>,
     #[serde(rename = "file_path", skip_serializing_if = "Option::is_none")]
     pub file_path: Option<String>,
@@ -30,7 +33,10 @@ pub struct FalconxExtractedFile {
     pub sha256: Option<String>,
     #[serde(rename = "threat_level", skip_serializing_if = "Option::is_none")]
     pub threat_level: Option<i32>,
-    #[serde(rename = "threat_level_readable", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "threat_level_readable",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub threat_level_readable: Option<String>,
     #[serde(rename = "type_tags", skip_serializing_if = "Option::is_none")]
     pub type_tags: Option<Vec<String>>,

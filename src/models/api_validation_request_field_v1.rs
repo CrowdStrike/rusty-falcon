@@ -21,7 +21,17 @@ pub struct ApiValidationRequestFieldV1 {
 }
 
 impl ApiValidationRequestFieldV1 {
-    pub fn new(name: String, test_data: String, _type: String, values: Vec<crate::models::DomainValueItem>) -> ApiValidationRequestFieldV1 {
-        ApiValidationRequestFieldV1 { name, test_data, _type, values }
+    pub fn new(
+        name: String,
+        test_data: String,
+        _type: String,
+        values: Vec<crate::models::DomainValueItem>,
+    ) -> ApiValidationRequestFieldV1 {
+        ApiValidationRequestFieldV1 {
+            name,
+            test_data,
+            _type,
+            values,
+        }
     }
 }

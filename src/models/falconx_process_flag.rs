@@ -18,6 +18,9 @@ pub struct FalconxProcessFlag {
 
 impl FalconxProcessFlag {
     pub fn new() -> FalconxProcessFlag {
-        FalconxProcessFlag { data: None, name: None }
+        FalconxProcessFlag {
+            data: None,
+            name: None,
+        }
     }
 }

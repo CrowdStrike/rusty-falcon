@@ -29,7 +29,16 @@ pub struct ApiRuleCreateV1 {
 }
 
 impl ApiRuleCreateV1 {
-    pub fn new(comment: String, description: String, disposition_id: i32, field_values: Vec<crate::models::DomainFieldValue>, name: String, pattern_severity: String, rulegroup_id: String, ruletype_id: String) -> ApiRuleCreateV1 {
+    pub fn new(
+        comment: String,
+        description: String,
+        disposition_id: i32,
+        field_values: Vec<crate::models::DomainFieldValue>,
+        name: String,
+        pattern_severity: String,
+        rulegroup_id: String,
+        ruletype_id: String,
+    ) -> ApiRuleCreateV1 {
         ApiRuleCreateV1 {
             comment,
             description,

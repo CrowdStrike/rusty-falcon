@@ -15,7 +15,9 @@ pub struct K8sregCreateAwsAccReq {
 }
 
 impl K8sregCreateAwsAccReq {
-    pub fn new(resources: Vec<crate::models::K8sregCreateAwsAccReqResources>) -> K8sregCreateAwsAccReq {
+    pub fn new(
+        resources: Vec<crate::models::K8sregCreateAwsAccReqResources>,
+    ) -> K8sregCreateAwsAccReq {
         K8sregCreateAwsAccReq { resources }
     }
 }

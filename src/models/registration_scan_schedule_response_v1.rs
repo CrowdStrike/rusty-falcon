@@ -19,7 +19,15 @@ pub struct RegistrationScanScheduleResponseV1 {
 }
 
 impl RegistrationScanScheduleResponseV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainScanScheduleDataV1>) -> RegistrationScanScheduleResponseV1 {
-        RegistrationScanScheduleResponseV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainScanScheduleDataV1>,
+    ) -> RegistrationScanScheduleResponseV1 {
+        RegistrationScanScheduleResponseV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

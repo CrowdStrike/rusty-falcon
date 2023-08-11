@@ -19,7 +19,9 @@ pub struct RequestsCreateFirewallPoliciesV1 {
 
 impl RequestsCreateFirewallPoliciesV1 {
     /// A req to create prevention policies
-    pub fn new(resources: Vec<crate::models::RequestsCreateFirewallPolicyV1>) -> RequestsCreateFirewallPoliciesV1 {
+    pub fn new(
+        resources: Vec<crate::models::RequestsCreateFirewallPolicyV1>,
+    ) -> RequestsCreateFirewallPoliciesV1 {
         RequestsCreateFirewallPoliciesV1 { resources }
     }
 }

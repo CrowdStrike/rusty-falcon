@@ -15,7 +15,9 @@ pub struct ModelsUpdateAwsAccountsV1 {
 }
 
 impl ModelsUpdateAwsAccountsV1 {
-    pub fn new(resources: Vec<crate::models::ModelsAwsAccountRequestV1>) -> ModelsUpdateAwsAccountsV1 {
+    pub fn new(
+        resources: Vec<crate::models::ModelsAwsAccountRequestV1>,
+    ) -> ModelsUpdateAwsAccountsV1 {
         ModelsUpdateAwsAccountsV1 { resources }
     }
 }

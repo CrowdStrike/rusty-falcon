@@ -14,7 +14,10 @@ pub struct FalconxScriptCall {
     pub cls_id: Option<String>,
     #[serde(rename = "dispatch_id", skip_serializing_if = "Option::is_none")]
     pub dispatch_id: Option<String>,
-    #[serde(rename = "matched_malicious_signatures", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "matched_malicious_signatures",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub matched_malicious_signatures: Option<Vec<String>>,
     #[serde(rename = "parameters", skip_serializing_if = "Option::is_none")]
     pub parameters: Option<Vec<crate::models::FalconxParameter>>,

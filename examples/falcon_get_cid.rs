@@ -3,12 +3,19 @@ use rusty_falcon::easy::client::FalconHandle;
 
 #[tokio::main]
 async fn main() {
-    let falcon = FalconHandle::from_env().await.expect("Could not authenticate with CrowdStrike API");
+    let falcon = FalconHandle::from_env()
+        .await
+        .expect("Could not authenticate with CrowdStrike API");
 
-    let response = get_sensor_installers_ccidby_query(&falcon.cfg).await.expect("Could not fetch CCID");
+    let response = get_sensor_installers_ccidby_query(&falcon.cfg)
+        .await
+        .expect("Could not fetch CCID");
 
     if !response.errors.is_empty() {
-        eprintln!("Errors occured while getting Falcon CCID: {:?}", response.errors);
+        eprintln!(
+            "Errors occured while getting Falcon CCID: {:?}",
+            response.errors
+        );
     }
     if response.resources.is_empty() {
         eprintln!("No CCID returned")

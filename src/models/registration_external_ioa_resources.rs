@@ -19,7 +19,13 @@ pub struct RegistrationExternalIoaResources {
 }
 
 impl RegistrationExternalIoaResources {
-    pub fn new(events: Vec<crate::models::RegistrationIoaEvent>) -> RegistrationExternalIoaResources {
-        RegistrationExternalIoaResources { confidence: None, events, max_score: None }
+    pub fn new(
+        events: Vec<crate::models::RegistrationIoaEvent>,
+    ) -> RegistrationExternalIoaResources {
+        RegistrationExternalIoaResources {
+            confidence: None,
+            events,
+            max_score: None,
+        }
     }
 }

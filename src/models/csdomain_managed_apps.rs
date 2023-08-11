@@ -20,6 +20,10 @@ pub struct CsdomainManagedApps {
 
 impl CsdomainManagedApps {
     pub fn new() -> CsdomainManagedApps {
-        CsdomainManagedApps { airlock: None, automox: None, netskope: None }
+        CsdomainManagedApps {
+            airlock: None,
+            automox: None,
+            netskope: None,
+        }
     }
 }

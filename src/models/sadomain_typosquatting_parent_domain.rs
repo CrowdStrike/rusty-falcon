@@ -22,7 +22,15 @@ pub struct SadomainTyposquattingParentDomain {
 }
 
 impl SadomainTyposquattingParentDomain {
-    pub fn new(id: String, punycode_format: String, unicode_format: String) -> SadomainTyposquattingParentDomain {
-        SadomainTyposquattingParentDomain { id, punycode_format, unicode_format }
+    pub fn new(
+        id: String,
+        punycode_format: String,
+        unicode_format: String,
+    ) -> SadomainTyposquattingParentDomain {
+        SadomainTyposquattingParentDomain {
+            id,
+            punycode_format,
+            unicode_format,
+        }
     }
 }

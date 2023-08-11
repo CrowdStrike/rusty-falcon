@@ -19,7 +19,15 @@ pub struct DetectsapiPostEntitiesInvestigatablesV1Response {
 }
 
 impl DetectsapiPostEntitiesInvestigatablesV1Response {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DetectsInvestigatable>) -> DetectsapiPostEntitiesInvestigatablesV1Response {
-        DetectsapiPostEntitiesInvestigatablesV1Response { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DetectsInvestigatable>,
+    ) -> DetectsapiPostEntitiesInvestigatablesV1Response {
+        DetectsapiPostEntitiesInvestigatablesV1Response {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

@@ -23,8 +23,18 @@ pub struct ResponsesSensorUpdateSettingsV2 {
 }
 
 impl ResponsesSensorUpdateSettingsV2 {
-    pub fn new(build: String, sensor_version: String, uninstall_protection: UninstallProtection, variants: Vec<crate::models::ResponsesSensorUpdateBuildV1>) -> ResponsesSensorUpdateSettingsV2 {
-        ResponsesSensorUpdateSettingsV2 { build, sensor_version, uninstall_protection, variants }
+    pub fn new(
+        build: String,
+        sensor_version: String,
+        uninstall_protection: UninstallProtection,
+        variants: Vec<crate::models::ResponsesSensorUpdateBuildV1>,
+    ) -> ResponsesSensorUpdateSettingsV2 {
+        ResponsesSensorUpdateSettingsV2 {
+            build,
+            sensor_version,
+            uninstall_protection,
+            variants,
+        }
     }
 }
 

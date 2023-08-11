@@ -18,6 +18,9 @@ pub struct FwmgrDomainDnsTarget {
 
 impl FwmgrDomainDnsTarget {
     pub fn new(hostname: String) -> FwmgrDomainDnsTarget {
-        FwmgrDomainDnsTarget { hostname, ip_match: None }
+        FwmgrDomainDnsTarget {
+            hostname,
+            ip_match: None,
+        }
     }
 }

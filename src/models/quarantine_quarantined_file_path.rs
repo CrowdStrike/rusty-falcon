@@ -22,6 +22,11 @@ pub struct QuarantineQuarantinedFilePath {
 
 impl QuarantineQuarantinedFilePath {
     pub fn new() -> QuarantineQuarantinedFilePath {
-        QuarantineQuarantinedFilePath { filename: None, path: None, reason: None, state: None }
+        QuarantineQuarantinedFilePath {
+            filename: None,
+            path: None,
+            reason: None,
+            state: None,
+        }
     }
 }

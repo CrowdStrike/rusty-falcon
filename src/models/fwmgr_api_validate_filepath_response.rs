@@ -19,7 +19,14 @@ pub struct FwmgrApiValidateFilepathResponse {
 }
 
 impl FwmgrApiValidateFilepathResponse {
-    pub fn new(meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<crate::models::FwmgrApiFilepathTestResult>) -> FwmgrApiValidateFilepathResponse {
-        FwmgrApiValidateFilepathResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::FwmgrMsaspecMetaInfo,
+        resources: Vec<crate::models::FwmgrApiFilepathTestResult>,
+    ) -> FwmgrApiValidateFilepathResponse {
+        FwmgrApiValidateFilepathResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

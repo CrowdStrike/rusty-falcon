@@ -18,6 +18,9 @@ pub struct FwmgrMsaspecResponseFields {
 
 impl FwmgrMsaspecResponseFields {
     pub fn new(meta: crate::models::FwmgrMsaspecMetaInfo) -> FwmgrMsaspecResponseFields {
-        FwmgrMsaspecResponseFields { errors: None, meta: Box::new(meta) }
+        FwmgrMsaspecResponseFields {
+            errors: None,
+            meta: Box::new(meta),
+        }
     }
 }

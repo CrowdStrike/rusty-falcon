@@ -25,7 +25,14 @@ pub struct RegistrationPolicyExtV1 {
 }
 
 impl RegistrationPolicyExtV1 {
-    pub fn new(account_id: String, enabled: bool, policy_id: i32, regions: Vec<String>, severity: String, tag_excluded: bool) -> RegistrationPolicyExtV1 {
+    pub fn new(
+        account_id: String,
+        enabled: bool,
+        policy_id: i32,
+        regions: Vec<String>,
+        severity: String,
+        tag_excluded: bool,
+    ) -> RegistrationPolicyExtV1 {
         RegistrationPolicyExtV1 {
             account_id,
             enabled,

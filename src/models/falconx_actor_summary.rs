@@ -20,6 +20,10 @@ pub struct FalconxActorSummary {
 
 impl FalconxActorSummary {
     pub fn new() -> FalconxActorSummary {
-        FalconxActorSummary { id: None, name: None, slug: None }
+        FalconxActorSummary {
+            id: None,
+            name: None,
+            slug: None,
+        }
     }
 }

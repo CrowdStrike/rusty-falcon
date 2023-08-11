@@ -21,7 +21,17 @@ pub struct DomainNotificationConfig {
 }
 
 impl DomainNotificationConfig {
-    pub fn new(config_id: String, plugin_id: String, recipients: Vec<String>, severity: String) -> DomainNotificationConfig {
-        DomainNotificationConfig { config_id, plugin_id, recipients, severity }
+    pub fn new(
+        config_id: String,
+        plugin_id: String,
+        recipients: Vec<String>,
+        severity: String,
+    ) -> DomainNotificationConfig {
+        DomainNotificationConfig {
+            config_id,
+            plugin_id,
+            recipients,
+            severity,
+        }
     }
 }

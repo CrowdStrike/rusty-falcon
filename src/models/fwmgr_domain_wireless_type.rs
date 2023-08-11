@@ -19,7 +19,15 @@ pub struct FwmgrDomainWirelessType {
 }
 
 impl FwmgrDomainWirelessType {
-    pub fn new(enabled: bool, require_encryption: bool, ssids: Vec<String>) -> FwmgrDomainWirelessType {
-        FwmgrDomainWirelessType { enabled, require_encryption, ssids }
+    pub fn new(
+        enabled: bool,
+        require_encryption: bool,
+        ssids: Vec<String>,
+    ) -> FwmgrDomainWirelessType {
+        FwmgrDomainWirelessType {
+            enabled,
+            require_encryption,
+            ssids,
+        }
     }
 }

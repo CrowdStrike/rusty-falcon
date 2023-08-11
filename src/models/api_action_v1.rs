@@ -19,7 +19,15 @@ pub struct ApiActionV1 {
 }
 
 impl ApiActionV1 {
-    pub fn new(id: String, platforms_by_type: ::std::collections::HashMap<String, serde_json::Value>, severities: Vec<String>) -> ApiActionV1 {
-        ApiActionV1 { id, platforms_by_type, severities }
+    pub fn new(
+        id: String,
+        platforms_by_type: ::std::collections::HashMap<String, serde_json::Value>,
+        severities: Vec<String>,
+    ) -> ApiActionV1 {
+        ApiActionV1 {
+            id,
+            platforms_by_type,
+            severities,
+        }
     }
 }

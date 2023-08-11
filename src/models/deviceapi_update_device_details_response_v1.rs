@@ -22,6 +22,11 @@ pub struct DeviceapiUpdateDeviceDetailsResponseV1 {
 
 impl DeviceapiUpdateDeviceDetailsResponseV1 {
     pub fn new(device_id: String, updated: bool) -> DeviceapiUpdateDeviceDetailsResponseV1 {
-        DeviceapiUpdateDeviceDetailsResponseV1 { code: None, device_id, error: None, updated }
+        DeviceapiUpdateDeviceDetailsResponseV1 {
+            code: None,
+            device_id,
+            error: None,
+            updated,
+        }
     }
 }

@@ -18,6 +18,9 @@ pub struct MalqueryFuzzyOptions {
 
 impl MalqueryFuzzyOptions {
     pub fn new() -> MalqueryFuzzyOptions {
-        MalqueryFuzzyOptions { filter_meta: None, limit: None }
+        MalqueryFuzzyOptions {
+            filter_meta: None,
+            limit: None,
+        }
     }
 }

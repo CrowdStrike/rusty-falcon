@@ -25,7 +25,15 @@ pub struct ResponsesUninstallTokenV1 {
 
 impl ResponsesUninstallTokenV1 {
     /// An uninstall token for a device
-    pub fn new(device_id: String, seed_id: i32, uninstall_token: String) -> ResponsesUninstallTokenV1 {
-        ResponsesUninstallTokenV1 { device_id, seed_id, uninstall_token }
+    pub fn new(
+        device_id: String,
+        seed_id: i32,
+        uninstall_token: String,
+    ) -> ResponsesUninstallTokenV1 {
+        ResponsesUninstallTokenV1 {
+            device_id,
+            seed_id,
+            uninstall_token,
+        }
     }
 }

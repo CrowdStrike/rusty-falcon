@@ -15,7 +15,9 @@ pub struct RegistrationPolicyRequestExtV1 {
 }
 
 impl RegistrationPolicyRequestExtV1 {
-    pub fn new(resources: Vec<crate::models::RegistrationPolicyExtV1>) -> RegistrationPolicyRequestExtV1 {
+    pub fn new(
+        resources: Vec<crate::models::RegistrationPolicyExtV1>,
+    ) -> RegistrationPolicyRequestExtV1 {
         RegistrationPolicyRequestExtV1 { resources }
     }
 }

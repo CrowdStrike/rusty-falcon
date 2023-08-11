@@ -22,7 +22,10 @@ pub struct ResponsesPreventionCategoryV1 {
 
 impl ResponsesPreventionCategoryV1 {
     /// A prevention policy category
-    pub fn new(name: String, settings: Vec<crate::models::ResponsesPreventionSettingV1>) -> ResponsesPreventionCategoryV1 {
+    pub fn new(
+        name: String,
+        settings: Vec<crate::models::ResponsesPreventionSettingV1>,
+    ) -> ResponsesPreventionCategoryV1 {
         ResponsesPreventionCategoryV1 { name, settings }
     }
 }

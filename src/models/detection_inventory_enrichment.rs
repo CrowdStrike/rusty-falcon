@@ -20,6 +20,10 @@ pub struct DetectionInventoryEnrichment {
 
 impl DetectionInventoryEnrichment {
     pub fn new() -> DetectionInventoryEnrichment {
-        DetectionInventoryEnrichment { document_ids: None, enrichment_type: None, host: None }
+        DetectionInventoryEnrichment {
+            document_ids: None,
+            enrichment_type: None,
+            host: None,
+        }
     }
 }

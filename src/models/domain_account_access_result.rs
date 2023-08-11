@@ -20,6 +20,10 @@ pub struct DomainAccountAccessResult {
 
 impl DomainAccountAccessResult {
     pub fn new(id: String, successful: bool) -> DomainAccountAccessResult {
-        DomainAccountAccessResult { id, reason: None, successful }
+        DomainAccountAccessResult {
+            id,
+            reason: None,
+            successful,
+        }
     }
 }

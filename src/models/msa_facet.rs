@@ -24,6 +24,12 @@ pub struct MsaFacet {
 
 impl MsaFacet {
     pub fn new(count: i64, term: String) -> MsaFacet {
-        MsaFacet { by: None, count, facet: None, label: None, term }
+        MsaFacet {
+            by: None,
+            count,
+            facet: None,
+            label: None,
+            term,
+        }
     }
 }

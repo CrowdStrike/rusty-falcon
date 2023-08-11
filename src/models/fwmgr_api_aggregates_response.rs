@@ -19,7 +19,14 @@ pub struct FwmgrApiAggregatesResponse {
 }
 
 impl FwmgrApiAggregatesResponse {
-    pub fn new(meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<crate::models::FwmgrMsaAggregationResult>) -> FwmgrApiAggregatesResponse {
-        FwmgrApiAggregatesResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::FwmgrMsaspecMetaInfo,
+        resources: Vec<crate::models::FwmgrMsaAggregationResult>,
+    ) -> FwmgrApiAggregatesResponse {
+        FwmgrApiAggregatesResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

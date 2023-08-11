@@ -25,7 +25,14 @@ pub struct FwmgrApiRuleGroupModifyRequestV1 {
 }
 
 impl FwmgrApiRuleGroupModifyRequestV1 {
-    pub fn new(diff_operations: Vec<crate::models::FwmgrApiJsonDiff>, diff_type: String, id: String, rule_ids: Vec<String>, rule_versions: Vec<i32>, tracking: String) -> FwmgrApiRuleGroupModifyRequestV1 {
+    pub fn new(
+        diff_operations: Vec<crate::models::FwmgrApiJsonDiff>,
+        diff_type: String,
+        id: String,
+        rule_ids: Vec<String>,
+        rule_versions: Vec<i32>,
+        tracking: String,
+    ) -> FwmgrApiRuleGroupModifyRequestV1 {
         FwmgrApiRuleGroupModifyRequestV1 {
             diff_operations,
             diff_type,

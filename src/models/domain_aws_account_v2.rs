@@ -24,10 +24,16 @@ pub struct DomainAwsAccountV2 {
     #[serde(rename = "account_type", skip_serializing_if = "Option::is_none")]
     pub account_type: Option<String>,
     /// AWS CloudTrail bucket name to store logs.
-    #[serde(rename = "aws_cloudtrail_bucket_name", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "aws_cloudtrail_bucket_name",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub aws_cloudtrail_bucket_name: Option<String>,
     /// AWS CloudTrail region.
-    #[serde(rename = "aws_cloudtrail_region", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "aws_cloudtrail_region",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub aws_cloudtrail_region: Option<String>,
     /// AWS Eventbus ARN.
     #[serde(rename = "aws_eventbus_arn", skip_serializing_if = "Option::is_none")]
@@ -35,7 +41,10 @@ pub struct DomainAwsAccountV2 {
     /// Permissions status returned via API.
     #[serde(rename = "aws_permissions_status")]
     pub aws_permissions_status: Vec<crate::models::DomainPermission>,
-    #[serde(rename = "behavior_assessment_enabled", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "behavior_assessment_enabled",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub behavior_assessment_enabled: Option<bool>,
     #[serde(rename = "cid", skip_serializing_if = "Option::is_none")]
     pub cid: Option<String>,
@@ -53,7 +62,10 @@ pub struct DomainAwsAccountV2 {
     /// The full arn of the IAM role created in this account to control access.
     #[serde(rename = "iam_role_arn", skip_serializing_if = "Option::is_none")]
     pub iam_role_arn: Option<String>,
-    #[serde(rename = "intermediate_role_arn", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "intermediate_role_arn",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub intermediate_role_arn: Option<String>,
     #[serde(rename = "is_custom_rolename")]
     pub is_custom_rolename: bool,
@@ -62,11 +74,17 @@ pub struct DomainAwsAccountV2 {
     /// Up to 34 character AWS provided unique identifier for the organization.
     #[serde(rename = "organization_id", skip_serializing_if = "Option::is_none")]
     pub organization_id: Option<String>,
-    #[serde(rename = "remediation_cloudformation_url", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "remediation_cloudformation_url",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub remediation_cloudformation_url: Option<String>,
     #[serde(rename = "remediation_region", skip_serializing_if = "Option::is_none")]
     pub remediation_region: Option<String>,
-    #[serde(rename = "remediation_tou_accepted", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "remediation_tou_accepted",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub remediation_tou_accepted: Option<String>,
     /// 12 digit AWS provided unique identifier for the root account (of the organization this account belongs to).
     #[serde(rename = "root_account_id", skip_serializing_if = "Option::is_none")]
@@ -80,14 +98,24 @@ pub struct DomainAwsAccountV2 {
     /// Account registration status.
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
-    #[serde(rename = "use_existing_cloudtrail", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "use_existing_cloudtrail",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub use_existing_cloudtrail: Option<bool>,
     #[serde(rename = "valid", skip_serializing_if = "Option::is_none")]
     pub valid: Option<bool>,
 }
 
 impl DomainAwsAccountV2 {
-    pub fn new(created_at: String, deleted_at: String, id: i32, updated_at: String, aws_permissions_status: Vec<crate::models::DomainPermission>, is_custom_rolename: bool) -> DomainAwsAccountV2 {
+    pub fn new(
+        created_at: String,
+        deleted_at: String,
+        id: i32,
+        updated_at: String,
+        aws_permissions_status: Vec<crate::models::DomainPermission>,
+        is_custom_rolename: bool,
+    ) -> DomainAwsAccountV2 {
         DomainAwsAccountV2 {
             created_at,
             deleted_at,

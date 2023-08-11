@@ -19,7 +19,15 @@ pub struct ApiMsaExternalIncidentResponse {
 }
 
 impl ApiMsaExternalIncidentResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainIncident>) -> ApiMsaExternalIncidentResponse {
-        ApiMsaExternalIncidentResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainIncident>,
+    ) -> ApiMsaExternalIncidentResponse {
+        ApiMsaExternalIncidentResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

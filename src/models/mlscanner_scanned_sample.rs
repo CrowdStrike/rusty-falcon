@@ -20,6 +20,10 @@ pub struct MlscannerScannedSample {
 
 impl MlscannerScannedSample {
     pub fn new(sha256: String) -> MlscannerScannedSample {
-        MlscannerScannedSample { error: None, sha256, verdict: None }
+        MlscannerScannedSample {
+            error: None,
+            sha256,
+            verdict: None,
+        }
     }
 }

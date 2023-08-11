@@ -121,16 +121,24 @@ pub enum VerifyAwsAccountAccessError {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn create_or_update_aws_settings(configuration: &configuration::Configuration, body: crate::models::ModelsModifyAwsCustomerSettingsV1) -> Result<crate::models::ModelsCustomerConfigurationsV1, Error<CreateOrUpdateAwsSettingsError>> {
+pub async fn create_or_update_aws_settings(
+    configuration: &configuration::Configuration,
+    body: crate::models::ModelsModifyAwsCustomerSettingsV1,
+) -> Result<crate::models::ModelsCustomerConfigurationsV1, Error<CreateOrUpdateAwsSettingsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-aws/entities/settings/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-aws/entities/settings/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -146,7 +154,8 @@ pub async fn create_or_update_aws_settings(configuration: &configuration::Config
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateOrUpdateAwsSettingsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateOrUpdateAwsSettingsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -156,20 +165,39 @@ pub async fn create_or_update_aws_settings(configuration: &configuration::Config
     }
 }
 
-pub async fn delete_aws_accounts(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ModelsBaseResponseV1, Error<DeleteAwsAccountsError>> {
+pub async fn delete_aws_accounts(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::ModelsBaseResponseV1, Error<DeleteAwsAccountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-aws/entities/accounts/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-aws/entities/accounts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -184,7 +212,8 @@ pub async fn delete_aws_accounts(configuration: &configuration::Configuration, i
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteAwsAccountsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteAwsAccountsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -194,20 +223,39 @@ pub async fn delete_aws_accounts(configuration: &configuration::Configuration, i
     }
 }
 
-pub async fn get_aws_accounts(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ModelsAwsAccountsV1, Error<GetAwsAccountsError>> {
+pub async fn get_aws_accounts(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::ModelsAwsAccountsV1, Error<GetAwsAccountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-aws/entities/accounts/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-aws/entities/accounts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -222,7 +270,8 @@ pub async fn get_aws_accounts(configuration: &configuration::Configuration, ids:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetAwsAccountsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetAwsAccountsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -232,16 +281,23 @@ pub async fn get_aws_accounts(configuration: &configuration::Configuration, ids:
     }
 }
 
-pub async fn get_aws_settings(configuration: &configuration::Configuration) -> Result<crate::models::ModelsCustomerConfigurationsV1, Error<GetAwsSettingsError>> {
+pub async fn get_aws_settings(
+    configuration: &configuration::Configuration,
+) -> Result<crate::models::ModelsCustomerConfigurationsV1, Error<GetAwsSettingsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-aws/combined/settings/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-aws/combined/settings/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -256,7 +312,8 @@ pub async fn get_aws_settings(configuration: &configuration::Configuration) -> R
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetAwsSettingsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetAwsSettingsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -266,19 +323,29 @@ pub async fn get_aws_settings(configuration: &configuration::Configuration) -> R
     }
 }
 
-pub async fn provision_aws_accounts(configuration: &configuration::Configuration, body: crate::models::ModelsCreateAwsAccountsV1, mode: Option<&str>) -> Result<crate::models::ModelsAwsAccountsV1, Error<ProvisionAwsAccountsError>> {
+pub async fn provision_aws_accounts(
+    configuration: &configuration::Configuration,
+    body: crate::models::ModelsCreateAwsAccountsV1,
+    mode: Option<&str>,
+) -> Result<crate::models::ModelsAwsAccountsV1, Error<ProvisionAwsAccountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-aws/entities/accounts/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-aws/entities/accounts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = mode {
-        local_var_req_builder = local_var_req_builder.query(&[("mode", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("mode", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -294,7 +361,8 @@ pub async fn provision_aws_accounts(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ProvisionAwsAccountsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ProvisionAwsAccountsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -304,28 +372,43 @@ pub async fn provision_aws_accounts(configuration: &configuration::Configuration
     }
 }
 
-pub async fn query_aws_accounts(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>, sort: Option<&str>, filter: Option<&str>) -> Result<crate::models::ModelsAwsAccountsV1, Error<QueryAwsAccountsError>> {
+pub async fn query_aws_accounts(
+    configuration: &configuration::Configuration,
+    limit: Option<i32>,
+    offset: Option<i32>,
+    sort: Option<&str>,
+    filter: Option<&str>,
+) -> Result<crate::models::ModelsAwsAccountsV1, Error<QueryAwsAccountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-aws/combined/accounts/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-aws/combined/accounts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -340,7 +423,8 @@ pub async fn query_aws_accounts(configuration: &configuration::Configuration, li
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryAwsAccountsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryAwsAccountsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -350,28 +434,43 @@ pub async fn query_aws_accounts(configuration: &configuration::Configuration, li
     }
 }
 
-pub async fn query_aws_accounts_for_ids(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>, sort: Option<&str>, filter: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QueryAwsAccountsForIdsError>> {
+pub async fn query_aws_accounts_for_ids(
+    configuration: &configuration::Configuration,
+    limit: Option<i32>,
+    offset: Option<i32>,
+    sort: Option<&str>,
+    filter: Option<&str>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryAwsAccountsForIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-aws/queries/accounts/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-aws/queries/accounts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -386,7 +485,8 @@ pub async fn query_aws_accounts_for_ids(configuration: &configuration::Configura
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryAwsAccountsForIdsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryAwsAccountsForIdsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -396,16 +496,24 @@ pub async fn query_aws_accounts_for_ids(configuration: &configuration::Configura
     }
 }
 
-pub async fn update_aws_accounts(configuration: &configuration::Configuration, body: crate::models::ModelsUpdateAwsAccountsV1) -> Result<crate::models::ModelsAwsAccountsV1, Error<UpdateAwsAccountsError>> {
+pub async fn update_aws_accounts(
+    configuration: &configuration::Configuration,
+    body: crate::models::ModelsUpdateAwsAccountsV1,
+) -> Result<crate::models::ModelsAwsAccountsV1, Error<UpdateAwsAccountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-aws/entities/accounts/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-aws/entities/accounts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -421,7 +529,8 @@ pub async fn update_aws_accounts(configuration: &configuration::Configuration, b
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateAwsAccountsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateAwsAccountsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -431,20 +540,39 @@ pub async fn update_aws_accounts(configuration: &configuration::Configuration, b
     }
 }
 
-pub async fn verify_aws_account_access(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ModelsVerifyAccessResponseV1, Error<VerifyAwsAccountAccessError>> {
+pub async fn verify_aws_account_access(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::ModelsVerifyAccessResponseV1, Error<VerifyAwsAccountAccessError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-aws/entities/verify-account-access/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-aws/entities/verify-account-access/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -459,7 +587,8 @@ pub async fn verify_aws_account_access(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<VerifyAwsAccountAccessError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<VerifyAwsAccountAccessError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

@@ -26,7 +26,10 @@ pub struct CsdomainDevicePolicy {
     pub rule_set_id: Option<String>,
     #[serde(rename = "settings_hash", skip_serializing_if = "Option::is_none")]
     pub settings_hash: Option<String>,
-    #[serde(rename = "uninstall_protection", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "uninstall_protection",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub uninstall_protection: Option<String>,
 }
 

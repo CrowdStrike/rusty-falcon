@@ -7,14 +7,22 @@ use std::fmt;
 
 #[tokio::main]
 async fn main() {
-    let falcon = FalconHandle::from_env().await.expect("Could not authenticate with CrowdStrike API");
+    let falcon = FalconHandle::from_env()
+        .await
+        .expect("Could not authenticate with CrowdStrike API");
 
-    let hosts = get_all_hosts(&falcon.cfg, None, None).await.expect("Could not list devices");
+    let hosts = get_all_hosts(&falcon.cfg, None, None)
+        .await
+        .expect("Could not list devices");
     let all_host_details = serde_json::json!(hosts);
     print!("{}", all_host_details);
 }
 
-async fn get_all_hosts(configuration: &configuration::Configuration, sort: Option<&str>, filter: Option<&str>) -> Result<Vec<models::DeviceapiDeviceSwagger>, Box<dyn error::Error>> {
+async fn get_all_hosts(
+    configuration: &configuration::Configuration,
+    sort: Option<&str>,
+    filter: Option<&str>,
+) -> Result<Vec<models::DeviceapiDeviceSwagger>, Box<dyn error::Error>> {
     let mut details = Vec::<models::DeviceapiDeviceSwagger>::new();
     let mut offset = String::from("");
     loop {
@@ -32,8 +40,13 @@ async fn get_all_hosts(configuration: &configuration::Configuration, sort: Optio
     return Ok(details);
 }
 
-async fn get_device_details(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<Vec<models::DeviceapiDeviceSwagger>, Box<dyn error::Error>> {
-    let response = hosts_api::post_device_details_v2(configuration, crate::models::MsaIdsRequest::new(ids)).await?;
+async fn get_device_details(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<Vec<models::DeviceapiDeviceSwagger>, Box<dyn error::Error>> {
+    let response =
+        hosts_api::post_device_details_v2(configuration, crate::models::MsaIdsRequest::new(ids))
+            .await?;
 
     let errors = match response.errors {
         None => Vec::new(),
@@ -46,10 +59,26 @@ async fn get_device_details(configuration: &configuration::Configuration, ids: V
     return Ok(response.resources);
 }
 
-async fn query_devices_by_filter_offset(configuration: &configuration::Configuration, sort: Option<&str>, filter: Option<&str>, offset: std::string::String) -> Result<models::DomainDeviceResponse, Box<dyn error::Error>> {
-    let response = hosts_api::query_devices_by_filter_scroll(configuration, Some(offset.as_str()), Some(5000), sort, filter).await?;
+async fn query_devices_by_filter_offset(
+    configuration: &configuration::Configuration,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    offset: std::string::String,
+) -> Result<models::DomainDeviceResponse, Box<dyn error::Error>> {
+    let response = hosts_api::query_devices_by_filter_scroll(
+        configuration,
+        Some(offset.as_str()),
+        Some(5000),
+        sort,
+        filter,
+    )
+    .await?;
     if !response.errors.is_empty() {
-        return Err(ApiError(format!("while getting Falcon Host IDs: '{:?}'", response.errors)).into());
+        return Err(ApiError(format!(
+            "while getting Falcon Host IDs: '{:?}'",
+            response.errors
+        ))
+        .into());
     }
     return Ok(response);
 }

@@ -10,7 +10,10 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DetectsHostInfo {
-    #[serde(rename = "active_directory_dn_display", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "active_directory_dn_display",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub active_directory_dn_display: Option<Vec<String>>,
     #[serde(rename = "domain")]
     pub domain: String,
@@ -18,6 +21,9 @@ pub struct DetectsHostInfo {
 
 impl DetectsHostInfo {
     pub fn new(domain: String) -> DetectsHostInfo {
-        DetectsHostInfo { active_directory_dn_display: None, domain }
+        DetectsHostInfo {
+            active_directory_dn_display: None,
+            domain,
+        }
     }
 }

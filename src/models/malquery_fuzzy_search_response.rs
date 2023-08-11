@@ -21,7 +21,14 @@ pub struct MalqueryFuzzySearchResponse {
 }
 
 impl MalqueryFuzzySearchResponse {
-    pub fn new(meta: crate::models::MalqueryFuzzySearchMetaInfo, resources: Vec<crate::models::MalquerySampleMetadata>) -> MalqueryFuzzySearchResponse {
-        MalqueryFuzzySearchResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::MalqueryFuzzySearchMetaInfo,
+        resources: Vec<crate::models::MalquerySampleMetadata>,
+    ) -> MalqueryFuzzySearchResponse {
+        MalqueryFuzzySearchResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

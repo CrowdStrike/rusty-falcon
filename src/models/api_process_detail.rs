@@ -31,7 +31,17 @@ pub struct ApiProcessDetail {
 }
 
 impl ApiProcessDetail {
-    pub fn new(command_line: String, device_id: String, file_name: String, process_id: String, process_id_local: String, start_timestamp: String, start_timestamp_raw: String, stop_timestamp: String, stop_timestamp_raw: String) -> ApiProcessDetail {
+    pub fn new(
+        command_line: String,
+        device_id: String,
+        file_name: String,
+        process_id: String,
+        process_id_local: String,
+        start_timestamp: String,
+        start_timestamp_raw: String,
+        stop_timestamp: String,
+        stop_timestamp_raw: String,
+    ) -> ApiProcessDetail {
         ApiProcessDetail {
             command_line,
             device_id,

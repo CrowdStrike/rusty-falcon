@@ -18,6 +18,9 @@ pub struct FalconxMalqueryErrorV1 {
 
 impl FalconxMalqueryErrorV1 {
     pub fn new() -> FalconxMalqueryErrorV1 {
-        FalconxMalqueryErrorV1 { code: None, message: None }
+        FalconxMalqueryErrorV1 {
+            code: None,
+            message: None,
+        }
     }
 }

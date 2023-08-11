@@ -17,7 +17,13 @@ pub struct DomainAssessmentItems {
 }
 
 impl DomainAssessmentItems {
-    pub fn new(os_signals: Vec<crate::models::DomainSignalProperty>, sensor_signals: Vec<crate::models::DomainSignalProperty>) -> DomainAssessmentItems {
-        DomainAssessmentItems { os_signals, sensor_signals }
+    pub fn new(
+        os_signals: Vec<crate::models::DomainSignalProperty>,
+        sensor_signals: Vec<crate::models::DomainSignalProperty>,
+    ) -> DomainAssessmentItems {
+        DomainAssessmentItems {
+            os_signals,
+            sensor_signals,
+        }
     }
 }

@@ -22,6 +22,11 @@ pub struct DomainQueriesPatchRequest {
 
 impl DomainQueriesPatchRequest {
     pub fn new() -> DomainQueriesPatchRequest {
-        DomainQueriesPatchRequest { action: None, comment: None, filter: None, q: None }
+        DomainQueriesPatchRequest {
+            action: None,
+            comment: None,
+            filter: None,
+            q: None,
+        }
     }
 }

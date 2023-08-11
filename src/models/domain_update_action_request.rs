@@ -25,7 +25,14 @@ pub struct DomainUpdateActionRequest {
 }
 
 impl DomainUpdateActionRequest {
-    pub fn new(content_format: String, frequency: String, id: String, recipients: Vec<String>, status: String, trigger_matchless: bool) -> DomainUpdateActionRequest {
+    pub fn new(
+        content_format: String,
+        frequency: String,
+        id: String,
+        recipients: Vec<String>,
+        status: String,
+        trigger_matchless: bool,
+    ) -> DomainUpdateActionRequest {
         DomainUpdateActionRequest {
             content_format,
             frequency,

@@ -29,7 +29,13 @@ pub struct ClientArchiveWithFilesV1 {
 }
 
 impl ClientArchiveWithFilesV1 {
-    pub fn new(mime_type: String, name: String, size: i64, status: String, upload_timestamp: String) -> ClientArchiveWithFilesV1 {
+    pub fn new(
+        mime_type: String,
+        name: String,
+        size: i64,
+        status: String,
+        upload_timestamp: String,
+    ) -> ClientArchiveWithFilesV1 {
         ClientArchiveWithFilesV1 {
             error: None,
             files: None,

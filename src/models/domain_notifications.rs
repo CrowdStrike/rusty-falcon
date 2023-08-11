@@ -19,7 +19,14 @@ pub struct DomainNotifications {
 }
 
 impl DomainNotifications {
-    pub fn new(config: crate::models::DomainNotificationConfig, _type: String) -> DomainNotifications {
-        DomainNotifications { config: Box::new(config), options: None, _type }
+    pub fn new(
+        config: crate::models::DomainNotificationConfig,
+        _type: String,
+    ) -> DomainNotifications {
+        DomainNotifications {
+            config: Box::new(config),
+            options: None,
+            _type,
+        }
     }
 }

@@ -23,6 +23,10 @@ pub struct ModelsAccessHealthDetails {
 
 impl ModelsAccessHealthDetails {
     pub fn new(valid: bool) -> ModelsAccessHealthDetails {
-        ModelsAccessHealthDetails { last_checked: None, reason: None, valid }
+        ModelsAccessHealthDetails {
+            last_checked: None,
+            reason: None,
+            valid,
+        }
     }
 }

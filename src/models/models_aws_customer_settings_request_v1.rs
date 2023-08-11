@@ -11,7 +11,10 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ModelsAwsCustomerSettingsRequestV1 {
     /// The 12 digit AWS account which is hosting the centralized S3 bucket of containing cloudtrail logs from multiple accounts.
-    #[serde(rename = "cloudtrail_bucket_owner_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "cloudtrail_bucket_owner_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub cloudtrail_bucket_owner_id: Option<String>,
     /// By setting this value, all subsequent accounts that are provisioned will default to using this value as their external ID.
     #[serde(rename = "static_external_id", skip_serializing_if = "Option::is_none")]

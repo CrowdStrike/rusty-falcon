@@ -19,7 +19,15 @@ pub struct DomainAggregatesResponse {
 }
 
 impl DomainAggregatesResponse {
-    pub fn new(errors: Vec<crate::models::DomainReconApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::MsaAggregationResult>) -> DomainAggregatesResponse {
-        DomainAggregatesResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::DomainReconApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::MsaAggregationResult>,
+    ) -> DomainAggregatesResponse {
+        DomainAggregatesResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

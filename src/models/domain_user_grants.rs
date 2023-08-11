@@ -33,7 +33,13 @@ pub struct DomainUserGrants {
 }
 
 impl DomainUserGrants {
-    pub fn new(cid: String, grant_type: String, role_id: String, role_name: String, uuid: String) -> DomainUserGrants {
+    pub fn new(
+        cid: String,
+        grant_type: String,
+        role_id: String,
+        role_name: String,
+        uuid: String,
+    ) -> DomainUserGrants {
         DomainUserGrants {
             cid,
             cid_group_id: None,

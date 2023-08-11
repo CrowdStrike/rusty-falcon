@@ -50,7 +50,10 @@ pub struct DomainActorDocument {
     pub origins: Vec<crate::models::DomainEntity>,
     #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
     pub region: Option<Box<crate::models::DomainEntity>>,
-    #[serde(rename = "rich_text_description", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rich_text_description",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rich_text_description: Option<String>,
     #[serde(rename = "short_description")]
     pub short_description: String,

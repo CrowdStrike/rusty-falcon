@@ -14,7 +14,10 @@ pub struct ApiExposedDataRecordFinancialV1 {
     pub bank_account: Option<String>,
     #[serde(rename = "credit_card", skip_serializing_if = "Option::is_none")]
     pub credit_card: Option<String>,
-    #[serde(rename = "crypto_currency_addresses", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "crypto_currency_addresses",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub crypto_currency_addresses: Option<Vec<String>>,
 }
 

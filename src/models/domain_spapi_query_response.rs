@@ -19,7 +19,14 @@ pub struct DomainSpapiQueryResponse {
 }
 
 impl DomainSpapiQueryResponse {
-    pub fn new(meta: crate::models::DomainSpapiQueryMeta, resources: Vec<String>) -> DomainSpapiQueryResponse {
-        DomainSpapiQueryResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::DomainSpapiQueryMeta,
+        resources: Vec<String>,
+    ) -> DomainSpapiQueryResponse {
+        DomainSpapiQueryResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

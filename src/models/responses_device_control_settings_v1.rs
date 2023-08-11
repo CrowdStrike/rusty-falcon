@@ -22,8 +22,16 @@ pub struct ResponsesDeviceControlSettingsV1 {
 }
 
 impl ResponsesDeviceControlSettingsV1 {
-    pub fn new(classes: Vec<crate::models::ResponsesDeviceControlPolicyClassSettingsV1>, end_user_notification: EndUserNotification, enforcement_mode: EnforcementMode) -> ResponsesDeviceControlSettingsV1 {
-        ResponsesDeviceControlSettingsV1 { classes, end_user_notification, enforcement_mode }
+    pub fn new(
+        classes: Vec<crate::models::ResponsesDeviceControlPolicyClassSettingsV1>,
+        end_user_notification: EndUserNotification,
+        enforcement_mode: EnforcementMode,
+    ) -> ResponsesDeviceControlSettingsV1 {
+        ResponsesDeviceControlSettingsV1 {
+            classes,
+            end_user_notification,
+            enforcement_mode,
+        }
     }
 }
 

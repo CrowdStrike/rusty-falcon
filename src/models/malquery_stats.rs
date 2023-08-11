@@ -28,7 +28,13 @@ pub struct MalqueryStats {
 }
 
 impl MalqueryStats {
-    pub fn new(clean_count: i32, malware_count: i32, pua_count: i32, total_count: i32, unknown_count: i32) -> MalqueryStats {
+    pub fn new(
+        clean_count: i32,
+        malware_count: i32,
+        pua_count: i32,
+        total_count: i32,
+        unknown_count: i32,
+    ) -> MalqueryStats {
         MalqueryStats {
             clean_count,
             malware_count,

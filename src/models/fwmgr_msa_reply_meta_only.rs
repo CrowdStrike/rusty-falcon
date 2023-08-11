@@ -18,6 +18,9 @@ pub struct FwmgrMsaReplyMetaOnly {
 
 impl FwmgrMsaReplyMetaOnly {
     pub fn new(meta: crate::models::FwmgrMsaspecMetaInfo) -> FwmgrMsaReplyMetaOnly {
-        FwmgrMsaReplyMetaOnly { errors: None, meta: Box::new(meta) }
+        FwmgrMsaReplyMetaOnly {
+            errors: None,
+            meta: Box::new(meta),
+        }
     }
 }

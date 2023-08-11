@@ -20,6 +20,10 @@ pub struct MsaApiError {
 
 impl MsaApiError {
     pub fn new(code: i32, message: String) -> MsaApiError {
-        MsaApiError { code, id: None, message }
+        MsaApiError {
+            code,
+            id: None,
+            message,
+        }
     }
 }

@@ -19,7 +19,15 @@ pub struct ApiMsaReplyIocDevicesCount {
 }
 
 impl ApiMsaReplyIocDevicesCount {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::ApiResponseMeta, resources: Vec<crate::models::ApiIocDevicesCount>) -> ApiMsaReplyIocDevicesCount {
-        ApiMsaReplyIocDevicesCount { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::ApiResponseMeta,
+        resources: Vec<crate::models::ApiIocDevicesCount>,
+    ) -> ApiMsaReplyIocDevicesCount {
+        ApiMsaReplyIocDevicesCount {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

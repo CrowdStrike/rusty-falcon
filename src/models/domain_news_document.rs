@@ -34,7 +34,10 @@ pub struct DomainNewsDocument {
     pub name: String,
     #[serde(rename = "notify_users", skip_serializing_if = "Option::is_none")]
     pub notify_users: Option<bool>,
-    #[serde(rename = "rich_text_description", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rich_text_description",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rich_text_description: Option<String>,
     #[serde(rename = "short_description", skip_serializing_if = "Option::is_none")]
     pub short_description: Option<String>,

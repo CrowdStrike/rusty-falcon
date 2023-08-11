@@ -19,7 +19,15 @@ pub struct DomainExportJobEntitiesResponseV1 {
 }
 
 impl DomainExportJobEntitiesResponseV1 {
-    pub fn new(errors: Vec<crate::models::ReconmsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainExportJobMetadataV1>) -> DomainExportJobEntitiesResponseV1 {
-        DomainExportJobEntitiesResponseV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::ReconmsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainExportJobMetadataV1>,
+    ) -> DomainExportJobEntitiesResponseV1 {
+        DomainExportJobEntitiesResponseV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

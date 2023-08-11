@@ -19,7 +19,14 @@ pub struct DomainQueryResponse {
 }
 
 impl DomainQueryResponse {
-    pub fn new(meta: crate::models::DomainMsaMetaInfo, resources: Vec<String>) -> DomainQueryResponse {
-        DomainQueryResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::DomainMsaMetaInfo,
+        resources: Vec<String>,
+    ) -> DomainQueryResponse {
+        DomainQueryResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

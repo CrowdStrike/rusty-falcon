@@ -19,7 +19,15 @@ pub struct ClientArchiveListFilesResponseV1 {
 }
 
 impl ClientArchiveListFilesResponseV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> ClientArchiveListFilesResponseV1 {
-        ClientArchiveListFilesResponseV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<String>,
+    ) -> ClientArchiveListFilesResponseV1 {
+        ClientArchiveListFilesResponseV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

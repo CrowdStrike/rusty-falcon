@@ -13,7 +13,10 @@ pub struct DeviceControlSettingsRespV1 {
     /// List of class_settings this policy applies to
     #[serde(rename = "classes")]
     pub classes: Vec<crate::models::DeviceControlUsbClassExceptionsResponse>,
-    #[serde(rename = "custom_notifications", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "custom_notifications",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub custom_notifications: Option<Box<crate::models::DeviceControlUsbCustomNotifications>>,
     /// Does the end user receives a notification when the policy is violated
     #[serde(rename = "end_user_notification")]
@@ -27,7 +30,12 @@ pub struct DeviceControlSettingsRespV1 {
 }
 
 impl DeviceControlSettingsRespV1 {
-    pub fn new(classes: Vec<crate::models::DeviceControlUsbClassExceptionsResponse>, end_user_notification: EndUserNotification, enforcement_mode: EnforcementMode, enhanced_file_metadata: bool) -> DeviceControlSettingsRespV1 {
+    pub fn new(
+        classes: Vec<crate::models::DeviceControlUsbClassExceptionsResponse>,
+        end_user_notification: EndUserNotification,
+        enforcement_mode: EnforcementMode,
+        enhanced_file_metadata: bool,
+    ) -> DeviceControlSettingsRespV1 {
         DeviceControlSettingsRespV1 {
             classes,
             custom_notifications: None,

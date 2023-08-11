@@ -19,7 +19,15 @@ pub struct DomainNewsResponse {
 }
 
 impl DomainNewsResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainNewsDocument>) -> DomainNewsResponse {
-        DomainNewsResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainNewsDocument>,
+    ) -> DomainNewsResponse {
+        DomainNewsResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

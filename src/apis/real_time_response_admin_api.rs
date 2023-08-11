@@ -185,20 +185,28 @@ pub async fn batch_admin_cmd(
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/combined/batch-admin-command/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/combined/batch-admin-command/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = timeout {
-        local_var_req_builder = local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("timeout", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = timeout_duration {
-        local_var_req_builder = local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = host_timeout_duration {
-        local_var_req_builder = local_var_req_builder.query(&[("host_timeout_duration", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("host_timeout_duration", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -214,7 +222,8 @@ pub async fn batch_admin_cmd(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<BatchAdminCmdError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<BatchAdminCmdError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -224,18 +233,29 @@ pub async fn batch_admin_cmd(
     }
 }
 
-pub async fn r_tr_check_admin_command_status(configuration: &configuration::Configuration, cloud_request_id: &str, sequence_id: i32) -> Result<crate::models::DomainStatusResponseWrapper, Error<RTrCheckAdminCommandStatusError>> {
+pub async fn r_tr_check_admin_command_status(
+    configuration: &configuration::Configuration,
+    cloud_request_id: &str,
+    sequence_id: i32,
+) -> Result<crate::models::DomainStatusResponseWrapper, Error<RTrCheckAdminCommandStatusError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/admin-command/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/admin-command/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("cloud_request_id", &cloud_request_id.to_string())]);
-    local_var_req_builder = local_var_req_builder.query(&[("sequence_id", &sequence_id.to_string())]);
+    local_var_req_builder =
+        local_var_req_builder.query(&[("cloud_request_id", &cloud_request_id.to_string())]);
+    local_var_req_builder =
+        local_var_req_builder.query(&[("sequence_id", &sequence_id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -250,7 +270,8 @@ pub async fn r_tr_check_admin_command_status(configuration: &configuration::Conf
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrCheckAdminCommandStatusError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrCheckAdminCommandStatusError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -260,16 +281,27 @@ pub async fn r_tr_check_admin_command_status(configuration: &configuration::Conf
     }
 }
 
-pub async fn r_tr_create_put_files(configuration: &configuration::Configuration, _file: std::path::PathBuf, description: &str, name: Option<&str>, comments_for_audit_log: Option<&str>) -> Result<crate::models::MsaReplyMetaOnly, Error<RTrCreatePutFilesError>> {
+pub async fn r_tr_create_put_files(
+    configuration: &configuration::Configuration,
+    _file: std::path::PathBuf,
+    description: &str,
+    name: Option<&str>,
+    comments_for_audit_log: Option<&str>,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<RTrCreatePutFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/put-files/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/put-files/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -281,7 +313,8 @@ pub async fn r_tr_create_put_files(configuration: &configuration::Configuration,
         local_var_form = local_var_form.text("name", local_var_param_value.to_string());
     }
     if let Some(local_var_param_value) = comments_for_audit_log {
-        local_var_form = local_var_form.text("comments_for_audit_log", local_var_param_value.to_string());
+        local_var_form =
+            local_var_form.text("comments_for_audit_log", local_var_param_value.to_string());
     }
     local_var_req_builder = local_var_req_builder.multipart(local_var_form);
 
@@ -294,7 +327,8 @@ pub async fn r_tr_create_put_files(configuration: &configuration::Configuration,
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrCreatePutFilesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrCreatePutFilesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -318,11 +352,16 @@ pub async fn r_tr_create_scripts(
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/scripts/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/scripts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -334,14 +373,23 @@ pub async fn r_tr_create_scripts(
         local_var_form = local_var_form.text("name", local_var_param_value.to_string());
     }
     if let Some(local_var_param_value) = comments_for_audit_log {
-        local_var_form = local_var_form.text("comments_for_audit_log", local_var_param_value.to_string());
+        local_var_form =
+            local_var_form.text("comments_for_audit_log", local_var_param_value.to_string());
     }
     local_var_form = local_var_form.text("permission_type", permission_type.to_string());
     if let Some(local_var_param_value) = content {
         local_var_form = local_var_form.text("content", local_var_param_value.to_string());
     }
     if let Some(local_var_param_value) = platform {
-        local_var_form = local_var_form.text("platform", local_var_param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string());
+        local_var_form = local_var_form.text(
+            "platform",
+            local_var_param_value
+                .into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        );
     }
     local_var_req_builder = local_var_req_builder.multipart(local_var_form);
 
@@ -354,7 +402,8 @@ pub async fn r_tr_create_scripts(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrCreateScriptsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrCreateScriptsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -364,17 +413,25 @@ pub async fn r_tr_create_scripts(
     }
 }
 
-pub async fn r_tr_delete_put_files(configuration: &configuration::Configuration, ids: &str) -> Result<crate::models::MsaReplyMetaOnly, Error<RTrDeletePutFilesError>> {
+pub async fn r_tr_delete_put_files(
+    configuration: &configuration::Configuration,
+    ids: &str,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<RTrDeletePutFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/put-files/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/put-files/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("ids", &ids.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -389,7 +446,8 @@ pub async fn r_tr_delete_put_files(configuration: &configuration::Configuration,
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrDeletePutFilesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrDeletePutFilesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -399,17 +457,25 @@ pub async fn r_tr_delete_put_files(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn r_tr_delete_scripts(configuration: &configuration::Configuration, ids: &str) -> Result<crate::models::MsaReplyMetaOnly, Error<RTrDeleteScriptsError>> {
+pub async fn r_tr_delete_scripts(
+    configuration: &configuration::Configuration,
+    ids: &str,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<RTrDeleteScriptsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/scripts/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/scripts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("ids", &ids.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -424,7 +490,8 @@ pub async fn r_tr_delete_scripts(configuration: &configuration::Configuration, i
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrDeleteScriptsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrDeleteScriptsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -434,16 +501,25 @@ pub async fn r_tr_delete_scripts(configuration: &configuration::Configuration, i
     }
 }
 
-pub async fn r_tr_execute_admin_command(configuration: &configuration::Configuration, body: crate::models::DomainCommandExecuteRequest) -> Result<crate::models::DomainCommandExecuteResponseWrapper, Error<RTrExecuteAdminCommandError>> {
+pub async fn r_tr_execute_admin_command(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainCommandExecuteRequest,
+) -> Result<crate::models::DomainCommandExecuteResponseWrapper, Error<RTrExecuteAdminCommandError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/admin-command/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/admin-command/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -459,7 +535,8 @@ pub async fn r_tr_execute_admin_command(configuration: &configuration::Configura
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrExecuteAdminCommandError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrExecuteAdminCommandError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -469,20 +546,39 @@ pub async fn r_tr_execute_admin_command(configuration: &configuration::Configura
     }
 }
 
-pub async fn r_tr_get_put_files(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::BinservclientMsaPfResponse, Error<RTrGetPutFilesError>> {
+pub async fn r_tr_get_put_files(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::BinservclientMsaPfResponse, Error<RTrGetPutFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/put-files/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/put-files/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -497,7 +593,8 @@ pub async fn r_tr_get_put_files(configuration: &configuration::Configuration, id
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrGetPutFilesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrGetPutFilesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -507,20 +604,39 @@ pub async fn r_tr_get_put_files(configuration: &configuration::Configuration, id
     }
 }
 
-pub async fn r_tr_get_put_files_v2(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainMsaPfResponseV2, Error<RTrGetPutFilesV2Error>> {
+pub async fn r_tr_get_put_files_v2(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainMsaPfResponseV2, Error<RTrGetPutFilesV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/put-files/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/put-files/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -535,7 +651,8 @@ pub async fn r_tr_get_put_files_v2(configuration: &configuration::Configuration,
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrGetPutFilesV2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrGetPutFilesV2Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -545,20 +662,39 @@ pub async fn r_tr_get_put_files_v2(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn r_tr_get_scripts(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::BinservclientMsaPfResponse, Error<RTrGetScriptsError>> {
+pub async fn r_tr_get_scripts(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::BinservclientMsaPfResponse, Error<RTrGetScriptsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/scripts/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/scripts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -573,7 +709,8 @@ pub async fn r_tr_get_scripts(configuration: &configuration::Configuration, ids:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrGetScriptsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrGetScriptsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -583,20 +720,39 @@ pub async fn r_tr_get_scripts(configuration: &configuration::Configuration, ids:
     }
 }
 
-pub async fn r_tr_get_scripts_v2(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainMsaPfResponseV2, Error<RTrGetScriptsV2Error>> {
+pub async fn r_tr_get_scripts_v2(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainMsaPfResponseV2, Error<RTrGetScriptsV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/scripts/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/scripts/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -611,7 +767,8 @@ pub async fn r_tr_get_scripts_v2(configuration: &configuration::Configuration, i
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrGetScriptsV2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrGetScriptsV2Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -621,28 +778,43 @@ pub async fn r_tr_get_scripts_v2(configuration: &configuration::Configuration, i
     }
 }
 
-pub async fn r_tr_list_put_files(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<&str>, limit: Option<i32>, sort: Option<&str>) -> Result<crate::models::BinservclientMsaPutFileResponse, Error<RTrListPutFilesError>> {
+pub async fn r_tr_list_put_files(
+    configuration: &configuration::Configuration,
+    filter: Option<&str>,
+    offset: Option<&str>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+) -> Result<crate::models::BinservclientMsaPutFileResponse, Error<RTrListPutFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/queries/put-files/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/queries/put-files/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -657,7 +829,8 @@ pub async fn r_tr_list_put_files(configuration: &configuration::Configuration, f
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrListPutFilesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrListPutFilesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -667,28 +840,43 @@ pub async fn r_tr_list_put_files(configuration: &configuration::Configuration, f
     }
 }
 
-pub async fn r_tr_list_scripts(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<&str>, limit: Option<i32>, sort: Option<&str>) -> Result<crate::models::BinservclientMsaPutFileResponse, Error<RTrListScriptsError>> {
+pub async fn r_tr_list_scripts(
+    configuration: &configuration::Configuration,
+    filter: Option<&str>,
+    offset: Option<&str>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+) -> Result<crate::models::BinservclientMsaPutFileResponse, Error<RTrListScriptsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/queries/scripts/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/queries/scripts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -703,7 +891,8 @@ pub async fn r_tr_list_scripts(configuration: &configuration::Configuration, fil
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrListScriptsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrListScriptsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -728,11 +917,16 @@ pub async fn r_tr_update_scripts(
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/real-time-response/entities/scripts/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/scripts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -747,7 +941,8 @@ pub async fn r_tr_update_scripts(
         local_var_form = local_var_form.text("name", local_var_param_value.to_string());
     }
     if let Some(local_var_param_value) = comments_for_audit_log {
-        local_var_form = local_var_form.text("comments_for_audit_log", local_var_param_value.to_string());
+        local_var_form =
+            local_var_form.text("comments_for_audit_log", local_var_param_value.to_string());
     }
     if let Some(local_var_param_value) = permission_type {
         local_var_form = local_var_form.text("permission_type", local_var_param_value.to_string());
@@ -756,7 +951,15 @@ pub async fn r_tr_update_scripts(
         local_var_form = local_var_form.text("content", local_var_param_value.to_string());
     }
     if let Some(local_var_param_value) = platform {
-        local_var_form = local_var_form.text("platform", local_var_param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string());
+        local_var_form = local_var_form.text(
+            "platform",
+            local_var_param_value
+                .into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        );
     }
     local_var_req_builder = local_var_req_builder.multipart(local_var_form);
 
@@ -769,7 +972,8 @@ pub async fn r_tr_update_scripts(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<RTrUpdateScriptsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<RTrUpdateScriptsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

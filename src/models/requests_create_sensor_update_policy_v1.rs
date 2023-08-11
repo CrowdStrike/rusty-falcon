@@ -25,7 +25,12 @@ pub struct RequestsCreateSensorUpdatePolicyV1 {
 
 impl RequestsCreateSensorUpdatePolicyV1 {
     pub fn new(name: String, platform_name: PlatformName) -> RequestsCreateSensorUpdatePolicyV1 {
-        RequestsCreateSensorUpdatePolicyV1 { description: None, name, platform_name, settings: None }
+        RequestsCreateSensorUpdatePolicyV1 {
+            description: None,
+            name,
+            platform_name,
+            settings: None,
+        }
     }
 }
 

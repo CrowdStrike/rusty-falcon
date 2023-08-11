@@ -10,7 +10,10 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct RegistrationIoaEvent {
-    #[serde(rename = "additional_event_data", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "additional_event_data",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub additional_event_data: Option<String>,
     #[serde(rename = "aggregate", skip_serializing_if = "Option::is_none")]
     pub aggregate: Option<Box<crate::models::DomainIoaEventAggregate>>,
@@ -52,7 +55,10 @@ pub struct RegistrationIoaEvent {
     pub policy_statement: String,
     #[serde(rename = "read_only", skip_serializing_if = "Option::is_none")]
     pub read_only: Option<bool>,
-    #[serde(rename = "recipient_account_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "recipient_account_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub recipient_account_id: Option<String>,
     #[serde(rename = "request_id", skip_serializing_if = "Option::is_none")]
     pub request_id: Option<String>,
@@ -64,7 +70,10 @@ pub struct RegistrationIoaEvent {
     pub response_elements: Option<String>,
     #[serde(rename = "service")]
     pub service: String,
-    #[serde(rename = "service_event_details", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "service_event_details",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub service_event_details: Option<String>,
     #[serde(rename = "severity")]
     pub severity: String,
@@ -89,7 +98,17 @@ pub struct RegistrationIoaEvent {
 }
 
 impl RegistrationIoaEvent {
-    pub fn new(cid: String, cloud_provider: String, policy_id: i32, policy_statement: String, service: String, severity: String, state: String, vertex_id: String, vertex_type: String) -> RegistrationIoaEvent {
+    pub fn new(
+        cid: String,
+        cloud_provider: String,
+        policy_id: i32,
+        policy_statement: String,
+        service: String,
+        severity: String,
+        state: String,
+        vertex_id: String,
+        vertex_type: String,
+    ) -> RegistrationIoaEvent {
         RegistrationIoaEvent {
             additional_event_data: None,
             aggregate: None,

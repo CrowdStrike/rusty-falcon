@@ -19,7 +19,15 @@ pub struct DomainDeviceResponse {
 }
 
 impl DomainDeviceResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::DomainDeviceMeta, resources: Vec<String>) -> DomainDeviceResponse {
-        DomainDeviceResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::DomainDeviceMeta,
+        resources: Vec<String>,
+    ) -> DomainDeviceResponse {
+        DomainDeviceResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

@@ -23,6 +23,9 @@ pub struct ApiCustomerSettingsPatchRequestV1 {
 impl ApiCustomerSettingsPatchRequestV1 {
     /// To require tokens for all installations in your CID, set `tokens_required` to `true`. To disable token requirement, set `tokens_required` to `false`To modify the maximum number of active tokens a customer may have, provide a positive interger value on `max_active_tokens` field
     pub fn new() -> ApiCustomerSettingsPatchRequestV1 {
-        ApiCustomerSettingsPatchRequestV1 { max_active_tokens: None, tokens_required: None }
+        ApiCustomerSettingsPatchRequestV1 {
+            max_active_tokens: None,
+            tokens_required: None,
+        }
     }
 }

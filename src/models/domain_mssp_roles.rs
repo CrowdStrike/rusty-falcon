@@ -21,7 +21,17 @@ pub struct DomainMsspRoles {
 }
 
 impl DomainMsspRoles {
-    pub fn new(cid_group_id: String, id: String, role_ids: Vec<String>, user_group_id: String) -> DomainMsspRoles {
-        DomainMsspRoles { cid_group_id, id, role_ids, user_group_id }
+    pub fn new(
+        cid_group_id: String,
+        id: String,
+        role_ids: Vec<String>,
+        user_group_id: String,
+    ) -> DomainMsspRoles {
+        DomainMsspRoles {
+            cid_group_id,
+            id,
+            role_ids,
+            user_group_id,
+        }
     }
 }

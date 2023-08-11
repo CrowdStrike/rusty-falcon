@@ -19,7 +19,14 @@ pub struct ApiRuleGroupsResponse {
 }
 
 impl ApiRuleGroupsResponse {
-    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::ApiRuleGroupV1>) -> ApiRuleGroupsResponse {
-        ApiRuleGroupsResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::ApiRuleGroupV1>,
+    ) -> ApiRuleGroupsResponse {
+        ApiRuleGroupsResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

@@ -35,7 +35,18 @@ pub struct ResponsesMlExclusionV1 {
 }
 
 impl ResponsesMlExclusionV1 {
-    pub fn new(applied_globally: bool, created_by: String, created_on: String, groups: Vec<crate::models::ResponsesHostGroupV1>, id: String, last_modified: String, modified_by: String, regexp_value: String, value: String, value_hash: String) -> ResponsesMlExclusionV1 {
+    pub fn new(
+        applied_globally: bool,
+        created_by: String,
+        created_on: String,
+        groups: Vec<crate::models::ResponsesHostGroupV1>,
+        id: String,
+        last_modified: String,
+        modified_by: String,
+        regexp_value: String,
+        value: String,
+        value_hash: String,
+    ) -> ResponsesMlExclusionV1 {
         ResponsesMlExclusionV1 {
             applied_globally,
             created_by,

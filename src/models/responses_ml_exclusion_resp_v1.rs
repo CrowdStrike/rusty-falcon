@@ -20,7 +20,15 @@ pub struct ResponsesMlExclusionRespV1 {
 }
 
 impl ResponsesMlExclusionRespV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::ResponsesMlExclusionV1>) -> ResponsesMlExclusionRespV1 {
-        ResponsesMlExclusionRespV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::ResponsesMlExclusionV1>,
+    ) -> ResponsesMlExclusionRespV1 {
+        ResponsesMlExclusionRespV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

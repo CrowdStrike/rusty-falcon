@@ -20,6 +20,10 @@ pub struct MsaspecQueryResponse {
 
 impl MsaspecQueryResponse {
     pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> MsaspecQueryResponse {
-        MsaspecQueryResponse { errors: None, meta: Box::new(meta), resources }
+        MsaspecQueryResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

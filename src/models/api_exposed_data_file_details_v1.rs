@@ -26,6 +26,11 @@ pub struct ApiExposedDataFileDetailsV1 {
 
 impl ApiExposedDataFileDetailsV1 {
     pub fn new(download_urls: Vec<String>, name: String, size: i64) -> ApiExposedDataFileDetailsV1 {
-        ApiExposedDataFileDetailsV1 { complete_data_set: None, download_urls, name, size }
+        ApiExposedDataFileDetailsV1 {
+            complete_data_set: None,
+            download_urls,
+            name,
+            size,
+        }
     }
 }

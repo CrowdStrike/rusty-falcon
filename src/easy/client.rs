@@ -18,14 +18,23 @@ impl FalconHandle {
             ..Default::default()
         };
 
-        let mut handle = FalconHandle { creds, cfg: configuration };
+        let mut handle = FalconHandle {
+            creds,
+            cfg: configuration,
+        };
         handle.authenticate().await?;
 
         Ok(handle)
     }
 
     pub async fn authenticate(&mut self) -> Result<(), Error<Oauth2AccessTokenError>> {
-        let response = oauth2_access_token(&self.cfg, &self.creds.falcon_client_id, &self.creds.falcon_client_secret, self.creds.falcon_member_cid.as_ref().map(String::as_ref)).await?;
+        let response = oauth2_access_token(
+            &self.cfg,
+            &self.creds.falcon_client_id,
+            &self.creds.falcon_client_secret,
+            self.creds.falcon_member_cid.as_ref().map(String::as_ref),
+        )
+        .await?;
         self.cfg.oauth_access_token = Some(response.access_token);
         Ok(())
     }

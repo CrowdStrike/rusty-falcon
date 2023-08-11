@@ -18,6 +18,9 @@ pub struct DomainUpdateUserRequest {
 
 impl DomainUpdateUserRequest {
     pub fn new() -> DomainUpdateUserRequest {
-        DomainUpdateUserRequest { first_name: None, last_name: None }
+        DomainUpdateUserRequest {
+            first_name: None,
+            last_name: None,
+        }
     }
 }

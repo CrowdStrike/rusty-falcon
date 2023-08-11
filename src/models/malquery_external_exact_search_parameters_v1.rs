@@ -18,7 +18,12 @@ pub struct MalqueryExternalExactSearchParametersV1 {
 }
 
 impl MalqueryExternalExactSearchParametersV1 {
-    pub fn new(patterns: Vec<crate::models::MalquerySearchParameter>) -> MalqueryExternalExactSearchParametersV1 {
-        MalqueryExternalExactSearchParametersV1 { options: None, patterns }
+    pub fn new(
+        patterns: Vec<crate::models::MalquerySearchParameter>,
+    ) -> MalqueryExternalExactSearchParametersV1 {
+        MalqueryExternalExactSearchParametersV1 {
+            options: None,
+            patterns,
+        }
     }
 }

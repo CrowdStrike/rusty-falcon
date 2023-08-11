@@ -204,16 +204,24 @@ pub enum ValidateError {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn create_rule(configuration: &configuration::Configuration, body: crate::models::ApiRuleCreateV1) -> Result<crate::models::ApiRulesResponse, Error<CreateRuleError>> {
+pub async fn create_rule(
+    configuration: &configuration::Configuration,
+    body: crate::models::ApiRuleCreateV1,
+) -> Result<crate::models::ApiRulesResponse, Error<CreateRuleError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/entities/rules/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -229,7 +237,8 @@ pub async fn create_rule(configuration: &configuration::Configuration, body: cra
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateRuleError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateRuleError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -239,16 +248,24 @@ pub async fn create_rule(configuration: &configuration::Configuration, body: cra
     }
 }
 
-pub async fn create_rule_group_mixin0(configuration: &configuration::Configuration, body: crate::models::ApiRuleGroupCreateRequestV1) -> Result<crate::models::ApiRuleGroupsResponse, Error<CreateRuleGroupMixin0Error>> {
+pub async fn create_rule_group_mixin0(
+    configuration: &configuration::Configuration,
+    body: crate::models::ApiRuleGroupCreateRequestV1,
+) -> Result<crate::models::ApiRuleGroupsResponse, Error<CreateRuleGroupMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rule-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/entities/rule-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -264,7 +281,8 @@ pub async fn create_rule_group_mixin0(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateRuleGroupMixin0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateRuleGroupMixin0Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -274,23 +292,44 @@ pub async fn create_rule_group_mixin0(configuration: &configuration::Configurati
     }
 }
 
-pub async fn delete_rule_groups_mixin0(configuration: &configuration::Configuration, ids: Vec<String>, comment: Option<&str>) -> Result<crate::models::MsaReplyMetaOnly, Error<DeleteRuleGroupsMixin0Error>> {
+pub async fn delete_rule_groups_mixin0(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+    comment: Option<&str>,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<DeleteRuleGroupsMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rule-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/entities/rule-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = comment {
-        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
     }
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -305,7 +344,8 @@ pub async fn delete_rule_groups_mixin0(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteRuleGroupsMixin0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteRuleGroupsMixin0Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -315,24 +355,47 @@ pub async fn delete_rule_groups_mixin0(configuration: &configuration::Configurat
     }
 }
 
-pub async fn delete_rules(configuration: &configuration::Configuration, rule_group_id: &str, ids: Vec<String>, comment: Option<&str>) -> Result<crate::models::MsaReplyMetaOnly, Error<DeleteRulesError>> {
+pub async fn delete_rules(
+    configuration: &configuration::Configuration,
+    rule_group_id: &str,
+    ids: Vec<String>,
+    comment: Option<&str>,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<DeleteRulesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/entities/rules/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("rule_group_id", &rule_group_id.to_string())]);
+    local_var_req_builder =
+        local_var_req_builder.query(&[("rule_group_id", &rule_group_id.to_string())]);
     if let Some(ref local_var_str) = comment {
-        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
     }
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -347,7 +410,8 @@ pub async fn delete_rules(configuration: &configuration::Configuration, rule_gro
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteRulesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteRulesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -357,20 +421,39 @@ pub async fn delete_rules(configuration: &configuration::Configuration, rule_gro
     }
 }
 
-pub async fn get_patterns(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiPatternsResponse, Error<GetPatternsError>> {
+pub async fn get_patterns(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::ApiPatternsResponse, Error<GetPatternsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/pattern-severities/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/entities/pattern-severities/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -385,7 +468,8 @@ pub async fn get_patterns(configuration: &configuration::Configuration, ids: Vec
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetPatternsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetPatternsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -395,20 +479,39 @@ pub async fn get_patterns(configuration: &configuration::Configuration, ids: Vec
     }
 }
 
-pub async fn get_platforms_mixin0(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiPlatformsResponse, Error<GetPlatformsMixin0Error>> {
+pub async fn get_platforms_mixin0(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::ApiPlatformsResponse, Error<GetPlatformsMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/platforms/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/entities/platforms/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -423,7 +526,8 @@ pub async fn get_platforms_mixin0(configuration: &configuration::Configuration, 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetPlatformsMixin0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetPlatformsMixin0Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -433,20 +537,39 @@ pub async fn get_platforms_mixin0(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn get_rule_groups_mixin0(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiRuleGroupsResponse, Error<GetRuleGroupsMixin0Error>> {
+pub async fn get_rule_groups_mixin0(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::ApiRuleGroupsResponse, Error<GetRuleGroupsMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rule-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/entities/rule-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -461,7 +584,8 @@ pub async fn get_rule_groups_mixin0(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetRuleGroupsMixin0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetRuleGroupsMixin0Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -471,20 +595,39 @@ pub async fn get_rule_groups_mixin0(configuration: &configuration::Configuration
     }
 }
 
-pub async fn get_rule_types(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiRuleTypesResponse, Error<GetRuleTypesError>> {
+pub async fn get_rule_types(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::ApiRuleTypesResponse, Error<GetRuleTypesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rule-types/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/entities/rule-types/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -499,7 +642,8 @@ pub async fn get_rule_types(configuration: &configuration::Configuration, ids: V
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetRuleTypesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetRuleTypesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -509,16 +653,24 @@ pub async fn get_rule_types(configuration: &configuration::Configuration, ids: V
     }
 }
 
-pub async fn get_rules_get(configuration: &configuration::Configuration, body: crate::models::ApiRulesGetRequestV1) -> Result<crate::models::ApiRulesResponse, Error<GetRulesGetError>> {
+pub async fn get_rules_get(
+    configuration: &configuration::Configuration,
+    body: crate::models::ApiRulesGetRequestV1,
+) -> Result<crate::models::ApiRulesResponse, Error<GetRulesGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rules/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/entities/rules/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -534,7 +686,8 @@ pub async fn get_rules_get(configuration: &configuration::Configuration, body: c
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetRulesGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetRulesGetError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -544,20 +697,39 @@ pub async fn get_rules_get(configuration: &configuration::Configuration, body: c
     }
 }
 
-pub async fn get_rules_mixin0(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiRulesResponse, Error<GetRulesMixin0Error>> {
+pub async fn get_rules_mixin0(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::ApiRulesResponse, Error<GetRulesMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/entities/rules/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -572,7 +744,8 @@ pub async fn get_rules_mixin0(configuration: &configuration::Configuration, ids:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetRulesMixin0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetRulesMixin0Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -582,22 +755,33 @@ pub async fn get_rules_mixin0(configuration: &configuration::Configuration, ids:
     }
 }
 
-pub async fn query_patterns(configuration: &configuration::Configuration, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QueryPatternsError>> {
+pub async fn query_patterns(
+    configuration: &configuration::Configuration,
+    offset: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryPatternsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/queries/pattern-severities/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/queries/pattern-severities/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -612,7 +796,8 @@ pub async fn query_patterns(configuration: &configuration::Configuration, offset
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryPatternsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryPatternsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -622,22 +807,33 @@ pub async fn query_patterns(configuration: &configuration::Configuration, offset
     }
 }
 
-pub async fn query_platforms_mixin0(configuration: &configuration::Configuration, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QueryPlatformsMixin0Error>> {
+pub async fn query_platforms_mixin0(
+    configuration: &configuration::Configuration,
+    offset: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryPlatformsMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/queries/platforms/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/queries/platforms/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -652,7 +848,8 @@ pub async fn query_platforms_mixin0(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryPlatformsMixin0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryPlatformsMixin0Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -662,31 +859,47 @@ pub async fn query_platforms_mixin0(configuration: &configuration::Configuration
     }
 }
 
-pub async fn query_rule_groups_full(configuration: &configuration::Configuration, sort: Option<&str>, filter: Option<&str>, q: Option<&str>, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::ApiRuleGroupsResponse, Error<QueryRuleGroupsFullError>> {
+pub async fn query_rule_groups_full(
+    configuration: &configuration::Configuration,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    q: Option<&str>,
+    offset: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::ApiRuleGroupsResponse, Error<QueryRuleGroupsFullError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/queries/rule-groups-full/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/queries/rule-groups-full/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = q {
         local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -701,7 +914,8 @@ pub async fn query_rule_groups_full(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryRuleGroupsFullError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryRuleGroupsFullError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -711,31 +925,47 @@ pub async fn query_rule_groups_full(configuration: &configuration::Configuration
     }
 }
 
-pub async fn query_rule_groups_mixin0(configuration: &configuration::Configuration, sort: Option<&str>, filter: Option<&str>, q: Option<&str>, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QueryRuleGroupsMixin0Error>> {
+pub async fn query_rule_groups_mixin0(
+    configuration: &configuration::Configuration,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    q: Option<&str>,
+    offset: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryRuleGroupsMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/queries/rule-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/queries/rule-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = q {
         local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -750,7 +980,8 @@ pub async fn query_rule_groups_mixin0(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryRuleGroupsMixin0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryRuleGroupsMixin0Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -760,22 +991,33 @@ pub async fn query_rule_groups_mixin0(configuration: &configuration::Configurati
     }
 }
 
-pub async fn query_rule_types(configuration: &configuration::Configuration, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QueryRuleTypesError>> {
+pub async fn query_rule_types(
+    configuration: &configuration::Configuration,
+    offset: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryRuleTypesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/queries/rule-types/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/queries/rule-types/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -790,7 +1032,8 @@ pub async fn query_rule_types(configuration: &configuration::Configuration, offs
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryRuleTypesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryRuleTypesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -800,31 +1043,47 @@ pub async fn query_rule_types(configuration: &configuration::Configuration, offs
     }
 }
 
-pub async fn query_rules_mixin0(configuration: &configuration::Configuration, sort: Option<&str>, filter: Option<&str>, q: Option<&str>, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QueryRulesMixin0Error>> {
+pub async fn query_rules_mixin0(
+    configuration: &configuration::Configuration,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    q: Option<&str>,
+    offset: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryRulesMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/queries/rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/queries/rules/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = q {
         local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -839,7 +1098,8 @@ pub async fn query_rules_mixin0(configuration: &configuration::Configuration, so
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryRulesMixin0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryRulesMixin0Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -849,16 +1109,24 @@ pub async fn query_rules_mixin0(configuration: &configuration::Configuration, so
     }
 }
 
-pub async fn update_rule_group_mixin0(configuration: &configuration::Configuration, body: crate::models::ApiRuleGroupModifyRequestV1) -> Result<crate::models::ApiRuleGroupsResponse, Error<UpdateRuleGroupMixin0Error>> {
+pub async fn update_rule_group_mixin0(
+    configuration: &configuration::Configuration,
+    body: crate::models::ApiRuleGroupModifyRequestV1,
+) -> Result<crate::models::ApiRuleGroupsResponse, Error<UpdateRuleGroupMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rule-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/entities/rule-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -874,7 +1142,8 @@ pub async fn update_rule_group_mixin0(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateRuleGroupMixin0Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateRuleGroupMixin0Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -884,16 +1153,24 @@ pub async fn update_rule_group_mixin0(configuration: &configuration::Configurati
     }
 }
 
-pub async fn update_rules(configuration: &configuration::Configuration, body: crate::models::ApiRuleUpdatesRequestV1) -> Result<crate::models::ApiRulesResponse, Error<UpdateRulesError>> {
+pub async fn update_rules(
+    configuration: &configuration::Configuration,
+    body: crate::models::ApiRuleUpdatesRequestV1,
+) -> Result<crate::models::ApiRulesResponse, Error<UpdateRulesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/entities/rules/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -909,7 +1186,8 @@ pub async fn update_rules(configuration: &configuration::Configuration, body: cr
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateRulesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateRulesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -919,16 +1197,24 @@ pub async fn update_rules(configuration: &configuration::Configuration, body: cr
     }
 }
 
-pub async fn validate(configuration: &configuration::Configuration, body: crate::models::ApiValidationRequestV1) -> Result<crate::models::ApiValidationResponseV1, Error<ValidateError>> {
+pub async fn validate(
+    configuration: &configuration::Configuration,
+    body: crate::models::ApiValidationRequestV1,
+) -> Result<crate::models::ApiValidationResponseV1, Error<ValidateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioarules/entities/rules/validate/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioarules/entities/rules/validate/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());

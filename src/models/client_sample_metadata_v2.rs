@@ -18,6 +18,9 @@ pub struct ClientSampleMetadataV2 {
 
 impl ClientSampleMetadataV2 {
     pub fn new(sha256: String) -> ClientSampleMetadataV2 {
-        ClientSampleMetadataV2 { file_name: None, sha256 }
+        ClientSampleMetadataV2 {
+            file_name: None,
+            sha256,
+        }
     }
 }

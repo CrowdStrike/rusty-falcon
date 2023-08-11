@@ -19,7 +19,14 @@ pub struct FwmgrApiQueryResponse {
 }
 
 impl FwmgrApiQueryResponse {
-    pub fn new(meta: crate::models::FwmgrApiMetaInfo, resources: Vec<String>) -> FwmgrApiQueryResponse {
-        FwmgrApiQueryResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::FwmgrApiMetaInfo,
+        resources: Vec<String>,
+    ) -> FwmgrApiQueryResponse {
+        FwmgrApiQueryResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

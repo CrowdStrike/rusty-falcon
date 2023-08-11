@@ -31,7 +31,15 @@ pub struct MessagesActivity {
 }
 
 impl MessagesActivity {
-    pub fn new(body: String, case_id: String, cid: String, created_by: crate::models::MessagesAuthor, created_time: String, id: String, _type: String) -> MessagesActivity {
+    pub fn new(
+        body: String,
+        case_id: String,
+        cid: String,
+        created_by: crate::models::MessagesAuthor,
+        created_time: String,
+        id: String,
+        _type: String,
+    ) -> MessagesActivity {
         MessagesActivity {
             body,
             case_id,

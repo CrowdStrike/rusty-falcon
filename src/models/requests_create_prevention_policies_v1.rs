@@ -19,7 +19,9 @@ pub struct RequestsCreatePreventionPoliciesV1 {
 
 impl RequestsCreatePreventionPoliciesV1 {
     /// A req to create prevention policies
-    pub fn new(resources: Vec<crate::models::RequestsCreatePreventionPolicyV1>) -> RequestsCreatePreventionPoliciesV1 {
+    pub fn new(
+        resources: Vec<crate::models::RequestsCreatePreventionPolicyV1>,
+    ) -> RequestsCreatePreventionPoliciesV1 {
         RequestsCreatePreventionPoliciesV1 { resources }
     }
 }

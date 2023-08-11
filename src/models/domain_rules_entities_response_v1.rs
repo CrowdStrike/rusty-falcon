@@ -21,7 +21,15 @@ pub struct DomainRulesEntitiesResponseV1 {
 }
 
 impl DomainRulesEntitiesResponseV1 {
-    pub fn new(errors: Vec<crate::models::DomainReconApiError>, meta: crate::models::DomainRuleMetaInfo, resources: Vec<crate::models::SadomainRule>) -> DomainRulesEntitiesResponseV1 {
-        DomainRulesEntitiesResponseV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::DomainReconApiError>,
+        meta: crate::models::DomainRuleMetaInfo,
+        resources: Vec<crate::models::SadomainRule>,
+    ) -> DomainRulesEntitiesResponseV1 {
+        DomainRulesEntitiesResponseV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

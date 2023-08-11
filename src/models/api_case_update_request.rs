@@ -21,7 +21,17 @@ pub struct ApiCaseUpdateRequest {
 }
 
 impl ApiCaseUpdateRequest {
-    pub fn new(body: String, detections: Vec<crate::models::MessagesDetection>, id: String, incidents: Vec<crate::models::MessagesIncident>) -> ApiCaseUpdateRequest {
-        ApiCaseUpdateRequest { body, detections, id, incidents }
+    pub fn new(
+        body: String,
+        detections: Vec<crate::models::MessagesDetection>,
+        id: String,
+        incidents: Vec<crate::models::MessagesIncident>,
+    ) -> ApiCaseUpdateRequest {
+        ApiCaseUpdateRequest {
+            body,
+            detections,
+            id,
+            incidents,
+        }
     }
 }

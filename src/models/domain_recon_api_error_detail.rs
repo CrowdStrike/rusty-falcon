@@ -20,6 +20,10 @@ pub struct DomainReconApiErrorDetail {
 
 impl DomainReconApiErrorDetail {
     pub fn new(field: String, message: String, message_key: String) -> DomainReconApiErrorDetail {
-        DomainReconApiErrorDetail { field, message, message_key }
+        DomainReconApiErrorDetail {
+            field,
+            message,
+            message_key,
+        }
     }
 }

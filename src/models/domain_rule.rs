@@ -37,7 +37,16 @@ pub struct DomainRule {
 }
 
 impl DomainRule {
-    pub fn new(categories: Vec<String>, created_date: String, customer_id: String, id: String, name: String, rule_type: String, updated_date: String, value: String) -> DomainRule {
+    pub fn new(
+        categories: Vec<String>,
+        created_date: String,
+        customer_id: String,
+        id: String,
+        name: String,
+        rule_type: String,
+        updated_date: String,
+        value: String,
+    ) -> DomainRule {
         DomainRule {
             categories,
             created_date,

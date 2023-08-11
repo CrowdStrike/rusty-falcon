@@ -19,7 +19,14 @@ pub struct DomainSpapiRemediationEntitiesResponseV2 {
 }
 
 impl DomainSpapiRemediationEntitiesResponseV2 {
-    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainApiRemediationV2>) -> DomainSpapiRemediationEntitiesResponseV2 {
-        DomainSpapiRemediationEntitiesResponseV2 { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainApiRemediationV2>,
+    ) -> DomainSpapiRemediationEntitiesResponseV2 {
+        DomainSpapiRemediationEntitiesResponseV2 {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

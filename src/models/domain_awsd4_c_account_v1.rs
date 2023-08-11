@@ -17,7 +17,10 @@ pub struct DomainAwsd4CAccountV1 {
     pub cid: Option<String>,
     #[serde(rename = "iam_role_arn", skip_serializing_if = "Option::is_none")]
     pub iam_role_arn: Option<String>,
-    #[serde(rename = "intermediate_role_arn", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "intermediate_role_arn",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub intermediate_role_arn: Option<String>,
     #[serde(rename = "organization", skip_serializing_if = "Option::is_none")]
     pub organization: Option<Box<crate::models::DomainAwsd4COrganizationAccountV1>>,

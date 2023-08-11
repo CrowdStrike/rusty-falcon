@@ -19,7 +19,15 @@ pub struct MsaQueryResponse {
 }
 
 impl MsaQueryResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> MsaQueryResponse {
-        MsaQueryResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<String>,
+    ) -> MsaQueryResponse {
+        MsaQueryResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

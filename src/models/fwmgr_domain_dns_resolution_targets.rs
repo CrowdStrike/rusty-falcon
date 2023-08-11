@@ -15,7 +15,9 @@ pub struct FwmgrDomainDnsResolutionTargets {
 }
 
 impl FwmgrDomainDnsResolutionTargets {
-    pub fn new(targets: Vec<crate::models::FwmgrDomainDnsTarget>) -> FwmgrDomainDnsResolutionTargets {
+    pub fn new(
+        targets: Vec<crate::models::FwmgrDomainDnsTarget>,
+    ) -> FwmgrDomainDnsResolutionTargets {
         FwmgrDomainDnsResolutionTargets { targets }
     }
 }

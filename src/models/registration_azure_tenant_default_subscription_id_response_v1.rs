@@ -19,7 +19,11 @@ pub struct RegistrationAzureTenantDefaultSubscriptionIdResponseV1 {
 }
 
 impl RegistrationAzureTenantDefaultSubscriptionIdResponseV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: crate::models::Resources) -> RegistrationAzureTenantDefaultSubscriptionIdResponseV1 {
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: crate::models::Resources,
+    ) -> RegistrationAzureTenantDefaultSubscriptionIdResponseV1 {
         RegistrationAzureTenantDefaultSubscriptionIdResponseV1 {
             errors,
             meta: Box::new(meta),

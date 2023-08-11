@@ -18,6 +18,9 @@ pub struct FalconxAssociatedRuntime {
 
 impl FalconxAssociatedRuntime {
     pub fn new() -> FalconxAssociatedRuntime {
-        FalconxAssociatedRuntime { name: None, pid: None }
+        FalconxAssociatedRuntime {
+            name: None,
+            pid: None,
+        }
     }
 }

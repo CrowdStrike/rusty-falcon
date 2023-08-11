@@ -20,21 +20,42 @@ pub struct DomainECrimeKillChain {
     pub marketing: Option<String>,
     #[serde(rename = "monetization", skip_serializing_if = "Option::is_none")]
     pub monetization: Option<String>,
-    #[serde(rename = "rich_text_attribution", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rich_text_attribution",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rich_text_attribution: Option<String>,
     #[serde(rename = "rich_text_crimes", skip_serializing_if = "Option::is_none")]
     pub rich_text_crimes: Option<String>,
-    #[serde(rename = "rich_text_customers", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rich_text_customers",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rich_text_customers: Option<String>,
-    #[serde(rename = "rich_text_marketing", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rich_text_marketing",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rich_text_marketing: Option<String>,
-    #[serde(rename = "rich_text_monetization", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rich_text_monetization",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rich_text_monetization: Option<String>,
-    #[serde(rename = "rich_text_services_offered", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rich_text_services_offered",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rich_text_services_offered: Option<String>,
-    #[serde(rename = "rich_text_services_used", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rich_text_services_used",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rich_text_services_used: Option<String>,
-    #[serde(rename = "rich_text_technical_tradecraft", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rich_text_technical_tradecraft",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rich_text_technical_tradecraft: Option<String>,
     #[serde(rename = "rich_text_victims", skip_serializing_if = "Option::is_none")]
     pub rich_text_victims: Option<String>,
@@ -42,7 +63,10 @@ pub struct DomainECrimeKillChain {
     pub services_offered: Option<String>,
     #[serde(rename = "services_used", skip_serializing_if = "Option::is_none")]
     pub services_used: Option<String>,
-    #[serde(rename = "technical_tradecraft", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "technical_tradecraft",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub technical_tradecraft: Option<String>,
     #[serde(rename = "victims", skip_serializing_if = "Option::is_none")]
     pub victims: Option<String>,

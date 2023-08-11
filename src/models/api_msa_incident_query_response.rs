@@ -19,7 +19,15 @@ pub struct ApiMsaIncidentQueryResponse {
 }
 
 impl ApiMsaIncidentQueryResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<serde_json::Value>) -> ApiMsaIncidentQueryResponse {
-        ApiMsaIncidentQueryResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<serde_json::Value>,
+    ) -> ApiMsaIncidentQueryResponse {
+        ApiMsaIncidentQueryResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

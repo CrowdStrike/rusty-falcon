@@ -20,6 +20,10 @@ pub struct DomainScanProfileMetadata {
 
 impl DomainScanProfileMetadata {
     pub fn new(host_id: String) -> DomainScanProfileMetadata {
-        DomainScanProfileMetadata { host_id, last_updated: None, status: None }
+        DomainScanProfileMetadata {
+            host_id,
+            last_updated: None,
+            status: None,
+        }
     }
 }

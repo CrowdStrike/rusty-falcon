@@ -18,6 +18,9 @@ pub struct ApiPostEnrollmentDetails {
 
 impl ApiPostEnrollmentDetails {
     pub fn new(email_addresses: Vec<String>, expires_at: String) -> ApiPostEnrollmentDetails {
-        ApiPostEnrollmentDetails { email_addresses, expires_at }
+        ApiPostEnrollmentDetails {
+            email_addresses,
+            expires_at,
+        }
     }
 }

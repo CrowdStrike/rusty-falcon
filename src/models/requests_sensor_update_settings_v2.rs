@@ -14,15 +14,24 @@ pub struct RequestsSensorUpdateSettingsV2 {
     #[serde(rename = "build", skip_serializing_if = "Option::is_none")]
     pub build: Option<String>,
     /// The uninstall protection state to apply to the policy
-    #[serde(rename = "uninstall_protection", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "uninstall_protection",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub uninstall_protection: Option<UninstallProtection>,
     #[serde(rename = "variants")]
     pub variants: Vec<crate::models::RequestsSensorUpdateBuildV1>,
 }
 
 impl RequestsSensorUpdateSettingsV2 {
-    pub fn new(variants: Vec<crate::models::RequestsSensorUpdateBuildV1>) -> RequestsSensorUpdateSettingsV2 {
-        RequestsSensorUpdateSettingsV2 { build: None, uninstall_protection: None, variants }
+    pub fn new(
+        variants: Vec<crate::models::RequestsSensorUpdateBuildV1>,
+    ) -> RequestsSensorUpdateSettingsV2 {
+        RequestsSensorUpdateSettingsV2 {
+            build: None,
+            uninstall_protection: None,
+            variants,
+        }
     }
 }
 

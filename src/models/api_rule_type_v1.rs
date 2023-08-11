@@ -29,7 +29,16 @@ pub struct ApiRuleTypeV1 {
 }
 
 impl ApiRuleTypeV1 {
-    pub fn new(channel: i32, disposition_map: Vec<crate::models::DomainDisposition>, fields: Vec<crate::models::DomainField>, id: String, long_desc: String, name: String, platform: String, released: bool) -> ApiRuleTypeV1 {
+    pub fn new(
+        channel: i32,
+        disposition_map: Vec<crate::models::DomainDisposition>,
+        fields: Vec<crate::models::DomainField>,
+        id: String,
+        long_desc: String,
+        name: String,
+        platform: String,
+        released: bool,
+    ) -> ApiRuleTypeV1 {
         ApiRuleTypeV1 {
             channel,
             disposition_map,

@@ -21,7 +21,14 @@ pub struct MalqueryExternalQueryResponse {
 }
 
 impl MalqueryExternalQueryResponse {
-    pub fn new(meta: crate::models::MalqueryQueryMetaInfo, resources: Vec<crate::models::MalqueryExternalResource>) -> MalqueryExternalQueryResponse {
-        MalqueryExternalQueryResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::MalqueryQueryMetaInfo,
+        resources: Vec<crate::models::MalqueryExternalResource>,
+    ) -> MalqueryExternalQueryResponse {
+        MalqueryExternalQueryResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

@@ -73,17 +73,25 @@ pub enum UpdateQuarantinedDetectsByIdsError {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn action_update_count(configuration: &configuration::Configuration, filter: &str) -> Result<crate::models::MsaAggregatesResponse, Error<ActionUpdateCountError>> {
+pub async fn action_update_count(
+    configuration: &configuration::Configuration,
+    filter: &str,
+) -> Result<crate::models::MsaAggregatesResponse, Error<ActionUpdateCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/quarantine/aggregates/action-update-count/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/quarantine/aggregates/action-update-count/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("filter", &filter.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -98,7 +106,8 @@ pub async fn action_update_count(configuration: &configuration::Configuration, f
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ActionUpdateCountError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ActionUpdateCountError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -108,16 +117,24 @@ pub async fn action_update_count(configuration: &configuration::Configuration, f
     }
 }
 
-pub async fn get_aggregate_files(configuration: &configuration::Configuration, body: crate::models::MsaAggregateQueryRequest) -> Result<crate::models::MsaAggregatesResponse, Error<GetAggregateFilesError>> {
+pub async fn get_aggregate_files(
+    configuration: &configuration::Configuration,
+    body: crate::models::MsaAggregateQueryRequest,
+) -> Result<crate::models::MsaAggregatesResponse, Error<GetAggregateFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/quarantine/aggregates/quarantined-files/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/quarantine/aggregates/quarantined-files/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -133,7 +150,8 @@ pub async fn get_aggregate_files(configuration: &configuration::Configuration, b
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetAggregateFilesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetAggregateFilesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -143,16 +161,24 @@ pub async fn get_aggregate_files(configuration: &configuration::Configuration, b
     }
 }
 
-pub async fn get_quarantine_files(configuration: &configuration::Configuration, body: crate::models::MsaIdsRequest) -> Result<crate::models::DomainMsaQfResponse, Error<GetQuarantineFilesError>> {
+pub async fn get_quarantine_files(
+    configuration: &configuration::Configuration,
+    body: crate::models::MsaIdsRequest,
+) -> Result<crate::models::DomainMsaQfResponse, Error<GetQuarantineFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/quarantine/entities/quarantined-files/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/quarantine/entities/quarantined-files/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -168,7 +194,8 @@ pub async fn get_quarantine_files(configuration: &configuration::Configuration, 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetQuarantineFilesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetQuarantineFilesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -178,31 +205,47 @@ pub async fn get_quarantine_files(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn query_quarantine_files(configuration: &configuration::Configuration, offset: Option<&str>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, q: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QueryQuarantineFilesError>> {
+pub async fn query_quarantine_files(
+    configuration: &configuration::Configuration,
+    offset: Option<&str>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    q: Option<&str>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryQuarantineFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/quarantine/queries/quarantined-files/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/quarantine/queries/quarantined-files/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = q {
         local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -217,7 +260,8 @@ pub async fn query_quarantine_files(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryQuarantineFilesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryQuarantineFilesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -227,16 +271,24 @@ pub async fn query_quarantine_files(configuration: &configuration::Configuration
     }
 }
 
-pub async fn update_qf_by_query(configuration: &configuration::Configuration, body: crate::models::DomainQueriesPatchRequest) -> Result<crate::models::MsaReplyMetaOnly, Error<UpdateQfByQueryError>> {
+pub async fn update_qf_by_query(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainQueriesPatchRequest,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<UpdateQfByQueryError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/quarantine/queries/quarantined-files/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/quarantine/queries/quarantined-files/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -252,7 +304,8 @@ pub async fn update_qf_by_query(configuration: &configuration::Configuration, bo
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateQfByQueryError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateQfByQueryError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -262,16 +315,24 @@ pub async fn update_qf_by_query(configuration: &configuration::Configuration, bo
     }
 }
 
-pub async fn update_quarantined_detects_by_ids(configuration: &configuration::Configuration, body: crate::models::DomainEntitiesPatchRequest) -> Result<crate::models::MsaReplyMetaOnly, Error<UpdateQuarantinedDetectsByIdsError>> {
+pub async fn update_quarantined_detects_by_ids(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainEntitiesPatchRequest,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<UpdateQuarantinedDetectsByIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/quarantine/entities/quarantined-files/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/quarantine/entities/quarantined-files/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -287,7 +348,8 @@ pub async fn update_quarantined_detects_by_ids(configuration: &configuration::Co
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateQuarantinedDetectsByIdsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateQuarantinedDetectsByIdsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

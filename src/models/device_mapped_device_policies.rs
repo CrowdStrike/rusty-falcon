@@ -22,7 +22,10 @@ pub struct DeviceMappedDevicePolicies {
     pub firewall: Option<Box<crate::models::DeviceDevicePolicy>>,
     #[serde(rename = "global_config", skip_serializing_if = "Option::is_none")]
     pub global_config: Option<Box<crate::models::DeviceDevicePolicy>>,
-    #[serde(rename = "identity-protection", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "identity-protection",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub identity_protection: Option<Box<crate::models::DeviceDevicePolicy>>,
     #[serde(rename = "jumpcloud", skip_serializing_if = "Option::is_none")]
     pub jumpcloud: Option<Box<crate::models::DeviceDevicePolicy>>,

@@ -19,7 +19,15 @@ pub struct RegistrationGcpAccountResponseV1 {
 }
 
 impl RegistrationGcpAccountResponseV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainGcpAccountV1>) -> RegistrationGcpAccountResponseV1 {
-        RegistrationGcpAccountResponseV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainGcpAccountV1>,
+    ) -> RegistrationGcpAccountResponseV1 {
+        RegistrationGcpAccountResponseV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

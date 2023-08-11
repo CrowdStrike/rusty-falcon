@@ -21,7 +21,12 @@ pub struct DetectsParentDetails {
 }
 
 impl DetectsParentDetails {
-    pub fn new(parent_cmdline: String, parent_md5: String, parent_process_graph_id: String, parent_sha256: String) -> DetectsParentDetails {
+    pub fn new(
+        parent_cmdline: String,
+        parent_md5: String,
+        parent_process_graph_id: String,
+        parent_sha256: String,
+    ) -> DetectsParentDetails {
         DetectsParentDetails {
             parent_cmdline,
             parent_md5,

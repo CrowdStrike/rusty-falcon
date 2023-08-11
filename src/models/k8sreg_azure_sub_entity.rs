@@ -18,6 +18,9 @@ pub struct K8sregAzureSubEntity {
 
 impl K8sregAzureSubEntity {
     pub fn new(subscription_id: String, tenant_id: String) -> K8sregAzureSubEntity {
-        K8sregAzureSubEntity { subscription_id, tenant_id }
+        K8sregAzureSubEntity {
+            subscription_id,
+            tenant_id,
+        }
     }
 }

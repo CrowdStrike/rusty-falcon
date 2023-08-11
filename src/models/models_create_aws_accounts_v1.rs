@@ -15,7 +15,9 @@ pub struct ModelsCreateAwsAccountsV1 {
 }
 
 impl ModelsCreateAwsAccountsV1 {
-    pub fn new(resources: Vec<crate::models::ModelsAwsAccountRequestV1>) -> ModelsCreateAwsAccountsV1 {
+    pub fn new(
+        resources: Vec<crate::models::ModelsAwsAccountRequestV1>,
+    ) -> ModelsCreateAwsAccountsV1 {
         ModelsCreateAwsAccountsV1 { resources }
     }
 }

@@ -17,7 +17,12 @@ pub struct MalqueryFuzzySearchParametersV1 {
 }
 
 impl MalqueryFuzzySearchParametersV1 {
-    pub fn new(patterns: Vec<crate::models::MalquerySearchParameter>) -> MalqueryFuzzySearchParametersV1 {
-        MalqueryFuzzySearchParametersV1 { options: None, patterns }
+    pub fn new(
+        patterns: Vec<crate::models::MalquerySearchParameter>,
+    ) -> MalqueryFuzzySearchParametersV1 {
+        MalqueryFuzzySearchParametersV1 {
+            options: None,
+            patterns,
+        }
     }
 }

@@ -23,7 +23,13 @@ pub struct DomainSignalProperty {
 }
 
 impl DomainSignalProperty {
-    pub fn new(criteria: String, group_name: String, meets_criteria: String, signal_id: String, signal_name: String) -> DomainSignalProperty {
+    pub fn new(
+        criteria: String,
+        group_name: String,
+        meets_criteria: String,
+        signal_id: String,
+        signal_name: String,
+    ) -> DomainSignalProperty {
         DomainSignalProperty {
             criteria,
             group_name,

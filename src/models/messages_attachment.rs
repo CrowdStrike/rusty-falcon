@@ -25,7 +25,21 @@ pub struct MessagesAttachment {
 }
 
 impl MessagesAttachment {
-    pub fn new(created_by: String, created_time: String, id: String, mime_type: String, name: String, size: i32) -> MessagesAttachment {
-        MessagesAttachment { created_by, created_time, id, mime_type, name, size }
+    pub fn new(
+        created_by: String,
+        created_time: String,
+        id: String,
+        mime_type: String,
+        name: String,
+        size: i32,
+    ) -> MessagesAttachment {
+        MessagesAttachment {
+            created_by,
+            created_time,
+            id,
+            mime_type,
+            name,
+            size,
+        }
     }
 }

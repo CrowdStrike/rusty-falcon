@@ -15,7 +15,9 @@ pub struct ModelsModifyAwsCustomerSettingsV1 {
 }
 
 impl ModelsModifyAwsCustomerSettingsV1 {
-    pub fn new(resources: Vec<crate::models::ModelsAwsCustomerSettingsRequestV1>) -> ModelsModifyAwsCustomerSettingsV1 {
+    pub fn new(
+        resources: Vec<crate::models::ModelsAwsCustomerSettingsRequestV1>,
+    ) -> ModelsModifyAwsCustomerSettingsV1 {
         ModelsModifyAwsCustomerSettingsV1 { resources }
     }
 }

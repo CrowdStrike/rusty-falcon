@@ -7,7 +7,9 @@ use std::fmt;
 
 #[tokio::main]
 async fn main() {
-    let falcon = FalconHandle::from_env().await.expect("Could not authenticate with CrowdStrike API");
+    let falcon = FalconHandle::from_env()
+        .await
+        .expect("Could not authenticate with CrowdStrike API");
 
     // Learn about available filters at https://falcon.crowdstrike.com/documentation/98/spotlight-apis#spotlight-api-filter-parameters
     let filter = "status:'open'";
@@ -17,7 +19,14 @@ async fn main() {
     print!("[");
     let mut empty = true;
     loop {
-        let response = get_vulnerabilities(&falcon.cfg, order, filter, after.as_ref().map(String::as_str)).await.expect("Could not list vulnerabilities");
+        let response = get_vulnerabilities(
+            &falcon.cfg,
+            order,
+            filter,
+            after.as_ref().map(String::as_str),
+        )
+        .await
+        .expect("Could not list vulnerabilities");
 
         if response.resources.is_empty() {
             break;
@@ -41,14 +50,31 @@ async fn main() {
     print!("]")
 }
 
-async fn get_vulnerabilities(cfg: &configuration::Configuration, sort: Option<&str>, filter: &str, after: Option<&str>) -> Result<models::DomainSpapiCombinedVulnerabilitiesResponse, Box<dyn error::Error>> {
-    let mut response = spotlight_vulnerabilities_api::combined_query_vulnerabilities(cfg, filter, after, Some(5000), sort, None).await?;
+async fn get_vulnerabilities(
+    cfg: &configuration::Configuration,
+    sort: Option<&str>,
+    filter: &str,
+    after: Option<&str>,
+) -> Result<models::DomainSpapiCombinedVulnerabilitiesResponse, Box<dyn error::Error>> {
+    let mut response = spotlight_vulnerabilities_api::combined_query_vulnerabilities(
+        cfg,
+        filter,
+        after,
+        Some(5000),
+        sort,
+        None,
+    )
+    .await?;
     let errors = match response.errors {
         None => Vec::new(),
         Some(errors) => errors,
     };
     if !errors.is_empty() {
-        return Err(ApiError(format!("while listing Spotlight Vulnerabilities: '{:?}'", errors)).into());
+        return Err(ApiError(format!(
+            "while listing Spotlight Vulnerabilities: '{:?}'",
+            errors
+        ))
+        .into());
     }
     response.errors = None;
     return Ok(response);

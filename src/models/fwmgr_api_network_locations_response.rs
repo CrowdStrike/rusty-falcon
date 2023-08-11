@@ -19,7 +19,14 @@ pub struct FwmgrApiNetworkLocationsResponse {
 }
 
 impl FwmgrApiNetworkLocationsResponse {
-    pub fn new(meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<crate::models::FwmgrApiNetworkLocationsV1>) -> FwmgrApiNetworkLocationsResponse {
-        FwmgrApiNetworkLocationsResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::FwmgrMsaspecMetaInfo,
+        resources: Vec<crate::models::FwmgrApiNetworkLocationsV1>,
+    ) -> FwmgrApiNetworkLocationsResponse {
+        FwmgrApiNetworkLocationsResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }
