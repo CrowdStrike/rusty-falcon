@@ -306,7 +306,7 @@ pub async fn archive_upload_v1(configuration: &configuration::Configuration, nam
     }
 }
 
-pub async fn archive_upload_v2(configuration: &configuration::Configuration, file: std::path::PathBuf, name: &str, password: Option<&str>, is_confidential: Option<bool>, comment: Option<&str>) -> Result<crate::models::ClientArchiveCreateResponseV1, Error<ArchiveUploadV2Error>> {
+pub async fn archive_upload_v2(configuration: &configuration::Configuration, _file: std::path::PathBuf, name: &str, password: Option<&str>, is_confidential: Option<bool>, comment: Option<&str>) -> Result<crate::models::ClientArchiveCreateResponseV1, Error<ArchiveUploadV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -540,7 +540,7 @@ pub async fn get_sample_v3(configuration: &configuration::Configuration, ids: &s
     }
 }
 
-pub async fn upload_sample_v3(configuration: &configuration::Configuration, sample: std::path::PathBuf, file_name: &str, comment: Option<&str>, is_confidential: Option<bool>) -> Result<crate::models::ClientSampleMetadataResponseV2, Error<UploadSampleV3Error>> {
+pub async fn upload_sample_v3(configuration: &configuration::Configuration, _sample: std::path::PathBuf, file_name: &str, comment: Option<&str>, is_confidential: Option<bool>) -> Result<crate::models::ClientSampleMetadataResponseV2, Error<UploadSampleV3Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

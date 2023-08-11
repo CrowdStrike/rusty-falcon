@@ -18,20 +18,20 @@ impl FalconHandle {
             ..Default::default()
         };
 
-        let mut handle = FalconHandle { creds: creds, cfg: configuration };
+        let mut handle = FalconHandle { creds, cfg: configuration };
         handle.authenticate().await?;
 
-        return Ok(handle);
+        Ok(handle)
     }
 
     pub async fn authenticate(&mut self) -> Result<(), Error<Oauth2AccessTokenError>> {
         let response = oauth2_access_token(&self.cfg, &self.creds.falcon_client_id, &self.creds.falcon_client_secret, self.creds.falcon_member_cid.as_ref().map(String::as_ref)).await?;
         self.cfg.oauth_access_token = Some(response.access_token);
-        return Ok(());
+        Ok(())
     }
 
     pub async fn from_env() -> Result<Self, Box<dyn std::error::Error>> {
-        return Ok(FalconHandle::from_cfg(Credentials::from_env()?).await?);
+        Ok(FalconHandle::from_cfg(Credentials::from_env()?).await?)
     }
 }
 
@@ -60,11 +60,11 @@ impl Credentials {
         })?;
         let member_cid = env::var("FALCON_MEMBER_CID").ok();
 
-        return Ok(Credentials {
+        Ok(Credentials {
             falcon_cloud: FalconCloud::from_env()?,
             falcon_client_id: client_id,
             falcon_client_secret: client_secret,
             falcon_member_cid: member_cid,
-        });
+        })
     }
 }

@@ -203,7 +203,7 @@ pub async fn case_add_activity(configuration: &configuration::Configuration, bod
 }
 
 /// Upload an attachment for the case. Maximum upload size allowed is *15 MB*.   Filename must start with *[a-zA-Z0-9_-]*. Allowed characters in file name are *[a-zA-Z0-9-_.\\s]*.    Maximum file name is *255* characters      Following attachment types are allowed:   - png   - bmp   - jpg   - jpeg   - gif   - pdf   - doc   - docx   - xls   - xlsx   - pptx   - txt   - csv
-pub async fn case_add_attachment(configuration: &configuration::Configuration, case_id: &str, user_uuid: &str, file: std::path::PathBuf) -> Result<crate::models::ApiMessageCenterAttachmentUploadResponse, Error<CaseAddAttachmentError>> {
+pub async fn case_add_attachment(configuration: &configuration::Configuration, case_id: &str, user_uuid: &str, _file: std::path::PathBuf) -> Result<crate::models::ApiMessageCenterAttachmentUploadResponse, Error<CaseAddAttachmentError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
