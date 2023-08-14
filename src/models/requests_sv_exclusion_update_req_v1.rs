@@ -22,6 +22,11 @@ pub struct RequestsSvExclusionUpdateReqV1 {
 
 impl RequestsSvExclusionUpdateReqV1 {
     pub fn new(id: String) -> RequestsSvExclusionUpdateReqV1 {
-        RequestsSvExclusionUpdateReqV1 { comment: None, groups: None, id, value: None }
+        RequestsSvExclusionUpdateReqV1 {
+            comment: None,
+            groups: None,
+            id,
+            value: None,
+        }
     }
 }

@@ -17,7 +17,13 @@ pub struct FwmgrApiNetworkLocationModifyPrecedenceRequestV1 {
 }
 
 impl FwmgrApiNetworkLocationModifyPrecedenceRequestV1 {
-    pub fn new(cid: String, location_precedence: Vec<String>) -> FwmgrApiNetworkLocationModifyPrecedenceRequestV1 {
-        FwmgrApiNetworkLocationModifyPrecedenceRequestV1 { cid, location_precedence }
+    pub fn new(
+        cid: String,
+        location_precedence: Vec<String>,
+    ) -> FwmgrApiNetworkLocationModifyPrecedenceRequestV1 {
+        FwmgrApiNetworkLocationModifyPrecedenceRequestV1 {
+            cid,
+            location_precedence,
+        }
     }
 }

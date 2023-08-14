@@ -23,6 +23,10 @@ pub struct ApiTokenPatchRequestV1 {
 
 impl ApiTokenPatchRequestV1 {
     pub fn new() -> ApiTokenPatchRequestV1 {
-        ApiTokenPatchRequestV1 { expires_timestamp: None, label: None, revoked: None }
+        ApiTokenPatchRequestV1 {
+            expires_timestamp: None,
+            label: None,
+            revoked: None,
+        }
     }
 }

@@ -58,7 +58,15 @@ pub struct DomainBreachedItemV1 {
 }
 
 impl DomainBreachedItemV1 {
-    pub fn new(domain: String, email: String, hash_type: String, login_id: String, name: String, password: String, phone: String) -> DomainBreachedItemV1 {
+    pub fn new(
+        domain: String,
+        email: String,
+        hash_type: String,
+        login_id: String,
+        name: String,
+        password: String,
+        phone: String,
+    ) -> DomainBreachedItemV1 {
         DomainBreachedItemV1 {
             company: None,
             credentials_ip: None,

@@ -20,6 +20,9 @@ pub struct DomainDiscoverApiBiosHashesData {
 
 impl DomainDiscoverApiBiosHashesData {
     pub fn new() -> DomainDiscoverApiBiosHashesData {
-        DomainDiscoverApiBiosHashesData { measurement_type: None, sha256_hash: None }
+        DomainDiscoverApiBiosHashesData {
+            measurement_type: None,
+            sha256_hash: None,
+        }
     }
 }

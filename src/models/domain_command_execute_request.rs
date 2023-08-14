@@ -25,7 +25,14 @@ pub struct DomainCommandExecuteRequest {
 }
 
 impl DomainCommandExecuteRequest {
-    pub fn new(base_command: String, command_string: String, device_id: String, id: i32, persist: bool, session_id: String) -> DomainCommandExecuteRequest {
+    pub fn new(
+        base_command: String,
+        command_string: String,
+        device_id: String,
+        id: i32,
+        persist: bool,
+        session_id: String,
+    ) -> DomainCommandExecuteRequest {
         DomainCommandExecuteRequest {
             base_command,
             command_string,

@@ -19,7 +19,15 @@ pub struct RegistrationIoaUserResponse {
 }
 
 impl RegistrationIoaUserResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainIoaUser>) -> RegistrationIoaUserResponse {
-        RegistrationIoaUserResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainIoaUser>,
+    ) -> RegistrationIoaUserResponse {
+        RegistrationIoaUserResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

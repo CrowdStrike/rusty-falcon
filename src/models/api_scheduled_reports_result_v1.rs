@@ -19,7 +19,15 @@ pub struct ApiScheduledReportsResultV1 {
 }
 
 impl ApiScheduledReportsResultV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::ApiScheduledReportV1>) -> ApiScheduledReportsResultV1 {
-        ApiScheduledReportsResultV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::ApiScheduledReportV1>,
+    ) -> ApiScheduledReportsResultV1 {
+        ApiScheduledReportsResultV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

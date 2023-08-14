@@ -19,7 +19,9 @@ pub struct RequestsCreateDeviceControlPoliciesV1 {
 
 impl RequestsCreateDeviceControlPoliciesV1 {
     /// A req to create DeviceControl policies
-    pub fn new(resources: Vec<crate::models::RequestsCreateDeviceControlPolicyV1>) -> RequestsCreateDeviceControlPoliciesV1 {
+    pub fn new(
+        resources: Vec<crate::models::RequestsCreateDeviceControlPolicyV1>,
+    ) -> RequestsCreateDeviceControlPoliciesV1 {
         RequestsCreateDeviceControlPoliciesV1 { resources }
     }
 }

@@ -18,6 +18,9 @@ pub struct RegistrationAwsAccountConsoleUrl {
 
 impl RegistrationAwsAccountConsoleUrl {
     pub fn new() -> RegistrationAwsAccountConsoleUrl {
-        RegistrationAwsAccountConsoleUrl { account_id: None, url: None }
+        RegistrationAwsAccountConsoleUrl {
+            account_id: None,
+            url: None,
+        }
     }
 }

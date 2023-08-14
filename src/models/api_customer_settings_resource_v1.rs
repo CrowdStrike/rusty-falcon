@@ -18,6 +18,9 @@ pub struct ApiCustomerSettingsResourceV1 {
 
 impl ApiCustomerSettingsResourceV1 {
     pub fn new(tokens_required: bool) -> ApiCustomerSettingsResourceV1 {
-        ApiCustomerSettingsResourceV1 { max_active_tokens: None, tokens_required }
+        ApiCustomerSettingsResourceV1 {
+            max_active_tokens: None,
+            tokens_required,
+        }
     }
 }

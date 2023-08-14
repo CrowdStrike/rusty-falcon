@@ -21,7 +21,13 @@ pub struct DomainUserActionRequest {
 
 impl DomainUserActionRequest {
     /// ID(s) of users the action(s) are to applied to
-    pub fn new(action: crate::models::DomainUserAction, ids: Vec<String>) -> DomainUserActionRequest {
-        DomainUserActionRequest { action: Box::new(action), ids }
+    pub fn new(
+        action: crate::models::DomainUserAction,
+        ids: Vec<String>,
+    ) -> DomainUserActionRequest {
+        DomainUserActionRequest {
+            action: Box::new(action),
+            ids,
+        }
     }
 }

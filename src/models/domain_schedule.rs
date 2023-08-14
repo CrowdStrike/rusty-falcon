@@ -10,7 +10,10 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainSchedule {
-    #[serde(rename = "ignored_by_channelfile", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "ignored_by_channelfile",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub ignored_by_channelfile: Option<bool>,
     #[serde(rename = "interval", skip_serializing_if = "Option::is_none")]
     pub interval: Option<i32>,

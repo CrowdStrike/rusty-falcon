@@ -25,7 +25,12 @@ pub struct DomainFieldValue {
 }
 
 impl DomainFieldValue {
-    pub fn new(name: String, _type: String, value: String, values: Vec<crate::models::DomainValueItem>) -> DomainFieldValue {
+    pub fn new(
+        name: String,
+        _type: String,
+        value: String,
+        values: Vec<crate::models::DomainValueItem>,
+    ) -> DomainFieldValue {
         DomainFieldValue {
             final_value: None,
             label: None,

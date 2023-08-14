@@ -15,7 +15,9 @@ pub struct RegistrationScanScheduleUpdateRequestV1 {
 }
 
 impl RegistrationScanScheduleUpdateRequestV1 {
-    pub fn new(resources: Vec<crate::models::DomainScanScheduleDataV1>) -> RegistrationScanScheduleUpdateRequestV1 {
+    pub fn new(
+        resources: Vec<crate::models::DomainScanScheduleDataV1>,
+    ) -> RegistrationScanScheduleUpdateRequestV1 {
         RegistrationScanScheduleUpdateRequestV1 { resources }
     }
 }

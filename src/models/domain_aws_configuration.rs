@@ -11,13 +11,19 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainAwsConfiguration {
     /// The 12 digit AWS account which is hosting the centralized S3 bucket containing cloudtrail logs for all accounts.
-    #[serde(rename = "cloudtrail_bucket_owner_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "cloudtrail_bucket_owner_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub cloudtrail_bucket_owner_id: Option<String>,
     /// Timestamp of when the settings were first provisioned within CrowdStrike's system.'
     #[serde(rename = "created_timestamp", skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<String>,
     /// Timestamp of when the settings were last modified.
-    #[serde(rename = "last_modified_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_modified_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_modified_timestamp: Option<String>,
     /// By setting this value, all subsequent accounts that are provisioned will default to using this value as the external ID.
     #[serde(rename = "static_external_id", skip_serializing_if = "Option::is_none")]

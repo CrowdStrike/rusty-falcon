@@ -19,7 +19,14 @@ pub struct FwmgrApiFirewallFieldsResponse {
 }
 
 impl FwmgrApiFirewallFieldsResponse {
-    pub fn new(meta: crate::models::FwmgrMsaMetaInfo, resources: Vec<crate::models::FwmgrApiFirewallFieldsV1>) -> FwmgrApiFirewallFieldsResponse {
-        FwmgrApiFirewallFieldsResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::FwmgrMsaMetaInfo,
+        resources: Vec<crate::models::FwmgrApiFirewallFieldsV1>,
+    ) -> FwmgrApiFirewallFieldsResponse {
+        FwmgrApiFirewallFieldsResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

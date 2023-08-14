@@ -22,6 +22,11 @@ pub struct ApiResponseMeta {
 
 impl ApiResponseMeta {
     pub fn new(query_time: f64, trace_id: String) -> ApiResponseMeta {
-        ApiResponseMeta { entity: None, pagination: None, query_time, trace_id }
+        ApiResponseMeta {
+            entity: None,
+            pagination: None,
+            query_time,
+            trace_id,
+        }
     }
 }

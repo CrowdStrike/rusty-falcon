@@ -22,6 +22,11 @@ pub struct ApiRuleDetailsV1 {
 
 impl ApiRuleDetailsV1 {
     pub fn new(id: String, name: String, priority: String, topic: String) -> ApiRuleDetailsV1 {
-        ApiRuleDetailsV1 { id, name, priority, topic }
+        ApiRuleDetailsV1 {
+            id,
+            name,
+            priority,
+            topic,
+        }
     }
 }

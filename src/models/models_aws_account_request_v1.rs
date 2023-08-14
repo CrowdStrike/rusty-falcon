@@ -11,10 +11,16 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ModelsAwsAccountRequestV1 {
     /// The 12 digit AWS account which is hosting the S3 bucket containing cloudtrail logs for this account. If this field is set, it takes precedence of the settings level field.
-    #[serde(rename = "cloudtrail_bucket_owner_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "cloudtrail_bucket_owner_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub cloudtrail_bucket_owner_id: Option<String>,
     /// Region where the S3 bucket containing cloudtrail logs resides.
-    #[serde(rename = "cloudtrail_bucket_region", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "cloudtrail_bucket_region",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub cloudtrail_bucket_region: Option<String>,
     /// ID assigned for use with cross account IAM role access.
     #[serde(rename = "external_id", skip_serializing_if = "Option::is_none")]

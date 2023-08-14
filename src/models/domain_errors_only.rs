@@ -17,7 +17,13 @@ pub struct DomainErrorsOnly {
 }
 
 impl DomainErrorsOnly {
-    pub fn new(errors: Vec<crate::models::DomainReconApiError>, meta: crate::models::MsaMetaInfo) -> DomainErrorsOnly {
-        DomainErrorsOnly { errors, meta: Box::new(meta) }
+    pub fn new(
+        errors: Vec<crate::models::DomainReconApiError>,
+        meta: crate::models::MsaMetaInfo,
+    ) -> DomainErrorsOnly {
+        DomainErrorsOnly {
+            errors,
+            meta: Box::new(meta),
+        }
     }
 }

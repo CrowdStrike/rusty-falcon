@@ -19,7 +19,15 @@ pub struct DomainDeviceDetailsResponseSwagger {
 }
 
 impl DomainDeviceDetailsResponseSwagger {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainDeviceSwagger>) -> DomainDeviceDetailsResponseSwagger {
-        DomainDeviceDetailsResponseSwagger { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainDeviceSwagger>,
+    ) -> DomainDeviceDetailsResponseSwagger {
+        DomainDeviceDetailsResponseSwagger {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

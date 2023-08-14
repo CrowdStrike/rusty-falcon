@@ -34,7 +34,15 @@ pub struct DomainUpdateRuleRequestV1 {
 }
 
 impl DomainUpdateRuleRequestV1 {
-    pub fn new(breach_monitoring_enabled: bool, filter: String, id: String, name: String, permissions: String, priority: String, substring_matching_enabled: bool) -> DomainUpdateRuleRequestV1 {
+    pub fn new(
+        breach_monitoring_enabled: bool,
+        filter: String,
+        id: String,
+        name: String,
+        permissions: String,
+        priority: String,
+        substring_matching_enabled: bool,
+    ) -> DomainUpdateRuleRequestV1 {
         DomainUpdateRuleRequestV1 {
             breach_monitoring_enabled,
             filter,

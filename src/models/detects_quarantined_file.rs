@@ -22,6 +22,11 @@ pub struct DetectsQuarantinedFile {
 
 impl DetectsQuarantinedFile {
     pub fn new() -> DetectsQuarantinedFile {
-        DetectsQuarantinedFile { id: None, paths: None, sha256: None, state: None }
+        DetectsQuarantinedFile {
+            id: None,
+            paths: None,
+            sha256: None,
+            state: None,
+        }
     }
 }

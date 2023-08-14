@@ -19,7 +19,14 @@ pub struct DomainSpapiCombinedVulnerabilitiesResponse {
 }
 
 impl DomainSpapiCombinedVulnerabilitiesResponse {
-    pub fn new(meta: crate::models::DomainSpapiQueryMeta, resources: Vec<crate::models::DomainBaseApiVulnerabilityV2>) -> DomainSpapiCombinedVulnerabilitiesResponse {
-        DomainSpapiCombinedVulnerabilitiesResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::DomainSpapiQueryMeta,
+        resources: Vec<crate::models::DomainBaseApiVulnerabilityV2>,
+    ) -> DomainSpapiCombinedVulnerabilitiesResponse {
+        DomainSpapiCombinedVulnerabilitiesResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

@@ -20,7 +20,15 @@ pub struct ResponsesHostGroupsV1 {
 }
 
 impl ResponsesHostGroupsV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::ResponsesHostGroupV1>) -> ResponsesHostGroupsV1 {
-        ResponsesHostGroupsV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::ResponsesHostGroupV1>,
+    ) -> ResponsesHostGroupsV1 {
+        ResponsesHostGroupsV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

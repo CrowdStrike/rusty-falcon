@@ -14,7 +14,10 @@ pub struct BinservclientRemoteCommandPutFile {
     pub bucket: Option<String>,
     #[serde(rename = "cid", skip_serializing_if = "Option::is_none")]
     pub cid: Option<String>,
-    #[serde(rename = "comments_for_audit_log", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "comments_for_audit_log",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub comments_for_audit_log: Option<String>,
     #[serde(rename = "content", skip_serializing_if = "Option::is_none")]
     pub content: Option<String>,
@@ -57,7 +60,10 @@ pub struct BinservclientRemoteCommandPutFile {
 }
 
 impl BinservclientRemoteCommandPutFile {
-    pub fn new(run_attempt_count: i32, run_success_count: i32) -> BinservclientRemoteCommandPutFile {
+    pub fn new(
+        run_attempt_count: i32,
+        run_success_count: i32,
+    ) -> BinservclientRemoteCommandPutFile {
         BinservclientRemoteCommandPutFile {
             bucket: None,
             cid: None,

@@ -20,7 +20,15 @@ pub struct ResponsesSensorUpdateBuildsV1 {
 }
 
 impl ResponsesSensorUpdateBuildsV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::ResponsesSensorUpdateBuildV1>) -> ResponsesSensorUpdateBuildsV1 {
-        ResponsesSensorUpdateBuildsV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::ResponsesSensorUpdateBuildV1>,
+    ) -> ResponsesSensorUpdateBuildsV1 {
+        ResponsesSensorUpdateBuildsV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

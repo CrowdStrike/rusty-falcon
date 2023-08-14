@@ -31,7 +31,16 @@ pub struct RequestsIoaExclusionCreateReqV1 {
 }
 
 impl RequestsIoaExclusionCreateReqV1 {
-    pub fn new(cl_regex: String, description: String, detection_json: String, groups: Vec<String>, ifn_regex: String, name: String, pattern_id: String, pattern_name: String) -> RequestsIoaExclusionCreateReqV1 {
+    pub fn new(
+        cl_regex: String,
+        description: String,
+        detection_json: String,
+        groups: Vec<String>,
+        ifn_regex: String,
+        name: String,
+        pattern_id: String,
+        pattern_name: String,
+    ) -> RequestsIoaExclusionCreateReqV1 {
         RequestsIoaExclusionCreateReqV1 {
             cl_regex,
             comment: None,

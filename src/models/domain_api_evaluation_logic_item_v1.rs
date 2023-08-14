@@ -14,7 +14,10 @@ pub struct DomainApiEvaluationLogicItemV1 {
     pub comparison_check: Option<String>,
     #[serde(rename = "comparisons", skip_serializing_if = "Option::is_none")]
     pub comparisons: Option<Box<crate::models::DomainApiEvaluationLogicComparisonsV1>>,
-    #[serde(rename = "determined_by_comparison", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "determined_by_comparison",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub determined_by_comparison: Option<bool>,
     #[serde(rename = "existence_check", skip_serializing_if = "Option::is_none")]
     pub existence_check: Option<String>,

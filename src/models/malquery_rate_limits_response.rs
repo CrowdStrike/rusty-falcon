@@ -17,7 +17,13 @@ pub struct MalqueryRateLimitsResponse {
 }
 
 impl MalqueryRateLimitsResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MalqueryRateLimitsMeta) -> MalqueryRateLimitsResponse {
-        MalqueryRateLimitsResponse { errors, meta: Box::new(meta) }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MalqueryRateLimitsMeta,
+    ) -> MalqueryRateLimitsResponse {
+        MalqueryRateLimitsResponse {
+            errors,
+            meta: Box::new(meta),
+        }
     }
 }

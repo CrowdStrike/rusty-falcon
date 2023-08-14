@@ -19,7 +19,15 @@ pub struct DomainUserGroupsResponseV1 {
 }
 
 impl DomainUserGroupsResponseV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainUserGroup>) -> DomainUserGroupsResponseV1 {
-        DomainUserGroupsResponseV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainUserGroup>,
+    ) -> DomainUserGroupsResponseV1 {
+        DomainUserGroupsResponseV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

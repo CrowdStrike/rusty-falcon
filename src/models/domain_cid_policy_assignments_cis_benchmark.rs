@@ -19,7 +19,15 @@ pub struct DomainCidPolicyAssignmentsCisBenchmark {
 }
 
 impl DomainCidPolicyAssignmentsCisBenchmark {
-    pub fn new(benchmark_short: String, id: i32, recommendation_number: String) -> DomainCidPolicyAssignmentsCisBenchmark {
-        DomainCidPolicyAssignmentsCisBenchmark { benchmark_short, id, recommendation_number }
+    pub fn new(
+        benchmark_short: String,
+        id: i32,
+        recommendation_number: String,
+    ) -> DomainCidPolicyAssignmentsCisBenchmark {
+        DomainCidPolicyAssignmentsCisBenchmark {
+            benchmark_short,
+            id,
+            recommendation_number,
+        }
     }
 }

@@ -20,6 +20,10 @@ pub struct DomainEntitiesPatchRequest {
 
 impl DomainEntitiesPatchRequest {
     pub fn new() -> DomainEntitiesPatchRequest {
-        DomainEntitiesPatchRequest { action: None, comment: None, ids: None }
+        DomainEntitiesPatchRequest {
+            action: None,
+            comment: None,
+            ids: None,
+        }
     }
 }

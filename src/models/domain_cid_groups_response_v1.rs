@@ -19,7 +19,15 @@ pub struct DomainCidGroupsResponseV1 {
 }
 
 impl DomainCidGroupsResponseV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainCidGroup>) -> DomainCidGroupsResponseV1 {
-        DomainCidGroupsResponseV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainCidGroup>,
+    ) -> DomainCidGroupsResponseV1 {
+        DomainCidGroupsResponseV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

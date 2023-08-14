@@ -22,6 +22,11 @@ pub struct DomainCidGroup {
 
 impl DomainCidGroup {
     pub fn new(description: String, name: String) -> DomainCidGroup {
-        DomainCidGroup { cid: None, cid_group_id: None, description, name }
+        DomainCidGroup {
+            cid: None,
+            cid_group_id: None,
+            description,
+            name,
+        }
     }
 }

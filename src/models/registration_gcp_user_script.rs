@@ -18,6 +18,9 @@ pub struct RegistrationGcpUserScript {
 
 impl RegistrationGcpUserScript {
     pub fn new(service_account_emails: Vec<String>) -> RegistrationGcpUserScript {
-        RegistrationGcpUserScript { bash: None, service_account_emails }
+        RegistrationGcpUserScript {
+            bash: None,
+            service_account_emails,
+        }
     }
 }

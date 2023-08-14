@@ -18,6 +18,9 @@ pub struct FalconxVersionInfo {
 
 impl FalconxVersionInfo {
     pub fn new() -> FalconxVersionInfo {
-        FalconxVersionInfo { id: None, value: None }
+        FalconxVersionInfo {
+            id: None,
+            value: None,
+        }
     }
 }

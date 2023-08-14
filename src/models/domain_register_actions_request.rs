@@ -17,7 +17,10 @@ pub struct DomainRegisterActionsRequest {
 }
 
 impl DomainRegisterActionsRequest {
-    pub fn new(actions: Vec<crate::models::DomainCreateActionRequest>, rule_id: String) -> DomainRegisterActionsRequest {
+    pub fn new(
+        actions: Vec<crate::models::DomainCreateActionRequest>,
+        rule_id: String,
+    ) -> DomainRegisterActionsRequest {
         DomainRegisterActionsRequest { actions, rule_id }
     }
 }

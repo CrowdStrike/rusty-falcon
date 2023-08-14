@@ -19,7 +19,15 @@ pub struct DomainCommandExecuteResponse {
 }
 
 impl DomainCommandExecuteResponse {
-    pub fn new(cloud_request_id: String, queued_command_offline: bool, session_id: String) -> DomainCommandExecuteResponse {
-        DomainCommandExecuteResponse { cloud_request_id, queued_command_offline, session_id }
+    pub fn new(
+        cloud_request_id: String,
+        queued_command_offline: bool,
+        session_id: String,
+    ) -> DomainCommandExecuteResponse {
+        DomainCommandExecuteResponse {
+            cloud_request_id,
+            queued_command_offline,
+            session_id,
+        }
     }
 }

@@ -22,14 +22,25 @@ pub struct DomainReportParams {
     pub filter_ui: String,
     #[serde(rename = "format")]
     pub format: String,
-    #[serde(rename = "report_type_options", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "report_type_options",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub report_type_options: Option<::std::collections::HashMap<String, String>>,
     #[serde(rename = "sort")]
     pub sort: String,
 }
 
 impl DomainReportParams {
-    pub fn new(dashboard_id: String, dashboard_visibility: String, filter: String, filter_display: String, filter_ui: String, format: String, sort: String) -> DomainReportParams {
+    pub fn new(
+        dashboard_id: String,
+        dashboard_visibility: String,
+        filter: String,
+        filter_display: String,
+        filter_ui: String,
+        format: String,
+        sort: String,
+    ) -> DomainReportParams {
         DomainReportParams {
             dashboard_id,
             dashboard_visibility,

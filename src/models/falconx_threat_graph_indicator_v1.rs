@@ -10,7 +10,10 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct FalconxThreatGraphIndicatorV1 {
-    #[serde(rename = "customer_prevalence", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "customer_prevalence",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub customer_prevalence: Option<String>,
     #[serde(rename = "global_prevalence", skip_serializing_if = "Option::is_none")]
     pub global_prevalence: Option<String>,

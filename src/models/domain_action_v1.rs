@@ -49,7 +49,20 @@ pub struct DomainActionV1 {
 }
 
 impl DomainActionV1 {
-    pub fn new(cid: String, content_format: String, created_timestamp: String, frequency: String, id: String, recipients: Vec<String>, rule_id: String, status: String, trigger_matchless: bool, _type: String, updated_timestamp: String, user_uuid: String) -> DomainActionV1 {
+    pub fn new(
+        cid: String,
+        content_format: String,
+        created_timestamp: String,
+        frequency: String,
+        id: String,
+        recipients: Vec<String>,
+        rule_id: String,
+        status: String,
+        trigger_matchless: bool,
+        _type: String,
+        updated_timestamp: String,
+        user_uuid: String,
+    ) -> DomainActionV1 {
         DomainActionV1 {
             cid,
             content_format,

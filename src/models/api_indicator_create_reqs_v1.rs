@@ -17,7 +17,12 @@ pub struct ApiIndicatorCreateReqsV1 {
 }
 
 impl ApiIndicatorCreateReqsV1 {
-    pub fn new(indicators: Vec<crate::models::ApiIndicatorCreateReqV1>) -> ApiIndicatorCreateReqsV1 {
-        ApiIndicatorCreateReqsV1 { comment: None, indicators }
+    pub fn new(
+        indicators: Vec<crate::models::ApiIndicatorCreateReqV1>,
+    ) -> ApiIndicatorCreateReqsV1 {
+        ApiIndicatorCreateReqsV1 {
+            comment: None,
+            indicators,
+        }
     }
 }

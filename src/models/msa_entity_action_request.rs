@@ -16,6 +16,8 @@ pub struct MsaEntityActionRequest {
 
 impl MsaEntityActionRequest {
     pub fn new() -> MsaEntityActionRequest {
-        MsaEntityActionRequest { action_parameters: None }
+        MsaEntityActionRequest {
+            action_parameters: None,
+        }
     }
 }

@@ -18,6 +18,9 @@ pub struct DetectsapiPatchEntitiesInvestigatablesV2Request {
 
 impl DetectsapiPatchEntitiesInvestigatablesV2Request {
     pub fn new(ids: Vec<String>) -> DetectsapiPatchEntitiesInvestigatablesV2Request {
-        DetectsapiPatchEntitiesInvestigatablesV2Request { action_parameters: None, ids }
+        DetectsapiPatchEntitiesInvestigatablesV2Request {
+            action_parameters: None,
+            ids,
+        }
     }
 }

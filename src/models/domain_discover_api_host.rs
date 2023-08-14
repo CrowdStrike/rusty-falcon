@@ -16,7 +16,10 @@ pub struct DomainDiscoverApiHost {
     #[serde(rename = "account_enabled", skip_serializing_if = "Option::is_none")]
     pub account_enabled: Option<String>,
     /// The user account control properties in Active Directory.
-    #[serde(rename = "ad_user_account_control", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "ad_user_account_control",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub ad_user_account_control: Option<i32>,
     /// The version of the Falcon sensor that's installed on the asset.
     #[serde(rename = "agent_version", skip_serializing_if = "Option::is_none")]
@@ -28,19 +31,34 @@ pub struct DomainDiscoverApiHost {
     #[serde(rename = "assigned_to", skip_serializing_if = "Option::is_none")]
     pub assigned_to: Option<String>,
     /// The available disk space in the last 15 minutes on the host
-    #[serde(rename = "available_disk_space", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "available_disk_space",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub available_disk_space: Option<i32>,
     /// The available disk space percent in the last 15 minutes on the host
-    #[serde(rename = "available_disk_space_pct", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "available_disk_space_pct",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub available_disk_space_pct: Option<i32>,
     /// The average memory usage in the last 15 minutes on the host
-    #[serde(rename = "average_memory_usage", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "average_memory_usage",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub average_memory_usage: Option<i32>,
     /// The average memory usage percent in the last 15 minutes on the host
-    #[serde(rename = "average_memory_usage_pct", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "average_memory_usage_pct",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub average_memory_usage_pct: Option<i32>,
     /// The average processor usage in the last 15 minutes on the host
-    #[serde(rename = "average_processor_usage", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "average_processor_usage",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub average_processor_usage: Option<i32>,
     /// The list of found sha256 and their measurement types
     #[serde(rename = "bios_hashes_data", skip_serializing_if = "Option::is_none")]
@@ -85,7 +103,10 @@ pub struct DomainDiscoverApiHost {
     #[serde(rename = "data_providers", skip_serializing_if = "Option::is_none")]
     pub data_providers: Option<Vec<String>>,
     /// How many services provided data about the asset.
-    #[serde(rename = "data_providers_count", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "data_providers_count",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub data_providers_count: Option<i32>,
     /// The department where the asset is used.
     #[serde(rename = "department", skip_serializing_if = "Option::is_none")]
@@ -100,10 +121,16 @@ pub struct DomainDiscoverApiHost {
     #[serde(rename = "discoverer_count", skip_serializing_if = "Option::is_none")]
     pub discoverer_count: Option<i32>,
     /// The platform names of the sources that discovered the asset.
-    #[serde(rename = "discoverer_platform_names", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "discoverer_platform_names",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub discoverer_platform_names: Option<Vec<String>>,
     /// The product type descriptions of the sources that discovered the asset.
-    #[serde(rename = "discoverer_product_type_descs", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "discoverer_product_type_descs",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub discoverer_product_type_descs: Option<Vec<String>>,
     /// The tags of the sources that discovered the asset.
     #[serde(rename = "discoverer_tags", skip_serializing_if = "Option::is_none")]
@@ -118,7 +145,10 @@ pub struct DomainDiscoverApiHost {
     #[serde(rename = "encrypted_drives", skip_serializing_if = "Option::is_none")]
     pub encrypted_drives: Option<Vec<String>>,
     /// The count of encrypted drives on the host
-    #[serde(rename = "encrypted_drives_count", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "encrypted_drives_count",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub encrypted_drives_count: Option<i32>,
     /// The encryption status of the host
     #[serde(rename = "encryption_status", skip_serializing_if = "Option::is_none")]
@@ -131,12 +161,19 @@ pub struct DomainDiscoverApiHost {
     pub external_ip: Option<String>,
     /// Lists the data providers for each property in the response (Cannot be used for filtering, sorting, or querying).
     #[serde(rename = "field_metadata", skip_serializing_if = "Option::is_none")]
-    pub field_metadata: Option<::std::collections::HashMap<String, crate::models::DomainDiscoverApiFieldMetadata>>,
+    pub field_metadata:
+        Option<::std::collections::HashMap<String, crate::models::DomainDiscoverApiFieldMetadata>>,
     /// The agent ID of the Falcon sensor on the source that first discovered the asset.
-    #[serde(rename = "first_discoverer_aid", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "first_discoverer_aid",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub first_discoverer_aid: Option<String>,
     /// The first time the asset was seen in your environment.
-    #[serde(rename = "first_seen_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "first_seen_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub first_seen_timestamp: Option<String>,
     /// The fully qualified domain name of the asset.
     #[serde(rename = "fqdn", skip_serializing_if = "Option::is_none")]
@@ -157,10 +194,16 @@ pub struct DomainDiscoverApiHost {
     #[serde(rename = "kernel_version", skip_serializing_if = "Option::is_none")]
     pub kernel_version: Option<String>,
     /// The agent ID of the Falcon sensor installed on the source that most recently discovered the asset.
-    #[serde(rename = "last_discoverer_aid", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_discoverer_aid",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_discoverer_aid: Option<String>,
     /// The most recent time the asset was seen in your environment.
-    #[serde(rename = "last_seen_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_seen_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_seen_timestamp: Option<String>,
     /// Historical local IPv4 addresses associated with the asset.
     #[serde(rename = "local_ip_addresses", skip_serializing_if = "Option::is_none")]
@@ -187,10 +230,16 @@ pub struct DomainDiscoverApiHost {
     #[serde(rename = "max_memory_usage", skip_serializing_if = "Option::is_none")]
     pub max_memory_usage: Option<i32>,
     /// The max memory usage percent in the last 15 minutes on the host
-    #[serde(rename = "max_memory_usage_pct", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "max_memory_usage_pct",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub max_memory_usage_pct: Option<i32>,
     /// The max processor usage in the last 15 minutes on the host
-    #[serde(rename = "max_processor_usage", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "max_processor_usage",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub max_processor_usage: Option<i32>,
     /// The path, used and available space on mounted disks
     #[serde(rename = "mount_storage_info", skip_serializing_if = "Option::is_none")]
@@ -199,7 +248,10 @@ pub struct DomainDiscoverApiHost {
     #[serde(rename = "network_interfaces", skip_serializing_if = "Option::is_none")]
     pub network_interfaces: Option<Vec<crate::models::DomainDiscoverApiNetworkInterface>>,
     /// The number of active physical drives available on the system.
-    #[serde(rename = "number_of_disk_drives", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "number_of_disk_drives",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub number_of_disk_drives: Option<i32>,
     /// The globally unique identifier (GUID) of the asset in Active Directory.
     #[serde(rename = "object_guid", skip_serializing_if = "Option::is_none")]
@@ -225,13 +277,19 @@ pub struct DomainDiscoverApiHost {
     #[serde(rename = "owned_by", skip_serializing_if = "Option::is_none")]
     pub owned_by: Option<String>,
     /// The number of physical CPU cores available on the system.
-    #[serde(rename = "physical_core_count", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "physical_core_count",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub physical_core_count: Option<i32>,
     /// The platform name of the asset (Windows, Mac, Linux).
     #[serde(rename = "platform_name", skip_serializing_if = "Option::is_none")]
     pub platform_name: Option<String>,
     /// The number of physical processors available on the system.
-    #[serde(rename = "processor_package_count", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "processor_package_count",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub processor_package_count: Option<i32>,
     /// The product type of the asset represented as a number (1 = Workstation, 2 = Domain Controller, 3 = Server).
     #[serde(rename = "product_type", skip_serializing_if = "Option::is_none")]
@@ -240,7 +298,10 @@ pub struct DomainDiscoverApiHost {
     #[serde(rename = "product_type_desc", skip_serializing_if = "Option::is_none")]
     pub product_type_desc: Option<String>,
     /// Whether the asset is in reduced functionality mode (Yes or No).
-    #[serde(rename = "reduced_functionality_mode", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "reduced_functionality_mode",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub reduced_functionality_mode: Option<String>,
     /// The unique identifier of the asset from ServiceNow, if any.
     #[serde(rename = "servicenow_id", skip_serializing_if = "Option::is_none")]
@@ -252,13 +313,22 @@ pub struct DomainDiscoverApiHost {
     #[serde(rename = "state", skip_serializing_if = "Option::is_none")]
     pub state: Option<String>,
     /// The asset's system manufacturer.
-    #[serde(rename = "system_manufacturer", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "system_manufacturer",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub system_manufacturer: Option<String>,
     /// The asset's system product name.
-    #[serde(rename = "system_product_name", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "system_product_name",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub system_product_name: Option<String>,
     /// The asset's system serial number.
-    #[serde(rename = "system_serial_number", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "system_serial_number",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub system_serial_number: Option<String>,
     /// The sensor and cloud tags of the asset.
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
@@ -276,13 +346,19 @@ pub struct DomainDiscoverApiHost {
     #[serde(rename = "unencrypted_drives", skip_serializing_if = "Option::is_none")]
     pub unencrypted_drives: Option<Vec<String>>,
     /// The count of unencrypted drives on the host
-    #[serde(rename = "unencrypted_drives_count", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "unencrypted_drives_count",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub unencrypted_drives_count: Option<i32>,
     /// The used disk space in the last 15 minutes on the host
     #[serde(rename = "used_disk_space", skip_serializing_if = "Option::is_none")]
     pub used_disk_space: Option<i32>,
     /// The used disk space percent in the last 15 minutes on the host
-    #[serde(rename = "used_disk_space_pct", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "used_disk_space_pct",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub used_disk_space_pct: Option<i32>,
     /// What the asset is used for, such as production, staging, or QA.
     #[serde(rename = "used_for", skip_serializing_if = "Option::is_none")]

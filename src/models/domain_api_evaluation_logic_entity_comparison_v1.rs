@@ -21,7 +21,12 @@ pub struct DomainApiEvaluationLogicEntityComparisonV1 {
 }
 
 impl DomainApiEvaluationLogicEntityComparisonV1 {
-    pub fn new(actual_value_field: String, expected_value: serde_json::Value, operation: String, value_datatype: String) -> DomainApiEvaluationLogicEntityComparisonV1 {
+    pub fn new(
+        actual_value_field: String,
+        expected_value: serde_json::Value,
+        operation: String,
+        value_datatype: String,
+    ) -> DomainApiEvaluationLogicEntityComparisonV1 {
         DomainApiEvaluationLogicEntityComparisonV1 {
             actual_value_field,
             expected_value,

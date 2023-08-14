@@ -41,7 +41,22 @@ pub struct DomainFileV2 {
 }
 
 impl DomainFileV2 {
-    pub fn new(cloud_request_id: String, complete: bool, created_at: String, deleted_at: String, error_message: String, id: String, name: String, progress: f32, session_id: String, sha256: String, size: i32, stage: String, status: String, updated_at: String) -> DomainFileV2 {
+    pub fn new(
+        cloud_request_id: String,
+        complete: bool,
+        created_at: String,
+        deleted_at: String,
+        error_message: String,
+        id: String,
+        name: String,
+        progress: f32,
+        session_id: String,
+        sha256: String,
+        size: i32,
+        stage: String,
+        status: String,
+        updated_at: String,
+    ) -> DomainFileV2 {
         DomainFileV2 {
             cloud_request_id,
             complete,

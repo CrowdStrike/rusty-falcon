@@ -18,6 +18,9 @@ pub struct FalconxFileImport {
 
 impl FalconxFileImport {
     pub fn new() -> FalconxFileImport {
-        FalconxFileImport { functions: None, module: None }
+        FalconxFileImport {
+            functions: None,
+            module: None,
+        }
     }
 }

@@ -19,7 +19,14 @@ pub struct DomainMsaUserGrantsResponse {
 }
 
 impl DomainMsaUserGrantsResponse {
-    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainUserGrants>) -> DomainMsaUserGrantsResponse {
-        DomainMsaUserGrantsResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainUserGrants>,
+    ) -> DomainMsaUserGrantsResponse {
+        DomainMsaUserGrantsResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

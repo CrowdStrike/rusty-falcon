@@ -31,8 +31,19 @@ pub struct ResponsesPreventionSettingV1 {
 
 impl ResponsesPreventionSettingV1 {
     /// A prevention policy setting
-    pub fn new(id: String, name: String, _type: Type, value: serde_json::Value) -> ResponsesPreventionSettingV1 {
-        ResponsesPreventionSettingV1 { description: None, id, name, _type, value }
+    pub fn new(
+        id: String,
+        name: String,
+        _type: Type,
+        value: serde_json::Value,
+    ) -> ResponsesPreventionSettingV1 {
+        ResponsesPreventionSettingV1 {
+            description: None,
+            id,
+            name,
+            _type,
+            value,
+        }
     }
 }
 

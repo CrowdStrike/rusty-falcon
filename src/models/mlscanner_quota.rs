@@ -20,6 +20,10 @@ pub struct MlscannerQuota {
 
 impl MlscannerQuota {
     pub fn new(in_progress: i32, total: i32, used: i32) -> MlscannerQuota {
-        MlscannerQuota { in_progress, total, used }
+        MlscannerQuota {
+            in_progress,
+            total,
+            used,
+        }
     }
 }

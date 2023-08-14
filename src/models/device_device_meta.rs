@@ -18,6 +18,9 @@ pub struct DeviceDeviceMeta {
 
 impl DeviceDeviceMeta {
     pub fn new() -> DeviceDeviceMeta {
-        DeviceDeviceMeta { version: None, version_string: None }
+        DeviceDeviceMeta {
+            version: None,
+            version_string: None,
+        }
     }
 }

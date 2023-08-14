@@ -18,6 +18,9 @@ pub struct MsaspecResponseFields {
 
 impl MsaspecResponseFields {
     pub fn new(meta: crate::models::MsaMetaInfo) -> MsaspecResponseFields {
-        MsaspecResponseFields { errors: None, meta: Box::new(meta) }
+        MsaspecResponseFields {
+            errors: None,
+            meta: Box::new(meta),
+        }
     }
 }

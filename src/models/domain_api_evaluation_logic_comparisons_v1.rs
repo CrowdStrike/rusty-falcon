@@ -17,7 +17,13 @@ pub struct DomainApiEvaluationLogicComparisonsV1 {
 }
 
 impl DomainApiEvaluationLogicComparisonsV1 {
-    pub fn new(state_comparisons: Vec<crate::models::DomainApiEvaluationLogicStateComparisonV1>, state_operator: String) -> DomainApiEvaluationLogicComparisonsV1 {
-        DomainApiEvaluationLogicComparisonsV1 { state_comparisons, state_operator }
+    pub fn new(
+        state_comparisons: Vec<crate::models::DomainApiEvaluationLogicStateComparisonV1>,
+        state_operator: String,
+    ) -> DomainApiEvaluationLogicComparisonsV1 {
+        DomainApiEvaluationLogicComparisonsV1 {
+            state_comparisons,
+            state_operator,
+        }
     }
 }

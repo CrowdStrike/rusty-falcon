@@ -20,7 +20,15 @@ pub struct ResponsesFirewallPoliciesV1 {
 }
 
 impl ResponsesFirewallPoliciesV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::ResponsesFirewallPolicyV1>) -> ResponsesFirewallPoliciesV1 {
-        ResponsesFirewallPoliciesV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::ResponsesFirewallPolicyV1>,
+    ) -> ResponsesFirewallPoliciesV1 {
+        ResponsesFirewallPoliciesV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

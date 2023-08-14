@@ -20,6 +20,10 @@ pub struct FalconxFileAccess {
 
 impl FalconxFileAccess {
     pub fn new() -> FalconxFileAccess {
-        FalconxFileAccess { mask: None, path: None, _type: None }
+        FalconxFileAccess {
+            mask: None,
+            path: None,
+            _type: None,
+        }
     }
 }

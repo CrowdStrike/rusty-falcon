@@ -23,6 +23,10 @@ pub struct DomainMatchedRule {
 
 impl DomainMatchedRule {
     pub fn new() -> DomainMatchedRule {
-        DomainMatchedRule { customer_id: None, hit_id: None, rule_id: None }
+        DomainMatchedRule {
+            customer_id: None,
+            hit_id: None,
+            rule_id: None,
+        }
     }
 }

@@ -24,7 +24,10 @@ pub struct ModelsPackageInfoType {
     pub package_source: Option<String>,
     #[serde(rename = "Product", skip_serializing_if = "Option::is_none")]
     pub product: Option<String>,
-    #[serde(rename = "SoftwareArchitecture", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "SoftwareArchitecture",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub software_architecture: Option<String>,
     #[serde(rename = "Status", skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,

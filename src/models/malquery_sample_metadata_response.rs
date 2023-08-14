@@ -21,7 +21,15 @@ pub struct MalquerySampleMetadataResponse {
 }
 
 impl MalquerySampleMetadataResponse {
-    pub fn new(errors: Vec<crate::models::MalqueryQueryError>, meta: crate::models::MalquerySamplesMetadataMetaInfo, resources: Vec<crate::models::MalquerySampleMetadata>) -> MalquerySampleMetadataResponse {
-        MalquerySampleMetadataResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MalqueryQueryError>,
+        meta: crate::models::MalquerySamplesMetadataMetaInfo,
+        resources: Vec<crate::models::MalquerySampleMetadata>,
+    ) -> MalquerySampleMetadataResponse {
+        MalquerySampleMetadataResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

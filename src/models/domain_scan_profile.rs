@@ -12,9 +12,15 @@
 pub struct DomainScanProfile {
     #[serde(rename = "cid", skip_serializing_if = "Option::is_none")]
     pub cid: Option<String>,
-    #[serde(rename = "cloud_ml_level_detection", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "cloud_ml_level_detection",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub cloud_ml_level_detection: Option<i32>,
-    #[serde(rename = "cloud_ml_level_prevention", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "cloud_ml_level_prevention",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub cloud_ml_level_prevention: Option<i32>,
     #[serde(rename = "cpu_priority", skip_serializing_if = "Option::is_none")]
     pub cpu_priority: Option<i32>,
@@ -26,7 +32,10 @@ pub struct DomainScanProfile {
     pub deleted: bool,
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "endpoint_notification", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "endpoint_notification",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub endpoint_notification: Option<bool>,
     #[serde(rename = "file_paths", skip_serializing_if = "Option::is_none")]
     pub file_paths: Option<Vec<String>>,
@@ -50,7 +59,10 @@ pub struct DomainScanProfile {
     pub pause_duration: Option<i32>,
     #[serde(rename = "policy_setting", skip_serializing_if = "Option::is_none")]
     pub policy_setting: Option<Vec<i32>>,
-    #[serde(rename = "preemption_priority", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "preemption_priority",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub preemption_priority: Option<i32>,
     #[serde(rename = "quarantine", skip_serializing_if = "Option::is_none")]
     pub quarantine: Option<bool>,
@@ -60,9 +72,15 @@ pub struct DomainScanProfile {
     pub scan_inclusions: Option<Vec<String>>,
     #[serde(rename = "schedule", skip_serializing_if = "Option::is_none")]
     pub schedule: Option<Box<crate::models::DomainSchedule>>,
-    #[serde(rename = "sensor_ml_level_detection", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "sensor_ml_level_detection",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub sensor_ml_level_detection: Option<i32>,
-    #[serde(rename = "sensor_ml_level_prevention", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "sensor_ml_level_prevention",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub sensor_ml_level_prevention: Option<i32>,
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,

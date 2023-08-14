@@ -19,7 +19,15 @@ pub struct K8sregGetAwsAccountsResp {
 }
 
 impl K8sregGetAwsAccountsResp {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::K8sregAwsAccountResp>) -> K8sregGetAwsAccountsResp {
-        K8sregGetAwsAccountsResp { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::K8sregAwsAccountResp>,
+    ) -> K8sregGetAwsAccountsResp {
+        K8sregGetAwsAccountsResp {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

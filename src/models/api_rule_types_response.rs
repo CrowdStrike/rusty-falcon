@@ -19,7 +19,14 @@ pub struct ApiRuleTypesResponse {
 }
 
 impl ApiRuleTypesResponse {
-    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::ApiRuleTypeV1>) -> ApiRuleTypesResponse {
-        ApiRuleTypesResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::ApiRuleTypeV1>,
+    ) -> ApiRuleTypesResponse {
+        ApiRuleTypesResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

@@ -19,7 +19,15 @@ pub struct ApiUserMetadataResponse {
 }
 
 impl ApiUserMetadataResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainUserMetadata>) -> ApiUserMetadataResponse {
-        ApiUserMetadataResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainUserMetadata>,
+    ) -> ApiUserMetadataResponse {
+        ApiUserMetadataResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

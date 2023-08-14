@@ -18,6 +18,9 @@ pub struct DetectionEnrichment {
 
 impl DetectionEnrichment {
     pub fn new() -> DetectionEnrichment {
-        DetectionEnrichment { document_ids: None, enrichment_type: None }
+        DetectionEnrichment {
+            document_ids: None,
+            enrichment_type: None,
+        }
     }
 }

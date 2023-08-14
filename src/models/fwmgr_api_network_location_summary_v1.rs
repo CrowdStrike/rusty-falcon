@@ -33,7 +33,14 @@ pub struct FwmgrApiNetworkLocationSummaryV1 {
 }
 
 impl FwmgrApiNetworkLocationSummaryV1 {
-    pub fn new(cid: String, description: String, enabled: bool, id: String, name: String, rule_count: i32) -> FwmgrApiNetworkLocationSummaryV1 {
+    pub fn new(
+        cid: String,
+        description: String,
+        enabled: bool,
+        id: String,
+        name: String,
+        rule_count: i32,
+    ) -> FwmgrApiNetworkLocationSummaryV1 {
         FwmgrApiNetworkLocationSummaryV1 {
             cid,
             created_by: None,

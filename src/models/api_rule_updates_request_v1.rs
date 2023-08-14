@@ -21,7 +21,17 @@ pub struct ApiRuleUpdatesRequestV1 {
 }
 
 impl ApiRuleUpdatesRequestV1 {
-    pub fn new(comment: String, rule_updates: Vec<crate::models::ApiRuleUpdateV1>, rulegroup_id: String, rulegroup_version: i64) -> ApiRuleUpdatesRequestV1 {
-        ApiRuleUpdatesRequestV1 { comment, rule_updates, rulegroup_id, rulegroup_version }
+    pub fn new(
+        comment: String,
+        rule_updates: Vec<crate::models::ApiRuleUpdateV1>,
+        rulegroup_id: String,
+        rulegroup_version: i64,
+    ) -> ApiRuleUpdatesRequestV1 {
+        ApiRuleUpdatesRequestV1 {
+            comment,
+            rule_updates,
+            rulegroup_id,
+            rulegroup_version,
+        }
     }
 }

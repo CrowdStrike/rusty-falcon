@@ -19,7 +19,14 @@ pub struct ApiPatternsResponse {
 }
 
 impl ApiPatternsResponse {
-    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::ApiPatternV1>) -> ApiPatternsResponse {
-        ApiPatternsResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::ApiPatternV1>,
+    ) -> ApiPatternsResponse {
+        ApiPatternsResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

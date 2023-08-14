@@ -18,6 +18,9 @@ pub struct ExternalPolicy {
 
 impl ExternalPolicy {
     pub fn new() -> ExternalPolicy {
-        ExternalPolicy { name: None, rule_group: None }
+        ExternalPolicy {
+            name: None,
+            rule_group: None,
+        }
     }
 }

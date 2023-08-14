@@ -29,7 +29,16 @@ pub struct DomainExposedDataRecordSocialV1 {
 }
 
 impl DomainExposedDataRecordSocialV1 {
-    pub fn new(aim_id: String, facebook_id: String, icq_id: String, instagram_id: String, msn_id: String, skype_id: String, twitter_id: String, vk_id: String) -> DomainExposedDataRecordSocialV1 {
+    pub fn new(
+        aim_id: String,
+        facebook_id: String,
+        icq_id: String,
+        instagram_id: String,
+        msn_id: String,
+        skype_id: String,
+        twitter_id: String,
+        vk_id: String,
+    ) -> DomainExposedDataRecordSocialV1 {
         DomainExposedDataRecordSocialV1 {
             aim_id,
             facebook_id,

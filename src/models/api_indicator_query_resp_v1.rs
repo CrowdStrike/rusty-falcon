@@ -19,7 +19,15 @@ pub struct ApiIndicatorQueryRespV1 {
 }
 
 impl ApiIndicatorQueryRespV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::ApiIndicatorsQueryMeta, resources: Vec<String>) -> ApiIndicatorQueryRespV1 {
-        ApiIndicatorQueryRespV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::ApiIndicatorsQueryMeta,
+        resources: Vec<String>,
+    ) -> ApiIndicatorQueryRespV1 {
+        ApiIndicatorQueryRespV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

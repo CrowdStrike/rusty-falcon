@@ -18,6 +18,9 @@ pub struct FalconxMemoryForensic {
 
 impl FalconxMemoryForensic {
     pub fn new() -> FalconxMemoryForensic {
-        FalconxMemoryForensic { stream_uid: None, value: None }
+        FalconxMemoryForensic {
+            stream_uid: None,
+            value: None,
+        }
     }
 }

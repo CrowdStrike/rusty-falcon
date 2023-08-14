@@ -18,6 +18,9 @@ pub struct RegistrationMsaMetaInfoExtension {
 
 impl RegistrationMsaMetaInfoExtension {
     pub fn new(meta_info: crate::models::MsaMetaInfo) -> RegistrationMsaMetaInfoExtension {
-        RegistrationMsaMetaInfoExtension { meta_info: Box::new(meta_info), pagination: None }
+        RegistrationMsaMetaInfoExtension {
+            meta_info: Box::new(meta_info),
+            pagination: None,
+        }
     }
 }

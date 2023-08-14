@@ -22,6 +22,10 @@ pub struct DomainGcpAccountV1 {
 
 impl DomainGcpAccountV1 {
     pub fn new(cid: String, parent_id: String) -> DomainGcpAccountV1 {
-        DomainGcpAccountV1 { cid, parent_id, status: None }
+        DomainGcpAccountV1 {
+            cid,
+            parent_id,
+            status: None,
+        }
     }
 }

@@ -18,6 +18,9 @@ pub struct RegistrationAwsAccountPatch {
 
 impl RegistrationAwsAccountPatch {
     pub fn new(account_id: String, cloudtrail_region: String) -> RegistrationAwsAccountPatch {
-        RegistrationAwsAccountPatch { account_id, cloudtrail_region }
+        RegistrationAwsAccountPatch {
+            account_id,
+            cloudtrail_region,
+        }
     }
 }

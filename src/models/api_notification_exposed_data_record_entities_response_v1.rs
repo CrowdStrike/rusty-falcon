@@ -19,7 +19,15 @@ pub struct ApiNotificationExposedDataRecordEntitiesResponseV1 {
 }
 
 impl ApiNotificationExposedDataRecordEntitiesResponseV1 {
-    pub fn new(errors: Vec<crate::models::DomainReconApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::ApiNotificationExposedDataRecordV1>) -> ApiNotificationExposedDataRecordEntitiesResponseV1 {
-        ApiNotificationExposedDataRecordEntitiesResponseV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::DomainReconApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::ApiNotificationExposedDataRecordV1>,
+    ) -> ApiNotificationExposedDataRecordEntitiesResponseV1 {
+        ApiNotificationExposedDataRecordEntitiesResponseV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

@@ -14,7 +14,10 @@ pub struct FalconxActor {
     pub created_timestamp: Option<String>,
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "first_activity_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "first_activity_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub first_activity_timestamp: Option<String>,
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
     pub id: Option<i32>,
@@ -22,7 +25,10 @@ pub struct FalconxActor {
     pub image_artifact_id: Option<String>,
     #[serde(rename = "known_as", skip_serializing_if = "Option::is_none")]
     pub known_as: Option<String>,
-    #[serde(rename = "last_activity_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_activity_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_activity_timestamp: Option<String>,
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
@@ -36,7 +42,10 @@ pub struct FalconxActor {
     pub target_countries: Option<Vec<crate::models::FalconxEntity>>,
     #[serde(rename = "target_industries", skip_serializing_if = "Option::is_none")]
     pub target_industries: Option<Vec<crate::models::FalconxEntity>>,
-    #[serde(rename = "thumbnail_artifact_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "thumbnail_artifact_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub thumbnail_artifact_id: Option<String>,
 }
 

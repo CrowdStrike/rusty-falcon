@@ -20,6 +20,10 @@ pub struct MsaPaging {
 
 impl MsaPaging {
     pub fn new(limit: i32, offset: i32, total: i64) -> MsaPaging {
-        MsaPaging { limit, offset, total }
+        MsaPaging {
+            limit,
+            offset,
+            total,
+        }
     }
 }

@@ -272,23 +272,49 @@ pub enum UpdateCspmScanScheduleError {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn azure_download_certificate(configuration: &configuration::Configuration, tenant_id: Vec<String>, refresh: Option<&str>) -> Result<crate::models::RegistrationAzureDownloadCertificateResponseV1, Error<AzureDownloadCertificateError>> {
+pub async fn azure_download_certificate(
+    configuration: &configuration::Configuration,
+    tenant_id: Vec<String>,
+    refresh: Option<&str>,
+) -> Result<
+    crate::models::RegistrationAzureDownloadCertificateResponseV1,
+    Error<AzureDownloadCertificateError>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-cspm-azure/entities/download-certificate/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-azure/entities/download-certificate/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&tenant_id.into_iter().map(|p| ("tenant_id".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("tenant_id", &tenant_id.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &tenant_id
+                .into_iter()
+                .map(|p| ("tenant_id".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "tenant_id",
+            &tenant_id
+                .into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_str) = refresh {
-        local_var_req_builder = local_var_req_builder.query(&[("refresh", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("refresh", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -303,7 +329,8 @@ pub async fn azure_download_certificate(configuration: &configuration::Configura
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<AzureDownloadCertificateError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AzureDownloadCertificateError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -313,51 +340,24 @@ pub async fn azure_download_certificate(configuration: &configuration::Configura
     }
 }
 
-pub async fn create_cspm_aws_account(configuration: &configuration::Configuration, body: crate::models::RegistrationAwsAccountCreateRequestExtV2) -> Result<crate::models::RegistrationAwsAccountResponseV2, Error<CreateCspmAwsAccountError>> {
+pub async fn create_cspm_aws_account(
+    configuration: &configuration::Configuration,
+    body: crate::models::RegistrationAwsAccountCreateRequestExtV2,
+) -> Result<crate::models::RegistrationAwsAccountResponseV2, Error<CreateCspmAwsAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-cspm-aws/entities/account/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-aws/entities/account/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&body);
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<CreateCspmAwsAccountError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn create_cspm_azure_account(configuration: &configuration::Configuration, body: crate::models::RegistrationAzureAccountCreateRequestExternalV1) -> Result<crate::models::RegistrationAzureAccountResponseV1, Error<CreateCspmAzureAccountError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/cloud-connect-cspm-azure/entities/account/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -373,7 +373,8 @@ pub async fn create_cspm_azure_account(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateCspmAzureAccountError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateCspmAwsAccountError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -383,28 +384,107 @@ pub async fn create_cspm_azure_account(configuration: &configuration::Configurat
     }
 }
 
-pub async fn delete_cspm_aws_account(configuration: &configuration::Configuration, ids: Option<Vec<String>>, organization_ids: Option<Vec<String>>) -> Result<crate::models::RegistrationBaseResponseV1, Error<DeleteCspmAwsAccountError>> {
+pub async fn create_cspm_azure_account(
+    configuration: &configuration::Configuration,
+    body: crate::models::RegistrationAzureAccountCreateRequestExternalV1,
+) -> Result<crate::models::RegistrationAzureAccountResponseV1, Error<CreateCspmAzureAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-cspm-aws/entities/account/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-azure/entities/account/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CreateCspmAzureAccountError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn delete_cspm_aws_account(
+    configuration: &configuration::Configuration,
+    ids: Option<Vec<String>>,
+    organization_ids: Option<Vec<String>>,
+) -> Result<crate::models::RegistrationBaseResponseV1, Error<DeleteCspmAwsAccountError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-aws/entities/account/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = ids {
         local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = organization_ids {
         local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("organization-ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("organization-ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("organization-ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "organization-ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -419,7 +499,8 @@ pub async fn delete_cspm_aws_account(configuration: &configuration::Configuratio
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteCspmAwsAccountError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteCspmAwsAccountError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -429,20 +510,39 @@ pub async fn delete_cspm_aws_account(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn delete_cspm_azure_account(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::RegistrationBaseResponseV1, Error<DeleteCspmAzureAccountError>> {
+pub async fn delete_cspm_azure_account(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::RegistrationBaseResponseV1, Error<DeleteCspmAzureAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-cspm-azure/entities/account/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-azure/entities/account/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -457,7 +557,8 @@ pub async fn delete_cspm_azure_account(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteCspmAzureAccountError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteCspmAzureAccountError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -480,47 +581,64 @@ pub async fn get_behavior_detections(
     severity: Option<&str>,
     next_token: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::RegistrationExternalIoaEventResponse, Error<GetBehaviorDetectionsError>> {
+) -> Result<crate::models::RegistrationExternalIoaEventResponse, Error<GetBehaviorDetectionsError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/detects/entities/ioa/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/detects/entities/ioa/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("cloud_provider", &cloud_provider.to_string())]);
+    local_var_req_builder =
+        local_var_req_builder.query(&[("cloud_provider", &cloud_provider.to_string())]);
     if let Some(ref local_var_str) = service {
-        local_var_req_builder = local_var_req_builder.query(&[("service", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("service", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = account_id {
-        local_var_req_builder = local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = aws_account_id {
-        local_var_req_builder = local_var_req_builder.query(&[("aws_account_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("aws_account_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = azure_subscription_id {
-        local_var_req_builder = local_var_req_builder.query(&[("azure_subscription_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("azure_subscription_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = azure_tenant_id {
-        local_var_req_builder = local_var_req_builder.query(&[("azure_tenant_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("azure_tenant_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = state {
-        local_var_req_builder = local_var_req_builder.query(&[("state", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("state", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = date_time_since {
-        local_var_req_builder = local_var_req_builder.query(&[("date_time_since", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("date_time_since", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = severity {
-        local_var_req_builder = local_var_req_builder.query(&[("severity", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("severity", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = next_token {
-        local_var_req_builder = local_var_req_builder.query(&[("next_token", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("next_token", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -535,7 +653,8 @@ pub async fn get_behavior_detections(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetBehaviorDetectionsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetBehaviorDetectionsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -557,46 +676,64 @@ pub async fn get_configuration_detections(
     service: Option<&str>,
     next_token: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::RegistrationExternalIomEventResponse, Error<GetConfigurationDetectionsError>> {
+) -> Result<
+    crate::models::RegistrationExternalIomEventResponse,
+    Error<GetConfigurationDetectionsError>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/detects/entities/iom/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/detects/entities/iom/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = cloud_provider {
-        local_var_req_builder = local_var_req_builder.query(&[("cloud_provider", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("cloud_provider", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = account_id {
-        local_var_req_builder = local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = azure_subscription_id {
-        local_var_req_builder = local_var_req_builder.query(&[("azure_subscription_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("azure_subscription_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = azure_tenant_id {
-        local_var_req_builder = local_var_req_builder.query(&[("azure_tenant_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("azure_tenant_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = status {
-        local_var_req_builder = local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = region {
-        local_var_req_builder = local_var_req_builder.query(&[("region", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("region", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = severity {
-        local_var_req_builder = local_var_req_builder.query(&[("severity", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("severity", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = service {
-        local_var_req_builder = local_var_req_builder.query(&[("service", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("service", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = next_token {
-        local_var_req_builder = local_var_req_builder.query(&[("next_token", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("next_token", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -611,7 +748,8 @@ pub async fn get_configuration_detections(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetConfigurationDetectionsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetConfigurationDetectionsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -635,38 +773,74 @@ pub async fn get_cspm_aws_account(
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-cspm-aws/entities/account/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-aws/entities/account/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = scan_type {
-        local_var_req_builder = local_var_req_builder.query(&[("scan-type", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("scan-type", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = ids {
         local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = organization_ids {
         local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("organization-ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("organization-ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("organization-ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "organization-ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = status {
-        local_var_req_builder = local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = group_by {
-        local_var_req_builder = local_var_req_builder.query(&[("group_by", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("group_by", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -681,7 +855,8 @@ pub async fn get_cspm_aws_account(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetCspmAwsAccountError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCspmAwsAccountError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -691,16 +866,26 @@ pub async fn get_cspm_aws_account(
     }
 }
 
-pub async fn get_cspm_aws_account_scripts_attachment(configuration: &configuration::Configuration) -> Result<crate::models::RegistrationAwsProvisionGetAccountScriptResponseV2, Error<GetCspmAwsAccountScriptsAttachmentError>> {
+pub async fn get_cspm_aws_account_scripts_attachment(
+    configuration: &configuration::Configuration,
+) -> Result<
+    crate::models::RegistrationAwsProvisionGetAccountScriptResponseV2,
+    Error<GetCspmAwsAccountScriptsAttachmentError>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-cspm-aws/entities/user-scripts-download/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-aws/entities/user-scripts-download/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -715,7 +900,8 @@ pub async fn get_cspm_aws_account_scripts_attachment(configuration: &configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetCspmAwsAccountScriptsAttachmentError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCspmAwsAccountScriptsAttachmentError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -725,16 +911,24 @@ pub async fn get_cspm_aws_account_scripts_attachment(configuration: &configurati
     }
 }
 
-pub async fn get_cspm_aws_console_setup_urls(configuration: &configuration::Configuration) -> Result<crate::models::RegistrationAwsAccountConsoleUrl, Error<GetCspmAwsConsoleSetupUrlsError>> {
+pub async fn get_cspm_aws_console_setup_urls(
+    configuration: &configuration::Configuration,
+) -> Result<crate::models::RegistrationAwsAccountConsoleUrl, Error<GetCspmAwsConsoleSetupUrlsError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-cspm-aws/entities/console-setup-urls/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-aws/entities/console-setup-urls/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -749,7 +943,8 @@ pub async fn get_cspm_aws_console_setup_urls(configuration: &configuration::Conf
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetCspmAwsConsoleSetupUrlsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCspmAwsConsoleSetupUrlsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -759,34 +954,63 @@ pub async fn get_cspm_aws_console_setup_urls(configuration: &configuration::Conf
     }
 }
 
-pub async fn get_cspm_azure_account(configuration: &configuration::Configuration, ids: Option<Vec<String>>, scan_type: Option<&str>, status: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::RegistrationAzureAccountResponseV1, Error<GetCspmAzureAccountError>> {
+pub async fn get_cspm_azure_account(
+    configuration: &configuration::Configuration,
+    ids: Option<Vec<String>>,
+    scan_type: Option<&str>,
+    status: Option<&str>,
+    limit: Option<i32>,
+    offset: Option<i32>,
+) -> Result<crate::models::RegistrationAzureAccountResponseV1, Error<GetCspmAzureAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-cspm-azure/entities/account/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-azure/entities/account/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = ids {
         local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = scan_type {
-        local_var_req_builder = local_var_req_builder.query(&[("scan-type", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("scan-type", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = status {
-        local_var_req_builder = local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -801,7 +1025,8 @@ pub async fn get_cspm_azure_account(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetCspmAzureAccountError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCspmAzureAccountError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -811,19 +1036,31 @@ pub async fn get_cspm_azure_account(configuration: &configuration::Configuration
     }
 }
 
-pub async fn get_cspm_azure_user_scripts_attachment(configuration: &configuration::Configuration, tenant_id: Option<&str>) -> Result<crate::models::RegistrationAzureProvisionGetUserScriptResponseV1, Error<GetCspmAzureUserScriptsAttachmentError>> {
+pub async fn get_cspm_azure_user_scripts_attachment(
+    configuration: &configuration::Configuration,
+    tenant_id: Option<&str>,
+) -> Result<
+    crate::models::RegistrationAzureProvisionGetUserScriptResponseV1,
+    Error<GetCspmAzureUserScriptsAttachmentError>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-cspm-azure/entities/user-scripts-download/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-azure/entities/user-scripts-download/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = tenant_id {
-        local_var_req_builder = local_var_req_builder.query(&[("tenant-id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("tenant-id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -838,7 +1075,8 @@ pub async fn get_cspm_azure_user_scripts_attachment(configuration: &configuratio
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetCspmAzureUserScriptsAttachmentError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCspmAzureUserScriptsAttachmentError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -848,17 +1086,25 @@ pub async fn get_cspm_azure_user_scripts_attachment(configuration: &configuratio
     }
 }
 
-pub async fn get_cspm_policy(configuration: &configuration::Configuration, ids: &str) -> Result<crate::models::RegistrationPolicyResponseV1, Error<GetCspmPolicyError>> {
+pub async fn get_cspm_policy(
+    configuration: &configuration::Configuration,
+    ids: &str,
+) -> Result<crate::models::RegistrationPolicyResponseV1, Error<GetCspmPolicyError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/settings/entities/policy-details/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/settings/entities/policy-details/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("ids", &ids.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -873,7 +1119,8 @@ pub async fn get_cspm_policy(configuration: &configuration::Configuration, ids: 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetCspmPolicyError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCspmPolicyError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -883,25 +1130,39 @@ pub async fn get_cspm_policy(configuration: &configuration::Configuration, ids: 
     }
 }
 
-pub async fn get_cspm_policy_settings(configuration: &configuration::Configuration, service: Option<&str>, policy_id: Option<&str>, cloud_platform: Option<&str>) -> Result<crate::models::RegistrationPolicySettingsResponseV1, Error<GetCspmPolicySettingsError>> {
+pub async fn get_cspm_policy_settings(
+    configuration: &configuration::Configuration,
+    service: Option<&str>,
+    policy_id: Option<&str>,
+    cloud_platform: Option<&str>,
+) -> Result<crate::models::RegistrationPolicySettingsResponseV1, Error<GetCspmPolicySettingsError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/settings/entities/policy/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/settings/entities/policy/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = service {
-        local_var_req_builder = local_var_req_builder.query(&[("service", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("service", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = policy_id {
-        local_var_req_builder = local_var_req_builder.query(&[("policy-id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("policy-id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = cloud_platform {
-        local_var_req_builder = local_var_req_builder.query(&[("cloud-platform", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("cloud-platform", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -916,7 +1177,8 @@ pub async fn get_cspm_policy_settings(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetCspmPolicySettingsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCspmPolicySettingsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -926,22 +1188,43 @@ pub async fn get_cspm_policy_settings(configuration: &configuration::Configurati
     }
 }
 
-pub async fn get_cspm_scan_schedule(configuration: &configuration::Configuration, cloud_platform: Option<Vec<String>>) -> Result<crate::models::RegistrationScanScheduleResponseV1, Error<GetCspmScanScheduleError>> {
+pub async fn get_cspm_scan_schedule(
+    configuration: &configuration::Configuration,
+    cloud_platform: Option<Vec<String>>,
+) -> Result<crate::models::RegistrationScanScheduleResponseV1, Error<GetCspmScanScheduleError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/settings/scan-schedule/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/settings/scan-schedule/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = cloud_platform {
         local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("cloud-platform".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("cloud-platform", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("cloud-platform".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "cloud-platform",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -956,7 +1239,8 @@ pub async fn get_cspm_scan_schedule(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetCspmScanScheduleError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCspmScanScheduleError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -983,40 +1267,66 @@ pub async fn get_ioa_events(
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioa/entities/events/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioa/entities/events/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("policy_id", &policy_id.to_string())]);
-    local_var_req_builder = local_var_req_builder.query(&[("cloud_provider", &cloud_provider.to_string())]);
+    local_var_req_builder =
+        local_var_req_builder.query(&[("cloud_provider", &cloud_provider.to_string())]);
     if let Some(ref local_var_str) = account_id {
-        local_var_req_builder = local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = aws_account_id {
-        local_var_req_builder = local_var_req_builder.query(&[("aws_account_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("aws_account_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = azure_subscription_id {
-        local_var_req_builder = local_var_req_builder.query(&[("azure_subscription_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("azure_subscription_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = azure_tenant_id {
-        local_var_req_builder = local_var_req_builder.query(&[("azure_tenant_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("azure_tenant_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = user_ids {
         local_var_req_builder = match "multi" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("user_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("user_ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("user_ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "user_ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = state {
-        local_var_req_builder = local_var_req_builder.query(&[("state", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("state", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1031,7 +1341,8 @@ pub async fn get_ioa_events(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetIoaEventsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetIoaEventsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1055,28 +1366,39 @@ pub async fn get_ioa_users(
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/ioa/entities/users/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/ioa/entities/users/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("policy_id", &policy_id.to_string())]);
     if let Some(ref local_var_str) = state {
-        local_var_req_builder = local_var_req_builder.query(&[("state", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("state", &local_var_str.to_string())]);
     }
-    local_var_req_builder = local_var_req_builder.query(&[("cloud_provider", &cloud_provider.to_string())]);
+    local_var_req_builder =
+        local_var_req_builder.query(&[("cloud_provider", &cloud_provider.to_string())]);
     if let Some(ref local_var_str) = account_id {
-        local_var_req_builder = local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("account_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = aws_account_id {
-        local_var_req_builder = local_var_req_builder.query(&[("aws_account_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("aws_account_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = azure_subscription_id {
-        local_var_req_builder = local_var_req_builder.query(&[("azure_subscription_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("azure_subscription_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = azure_tenant_id {
-        local_var_req_builder = local_var_req_builder.query(&[("azure_tenant_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("azure_tenant_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1091,7 +1413,8 @@ pub async fn get_ioa_users(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetIoaUsersError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetIoaUsersError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1101,16 +1424,24 @@ pub async fn get_ioa_users(
     }
 }
 
-pub async fn patch_cspm_aws_account(configuration: &configuration::Configuration, body: crate::models::RegistrationAwsAccountPatchRequest) -> Result<crate::models::RegistrationAwsAccountResponseV2, Error<PatchCspmAwsAccountError>> {
+pub async fn patch_cspm_aws_account(
+    configuration: &configuration::Configuration,
+    body: crate::models::RegistrationAwsAccountPatchRequest,
+) -> Result<crate::models::RegistrationAwsAccountResponseV2, Error<PatchCspmAwsAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-cspm-aws/entities/account/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-aws/entities/account/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1126,7 +1457,8 @@ pub async fn patch_cspm_aws_account(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<PatchCspmAwsAccountError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<PatchCspmAwsAccountError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1136,20 +1468,34 @@ pub async fn patch_cspm_aws_account(configuration: &configuration::Configuration
     }
 }
 
-pub async fn update_cspm_azure_account_client_id(configuration: &configuration::Configuration, id: &str, body: serde_json::Value, tenant_id: Option<&str>) -> Result<crate::models::RegistrationAzureServicePrincipalResponseV1, Error<UpdateCspmAzureAccountClientIdError>> {
+pub async fn update_cspm_azure_account_client_id(
+    configuration: &configuration::Configuration,
+    id: &str,
+    body: serde_json::Value,
+    tenant_id: Option<&str>,
+) -> Result<
+    crate::models::RegistrationAzureServicePrincipalResponseV1,
+    Error<UpdateCspmAzureAccountClientIdError>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-cspm-azure/entities/client-id/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-azure/entities/client-id/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
     if let Some(ref local_var_str) = tenant_id {
-        local_var_req_builder = local_var_req_builder.query(&[("tenant-id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("tenant-id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1165,7 +1511,8 @@ pub async fn update_cspm_azure_account_client_id(configuration: &configuration::
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateCspmAzureAccountClientIdError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateCspmAzureAccountClientIdError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1175,20 +1522,34 @@ pub async fn update_cspm_azure_account_client_id(configuration: &configuration::
     }
 }
 
-pub async fn update_cspm_azure_tenant_default_subscription_id(configuration: &configuration::Configuration, subscription_id: &str, tenant_id: Option<&str>) -> Result<crate::models::RegistrationAzureTenantDefaultSubscriptionIdResponseV1, Error<UpdateCspmAzureTenantDefaultSubscriptionIdError>> {
+pub async fn update_cspm_azure_tenant_default_subscription_id(
+    configuration: &configuration::Configuration,
+    subscription_id: &str,
+    tenant_id: Option<&str>,
+) -> Result<
+    crate::models::RegistrationAzureTenantDefaultSubscriptionIdResponseV1,
+    Error<UpdateCspmAzureTenantDefaultSubscriptionIdError>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/cloud-connect-cspm-azure/entities/default-subscription-id/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-azure/entities/default-subscription-id/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = tenant_id {
-        local_var_req_builder = local_var_req_builder.query(&[("tenant-id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("tenant-id", &local_var_str.to_string())]);
     }
-    local_var_req_builder = local_var_req_builder.query(&[("subscription_id", &subscription_id.to_string())]);
+    local_var_req_builder =
+        local_var_req_builder.query(&[("subscription_id", &subscription_id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1203,7 +1564,8 @@ pub async fn update_cspm_azure_tenant_default_subscription_id(configuration: &co
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateCspmAzureTenantDefaultSubscriptionIdError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateCspmAzureTenantDefaultSubscriptionIdError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1213,16 +1575,25 @@ pub async fn update_cspm_azure_tenant_default_subscription_id(configuration: &co
     }
 }
 
-pub async fn update_cspm_policy_settings(configuration: &configuration::Configuration, body: crate::models::RegistrationPolicyRequestExtV1) -> Result<crate::models::RegistrationPolicySettingsResponseV1, Error<UpdateCspmPolicySettingsError>> {
+pub async fn update_cspm_policy_settings(
+    configuration: &configuration::Configuration,
+    body: crate::models::RegistrationPolicyRequestExtV1,
+) -> Result<crate::models::RegistrationPolicySettingsResponseV1, Error<UpdateCspmPolicySettingsError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/settings/entities/policy/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/settings/entities/policy/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1238,7 +1609,8 @@ pub async fn update_cspm_policy_settings(configuration: &configuration::Configur
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateCspmPolicySettingsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateCspmPolicySettingsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1248,16 +1620,24 @@ pub async fn update_cspm_policy_settings(configuration: &configuration::Configur
     }
 }
 
-pub async fn update_cspm_scan_schedule(configuration: &configuration::Configuration, body: crate::models::RegistrationScanScheduleUpdateRequestV1) -> Result<crate::models::RegistrationScanScheduleResponseV1, Error<UpdateCspmScanScheduleError>> {
+pub async fn update_cspm_scan_schedule(
+    configuration: &configuration::Configuration,
+    body: crate::models::RegistrationScanScheduleUpdateRequestV1,
+) -> Result<crate::models::RegistrationScanScheduleResponseV1, Error<UpdateCspmScanScheduleError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/settings/scan-schedule/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/settings/scan-schedule/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1273,7 +1653,8 @@ pub async fn update_cspm_scan_schedule(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateCspmScanScheduleError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateCspmScanScheduleError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

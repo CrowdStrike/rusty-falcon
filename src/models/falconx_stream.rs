@@ -16,7 +16,10 @@ pub struct FalconxStream {
     pub file_name: Option<String>,
     #[serde(rename = "human_keywords", skip_serializing_if = "Option::is_none")]
     pub human_keywords: Option<String>,
-    #[serde(rename = "instructions_artifact_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "instructions_artifact_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub instructions_artifact_id: Option<String>,
     #[serde(rename = "matched_signatures", skip_serializing_if = "Option::is_none")]
     pub matched_signatures: Option<Vec<crate::models::FalconxMatchedSignature>>,

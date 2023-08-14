@@ -19,7 +19,11 @@ pub struct RegistrationExternalIoaEventResponse {
 }
 
 impl RegistrationExternalIoaEventResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::RegistrationMsaMetaInfoExtension, resources: crate::models::RegistrationExternalIoaResources) -> RegistrationExternalIoaEventResponse {
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::RegistrationMsaMetaInfoExtension,
+        resources: crate::models::RegistrationExternalIoaResources,
+    ) -> RegistrationExternalIoaEventResponse {
         RegistrationExternalIoaEventResponse {
             errors,
             meta: Box::new(meta),

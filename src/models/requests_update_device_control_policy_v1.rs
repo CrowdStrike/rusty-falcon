@@ -27,7 +27,10 @@ pub struct RequestsUpdateDeviceControlPolicyV1 {
 
 impl RequestsUpdateDeviceControlPolicyV1 {
     /// An update for a specific policy
-    pub fn new(id: String, settings: crate::models::RequestsDeviceControlPolicySettingsV1) -> RequestsUpdateDeviceControlPolicyV1 {
+    pub fn new(
+        id: String,
+        settings: crate::models::RequestsDeviceControlPolicySettingsV1,
+    ) -> RequestsUpdateDeviceControlPolicyV1 {
         RequestsUpdateDeviceControlPolicyV1 {
             description: None,
             id,

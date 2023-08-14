@@ -319,16 +319,24 @@ pub enum UpdateUserGroupsError {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn add_cid_group_members(configuration: &configuration::Configuration, body: crate::models::DomainCidGroupMembersRequestV1) -> Result<crate::models::DomainCidGroupMembersResponseV1, Error<AddCidGroupMembersError>> {
+pub async fn add_cid_group_members(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainCidGroupMembersRequestV1,
+) -> Result<crate::models::DomainCidGroupMembersResponseV1, Error<AddCidGroupMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/cid-group-members/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/cid-group-members/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -344,7 +352,8 @@ pub async fn add_cid_group_members(configuration: &configuration::Configuration,
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<AddCidGroupMembersError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AddCidGroupMembersError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -354,16 +363,24 @@ pub async fn add_cid_group_members(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn add_role(configuration: &configuration::Configuration, body: crate::models::DomainMsspRoleRequestV1) -> Result<crate::models::DomainMsspRoleResponseV1, Error<AddRoleError>> {
+pub async fn add_role(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainMsspRoleRequestV1,
+) -> Result<crate::models::DomainMsspRoleResponseV1, Error<AddRoleError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/mssp-roles/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/mssp-roles/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -389,16 +406,24 @@ pub async fn add_role(configuration: &configuration::Configuration, body: crate:
     }
 }
 
-pub async fn add_user_group_members(configuration: &configuration::Configuration, body: crate::models::DomainUserGroupMembersRequestV1) -> Result<crate::models::DomainUserGroupMembersResponseV1, Error<AddUserGroupMembersError>> {
+pub async fn add_user_group_members(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainUserGroupMembersRequestV1,
+) -> Result<crate::models::DomainUserGroupMembersResponseV1, Error<AddUserGroupMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/user-group-members/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/user-group-members/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -414,7 +439,8 @@ pub async fn add_user_group_members(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<AddUserGroupMembersError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AddUserGroupMembersError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -424,16 +450,24 @@ pub async fn add_user_group_members(configuration: &configuration::Configuration
     }
 }
 
-pub async fn create_cid_groups(configuration: &configuration::Configuration, body: crate::models::DomainCidGroupsRequestV1) -> Result<crate::models::DomainCidGroupsResponseV1, Error<CreateCidGroupsError>> {
+pub async fn create_cid_groups(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainCidGroupsRequestV1,
+) -> Result<crate::models::DomainCidGroupsResponseV1, Error<CreateCidGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/cid-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/cid-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -449,7 +483,8 @@ pub async fn create_cid_groups(configuration: &configuration::Configuration, bod
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateCidGroupsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateCidGroupsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -459,16 +494,24 @@ pub async fn create_cid_groups(configuration: &configuration::Configuration, bod
     }
 }
 
-pub async fn create_user_groups(configuration: &configuration::Configuration, body: crate::models::DomainUserGroupsRequestV1) -> Result<crate::models::DomainUserGroupsResponseV1, Error<CreateUserGroupsError>> {
+pub async fn create_user_groups(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainUserGroupsRequestV1,
+) -> Result<crate::models::DomainUserGroupsResponseV1, Error<CreateUserGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/user-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/user-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -484,7 +527,8 @@ pub async fn create_user_groups(configuration: &configuration::Configuration, bo
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateUserGroupsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateUserGroupsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -494,16 +538,24 @@ pub async fn create_user_groups(configuration: &configuration::Configuration, bo
     }
 }
 
-pub async fn delete_cid_group_members(configuration: &configuration::Configuration, body: crate::models::DomainCidGroupMembersRequestV1) -> Result<crate::models::DomainCidGroupMembersResponseV1, Error<DeleteCidGroupMembersError>> {
+pub async fn delete_cid_group_members(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainCidGroupMembersRequestV1,
+) -> Result<crate::models::DomainCidGroupMembersResponseV1, Error<DeleteCidGroupMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/cid-group-members/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/cid-group-members/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -519,7 +571,8 @@ pub async fn delete_cid_group_members(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteCidGroupMembersError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteCidGroupMembersError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -529,20 +582,41 @@ pub async fn delete_cid_group_members(configuration: &configuration::Configurati
     }
 }
 
-pub async fn delete_cid_groups(configuration: &configuration::Configuration, cid_group_ids: Vec<String>) -> Result<crate::models::MsaEntitiesResponse, Error<DeleteCidGroupsError>> {
+pub async fn delete_cid_groups(
+    configuration: &configuration::Configuration,
+    cid_group_ids: Vec<String>,
+) -> Result<crate::models::MsaEntitiesResponse, Error<DeleteCidGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/cid-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/cid-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&cid_group_ids.into_iter().map(|p| ("cid_group_ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("cid_group_ids", &cid_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &cid_group_ids
+                .into_iter()
+                .map(|p| ("cid_group_ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "cid_group_ids",
+            &cid_group_ids
+                .into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -557,7 +631,8 @@ pub async fn delete_cid_groups(configuration: &configuration::Configuration, cid
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteCidGroupsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteCidGroupsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -567,16 +642,24 @@ pub async fn delete_cid_groups(configuration: &configuration::Configuration, cid
     }
 }
 
-pub async fn delete_user_group_members(configuration: &configuration::Configuration, body: crate::models::DomainUserGroupMembersRequestV1) -> Result<crate::models::DomainUserGroupMembersResponseV1, Error<DeleteUserGroupMembersError>> {
+pub async fn delete_user_group_members(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainUserGroupMembersRequestV1,
+) -> Result<crate::models::DomainUserGroupMembersResponseV1, Error<DeleteUserGroupMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/user-group-members/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/user-group-members/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -592,7 +675,8 @@ pub async fn delete_user_group_members(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteUserGroupMembersError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteUserGroupMembersError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -602,20 +686,41 @@ pub async fn delete_user_group_members(configuration: &configuration::Configurat
     }
 }
 
-pub async fn delete_user_groups(configuration: &configuration::Configuration, user_group_ids: Vec<String>) -> Result<crate::models::MsaEntitiesResponse, Error<DeleteUserGroupsError>> {
+pub async fn delete_user_groups(
+    configuration: &configuration::Configuration,
+    user_group_ids: Vec<String>,
+) -> Result<crate::models::MsaEntitiesResponse, Error<DeleteUserGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/user-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/user-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&user_group_ids.into_iter().map(|p| ("user_group_ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("user_group_ids", &user_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &user_group_ids
+                .into_iter()
+                .map(|p| ("user_group_ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "user_group_ids",
+            &user_group_ids
+                .into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -630,7 +735,8 @@ pub async fn delete_user_groups(configuration: &configuration::Configuration, us
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteUserGroupsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteUserGroupsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -640,16 +746,24 @@ pub async fn delete_user_groups(configuration: &configuration::Configuration, us
     }
 }
 
-pub async fn deleted_roles(configuration: &configuration::Configuration, body: crate::models::DomainMsspRoleRequestV1) -> Result<crate::models::DomainMsspRoleResponseV1, Error<DeletedRolesError>> {
+pub async fn deleted_roles(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainMsspRoleRequestV1,
+) -> Result<crate::models::DomainMsspRoleResponseV1, Error<DeletedRolesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/mssp-roles/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/mssp-roles/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -665,7 +779,8 @@ pub async fn deleted_roles(configuration: &configuration::Configuration, body: c
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeletedRolesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeletedRolesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -675,20 +790,39 @@ pub async fn deleted_roles(configuration: &configuration::Configuration, body: c
     }
 }
 
-pub async fn get_children(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainChildrenResponseV1, Error<GetChildrenError>> {
+pub async fn get_children(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainChildrenResponseV1, Error<GetChildrenError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/children/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/children/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -703,7 +837,8 @@ pub async fn get_children(configuration: &configuration::Configuration, ids: Vec
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetChildrenError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetChildrenError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -713,16 +848,24 @@ pub async fn get_children(configuration: &configuration::Configuration, ids: Vec
     }
 }
 
-pub async fn get_children_v2(configuration: &configuration::Configuration, body: crate::models::MsaspecIdsRequest) -> Result<crate::models::DomainChildrenResponseV1, Error<GetChildrenV2Error>> {
+pub async fn get_children_v2(
+    configuration: &configuration::Configuration,
+    body: crate::models::MsaspecIdsRequest,
+) -> Result<crate::models::DomainChildrenResponseV1, Error<GetChildrenV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/children/GET/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/children/GET/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -738,7 +881,8 @@ pub async fn get_children_v2(configuration: &configuration::Configuration, body:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetChildrenV2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetChildrenV2Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -748,20 +892,41 @@ pub async fn get_children_v2(configuration: &configuration::Configuration, body:
     }
 }
 
-pub async fn get_cid_group_by_id(configuration: &configuration::Configuration, cid_group_ids: Vec<String>) -> Result<crate::models::DomainCidGroupsResponseV1, Error<GetCidGroupByIdError>> {
+pub async fn get_cid_group_by_id(
+    configuration: &configuration::Configuration,
+    cid_group_ids: Vec<String>,
+) -> Result<crate::models::DomainCidGroupsResponseV1, Error<GetCidGroupByIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/cid-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/cid-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&cid_group_ids.into_iter().map(|p| ("cid_group_ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("cid_group_ids", &cid_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &cid_group_ids
+                .into_iter()
+                .map(|p| ("cid_group_ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "cid_group_ids",
+            &cid_group_ids
+                .into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -776,7 +941,8 @@ pub async fn get_cid_group_by_id(configuration: &configuration::Configuration, c
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetCidGroupByIdError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCidGroupByIdError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -786,20 +952,39 @@ pub async fn get_cid_group_by_id(configuration: &configuration::Configuration, c
     }
 }
 
-pub async fn get_cid_group_by_id_v2(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainCidGroupsResponseV1, Error<GetCidGroupByIdV2Error>> {
+pub async fn get_cid_group_by_id_v2(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainCidGroupsResponseV1, Error<GetCidGroupByIdV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/cid-groups/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/cid-groups/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -814,7 +999,8 @@ pub async fn get_cid_group_by_id_v2(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetCidGroupByIdV2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCidGroupByIdV2Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -824,20 +1010,41 @@ pub async fn get_cid_group_by_id_v2(configuration: &configuration::Configuration
     }
 }
 
-pub async fn get_cid_group_members_by(configuration: &configuration::Configuration, cid_group_ids: Vec<String>) -> Result<crate::models::DomainCidGroupMembersResponseV1, Error<GetCidGroupMembersByError>> {
+pub async fn get_cid_group_members_by(
+    configuration: &configuration::Configuration,
+    cid_group_ids: Vec<String>,
+) -> Result<crate::models::DomainCidGroupMembersResponseV1, Error<GetCidGroupMembersByError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/cid-group-members/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/cid-group-members/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&cid_group_ids.into_iter().map(|p| ("cid_group_ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("cid_group_ids", &cid_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &cid_group_ids
+                .into_iter()
+                .map(|p| ("cid_group_ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "cid_group_ids",
+            &cid_group_ids
+                .into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -852,7 +1059,8 @@ pub async fn get_cid_group_members_by(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetCidGroupMembersByError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCidGroupMembersByError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -862,20 +1070,39 @@ pub async fn get_cid_group_members_by(configuration: &configuration::Configurati
     }
 }
 
-pub async fn get_cid_group_members_by_v2(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainCidGroupMembersResponseV1, Error<GetCidGroupMembersByV2Error>> {
+pub async fn get_cid_group_members_by_v2(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainCidGroupMembersResponseV1, Error<GetCidGroupMembersByV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/cid-group-members/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/cid-group-members/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -890,7 +1117,8 @@ pub async fn get_cid_group_members_by_v2(configuration: &configuration::Configur
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetCidGroupMembersByV2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCidGroupMembersByV2Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -900,20 +1128,39 @@ pub async fn get_cid_group_members_by_v2(configuration: &configuration::Configur
     }
 }
 
-pub async fn get_roles_by_id(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainMsspRoleResponseV1, Error<GetRolesByIdError>> {
+pub async fn get_roles_by_id(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainMsspRoleResponseV1, Error<GetRolesByIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/mssp-roles/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/mssp-roles/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "csv" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -928,7 +1175,8 @@ pub async fn get_roles_by_id(configuration: &configuration::Configuration, ids: 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetRolesByIdError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetRolesByIdError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -938,20 +1186,41 @@ pub async fn get_roles_by_id(configuration: &configuration::Configuration, ids: 
     }
 }
 
-pub async fn get_user_group_members_by_id(configuration: &configuration::Configuration, user_group_ids: Vec<String>) -> Result<crate::models::DomainUserGroupMembersResponseV1, Error<GetUserGroupMembersByIdError>> {
+pub async fn get_user_group_members_by_id(
+    configuration: &configuration::Configuration,
+    user_group_ids: Vec<String>,
+) -> Result<crate::models::DomainUserGroupMembersResponseV1, Error<GetUserGroupMembersByIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/user-group-members/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/user-group-members/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&user_group_ids.into_iter().map(|p| ("user_group_ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("user_group_ids", &user_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &user_group_ids
+                .into_iter()
+                .map(|p| ("user_group_ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "user_group_ids",
+            &user_group_ids
+                .into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -966,7 +1235,8 @@ pub async fn get_user_group_members_by_id(configuration: &configuration::Configu
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetUserGroupMembersByIdError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetUserGroupMembersByIdError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -976,20 +1246,40 @@ pub async fn get_user_group_members_by_id(configuration: &configuration::Configu
     }
 }
 
-pub async fn get_user_group_members_by_idv2(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainUserGroupMembersResponseV1, Error<GetUserGroupMembersByIdv2Error>> {
+pub async fn get_user_group_members_by_idv2(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainUserGroupMembersResponseV1, Error<GetUserGroupMembersByIdv2Error>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/user-group-members/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/user-group-members/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1004,7 +1294,8 @@ pub async fn get_user_group_members_by_idv2(configuration: &configuration::Confi
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetUserGroupMembersByIdv2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetUserGroupMembersByIdv2Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1014,20 +1305,41 @@ pub async fn get_user_group_members_by_idv2(configuration: &configuration::Confi
     }
 }
 
-pub async fn get_user_groups_by_id(configuration: &configuration::Configuration, user_group_ids: Vec<String>) -> Result<crate::models::DomainUserGroupsResponseV1, Error<GetUserGroupsByIdError>> {
+pub async fn get_user_groups_by_id(
+    configuration: &configuration::Configuration,
+    user_group_ids: Vec<String>,
+) -> Result<crate::models::DomainUserGroupsResponseV1, Error<GetUserGroupsByIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/user-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/user-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&user_group_ids.into_iter().map(|p| ("user_group_ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("user_group_ids", &user_group_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &user_group_ids
+                .into_iter()
+                .map(|p| ("user_group_ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "user_group_ids",
+            &user_group_ids
+                .into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1042,7 +1354,8 @@ pub async fn get_user_groups_by_id(configuration: &configuration::Configuration,
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetUserGroupsByIdError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetUserGroupsByIdError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1052,20 +1365,39 @@ pub async fn get_user_groups_by_id(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn get_user_groups_by_idv2(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::DomainUserGroupsResponseV1, Error<GetUserGroupsByIdv2Error>> {
+pub async fn get_user_groups_by_idv2(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::DomainUserGroupsResponseV1, Error<GetUserGroupsByIdv2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/user-groups/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/user-groups/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1080,7 +1412,8 @@ pub async fn get_user_groups_by_idv2(configuration: &configuration::Configuratio
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetUserGroupsByIdv2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetUserGroupsByIdv2Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1090,25 +1423,38 @@ pub async fn get_user_groups_by_idv2(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn query_children(configuration: &configuration::Configuration, sort: Option<&str>, offset: Option<i32>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QueryChildrenError>> {
+pub async fn query_children(
+    configuration: &configuration::Configuration,
+    sort: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryChildrenError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/queries/children/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/queries/children/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1123,7 +1469,8 @@ pub async fn query_children(configuration: &configuration::Configuration, sort: 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryChildrenError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryChildrenError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1133,26 +1480,40 @@ pub async fn query_children(configuration: &configuration::Configuration, sort: 
     }
 }
 
-pub async fn query_cid_group_members(configuration: &configuration::Configuration, cid: &str, sort: Option<&str>, offset: Option<i32>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QueryCidGroupMembersError>> {
+pub async fn query_cid_group_members(
+    configuration: &configuration::Configuration,
+    cid: &str,
+    sort: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryCidGroupMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/queries/cid-group-members/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/queries/cid-group-members/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("cid", &cid.to_string())]);
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1167,7 +1528,8 @@ pub async fn query_cid_group_members(configuration: &configuration::Configuratio
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryCidGroupMembersError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryCidGroupMembersError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1177,28 +1539,43 @@ pub async fn query_cid_group_members(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn query_cid_groups(configuration: &configuration::Configuration, name: Option<&str>, sort: Option<&str>, offset: Option<i32>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QueryCidGroupsError>> {
+pub async fn query_cid_groups(
+    configuration: &configuration::Configuration,
+    name: Option<&str>,
+    sort: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryCidGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/queries/cid-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/queries/cid-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = name {
-        local_var_req_builder = local_var_req_builder.query(&[("name", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("name", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1213,7 +1590,8 @@ pub async fn query_cid_groups(configuration: &configuration::Configuration, name
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryCidGroupsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryCidGroupsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1223,34 +1601,53 @@ pub async fn query_cid_groups(configuration: &configuration::Configuration, name
     }
 }
 
-pub async fn query_roles(configuration: &configuration::Configuration, user_group_id: Option<&str>, cid_group_id: Option<&str>, role_id: Option<&str>, sort: Option<&str>, offset: Option<i32>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QueryRolesError>> {
+pub async fn query_roles(
+    configuration: &configuration::Configuration,
+    user_group_id: Option<&str>,
+    cid_group_id: Option<&str>,
+    role_id: Option<&str>,
+    sort: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryRolesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/queries/mssp-roles/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/queries/mssp-roles/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = user_group_id {
-        local_var_req_builder = local_var_req_builder.query(&[("user_group_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("user_group_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = cid_group_id {
-        local_var_req_builder = local_var_req_builder.query(&[("cid_group_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("cid_group_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = role_id {
-        local_var_req_builder = local_var_req_builder.query(&[("role_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("role_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1265,7 +1662,8 @@ pub async fn query_roles(configuration: &configuration::Configuration, user_grou
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryRolesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryRolesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1275,26 +1673,40 @@ pub async fn query_roles(configuration: &configuration::Configuration, user_grou
     }
 }
 
-pub async fn query_user_group_members(configuration: &configuration::Configuration, user_uuid: &str, sort: Option<&str>, offset: Option<i32>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QueryUserGroupMembersError>> {
+pub async fn query_user_group_members(
+    configuration: &configuration::Configuration,
+    user_uuid: &str,
+    sort: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryUserGroupMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/queries/user-group-members/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/queries/user-group-members/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("user_uuid", &user_uuid.to_string())]);
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1309,7 +1721,8 @@ pub async fn query_user_group_members(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryUserGroupMembersError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryUserGroupMembersError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1319,28 +1732,43 @@ pub async fn query_user_group_members(configuration: &configuration::Configurati
     }
 }
 
-pub async fn query_user_groups(configuration: &configuration::Configuration, name: Option<&str>, sort: Option<&str>, offset: Option<i32>, limit: Option<i32>) -> Result<crate::models::MsaQueryResponse, Error<QueryUserGroupsError>> {
+pub async fn query_user_groups(
+    configuration: &configuration::Configuration,
+    name: Option<&str>,
+    sort: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryUserGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/queries/user-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/queries/user-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = name {
-        local_var_req_builder = local_var_req_builder.query(&[("name", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("name", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1355,7 +1783,8 @@ pub async fn query_user_groups(configuration: &configuration::Configuration, nam
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryUserGroupsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryUserGroupsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1365,16 +1794,24 @@ pub async fn query_user_groups(configuration: &configuration::Configuration, nam
     }
 }
 
-pub async fn update_cid_groups(configuration: &configuration::Configuration, body: crate::models::DomainCidGroupsRequestV1) -> Result<crate::models::DomainCidGroupsResponseV1, Error<UpdateCidGroupsError>> {
+pub async fn update_cid_groups(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainCidGroupsRequestV1,
+) -> Result<crate::models::DomainCidGroupsResponseV1, Error<UpdateCidGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/cid-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/cid-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1390,7 +1827,8 @@ pub async fn update_cid_groups(configuration: &configuration::Configuration, bod
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateCidGroupsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateCidGroupsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1400,16 +1838,24 @@ pub async fn update_cid_groups(configuration: &configuration::Configuration, bod
     }
 }
 
-pub async fn update_user_groups(configuration: &configuration::Configuration, body: crate::models::DomainUserGroupsRequestV1) -> Result<crate::models::DomainUserGroupsResponseV1, Error<UpdateUserGroupsError>> {
+pub async fn update_user_groups(
+    configuration: &configuration::Configuration,
+    body: crate::models::DomainUserGroupsRequestV1,
+) -> Result<crate::models::DomainUserGroupsResponseV1, Error<UpdateUserGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/mssp/entities/user-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/mssp/entities/user-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1425,7 +1871,8 @@ pub async fn update_user_groups(configuration: &configuration::Configuration, bo
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateUserGroupsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateUserGroupsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

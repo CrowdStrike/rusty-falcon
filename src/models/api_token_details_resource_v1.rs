@@ -31,7 +31,17 @@ pub struct ApiTokenDetailsResourceV1 {
 }
 
 impl ApiTokenDetailsResourceV1 {
-    pub fn new(created_timestamp: String, expires_timestamp: String, id: String, label: String, last_used_timestamp: String, revoked_timestamp: String, status: String, _type: String, value: String) -> ApiTokenDetailsResourceV1 {
+    pub fn new(
+        created_timestamp: String,
+        expires_timestamp: String,
+        id: String,
+        label: String,
+        last_used_timestamp: String,
+        revoked_timestamp: String,
+        status: String,
+        _type: String,
+        value: String,
+    ) -> ApiTokenDetailsResourceV1 {
         ApiTokenDetailsResourceV1 {
             created_timestamp,
             expires_timestamp,

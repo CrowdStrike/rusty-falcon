@@ -18,7 +18,10 @@ pub struct FalconxRegistry {
     pub path: Option<String>,
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
-    #[serde(rename = "status_human_readable", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "status_human_readable",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub status_human_readable: Option<String>,
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,

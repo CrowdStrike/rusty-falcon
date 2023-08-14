@@ -26,7 +26,10 @@ pub struct ApiReportExecutionV1 {
     pub job_reference: Option<String>,
     #[serde(rename = "last_updated_on")]
     pub last_updated_on: String,
-    #[serde(rename = "report_file_reference", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "report_file_reference",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub report_file_reference: Option<String>,
     #[serde(rename = "result_metadata", skip_serializing_if = "Option::is_none")]
     pub result_metadata: Option<Box<crate::models::DomainResultMetadata>>,

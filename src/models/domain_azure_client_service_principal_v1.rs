@@ -14,7 +14,10 @@ pub struct DomainAzureClientServicePrincipalV1 {
     pub cid: String,
     #[serde(rename = "client_id", skip_serializing_if = "Option::is_none")]
     pub client_id: Option<String>,
-    #[serde(rename = "encrypted_private_key", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "encrypted_private_key",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub encrypted_private_key: Option<String>,
     #[serde(rename = "public_certificate", skip_serializing_if = "Option::is_none")]
     pub public_certificate: Option<String>,

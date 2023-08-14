@@ -18,6 +18,9 @@ pub struct FwmgrDomainIcmpTargetsWithPolling {
 
 impl FwmgrDomainIcmpTargetsWithPolling {
     pub fn new(polling_interval: i32) -> FwmgrDomainIcmpTargetsWithPolling {
-        FwmgrDomainIcmpTargetsWithPolling { polling_interval, targets: None }
+        FwmgrDomainIcmpTargetsWithPolling {
+            polling_interval,
+            targets: None,
+        }
     }
 }

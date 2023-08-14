@@ -12,11 +12,20 @@
 pub struct FalconxMitreAttack {
     #[serde(rename = "attack_id", skip_serializing_if = "Option::is_none")]
     pub attack_id: Option<String>,
-    #[serde(rename = "informative_identifiers", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "informative_identifiers",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub informative_identifiers: Option<Vec<String>>,
-    #[serde(rename = "malicious_identifiers", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "malicious_identifiers",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub malicious_identifiers: Option<Vec<String>>,
-    #[serde(rename = "suspicious_identifiers", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "suspicious_identifiers",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub suspicious_identifiers: Option<Vec<String>>,
     #[serde(rename = "tactic", skip_serializing_if = "Option::is_none")]
     pub tactic: Option<String>,

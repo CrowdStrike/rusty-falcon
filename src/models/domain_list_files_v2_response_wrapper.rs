@@ -19,7 +19,15 @@ pub struct DomainListFilesV2ResponseWrapper {
 }
 
 impl DomainListFilesV2ResponseWrapper {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainFileV2>) -> DomainListFilesV2ResponseWrapper {
-        DomainListFilesV2ResponseWrapper { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainFileV2>,
+    ) -> DomainListFilesV2ResponseWrapper {
+        DomainListFilesV2ResponseWrapper {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

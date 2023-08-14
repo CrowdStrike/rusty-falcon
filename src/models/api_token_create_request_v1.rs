@@ -23,6 +23,10 @@ pub struct ApiTokenCreateRequestV1 {
 
 impl ApiTokenCreateRequestV1 {
     pub fn new() -> ApiTokenCreateRequestV1 {
-        ApiTokenCreateRequestV1 { expires_timestamp: None, label: None, _type: None }
+        ApiTokenCreateRequestV1 {
+            expires_timestamp: None,
+            label: None,
+            _type: None,
+        }
     }
 }

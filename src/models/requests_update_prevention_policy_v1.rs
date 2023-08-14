@@ -28,7 +28,15 @@ pub struct RequestsUpdatePreventionPolicyV1 {
 
 impl RequestsUpdatePreventionPolicyV1 {
     /// An update for a specific policy
-    pub fn new(id: String, settings: Vec<crate::models::RequestsPreventionSettingV1>) -> RequestsUpdatePreventionPolicyV1 {
-        RequestsUpdatePreventionPolicyV1 { description: None, id, name: None, settings }
+    pub fn new(
+        id: String,
+        settings: Vec<crate::models::RequestsPreventionSettingV1>,
+    ) -> RequestsUpdatePreventionPolicyV1 {
+        RequestsUpdatePreventionPolicyV1 {
+            description: None,
+            id,
+            name: None,
+            settings,
+        }
     }
 }

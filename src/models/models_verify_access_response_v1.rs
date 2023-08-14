@@ -19,7 +19,15 @@ pub struct ModelsVerifyAccessResponseV1 {
 }
 
 impl ModelsVerifyAccessResponseV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainAccountAccessResult>) -> ModelsVerifyAccessResponseV1 {
-        ModelsVerifyAccessResponseV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainAccountAccessResult>,
+    ) -> ModelsVerifyAccessResponseV1 {
+        ModelsVerifyAccessResponseV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

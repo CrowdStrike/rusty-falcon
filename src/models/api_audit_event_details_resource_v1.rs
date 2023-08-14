@@ -25,7 +25,21 @@ pub struct ApiAuditEventDetailsResourceV1 {
 }
 
 impl ApiAuditEventDetailsResourceV1 {
-    pub fn new(action: String, actor: String, description: String, id: String, timestamp: String, token_id: String) -> ApiAuditEventDetailsResourceV1 {
-        ApiAuditEventDetailsResourceV1 { action, actor, description, id, timestamp, token_id }
+    pub fn new(
+        action: String,
+        actor: String,
+        description: String,
+        id: String,
+        timestamp: String,
+        token_id: String,
+    ) -> ApiAuditEventDetailsResourceV1 {
+        ApiAuditEventDetailsResourceV1 {
+            action,
+            actor,
+            description,
+            id,
+            timestamp,
+            token_id,
+        }
     }
 }

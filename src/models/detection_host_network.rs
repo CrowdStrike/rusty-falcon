@@ -12,7 +12,10 @@
 pub struct DetectionHostNetwork {
     #[serde(rename = "network_id", skip_serializing_if = "Option::is_none")]
     pub network_id: Option<String>,
-    #[serde(rename = "network_interface_ids", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "network_interface_ids",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub network_interface_ids: Option<String>,
     #[serde(rename = "subnet_id", skip_serializing_if = "Option::is_none")]
     pub subnet_id: Option<String>,

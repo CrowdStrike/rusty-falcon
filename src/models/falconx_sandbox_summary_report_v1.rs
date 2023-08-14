@@ -10,9 +10,15 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct FalconxSandboxSummaryReportV1 {
-    #[serde(rename = "classification_tags", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "classification_tags",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub classification_tags: Option<Vec<String>>,
-    #[serde(rename = "environment_description", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "environment_description",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub environment_description: Option<String>,
     #[serde(rename = "environment_id", skip_serializing_if = "Option::is_none")]
     pub environment_id: Option<i32>,

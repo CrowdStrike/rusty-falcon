@@ -20,6 +20,10 @@ pub struct DomainImage {
 
 impl DomainImage {
     pub fn new(url: String) -> DomainImage {
-        DomainImage { height: None, url, width: None }
+        DomainImage {
+            height: None,
+            url,
+            width: None,
+        }
     }
 }

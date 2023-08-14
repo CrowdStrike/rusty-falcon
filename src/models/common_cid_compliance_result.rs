@@ -21,7 +21,17 @@ pub struct CommonCidComplianceResult {
 }
 
 impl CommonCidComplianceResult {
-    pub fn new(average_overall_score: f64, cid: String, num_aids: i32, platforms: Vec<crate::models::CommonOsCompliance>) -> CommonCidComplianceResult {
-        CommonCidComplianceResult { average_overall_score, cid, num_aids, platforms }
+    pub fn new(
+        average_overall_score: f64,
+        cid: String,
+        num_aids: i32,
+        platforms: Vec<crate::models::CommonOsCompliance>,
+    ) -> CommonCidComplianceResult {
+        CommonCidComplianceResult {
+            average_overall_score,
+            cid,
+            num_aids,
+            platforms,
+        }
     }
 }

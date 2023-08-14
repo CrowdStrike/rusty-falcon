@@ -28,6 +28,11 @@ pub struct RequestsUpdateSensorUpdatePolicyV1 {
 impl RequestsUpdateSensorUpdatePolicyV1 {
     /// An update for a specific policy
     pub fn new(id: String) -> RequestsUpdateSensorUpdatePolicyV1 {
-        RequestsUpdateSensorUpdatePolicyV1 { description: None, id, name: None, settings: None }
+        RequestsUpdateSensorUpdatePolicyV1 {
+            description: None,
+            id,
+            name: None,
+            settings: None,
+        }
     }
 }

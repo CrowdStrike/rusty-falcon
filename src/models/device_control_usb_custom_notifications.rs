@@ -10,9 +10,15 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DeviceControlUsbCustomNotifications {
-    #[serde(rename = "blocked_notification", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "blocked_notification",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub blocked_notification: Option<Box<crate::models::DeviceControlUsbCustomNotification>>,
-    #[serde(rename = "restricted_notification", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "restricted_notification",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub restricted_notification: Option<Box<crate::models::DeviceControlUsbCustomNotification>>,
 }
 

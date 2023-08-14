@@ -17,7 +17,13 @@ pub struct DeviceapiLoginDetailV1 {
 }
 
 impl DeviceapiLoginDetailV1 {
-    pub fn new(device_id: String, recent_logins: Vec<crate::models::DeviceapiLoginInfoV1>) -> DeviceapiLoginDetailV1 {
-        DeviceapiLoginDetailV1 { device_id, recent_logins }
+    pub fn new(
+        device_id: String,
+        recent_logins: Vec<crate::models::DeviceapiLoginInfoV1>,
+    ) -> DeviceapiLoginDetailV1 {
+        DeviceapiLoginDetailV1 {
+            device_id,
+            recent_logins,
+        }
     }
 }

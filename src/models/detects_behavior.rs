@@ -52,7 +52,10 @@ pub struct DetectsBehavior {
     pub pattern_disposition_details: Box<crate::models::PatterndispositionPatternDisposition>,
     #[serde(rename = "rule_instance_id", skip_serializing_if = "Option::is_none")]
     pub rule_instance_id: Option<String>,
-    #[serde(rename = "rule_instance_version", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rule_instance_version",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rule_instance_version: Option<i32>,
     #[serde(rename = "scenario")]
     pub scenario: String,
@@ -68,7 +71,10 @@ pub struct DetectsBehavior {
     pub technique: String,
     #[serde(rename = "technique_id")]
     pub technique_id: String,
-    #[serde(rename = "template_instance_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "template_instance_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub template_instance_id: Option<String>,
     #[serde(rename = "timestamp")]
     pub timestamp: String,

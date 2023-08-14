@@ -18,6 +18,9 @@ pub struct DomainIoaEnrichments {
 
 impl DomainIoaEnrichments {
     pub fn new() -> DomainIoaEnrichments {
-        DomainIoaEnrichments { inventory: None, sensor_events: None }
+        DomainIoaEnrichments {
+            inventory: None,
+            sensor_events: None,
+        }
     }
 }

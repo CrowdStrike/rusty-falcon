@@ -25,7 +25,14 @@ pub struct DomainExposedDataRecordLocationV1 {
 }
 
 impl DomainExposedDataRecordLocationV1 {
-    pub fn new(city: String, country_code: String, federal_admin_region: String, federal_district: String, postal_code: String, state: String) -> DomainExposedDataRecordLocationV1 {
+    pub fn new(
+        city: String,
+        country_code: String,
+        federal_admin_region: String,
+        federal_district: String,
+        postal_code: String,
+        state: String,
+    ) -> DomainExposedDataRecordLocationV1 {
         DomainExposedDataRecordLocationV1 {
             city,
             country_code,

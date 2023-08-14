@@ -19,7 +19,14 @@ pub struct FwmgrApiRulesResponse {
 }
 
 impl FwmgrApiRulesResponse {
-    pub fn new(meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<crate::models::FwmgrFirewallRuleV1>) -> FwmgrApiRulesResponse {
-        FwmgrApiRulesResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::FwmgrMsaspecMetaInfo,
+        resources: Vec<crate::models::FwmgrFirewallRuleV1>,
+    ) -> FwmgrApiRulesResponse {
+        FwmgrApiRulesResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

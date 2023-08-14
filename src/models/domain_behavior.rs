@@ -38,9 +38,15 @@ pub struct DomainBehavior {
     pub ioc_value: Option<String>,
     #[serde(rename = "objective", skip_serializing_if = "Option::is_none")]
     pub objective: Option<String>,
-    #[serde(rename = "pattern_disposition", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "pattern_disposition",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub pattern_disposition: Option<i32>,
-    #[serde(rename = "pattern_disposition_details", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "pattern_disposition_details",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub pattern_disposition_details: Option<Box<crate::models::CloudontologyPatternDisposition>>,
     #[serde(rename = "pattern_id")]
     pub pattern_id: i32,

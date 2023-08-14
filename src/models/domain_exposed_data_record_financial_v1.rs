@@ -19,7 +19,15 @@ pub struct DomainExposedDataRecordFinancialV1 {
 }
 
 impl DomainExposedDataRecordFinancialV1 {
-    pub fn new(bank_account: String, credit_card: String, crypto_currency_address: String) -> DomainExposedDataRecordFinancialV1 {
-        DomainExposedDataRecordFinancialV1 { bank_account, credit_card, crypto_currency_address }
+    pub fn new(
+        bank_account: String,
+        credit_card: String,
+        crypto_currency_address: String,
+    ) -> DomainExposedDataRecordFinancialV1 {
+        DomainExposedDataRecordFinancialV1 {
+            bank_account,
+            credit_card,
+            crypto_currency_address,
+        }
     }
 }

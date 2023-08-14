@@ -20,6 +20,10 @@ pub struct DeviceapiNetworkAddressV1 {
 
 impl DeviceapiNetworkAddressV1 {
     pub fn new() -> DeviceapiNetworkAddressV1 {
-        DeviceapiNetworkAddressV1 { ip_address: None, mac_address: None, timestamp: None }
+        DeviceapiNetworkAddressV1 {
+            ip_address: None,
+            mac_address: None,
+            timestamp: None,
+        }
     }
 }

@@ -24,6 +24,12 @@ pub struct DomainSimpleActor {
 
 impl DomainSimpleActor {
     pub fn new(id: i64) -> DomainSimpleActor {
-        DomainSimpleActor { id, name: None, slug: None, thumbnail: None, url: None }
+        DomainSimpleActor {
+            id,
+            name: None,
+            slug: None,
+            thumbnail: None,
+            url: None,
+        }
     }
 }

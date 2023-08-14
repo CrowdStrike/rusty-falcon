@@ -19,7 +19,10 @@ pub struct ApiIndicatorUpdateReqsV1 {
 }
 
 impl ApiIndicatorUpdateReqsV1 {
-    pub fn new(bulk_update: crate::models::ApiBulkUpdateReqV1, indicators: Vec<crate::models::ApiIndicatorUpdateReqV1>) -> ApiIndicatorUpdateReqsV1 {
+    pub fn new(
+        bulk_update: crate::models::ApiBulkUpdateReqV1,
+        indicators: Vec<crate::models::ApiIndicatorUpdateReqV1>,
+    ) -> ApiIndicatorUpdateReqsV1 {
         ApiIndicatorUpdateReqsV1 {
             bulk_update: Box::new(bulk_update),
             comment: None,

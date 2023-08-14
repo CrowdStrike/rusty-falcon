@@ -19,7 +19,15 @@ pub struct DeviceapiNetworkAddressHistoryV1 {
 }
 
 impl DeviceapiNetworkAddressHistoryV1 {
-    pub fn new(cid: String, device_id: String, history: Vec<crate::models::DeviceapiNetworkAddressV1>) -> DeviceapiNetworkAddressHistoryV1 {
-        DeviceapiNetworkAddressHistoryV1 { cid, device_id, history }
+    pub fn new(
+        cid: String,
+        device_id: String,
+        history: Vec<crate::models::DeviceapiNetworkAddressV1>,
+    ) -> DeviceapiNetworkAddressHistoryV1 {
+        DeviceapiNetworkAddressHistoryV1 {
+            cid,
+            device_id,
+            history,
+        }
     }
 }

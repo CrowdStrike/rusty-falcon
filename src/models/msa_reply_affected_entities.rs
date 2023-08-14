@@ -19,7 +19,15 @@ pub struct MsaReplyAffectedEntities {
 }
 
 impl MsaReplyAffectedEntities {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::MsaAffectedEntity>) -> MsaReplyAffectedEntities {
-        MsaReplyAffectedEntities { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::MsaAffectedEntity>,
+    ) -> MsaReplyAffectedEntities {
+        MsaReplyAffectedEntities {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

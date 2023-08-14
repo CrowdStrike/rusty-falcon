@@ -43,7 +43,15 @@ pub struct ResponsesHostGroupV1 {
 
 impl ResponsesHostGroupV1 {
     /// A host group which targets a set of devices either through a dynamic assignment rule or a static set of hosts
-    pub fn new(created_by: String, created_timestamp: String, description: String, id: String, modified_by: String, modified_timestamp: String, name: String) -> ResponsesHostGroupV1 {
+    pub fn new(
+        created_by: String,
+        created_timestamp: String,
+        description: String,
+        id: String,
+        modified_by: String,
+        modified_timestamp: String,
+        name: String,
+    ) -> ResponsesHostGroupV1 {
         ResponsesHostGroupV1 {
             assignment_rule: None,
             created_by,

@@ -19,7 +19,15 @@ pub struct ClientSampleMetadataResponseV2 {
 }
 
 impl ClientSampleMetadataResponseV2 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::ClientSampleMetadataV2>) -> ClientSampleMetadataResponseV2 {
-        ClientSampleMetadataResponseV2 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::ClientSampleMetadataV2>,
+    ) -> ClientSampleMetadataResponseV2 {
+        ClientSampleMetadataResponseV2 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

@@ -30,7 +30,12 @@ pub struct SadomainTyposquattingBaseDomain {
 }
 
 impl SadomainTyposquattingBaseDomain {
-    pub fn new(id: String, is_registered: bool, punycode_format: String, unicode_format: String) -> SadomainTyposquattingBaseDomain {
+    pub fn new(
+        id: String,
+        is_registered: bool,
+        punycode_format: String,
+        unicode_format: String,
+    ) -> SadomainTyposquattingBaseDomain {
         SadomainTyposquattingBaseDomain {
             created_date: None,
             id,

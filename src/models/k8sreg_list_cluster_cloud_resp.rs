@@ -19,7 +19,15 @@ pub struct K8sregListClusterCloudResp {
 }
 
 impl K8sregListClusterCloudResp {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::K8sregListClusterCloudItemResp>) -> K8sregListClusterCloudResp {
-        K8sregListClusterCloudResp { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::K8sregListClusterCloudItemResp>,
+    ) -> K8sregListClusterCloudResp {
+        K8sregListClusterCloudResp {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

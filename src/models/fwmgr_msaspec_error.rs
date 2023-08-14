@@ -20,6 +20,10 @@ pub struct FwmgrMsaspecError {
 
 impl FwmgrMsaspecError {
     pub fn new(code: i32, message: String) -> FwmgrMsaspecError {
-        FwmgrMsaspecError { code, id: None, message }
+        FwmgrMsaspecError {
+            code,
+            id: None,
+            message,
+        }
     }
 }

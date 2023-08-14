@@ -18,6 +18,9 @@ pub struct K8sregAzureTenantInfo {
 
 impl K8sregAzureTenantInfo {
     pub fn new(subscription_ids: Vec<String>, tenant_id: String) -> K8sregAzureTenantInfo {
-        K8sregAzureTenantInfo { subscription_ids, tenant_id }
+        K8sregAzureTenantInfo {
+            subscription_ids,
+            tenant_id,
+        }
     }
 }

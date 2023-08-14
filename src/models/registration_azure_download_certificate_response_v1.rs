@@ -19,7 +19,15 @@ pub struct RegistrationAzureDownloadCertificateResponseV1 {
 }
 
 impl RegistrationAzureDownloadCertificateResponseV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::RegistrationAzureKeyV1>) -> RegistrationAzureDownloadCertificateResponseV1 {
-        RegistrationAzureDownloadCertificateResponseV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::RegistrationAzureKeyV1>,
+    ) -> RegistrationAzureDownloadCertificateResponseV1 {
+        RegistrationAzureDownloadCertificateResponseV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

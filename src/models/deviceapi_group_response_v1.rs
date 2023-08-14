@@ -35,7 +35,17 @@ pub struct DeviceapiGroupResponseV1 {
 }
 
 impl DeviceapiGroupResponseV1 {
-    pub fn new(cid: String, created_by: String, created_timestamp: String, description: String, group_type: String, id: String, modified_by: String, modified_timestamp: String, name: String) -> DeviceapiGroupResponseV1 {
+    pub fn new(
+        cid: String,
+        created_by: String,
+        created_timestamp: String,
+        description: String,
+        group_type: String,
+        id: String,
+        modified_by: String,
+        modified_timestamp: String,
+        name: String,
+    ) -> DeviceapiGroupResponseV1 {
         DeviceapiGroupResponseV1 {
             assignment_rule: None,
             cid,

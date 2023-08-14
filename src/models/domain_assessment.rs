@@ -22,6 +22,11 @@ pub struct DomainAssessment {
 
 impl DomainAssessment {
     pub fn new(os: i32, overall: i32, sensor_config: i32, version: String) -> DomainAssessment {
-        DomainAssessment { os, overall, sensor_config, version }
+        DomainAssessment {
+            os,
+            overall,
+            sensor_config,
+            version,
+        }
     }
 }

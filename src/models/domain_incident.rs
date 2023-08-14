@@ -63,7 +63,16 @@ pub struct DomainIncident {
 }
 
 impl DomainIncident {
-    pub fn new(cid: String, created: String, end: String, fine_score: i32, host_ids: Vec<String>, incident_id: String, start: String, state: String) -> DomainIncident {
+    pub fn new(
+        cid: String,
+        created: String,
+        end: String,
+        fine_score: i32,
+        host_ids: Vec<String>,
+        incident_id: String,
+        start: String,
+        state: String,
+    ) -> DomainIncident {
         DomainIncident {
             assigned_to: None,
             assigned_to_name: None,

@@ -15,7 +15,9 @@ pub struct RegistrationAwsAccountCreateRequestD4CExtV2 {
 }
 
 impl RegistrationAwsAccountCreateRequestD4CExtV2 {
-    pub fn new(resources: Vec<crate::models::RegistrationAwsAccountD4CExtV2>) -> RegistrationAwsAccountCreateRequestD4CExtV2 {
+    pub fn new(
+        resources: Vec<crate::models::RegistrationAwsAccountD4CExtV2>,
+    ) -> RegistrationAwsAccountCreateRequestD4CExtV2 {
         RegistrationAwsAccountCreateRequestD4CExtV2 { resources }
     }
 }

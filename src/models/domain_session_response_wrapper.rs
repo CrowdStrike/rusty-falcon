@@ -19,7 +19,15 @@ pub struct DomainSessionResponseWrapper {
 }
 
 impl DomainSessionResponseWrapper {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainSession>) -> DomainSessionResponseWrapper {
-        DomainSessionResponseWrapper { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainSession>,
+    ) -> DomainSessionResponseWrapper {
+        DomainSessionResponseWrapper {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

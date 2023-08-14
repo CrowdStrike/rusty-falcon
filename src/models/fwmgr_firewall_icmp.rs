@@ -18,6 +18,9 @@ pub struct FwmgrFirewallIcmp {
 
 impl FwmgrFirewallIcmp {
     pub fn new(icmp_code: String, icmp_type: String) -> FwmgrFirewallIcmp {
-        FwmgrFirewallIcmp { icmp_code, icmp_type }
+        FwmgrFirewallIcmp {
+            icmp_code,
+            icmp_type,
+        }
     }
 }

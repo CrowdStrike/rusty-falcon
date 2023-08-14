@@ -22,7 +22,10 @@ pub struct DomainDiscoverApiApplication {
     #[serde(rename = "cid")]
     pub cid: String,
     /// Timestamp when this application was first seen by the cloud.
-    #[serde(rename = "first_seen_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "first_seen_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub first_seen_timestamp: Option<String>,
     /// The user defined groups this application is part of.
     #[serde(rename = "groups", skip_serializing_if = "Option::is_none")]
@@ -36,7 +39,10 @@ pub struct DomainDiscoverApiApplication {
     #[serde(rename = "installation_paths", skip_serializing_if = "Option::is_none")]
     pub installation_paths: Option<Vec<String>>,
     /// Timestamp when the application was installed on the host. We might not have this data.
-    #[serde(rename = "installation_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "installation_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub installation_timestamp: Option<String>,
     /// Whether or not the application is normalized
     #[serde(rename = "is_normalized", skip_serializing_if = "Option::is_none")]
@@ -45,19 +51,34 @@ pub struct DomainDiscoverApiApplication {
     #[serde(rename = "is_suspicious", skip_serializing_if = "Option::is_none")]
     pub is_suspicious: Option<bool>,
     /// Timestamp when this application was last updated (something changed in the application or in the host data).
-    #[serde(rename = "last_updated_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_updated_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_updated_timestamp: Option<String>,
     /// The file hash that was last used for this application.
-    #[serde(rename = "last_used_file_hash", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_used_file_hash",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_used_file_hash: Option<String>,
     /// The file name that was last used for this application.
-    #[serde(rename = "last_used_file_name", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_used_file_name",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_used_file_name: Option<String>,
     /// Timestamp when this application was last used.
-    #[serde(rename = "last_used_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_used_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_used_timestamp: Option<String>,
     /// The username of the user that last used this application.
-    #[serde(rename = "last_used_user_name", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_used_user_name",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_used_user_name: Option<String>,
     /// The user SID of the last user that used this application.
     #[serde(rename = "last_used_user_sid", skip_serializing_if = "Option::is_none")]
@@ -69,7 +90,10 @@ pub struct DomainDiscoverApiApplication {
     #[serde(rename = "name_vendor", skip_serializing_if = "Option::is_none")]
     pub name_vendor: Option<String>,
     /// The combined field on which we will be able to group by app + version.
-    #[serde(rename = "name_vendor_version", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "name_vendor_version",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub name_vendor_version: Option<String>,
     /// The name the application's vendor.
     #[serde(rename = "vendor", skip_serializing_if = "Option::is_none")]

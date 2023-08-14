@@ -21,7 +21,10 @@ pub struct DomainDetailedNotificationV1 {
 }
 
 impl DomainDetailedNotificationV1 {
-    pub fn new(id: String, notification: crate::models::DomainNotificationV1) -> DomainDetailedNotificationV1 {
+    pub fn new(
+        id: String,
+        notification: crate::models::DomainNotificationV1,
+    ) -> DomainDetailedNotificationV1 {
         DomainDetailedNotificationV1 {
             breach_details: None,
             details: None,

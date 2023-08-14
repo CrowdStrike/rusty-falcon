@@ -19,7 +19,15 @@ pub struct DomainScanScheduleDataV1 {
 }
 
 impl DomainScanScheduleDataV1 {
-    pub fn new(cloud_platform: String, next_scan_timestamp: String, scan_schedule: String) -> DomainScanScheduleDataV1 {
-        DomainScanScheduleDataV1 { cloud_platform, next_scan_timestamp, scan_schedule }
+    pub fn new(
+        cloud_platform: String,
+        next_scan_timestamp: String,
+        scan_schedule: String,
+    ) -> DomainScanScheduleDataV1 {
+        DomainScanScheduleDataV1 {
+            cloud_platform,
+            next_scan_timestamp,
+            scan_schedule,
+        }
     }
 }

@@ -19,7 +19,15 @@ pub struct DomainPublicIndicatorsV3Response {
 }
 
 impl DomainPublicIndicatorsV3Response {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainPublicIndicatorV3>) -> DomainPublicIndicatorsV3Response {
-        DomainPublicIndicatorsV3Response { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainPublicIndicatorV3>,
+    ) -> DomainPublicIndicatorsV3Response {
+        DomainPublicIndicatorsV3Response {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

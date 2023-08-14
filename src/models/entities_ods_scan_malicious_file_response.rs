@@ -19,7 +19,14 @@ pub struct EntitiesOdsScanMaliciousFileResponse {
 }
 
 impl EntitiesOdsScanMaliciousFileResponse {
-    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainMaliciousFile>) -> EntitiesOdsScanMaliciousFileResponse {
-        EntitiesOdsScanMaliciousFileResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainMaliciousFile>,
+    ) -> EntitiesOdsScanMaliciousFileResponse {
+        EntitiesOdsScanMaliciousFileResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

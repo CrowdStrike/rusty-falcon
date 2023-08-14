@@ -23,7 +23,12 @@ pub struct DomainCsixRelation {
 }
 
 impl DomainCsixRelation {
-    pub fn new(created_date: i64, indicator: String, last_valid_date: i64, _type: String) -> DomainCsixRelation {
+    pub fn new(
+        created_date: i64,
+        indicator: String,
+        last_valid_date: i64,
+        _type: String,
+    ) -> DomainCsixRelation {
         DomainCsixRelation {
             created_date,
             id: None,

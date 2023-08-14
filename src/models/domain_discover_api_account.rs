@@ -25,43 +25,76 @@ pub struct DomainDiscoverApiAccount {
     #[serde(rename = "cid")]
     pub cid: String,
     /// The first time the account was seen successfully logging in to your environment.
-    #[serde(rename = "first_seen_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "first_seen_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub first_seen_timestamp: Option<String>,
     /// The unique ID of the account.
     #[serde(rename = "id")]
     pub id: String,
     /// The hostname of the asset on which the account last made a failed login.
-    #[serde(rename = "last_failed_login_hostname", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_failed_login_hostname",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_failed_login_hostname: Option<String>,
     /// The date and time of the account's most recent failed login.
-    #[serde(rename = "last_failed_login_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_failed_login_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_failed_login_timestamp: Option<String>,
     /// The type of the account's most recent failed login. <ul><li>Interactive</li><li>Network</li><li>Batch</li><li>Service</li><li>Unlock</li><li>Network cleartext</li><li>New credentials</li><li>Terminal server</li><li>Cached credentials</li><li>Auditing</li></ul>
-    #[serde(rename = "last_failed_login_type", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_failed_login_type",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_failed_login_type: Option<String>,
     /// The name of the city where the asset is located on which the account last successfully logged in.
-    #[serde(rename = "last_successful_login_host_city", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_successful_login_host_city",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_successful_login_host_city: Option<String>,
     /// The name of the country where the asset is located on which the account last successfully logged in.
-    #[serde(rename = "last_successful_login_host_country", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_successful_login_host_country",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_successful_login_host_country: Option<String>,
     /// The hostname of the asset on which the account last successfully logged in.
-    #[serde(rename = "last_successful_login_hostname", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_successful_login_hostname",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_successful_login_hostname: Option<String>,
     /// The remote IP address of the asset on which the account last successfully logged in.
-    #[serde(rename = "last_successful_login_remote_ip", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_successful_login_remote_ip",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_successful_login_remote_ip: Option<String>,
     /// The date and time of the account's most recent successful login.
-    #[serde(rename = "last_successful_login_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_successful_login_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_successful_login_timestamp: Option<String>,
     /// The type of the account's most recent successful login. <ul><li>Interactive</li><li>Service</li><li>Terminal server</li><li>Cached credentials</li><li>Auditing</li></ul>
-    #[serde(rename = "last_successful_login_type", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_successful_login_type",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_successful_login_type: Option<String>,
     /// The domain of the asset the account successfully logged in to.
     #[serde(rename = "login_domain", skip_serializing_if = "Option::is_none")]
     pub login_domain: Option<String>,
     /// The most recent date and time the account's password was changed.
-    #[serde(rename = "password_last_set_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "password_last_set_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub password_last_set_timestamp: Option<String>,
     /// The account's security identifier on Windows assets.
     #[serde(rename = "user_sid", skip_serializing_if = "Option::is_none")]

@@ -20,6 +20,10 @@ pub struct ClientExtractionCreateRequestV1 {
 
 impl ClientExtractionCreateRequestV1 {
     pub fn new() -> ClientExtractionCreateRequestV1 {
-        ClientExtractionCreateRequestV1 { extract_all: None, files: None, sha256: None }
+        ClientExtractionCreateRequestV1 {
+            extract_all: None,
+            files: None,
+            sha256: None,
+        }
     }
 }

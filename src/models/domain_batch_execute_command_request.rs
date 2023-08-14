@@ -23,7 +23,13 @@ pub struct DomainBatchExecuteCommandRequest {
 }
 
 impl DomainBatchExecuteCommandRequest {
-    pub fn new(base_command: String, batch_id: String, command_string: String, optional_hosts: Vec<String>, persist_all: bool) -> DomainBatchExecuteCommandRequest {
+    pub fn new(
+        base_command: String,
+        batch_id: String,
+        command_string: String,
+        optional_hosts: Vec<String>,
+        persist_all: bool,
+    ) -> DomainBatchExecuteCommandRequest {
         DomainBatchExecuteCommandRequest {
             base_command,
             batch_id,

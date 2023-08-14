@@ -17,7 +17,13 @@ pub struct MsaErrorsOnly {
 }
 
 impl MsaErrorsOnly {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo) -> MsaErrorsOnly {
-        MsaErrorsOnly { errors, meta: Box::new(meta) }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+    ) -> MsaErrorsOnly {
+        MsaErrorsOnly {
+            errors,
+            meta: Box::new(meta),
+        }
     }
 }

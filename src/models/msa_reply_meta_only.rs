@@ -18,6 +18,9 @@ pub struct MsaReplyMetaOnly {
 
 impl MsaReplyMetaOnly {
     pub fn new(meta: crate::models::MsaMetaInfo) -> MsaReplyMetaOnly {
-        MsaReplyMetaOnly { errors: None, meta: Box::new(meta) }
+        MsaReplyMetaOnly {
+            errors: None,
+            meta: Box::new(meta),
+        }
     }
 }

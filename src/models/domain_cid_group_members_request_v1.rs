@@ -15,7 +15,9 @@ pub struct DomainCidGroupMembersRequestV1 {
 }
 
 impl DomainCidGroupMembersRequestV1 {
-    pub fn new(resources: Vec<crate::models::DomainCidGroupMembers>) -> DomainCidGroupMembersRequestV1 {
+    pub fn new(
+        resources: Vec<crate::models::DomainCidGroupMembers>,
+    ) -> DomainCidGroupMembersRequestV1 {
         DomainCidGroupMembersRequestV1 { resources }
     }
 }

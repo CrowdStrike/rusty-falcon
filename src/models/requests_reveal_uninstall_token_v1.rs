@@ -23,6 +23,9 @@ pub struct RequestsRevealUninstallTokenV1 {
 impl RequestsRevealUninstallTokenV1 {
     /// A req to reveal an uninstall token for a specific device
     pub fn new(device_id: String) -> RequestsRevealUninstallTokenV1 {
-        RequestsRevealUninstallTokenV1 { audit_message: None, device_id }
+        RequestsRevealUninstallTokenV1 {
+            audit_message: None,
+            device_id,
+        }
     }
 }

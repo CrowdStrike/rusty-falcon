@@ -17,7 +17,13 @@ pub struct FwmgrApiFilepathTestRequest {
 }
 
 impl FwmgrApiFilepathTestRequest {
-    pub fn new(filepath_pattern: String, filepath_test_string: String) -> FwmgrApiFilepathTestRequest {
-        FwmgrApiFilepathTestRequest { filepath_pattern, filepath_test_string }
+    pub fn new(
+        filepath_pattern: String,
+        filepath_test_string: String,
+    ) -> FwmgrApiFilepathTestRequest {
+        FwmgrApiFilepathTestRequest {
+            filepath_pattern,
+            filepath_test_string,
+        }
     }
 }

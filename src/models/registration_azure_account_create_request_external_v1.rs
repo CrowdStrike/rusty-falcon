@@ -15,7 +15,9 @@ pub struct RegistrationAzureAccountCreateRequestExternalV1 {
 }
 
 impl RegistrationAzureAccountCreateRequestExternalV1 {
-    pub fn new(resources: Vec<crate::models::RegistrationAzureAccountExternalV1>) -> RegistrationAzureAccountCreateRequestExternalV1 {
+    pub fn new(
+        resources: Vec<crate::models::RegistrationAzureAccountExternalV1>,
+    ) -> RegistrationAzureAccountCreateRequestExternalV1 {
         RegistrationAzureAccountCreateRequestExternalV1 { resources }
     }
 }

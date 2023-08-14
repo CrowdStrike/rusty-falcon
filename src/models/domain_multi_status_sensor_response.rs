@@ -35,7 +35,16 @@ pub struct DomainMultiStatusSensorResponse {
 }
 
 impl DomainMultiStatusSensorResponse {
-    pub fn new(aid: String, complete: bool, errors: Vec<crate::models::MsaApiError>, offline_queued: bool, query_time: f64, session_id: String, stderr: String, stdout: String) -> DomainMultiStatusSensorResponse {
+    pub fn new(
+        aid: String,
+        complete: bool,
+        errors: Vec<crate::models::MsaApiError>,
+        offline_queued: bool,
+        query_time: f64,
+        session_id: String,
+        stderr: String,
+        stdout: String,
+    ) -> DomainMultiStatusSensorResponse {
         DomainMultiStatusSensorResponse {
             aid,
             base_command: None,

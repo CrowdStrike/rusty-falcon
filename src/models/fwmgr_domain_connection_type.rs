@@ -17,7 +17,13 @@ pub struct FwmgrDomainConnectionType {
 }
 
 impl FwmgrDomainConnectionType {
-    pub fn new(wired: bool, wireless: crate::models::FwmgrDomainWirelessType) -> FwmgrDomainConnectionType {
-        FwmgrDomainConnectionType { wired, wireless: Box::new(wireless) }
+    pub fn new(
+        wired: bool,
+        wireless: crate::models::FwmgrDomainWirelessType,
+    ) -> FwmgrDomainConnectionType {
+        FwmgrDomainConnectionType {
+            wired,
+            wireless: Box::new(wireless),
+        }
     }
 }

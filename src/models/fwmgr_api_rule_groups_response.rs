@@ -19,7 +19,14 @@ pub struct FwmgrApiRuleGroupsResponse {
 }
 
 impl FwmgrApiRuleGroupsResponse {
-    pub fn new(meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<crate::models::FwmgrApiRuleGroupV1>) -> FwmgrApiRuleGroupsResponse {
-        FwmgrApiRuleGroupsResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::FwmgrMsaspecMetaInfo,
+        resources: Vec<crate::models::FwmgrApiRuleGroupV1>,
+    ) -> FwmgrApiRuleGroupsResponse {
+        FwmgrApiRuleGroupsResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

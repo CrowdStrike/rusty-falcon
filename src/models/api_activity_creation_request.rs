@@ -21,7 +21,17 @@ pub struct ApiActivityCreationRequest {
 }
 
 impl ApiActivityCreationRequest {
-    pub fn new(body: String, case_id: String, _type: String, user_uuid: String) -> ApiActivityCreationRequest {
-        ApiActivityCreationRequest { body, case_id, _type, user_uuid }
+    pub fn new(
+        body: String,
+        case_id: String,
+        _type: String,
+        user_uuid: String,
+    ) -> ApiActivityCreationRequest {
+        ApiActivityCreationRequest {
+            body,
+            case_id,
+            _type,
+            user_uuid,
+        }
     }
 }

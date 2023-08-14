@@ -19,7 +19,15 @@ pub struct FalconxQueryResponse {
 }
 
 impl FalconxQueryResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::FalconxMetaInfo, resources: Vec<String>) -> FalconxQueryResponse {
-        FalconxQueryResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::FalconxMetaInfo,
+        resources: Vec<String>,
+    ) -> FalconxQueryResponse {
+        FalconxQueryResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

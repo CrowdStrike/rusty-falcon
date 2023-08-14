@@ -362,16 +362,24 @@ pub enum ValidateFilepathPatternError {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn aggregate_events(configuration: &configuration::Configuration, body: Vec<crate::models::FwmgrMsaAggregateQueryRequest>) -> Result<crate::models::FwmgrApiAggregatesResponse, Error<AggregateEventsError>> {
+pub async fn aggregate_events(
+    configuration: &configuration::Configuration,
+    body: Vec<crate::models::FwmgrMsaAggregateQueryRequest>,
+) -> Result<crate::models::FwmgrApiAggregatesResponse, Error<AggregateEventsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/aggregates/events/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/aggregates/events/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -387,7 +395,8 @@ pub async fn aggregate_events(configuration: &configuration::Configuration, body
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<AggregateEventsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AggregateEventsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -397,16 +406,24 @@ pub async fn aggregate_events(configuration: &configuration::Configuration, body
     }
 }
 
-pub async fn aggregate_policy_rules(configuration: &configuration::Configuration, body: Vec<crate::models::FwmgrMsaAggregateQueryRequest>) -> Result<crate::models::FwmgrApiAggregatesResponse, Error<AggregatePolicyRulesError>> {
+pub async fn aggregate_policy_rules(
+    configuration: &configuration::Configuration,
+    body: Vec<crate::models::FwmgrMsaAggregateQueryRequest>,
+) -> Result<crate::models::FwmgrApiAggregatesResponse, Error<AggregatePolicyRulesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/aggregates/policy-rules/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/aggregates/policy-rules/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -422,7 +439,8 @@ pub async fn aggregate_policy_rules(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<AggregatePolicyRulesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AggregatePolicyRulesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -432,16 +450,24 @@ pub async fn aggregate_policy_rules(configuration: &configuration::Configuration
     }
 }
 
-pub async fn aggregate_rule_groups(configuration: &configuration::Configuration, body: Vec<crate::models::FwmgrMsaAggregateQueryRequest>) -> Result<crate::models::FwmgrApiAggregatesResponse, Error<AggregateRuleGroupsError>> {
+pub async fn aggregate_rule_groups(
+    configuration: &configuration::Configuration,
+    body: Vec<crate::models::FwmgrMsaAggregateQueryRequest>,
+) -> Result<crate::models::FwmgrApiAggregatesResponse, Error<AggregateRuleGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/aggregates/rule-groups/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/aggregates/rule-groups/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -457,7 +483,8 @@ pub async fn aggregate_rule_groups(configuration: &configuration::Configuration,
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<AggregateRuleGroupsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AggregateRuleGroupsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -467,16 +494,24 @@ pub async fn aggregate_rule_groups(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn aggregate_rules(configuration: &configuration::Configuration, body: Vec<crate::models::FwmgrMsaAggregateQueryRequest>) -> Result<crate::models::FwmgrApiAggregatesResponse, Error<AggregateRulesError>> {
+pub async fn aggregate_rules(
+    configuration: &configuration::Configuration,
+    body: Vec<crate::models::FwmgrMsaAggregateQueryRequest>,
+) -> Result<crate::models::FwmgrApiAggregatesResponse, Error<AggregateRulesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/aggregates/rules/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/aggregates/rules/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -492,7 +527,8 @@ pub async fn aggregate_rules(configuration: &configuration::Configuration, body:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<AggregateRulesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AggregateRulesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -513,20 +549,28 @@ pub async fn create_network_locations(
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/network-locations/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/network-locations/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = clone_id {
-        local_var_req_builder = local_var_req_builder.query(&[("clone_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("clone_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = add_fw_rules {
-        local_var_req_builder = local_var_req_builder.query(&[("add_fw_rules", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("add_fw_rules", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = comment {
-        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -542,7 +586,8 @@ pub async fn create_network_locations(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateNetworkLocationsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateNetworkLocationsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -552,25 +597,39 @@ pub async fn create_network_locations(
     }
 }
 
-pub async fn create_rule_group(configuration: &configuration::Configuration, body: crate::models::FwmgrApiRuleGroupCreateRequestV1, clone_id: Option<&str>, library: Option<&str>, comment: Option<&str>) -> Result<crate::models::FwmgrApiQueryResponse, Error<CreateRuleGroupError>> {
+pub async fn create_rule_group(
+    configuration: &configuration::Configuration,
+    body: crate::models::FwmgrApiRuleGroupCreateRequestV1,
+    clone_id: Option<&str>,
+    library: Option<&str>,
+    comment: Option<&str>,
+) -> Result<crate::models::FwmgrApiQueryResponse, Error<CreateRuleGroupError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/rule-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/rule-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = clone_id {
-        local_var_req_builder = local_var_req_builder.query(&[("clone_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("clone_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = library {
-        local_var_req_builder = local_var_req_builder.query(&[("library", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("library", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = comment {
-        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -586,7 +645,8 @@ pub async fn create_rule_group(configuration: &configuration::Configuration, bod
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateRuleGroupError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateRuleGroupError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -607,20 +667,28 @@ pub async fn create_rule_group_validation(
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/rule-groups/validation/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/rule-groups/validation/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = clone_id {
-        local_var_req_builder = local_var_req_builder.query(&[("clone_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("clone_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = library {
-        local_var_req_builder = local_var_req_builder.query(&[("library", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("library", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = comment {
-        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -636,7 +704,8 @@ pub async fn create_rule_group_validation(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateRuleGroupValidationError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateRuleGroupValidationError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -646,20 +715,39 @@ pub async fn create_rule_group_validation(
     }
 }
 
-pub async fn delete_network_locations(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::FwmgrMsaspecQueryResponse, Error<DeleteNetworkLocationsError>> {
+pub async fn delete_network_locations(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::FwmgrMsaspecQueryResponse, Error<DeleteNetworkLocationsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/network-locations/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/network-locations/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -674,7 +762,8 @@ pub async fn delete_network_locations(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteNetworkLocationsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteNetworkLocationsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -684,23 +773,44 @@ pub async fn delete_network_locations(configuration: &configuration::Configurati
     }
 }
 
-pub async fn delete_rule_groups(configuration: &configuration::Configuration, ids: Vec<String>, comment: Option<&str>) -> Result<crate::models::FwmgrApiQueryResponse, Error<DeleteRuleGroupsError>> {
+pub async fn delete_rule_groups(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+    comment: Option<&str>,
+) -> Result<crate::models::FwmgrApiQueryResponse, Error<DeleteRuleGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/rule-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/rule-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_str) = comment {
-        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -715,7 +825,8 @@ pub async fn delete_rule_groups(configuration: &configuration::Configuration, id
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteRuleGroupsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteRuleGroupsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -725,20 +836,39 @@ pub async fn delete_rule_groups(configuration: &configuration::Configuration, id
     }
 }
 
-pub async fn get_events(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::FwmgrApiEventsResponse, Error<GetEventsError>> {
+pub async fn get_events(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::FwmgrApiEventsResponse, Error<GetEventsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/events/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/events/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -753,7 +883,8 @@ pub async fn get_events(configuration: &configuration::Configuration, ids: Vec<S
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetEventsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetEventsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -763,20 +894,39 @@ pub async fn get_events(configuration: &configuration::Configuration, ids: Vec<S
     }
 }
 
-pub async fn get_firewall_fields(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::FwmgrApiFirewallFieldsResponse, Error<GetFirewallFieldsError>> {
+pub async fn get_firewall_fields(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::FwmgrApiFirewallFieldsResponse, Error<GetFirewallFieldsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/firewall-fields/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/firewall-fields/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -791,7 +941,8 @@ pub async fn get_firewall_fields(configuration: &configuration::Configuration, i
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetFirewallFieldsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetFirewallFieldsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -802,20 +953,40 @@ pub async fn get_firewall_fields(configuration: &configuration::Configuration, i
 }
 
 /// This endpoint returns a summary of network locations that includes name, description, enabled/disabled status, a count of associated rules etc
-pub async fn get_network_locations(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::FwmgrApiNetworkLocationSummariesResponse, Error<GetNetworkLocationsError>> {
+pub async fn get_network_locations(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::FwmgrApiNetworkLocationSummariesResponse, Error<GetNetworkLocationsError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/network-locations/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/network-locations/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -830,7 +1001,8 @@ pub async fn get_network_locations(configuration: &configuration::Configuration,
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetNetworkLocationsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetNetworkLocationsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -841,20 +1013,40 @@ pub async fn get_network_locations(configuration: &configuration::Configuration,
 }
 
 /// This endpoint returns the complete network locations objects that includes all the network location conditions.
-pub async fn get_network_locations_details(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::FwmgrApiNetworkLocationsResponse, Error<GetNetworkLocationsDetailsError>> {
+pub async fn get_network_locations_details(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::FwmgrApiNetworkLocationsResponse, Error<GetNetworkLocationsDetailsError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/network-locations-details/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/network-locations-details/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -869,7 +1061,8 @@ pub async fn get_network_locations_details(configuration: &configuration::Config
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetNetworkLocationsDetailsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetNetworkLocationsDetailsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -879,20 +1072,39 @@ pub async fn get_network_locations_details(configuration: &configuration::Config
     }
 }
 
-pub async fn get_platforms(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::FwmgrApiPlatformsResponse, Error<GetPlatformsError>> {
+pub async fn get_platforms(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::FwmgrApiPlatformsResponse, Error<GetPlatformsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/platforms/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/platforms/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -907,7 +1119,8 @@ pub async fn get_platforms(configuration: &configuration::Configuration, ids: Ve
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetPlatformsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetPlatformsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -917,20 +1130,39 @@ pub async fn get_platforms(configuration: &configuration::Configuration, ids: Ve
     }
 }
 
-pub async fn get_policy_containers(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::FwmgrApiPolicyContainersResponse, Error<GetPolicyContainersError>> {
+pub async fn get_policy_containers(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::FwmgrApiPolicyContainersResponse, Error<GetPolicyContainersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/policies/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/policies/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -945,7 +1177,8 @@ pub async fn get_policy_containers(configuration: &configuration::Configuration,
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetPolicyContainersError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetPolicyContainersError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -955,20 +1188,39 @@ pub async fn get_policy_containers(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn get_rule_groups(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::FwmgrApiRuleGroupsResponse, Error<GetRuleGroupsError>> {
+pub async fn get_rule_groups(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::FwmgrApiRuleGroupsResponse, Error<GetRuleGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/rule-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/rule-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -983,7 +1235,8 @@ pub async fn get_rule_groups(configuration: &configuration::Configuration, ids: 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetRuleGroupsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetRuleGroupsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -993,20 +1246,39 @@ pub async fn get_rule_groups(configuration: &configuration::Configuration, ids: 
     }
 }
 
-pub async fn get_rules(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::FwmgrApiRulesResponse, Error<GetRulesError>> {
+pub async fn get_rules(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::FwmgrApiRulesResponse, Error<GetRulesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/rules/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1031,34 +1303,52 @@ pub async fn get_rules(configuration: &configuration::Configuration, ids: Vec<St
     }
 }
 
-pub async fn query_events(configuration: &configuration::Configuration, sort: Option<&str>, filter: Option<&str>, q: Option<&str>, offset: Option<&str>, after: Option<&str>, limit: Option<i32>) -> Result<crate::models::FwmgrApiQueryResponse, Error<QueryEventsError>> {
+pub async fn query_events(
+    configuration: &configuration::Configuration,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    q: Option<&str>,
+    offset: Option<&str>,
+    after: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::FwmgrApiQueryResponse, Error<QueryEventsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/queries/events/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/queries/events/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = q {
         local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = after {
-        local_var_req_builder = local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1073,7 +1363,8 @@ pub async fn query_events(configuration: &configuration::Configuration, sort: Op
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryEventsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryEventsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1083,25 +1374,38 @@ pub async fn query_events(configuration: &configuration::Configuration, sort: Op
     }
 }
 
-pub async fn query_firewall_fields(configuration: &configuration::Configuration, platform_id: Option<&str>, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::FwmgrMsaQueryResponse, Error<QueryFirewallFieldsError>> {
+pub async fn query_firewall_fields(
+    configuration: &configuration::Configuration,
+    platform_id: Option<&str>,
+    offset: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::FwmgrMsaQueryResponse, Error<QueryFirewallFieldsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/queries/firewall-fields/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/queries/firewall-fields/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = platform_id {
-        local_var_req_builder = local_var_req_builder.query(&[("platform_id", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("platform_id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1116,7 +1420,8 @@ pub async fn query_firewall_fields(configuration: &configuration::Configuration,
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryFirewallFieldsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryFirewallFieldsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1127,34 +1432,52 @@ pub async fn query_firewall_fields(configuration: &configuration::Configuration,
 }
 
 /// This endpoint returns a list of network location IDs based of query parameter.
-pub async fn query_network_locations(configuration: &configuration::Configuration, sort: Option<&str>, filter: Option<&str>, q: Option<&str>, offset: Option<&str>, after: Option<&str>, limit: Option<i32>) -> Result<crate::models::FwmgrApiQueryResponse, Error<QueryNetworkLocationsError>> {
+pub async fn query_network_locations(
+    configuration: &configuration::Configuration,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    q: Option<&str>,
+    offset: Option<&str>,
+    after: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::FwmgrApiQueryResponse, Error<QueryNetworkLocationsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/queries/network-locations/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/queries/network-locations/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = q {
         local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = after {
-        local_var_req_builder = local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1169,7 +1492,8 @@ pub async fn query_network_locations(configuration: &configuration::Configuratio
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryNetworkLocationsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryNetworkLocationsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1179,22 +1503,33 @@ pub async fn query_network_locations(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn query_platforms(configuration: &configuration::Configuration, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::FwmgrMsaQueryResponse, Error<QueryPlatformsError>> {
+pub async fn query_platforms(
+    configuration: &configuration::Configuration,
+    offset: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::FwmgrMsaQueryResponse, Error<QueryPlatformsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/queries/platforms/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/queries/platforms/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1209,7 +1544,8 @@ pub async fn query_platforms(configuration: &configuration::Configuration, offse
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryPlatformsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryPlatformsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1219,34 +1555,51 @@ pub async fn query_platforms(configuration: &configuration::Configuration, offse
     }
 }
 
-pub async fn query_policy_rules(configuration: &configuration::Configuration, id: Option<&str>, sort: Option<&str>, filter: Option<&str>, q: Option<&str>, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::FwmgrApiQueryResponse, Error<QueryPolicyRulesError>> {
+pub async fn query_policy_rules(
+    configuration: &configuration::Configuration,
+    id: Option<&str>,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    q: Option<&str>,
+    offset: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::FwmgrApiQueryResponse, Error<QueryPolicyRulesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/queries/policy-rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/queries/policy-rules/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = id {
         local_var_req_builder = local_var_req_builder.query(&[("id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = q {
         local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1261,7 +1614,8 @@ pub async fn query_policy_rules(configuration: &configuration::Configuration, id
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryPolicyRulesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryPolicyRulesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1271,34 +1625,52 @@ pub async fn query_policy_rules(configuration: &configuration::Configuration, id
     }
 }
 
-pub async fn query_rule_groups(configuration: &configuration::Configuration, sort: Option<&str>, filter: Option<&str>, q: Option<&str>, offset: Option<&str>, after: Option<&str>, limit: Option<i32>) -> Result<crate::models::FwmgrApiQueryResponse, Error<QueryRuleGroupsError>> {
+pub async fn query_rule_groups(
+    configuration: &configuration::Configuration,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    q: Option<&str>,
+    offset: Option<&str>,
+    after: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::FwmgrApiQueryResponse, Error<QueryRuleGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/queries/rule-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/queries/rule-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = q {
         local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = after {
-        local_var_req_builder = local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1313,7 +1685,8 @@ pub async fn query_rule_groups(configuration: &configuration::Configuration, sor
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryRuleGroupsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryRuleGroupsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1323,34 +1696,52 @@ pub async fn query_rule_groups(configuration: &configuration::Configuration, sor
     }
 }
 
-pub async fn query_rules(configuration: &configuration::Configuration, sort: Option<&str>, filter: Option<&str>, q: Option<&str>, offset: Option<&str>, after: Option<&str>, limit: Option<i32>) -> Result<crate::models::FwmgrApiQueryResponse, Error<QueryRulesError>> {
+pub async fn query_rules(
+    configuration: &configuration::Configuration,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    q: Option<&str>,
+    offset: Option<&str>,
+    after: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::FwmgrApiQueryResponse, Error<QueryRulesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/queries/rules/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/queries/rules/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = q {
         local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = after {
-        local_var_req_builder = local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1365,7 +1756,8 @@ pub async fn query_rules(configuration: &configuration::Configuration, sort: Opt
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryRulesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryRulesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1375,19 +1767,29 @@ pub async fn query_rules(configuration: &configuration::Configuration, sort: Opt
     }
 }
 
-pub async fn update_network_locations(configuration: &configuration::Configuration, body: crate::models::FwmgrApiNetworkLocationModifyRequestV1, comment: Option<&str>) -> Result<crate::models::FwmgrMsaspecQueryResponse, Error<UpdateNetworkLocationsError>> {
+pub async fn update_network_locations(
+    configuration: &configuration::Configuration,
+    body: crate::models::FwmgrApiNetworkLocationModifyRequestV1,
+    comment: Option<&str>,
+) -> Result<crate::models::FwmgrMsaspecQueryResponse, Error<UpdateNetworkLocationsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/network-locations/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/network-locations/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = comment {
-        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1403,7 +1805,8 @@ pub async fn update_network_locations(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateNetworkLocationsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateNetworkLocationsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1413,19 +1816,29 @@ pub async fn update_network_locations(configuration: &configuration::Configurati
     }
 }
 
-pub async fn update_network_locations_metadata(configuration: &configuration::Configuration, body: crate::models::FwmgrApiNetworkLocationModifyMetadataRequestV1, comment: Option<&str>) -> Result<crate::models::FwmgrMsaspecQueryResponse, Error<UpdateNetworkLocationsMetadataError>> {
+pub async fn update_network_locations_metadata(
+    configuration: &configuration::Configuration,
+    body: crate::models::FwmgrApiNetworkLocationModifyMetadataRequestV1,
+    comment: Option<&str>,
+) -> Result<crate::models::FwmgrMsaspecQueryResponse, Error<UpdateNetworkLocationsMetadataError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/network-locations-metadata/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/network-locations-metadata/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = comment {
-        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1441,7 +1854,8 @@ pub async fn update_network_locations_metadata(configuration: &configuration::Co
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateNetworkLocationsMetadataError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateNetworkLocationsMetadataError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1451,19 +1865,30 @@ pub async fn update_network_locations_metadata(configuration: &configuration::Co
     }
 }
 
-pub async fn update_network_locations_precedence(configuration: &configuration::Configuration, body: crate::models::FwmgrApiNetworkLocationModifyPrecedenceRequestV1, comment: Option<&str>) -> Result<crate::models::FwmgrMsaspecQueryResponse, Error<UpdateNetworkLocationsPrecedenceError>> {
+pub async fn update_network_locations_precedence(
+    configuration: &configuration::Configuration,
+    body: crate::models::FwmgrApiNetworkLocationModifyPrecedenceRequestV1,
+    comment: Option<&str>,
+) -> Result<crate::models::FwmgrMsaspecQueryResponse, Error<UpdateNetworkLocationsPrecedenceError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/network-locations-precedence/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/network-locations-precedence/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = comment {
-        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1479,7 +1904,8 @@ pub async fn update_network_locations_precedence(configuration: &configuration::
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateNetworkLocationsPrecedenceError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateNetworkLocationsPrecedenceError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1489,16 +1915,24 @@ pub async fn update_network_locations_precedence(configuration: &configuration::
     }
 }
 
-pub async fn update_policy_container(configuration: &configuration::Configuration, body: crate::models::FwmgrApiPolicyContainerUpsertRequestV1) -> Result<crate::models::FwmgrMsaReplyMetaOnly, Error<UpdatePolicyContainerError>> {
+pub async fn update_policy_container(
+    configuration: &configuration::Configuration,
+    body: crate::models::FwmgrApiPolicyContainerUpsertRequestV1,
+) -> Result<crate::models::FwmgrMsaReplyMetaOnly, Error<UpdatePolicyContainerError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/policies/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/policies/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1514,7 +1948,8 @@ pub async fn update_policy_container(configuration: &configuration::Configuratio
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdatePolicyContainerError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdatePolicyContainerError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1524,16 +1959,24 @@ pub async fn update_policy_container(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn update_policy_container_v1(configuration: &configuration::Configuration, body: crate::models::FwmgrApiPolicyContainerUpsertRequestV1) -> Result<crate::models::FwmgrMsaReplyMetaOnly, Error<UpdatePolicyContainerV1Error>> {
+pub async fn update_policy_container_v1(
+    configuration: &configuration::Configuration,
+    body: crate::models::FwmgrApiPolicyContainerUpsertRequestV1,
+) -> Result<crate::models::FwmgrMsaReplyMetaOnly, Error<UpdatePolicyContainerV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/policies/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/policies/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1549,7 +1992,8 @@ pub async fn update_policy_container_v1(configuration: &configuration::Configura
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdatePolicyContainerV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdatePolicyContainerV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1559,19 +2003,29 @@ pub async fn update_policy_container_v1(configuration: &configuration::Configura
     }
 }
 
-pub async fn update_rule_group(configuration: &configuration::Configuration, body: crate::models::FwmgrApiRuleGroupModifyRequestV1, comment: Option<&str>) -> Result<crate::models::FwmgrApiQueryResponse, Error<UpdateRuleGroupError>> {
+pub async fn update_rule_group(
+    configuration: &configuration::Configuration,
+    body: crate::models::FwmgrApiRuleGroupModifyRequestV1,
+    comment: Option<&str>,
+) -> Result<crate::models::FwmgrApiQueryResponse, Error<UpdateRuleGroupError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/rule-groups/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/rule-groups/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = comment {
-        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1587,7 +2041,8 @@ pub async fn update_rule_group(configuration: &configuration::Configuration, bod
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateRuleGroupError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateRuleGroupError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1597,19 +2052,29 @@ pub async fn update_rule_group(configuration: &configuration::Configuration, bod
     }
 }
 
-pub async fn update_rule_group_validation(configuration: &configuration::Configuration, body: crate::models::FwmgrApiRuleGroupModifyRequestV1, comment: Option<&str>) -> Result<crate::models::FwmgrMsaQueryResponse, Error<UpdateRuleGroupValidationError>> {
+pub async fn update_rule_group_validation(
+    configuration: &configuration::Configuration,
+    body: crate::models::FwmgrApiRuleGroupModifyRequestV1,
+    comment: Option<&str>,
+) -> Result<crate::models::FwmgrMsaQueryResponse, Error<UpdateRuleGroupValidationError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/rule-groups/validation/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/rule-groups/validation/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = comment {
-        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1625,7 +2090,8 @@ pub async fn update_rule_group_validation(configuration: &configuration::Configu
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateRuleGroupValidationError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateRuleGroupValidationError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1635,19 +2101,29 @@ pub async fn update_rule_group_validation(configuration: &configuration::Configu
     }
 }
 
-pub async fn upsert_network_locations(configuration: &configuration::Configuration, body: crate::models::FwmgrApiNetworkLocationModifyRequestV1, comment: Option<&str>) -> Result<crate::models::FwmgrMsaspecQueryResponse, Error<UpsertNetworkLocationsError>> {
+pub async fn upsert_network_locations(
+    configuration: &configuration::Configuration,
+    body: crate::models::FwmgrApiNetworkLocationModifyRequestV1,
+    comment: Option<&str>,
+) -> Result<crate::models::FwmgrMsaspecQueryResponse, Error<UpsertNetworkLocationsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/network-locations/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/network-locations/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = comment {
-        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1663,7 +2139,8 @@ pub async fn upsert_network_locations(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpsertNetworkLocationsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpsertNetworkLocationsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -1673,16 +2150,24 @@ pub async fn upsert_network_locations(configuration: &configuration::Configurati
     }
 }
 
-pub async fn validate_filepath_pattern(configuration: &configuration::Configuration, body: crate::models::FwmgrApiFilepathTestRequest) -> Result<crate::models::FwmgrApiValidateFilepathResponse, Error<ValidateFilepathPatternError>> {
+pub async fn validate_filepath_pattern(
+    configuration: &configuration::Configuration,
+    body: crate::models::FwmgrApiFilepathTestRequest,
+) -> Result<crate::models::FwmgrApiValidateFilepathResponse, Error<ValidateFilepathPatternError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/fwmgr/entities/rules/validate-filepath/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/fwmgr/entities/rules/validate-filepath/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -1698,7 +2183,8 @@ pub async fn validate_filepath_pattern(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ValidateFilepathPatternError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ValidateFilepathPatternError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

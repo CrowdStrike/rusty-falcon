@@ -19,7 +19,15 @@ pub struct ApiMsaReplyProcessesRanOn {
 }
 
 impl ApiMsaReplyProcessesRanOn {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::ApiResponseMeta, resources: Vec<String>) -> ApiMsaReplyProcessesRanOn {
-        ApiMsaReplyProcessesRanOn { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::ApiResponseMeta,
+        resources: Vec<String>,
+    ) -> ApiMsaReplyProcessesRanOn {
+        ApiMsaReplyProcessesRanOn {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

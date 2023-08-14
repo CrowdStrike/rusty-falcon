@@ -32,7 +32,10 @@ pub struct DeviceDevice {
     pub config_id_platform: Option<String>,
     #[serde(rename = "cpu_signature", skip_serializing_if = "Option::is_none")]
     pub cpu_signature: Option<String>,
-    #[serde(rename = "detection_suppression_status", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "detection_suppression_status",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub detection_suppression_status: Option<String>,
     #[serde(rename = "device_id")]
     pub device_id: String,
@@ -42,7 +45,10 @@ pub struct DeviceDevice {
     pub email: Option<String>,
     #[serde(rename = "external_ip", skip_serializing_if = "Option::is_none")]
     pub external_ip: Option<String>,
-    #[serde(rename = "first_login_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "first_login_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub first_login_timestamp: Option<String>,
     #[serde(rename = "first_login_user", skip_serializing_if = "Option::is_none")]
     pub first_login_user: Option<String>,
@@ -58,7 +64,10 @@ pub struct DeviceDevice {
     pub hostname: Option<String>,
     #[serde(rename = "instance_id", skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
-    #[serde(rename = "last_login_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_login_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_login_timestamp: Option<String>,
     #[serde(rename = "last_login_user", skip_serializing_if = "Option::is_none")]
     pub last_login_user: Option<String>,
@@ -112,7 +121,10 @@ pub struct DeviceDevice {
     pub pod_name: Option<String>,
     #[serde(rename = "pod_namespace", skip_serializing_if = "Option::is_none")]
     pub pod_namespace: Option<String>,
-    #[serde(rename = "pod_service_account_name", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "pod_service_account_name",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub pod_service_account_name: Option<String>,
     #[serde(rename = "pointer_size", skip_serializing_if = "Option::is_none")]
     pub pointer_size: Option<String>,
@@ -124,7 +136,10 @@ pub struct DeviceDevice {
     pub product_type_desc: Option<String>,
     #[serde(rename = "provision_status", skip_serializing_if = "Option::is_none")]
     pub provision_status: Option<String>,
-    #[serde(rename = "reduced_functionality_mode", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "reduced_functionality_mode",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub reduced_functionality_mode: Option<String>,
     #[serde(rename = "release_group", skip_serializing_if = "Option::is_none")]
     pub release_group: Option<String>,
@@ -136,17 +151,29 @@ pub struct DeviceDevice {
     pub service_pack_minor: Option<String>,
     #[serde(rename = "service_provider", skip_serializing_if = "Option::is_none")]
     pub service_provider: Option<String>,
-    #[serde(rename = "service_provider_account_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "service_provider_account_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub service_provider_account_id: Option<String>,
     #[serde(rename = "site_name", skip_serializing_if = "Option::is_none")]
     pub site_name: Option<String>,
-    #[serde(rename = "slow_changing_modified_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "slow_changing_modified_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub slow_changing_modified_timestamp: Option<String>,
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
-    #[serde(rename = "system_manufacturer", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "system_manufacturer",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub system_manufacturer: Option<String>,
-    #[serde(rename = "system_product_name", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "system_product_name",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub system_product_name: Option<String>,
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<String>>,

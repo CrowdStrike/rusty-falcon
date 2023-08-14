@@ -27,7 +27,12 @@ pub struct DomainTweetSource {
 }
 
 impl DomainTweetSource {
-    pub fn new(author_name: String, language: String, source_link: String, tweet_id: i64) -> DomainTweetSource {
+    pub fn new(
+        author_name: String,
+        language: String,
+        source_link: String,
+        tweet_id: i64,
+    ) -> DomainTweetSource {
         DomainTweetSource {
             author_name,
             language,

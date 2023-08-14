@@ -19,7 +19,14 @@ pub struct EntitiesOdsScanResponse {
 }
 
 impl EntitiesOdsScanResponse {
-    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainScan>) -> EntitiesOdsScanResponse {
-        EntitiesOdsScanResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainScan>,
+    ) -> EntitiesOdsScanResponse {
+        EntitiesOdsScanResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

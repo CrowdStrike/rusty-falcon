@@ -23,7 +23,19 @@ pub struct DomainXdrParams {
 }
 
 impl DomainXdrParams {
-    pub fn new(execution_offset: String, severity: i32, tactic: String, technique: String, _type: String) -> DomainXdrParams {
-        DomainXdrParams { execution_offset, severity, tactic, technique, _type }
+    pub fn new(
+        execution_offset: String,
+        severity: i32,
+        tactic: String,
+        technique: String,
+        _type: String,
+    ) -> DomainXdrParams {
+        DomainXdrParams {
+            execution_offset,
+            severity,
+            tactic,
+            technique,
+            _type,
+        }
     }
 }

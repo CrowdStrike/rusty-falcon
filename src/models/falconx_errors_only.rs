@@ -19,7 +19,10 @@ pub struct FalconxErrorsOnly {
 }
 
 impl FalconxErrorsOnly {
-    pub fn new(msa_meta_info: crate::models::MsaMetaInfo, errors: Vec<crate::models::MsaApiError>) -> FalconxErrorsOnly {
+    pub fn new(
+        msa_meta_info: crate::models::MsaMetaInfo,
+        errors: Vec<crate::models::MsaApiError>,
+    ) -> FalconxErrorsOnly {
         FalconxErrorsOnly {
             msa_meta_info: Box::new(msa_meta_info),
             errors,

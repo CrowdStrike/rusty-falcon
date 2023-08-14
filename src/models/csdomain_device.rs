@@ -30,7 +30,10 @@ pub struct CsdomainDevice {
     pub config_id_build: Option<String>,
     #[serde(rename = "config_id_platform", skip_serializing_if = "Option::is_none")]
     pub config_id_platform: Option<String>,
-    #[serde(rename = "detection_suppression_status", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "detection_suppression_status",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub detection_suppression_status: Option<String>,
     #[serde(rename = "device_id")]
     pub device_id: String,
@@ -40,7 +43,10 @@ pub struct CsdomainDevice {
     pub email: Option<String>,
     #[serde(rename = "external_ip", skip_serializing_if = "Option::is_none")]
     pub external_ip: Option<String>,
-    #[serde(rename = "first_login_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "first_login_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub first_login_timestamp: Option<String>,
     #[serde(rename = "first_login_user", skip_serializing_if = "Option::is_none")]
     pub first_login_user: Option<String>,
@@ -56,7 +62,10 @@ pub struct CsdomainDevice {
     pub hostname: Option<String>,
     #[serde(rename = "instance_id", skip_serializing_if = "Option::is_none")]
     pub instance_id: Option<String>,
-    #[serde(rename = "last_login_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_login_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_login_timestamp: Option<String>,
     #[serde(rename = "last_login_user", skip_serializing_if = "Option::is_none")]
     pub last_login_user: Option<String>,
@@ -106,17 +115,29 @@ pub struct CsdomainDevice {
     pub service_pack_minor: Option<String>,
     #[serde(rename = "service_provider", skip_serializing_if = "Option::is_none")]
     pub service_provider: Option<String>,
-    #[serde(rename = "service_provider_account_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "service_provider_account_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub service_provider_account_id: Option<String>,
     #[serde(rename = "site_name", skip_serializing_if = "Option::is_none")]
     pub site_name: Option<String>,
-    #[serde(rename = "slow_changing_modified_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "slow_changing_modified_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub slow_changing_modified_timestamp: Option<String>,
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
-    #[serde(rename = "system_manufacturer", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "system_manufacturer",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub system_manufacturer: Option<String>,
-    #[serde(rename = "system_product_name", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "system_product_name",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub system_product_name: Option<String>,
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<String>>,

@@ -17,11 +17,25 @@ pub struct DomainBatchInitSessionResponse {
     #[serde(rename = "meta")]
     pub meta: Box<crate::models::MsaMetaInfo>,
     #[serde(rename = "resources")]
-    pub resources: ::std::collections::HashMap<String, crate::models::DomainMultiStatusSensorResponse>,
+    pub resources:
+        ::std::collections::HashMap<String, crate::models::DomainMultiStatusSensorResponse>,
 }
 
 impl DomainBatchInitSessionResponse {
-    pub fn new(batch_id: String, errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: ::std::collections::HashMap<String, crate::models::DomainMultiStatusSensorResponse>) -> DomainBatchInitSessionResponse {
-        DomainBatchInitSessionResponse { batch_id, errors, meta: Box::new(meta), resources }
+    pub fn new(
+        batch_id: String,
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: ::std::collections::HashMap<
+            String,
+            crate::models::DomainMultiStatusSensorResponse,
+        >,
+    ) -> DomainBatchInitSessionResponse {
+        DomainBatchInitSessionResponse {
+            batch_id,
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

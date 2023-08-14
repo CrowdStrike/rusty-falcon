@@ -22,6 +22,11 @@ pub struct FwmgrApiJsonDiff {
 
 impl FwmgrApiJsonDiff {
     pub fn new(op: String, path: String, value: serde_json::Value) -> FwmgrApiJsonDiff {
-        FwmgrApiJsonDiff { from: None, op, path, value }
+        FwmgrApiJsonDiff {
+            from: None,
+            op,
+            path,
+            value,
+        }
     }
 }

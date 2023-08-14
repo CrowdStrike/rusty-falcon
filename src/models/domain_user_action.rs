@@ -23,7 +23,10 @@ pub struct DomainUserAction {
 impl DomainUserAction {
     /// Action to be performed
     pub fn new(action_name: ActionName) -> DomainUserAction {
-        DomainUserAction { action_name, action_value: None }
+        DomainUserAction {
+            action_name,
+            action_value: None,
+        }
     }
 }
 

@@ -19,7 +19,15 @@ pub struct ApiMsaExternalBehaviorResponse {
 }
 
 impl ApiMsaExternalBehaviorResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainBehavior>) -> ApiMsaExternalBehaviorResponse {
-        ApiMsaExternalBehaviorResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainBehavior>,
+    ) -> ApiMsaExternalBehaviorResponse {
+        ApiMsaExternalBehaviorResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

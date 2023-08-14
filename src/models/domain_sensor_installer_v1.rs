@@ -41,7 +41,18 @@ pub struct DomainSensorInstallerV1 {
 }
 
 impl DomainSensorInstallerV1 {
-    pub fn new(description: String, file_size: i32, file_type: String, name: String, os: String, os_version: String, platform: String, release_date: String, sha256: String, version: String) -> DomainSensorInstallerV1 {
+    pub fn new(
+        description: String,
+        file_size: i32,
+        file_type: String,
+        name: String,
+        os: String,
+        os_version: String,
+        platform: String,
+        release_date: String,
+        sha256: String,
+        version: String,
+    ) -> DomainSensorInstallerV1 {
         DomainSensorInstallerV1 {
             description,
             file_size,

@@ -20,6 +20,10 @@ pub struct K8sregAzureTenantConfig {
 
 impl K8sregAzureTenantConfig {
     pub fn new(client_id: String, tenant_id: String) -> K8sregAzureTenantConfig {
-        K8sregAzureTenantConfig { client_id, public_certificate: None, tenant_id }
+        K8sregAzureTenantConfig {
+            client_id,
+            public_certificate: None,
+            tenant_id,
+        }
     }
 }

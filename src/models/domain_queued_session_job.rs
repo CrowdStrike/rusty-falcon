@@ -31,7 +31,17 @@ pub struct DomainQueuedSessionJob {
 }
 
 impl DomainQueuedSessionJob {
-    pub fn new(commands: Vec<crate::models::DomainQueuedSessionCommand>, aid: String, created_at: String, deleted_at: String, id: String, status: String, updated_at: String, user_id: String, user_uuid: String) -> DomainQueuedSessionJob {
+    pub fn new(
+        commands: Vec<crate::models::DomainQueuedSessionCommand>,
+        aid: String,
+        created_at: String,
+        deleted_at: String,
+        id: String,
+        status: String,
+        updated_at: String,
+        user_id: String,
+        user_uuid: String,
+    ) -> DomainQueuedSessionJob {
         DomainQueuedSessionJob {
             commands,
             aid,

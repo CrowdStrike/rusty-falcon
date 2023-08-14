@@ -37,7 +37,17 @@ pub struct K8sregAwsAccountResp {
 }
 
 impl K8sregAwsAccountResp {
-    pub fn new(account_id: String, aws_permissions_status: Vec<crate::models::K8sregAwsAccountPermissionsStatus>, cid: String, created_at: String, from_cspm: bool, iam_role_arn: String, is_master: bool, status: String, updated_at: String) -> K8sregAwsAccountResp {
+    pub fn new(
+        account_id: String,
+        aws_permissions_status: Vec<crate::models::K8sregAwsAccountPermissionsStatus>,
+        cid: String,
+        created_at: String,
+        from_cspm: bool,
+        iam_role_arn: String,
+        is_master: bool,
+        status: String,
+        updated_at: String,
+    ) -> K8sregAwsAccountResp {
         K8sregAwsAccountResp {
             account_id,
             aws_permissions_status,

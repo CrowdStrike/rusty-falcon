@@ -23,7 +23,11 @@ pub struct ClientExtractionFileResultV1 {
 }
 
 impl ClientExtractionFileResultV1 {
-    pub fn new(extract_timestamp: String, name: String, status: String) -> ClientExtractionFileResultV1 {
+    pub fn new(
+        extract_timestamp: String,
+        name: String,
+        status: String,
+    ) -> ClientExtractionFileResultV1 {
         ClientExtractionFileResultV1 {
             error: None,
             extract_timestamp,

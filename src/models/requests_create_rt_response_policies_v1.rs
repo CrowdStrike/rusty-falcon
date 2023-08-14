@@ -19,7 +19,9 @@ pub struct RequestsCreateRtResponsePoliciesV1 {
 
 impl RequestsCreateRtResponsePoliciesV1 {
     /// A req to create realtime policies
-    pub fn new(resources: Vec<crate::models::RequestsCreateRtResponsePolicyV1>) -> RequestsCreateRtResponsePoliciesV1 {
+    pub fn new(
+        resources: Vec<crate::models::RequestsCreateRtResponsePolicyV1>,
+    ) -> RequestsCreateRtResponsePoliciesV1 {
         RequestsCreateRtResponsePoliciesV1 { resources }
     }
 }

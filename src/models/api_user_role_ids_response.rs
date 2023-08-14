@@ -19,7 +19,15 @@ pub struct ApiUserRoleIdsResponse {
 }
 
 impl ApiUserRoleIdsResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> ApiUserRoleIdsResponse {
-        ApiUserRoleIdsResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<String>,
+    ) -> ApiUserRoleIdsResponse {
+        ApiUserRoleIdsResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

@@ -34,7 +34,15 @@ pub struct SadomainCreateRuleRequestV1 {
 }
 
 impl SadomainCreateRuleRequestV1 {
-    pub fn new(breach_monitoring_enabled: bool, filter: String, name: String, permissions: String, priority: String, substring_matching_enabled: bool, topic: String) -> SadomainCreateRuleRequestV1 {
+    pub fn new(
+        breach_monitoring_enabled: bool,
+        filter: String,
+        name: String,
+        permissions: String,
+        priority: String,
+        substring_matching_enabled: bool,
+        topic: String,
+    ) -> SadomainCreateRuleRequestV1 {
         SadomainCreateRuleRequestV1 {
             breach_monitoring_enabled,
             filter,

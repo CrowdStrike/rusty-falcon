@@ -23,7 +23,13 @@ pub struct FwmgrApiNetworkLocationModifyMetadataRequestV1 {
 }
 
 impl FwmgrApiNetworkLocationModifyMetadataRequestV1 {
-    pub fn new(cid: String, dns_resolution_targets_polling_interval: i32, https_reachable_hosts_polling_interval: i32, icmp_request_targets_polling_interval: i32, location_precedence: Vec<String>) -> FwmgrApiNetworkLocationModifyMetadataRequestV1 {
+    pub fn new(
+        cid: String,
+        dns_resolution_targets_polling_interval: i32,
+        https_reachable_hosts_polling_interval: i32,
+        icmp_request_targets_polling_interval: i32,
+        location_precedence: Vec<String>,
+    ) -> FwmgrApiNetworkLocationModifyMetadataRequestV1 {
         FwmgrApiNetworkLocationModifyMetadataRequestV1 {
             cid,
             dns_resolution_targets_polling_interval,

@@ -19,7 +19,15 @@ pub struct DomainBatchGetCmdStatusResponse {
 }
 
 impl DomainBatchGetCmdStatusResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: ::std::collections::HashMap<String, crate::models::ModelFile>) -> DomainBatchGetCmdStatusResponse {
-        DomainBatchGetCmdStatusResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: ::std::collections::HashMap<String, crate::models::ModelFile>,
+    ) -> DomainBatchGetCmdStatusResponse {
+        DomainBatchGetCmdStatusResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

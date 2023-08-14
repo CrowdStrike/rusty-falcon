@@ -20,6 +20,10 @@ pub struct DomainCsixLabel {
 
 impl DomainCsixLabel {
     pub fn new(created_on: i64, last_valid_on: i64, name: String) -> DomainCsixLabel {
-        DomainCsixLabel { created_on, last_valid_on, name }
+        DomainCsixLabel {
+            created_on,
+            last_valid_on,
+            name,
+        }
     }
 }

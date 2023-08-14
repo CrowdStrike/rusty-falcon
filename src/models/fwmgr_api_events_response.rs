@@ -19,7 +19,14 @@ pub struct FwmgrApiEventsResponse {
 }
 
 impl FwmgrApiEventsResponse {
-    pub fn new(meta: crate::models::FwmgrMsaspecMetaInfo, resources: Vec<crate::models::FwmgrFirewallMatchEventResponse>) -> FwmgrApiEventsResponse {
-        FwmgrApiEventsResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::FwmgrMsaspecMetaInfo,
+        resources: Vec<crate::models::FwmgrFirewallMatchEventResponse>,
+    ) -> FwmgrApiEventsResponse {
+        FwmgrApiEventsResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

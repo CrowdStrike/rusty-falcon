@@ -14,7 +14,10 @@ pub struct ApiExposedDataRecordLocationV1 {
     pub city: Option<String>,
     #[serde(rename = "country_code", skip_serializing_if = "Option::is_none")]
     pub country_code: Option<String>,
-    #[serde(rename = "federal_admin_region", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "federal_admin_region",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub federal_admin_region: Option<String>,
     #[serde(rename = "federal_district", skip_serializing_if = "Option::is_none")]
     pub federal_district: Option<String>,

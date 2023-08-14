@@ -25,7 +25,12 @@ pub struct FwmgrFirewallFieldValue {
 }
 
 impl FwmgrFirewallFieldValue {
-    pub fn new(name: String, _type: String, value: String, values: Vec<String>) -> FwmgrFirewallFieldValue {
+    pub fn new(
+        name: String,
+        _type: String,
+        value: String,
+        values: Vec<String>,
+    ) -> FwmgrFirewallFieldValue {
         FwmgrFirewallFieldValue {
             final_value: None,
             label: None,

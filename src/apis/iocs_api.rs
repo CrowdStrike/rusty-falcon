@@ -53,18 +53,27 @@ pub enum ProcessesRanOnError {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn devices_count(configuration: &configuration::Configuration, _type: &str, value: &str) -> Result<crate::models::ApiMsaReplyIocDevicesCount, Error<DevicesCountError>> {
+pub async fn devices_count(
+    configuration: &configuration::Configuration,
+    _type: &str,
+    value: &str,
+) -> Result<crate::models::ApiMsaReplyIocDevicesCount, Error<DevicesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/indicators/aggregates/devices-count/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/indicators/aggregates/devices-count/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("type", &_type.to_string())]);
     local_var_req_builder = local_var_req_builder.query(&[("value", &value.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -79,7 +88,8 @@ pub async fn devices_count(configuration: &configuration::Configuration, _type: 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DevicesCountError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DevicesCountError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -89,24 +99,37 @@ pub async fn devices_count(configuration: &configuration::Configuration, _type: 
     }
 }
 
-pub async fn devices_ran_on(configuration: &configuration::Configuration, _type: &str, value: &str, limit: Option<&str>, offset: Option<&str>) -> Result<crate::models::ApiMsaReplyDevicesRanOn, Error<DevicesRanOnError>> {
+pub async fn devices_ran_on(
+    configuration: &configuration::Configuration,
+    _type: &str,
+    value: &str,
+    limit: Option<&str>,
+    offset: Option<&str>,
+) -> Result<crate::models::ApiMsaReplyDevicesRanOn, Error<DevicesRanOnError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/indicators/queries/devices/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/indicators/queries/devices/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("type", &_type.to_string())]);
     local_var_req_builder = local_var_req_builder.query(&[("value", &value.to_string())]);
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -121,7 +144,8 @@ pub async fn devices_ran_on(configuration: &configuration::Configuration, _type:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DevicesRanOnError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DevicesRanOnError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -131,20 +155,39 @@ pub async fn devices_ran_on(configuration: &configuration::Configuration, _type:
     }
 }
 
-pub async fn entities_processes(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiMsaProcessDetailResponse, Error<EntitiesProcessesError>> {
+pub async fn entities_processes(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::ApiMsaProcessDetailResponse, Error<EntitiesProcessesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/processes/entities/processes/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/processes/entities/processes/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "multi" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -159,7 +202,8 @@ pub async fn entities_processes(configuration: &configuration::Configuration, id
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<EntitiesProcessesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<EntitiesProcessesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -169,25 +213,39 @@ pub async fn entities_processes(configuration: &configuration::Configuration, id
     }
 }
 
-pub async fn processes_ran_on(configuration: &configuration::Configuration, _type: &str, value: &str, device_id: &str, limit: Option<&str>, offset: Option<&str>) -> Result<crate::models::ApiMsaReplyProcessesRanOn, Error<ProcessesRanOnError>> {
+pub async fn processes_ran_on(
+    configuration: &configuration::Configuration,
+    _type: &str,
+    value: &str,
+    device_id: &str,
+    limit: Option<&str>,
+    offset: Option<&str>,
+) -> Result<crate::models::ApiMsaReplyProcessesRanOn, Error<ProcessesRanOnError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/indicators/queries/processes/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/indicators/queries/processes/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("type", &_type.to_string())]);
     local_var_req_builder = local_var_req_builder.query(&[("value", &value.to_string())]);
     local_var_req_builder = local_var_req_builder.query(&[("device_id", &device_id.to_string())]);
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -202,7 +260,8 @@ pub async fn processes_ran_on(configuration: &configuration::Configuration, _typ
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ProcessesRanOnError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ProcessesRanOnError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

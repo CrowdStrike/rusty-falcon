@@ -35,16 +35,23 @@ pub enum Oauth2RevokeTokenError {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn oauth2_access_token(configuration: &configuration::Configuration, client_id: &str, client_secret: &str, member_cid: Option<&str>) -> Result<crate::models::DomainAccessTokenResponseV1, Error<Oauth2AccessTokenError>> {
+pub async fn oauth2_access_token(
+    configuration: &configuration::Configuration,
+    client_id: &str,
+    client_secret: &str,
+    member_cid: Option<&str>,
+) -> Result<crate::models::DomainAccessTokenResponseV1, Error<Oauth2AccessTokenError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/oauth2/token", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     let mut local_var_form_params = std::collections::HashMap::new();
     local_var_form_params.insert("client_id", client_id.to_string());
@@ -63,7 +70,8 @@ pub async fn oauth2_access_token(configuration: &configuration::Configuration, c
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<Oauth2AccessTokenError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<Oauth2AccessTokenError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -73,19 +81,27 @@ pub async fn oauth2_access_token(configuration: &configuration::Configuration, c
     }
 }
 
-pub async fn oauth2_revoke_token(configuration: &configuration::Configuration, token: &str) -> Result<crate::models::MsaReplyMetaOnly, Error<Oauth2RevokeTokenError>> {
+pub async fn oauth2_revoke_token(
+    configuration: &configuration::Configuration,
+    token: &str,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<Oauth2RevokeTokenError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/oauth2/revoke", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
-        local_var_req_builder = local_var_req_builder.basic_auth(local_var_auth_conf.0.to_owned(), local_var_auth_conf.1.to_owned());
+        local_var_req_builder = local_var_req_builder.basic_auth(
+            local_var_auth_conf.0.to_owned(),
+            local_var_auth_conf.1.to_owned(),
+        );
     };
     let mut local_var_form_params = std::collections::HashMap::new();
     local_var_form_params.insert("token", token.to_string());
@@ -100,7 +116,8 @@ pub async fn oauth2_revoke_token(configuration: &configuration::Configuration, t
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<Oauth2RevokeTokenError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<Oauth2RevokeTokenError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

@@ -18,6 +18,9 @@ pub struct SadomainCustomerAssets {
 
 impl SadomainCustomerAssets {
     pub fn new() -> SadomainCustomerAssets {
-        SadomainCustomerAssets { domains: None, emails: None }
+        SadomainCustomerAssets {
+            domains: None,
+            emails: None,
+        }
     }
 }

@@ -22,6 +22,11 @@ pub struct MalqueryQueryError {
 
 impl MalqueryQueryError {
     pub fn new(code: i32, message: String) -> MalqueryQueryError {
-        MalqueryQueryError { code, id: None, message, _type: None }
+        MalqueryQueryError {
+            code,
+            id: None,
+            message,
+            _type: None,
+        }
     }
 }

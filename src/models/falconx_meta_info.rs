@@ -18,6 +18,9 @@ pub struct FalconxMetaInfo {
 
 impl FalconxMetaInfo {
     pub fn new(msa_meta_info: crate::models::MsaMetaInfo) -> FalconxMetaInfo {
-        FalconxMetaInfo { msa_meta_info: Box::new(msa_meta_info), quota: None }
+        FalconxMetaInfo {
+            msa_meta_info: Box::new(msa_meta_info),
+            quota: None,
+        }
     }
 }

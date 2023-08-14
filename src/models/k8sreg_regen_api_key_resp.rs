@@ -19,7 +19,15 @@ pub struct K8sregRegenApiKeyResp {
 }
 
 impl K8sregRegenApiKeyResp {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::K8sregApiKey>) -> K8sregRegenApiKeyResp {
-        K8sregRegenApiKeyResp { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::K8sregApiKey>,
+    ) -> K8sregRegenApiKeyResp {
+        K8sregRegenApiKeyResp {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

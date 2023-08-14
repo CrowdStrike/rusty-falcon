@@ -132,16 +132,24 @@ pub enum UpdateCaseError {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn aggregate_cases(configuration: &configuration::Configuration, body: Vec<crate::models::MsaAggregateQueryRequest>) -> Result<crate::models::MsaAggregatesResponse, Error<AggregateCasesError>> {
+pub async fn aggregate_cases(
+    configuration: &configuration::Configuration,
+    body: Vec<crate::models::MsaAggregateQueryRequest>,
+) -> Result<crate::models::MsaAggregatesResponse, Error<AggregateCasesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/message-center/aggregates/cases/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/message-center/aggregates/cases/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -157,7 +165,8 @@ pub async fn aggregate_cases(configuration: &configuration::Configuration, body:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<AggregateCasesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<AggregateCasesError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -167,16 +176,24 @@ pub async fn aggregate_cases(configuration: &configuration::Configuration, body:
     }
 }
 
-pub async fn case_add_activity(configuration: &configuration::Configuration, body: crate::models::ApiActivityCreationRequest) -> Result<crate::models::MsaReplyMetaOnly, Error<CaseAddActivityError>> {
+pub async fn case_add_activity(
+    configuration: &configuration::Configuration,
+    body: crate::models::ApiActivityCreationRequest,
+) -> Result<crate::models::MsaReplyMetaOnly, Error<CaseAddActivityError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/message-center/entities/case-activity/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/message-center/entities/case-activity/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -192,7 +209,8 @@ pub async fn case_add_activity(configuration: &configuration::Configuration, bod
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CaseAddActivityError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CaseAddActivityError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -203,16 +221,27 @@ pub async fn case_add_activity(configuration: &configuration::Configuration, bod
 }
 
 /// Upload an attachment for the case. Maximum upload size allowed is *15 MB*.   Filename must start with *[a-zA-Z0-9_-]*. Allowed characters in file name are *[a-zA-Z0-9-_.\\s]*.    Maximum file name is *255* characters      Following attachment types are allowed:   - png   - bmp   - jpg   - jpeg   - gif   - pdf   - doc   - docx   - xls   - xlsx   - pptx   - txt   - csv
-pub async fn case_add_attachment(configuration: &configuration::Configuration, case_id: &str, user_uuid: &str, file: std::path::PathBuf) -> Result<crate::models::ApiMessageCenterAttachmentUploadResponse, Error<CaseAddAttachmentError>> {
+pub async fn case_add_attachment(
+    configuration: &configuration::Configuration,
+    case_id: &str,
+    user_uuid: &str,
+    _file: std::path::PathBuf,
+) -> Result<crate::models::ApiMessageCenterAttachmentUploadResponse, Error<CaseAddAttachmentError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/message-center/entities/case-attachment/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/message-center/entities/case-attachment/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -232,7 +261,8 @@ pub async fn case_add_attachment(configuration: &configuration::Configuration, c
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CaseAddAttachmentError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CaseAddAttachmentError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -242,17 +272,25 @@ pub async fn case_add_attachment(configuration: &configuration::Configuration, c
     }
 }
 
-pub async fn case_download_attachment(configuration: &configuration::Configuration, id: &str) -> Result<String, Error<CaseDownloadAttachmentError>> {
+pub async fn case_download_attachment(
+    configuration: &configuration::Configuration,
+    id: &str,
+) -> Result<String, Error<CaseDownloadAttachmentError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/message-center/entities/case-attachment/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/message-center/entities/case-attachment/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -267,7 +305,8 @@ pub async fn case_download_attachment(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CaseDownloadAttachmentError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CaseDownloadAttachmentError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -277,16 +316,24 @@ pub async fn case_download_attachment(configuration: &configuration::Configurati
     }
 }
 
-pub async fn create_case(configuration: &configuration::Configuration, body: crate::models::ApiCaseCreationRequest) -> Result<crate::models::MsaReplyAffectedEntities, Error<CreateCaseError>> {
+pub async fn create_case(
+    configuration: &configuration::Configuration,
+    body: crate::models::ApiCaseCreationRequest,
+) -> Result<crate::models::MsaReplyAffectedEntities, Error<CreateCaseError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/message-center/entities/case/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/message-center/entities/case/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -302,7 +349,8 @@ pub async fn create_case(configuration: &configuration::Configuration, body: cra
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateCaseError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateCaseError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -312,16 +360,24 @@ pub async fn create_case(configuration: &configuration::Configuration, body: cra
     }
 }
 
-pub async fn get_case_activity_by_ids(configuration: &configuration::Configuration, body: crate::models::MsaIdsRequest) -> Result<crate::models::ApiMessageCenterActivityResponse, Error<GetCaseActivityByIdsError>> {
+pub async fn get_case_activity_by_ids(
+    configuration: &configuration::Configuration,
+    body: crate::models::MsaIdsRequest,
+) -> Result<crate::models::ApiMessageCenterActivityResponse, Error<GetCaseActivityByIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/message-center/entities/case-activities/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/message-center/entities/case-activities/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -337,7 +393,8 @@ pub async fn get_case_activity_by_ids(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetCaseActivityByIdsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCaseActivityByIdsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -347,16 +404,24 @@ pub async fn get_case_activity_by_ids(configuration: &configuration::Configurati
     }
 }
 
-pub async fn get_case_entities_by_ids(configuration: &configuration::Configuration, body: crate::models::MsaIdsRequest) -> Result<crate::models::ApiMessageCenterCasesResponse, Error<GetCaseEntitiesByIdsError>> {
+pub async fn get_case_entities_by_ids(
+    configuration: &configuration::Configuration,
+    body: crate::models::MsaIdsRequest,
+) -> Result<crate::models::ApiMessageCenterCasesResponse, Error<GetCaseEntitiesByIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/message-center/entities/cases/GET/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/message-center/entities/cases/GET/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -372,7 +437,8 @@ pub async fn get_case_entities_by_ids(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetCaseEntitiesByIdsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCaseEntitiesByIdsError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -382,29 +448,45 @@ pub async fn get_case_entities_by_ids(configuration: &configuration::Configurati
     }
 }
 
-pub async fn query_activity_by_case_id(configuration: &configuration::Configuration, case_id: &str, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, offset: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QueryActivityByCaseIdError>> {
+pub async fn query_activity_by_case_id(
+    configuration: &configuration::Configuration,
+    case_id: &str,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    offset: Option<&str>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryActivityByCaseIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/message-center/queries/case-activities/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/message-center/queries/case-activities/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     local_var_req_builder = local_var_req_builder.query(&[("case_id", &case_id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -419,7 +501,8 @@ pub async fn query_activity_by_case_id(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryActivityByCaseIdError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryActivityByCaseIdError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -429,28 +512,43 @@ pub async fn query_activity_by_case_id(configuration: &configuration::Configurat
     }
 }
 
-pub async fn query_cases_ids_by_filter(configuration: &configuration::Configuration, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, offset: Option<&str>) -> Result<crate::models::MsaQueryResponse, Error<QueryCasesIdsByFilterError>> {
+pub async fn query_cases_ids_by_filter(
+    configuration: &configuration::Configuration,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    offset: Option<&str>,
+) -> Result<crate::models::MsaQueryResponse, Error<QueryCasesIdsByFilterError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/message-center/queries/cases/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/message-center/queries/cases/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -465,7 +563,8 @@ pub async fn query_cases_ids_by_filter(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<QueryCasesIdsByFilterError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<QueryCasesIdsByFilterError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -475,16 +574,24 @@ pub async fn query_cases_ids_by_filter(configuration: &configuration::Configurat
     }
 }
 
-pub async fn update_case(configuration: &configuration::Configuration, body: crate::models::ApiCaseUpdateRequest) -> Result<crate::models::MsaReplyAffectedEntities, Error<UpdateCaseError>> {
+pub async fn update_case(
+    configuration: &configuration::Configuration,
+    body: crate::models::ApiCaseUpdateRequest,
+) -> Result<crate::models::MsaReplyAffectedEntities, Error<UpdateCaseError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/message-center/entities/case/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/message-center/entities/case/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -500,7 +607,8 @@ pub async fn update_case(configuration: &configuration::Configuration, body: cra
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateCaseError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateCaseError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

@@ -18,6 +18,9 @@ pub struct DomainUpdateUserFields {
 
 impl DomainUpdateUserFields {
     pub fn new() -> DomainUpdateUserFields {
-        DomainUpdateUserFields { first_name: None, last_name: None }
+        DomainUpdateUserFields {
+            first_name: None,
+            last_name: None,
+        }
     }
 }

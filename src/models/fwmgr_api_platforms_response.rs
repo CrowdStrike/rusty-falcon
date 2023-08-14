@@ -19,7 +19,14 @@ pub struct FwmgrApiPlatformsResponse {
 }
 
 impl FwmgrApiPlatformsResponse {
-    pub fn new(meta: crate::models::FwmgrMsaMetaInfo, resources: Vec<crate::models::FwmgrDomainPlatform>) -> FwmgrApiPlatformsResponse {
-        FwmgrApiPlatformsResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::FwmgrMsaMetaInfo,
+        resources: Vec<crate::models::FwmgrDomainPlatform>,
+    ) -> FwmgrApiPlatformsResponse {
+        FwmgrApiPlatformsResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

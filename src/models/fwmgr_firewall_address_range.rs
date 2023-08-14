@@ -18,6 +18,9 @@ pub struct FwmgrFirewallAddressRange {
 
 impl FwmgrFirewallAddressRange {
     pub fn new(address: String) -> FwmgrFirewallAddressRange {
-        FwmgrFirewallAddressRange { address, netmask: None }
+        FwmgrFirewallAddressRange {
+            address,
+            netmask: None,
+        }
     }
 }

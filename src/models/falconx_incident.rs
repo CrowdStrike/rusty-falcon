@@ -18,6 +18,9 @@ pub struct FalconxIncident {
 
 impl FalconxIncident {
     pub fn new() -> FalconxIncident {
-        FalconxIncident { details: None, name: None }
+        FalconxIncident {
+            details: None,
+            name: None,
+        }
     }
 }

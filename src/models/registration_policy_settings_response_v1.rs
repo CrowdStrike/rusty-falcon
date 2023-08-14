@@ -19,7 +19,15 @@ pub struct RegistrationPolicySettingsResponseV1 {
 }
 
 impl RegistrationPolicySettingsResponseV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainCidPolicyAssignments>) -> RegistrationPolicySettingsResponseV1 {
-        RegistrationPolicySettingsResponseV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainCidPolicyAssignments>,
+    ) -> RegistrationPolicySettingsResponseV1 {
+        RegistrationPolicySettingsResponseV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

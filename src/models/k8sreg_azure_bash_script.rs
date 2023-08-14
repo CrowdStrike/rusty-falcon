@@ -18,6 +18,9 @@ pub struct K8sregAzureBashScript {
 
 impl K8sregAzureBashScript {
     pub fn new(script: String, service_account_public_keys: Vec<String>) -> K8sregAzureBashScript {
-        K8sregAzureBashScript { script, service_account_public_keys }
+        K8sregAzureBashScript {
+            script,
+            service_account_public_keys,
+        }
     }
 }

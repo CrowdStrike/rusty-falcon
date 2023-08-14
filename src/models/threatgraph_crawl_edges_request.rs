@@ -25,7 +25,12 @@ pub struct ThreatgraphCrawlEdgesRequest {
 }
 
 impl ThreatgraphCrawlEdgesRequest {
-    pub fn new(edge_direction: String, edge_type: String, limit: i32, scope: String) -> ThreatgraphCrawlEdgesRequest {
+    pub fn new(
+        edge_direction: String,
+        edge_type: String,
+        limit: i32,
+        scope: String,
+    ) -> ThreatgraphCrawlEdgesRequest {
         ThreatgraphCrawlEdgesRequest {
             edge_direction,
             edge_type,

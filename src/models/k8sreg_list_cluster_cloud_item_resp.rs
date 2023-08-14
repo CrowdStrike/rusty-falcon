@@ -31,7 +31,11 @@ pub struct K8sregListClusterCloudItemResp {
 }
 
 impl K8sregListClusterCloudItemResp {
-    pub fn new(account_id: String, cloud_status: String, cluster_service: String) -> K8sregListClusterCloudItemResp {
+    pub fn new(
+        account_id: String,
+        cloud_status: String,
+        cluster_service: String,
+    ) -> K8sregListClusterCloudItemResp {
         K8sregListClusterCloudItemResp {
             account_id,
             aws_meta: None,

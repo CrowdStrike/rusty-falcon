@@ -22,6 +22,11 @@ pub struct FalconxEntity {
 
 impl FalconxEntity {
     pub fn new() -> FalconxEntity {
-        FalconxEntity { id: None, name: None, slug: None, value: None }
+        FalconxEntity {
+            id: None,
+            name: None,
+            slug: None,
+            value: None,
+        }
     }
 }

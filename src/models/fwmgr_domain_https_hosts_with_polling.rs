@@ -18,6 +18,9 @@ pub struct FwmgrDomainHttpsHostsWithPolling {
 
 impl FwmgrDomainHttpsHostsWithPolling {
     pub fn new(polling_interval: i32) -> FwmgrDomainHttpsHostsWithPolling {
-        FwmgrDomainHttpsHostsWithPolling { hostnames: None, polling_interval }
+        FwmgrDomainHttpsHostsWithPolling {
+            hostnames: None,
+            polling_interval,
+        }
     }
 }

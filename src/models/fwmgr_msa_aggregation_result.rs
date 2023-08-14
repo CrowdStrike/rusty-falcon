@@ -14,12 +14,22 @@ pub struct FwmgrMsaAggregationResult {
     pub buckets: Vec<crate::models::FwmgrMsaAggregationResultItem>,
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "sum_other_doc_count", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "sum_other_doc_count",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub sum_other_doc_count: Option<i64>,
 }
 
 impl FwmgrMsaAggregationResult {
-    pub fn new(buckets: Vec<crate::models::FwmgrMsaAggregationResultItem>, name: String) -> FwmgrMsaAggregationResult {
-        FwmgrMsaAggregationResult { buckets, name, sum_other_doc_count: None }
+    pub fn new(
+        buckets: Vec<crate::models::FwmgrMsaAggregationResultItem>,
+        name: String,
+    ) -> FwmgrMsaAggregationResult {
+        FwmgrMsaAggregationResult {
+            buckets,
+            name,
+            sum_other_doc_count: None,
+        }
     }
 }

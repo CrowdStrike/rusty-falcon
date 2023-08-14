@@ -19,7 +19,15 @@ pub struct DomainAccessTokenResponseV1 {
 }
 
 impl DomainAccessTokenResponseV1 {
-    pub fn new(access_token: String, expires_in: i32, token_type: String) -> DomainAccessTokenResponseV1 {
-        DomainAccessTokenResponseV1 { access_token, expires_in, token_type }
+    pub fn new(
+        access_token: String,
+        expires_in: i32,
+        token_type: String,
+    ) -> DomainAccessTokenResponseV1 {
+        DomainAccessTokenResponseV1 {
+            access_token,
+            expires_in,
+            token_type,
+        }
     }
 }

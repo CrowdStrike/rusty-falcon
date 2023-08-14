@@ -23,6 +23,10 @@ pub struct DomainRuleQuota {
 
 impl DomainRuleQuota {
     pub fn new(active: i32, pending: i32, total: i32) -> DomainRuleQuota {
-        DomainRuleQuota { active, pending, total }
+        DomainRuleQuota {
+            active,
+            pending,
+            total,
+        }
     }
 }

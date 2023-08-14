@@ -19,7 +19,15 @@ pub struct ModelsCustomerConfigurationsV1 {
 }
 
 impl ModelsCustomerConfigurationsV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainAwsConfiguration>) -> ModelsCustomerConfigurationsV1 {
-        ModelsCustomerConfigurationsV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainAwsConfiguration>,
+    ) -> ModelsCustomerConfigurationsV1 {
+        ModelsCustomerConfigurationsV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

@@ -20,6 +20,10 @@ pub struct RequestsSvExclusionCreateReqV1 {
 
 impl RequestsSvExclusionCreateReqV1 {
     pub fn new() -> RequestsSvExclusionCreateReqV1 {
-        RequestsSvExclusionCreateReqV1 { comment: None, groups: None, value: None }
+        RequestsSvExclusionCreateReqV1 {
+            comment: None,
+            groups: None,
+            value: None,
+        }
     }
 }

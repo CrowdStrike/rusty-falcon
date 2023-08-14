@@ -18,6 +18,9 @@ pub struct FalconxMatchedSignature {
 
 impl FalconxMatchedSignature {
     pub fn new() -> FalconxMatchedSignature {
-        FalconxMatchedSignature { id: None, value: None }
+        FalconxMatchedSignature {
+            id: None,
+            value: None,
+        }
     }
 }

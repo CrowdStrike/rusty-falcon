@@ -25,7 +25,17 @@ pub struct DomainFileDetailsV1 {
 }
 
 impl DomainFileDetailsV1 {
-    pub fn new(complete_data_set: bool, download_urls: Vec<String>, name: String, size: i32) -> DomainFileDetailsV1 {
-        DomainFileDetailsV1 { complete_data_set, download_urls, name, size }
+    pub fn new(
+        complete_data_set: bool,
+        download_urls: Vec<String>,
+        name: String,
+        size: i32,
+    ) -> DomainFileDetailsV1 {
+        DomainFileDetailsV1 {
+            complete_data_set,
+            download_urls,
+            name,
+            size,
+        }
     }
 }

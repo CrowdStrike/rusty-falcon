@@ -19,7 +19,14 @@ pub struct DomainDiscoverApiAccountEntitiesResponse {
 }
 
 impl DomainDiscoverApiAccountEntitiesResponse {
-    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainDiscoverApiAccount>) -> DomainDiscoverApiAccountEntitiesResponse {
-        DomainDiscoverApiAccountEntitiesResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainDiscoverApiAccount>,
+    ) -> DomainDiscoverApiAccountEntitiesResponse {
+        DomainDiscoverApiAccountEntitiesResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

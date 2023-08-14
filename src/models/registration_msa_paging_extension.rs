@@ -18,6 +18,9 @@ pub struct RegistrationMsaPagingExtension {
 
 impl RegistrationMsaPagingExtension {
     pub fn new(paging: crate::models::MsaPaging) -> RegistrationMsaPagingExtension {
-        RegistrationMsaPagingExtension { paging: Box::new(paging), next_token: None }
+        RegistrationMsaPagingExtension {
+            paging: Box::new(paging),
+            next_token: None,
+        }
     }
 }

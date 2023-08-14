@@ -20,6 +20,9 @@ pub struct DomainDiscoverApiDiskSize {
 
 impl DomainDiscoverApiDiskSize {
     pub fn new() -> DomainDiscoverApiDiskSize {
-        DomainDiscoverApiDiskSize { disk_name: None, disk_space: None }
+        DomainDiscoverApiDiskSize {
+            disk_name: None,
+            disk_space: None,
+        }
     }
 }

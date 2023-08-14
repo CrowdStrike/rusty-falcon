@@ -19,7 +19,15 @@ pub struct RegistrationAwsAccountResponseV2 {
 }
 
 impl RegistrationAwsAccountResponseV2 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainAwsAccountV2>) -> RegistrationAwsAccountResponseV2 {
-        RegistrationAwsAccountResponseV2 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainAwsAccountV2>,
+    ) -> RegistrationAwsAccountResponseV2 {
+        RegistrationAwsAccountResponseV2 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

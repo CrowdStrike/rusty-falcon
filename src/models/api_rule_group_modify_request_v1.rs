@@ -25,7 +25,14 @@ pub struct ApiRuleGroupModifyRequestV1 {
 }
 
 impl ApiRuleGroupModifyRequestV1 {
-    pub fn new(comment: String, description: String, enabled: bool, id: String, name: String, rulegroup_version: i64) -> ApiRuleGroupModifyRequestV1 {
+    pub fn new(
+        comment: String,
+        description: String,
+        enabled: bool,
+        id: String,
+        name: String,
+        rulegroup_version: i64,
+    ) -> ApiRuleGroupModifyRequestV1 {
         ApiRuleGroupModifyRequestV1 {
             comment,
             description,

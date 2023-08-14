@@ -52,7 +52,11 @@ pub struct DomainMatchedBreachSummaryV1 {
 }
 
 impl DomainMatchedBreachSummaryV1 {
-    pub fn new(description: String, fields: Vec<String>, name: String) -> DomainMatchedBreachSummaryV1 {
+    pub fn new(
+        description: String,
+        fields: Vec<String>,
+        name: String,
+    ) -> DomainMatchedBreachSummaryV1 {
         DomainMatchedBreachSummaryV1 {
             community_name: None,
             confidence_level: None,

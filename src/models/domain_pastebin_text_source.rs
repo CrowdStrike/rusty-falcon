@@ -27,7 +27,12 @@ pub struct DomainPastebinTextSource {
 }
 
 impl DomainPastebinTextSource {
-    pub fn new(author_name: String, pastebin_id: String, source_link: String, title: String) -> DomainPastebinTextSource {
+    pub fn new(
+        author_name: String,
+        pastebin_id: String,
+        source_link: String,
+        title: String,
+    ) -> DomainPastebinTextSource {
         DomainPastebinTextSource {
             author_name,
             legacy_source: None,

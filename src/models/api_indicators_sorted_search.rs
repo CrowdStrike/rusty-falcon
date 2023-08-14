@@ -20,6 +20,10 @@ pub struct ApiIndicatorsSortedSearch {
 
 impl ApiIndicatorsSortedSearch {
     pub fn new(filter: String, query: String, sort: String) -> ApiIndicatorsSortedSearch {
-        ApiIndicatorsSortedSearch { filter, query, sort }
+        ApiIndicatorsSortedSearch {
+            filter,
+            query,
+            sort,
+        }
     }
 }

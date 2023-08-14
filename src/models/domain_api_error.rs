@@ -19,7 +19,14 @@ pub struct DomainApiError {
 }
 
 impl DomainApiError {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo) -> DomainApiError {
-        DomainApiError { errors, meta: Box::new(meta), resources: None }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+    ) -> DomainApiError {
+        DomainApiError {
+            errors,
+            meta: Box::new(meta),
+            resources: None,
+        }
     }
 }

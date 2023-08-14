@@ -19,7 +19,14 @@ pub struct RegistrationExternalIomEventResponse {
 }
 
 impl RegistrationExternalIomEventResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::RegistrationMsaMetaInfoExtension) -> RegistrationExternalIomEventResponse {
-        RegistrationExternalIomEventResponse { errors, meta: Box::new(meta), resources: None }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::RegistrationMsaMetaInfoExtension,
+    ) -> RegistrationExternalIomEventResponse {
+        RegistrationExternalIomEventResponse {
+            errors,
+            meta: Box::new(meta),
+            resources: None,
+        }
     }
 }

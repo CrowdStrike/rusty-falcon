@@ -33,7 +33,18 @@ pub struct FwmgrFirewallRuleGroupSummaryV1 {
 }
 
 impl FwmgrFirewallRuleGroupSummaryV1 {
-    pub fn new(created_by: String, created_on: String, description: String, enabled: bool, id: String, modified_by: String, modified_on: String, name: String, platform: String, policy_ids: Vec<String>) -> FwmgrFirewallRuleGroupSummaryV1 {
+    pub fn new(
+        created_by: String,
+        created_on: String,
+        description: String,
+        enabled: bool,
+        id: String,
+        modified_by: String,
+        modified_on: String,
+        name: String,
+        platform: String,
+        policy_ids: Vec<String>,
+    ) -> FwmgrFirewallRuleGroupSummaryV1 {
         FwmgrFirewallRuleGroupSummaryV1 {
             created_by,
             created_on,

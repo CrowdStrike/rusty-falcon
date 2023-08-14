@@ -12,7 +12,10 @@
 pub struct DomainCloudAccountId {
     #[serde(rename = "aws_account_id", skip_serializing_if = "Option::is_none")]
     pub aws_account_id: Option<String>,
-    #[serde(rename = "azure_subscription_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "azure_subscription_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub azure_subscription_id: Option<String>,
     #[serde(rename = "azure_tenant_id", skip_serializing_if = "Option::is_none")]
     pub azure_tenant_id: Option<String>,

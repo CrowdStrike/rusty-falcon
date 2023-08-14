@@ -19,7 +19,15 @@ pub struct DomainRulesResponse {
 }
 
 impl DomainRulesResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainRule>) -> DomainRulesResponse {
-        DomainRulesResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainRule>,
+    ) -> DomainRulesResponse {
+        DomainRulesResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

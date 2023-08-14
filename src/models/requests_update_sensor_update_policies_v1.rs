@@ -19,7 +19,9 @@ pub struct RequestsUpdateSensorUpdatePoliciesV1 {
 
 impl RequestsUpdateSensorUpdatePoliciesV1 {
     /// A req to update sensorUpdate policies
-    pub fn new(resources: Vec<crate::models::RequestsUpdateSensorUpdatePolicyV1>) -> RequestsUpdateSensorUpdatePoliciesV1 {
+    pub fn new(
+        resources: Vec<crate::models::RequestsUpdateSensorUpdatePolicyV1>,
+    ) -> RequestsUpdateSensorUpdatePoliciesV1 {
         RequestsUpdateSensorUpdatePoliciesV1 { resources }
     }
 }

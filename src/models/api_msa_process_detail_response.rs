@@ -19,7 +19,15 @@ pub struct ApiMsaProcessDetailResponse {
 }
 
 impl ApiMsaProcessDetailResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::ApiProcessDetail>) -> ApiMsaProcessDetailResponse {
-        ApiMsaProcessDetailResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::ApiProcessDetail>,
+    ) -> ApiMsaProcessDetailResponse {
+        ApiMsaProcessDetailResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

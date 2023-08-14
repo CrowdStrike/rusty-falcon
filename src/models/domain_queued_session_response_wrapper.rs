@@ -19,7 +19,15 @@ pub struct DomainQueuedSessionResponseWrapper {
 }
 
 impl DomainQueuedSessionResponseWrapper {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::DomainQueuedSessionJob>) -> DomainQueuedSessionResponseWrapper {
-        DomainQueuedSessionResponseWrapper { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::DomainQueuedSessionJob>,
+    ) -> DomainQueuedSessionResponseWrapper {
+        DomainQueuedSessionResponseWrapper {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

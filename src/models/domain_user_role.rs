@@ -22,6 +22,11 @@ pub struct DomainUserRole {
 
 impl DomainUserRole {
     pub fn new(description: String, display_name: String, id: String) -> DomainUserRole {
-        DomainUserRole { cid: None, description, display_name, id }
+        DomainUserRole {
+            cid: None,
+            description,
+            display_name,
+            id,
+        }
     }
 }

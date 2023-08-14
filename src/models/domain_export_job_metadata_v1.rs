@@ -21,7 +21,17 @@ pub struct DomainExportJobMetadataV1 {
 }
 
 impl DomainExportJobMetadataV1 {
-    pub fn new(entity: String, filename: String, id: String, status: String) -> DomainExportJobMetadataV1 {
-        DomainExportJobMetadataV1 { entity, filename, id, status }
+    pub fn new(
+        entity: String,
+        filename: String,
+        id: String,
+        status: String,
+    ) -> DomainExportJobMetadataV1 {
+        DomainExportJobMetadataV1 {
+            entity,
+            filename,
+            id,
+            status,
+        }
     }
 }

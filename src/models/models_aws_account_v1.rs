@@ -18,16 +18,25 @@ pub struct ModelsAwsAccountV1 {
     #[serde(rename = "cid", skip_serializing_if = "Option::is_none")]
     pub cid: Option<String>,
     /// Unique identifier for the cloudformation stack id used for provisioning.
-    #[serde(rename = "cloudformation_stack_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "cloudformation_stack_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub cloudformation_stack_id: Option<String>,
     /// URL of the CloudFormation template to execute. This is returned when mode is to set 'cloudformation' when provisioning.
     #[serde(rename = "cloudformation_url", skip_serializing_if = "Option::is_none")]
     pub cloudformation_url: Option<String>,
     /// The 12 digit AWS account which is hosting the S3 bucket containing cloudtrail logs for this account. If this field is set, it takes precedence of the settings level field.
-    #[serde(rename = "cloudtrail_bucket_owner_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "cloudtrail_bucket_owner_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub cloudtrail_bucket_owner_id: Option<String>,
     /// Region where the S3 bucket containing cloudtrail logs resides. This is only set if using cloudformation to provision and create the trail.
-    #[serde(rename = "cloudtrail_bucket_region", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "cloudtrail_bucket_region",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub cloudtrail_bucket_region: Option<String>,
     /// Timestamp of when the account was first provisioned within CrowdStrike's system.'
     #[serde(rename = "created_timestamp", skip_serializing_if = "Option::is_none")]
@@ -42,10 +51,16 @@ pub struct ModelsAwsAccountV1 {
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
     /// Timestamp of when the account was last modified.
-    #[serde(rename = "last_modified_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_modified_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_modified_timestamp: Option<String>,
     /// Timestamp of when the account was scanned.
-    #[serde(rename = "last_scanned_timestamp", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "last_scanned_timestamp",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub last_scanned_timestamp: Option<String>,
     /// Current version of permissions associated with IAM role and granted access.
     #[serde(rename = "policy_version", skip_serializing_if = "Option::is_none")]

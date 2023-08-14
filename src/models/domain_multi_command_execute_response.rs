@@ -11,11 +11,17 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainMultiCommandExecuteResponse {
     #[serde(rename = "resources")]
-    pub resources: ::std::collections::HashMap<String, crate::models::DomainMultiStatusSensorResponse>,
+    pub resources:
+        ::std::collections::HashMap<String, crate::models::DomainMultiStatusSensorResponse>,
 }
 
 impl DomainMultiCommandExecuteResponse {
-    pub fn new(resources: ::std::collections::HashMap<String, crate::models::DomainMultiStatusSensorResponse>) -> DomainMultiCommandExecuteResponse {
+    pub fn new(
+        resources: ::std::collections::HashMap<
+            String,
+            crate::models::DomainMultiStatusSensorResponse,
+        >,
+    ) -> DomainMultiCommandExecuteResponse {
         DomainMultiCommandExecuteResponse { resources }
     }
 }

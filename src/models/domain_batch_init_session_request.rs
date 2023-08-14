@@ -19,7 +19,15 @@ pub struct DomainBatchInitSessionRequest {
 }
 
 impl DomainBatchInitSessionRequest {
-    pub fn new(existing_batch_id: String, host_ids: Vec<String>, queue_offline: bool) -> DomainBatchInitSessionRequest {
-        DomainBatchInitSessionRequest { existing_batch_id, host_ids, queue_offline }
+    pub fn new(
+        existing_batch_id: String,
+        host_ids: Vec<String>,
+        queue_offline: bool,
+    ) -> DomainBatchInitSessionRequest {
+        DomainBatchInitSessionRequest {
+            existing_batch_id,
+            host_ids,
+            queue_offline,
+        }
     }
 }

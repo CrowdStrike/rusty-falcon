@@ -18,6 +18,9 @@ pub struct RegistrationAzureUserScript {
 
 impl RegistrationAzureUserScript {
     pub fn new(service_account_public_keys: Vec<String>) -> RegistrationAzureUserScript {
-        RegistrationAzureUserScript { bash: None, service_account_public_keys }
+        RegistrationAzureUserScript {
+            bash: None,
+            service_account_public_keys,
+        }
     }
 }

@@ -132,20 +132,39 @@ pub enum PostMalQueryHuntV1Error {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn get_mal_query_download_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<(), Error<GetMalQueryDownloadV1Error>> {
+pub async fn get_mal_query_download_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<(), Error<GetMalQueryDownloadV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/malquery/entities/download-files/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/malquery/entities/download-files/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "csv" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -160,7 +179,8 @@ pub async fn get_mal_query_download_v1(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<GetMalQueryDownloadV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetMalQueryDownloadV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -170,17 +190,25 @@ pub async fn get_mal_query_download_v1(configuration: &configuration::Configurat
     }
 }
 
-pub async fn get_mal_query_entities_samples_fetch_v1(configuration: &configuration::Configuration, ids: &str) -> Result<(), Error<GetMalQueryEntitiesSamplesFetchV1Error>> {
+pub async fn get_mal_query_entities_samples_fetch_v1(
+    configuration: &configuration::Configuration,
+    ids: &str,
+) -> Result<(), Error<GetMalQueryEntitiesSamplesFetchV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/malquery/entities/samples-fetch/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/malquery/entities/samples-fetch/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("ids", &ids.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -195,7 +223,8 @@ pub async fn get_mal_query_entities_samples_fetch_v1(configuration: &configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<GetMalQueryEntitiesSamplesFetchV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetMalQueryEntitiesSamplesFetchV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -205,20 +234,39 @@ pub async fn get_mal_query_entities_samples_fetch_v1(configuration: &configurati
     }
 }
 
-pub async fn get_mal_query_metadata_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::MalquerySampleMetadataResponse, Error<GetMalQueryMetadataV1Error>> {
+pub async fn get_mal_query_metadata_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::MalquerySampleMetadataResponse, Error<GetMalQueryMetadataV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/malquery/entities/metadata/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/malquery/entities/metadata/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "csv" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -233,7 +281,8 @@ pub async fn get_mal_query_metadata_v1(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetMalQueryMetadataV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetMalQueryMetadataV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -243,16 +292,23 @@ pub async fn get_mal_query_metadata_v1(configuration: &configuration::Configurat
     }
 }
 
-pub async fn get_mal_query_quotas_v1(configuration: &configuration::Configuration) -> Result<crate::models::MalqueryRateLimitsResponse, Error<GetMalQueryQuotasV1Error>> {
+pub async fn get_mal_query_quotas_v1(
+    configuration: &configuration::Configuration,
+) -> Result<crate::models::MalqueryRateLimitsResponse, Error<GetMalQueryQuotasV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/malquery/aggregates/quotas/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/malquery/aggregates/quotas/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -267,7 +323,8 @@ pub async fn get_mal_query_quotas_v1(configuration: &configuration::Configuratio
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetMalQueryQuotasV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetMalQueryQuotasV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -277,20 +334,39 @@ pub async fn get_mal_query_quotas_v1(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn get_mal_query_request_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::MalqueryRequestResponse, Error<GetMalQueryRequestV1Error>> {
+pub async fn get_mal_query_request_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::MalqueryRequestResponse, Error<GetMalQueryRequestV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/malquery/entities/requests/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/malquery/entities/requests/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "csv" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -305,7 +381,8 @@ pub async fn get_mal_query_request_v1(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetMalQueryRequestV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetMalQueryRequestV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -315,16 +392,27 @@ pub async fn get_mal_query_request_v1(configuration: &configuration::Configurati
     }
 }
 
-pub async fn post_mal_query_entities_samples_multidownload_v1(configuration: &configuration::Configuration, body: crate::models::MalqueryMultiDownloadRequestV1) -> Result<crate::models::MalqueryExternalQueryResponse, Error<PostMalQueryEntitiesSamplesMultidownloadV1Error>> {
+pub async fn post_mal_query_entities_samples_multidownload_v1(
+    configuration: &configuration::Configuration,
+    body: crate::models::MalqueryMultiDownloadRequestV1,
+) -> Result<
+    crate::models::MalqueryExternalQueryResponse,
+    Error<PostMalQueryEntitiesSamplesMultidownloadV1Error>,
+> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/malquery/entities/samples-multidownload/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/malquery/entities/samples-multidownload/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -340,7 +428,8 @@ pub async fn post_mal_query_entities_samples_multidownload_v1(configuration: &co
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<PostMalQueryEntitiesSamplesMultidownloadV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<PostMalQueryEntitiesSamplesMultidownloadV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -350,16 +439,24 @@ pub async fn post_mal_query_entities_samples_multidownload_v1(configuration: &co
     }
 }
 
-pub async fn post_mal_query_exact_search_v1(configuration: &configuration::Configuration, body: crate::models::MalqueryExternalExactSearchParametersV1) -> Result<crate::models::MalqueryExternalQueryResponse, Error<PostMalQueryExactSearchV1Error>> {
+pub async fn post_mal_query_exact_search_v1(
+    configuration: &configuration::Configuration,
+    body: crate::models::MalqueryExternalExactSearchParametersV1,
+) -> Result<crate::models::MalqueryExternalQueryResponse, Error<PostMalQueryExactSearchV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/malquery/queries/exact-search/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/malquery/queries/exact-search/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -375,7 +472,8 @@ pub async fn post_mal_query_exact_search_v1(configuration: &configuration::Confi
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<PostMalQueryExactSearchV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<PostMalQueryExactSearchV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -385,16 +483,24 @@ pub async fn post_mal_query_exact_search_v1(configuration: &configuration::Confi
     }
 }
 
-pub async fn post_mal_query_fuzzy_search_v1(configuration: &configuration::Configuration, body: crate::models::MalqueryFuzzySearchParametersV1) -> Result<crate::models::MalqueryFuzzySearchResponse, Error<PostMalQueryFuzzySearchV1Error>> {
+pub async fn post_mal_query_fuzzy_search_v1(
+    configuration: &configuration::Configuration,
+    body: crate::models::MalqueryFuzzySearchParametersV1,
+) -> Result<crate::models::MalqueryFuzzySearchResponse, Error<PostMalQueryFuzzySearchV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/malquery/combined/fuzzy-search/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/malquery/combined/fuzzy-search/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -410,7 +516,8 @@ pub async fn post_mal_query_fuzzy_search_v1(configuration: &configuration::Confi
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<PostMalQueryFuzzySearchV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<PostMalQueryFuzzySearchV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -420,16 +527,24 @@ pub async fn post_mal_query_fuzzy_search_v1(configuration: &configuration::Confi
     }
 }
 
-pub async fn post_mal_query_hunt_v1(configuration: &configuration::Configuration, body: crate::models::MalqueryExternalHuntParametersV1) -> Result<crate::models::MalqueryExternalQueryResponse, Error<PostMalQueryHuntV1Error>> {
+pub async fn post_mal_query_hunt_v1(
+    configuration: &configuration::Configuration,
+    body: crate::models::MalqueryExternalHuntParametersV1,
+) -> Result<crate::models::MalqueryExternalQueryResponse, Error<PostMalQueryHuntV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/malquery/queries/hunt/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/malquery/queries/hunt/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -445,7 +560,8 @@ pub async fn post_mal_query_hunt_v1(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<PostMalQueryHuntV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<PostMalQueryHuntV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

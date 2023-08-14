@@ -32,7 +32,10 @@ pub struct QuarantineQuarantinedFile {
     pub primary_module: Option<bool>,
     #[serde(rename = "sandbox_report_id", skip_serializing_if = "Option::is_none")]
     pub sandbox_report_id: Option<String>,
-    #[serde(rename = "sandbox_report_state", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "sandbox_report_state",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub sandbox_report_state: Option<String>,
     #[serde(rename = "sha256", skip_serializing_if = "Option::is_none")]
     pub sha256: Option<String>,

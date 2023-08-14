@@ -18,6 +18,9 @@ pub struct DomainMsaMetaInfo {
 
 impl DomainMsaMetaInfo {
     pub fn new(query_time: f64) -> DomainMsaMetaInfo {
-        DomainMsaMetaInfo { pagination: None, query_time }
+        DomainMsaMetaInfo {
+            pagination: None,
+            query_time,
+        }
     }
 }

@@ -18,21 +18,45 @@ pub struct FalconxSummaryReportV1 {
     pub id: Option<String>,
     #[serde(rename = "intel", skip_serializing_if = "Option::is_none")]
     pub intel: Option<Vec<crate::models::FalconxIntelSummaryReportV1>>,
-    #[serde(rename = "ioc_report_broad_csv_artifact_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "ioc_report_broad_csv_artifact_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub ioc_report_broad_csv_artifact_id: Option<String>,
-    #[serde(rename = "ioc_report_broad_json_artifact_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "ioc_report_broad_json_artifact_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub ioc_report_broad_json_artifact_id: Option<String>,
-    #[serde(rename = "ioc_report_broad_maec_artifact_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "ioc_report_broad_maec_artifact_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub ioc_report_broad_maec_artifact_id: Option<String>,
-    #[serde(rename = "ioc_report_broad_stix_artifact_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "ioc_report_broad_stix_artifact_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub ioc_report_broad_stix_artifact_id: Option<String>,
-    #[serde(rename = "ioc_report_strict_csv_artifact_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "ioc_report_strict_csv_artifact_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub ioc_report_strict_csv_artifact_id: Option<String>,
-    #[serde(rename = "ioc_report_strict_json_artifact_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "ioc_report_strict_json_artifact_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub ioc_report_strict_json_artifact_id: Option<String>,
-    #[serde(rename = "ioc_report_strict_maec_artifact_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "ioc_report_strict_maec_artifact_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub ioc_report_strict_maec_artifact_id: Option<String>,
-    #[serde(rename = "ioc_report_strict_stix_artifact_id", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "ioc_report_strict_stix_artifact_id",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub ioc_report_strict_stix_artifact_id: Option<String>,
     #[serde(rename = "origin", skip_serializing_if = "Option::is_none")]
     pub origin: Option<String>,

@@ -19,7 +19,15 @@ pub struct DomainBatchGetCommandRequest {
 }
 
 impl DomainBatchGetCommandRequest {
-    pub fn new(batch_id: String, file_path: String, optional_hosts: Vec<String>) -> DomainBatchGetCommandRequest {
-        DomainBatchGetCommandRequest { batch_id, file_path, optional_hosts }
+    pub fn new(
+        batch_id: String,
+        file_path: String,
+        optional_hosts: Vec<String>,
+    ) -> DomainBatchGetCommandRequest {
+        DomainBatchGetCommandRequest {
+            batch_id,
+            file_path,
+            optional_hosts,
+        }
     }
 }

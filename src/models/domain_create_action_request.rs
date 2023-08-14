@@ -28,7 +28,13 @@ pub struct DomainCreateActionRequest {
 }
 
 impl DomainCreateActionRequest {
-    pub fn new(content_format: String, frequency: String, recipients: Vec<String>, trigger_matchless: bool, _type: String) -> DomainCreateActionRequest {
+    pub fn new(
+        content_format: String,
+        frequency: String,
+        recipients: Vec<String>,
+        trigger_matchless: bool,
+        _type: String,
+    ) -> DomainCreateActionRequest {
         DomainCreateActionRequest {
             content_format,
             frequency,

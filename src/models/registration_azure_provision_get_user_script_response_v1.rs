@@ -19,7 +19,15 @@ pub struct RegistrationAzureProvisionGetUserScriptResponseV1 {
 }
 
 impl RegistrationAzureProvisionGetUserScriptResponseV1 {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::RegistrationAzureUserScript>) -> RegistrationAzureProvisionGetUserScriptResponseV1 {
-        RegistrationAzureProvisionGetUserScriptResponseV1 { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::RegistrationAzureUserScript>,
+    ) -> RegistrationAzureProvisionGetUserScriptResponseV1 {
+        RegistrationAzureProvisionGetUserScriptResponseV1 {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

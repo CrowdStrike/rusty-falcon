@@ -27,7 +27,15 @@ pub struct DomainScriptHelp {
 }
 
 impl DomainScriptHelp {
-    pub fn new(args: Vec<crate::models::ModelArgument>, command: String, description: String, examples: String, internal_only: bool, runnable: bool, sub_commands: Vec<crate::models::DomainScriptHelp>) -> DomainScriptHelp {
+    pub fn new(
+        args: Vec<crate::models::ModelArgument>,
+        command: String,
+        description: String,
+        examples: String,
+        internal_only: bool,
+        runnable: bool,
+        sub_commands: Vec<crate::models::DomainScriptHelp>,
+    ) -> DomainScriptHelp {
         DomainScriptHelp {
             args,
             command,

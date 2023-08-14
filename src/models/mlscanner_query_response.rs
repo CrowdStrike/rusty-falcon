@@ -19,7 +19,15 @@ pub struct MlscannerQueryResponse {
 }
 
 impl MlscannerQueryResponse {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MlscannerMetaInfo, resources: Vec<String>) -> MlscannerQueryResponse {
-        MlscannerQueryResponse { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MlscannerMetaInfo,
+        resources: Vec<String>,
+    ) -> MlscannerQueryResponse {
+        MlscannerQueryResponse {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

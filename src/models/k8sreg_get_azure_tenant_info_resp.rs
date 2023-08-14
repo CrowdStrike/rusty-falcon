@@ -19,7 +19,15 @@ pub struct K8sregGetAzureTenantInfoResp {
 }
 
 impl K8sregGetAzureTenantInfoResp {
-    pub fn new(errors: Vec<crate::models::MsaApiError>, meta: crate::models::MsaMetaInfo, resources: Vec<crate::models::K8sregAzureTenantInfo>) -> K8sregGetAzureTenantInfoResp {
-        K8sregGetAzureTenantInfoResp { errors, meta: Box::new(meta), resources }
+    pub fn new(
+        errors: Vec<crate::models::MsaApiError>,
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<crate::models::K8sregAzureTenantInfo>,
+    ) -> K8sregGetAzureTenantInfoResp {
+        K8sregGetAzureTenantInfoResp {
+            errors,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

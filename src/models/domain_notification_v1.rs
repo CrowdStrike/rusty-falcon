@@ -14,7 +14,10 @@ pub struct DomainNotificationV1 {
     #[serde(rename = "assigned_to_uid", skip_serializing_if = "Option::is_none")]
     pub assigned_to_uid: Option<String>,
     /// The name of the user who is assigned to this notification
-    #[serde(rename = "assigned_to_username", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "assigned_to_username",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub assigned_to_username: Option<String>,
     /// The unique ID of the user who is assigned to this notification
     #[serde(rename = "assigned_to_uuid", skip_serializing_if = "Option::is_none")]
@@ -82,7 +85,21 @@ pub struct DomainNotificationV1 {
 }
 
 impl DomainNotificationV1 {
-    pub fn new(cid: String, created_date: String, id: String, item_date: String, item_id: String, item_type: String, raw_intel_id: String, rule_id: String, rule_name: String, rule_priority: String, rule_topic: String, status: String, updated_date: String) -> DomainNotificationV1 {
+    pub fn new(
+        cid: String,
+        created_date: String,
+        id: String,
+        item_date: String,
+        item_id: String,
+        item_type: String,
+        raw_intel_id: String,
+        rule_id: String,
+        rule_name: String,
+        rule_priority: String,
+        rule_topic: String,
+        status: String,
+        updated_date: String,
+    ) -> DomainNotificationV1 {
         DomainNotificationV1 {
             assigned_to_uid: None,
             assigned_to_username: None,

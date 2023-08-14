@@ -28,7 +28,12 @@ pub struct DomainLaunchExportJobRequestV1 {
 }
 
 impl DomainLaunchExportJobRequestV1 {
-    pub fn new(entity: String, export_type: String, filter: String, human_readable: bool) -> DomainLaunchExportJobRequestV1 {
+    pub fn new(
+        entity: String,
+        export_type: String,
+        filter: String,
+        human_readable: bool,
+    ) -> DomainLaunchExportJobRequestV1 {
         DomainLaunchExportJobRequestV1 {
             entity,
             export_type,

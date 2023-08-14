@@ -22,6 +22,11 @@ pub struct DomainEntity {
 
 impl DomainEntity {
     pub fn new(id: i64) -> DomainEntity {
-        DomainEntity { id, name: None, slug: None, value: None }
+        DomainEntity {
+            id,
+            name: None,
+            slug: None,
+            value: None,
+        }
     }
 }

@@ -20,6 +20,10 @@ pub struct DomainInitRequest {
 
 impl DomainInitRequest {
     pub fn new(device_id: String, origin: String, queue_offline: bool) -> DomainInitRequest {
-        DomainInitRequest { device_id, origin, queue_offline }
+        DomainInitRequest {
+            device_id,
+            origin,
+            queue_offline,
+        }
     }
 }

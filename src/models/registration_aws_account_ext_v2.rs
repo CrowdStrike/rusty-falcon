@@ -19,7 +19,15 @@ pub struct RegistrationAwsAccountExtV2 {
 }
 
 impl RegistrationAwsAccountExtV2 {
-    pub fn new(account_id: String, cloudtrail_region: String, organization_id: String) -> RegistrationAwsAccountExtV2 {
-        RegistrationAwsAccountExtV2 { account_id, cloudtrail_region, organization_id }
+    pub fn new(
+        account_id: String,
+        cloudtrail_region: String,
+        organization_id: String,
+    ) -> RegistrationAwsAccountExtV2 {
+        RegistrationAwsAccountExtV2 {
+            account_id,
+            cloudtrail_region,
+            organization_id,
+        }
     }
 }

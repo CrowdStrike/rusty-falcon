@@ -19,7 +19,15 @@ pub struct DeviceapiUpdateDeviceTagsRequestV1 {
 }
 
 impl DeviceapiUpdateDeviceTagsRequestV1 {
-    pub fn new(action: String, device_ids: Vec<String>, tags: Vec<String>) -> DeviceapiUpdateDeviceTagsRequestV1 {
-        DeviceapiUpdateDeviceTagsRequestV1 { action, device_ids, tags }
+    pub fn new(
+        action: String,
+        device_ids: Vec<String>,
+        tags: Vec<String>,
+    ) -> DeviceapiUpdateDeviceTagsRequestV1 {
+        DeviceapiUpdateDeviceTagsRequestV1 {
+            action,
+            device_ids,
+            tags,
+        }
     }
 }

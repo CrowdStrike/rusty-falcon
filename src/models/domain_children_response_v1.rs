@@ -17,7 +17,10 @@ pub struct DomainChildrenResponseV1 {
 }
 
 impl DomainChildrenResponseV1 {
-    pub fn new(msa_reply_meta_only: crate::models::MsaReplyMetaOnly, resources: Vec<crate::models::DomainChildLink>) -> DomainChildrenResponseV1 {
+    pub fn new(
+        msa_reply_meta_only: crate::models::MsaReplyMetaOnly,
+        resources: Vec<crate::models::DomainChildLink>,
+    ) -> DomainChildrenResponseV1 {
         DomainChildrenResponseV1 {
             msa_reply_meta_only: Box::new(msa_reply_meta_only),
             resources,

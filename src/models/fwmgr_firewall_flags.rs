@@ -20,6 +20,10 @@ pub struct FwmgrFirewallFlags {
 
 impl FwmgrFirewallFlags {
     pub fn new(audit: bool, log: bool, monitor: bool) -> FwmgrFirewallFlags {
-        FwmgrFirewallFlags { audit, log, monitor }
+        FwmgrFirewallFlags {
+            audit,
+            log,
+            monitor,
+        }
     }
 }

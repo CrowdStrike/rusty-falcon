@@ -10,9 +10,15 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainKillChain {
-    #[serde(rename = "actions_and_objectives", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "actions_and_objectives",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub actions_and_objectives: Option<String>,
-    #[serde(rename = "command_and_control", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "command_and_control",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub command_and_control: Option<String>,
     #[serde(rename = "delivery", skip_serializing_if = "Option::is_none")]
     pub delivery: Option<String>,
@@ -24,21 +30,42 @@ pub struct DomainKillChain {
     pub objectives: Option<String>,
     #[serde(rename = "reconnaissance", skip_serializing_if = "Option::is_none")]
     pub reconnaissance: Option<String>,
-    #[serde(rename = "rich_text_actions_and_objectives", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rich_text_actions_and_objectives",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rich_text_actions_and_objectives: Option<String>,
-    #[serde(rename = "rich_text_command_and_control", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rich_text_command_and_control",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rich_text_command_and_control: Option<String>,
     #[serde(rename = "rich_text_delivery", skip_serializing_if = "Option::is_none")]
     pub rich_text_delivery: Option<String>,
-    #[serde(rename = "rich_text_exploitation", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rich_text_exploitation",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rich_text_exploitation: Option<String>,
-    #[serde(rename = "rich_text_installation", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rich_text_installation",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rich_text_installation: Option<String>,
-    #[serde(rename = "rich_text_objectives", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rich_text_objectives",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rich_text_objectives: Option<String>,
-    #[serde(rename = "rich_text_reconnaissance", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rich_text_reconnaissance",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rich_text_reconnaissance: Option<String>,
-    #[serde(rename = "rich_text_weaponization", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "rich_text_weaponization",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub rich_text_weaponization: Option<String>,
     #[serde(rename = "weaponization", skip_serializing_if = "Option::is_none")]
     pub weaponization: Option<String>,

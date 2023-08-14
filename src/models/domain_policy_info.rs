@@ -28,13 +28,22 @@ pub struct DomainPolicyInfo {
     pub cloud_document: Option<String>,
     #[serde(rename = "cloud_platform", skip_serializing_if = "Option::is_none")]
     pub cloud_platform: Option<i32>,
-    #[serde(rename = "cloud_platform_type", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "cloud_platform_type",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub cloud_platform_type: Option<String>,
     #[serde(rename = "cloud_service", skip_serializing_if = "Option::is_none")]
     pub cloud_service: Option<i32>,
-    #[serde(rename = "cloud_service_friendly", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "cloud_service_friendly",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub cloud_service_friendly: Option<String>,
-    #[serde(rename = "cloud_service_subtype", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "cloud_service_subtype",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub cloud_service_subtype: Option<String>,
     #[serde(rename = "cloud_service_type", skip_serializing_if = "Option::is_none")]
     pub cloud_service_type: Option<String>,
@@ -44,9 +53,15 @@ pub struct DomainPolicyInfo {
     pub description: Option<String>,
     #[serde(rename = "event_type", skip_serializing_if = "Option::is_none")]
     pub event_type: Option<String>,
-    #[serde(rename = "mitre_attack_cloud_matrix", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "mitre_attack_cloud_matrix",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub mitre_attack_cloud_matrix: Option<String>,
-    #[serde(rename = "mitre_attack_cloud_subtype", skip_serializing_if = "Option::is_none")]
+    #[serde(
+        rename = "mitre_attack_cloud_subtype",
+        skip_serializing_if = "Option::is_none"
+    )]
     pub mitre_attack_cloud_subtype: Option<String>,
     #[serde(rename = "policy_fail_query", skip_serializing_if = "Option::is_none")]
     pub policy_fail_query: Option<String>,
@@ -61,7 +76,12 @@ pub struct DomainPolicyInfo {
 }
 
 impl DomainPolicyInfo {
-    pub fn new(created_at: String, deleted_at: String, id: i32, updated_at: String) -> DomainPolicyInfo {
+    pub fn new(
+        created_at: String,
+        deleted_at: String,
+        id: i32,
+        updated_at: String,
+    ) -> DomainPolicyInfo {
         DomainPolicyInfo {
             created_at,
             deleted_at,

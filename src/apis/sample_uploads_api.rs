@@ -147,17 +147,25 @@ pub enum UploadSampleV3Error {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn archive_delete_v1(configuration: &configuration::Configuration, id: &str) -> Result<(), Error<ArchiveDeleteV1Error>> {
+pub async fn archive_delete_v1(
+    configuration: &configuration::Configuration,
+    id: &str,
+) -> Result<(), Error<ArchiveDeleteV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/archives/entities/archives/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/archives/entities/archives/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -172,7 +180,8 @@ pub async fn archive_delete_v1(configuration: &configuration::Configuration, id:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<ArchiveDeleteV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ArchiveDeleteV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -182,20 +191,30 @@ pub async fn archive_delete_v1(configuration: &configuration::Configuration, id:
     }
 }
 
-pub async fn archive_get_v1(configuration: &configuration::Configuration, id: &str, include_files: Option<bool>) -> Result<crate::models::ClientArchiveCreateResponseV1, Error<ArchiveGetV1Error>> {
+pub async fn archive_get_v1(
+    configuration: &configuration::Configuration,
+    id: &str,
+    include_files: Option<bool>,
+) -> Result<crate::models::ClientArchiveCreateResponseV1, Error<ArchiveGetV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/archives/entities/archives/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/archives/entities/archives/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
     if let Some(ref local_var_str) = include_files {
-        local_var_req_builder = local_var_req_builder.query(&[("include_files", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("include_files", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -210,7 +229,8 @@ pub async fn archive_get_v1(configuration: &configuration::Configuration, id: &s
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ArchiveGetV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ArchiveGetV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -220,23 +240,35 @@ pub async fn archive_get_v1(configuration: &configuration::Configuration, id: &s
     }
 }
 
-pub async fn archive_list_v1(configuration: &configuration::Configuration, id: &str, limit: Option<i32>, offset: Option<&str>) -> Result<crate::models::ClientArchiveListFilesResponseV1, Error<ArchiveListV1Error>> {
+pub async fn archive_list_v1(
+    configuration: &configuration::Configuration,
+    id: &str,
+    limit: Option<i32>,
+    offset: Option<&str>,
+) -> Result<crate::models::ClientArchiveListFilesResponseV1, Error<ArchiveListV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/archives/entities/archive-files/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/archives/entities/archive-files/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -251,7 +283,8 @@ pub async fn archive_list_v1(configuration: &configuration::Configuration, id: &
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ArchiveListV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ArchiveListV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -261,26 +294,41 @@ pub async fn archive_list_v1(configuration: &configuration::Configuration, id: &
     }
 }
 
-pub async fn archive_upload_v1(configuration: &configuration::Configuration, name: &str, body: Vec<i32>, password: Option<&str>, is_confidential: Option<bool>, comment: Option<&str>) -> Result<crate::models::ClientArchiveCreateResponseV1, Error<ArchiveUploadV1Error>> {
+pub async fn archive_upload_v1(
+    configuration: &configuration::Configuration,
+    name: &str,
+    body: Vec<i32>,
+    password: Option<&str>,
+    is_confidential: Option<bool>,
+    comment: Option<&str>,
+) -> Result<crate::models::ClientArchiveCreateResponseV1, Error<ArchiveUploadV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/archives/entities/archives/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/archives/entities/archives/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("name", &name.to_string())]);
     if let Some(ref local_var_str) = password {
-        local_var_req_builder = local_var_req_builder.query(&[("password", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("password", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = is_confidential {
-        local_var_req_builder = local_var_req_builder.query(&[("is_confidential", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("is_confidential", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = comment {
-        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -296,7 +344,8 @@ pub async fn archive_upload_v1(configuration: &configuration::Configuration, nam
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ArchiveUploadV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ArchiveUploadV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -306,16 +355,28 @@ pub async fn archive_upload_v1(configuration: &configuration::Configuration, nam
     }
 }
 
-pub async fn archive_upload_v2(configuration: &configuration::Configuration, file: std::path::PathBuf, name: &str, password: Option<&str>, is_confidential: Option<bool>, comment: Option<&str>) -> Result<crate::models::ClientArchiveCreateResponseV1, Error<ArchiveUploadV2Error>> {
+pub async fn archive_upload_v2(
+    configuration: &configuration::Configuration,
+    _file: std::path::PathBuf,
+    name: &str,
+    password: Option<&str>,
+    is_confidential: Option<bool>,
+    comment: Option<&str>,
+) -> Result<crate::models::ClientArchiveCreateResponseV1, Error<ArchiveUploadV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/archives/entities/archives/v2", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/archives/entities/archives/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -343,7 +404,8 @@ pub async fn archive_upload_v2(configuration: &configuration::Configuration, fil
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ArchiveUploadV2Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ArchiveUploadV2Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -353,17 +415,25 @@ pub async fn archive_upload_v2(configuration: &configuration::Configuration, fil
     }
 }
 
-pub async fn delete_sample_v3(configuration: &configuration::Configuration, ids: &str) -> Result<crate::models::MsaQueryResponse, Error<DeleteSampleV3Error>> {
+pub async fn delete_sample_v3(
+    configuration: &configuration::Configuration,
+    ids: &str,
+) -> Result<crate::models::MsaQueryResponse, Error<DeleteSampleV3Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/samples/entities/samples/v3", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/samples/entities/samples/v3",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("ids", &ids.to_string())]);
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -378,7 +448,8 @@ pub async fn delete_sample_v3(configuration: &configuration::Configuration, ids:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteSampleV3Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteSampleV3Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -388,16 +459,24 @@ pub async fn delete_sample_v3(configuration: &configuration::Configuration, ids:
     }
 }
 
-pub async fn extraction_create_v1(configuration: &configuration::Configuration, body: crate::models::ClientExtractionCreateRequestV1) -> Result<crate::models::ClientExtractionCreateResponseV1, Error<ExtractionCreateV1Error>> {
+pub async fn extraction_create_v1(
+    configuration: &configuration::Configuration,
+    body: crate::models::ClientExtractionCreateRequestV1,
+) -> Result<crate::models::ClientExtractionCreateResponseV1, Error<ExtractionCreateV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/archives/entities/extractions/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/archives/entities/extractions/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -413,7 +492,8 @@ pub async fn extraction_create_v1(configuration: &configuration::Configuration, 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ExtractionCreateV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ExtractionCreateV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -423,20 +503,30 @@ pub async fn extraction_create_v1(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn extraction_get_v1(configuration: &configuration::Configuration, id: &str, include_files: Option<bool>) -> Result<crate::models::ClientExtractionCreateResponseV1, Error<ExtractionGetV1Error>> {
+pub async fn extraction_get_v1(
+    configuration: &configuration::Configuration,
+    id: &str,
+    include_files: Option<bool>,
+) -> Result<crate::models::ClientExtractionCreateResponseV1, Error<ExtractionGetV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/archives/entities/extractions/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/archives/entities/extractions/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
     if let Some(ref local_var_str) = include_files {
-        local_var_req_builder = local_var_req_builder.query(&[("include_files", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("include_files", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -451,7 +541,8 @@ pub async fn extraction_get_v1(configuration: &configuration::Configuration, id:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ExtractionGetV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ExtractionGetV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -461,23 +552,35 @@ pub async fn extraction_get_v1(configuration: &configuration::Configuration, id:
     }
 }
 
-pub async fn extraction_list_v1(configuration: &configuration::Configuration, id: &str, limit: Option<i32>, offset: Option<&str>) -> Result<crate::models::ClientExtractionListFilesResponseV1, Error<ExtractionListV1Error>> {
+pub async fn extraction_list_v1(
+    configuration: &configuration::Configuration,
+    id: &str,
+    limit: Option<i32>,
+    offset: Option<&str>,
+) -> Result<crate::models::ClientExtractionListFilesResponseV1, Error<ExtractionListV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/archives/entities/extraction-files/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/archives/entities/extraction-files/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -492,7 +595,8 @@ pub async fn extraction_list_v1(configuration: &configuration::Configuration, id
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ExtractionListV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ExtractionListV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -502,20 +606,30 @@ pub async fn extraction_list_v1(configuration: &configuration::Configuration, id
     }
 }
 
-pub async fn get_sample_v3(configuration: &configuration::Configuration, ids: &str, password_protected: Option<bool>) -> Result<String, Error<GetSampleV3Error>> {
+pub async fn get_sample_v3(
+    configuration: &configuration::Configuration,
+    ids: &str,
+    password_protected: Option<bool>,
+) -> Result<String, Error<GetSampleV3Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/samples/entities/samples/v3", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/samples/entities/samples/v3",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("ids", &ids.to_string())]);
     if let Some(ref local_var_str) = password_protected {
-        local_var_req_builder = local_var_req_builder.query(&[("password_protected", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("password_protected", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -530,7 +644,8 @@ pub async fn get_sample_v3(configuration: &configuration::Configuration, ids: &s
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetSampleV3Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetSampleV3Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -540,16 +655,27 @@ pub async fn get_sample_v3(configuration: &configuration::Configuration, ids: &s
     }
 }
 
-pub async fn upload_sample_v3(configuration: &configuration::Configuration, sample: std::path::PathBuf, file_name: &str, comment: Option<&str>, is_confidential: Option<bool>) -> Result<crate::models::ClientSampleMetadataResponseV2, Error<UploadSampleV3Error>> {
+pub async fn upload_sample_v3(
+    configuration: &configuration::Configuration,
+    _sample: std::path::PathBuf,
+    file_name: &str,
+    comment: Option<&str>,
+    is_confidential: Option<bool>,
+) -> Result<crate::models::ClientSampleMetadataResponseV2, Error<UploadSampleV3Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/samples/entities/samples/v3", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/samples/entities/samples/v3",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -574,7 +700,8 @@ pub async fn upload_sample_v3(configuration: &configuration::Configuration, samp
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UploadSampleV3Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UploadSampleV3Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

@@ -22,6 +22,11 @@ pub struct DomainDevicePaging {
 
 impl DomainDevicePaging {
     pub fn new(offset: String, total: i64) -> DomainDevicePaging {
-        DomainDevicePaging { expires_at: None, limit: None, offset, total }
+        DomainDevicePaging {
+            expires_at: None,
+            limit: None,
+            offset,
+            total,
+        }
     }
 }

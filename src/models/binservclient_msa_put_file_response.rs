@@ -19,7 +19,14 @@ pub struct BinservclientMsaPutFileResponse {
 }
 
 impl BinservclientMsaPutFileResponse {
-    pub fn new(meta: crate::models::MsaMetaInfo, resources: Vec<String>) -> BinservclientMsaPutFileResponse {
-        BinservclientMsaPutFileResponse { errors: None, meta: Box::new(meta), resources }
+    pub fn new(
+        meta: crate::models::MsaMetaInfo,
+        resources: Vec<String>,
+    ) -> BinservclientMsaPutFileResponse {
+        BinservclientMsaPutFileResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

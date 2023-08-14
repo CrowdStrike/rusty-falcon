@@ -142,22 +142,43 @@ pub enum SeverityQueryV1Error {
     UnknownValue(serde_json::Value),
 }
 
-pub async fn action_get_v1(configuration: &configuration::Configuration, ids: Option<Vec<String>>) -> Result<crate::models::ApiActionRespV1, Error<ActionGetV1Error>> {
+pub async fn action_get_v1(
+    configuration: &configuration::Configuration,
+    ids: Option<Vec<String>>,
+) -> Result<crate::models::ApiActionRespV1, Error<ActionGetV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/iocs/entities/actions/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/iocs/entities/actions/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = ids {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -172,7 +193,8 @@ pub async fn action_get_v1(configuration: &configuration::Configuration, ids: Op
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ActionGetV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ActionGetV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -182,22 +204,33 @@ pub async fn action_get_v1(configuration: &configuration::Configuration, ids: Op
     }
 }
 
-pub async fn action_query_v1(configuration: &configuration::Configuration, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::ApiIndicatorQueryRespV1, Error<ActionQueryV1Error>> {
+pub async fn action_query_v1(
+    configuration: &configuration::Configuration,
+    offset: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::ApiIndicatorQueryRespV1, Error<ActionQueryV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/iocs/queries/actions/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/iocs/queries/actions/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -212,7 +245,8 @@ pub async fn action_query_v1(configuration: &configuration::Configuration, offse
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ActionQueryV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ActionQueryV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -222,16 +256,24 @@ pub async fn action_query_v1(configuration: &configuration::Configuration, offse
     }
 }
 
-pub async fn get_indicators_report(configuration: &configuration::Configuration, body: crate::models::ApiIndicatorsReportRequest) -> Result<crate::models::MsaEntitiesResponse, Error<GetIndicatorsReportError>> {
+pub async fn get_indicators_report(
+    configuration: &configuration::Configuration,
+    body: crate::models::ApiIndicatorsReportRequest,
+) -> Result<crate::models::MsaEntitiesResponse, Error<GetIndicatorsReportError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/iocs/entities/indicators-reports/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/iocs/entities/indicators-reports/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -247,7 +289,8 @@ pub async fn get_indicators_report(configuration: &configuration::Configuration,
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetIndicatorsReportError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetIndicatorsReportError> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -257,22 +300,34 @@ pub async fn get_indicators_report(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn indicator_aggregate_v1(configuration: &configuration::Configuration, body: crate::models::MsaAggregateQueryRequest, filter: Option<&str>, from_parent: Option<bool>) -> Result<crate::models::MsaAggregatesResponse, Error<IndicatorAggregateV1Error>> {
+pub async fn indicator_aggregate_v1(
+    configuration: &configuration::Configuration,
+    body: crate::models::MsaAggregateQueryRequest,
+    filter: Option<&str>,
+    from_parent: Option<bool>,
+) -> Result<crate::models::MsaAggregatesResponse, Error<IndicatorAggregateV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/iocs/aggregates/indicators/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/iocs/aggregates/indicators/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = from_parent {
-        local_var_req_builder = local_var_req_builder.query(&[("from_parent", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("from_parent", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -288,7 +343,8 @@ pub async fn indicator_aggregate_v1(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<IndicatorAggregateV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<IndicatorAggregateV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -298,34 +354,53 @@ pub async fn indicator_aggregate_v1(configuration: &configuration::Configuration
     }
 }
 
-pub async fn indicator_combined_v1(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>, after: Option<&str>, from_parent: Option<bool>) -> Result<crate::models::ApiIndicatorRespV1, Error<IndicatorCombinedV1Error>> {
+pub async fn indicator_combined_v1(
+    configuration: &configuration::Configuration,
+    filter: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    after: Option<&str>,
+    from_parent: Option<bool>,
+) -> Result<crate::models::ApiIndicatorRespV1, Error<IndicatorCombinedV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/iocs/combined/indicator/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/iocs/combined/indicator/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = after {
-        local_var_req_builder = local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = from_parent {
-        local_var_req_builder = local_var_req_builder.query(&[("from_parent", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("from_parent", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -340,7 +415,8 @@ pub async fn indicator_combined_v1(configuration: &configuration::Configuration,
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<IndicatorCombinedV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<IndicatorCombinedV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -350,22 +426,34 @@ pub async fn indicator_combined_v1(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn indicator_create_v1(configuration: &configuration::Configuration, body: crate::models::ApiIndicatorCreateReqsV1, retrodetects: Option<bool>, ignore_warnings: Option<bool>) -> Result<crate::models::ApiIndicatorRespV1, Error<IndicatorCreateV1Error>> {
+pub async fn indicator_create_v1(
+    configuration: &configuration::Configuration,
+    body: crate::models::ApiIndicatorCreateReqsV1,
+    retrodetects: Option<bool>,
+    ignore_warnings: Option<bool>,
+) -> Result<crate::models::ApiIndicatorRespV1, Error<IndicatorCreateV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/iocs/entities/indicators/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/iocs/entities/indicators/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = retrodetects {
-        local_var_req_builder = local_var_req_builder.query(&[("retrodetects", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("retrodetects", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = ignore_warnings {
-        local_var_req_builder = local_var_req_builder.query(&[("ignore_warnings", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("ignore_warnings", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -381,7 +469,8 @@ pub async fn indicator_create_v1(configuration: &configuration::Configuration, b
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<IndicatorCreateV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<IndicatorCreateV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -391,31 +480,58 @@ pub async fn indicator_create_v1(configuration: &configuration::Configuration, b
     }
 }
 
-pub async fn indicator_delete_v1(configuration: &configuration::Configuration, filter: Option<&str>, ids: Option<Vec<String>>, comment: Option<&str>, from_parent: Option<bool>) -> Result<crate::models::ApiIndicatorQueryRespV1, Error<IndicatorDeleteV1Error>> {
+pub async fn indicator_delete_v1(
+    configuration: &configuration::Configuration,
+    filter: Option<&str>,
+    ids: Option<Vec<String>>,
+    comment: Option<&str>,
+    from_parent: Option<bool>,
+) -> Result<crate::models::ApiIndicatorQueryRespV1, Error<IndicatorDeleteV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/iocs/entities/indicators/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/iocs/entities/indicators/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = ids {
         local_var_req_builder = match "csv" {
-            "multi" => local_var_req_builder.query(&local_var_str.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-            _ => local_var_req_builder.query(&[("ids", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
         };
     }
     if let Some(ref local_var_str) = comment {
-        local_var_req_builder = local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("comment", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = from_parent {
-        local_var_req_builder = local_var_req_builder.query(&[("from_parent", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("from_parent", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -430,7 +546,8 @@ pub async fn indicator_delete_v1(configuration: &configuration::Configuration, f
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<IndicatorDeleteV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<IndicatorDeleteV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -440,20 +557,39 @@ pub async fn indicator_delete_v1(configuration: &configuration::Configuration, f
     }
 }
 
-pub async fn indicator_get_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<crate::models::ApiIndicatorRespV1, Error<IndicatorGetV1Error>> {
+pub async fn indicator_get_v1(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<crate::models::ApiIndicatorRespV1, Error<IndicatorGetV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/iocs/entities/indicators/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/iocs/entities/indicators/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = match "csv" {
-        "multi" => local_var_req_builder.query(&ids.into_iter().map(|p| ("ids".to_owned(), p)).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => local_var_req_builder.query(&[("ids", &ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
     };
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -468,7 +604,8 @@ pub async fn indicator_get_v1(configuration: &configuration::Configuration, ids:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<IndicatorGetV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<IndicatorGetV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -478,31 +615,48 @@ pub async fn indicator_get_v1(configuration: &configuration::Configuration, ids:
     }
 }
 
-pub async fn indicator_search_v1(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>, after: Option<&str>) -> Result<crate::models::ApiIndicatorQueryRespV1, Error<IndicatorSearchV1Error>> {
+pub async fn indicator_search_v1(
+    configuration: &configuration::Configuration,
+    filter: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    after: Option<&str>,
+) -> Result<crate::models::ApiIndicatorQueryRespV1, Error<IndicatorSearchV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/iocs/queries/indicators/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/iocs/queries/indicators/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = filter {
-        local_var_req_builder = local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = sort {
-        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = after {
-        local_var_req_builder = local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -517,7 +671,8 @@ pub async fn indicator_search_v1(configuration: &configuration::Configuration, f
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<IndicatorSearchV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<IndicatorSearchV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -527,22 +682,34 @@ pub async fn indicator_search_v1(configuration: &configuration::Configuration, f
     }
 }
 
-pub async fn indicator_update_v1(configuration: &configuration::Configuration, body: crate::models::ApiIndicatorUpdateReqsV1, retrodetects: Option<bool>, ignore_warnings: Option<bool>) -> Result<crate::models::ApiIndicatorRespV1, Error<IndicatorUpdateV1Error>> {
+pub async fn indicator_update_v1(
+    configuration: &configuration::Configuration,
+    body: crate::models::ApiIndicatorUpdateReqsV1,
+    retrodetects: Option<bool>,
+    ignore_warnings: Option<bool>,
+) -> Result<crate::models::ApiIndicatorRespV1, Error<IndicatorUpdateV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/iocs/entities/indicators/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/iocs/entities/indicators/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = retrodetects {
-        local_var_req_builder = local_var_req_builder.query(&[("retrodetects", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("retrodetects", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = ignore_warnings {
-        local_var_req_builder = local_var_req_builder.query(&[("ignore_warnings", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("ignore_warnings", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -558,7 +725,8 @@ pub async fn indicator_update_v1(configuration: &configuration::Configuration, b
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<IndicatorUpdateV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<IndicatorUpdateV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -568,22 +736,33 @@ pub async fn indicator_update_v1(configuration: &configuration::Configuration, b
     }
 }
 
-pub async fn ioc_type_query_v1(configuration: &configuration::Configuration, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::ApiIndicatorQueryRespV1, Error<IocTypeQueryV1Error>> {
+pub async fn ioc_type_query_v1(
+    configuration: &configuration::Configuration,
+    offset: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::ApiIndicatorQueryRespV1, Error<IocTypeQueryV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/iocs/queries/ioc-types/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/iocs/queries/ioc-types/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -598,7 +777,8 @@ pub async fn ioc_type_query_v1(configuration: &configuration::Configuration, off
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<IocTypeQueryV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<IocTypeQueryV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -608,22 +788,33 @@ pub async fn ioc_type_query_v1(configuration: &configuration::Configuration, off
     }
 }
 
-pub async fn platform_query_v1(configuration: &configuration::Configuration, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::ApiIndicatorQueryRespV1, Error<PlatformQueryV1Error>> {
+pub async fn platform_query_v1(
+    configuration: &configuration::Configuration,
+    offset: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::ApiIndicatorQueryRespV1, Error<PlatformQueryV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/iocs/queries/platforms/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/iocs/queries/platforms/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -638,7 +829,8 @@ pub async fn platform_query_v1(configuration: &configuration::Configuration, off
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<PlatformQueryV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<PlatformQueryV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
@@ -648,22 +840,33 @@ pub async fn platform_query_v1(configuration: &configuration::Configuration, off
     }
 }
 
-pub async fn severity_query_v1(configuration: &configuration::Configuration, offset: Option<&str>, limit: Option<i32>) -> Result<crate::models::ApiIndicatorQueryRespV1, Error<SeverityQueryV1Error>> {
+pub async fn severity_query_v1(
+    configuration: &configuration::Configuration,
+    offset: Option<&str>,
+    limit: Option<i32>,
+) -> Result<crate::models::ApiIndicatorQueryRespV1, Error<SeverityQueryV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/iocs/queries/severities/v1", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!(
+        "{}/iocs/queries/severities/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
@@ -678,7 +881,8 @@ pub async fn severity_query_v1(configuration: &configuration::Configuration, off
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<SeverityQueryV1Error> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<SeverityQueryV1Error> =
+            serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,
