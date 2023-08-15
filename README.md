@@ -1,6 +1,7 @@
 ![CrowdStrike Falcon](https://raw.githubusercontent.com/CrowdStrike/falconpy/main/docs/asset/cs-logo.png) [![Twitter URL](https://img.shields.io/twitter/url?label=Follow%20%40CrowdStrike&style=social&url=https%3A%2F%2Ftwitter.com%2FCrowdStrike)](https://twitter.com/CrowdStrike)<br/>
 
 # rusty_falcon
+
 [![Build CI](https://github.com/CrowdStrike/rusty-falcon/actions/workflows/ci.yaml/badge.svg)](https://github.com/CrowdStrike/rusty-falcon/actions/workflows/ci.yaml)
 [![Latest version](https://img.shields.io/crates/v/rusty_falcon.svg)](https://crates.io/crates/rusty_falcon)
 [![Documentation](https://docs.rs/rusty_falcon/badge.svg)](https://docs.rs/rusty_falcon)
@@ -50,9 +51,21 @@ async fn main() {
 ```
 
 # Examples
+
 Ready-made examples can be found in [git repo](https://github.com/CrowdStrike/rusty-falcon/tree/main/examples).
 
+# Generating models from OpenApi Specification
+
+This api model is generated from OpenApi specification using OpenApi Generator for Rust language.
+
+An example command to generate `api` and `model`:
+
+```bash
+openapi-generator generate -g rust -i swagger.json -o ./new
+```
+
 # Getting Help
+
 rusty_falcon is an open source project, not a CrowdStrike product. As such it carries no formal support,
 expressed or implied.
 
@@ -62,4 +75,3 @@ If you encounter any issues while using rusty_falcon, you can create an issue on
 rusty_falcon project is periodically refreshed to reflect the newest additions to the CrowdStrike API. Users
 of the SDK are advised to track the latest releases rather closely to ensure proper function in the unlikely
 event of an incompatible change to a CrowdStrike API.
-

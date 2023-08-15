@@ -61,29 +61,68 @@ pub fn urlencode<T: AsRef<str>>(s: T) -> String {
     ::url::form_urlencoded::byte_serialize(s.as_ref().as_bytes()).collect()
 }
 
+pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String, String)> {
+    if let serde_json::Value::Object(object) = value {
+        let mut params = vec![];
+
+        for (key, value) in object {
+            match value {
+                serde_json::Value::Object(_) => params.append(&mut parse_deep_object(
+                    &format!("{}[{}]", prefix, key),
+                    value,
+                )),
+                serde_json::Value::Array(array) => {
+                    for (i, value) in array.iter().enumerate() {
+                        params.append(&mut parse_deep_object(
+                            &format!("{}[{}][{}]", prefix, key, i),
+                            value,
+                        ));
+                    }
+                }
+                serde_json::Value::String(s) => {
+                    params.push((format!("{}[{}]", prefix, key), s.clone()))
+                }
+                _ => params.push((format!("{}[{}]", prefix, key), value.to_string())),
+            }
+        }
+
+        return params;
+    }
+
+    unimplemented!("Only objects are supported with style=deepObject")
+}
+
 pub mod alerts_api;
 pub mod cloud_connect_aws_api;
+pub mod configuration_assessment_api;
+pub mod configuration_assessment_evaluation_logic_api;
 pub mod cspm_registration_api;
 pub mod custom_ioa_api;
 pub mod d4c_registration_api;
 pub mod detects_api;
 pub mod device_control_policies_api;
 pub mod discover_api;
+pub mod discover_iot_api;
+pub mod event_schema_api;
 pub mod event_streams_api;
 pub mod falcon_complete_dashboard_api;
 pub mod falcon_container_api;
 pub mod falcon_container_cli_api;
+pub mod falcon_container_image_api;
 pub mod falconx_sandbox_api;
+pub mod field_schema_api;
 pub mod filevantage_api;
 pub mod firewall_management_api;
 pub mod firewall_policies_api;
 pub mod host_group_api;
 pub mod hosts_api;
+pub mod identity_entities_api;
 pub mod identity_protection_api;
 pub mod incidents_api;
 pub mod installation_tokens_api;
 pub mod installation_tokens_settings_api;
 pub mod intel_api;
+pub mod inventories_api;
 pub mod ioa_exclusions_api;
 pub mod ioc_api;
 pub mod iocs_api;
@@ -97,11 +136,13 @@ pub mod oauth2_api;
 pub mod ods_api;
 pub mod overwatch_dashboard_api;
 pub mod prevention_policies_api;
+pub mod provision_api;
 pub mod quarantine_api;
 pub mod quick_scan_api;
 pub mod real_time_response_admin_api;
 pub mod real_time_response_api;
 pub mod recon_api;
+pub mod registration_api;
 pub mod report_executions_api;
 pub mod response_policies_api;
 pub mod sample_uploads_api;
@@ -109,10 +150,10 @@ pub mod scheduled_reports_api;
 pub mod sensor_download_api;
 pub mod sensor_update_policies_api;
 pub mod sensor_visibility_exclusions_api;
-pub mod spotlight_evaluation_logic_api;
-pub mod spotlight_vulnerabilities_api;
 pub mod tailored_intelligence_api;
 pub mod user_management_api;
+pub mod vulnerabilities_api;
+pub mod vulnerabilities_evaluation_logic_api;
 pub mod zero_trust_assessment_api;
 
 pub mod configuration;
