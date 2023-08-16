@@ -22,8 +22,8 @@ async fn get_all_hosts(
     configuration: &configuration::Configuration,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<Vec<models::DeviceapiDeviceSwagger>, Box<dyn error::Error>> {
-    let mut details = Vec::<models::DeviceapiDeviceSwagger>::new();
+) -> Result<Vec<models::DeviceapiPeriodDeviceSwagger>, Box<dyn error::Error>> {
+    let mut details = Vec::<models::DeviceapiPeriodDeviceSwagger>::new();
     let mut offset = String::from("");
     loop {
         let response = query_devices_by_filter_offset(configuration, sort, filter, offset).await?;
@@ -43,17 +43,19 @@ async fn get_all_hosts(
 async fn get_device_details(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<Vec<models::DeviceapiDeviceSwagger>, Box<dyn error::Error>> {
-    let response =
-        hosts_api::post_device_details_v2(configuration, crate::models::MsaIdsRequest::new(ids))
-            .await?;
+) -> Result<Vec<models::DeviceapiPeriodDeviceSwagger>, Box<dyn error::Error>> {
+    let response = hosts_api::post_device_details_v2(
+        configuration,
+        crate::models::MsaPeriodIdsRequest::new(ids),
+    )
+    .await?;
 
-    let errors = match response.errors {
-        None => Vec::new(),
-        Some(errors) => errors,
-    };
-    if !errors.is_empty() {
-        return Err(ApiError(format!("while getting Falcon Host IDs: '{:?}'", errors)).into());
+    if !response.errors.is_empty() {
+        return Err(ApiError(format!(
+            "while getting Falcon Host IDs: '{:?}'",
+            response.errors
+        ))
+        .into());
     }
 
     return Ok(response.resources);
@@ -64,7 +66,7 @@ async fn query_devices_by_filter_offset(
     sort: Option<&str>,
     filter: Option<&str>,
     offset: std::string::String,
-) -> Result<models::DomainDeviceResponse, Box<dyn error::Error>> {
+) -> Result<models::DeviceapiPeriodDeviceResponse, Box<dyn error::Error>> {
     let response = hosts_api::query_devices_by_filter_scroll(
         configuration,
         Some(offset.as_str()),

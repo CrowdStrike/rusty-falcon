@@ -35,7 +35,7 @@ impl FalconHandle {
             self.creds.falcon_member_cid.as_ref().map(String::as_ref),
         )
         .await?;
-        self.cfg.oauth_access_token = Some(response.access_token);
+        self.cfg.oauth_access_token = Some(response.access_token.unwrap_or_default());
         Ok(())
     }
 

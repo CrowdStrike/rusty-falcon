@@ -1,5 +1,5 @@
 use rusty_falcon::apis::configuration;
-use rusty_falcon::apis::spotlight_vulnerabilities_api;
+use rusty_falcon::apis::vulnerabilities_api;
 use rusty_falcon::easy::client::FalconHandle;
 use rusty_falcon::models;
 use std::error;
@@ -55,8 +55,8 @@ async fn get_vulnerabilities(
     sort: Option<&str>,
     filter: &str,
     after: Option<&str>,
-) -> Result<models::DomainSpapiCombinedVulnerabilitiesResponse, Box<dyn error::Error>> {
-    let mut response = spotlight_vulnerabilities_api::combined_query_vulnerabilities(
+) -> Result<models::DomainPeriodSpapiCombinedVulnerabilitiesResponse, Box<dyn error::Error>> {
+    let mut response = vulnerabilities_api::combined_query_vulnerabilities(
         cfg,
         filter,
         after,
@@ -84,7 +84,7 @@ pub trait PaginationHelper {
     fn next(&self) -> Option<&str>;
 }
 
-impl PaginationHelper for models::DomainSpapiQueryMeta {
+impl PaginationHelper for models::DomainPeriodSpapiQueryMeta {
     fn next(&self) -> Option<&str> {
         return match &self.pagination {
             None => None,
