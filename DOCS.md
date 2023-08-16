@@ -24,7 +24,7 @@ openapi = { path = "./openapi" }
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *<https://api.crowdstrike.com>*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -571,7 +571,6 @@ Class | Method | HTTP request | Description
 *ZeroTrustAssessmentApi* | [**get_assessment_v1**](docs/ZeroTrustAssessmentApi.md#get_assessment_v1) | **GET** /zero-trust-assessment/entities/assessments/v1 | Get Zero Trust Assessment data for one or more hosts by providing agent IDs (AID) and a customer ID (CID).
 *ZeroTrustAssessmentApi* | [**get_assessments_by_score_v1**](docs/ZeroTrustAssessmentApi.md#get_assessments_by_score_v1) | **GET** /zero-trust-assessment/queries/assessments/v1 | Get Zero Trust Assessment data for one or more hosts by providing a customer ID (CID) and a range of scores.
 *ZeroTrustAssessmentApi* | [**get_audit_v1**](docs/ZeroTrustAssessmentApi.md#get_audit_v1) | **GET** /zero-trust-assessment/entities/audit/v1 | Get the Zero Trust Assessment audit report for one customer ID (CID).
-
 
 ## Documentation For Models
 
