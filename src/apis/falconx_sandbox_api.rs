@@ -925,7 +925,7 @@ pub async fn submit(
 
 pub async fn upload_sample_v2(
     configuration: &configuration::Configuration,
-    sample: std::path::PathBuf,
+    _sample: std::path::PathBuf,
     file_name: &str,
     comment: Option<&str>,
     is_confidential: Option<bool>,

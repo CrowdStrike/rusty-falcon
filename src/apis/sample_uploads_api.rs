@@ -347,7 +347,7 @@ pub async fn archive_upload_v1(
 
 pub async fn archive_upload_v2(
     configuration: &configuration::Configuration,
-    file: std::path::PathBuf,
+    _file: std::path::PathBuf,
     name: &str,
     password: Option<&str>,
     is_confidential: Option<bool>,
@@ -648,7 +648,7 @@ pub async fn get_sample_v3(
 
 pub async fn upload_sample_v3(
     configuration: &configuration::Configuration,
-    sample: std::path::PathBuf,
+    _sample: std::path::PathBuf,
     file_name: &str,
     comment: Option<&str>,
     is_confidential: Option<bool>,

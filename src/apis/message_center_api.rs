@@ -215,7 +215,7 @@ pub async fn case_add_attachment(
     configuration: &configuration::Configuration,
     case_id: &str,
     user_uuid: &str,
-    file: std::path::PathBuf,
+    _file: std::path::PathBuf,
 ) -> Result<
     crate::models::ApiPeriodMessageCenterAttachmentUploadResponse,
     Error<CaseAddAttachmentError>,

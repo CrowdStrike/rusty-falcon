@@ -273,7 +273,7 @@ pub async fn r_tr_check_admin_command_status(
 
 pub async fn r_tr_create_put_files(
     configuration: &configuration::Configuration,
-    file: std::path::PathBuf,
+    _file: std::path::PathBuf,
     description: &str,
     name: Option<&str>,
     comments_for_audit_log: Option<&str>,
@@ -332,7 +332,7 @@ pub async fn r_tr_create_scripts(
     configuration: &configuration::Configuration,
     description: &str,
     permission_type: &str,
-    file: Option<std::path::PathBuf>,
+    _file: Option<std::path::PathBuf>,
     name: Option<&str>,
     comments_for_audit_log: Option<&str>,
     content: Option<&str>,
@@ -897,7 +897,7 @@ pub async fn r_tr_list_scripts(
 pub async fn r_tr_update_scripts(
     configuration: &configuration::Configuration,
     id: &str,
-    file: Option<std::path::PathBuf>,
+    _file: Option<std::path::PathBuf>,
     description: Option<&str>,
     name: Option<&str>,
     comments_for_audit_log: Option<&str>,

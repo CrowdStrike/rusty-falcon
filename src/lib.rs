@@ -33,7 +33,7 @@
 //!     // Response objects returned from APIs usually follow the same pattern of having
 //!     // 'errors', 'meta', and 'resources' fields. It is recommended to check for possible
 //!     // application errors:
-//!     if !response.errors.is_empty() {
+//!     if !response.errors.is_none() {
 //!         eprintln!("Errors occured while getting Falcon CCID: {:?}", response.errors);
 //!     }
 //!
