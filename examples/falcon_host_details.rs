@@ -15,7 +15,7 @@ async fn main() {
         .await
         .expect("Could not list devices");
     let all_host_details = serde_json::json!(hosts);
-    print!("{}", all_host_details);
+    print!("{all_host_details}");
 }
 
 async fn get_all_hosts(
@@ -24,7 +24,7 @@ async fn get_all_hosts(
     filter: Option<&str>,
 ) -> Result<Vec<models::DeviceapiPeriodDeviceSwagger>, Box<dyn error::Error>> {
     let mut details = Vec::<models::DeviceapiPeriodDeviceSwagger>::new();
-    let mut offset = String::from("");
+    let mut offset = String::new();
     loop {
         let response = query_devices_by_filter_offset(configuration, sort, filter, offset).await?;
         let resources_count = response.resources.len();
@@ -90,7 +90,7 @@ pub struct ApiError(pub String);
 
 impl fmt::Display for ApiError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "Application Errors: {}", self.to_string())
+        write!(f, "Application Errors: {self}")
     }
 }
 

@@ -19,12 +19,12 @@ async fn main() {
     }
 
     if crowd_score_response.resources.is_empty() {
-        eprintln!("No CrowdScore returned")
+        eprintln!("No CrowdScore returned");
     }
 
     let score = crowd_score_response.resources.last().unwrap();
     println!(
         "As of {} your CrowdScore is {}.",
         score.timestamp, score.score
-    )
+    );
 }
