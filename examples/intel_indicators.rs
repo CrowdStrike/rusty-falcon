@@ -48,7 +48,7 @@ async fn main() {
 
     if !response.errors.is_empty() {
         eprintln!(
-            "Errors occured while getting Falcon CCID: {:?}",
+            "Errors occurred while getting Falcon CCID: {:?}",
             response.errors
         );
     }
