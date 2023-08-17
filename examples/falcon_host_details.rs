@@ -90,7 +90,7 @@ pub struct ApiError(pub String);
 
 impl fmt::Display for ApiError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "Application Errors: {self}")
+        write!(f, "Application Errors: {}", self.0)
     }
 }
 
