@@ -11,14 +11,14 @@ async fn main() {
         .await
         .expect("Could not fetch CCID");
 
-    if !response.errors.is_none() {
+    if response.errors.is_some() {
         eprintln!(
             "Errors occured while getting Falcon CCID: {:?}",
             response.errors
         );
     }
     if response.resources.is_empty() {
-        eprintln!("No CCID returned")
+        eprintln!("No CCID returned");
     }
-    print!("{}", response.resources[0])
+    print!("{}", response.resources[0]);
 }

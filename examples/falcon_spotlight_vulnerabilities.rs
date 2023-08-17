@@ -19,14 +19,9 @@ async fn main() {
     print!("[");
     let mut empty = true;
     loop {
-        let response = get_vulnerabilities(
-            &falcon.cfg,
-            order,
-            filter,
-            after.as_ref().map(String::as_str),
-        )
-        .await
-        .expect("Could not list vulnerabilities");
+        let response = get_vulnerabilities(&falcon.cfg, order, filter, after.as_deref())
+            .await
+            .expect("Could not list vulnerabilities");
 
         if response.resources.is_empty() {
             break;
@@ -38,7 +33,7 @@ async fn main() {
             if !empty {
                 print!(",");
             }
-            print!("{}", json);
+            print!("{json}");
             empty = false;
         }
 
@@ -47,7 +42,7 @@ async fn main() {
             Some(pagination_token) => Some(pagination_token.to_owned()),
         };
     }
-    print!("]")
+    print!("]");
 }
 
 async fn get_vulnerabilities(
@@ -71,8 +66,7 @@ async fn get_vulnerabilities(
     };
     if !errors.is_empty() {
         return Err(ApiError(format!(
-            "while listing Spotlight Vulnerabilities: '{:?}'",
-            errors
+            "while listing Spotlight Vulnerabilities: '{errors:?}'"
         ))
         .into());
     }
@@ -98,7 +92,7 @@ pub struct ApiError(pub String);
 
 impl fmt::Display for ApiError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "Application Errors: {}", self.to_string())
+        write!(f, "Application Errors: {}", self.0)
     }
 }
 
