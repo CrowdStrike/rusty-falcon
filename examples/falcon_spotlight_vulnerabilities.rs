@@ -71,7 +71,7 @@ async fn get_vulnerabilities(
         .into());
     }
     response.errors = None;
-    return Ok(response);
+    Ok(response)
 }
 
 pub trait PaginationHelper {
@@ -80,10 +80,10 @@ pub trait PaginationHelper {
 
 impl PaginationHelper for models::DomainPeriodSpapiQueryMeta {
     fn next(&self) -> Option<&str> {
-        return match &self.pagination {
+        match &self.pagination {
             None => None,
             Some(pagination) => Some(&pagination.after),
-        };
+        }
     }
 }
 
