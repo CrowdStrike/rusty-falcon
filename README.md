@@ -42,7 +42,7 @@ async fn main() {
     // 'errors', 'meta', and 'resources' fields. It is recommended to check for possible
     // application errors:
     if !response.errors.is_empty() {
-        eprintln!("Errors occured while getting Falcon CCID: {:?}", response.errors);
+        eprintln!("Errors occurred while getting Falcon CCID: {:?}", response.errors);
     }
 
     // Print response from the API:

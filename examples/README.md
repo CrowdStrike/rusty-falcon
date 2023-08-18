@@ -1,8 +1,8 @@
 # rusty_falcon code samples
 
-This directory contains useful code patterns for using rusty_falcon and communicating with CrowdStrike Falcon API.
+This directory contains useful code patterns for using `rusty_falcon` and communicating with `CrowdStrike Falcon API`.
 
-Some examples available here are rather similar to the [gofalcon (Golang-based SDK) examples](https://github.com/CrowdStrike/gofalcon/tree/main/examples). Experienced golang users may find it useful to compare rusty_falcon and gofalcon counterparts.
+Some examples available here are rather similar to the [gofalcon (Golang-based SDK) examples](https://github.com/CrowdStrike/gofalcon/tree/main/examples). Experienced golang users may find it useful to compare `rusty_falcon` and `gofalcon` counterparts.
 
 ## simple
 
@@ -11,7 +11,8 @@ Some examples available here are rather similar to the [gofalcon (Golang-based S
 Minimalist example to show case authentication and initialisation of client library. Upon successful authentication the very latest [CrowdStrike Score](https://www.crowdstrike.com/blog/tech-center/crowdscore-efficiency/) is shown.
 
 Example run:
-```
+
+```bash
 FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
     cargo run  --example simple
 ```
@@ -23,7 +24,8 @@ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
 This is stand-alone tool that can be used to get Customer ID based on the API key pair. The ability to derive CID from API key pair is useful in various occasions like new sensor registration.
 
 Example run:
-```
+
+```bash
 FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
     cargo run  --example falcon_get_cid
 ```
@@ -32,28 +34,32 @@ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
 
 [falcon_host_details.rs](falcon_host_details.rs)
 
-Stand-alone tool that uses Host API to query all the host details and output JSON to the stdout. This tool can be used together with JSON parsing tools like jq in order to build reports of your liking.
+Stand-alone tool that uses Host API to query all the host details and output JSON to the `stdout`. This tool can be used together with JSON parsing tools like jq in order to build reports of your liking.
 
 Get full details of all the hosts
-```
+
+```bash
 FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
     cargo run  --example falcon_host_details | jq
 ```
 
 Get total number of hosts
-```
+
+```bash
 FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
     cargo run  --example falcon_host_details | jq length
 ```
 
 List hostnames of all hosts
-```
+
+```bash
 FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
     cargo run  --example falcon_host_details | jq 'map(.hostname)'
 ```
 
 List hosts and agent versions as key-value dictionary
-```
+
+```bash
 FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
     cargo run  --example falcon_host_details | jq -r ' map( { (.hostname) : .agent_version } ) | add'
 ```
@@ -62,11 +68,24 @@ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
 
 [falcon_spotlight_vulnerabilities.rs](falcon_spotlight_vulnerabilities.rs)
 
-Stand-alone tool that uses Falcon Spotlight API to query the vulnerabilities affecting your environment and outputs those vulnerabilities in JSON format to the stdout. This tool can be used together with JSON parsing tools like `jq` in order to build reports of your liking.
+Stand-alone tool that uses Falcon Spotlight API to query the vulnerabilities affecting your environment and outputs those vulnerabilities in JSON format to the `stdout`. This tool can be used together with JSON parsing tools like `jq` in order to build reports of your liking.
 
 Get all open vulnerabilities affecting your env
 
-```
+```bash
 FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
     cargo run  --example falcon_spotlight_vulnerabilities | jq
+```
+
+## intel_indicators
+
+[intel_indicators.rs](intel_indicators.rs)
+
+Stand-alone tool that uses Falcon Intel API to query the indicators affecting your environment in JSON format to the `stdout`. This tool can be used together with JSON parsing tools like `jq` in order to build reports of your liking.
+
+Get indicators example:
+
+```bash
+FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
+     cargo run --example intel_indicators -- --sort published_date.asc --filter deleted:false -q abc | jq
 ```

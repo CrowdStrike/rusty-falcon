@@ -13,7 +13,7 @@ async fn main() {
 
     if !crowd_score_response.errors.is_empty() {
         eprintln!(
-            "Errors occured while calculating CrowdScore: {:?}",
+            "Errors occurred while calculating CrowdScore: {:?}",
             crowd_score_response.errors
         );
     }
