@@ -11,7 +11,7 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DeviceapiPeriodDeviceDetailsResponseSwagger {
     #[serde(rename = "errors")]
-    pub errors: Vec<crate::models::MsaspecPeriodError>,
+    pub errors: Option<Vec<crate::models::MsaspecPeriodError>>,
     #[serde(rename = "meta")]
     pub meta: Box<crate::models::MsaspecPeriodMetaInfo>,
     #[serde(rename = "resources")]
@@ -20,7 +20,7 @@ pub struct DeviceapiPeriodDeviceDetailsResponseSwagger {
 
 impl DeviceapiPeriodDeviceDetailsResponseSwagger {
     pub fn new(
-        errors: Vec<crate::models::MsaspecPeriodError>,
+        errors: Option<Vec<crate::models::MsaspecPeriodError>>,
         meta: crate::models::MsaspecPeriodMetaInfo,
         resources: Vec<crate::models::DeviceapiPeriodDeviceSwagger>,
     ) -> DeviceapiPeriodDeviceDetailsResponseSwagger {

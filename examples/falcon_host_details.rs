@@ -32,7 +32,7 @@ async fn get_all_hosts(
             break;
         }
         offset = response.resources[resources_count - 1].clone();
-        details.append(&mut get_device_details(configuration, response.resources).await?);
+        details.append(&mut get_device_details(configuration, &response.resources).await?);
         if resources_count < 5000 {
             break;
         }
@@ -42,15 +42,15 @@ async fn get_all_hosts(
 
 async fn get_device_details(
     configuration: &configuration::Configuration,
-    ids: Vec<String>,
+    ids: &[String],
 ) -> Result<Vec<models::DeviceapiPeriodDeviceSwagger>, Box<dyn error::Error>> {
     let response = hosts_api::post_device_details_v2(
         configuration,
-        crate::models::MsaPeriodIdsRequest::new(ids),
+        crate::models::MsaPeriodIdsRequest::new(ids.to_owned()),
     )
     .await?;
 
-    if !response.errors.is_empty() {
+    if !response.errors.is_none() {
         return Err(ApiError(format!(
             "while getting Falcon Host IDs: '{:?}'",
             response.errors
