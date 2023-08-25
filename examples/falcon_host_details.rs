@@ -50,7 +50,7 @@ async fn get_device_details(
     )
     .await?;
 
-    if !response.errors.is_none() {
+    if response.errors.is_some() {
         return Err(ApiError(format!(
             "while getting Falcon Host IDs: '{:?}'",
             response.errors
