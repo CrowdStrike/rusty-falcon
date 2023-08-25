@@ -16,14 +16,14 @@ pub struct SensorUpdatePeriodKernelsRespV1 {
     #[serde(rename = "meta")]
     pub meta: Box<crate::models::MsaspecPeriodMetaInfo>,
     #[serde(rename = "resources")]
-    pub resources: Vec<crate::models::SensorUpdatePeriodKernelRespV1>,
+    pub resources: Option<Vec<crate::models::SensorUpdatePeriodKernelRespV1>>,
 }
 
 impl SensorUpdatePeriodKernelsRespV1 {
     pub fn new(
         errors: Vec<crate::models::MsaspecPeriodError>,
         meta: crate::models::MsaspecPeriodMetaInfo,
-        resources: Vec<crate::models::SensorUpdatePeriodKernelRespV1>,
+        resources: Option<Vec<crate::models::SensorUpdatePeriodKernelRespV1>>,
     ) -> SensorUpdatePeriodKernelsRespV1 {
         SensorUpdatePeriodKernelsRespV1 {
             errors,
