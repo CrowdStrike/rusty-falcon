@@ -89,3 +89,16 @@ Get indicators example:
 FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
      cargo run --example intel_indicators -- --sort published_date.asc --filter deleted:false -q abc | jq
 ```
+
+## falcon_supported_kernels
+
+[falcon_supported_kernels.rs](falcon_supported_kernels.rs)
+
+This example shows listing of the supported Linux kernels. The tool outputs short list of recently supported kernels by CrowdStrike Falcon Sensor for Linux on a given distribution.
+
+Supported kernels example:
+
+```bash
+FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
+     cargo run --example falcon_supported_kernels -- --distro=rhel9 --arch=aarch64 
+```
