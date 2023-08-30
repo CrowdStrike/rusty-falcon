@@ -9,13 +9,13 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodPolicyRule {
-    #[serde(rename = "base_path", skip_serializing_if = "Option::is_none")]
-    pub base_path: Option<String>,
+pub struct ChangesPeriodTag {
+    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
 }
 
-impl PublicPeriodPolicyRule {
-    pub fn new() -> PublicPeriodPolicyRule {
-        PublicPeriodPolicyRule { base_path: None }
+impl ChangesPeriodTag {
+    pub fn new() -> ChangesPeriodTag {
+        ChangesPeriodTag { name: None }
     }
 }

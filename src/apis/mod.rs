@@ -150,10 +150,10 @@ pub mod scheduled_reports_api;
 pub mod sensor_download_api;
 pub mod sensor_update_policies_api;
 pub mod sensor_visibility_exclusions_api;
+pub mod spotlight_evaluation_logic_api;
+pub mod spotlight_vulnerabilities_api;
 pub mod tailored_intelligence_api;
 pub mod user_management_api;
-pub mod vulnerabilities_api;
-pub mod vulnerabilities_evaluation_logic_api;
 pub mod zero_trust_assessment_api;
 
 pub mod configuration;

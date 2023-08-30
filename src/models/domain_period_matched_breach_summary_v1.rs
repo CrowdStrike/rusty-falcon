@@ -16,6 +16,12 @@ pub struct DomainPeriodMatchedBreachSummaryV1 {
     /// The level of confidence regarding data veridicality. Options for likely authentic, confirmed authentic (default: unverified).
     #[serde(rename = "confidence_level", skip_serializing_if = "Option::is_none")]
     pub confidence_level: Option<String>,
+    /// A list of statuses for the exposed data records contained in the notification. Possible values: 'newly_detected', 'previously_reported' and/or 'other'
+    #[serde(
+        rename = "credential_statuses",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub credential_statuses: Option<Vec<String>>,
     #[serde(
         rename = "credentials_domains",
         skip_serializing_if = "Option::is_none"
@@ -45,6 +51,9 @@ pub struct DomainPeriodMatchedBreachSummaryV1 {
     pub idp_send_date: Option<String>,
     #[serde(rename = "idp_send_status", skip_serializing_if = "Option::is_none")]
     pub idp_send_status: Option<String>,
+    /// (Boolean) If the notification was processed before the introduction of exposed data deduplication
+    #[serde(rename = "is_retroactively_deduped")]
+    pub is_retroactively_deduped: bool,
     /// The name of the breach
     #[serde(rename = "name")]
     pub name: String,
@@ -60,11 +69,13 @@ impl DomainPeriodMatchedBreachSummaryV1 {
     pub fn new(
         description: String,
         fields: Vec<String>,
+        is_retroactively_deduped: bool,
         name: String,
     ) -> DomainPeriodMatchedBreachSummaryV1 {
         DomainPeriodMatchedBreachSummaryV1 {
             community_name: None,
             confidence_level: None,
+            credential_statuses: None,
             credentials_domains: None,
             credentials_ips: None,
             description,
@@ -75,6 +86,7 @@ impl DomainPeriodMatchedBreachSummaryV1 {
             files: None,
             idp_send_date: None,
             idp_send_status: None,
+            is_retroactively_deduped,
             name,
             obtained_by: None,
             url: None,

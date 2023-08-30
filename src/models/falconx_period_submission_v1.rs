@@ -18,6 +18,8 @@ pub struct FalconxPeriodSubmissionV1 {
     pub id: Option<String>,
     #[serde(rename = "index_timestamp", skip_serializing_if = "Option::is_none")]
     pub index_timestamp: Option<String>,
+    #[serde(rename = "interactive_phase", skip_serializing_if = "Option::is_none")]
+    pub interactive_phase: Option<String>,
     #[serde(rename = "origin", skip_serializing_if = "Option::is_none")]
     pub origin: Option<String>,
     #[serde(rename = "sandbox", skip_serializing_if = "Option::is_none")]
@@ -46,6 +48,7 @@ impl FalconxPeriodSubmissionV1 {
             created_timestamp: None,
             id: None,
             index_timestamp: None,
+            interactive_phase: None,
             origin: None,
             sandbox: None,
             send_email_notification: None,

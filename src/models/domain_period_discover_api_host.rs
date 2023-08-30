@@ -116,6 +116,18 @@ pub struct DomainPeriodDiscoverApiHost {
         skip_serializing_if = "Option::is_none"
     )]
     pub computed_internet_exposure: Option<String>,
+    /// External IP exposed to the internet.
+    #[serde(
+        rename = "computed_internet_exposure_external_ip",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub computed_internet_exposure_external_ip: Option<String>,
+    /// When the asset was last seen as internet exposed.
+    #[serde(
+        rename = "computed_internet_exposure_last_seen",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub computed_internet_exposure_last_seen: Option<String>,
     /// The level of confidence that the asset is a corporate asset (25 = low confidence, 50 = medium confidence, 75 = high confidence).
     #[serde(rename = "confidence", skip_serializing_if = "Option::is_none")]
     pub confidence: Option<i32>,
@@ -182,6 +194,12 @@ pub struct DomainPeriodDiscoverApiHost {
     /// The number of sources that discovered the asset.
     #[serde(rename = "discoverer_count", skip_serializing_if = "Option::is_none")]
     pub discoverer_count: Option<i32>,
+    /// The criticalities of the sources that discovered the asset
+    #[serde(
+        rename = "discoverer_criticalities",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub discoverer_criticalities: Option<Vec<String>>,
     /// The hostnames of the sources that discovered the asset.
     #[serde(
         rename = "discoverer_hostnames",
@@ -518,6 +536,8 @@ impl DomainPeriodDiscoverApiHost {
             cloud_resource_id: None,
             computed_asset_roles: None,
             computed_internet_exposure: None,
+            computed_internet_exposure_external_ip: None,
+            computed_internet_exposure_last_seen: None,
             confidence: None,
             country: None,
             cpu_manufacturer: None,
@@ -535,6 +555,7 @@ impl DomainPeriodDiscoverApiHost {
             descriptions: None,
             discoverer_aids: None,
             discoverer_count: None,
+            discoverer_criticalities: None,
             discoverer_hostnames: None,
             discoverer_platform_names: None,
             discoverer_product_type_descs: None,

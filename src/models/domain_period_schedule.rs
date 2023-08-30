@@ -10,20 +10,23 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainPeriodSchedule {
-    #[serde(rename = "can_stagger")]
-    pub can_stagger: bool,
-    #[serde(rename = "definition")]
-    pub definition: String,
-    #[serde(rename = "display")]
-    pub display: String,
+    #[serde(
+        rename = "ignored_by_channelfile",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub ignored_by_channelfile: Option<bool>,
+    #[serde(rename = "interval", skip_serializing_if = "Option::is_none")]
+    pub interval: Option<i32>,
+    #[serde(rename = "start_timestamp", skip_serializing_if = "Option::is_none")]
+    pub start_timestamp: Option<String>,
 }
 
 impl DomainPeriodSchedule {
-    pub fn new(can_stagger: bool, definition: String, display: String) -> DomainPeriodSchedule {
+    pub fn new() -> DomainPeriodSchedule {
         DomainPeriodSchedule {
-            can_stagger,
-            definition,
-            display,
+            ignored_by_channelfile: None,
+            interval: None,
+            start_timestamp: None,
         }
     }
 }

@@ -12,6 +12,9 @@
 pub struct DomainPeriodBreachedItemV1 {
     #[serde(rename = "company", skip_serializing_if = "Option::is_none")]
     pub company: Option<String>,
+    /// The status set after deduplication. Possible values: 'newly_detected', 'previously_reported', 'other'
+    #[serde(rename = "credential_status", skip_serializing_if = "Option::is_none")]
+    pub credential_status: Option<String>,
     #[serde(rename = "credentials_domain", skip_serializing_if = "Option::is_none")]
     pub credentials_domain: Option<String>,
     #[serde(rename = "credentials_ip", skip_serializing_if = "Option::is_none")]
@@ -71,6 +74,7 @@ impl DomainPeriodBreachedItemV1 {
     ) -> DomainPeriodBreachedItemV1 {
         DomainPeriodBreachedItemV1 {
             company: None,
+            credential_status: None,
             credentials_domain: None,
             credentials_ip: None,
             credentials_url: None,

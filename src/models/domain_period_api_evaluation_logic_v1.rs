@@ -10,30 +10,21 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainPeriodApiEvaluationLogicV1 {
-    /// Refers to an asset identifier
     #[serde(rename = "aid", skip_serializing_if = "Option::is_none")]
     pub aid: Option<String>,
-    /// Refers to a customer identifier
     #[serde(rename = "cid", skip_serializing_if = "Option::is_none")]
     pub cid: Option<String>,
-    /// Refers to a point in time when evaluation logic data was created in the system
+    #[serde(
+        rename = "complex_check_operator",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub complex_check_operator: Option<String>,
     #[serde(rename = "created_timestamp", skip_serializing_if = "Option::is_none")]
     pub created_timestamp: Option<String>,
-    /// Refers to a label given to the entity that provided this data
-    #[serde(rename = "data_provider", skip_serializing_if = "Option::is_none")]
-    pub data_provider: Option<String>,
-    #[serde(rename = "host_info", skip_serializing_if = "Option::is_none")]
-    pub host_info: Option<Box<crate::models::DomainPeriodApiEvaluationLogicHostInfoV1>>,
-    /// Contains a unique identifier for the evaluation logic
     #[serde(rename = "id")]
     pub id: String,
-    /// Refers to the actual evaluation logic data
     #[serde(rename = "logic", skip_serializing_if = "Option::is_none")]
     pub logic: Option<Vec<crate::models::DomainPeriodApiEvaluationLogicItemV1>>,
-    /// Refers to the identifier of the scanner that generated the evaluation logic
-    #[serde(rename = "scanner_id", skip_serializing_if = "Option::is_none")]
-    pub scanner_id: Option<String>,
-    /// Refers to a point in time when evaluation logic data was updated in the system
     #[serde(rename = "updated_timestamp", skip_serializing_if = "Option::is_none")]
     pub updated_timestamp: Option<String>,
 }
@@ -43,12 +34,10 @@ impl DomainPeriodApiEvaluationLogicV1 {
         DomainPeriodApiEvaluationLogicV1 {
             aid: None,
             cid: None,
+            complex_check_operator: None,
             created_timestamp: None,
-            data_provider: None,
-            host_info: None,
             id,
             logic: None,
-            scanner_id: None,
             updated_timestamp: None,
         }
     }

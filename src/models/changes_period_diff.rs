@@ -9,19 +9,13 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodDacl {
-    /// Possible values: 0 - MODIFIED, 1 - NULL, 2 - EMPTY, 3 - SAME
-    #[serde(rename = "changes_type", skip_serializing_if = "Option::is_none")]
-    pub changes_type: Option<i32>,
-    #[serde(rename = "entity_list", skip_serializing_if = "Option::is_none")]
-    pub entity_list: Option<Vec<crate::models::PublicPeriodDaclEntity>>,
+pub struct ChangesPeriodDiff {
+    #[serde(rename = "after", skip_serializing_if = "Option::is_none")]
+    pub after: Option<Box<crate::models::ChangesPeriodDiffType>>,
 }
 
-impl PublicPeriodDacl {
-    pub fn new() -> PublicPeriodDacl {
-        PublicPeriodDacl {
-            changes_type: None,
-            entity_list: None,
-        }
+impl ChangesPeriodDiff {
+    pub fn new() -> ChangesPeriodDiff {
+        ChangesPeriodDiff { after: None }
     }
 }

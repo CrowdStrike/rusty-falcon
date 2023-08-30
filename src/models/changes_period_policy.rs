@@ -9,18 +9,18 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodBefore {
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
+pub struct ChangesPeriodPolicy {
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
+    #[serde(rename = "rule_group", skip_serializing_if = "Option::is_none")]
+    pub rule_group: Option<Box<crate::models::ChangesPeriodPolicyRuleGroup>>,
 }
 
-impl PublicPeriodBefore {
-    pub fn new() -> PublicPeriodBefore {
-        PublicPeriodBefore {
-            id: None,
+impl ChangesPeriodPolicy {
+    pub fn new() -> ChangesPeriodPolicy {
+        ChangesPeriodPolicy {
             name: None,
+            rule_group: None,
         }
     }
 }

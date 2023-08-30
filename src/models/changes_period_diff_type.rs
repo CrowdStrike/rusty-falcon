@@ -9,29 +9,13 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodDaclEntity {
-    #[serde(rename = "acl_change_type", skip_serializing_if = "Option::is_none")]
-    pub acl_change_type: Option<i32>,
-    #[serde(rename = "acl_permission_change")]
-    pub acl_permission_change: Vec<crate::models::PublicPeriodAttribute>,
-    #[serde(rename = "acl_principal")]
-    pub acl_principal: String,
-    /// Possible values: 0 - ALLOW, 1 - DENY
-    #[serde(rename = "acl_type")]
-    pub acl_type: i32,
+pub struct ChangesPeriodDiffType {
+    #[serde(rename = "hash", skip_serializing_if = "Option::is_none")]
+    pub hash: Option<Box<crate::models::ChangesPeriodDiffHash>>,
 }
 
-impl PublicPeriodDaclEntity {
-    pub fn new(
-        acl_permission_change: Vec<crate::models::PublicPeriodAttribute>,
-        acl_principal: String,
-        acl_type: i32,
-    ) -> PublicPeriodDaclEntity {
-        PublicPeriodDaclEntity {
-            acl_change_type: None,
-            acl_permission_change,
-            acl_principal,
-            acl_type,
-        }
+impl ChangesPeriodDiffType {
+    pub fn new() -> ChangesPeriodDiffType {
+        ChangesPeriodDiffType { hash: None }
     }
 }

@@ -18,6 +18,8 @@ pub struct DomainPeriodPolicyInfo {
     pub id: i32,
     #[serde(rename = "UpdatedAt")]
     pub updated_at: String,
+    #[serde(rename = "account_scope")]
+    pub account_scope: String,
     #[serde(rename = "alert_logic", skip_serializing_if = "Option::is_none")]
     pub alert_logic: Option<String>,
     #[serde(rename = "api_command", skip_serializing_if = "Option::is_none")]
@@ -141,6 +143,7 @@ impl DomainPeriodPolicyInfo {
         deleted_at: String,
         id: i32,
         updated_at: String,
+        account_scope: String,
         is_enabled: bool,
         is_remediable: bool,
     ) -> DomainPeriodPolicyInfo {
@@ -149,6 +152,7 @@ impl DomainPeriodPolicyInfo {
             deleted_at,
             id,
             updated_at,
+            account_scope,
             alert_logic: None,
             api_command: None,
             asset_type_id: None,

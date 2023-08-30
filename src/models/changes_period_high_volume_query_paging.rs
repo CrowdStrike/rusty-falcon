@@ -9,13 +9,21 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodHostGroup {
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
+pub struct ChangesPeriodHighVolumeQueryPaging {
+    #[serde(rename = "after")]
+    pub after: String,
+    #[serde(rename = "limit")]
+    pub limit: i32,
+    #[serde(rename = "total")]
+    pub total: i64,
 }
 
-impl PublicPeriodHostGroup {
-    pub fn new() -> PublicPeriodHostGroup {
-        PublicPeriodHostGroup { name: None }
+impl ChangesPeriodHighVolumeQueryPaging {
+    pub fn new(after: String, limit: i32, total: i64) -> ChangesPeriodHighVolumeQueryPaging {
+        ChangesPeriodHighVolumeQueryPaging {
+            after,
+            limit,
+            total,
+        }
     }
 }

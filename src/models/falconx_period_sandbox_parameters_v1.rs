@@ -10,8 +10,6 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct FalconxPeriodSandboxParametersV1 {
-    #[serde(rename = "Interactivity")]
-    pub interactivity: bool,
     #[serde(rename = "action_script", skip_serializing_if = "Option::is_none")]
     pub action_script: Option<String>,
     #[serde(rename = "command_line", skip_serializing_if = "Option::is_none")]
@@ -22,6 +20,8 @@ pub struct FalconxPeriodSandboxParametersV1 {
     pub enable_tor: Option<bool>,
     #[serde(rename = "environment_id", skip_serializing_if = "Option::is_none")]
     pub environment_id: Option<i32>,
+    #[serde(rename = "interactivity", skip_serializing_if = "Option::is_none")]
+    pub interactivity: Option<bool>,
     #[serde(rename = "network_settings", skip_serializing_if = "Option::is_none")]
     pub network_settings: Option<String>,
     #[serde(rename = "sha256", skip_serializing_if = "Option::is_none")]
@@ -37,14 +37,14 @@ pub struct FalconxPeriodSandboxParametersV1 {
 }
 
 impl FalconxPeriodSandboxParametersV1 {
-    pub fn new(interactivity: bool) -> FalconxPeriodSandboxParametersV1 {
+    pub fn new() -> FalconxPeriodSandboxParametersV1 {
         FalconxPeriodSandboxParametersV1 {
-            interactivity,
             action_script: None,
             command_line: None,
             document_password: None,
             enable_tor: None,
             environment_id: None,
+            interactivity: None,
             network_settings: None,
             sha256: None,
             submit_name: None,

@@ -24,6 +24,17 @@ pub enum GetChangesError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`high_volume_query_changes`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum HighVolumeQueryChangesError {
+    Status400(crate::models::MsaspecPeriodResponseFields),
+    Status403(crate::models::MsaPeriodReplyMetaOnly),
+    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status500(crate::models::MsaspecPeriodResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`query_changes`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -39,7 +50,7 @@ pub enum QueryChangesError {
 pub async fn get_changes(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::PublicPeriodGetChangesResponse, Error<GetChangesError>> {
+) -> Result<crate::models::ChangesPeriodGetChangesResponse, Error<GetChangesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -94,7 +105,71 @@ pub async fn get_changes(
     }
 }
 
-/// Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided
+/// Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. It can retrieve an unlimited number of results using multiple requests.
+pub async fn high_volume_query_changes(
+    configuration: &configuration::Configuration,
+    after: Option<&str>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    filter: Option<&str>,
+) -> Result<crate::models::ChangesPeriodHighVolumeQueryResponse, Error<HighVolumeQueryChangesError>>
+{
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/filevantage/queries/changes/v3",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = after {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = filter {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<HighVolumeQueryChangesError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. Using this endpoint you can retrieve up to `10000` results by using pagination with multiple requests. If you need to retrieve more than `10000` results consider using the `/queries/changes/v3` endpoint
 pub async fn query_changes(
     configuration: &configuration::Configuration,
     offset: Option<i32>,

@@ -25,6 +25,9 @@ pub struct ApiPeriodNotificationExposedDataRecordV1 {
     /// The date when this entity was created in Recon
     #[serde(rename = "created_date")]
     pub created_date: String,
+    /// The status set after deduplication. Possible values: 'newly_detected', 'previously_reported', 'other'
+    #[serde(rename = "credential_status", skip_serializing_if = "Option::is_none")]
+    pub credential_status: Option<String>,
     /// The domain where the credentials are valid
     #[serde(rename = "credentials_domain", skip_serializing_if = "Option::is_none")]
     pub credentials_domain: Option<String>,
@@ -130,6 +133,7 @@ impl ApiPeriodNotificationExposedDataRecordV1 {
             cid,
             company: None,
             created_date,
+            credential_status: None,
             credentials_domain: None,
             credentials_ip: None,
             credentials_url: None,

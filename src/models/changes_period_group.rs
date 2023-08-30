@@ -9,16 +9,16 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodOwner {
+pub struct ChangesPeriodGroup {
     #[serde(rename = "after", skip_serializing_if = "Option::is_none")]
-    pub after: Option<Box<crate::models::PublicPeriodAfter>>,
+    pub after: Option<Box<crate::models::ChangesPeriodAfter>>,
     #[serde(rename = "before", skip_serializing_if = "Option::is_none")]
-    pub before: Option<Box<crate::models::PublicPeriodBefore>>,
+    pub before: Option<Box<crate::models::ChangesPeriodBefore>>,
 }
 
-impl PublicPeriodOwner {
-    pub fn new() -> PublicPeriodOwner {
-        PublicPeriodOwner {
+impl ChangesPeriodGroup {
+    pub fn new() -> ChangesPeriodGroup {
+        ChangesPeriodGroup {
             after: None,
             before: None,
         }

@@ -9,21 +9,31 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainPeriodApiEntityMatchedV1 {
-    #[serde(rename = "asset_id", skip_serializing_if = "Option::is_none")]
-    pub asset_id: Option<String>,
-    #[serde(rename = "data_provider", skip_serializing_if = "Option::is_none")]
-    pub data_provider: Option<String>,
-    #[serde(rename = "provider_asset_id", skip_serializing_if = "Option::is_none")]
-    pub provider_asset_id: Option<String>,
+pub struct ChangesPeriodPrevalence {
+    #[serde(rename = "computed_timestamp")]
+    pub computed_timestamp: String,
+    /// Possible values: PENDING, UNIQUE, LOW, COMMON.
+    #[serde(rename = "current")]
+    pub current: String,
+    #[serde(rename = "key")]
+    pub key: String,
+    /// Possible values: PENDING, UNIQUE, LOW, COMMON.
+    #[serde(rename = "reported")]
+    pub reported: String,
 }
 
-impl DomainPeriodApiEntityMatchedV1 {
-    pub fn new() -> DomainPeriodApiEntityMatchedV1 {
-        DomainPeriodApiEntityMatchedV1 {
-            asset_id: None,
-            data_provider: None,
-            provider_asset_id: None,
+impl ChangesPeriodPrevalence {
+    pub fn new(
+        computed_timestamp: String,
+        current: String,
+        key: String,
+        reported: String,
+    ) -> ChangesPeriodPrevalence {
+        ChangesPeriodPrevalence {
+            computed_timestamp,
+            current,
+            key,
+            reported,
         }
     }
 }

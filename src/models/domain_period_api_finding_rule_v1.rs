@@ -12,6 +12,8 @@
 pub struct DomainPeriodApiFindingRuleV1 {
     #[serde(rename = "authority", skip_serializing_if = "Option::is_none")]
     pub authority: Option<String>,
+    #[serde(rename = "benchmark_type", skip_serializing_if = "Option::is_none")]
+    pub benchmark_type: Option<String>,
     #[serde(rename = "cce", skip_serializing_if = "Option::is_none")]
     pub cce: Option<String>,
     #[serde(rename = "edited")]
@@ -34,6 +36,8 @@ pub struct DomainPeriodApiFindingRuleV1 {
     pub mitre_attack_tactics: Option<Vec<crate::models::DomainPeriodApiMitreAttackTacticV1>>,
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
+    #[serde(rename = "platform_name", skip_serializing_if = "Option::is_none")]
+    pub platform_name: Option<String>,
     #[serde(rename = "policy_id", skip_serializing_if = "Option::is_none")]
     pub policy_id: Option<String>,
     #[serde(rename = "policy_name", skip_serializing_if = "Option::is_none")]
@@ -48,6 +52,7 @@ impl DomainPeriodApiFindingRuleV1 {
     pub fn new(edited: bool, id: String) -> DomainPeriodApiFindingRuleV1 {
         DomainPeriodApiFindingRuleV1 {
             authority: None,
+            benchmark_type: None,
             cce: None,
             edited,
             group_id: None,
@@ -56,6 +61,7 @@ impl DomainPeriodApiFindingRuleV1 {
             last_edited_timestamp: None,
             mitre_attack_tactics: None,
             name: None,
+            platform_name: None,
             policy_id: None,
             policy_name: None,
             recommendation_id: None,

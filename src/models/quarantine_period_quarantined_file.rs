@@ -12,6 +12,8 @@
 pub struct QuarantinePeriodQuarantinedFile {
     #[serde(rename = "aid", skip_serializing_if = "Option::is_none")]
     pub aid: Option<String>,
+    #[serde(rename = "alert_ids", skip_serializing_if = "Option::is_none")]
+    pub alert_ids: Option<Vec<String>>,
     #[serde(rename = "cid", skip_serializing_if = "Option::is_none")]
     pub cid: Option<String>,
     #[serde(rename = "date_created", skip_serializing_if = "Option::is_none")]
@@ -59,6 +61,7 @@ impl QuarantinePeriodQuarantinedFile {
     pub fn new() -> QuarantinePeriodQuarantinedFile {
         QuarantinePeriodQuarantinedFile {
             aid: None,
+            alert_ids: None,
             cid: None,
             date_created: None,
             date_updated: None,

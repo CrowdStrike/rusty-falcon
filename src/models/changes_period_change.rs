@@ -9,7 +9,7 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodChange {
+pub struct ChangesPeriodChange {
     #[serde(rename = "action_timestamp")]
     pub action_timestamp: String,
     /// Possible values: UNKNOWN, CREATE, WRITE, DELETE, SET, RENAME.
@@ -18,13 +18,13 @@ pub struct PublicPeriodChange {
     #[serde(rename = "aid")]
     pub aid: String,
     #[serde(rename = "attributes", skip_serializing_if = "Option::is_none")]
-    pub attributes: Option<Vec<crate::models::PublicPeriodAttribute>>,
+    pub attributes: Option<Vec<crate::models::ChangesPeriodAttribute>>,
     #[serde(rename = "cid")]
     pub cid: String,
     #[serde(rename = "command_line")]
     pub command_line: String,
     #[serde(rename = "diff", skip_serializing_if = "Option::is_none")]
-    pub diff: Option<Box<crate::models::PublicPeriodDiff>>,
+    pub diff: Option<Box<crate::models::ChangesPeriodDiff>>,
     #[serde(rename = "entity_path")]
     pub entity_path: String,
     #[serde(rename = "entity_path_new", skip_serializing_if = "Option::is_none")]
@@ -38,7 +38,7 @@ pub struct PublicPeriodChange {
     )]
     pub grandparent_process_image_file_name: Option<String>,
     #[serde(rename = "host", skip_serializing_if = "Option::is_none")]
-    pub host: Option<Box<crate::models::PublicPeriodHost>>,
+    pub host: Option<Box<crate::models::ChangesPeriodHost>>,
     #[serde(rename = "id")]
     pub id: String,
     #[serde(rename = "ingestion_timestamp")]
@@ -58,15 +58,15 @@ pub struct PublicPeriodChange {
     )]
     pub parent_process_image_file_name: Option<String>,
     #[serde(rename = "permissions", skip_serializing_if = "Option::is_none")]
-    pub permissions: Option<Box<crate::models::PublicPeriodPermissions>>,
+    pub permissions: Option<Box<crate::models::ChangesPeriodPermissions>>,
     #[serde(rename = "permissions_lin", skip_serializing_if = "Option::is_none")]
-    pub permissions_lin: Option<Box<crate::models::PublicPeriodPermissionsLin>>,
+    pub permissions_lin: Option<Box<crate::models::ChangesPeriodPermissionsLin>>,
     #[serde(rename = "platform_name")]
     pub platform_name: String,
     #[serde(rename = "policy", skip_serializing_if = "Option::is_none")]
-    pub policy: Option<Box<crate::models::PublicPeriodPolicy>>,
+    pub policy: Option<Box<crate::models::ChangesPeriodPolicy>>,
     #[serde(rename = "prevalence", skip_serializing_if = "Option::is_none")]
-    pub prevalence: Option<Box<crate::models::PublicPeriodPrevalence>>,
+    pub prevalence: Option<Box<crate::models::ChangesPeriodPrevalence>>,
     #[serde(rename = "process_id")]
     pub process_id: String,
     #[serde(rename = "process_image_file_name")]
@@ -77,14 +77,14 @@ pub struct PublicPeriodChange {
     #[serde(rename = "severity")]
     pub severity: String,
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
-    pub tags: Option<Vec<crate::models::PublicPeriodTag>>,
+    pub tags: Option<Vec<crate::models::ChangesPeriodTag>>,
     #[serde(rename = "user_id")]
     pub user_id: String,
     #[serde(rename = "user_name")]
     pub user_name: String,
 }
 
-impl PublicPeriodChange {
+impl ChangesPeriodChange {
     pub fn new(
         action_timestamp: String,
         action_type: String,
@@ -102,8 +102,8 @@ impl PublicPeriodChange {
         severity: String,
         user_id: String,
         user_name: String,
-    ) -> PublicPeriodChange {
-        PublicPeriodChange {
+    ) -> ChangesPeriodChange {
+        ChangesPeriodChange {
             action_timestamp,
             action_type,
             aid,

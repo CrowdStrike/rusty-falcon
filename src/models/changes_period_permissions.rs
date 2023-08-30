@@ -9,24 +9,25 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodGetChangesResponse {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::MsaspecPeriodError>>,
-    #[serde(rename = "meta")]
-    pub meta: Box<crate::models::MsaspecPeriodMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<crate::models::PublicPeriodChange>,
+pub struct ChangesPeriodPermissions {
+    #[serde(rename = "dacl", skip_serializing_if = "Option::is_none")]
+    pub dacl: Option<Box<crate::models::ChangesPeriodDacl>>,
+    #[serde(rename = "group", skip_serializing_if = "Option::is_none")]
+    pub group: Option<Box<crate::models::ChangesPeriodGroup>>,
+    #[serde(rename = "owner", skip_serializing_if = "Option::is_none")]
+    pub owner: Option<Box<crate::models::ChangesPeriodOwner>>,
+    /// Possible values: 0 - OWNER, 1 - GROUP, 2 - DACL, 3 - SACL
+    #[serde(rename = "security_info", skip_serializing_if = "Option::is_none")]
+    pub security_info: Option<i32>,
 }
 
-impl PublicPeriodGetChangesResponse {
-    pub fn new(
-        meta: crate::models::MsaspecPeriodMetaInfo,
-        resources: Vec<crate::models::PublicPeriodChange>,
-    ) -> PublicPeriodGetChangesResponse {
-        PublicPeriodGetChangesResponse {
-            errors: None,
-            meta: Box::new(meta),
-            resources,
+impl ChangesPeriodPermissions {
+    pub fn new() -> ChangesPeriodPermissions {
+        ChangesPeriodPermissions {
+            dacl: None,
+            group: None,
+            owner: None,
+            security_info: None,
         }
     }
 }
