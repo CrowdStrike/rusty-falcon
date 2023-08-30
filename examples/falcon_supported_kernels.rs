@@ -1,6 +1,7 @@
 use clap::Parser;
 use rusty_falcon::apis::sensor_update_policies_api;
 use rusty_falcon::easy::client::FalconHandle;
+use std::io;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
@@ -20,20 +21,38 @@ async fn main() {
         .await
         .expect("Could not authenticate with CrowdStrike API");
 
+    let mut distro = String::new();
     if args.distro.is_none() {
-        println!("distro was not provided.");
+        println!("distro was not provided. Please enter a distro.");
+        let mut input = String::new();
+        let _ = io::stdin().read_line(&mut input);
+        distro.push_str(input.trim());
+        println!("distro = {distro}");
     }
 
+    let mut arch = String::new();
     if args.arch.is_none() {
-        println!("arch was not provided.");
+        println!("arch was not provided. Please enter an arch.");
+        let mut input = String::new();
+        let _ = io::stdin().read_line(&mut input);
+        arch.push_str(input.trim());
+        println!("arch = {arch}");
     }
 
-    let filter = format!(
-        "distro:'{}'+architecture:'{}'",
-        args.distro.as_deref().unwrap_or_default(),
-        args.arch.as_deref().unwrap_or_default()
-    );
-    println!("filter = {}", &filter);
+    let mut filter = String::new();
+    if args.distro.is_some() && args.arch.is_some() {
+        filter.push_str(
+            format!(
+                "distro:'{}'+architecture:'{}'",
+                args.distro.as_deref().unwrap_or_default(),
+                args.arch.as_deref().unwrap_or_default()
+            )
+            .as_str(),
+        );
+    } else {
+        filter.push_str(format!("distro:'{distro}'+architecture:'{arch}'").as_str());
+    }
+
     let offset = 0;
     let limit = 100;
     let response = sensor_update_policies_api::query_combined_sensor_update_kernels(
