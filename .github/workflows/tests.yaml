@@ -9,9 +9,31 @@ on:
   pull_request:
 
 jobs:
-  required:
+  build:
     runs-on: ubuntu-latest
-    name: ubuntu / ${{ matrix.toolchain }}
+    name: Build Ubuntu / ${{ matrix.toolchain }}
+    strategy:
+      matrix:
+        toolchain: [stable, beta]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Install ${{ matrix.toolchain }}
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ matrix.toolchain }}
+      - name: cargo generate-lockfile
+        if: hashFiles('Cargo.lock') == ''
+        run: cargo generate-lockfile
+      - name: cargo build
+        run: cargo build
+      - name: cargo build release
+        run: cargo build --release
+
+  test:
+    runs-on: ubuntu-latest
+    name: Test Ubuntu / ${{ matrix.toolchain }}
     strategy:
       matrix:
         toolchain: [stable, beta]
@@ -31,6 +53,20 @@ jobs:
       # https://github.com/rust-lang/cargo/issues/6669
       - name: cargo test --doc
         run: cargo test --locked --all-features --doc | grep 'Missing FALCON_CLIENT_ID environment variable.'
+
+  nightly:
+    name: Rust nightly
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: rust-src
+      - run: |
+          cargo test --lib --bins --examples --benches
+      - run: |
+          # We expect doc example to fail without Falcon Credentials
+          cargo test --doc | grep 'Missing FALCON_CLIENT_ID environment variable.'
 
   minimal:
     runs-on: ubuntu-latest
@@ -70,5 +106,9 @@ jobs:
       - name: cargo generate-lockfile
         if: hashFiles('Cargo.lock') == ''
         run: cargo generate-lockfile
+      - name: cargo build
+        run: cargo build
+      - name: cargo build release
+        run: cargo build --release
       - name: cargo test
         run: cargo test --locked --all-features --all-targets
