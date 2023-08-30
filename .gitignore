@@ -2,3 +2,6 @@
 **/*.rs.bk
 Cargo.lock
 /specs
+.env
+**latest**
+swagger**
