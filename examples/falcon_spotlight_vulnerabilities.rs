@@ -38,8 +38,10 @@ async fn main() {
         }
 
         after = match response.meta.next() {
-            None => break,
-            Some(pagination_token) => Some(pagination_token.to_owned()),
+            Some(pagination_token) if pagination_token.is_empty() => {
+                Some(pagination_token.to_owned())
+            }
+            _ => break,
         };
     }
     print!("]");
