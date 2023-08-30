@@ -6,10 +6,10 @@ use rusty_falcon::easy::client::FalconHandle;
 #[command(author, version, about, long_about = None)]
 struct Args {
     #[arg(short, long)]
-    distro: String,
+    distro: Option<String>,
 
     #[arg(short, long)]
-    arch: String,
+    arch: Option<String>,
 }
 
 #[tokio::main]
@@ -20,7 +20,20 @@ async fn main() {
         .await
         .expect("Could not authenticate with CrowdStrike API");
 
-    let filter = format!("distro:'{}'+architecture:'{}'", args.distro, args.arch);
+    if args.distro.is_none() {
+        println!("distro was not provided.");
+    }
+
+    if args.arch.is_none() {
+        println!("arch was not provided.");
+    }
+
+    let filter = format!(
+        "distro:'{}'+architecture:'{}'",
+        args.distro.as_deref().unwrap_or_default(),
+        args.arch.as_deref().unwrap_or_default()
+    );
+    println!("filter = {}", &filter);
     let offset = 0;
     let limit = 100;
     let response = sensor_update_policies_api::query_combined_sensor_update_kernels(
