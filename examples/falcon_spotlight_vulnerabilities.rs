@@ -1,5 +1,5 @@
 use rusty_falcon::apis::configuration;
-use rusty_falcon::apis::vulnerabilities_api;
+use rusty_falcon::apis::spotlight_vulnerabilities_api;
 use rusty_falcon::easy::client::FalconHandle;
 use rusty_falcon::models;
 use std::error;
@@ -51,7 +51,7 @@ async fn get_vulnerabilities(
     filter: &str,
     after: Option<&str>,
 ) -> Result<models::DomainPeriodSpapiCombinedVulnerabilitiesResponse, Box<dyn error::Error>> {
-    let mut response = vulnerabilities_api::combined_query_vulnerabilities(
+    let mut response = spotlight_vulnerabilities_api::combined_query_vulnerabilities(
         cfg,
         filter,
         after,

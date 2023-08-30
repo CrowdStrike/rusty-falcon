@@ -9,32 +9,18 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct MlscannerapiPeriodSamplesScanResult {
-    #[serde(rename = "cid")]
-    pub cid: String,
-    #[serde(rename = "created_timestamp", skip_serializing_if = "Option::is_none")]
-    pub created_timestamp: Option<String>,
-    #[serde(rename = "id")]
-    pub id: String,
-    #[serde(rename = "samples")]
-    pub samples: Vec<crate::models::MlscannerapiPeriodScannedSample>,
-    #[serde(rename = "status")]
-    pub status: String,
+pub struct ChangesPeriodAclChange {
+    #[serde(rename = "operation", skip_serializing_if = "Option::is_none")]
+    pub operation: Option<String>,
+    #[serde(rename = "permissions", skip_serializing_if = "Option::is_none")]
+    pub permissions: Option<String>,
 }
 
-impl MlscannerapiPeriodSamplesScanResult {
-    pub fn new(
-        cid: String,
-        id: String,
-        samples: Vec<crate::models::MlscannerapiPeriodScannedSample>,
-        status: String,
-    ) -> MlscannerapiPeriodSamplesScanResult {
-        MlscannerapiPeriodSamplesScanResult {
-            cid,
-            created_timestamp: None,
-            id,
-            samples,
-            status,
+impl ChangesPeriodAclChange {
+    pub fn new() -> ChangesPeriodAclChange {
+        ChangesPeriodAclChange {
+            operation: None,
+            permissions: None,
         }
     }
 }
