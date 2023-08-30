@@ -20,6 +20,8 @@ pub struct DomainPeriodApiFindingWithRuleV1 {
     pub evaluation_reason: Option<String>,
     #[serde(rename = "host_id", skip_serializing_if = "Option::is_none")]
     pub host_id: Option<String>,
+    #[serde(rename = "policy_host_groups", skip_serializing_if = "Option::is_none")]
+    pub policy_host_groups: Option<Vec<String>>,
     #[serde(rename = "rule", skip_serializing_if = "Option::is_none")]
     pub rule: Option<Box<crate::models::DomainPeriodApiFindingRuleV1>>,
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
@@ -37,6 +39,7 @@ impl DomainPeriodApiFindingWithRuleV1 {
             evaluation_logic_type: None,
             evaluation_reason: None,
             host_id: None,
+            policy_host_groups: None,
             rule: None,
             status: None,
             status_since_timestamp: None,

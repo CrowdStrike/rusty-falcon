@@ -10,17 +10,17 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DomainPeriodQueryResponse {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<crate::models::MsaspecPeriodError>>,
+    #[serde(rename = "errors")]
+    pub errors: Option<Vec<crate::models::DomainPeriodReconApiError>>,
     #[serde(rename = "meta")]
-    pub meta: Box<crate::models::DomainPeriodMsaMetaInfo>,
+    pub meta: Box<crate::models::MsaspecPeriodMetaInfo>,
     #[serde(rename = "resources")]
     pub resources: Vec<String>,
 }
 
 impl DomainPeriodQueryResponse {
     pub fn new(
-        meta: crate::models::DomainPeriodMsaMetaInfo,
+        meta: crate::models::MsaspecPeriodMetaInfo,
         resources: Vec<String>,
     ) -> DomainPeriodQueryResponse {
         DomainPeriodQueryResponse {

@@ -9,18 +9,19 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainPeriodMsaMetaInfo {
-    #[serde(rename = "pagination", skip_serializing_if = "Option::is_none")]
-    pub pagination: Option<Box<crate::models::MsaspecPeriodPaging>>,
-    #[serde(rename = "queryTime")]
-    pub query_time: f64,
+pub struct ChangesPeriodDacl {
+    /// Possible values: 0 - MODIFIED, 1 - NULL, 2 - EMPTY, 3 - SAME
+    #[serde(rename = "changes_type", skip_serializing_if = "Option::is_none")]
+    pub changes_type: Option<i32>,
+    #[serde(rename = "entity_list", skip_serializing_if = "Option::is_none")]
+    pub entity_list: Option<Vec<crate::models::ChangesPeriodDaclEntity>>,
 }
 
-impl DomainPeriodMsaMetaInfo {
-    pub fn new(query_time: f64) -> DomainPeriodMsaMetaInfo {
-        DomainPeriodMsaMetaInfo {
-            pagination: None,
-            query_time,
+impl ChangesPeriodDacl {
+    pub fn new() -> ChangesPeriodDacl {
+        ChangesPeriodDacl {
+            changes_type: None,
+            entity_list: None,
         }
     }
 }

@@ -9,18 +9,24 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodAclChange {
-    #[serde(rename = "operation", skip_serializing_if = "Option::is_none")]
-    pub operation: Option<String>,
-    #[serde(rename = "permissions", skip_serializing_if = "Option::is_none")]
-    pub permissions: Option<String>,
+pub struct ChangesPeriodHighVolumeQueryResponse {
+    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
+    pub errors: Option<Vec<crate::models::MsaspecPeriodError>>,
+    #[serde(rename = "meta")]
+    pub meta: Box<crate::models::ChangesPeriodHighVolumeQueryMeta>,
+    #[serde(rename = "resources")]
+    pub resources: Vec<String>,
 }
 
-impl PublicPeriodAclChange {
-    pub fn new() -> PublicPeriodAclChange {
-        PublicPeriodAclChange {
-            operation: None,
-            permissions: None,
+impl ChangesPeriodHighVolumeQueryResponse {
+    pub fn new(
+        meta: crate::models::ChangesPeriodHighVolumeQueryMeta,
+        resources: Vec<String>,
+    ) -> ChangesPeriodHighVolumeQueryResponse {
+        ChangesPeriodHighVolumeQueryResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
         }
     }
 }

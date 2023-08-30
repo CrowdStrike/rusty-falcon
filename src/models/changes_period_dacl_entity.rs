@@ -9,25 +9,29 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodPermissions {
-    #[serde(rename = "dacl", skip_serializing_if = "Option::is_none")]
-    pub dacl: Option<Box<crate::models::PublicPeriodDacl>>,
-    #[serde(rename = "group", skip_serializing_if = "Option::is_none")]
-    pub group: Option<Box<crate::models::PublicPeriodGroup>>,
-    #[serde(rename = "owner", skip_serializing_if = "Option::is_none")]
-    pub owner: Option<Box<crate::models::PublicPeriodOwner>>,
-    /// Possible values: 0 - OWNER, 1 - GROUP, 2 - DACL, 3 - SACL
-    #[serde(rename = "security_info", skip_serializing_if = "Option::is_none")]
-    pub security_info: Option<i32>,
+pub struct ChangesPeriodDaclEntity {
+    #[serde(rename = "acl_change_type", skip_serializing_if = "Option::is_none")]
+    pub acl_change_type: Option<i32>,
+    #[serde(rename = "acl_permission_change")]
+    pub acl_permission_change: Vec<crate::models::ChangesPeriodAttribute>,
+    #[serde(rename = "acl_principal")]
+    pub acl_principal: String,
+    /// Possible values: 0 - ALLOW, 1 - DENY
+    #[serde(rename = "acl_type")]
+    pub acl_type: i32,
 }
 
-impl PublicPeriodPermissions {
-    pub fn new() -> PublicPeriodPermissions {
-        PublicPeriodPermissions {
-            dacl: None,
-            group: None,
-            owner: None,
-            security_info: None,
+impl ChangesPeriodDaclEntity {
+    pub fn new(
+        acl_permission_change: Vec<crate::models::ChangesPeriodAttribute>,
+        acl_principal: String,
+        acl_type: i32,
+    ) -> ChangesPeriodDaclEntity {
+        ChangesPeriodDaclEntity {
+            acl_change_type: None,
+            acl_permission_change,
+            acl_principal,
+            acl_type,
         }
     }
 }

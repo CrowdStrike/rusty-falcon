@@ -9,13 +9,13 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodDiffHash {
-    #[serde(rename = "sha256", skip_serializing_if = "Option::is_none")]
-    pub sha256: Option<String>,
+pub struct ChangesPeriodPolicyRule {
+    #[serde(rename = "base_path", skip_serializing_if = "Option::is_none")]
+    pub base_path: Option<String>,
 }
 
-impl PublicPeriodDiffHash {
-    pub fn new() -> PublicPeriodDiffHash {
-        PublicPeriodDiffHash { sha256: None }
+impl ChangesPeriodPolicyRule {
+    pub fn new() -> ChangesPeriodPolicyRule {
+        ChangesPeriodPolicyRule { base_path: None }
     }
 }

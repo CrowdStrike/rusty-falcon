@@ -9,13 +9,18 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodDiffType {
-    #[serde(rename = "hash", skip_serializing_if = "Option::is_none")]
-    pub hash: Option<Box<crate::models::PublicPeriodDiffHash>>,
+pub struct ChangesPeriodAfter {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
 }
 
-impl PublicPeriodDiffType {
-    pub fn new() -> PublicPeriodDiffType {
-        PublicPeriodDiffType { hash: None }
+impl ChangesPeriodAfter {
+    pub fn new() -> ChangesPeriodAfter {
+        ChangesPeriodAfter {
+            id: None,
+            name: None,
+        }
     }
 }

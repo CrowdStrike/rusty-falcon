@@ -9,13 +9,24 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodDiff {
-    #[serde(rename = "after", skip_serializing_if = "Option::is_none")]
-    pub after: Option<Box<crate::models::PublicPeriodDiffType>>,
+pub struct ChangesPeriodGetChangesResponse {
+    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
+    pub errors: Option<Vec<crate::models::MsaspecPeriodError>>,
+    #[serde(rename = "meta")]
+    pub meta: Box<crate::models::MsaspecPeriodMetaInfo>,
+    #[serde(rename = "resources")]
+    pub resources: Vec<crate::models::ChangesPeriodChange>,
 }
 
-impl PublicPeriodDiff {
-    pub fn new() -> PublicPeriodDiff {
-        PublicPeriodDiff { after: None }
+impl ChangesPeriodGetChangesResponse {
+    pub fn new(
+        meta: crate::models::MsaspecPeriodMetaInfo,
+        resources: Vec<crate::models::ChangesPeriodChange>,
+    ) -> ChangesPeriodGetChangesResponse {
+        ChangesPeriodGetChangesResponse {
+            errors: None,
+            meta: Box::new(meta),
+            resources,
+        }
     }
 }

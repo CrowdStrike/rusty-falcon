@@ -9,13 +9,21 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodTag {
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
+pub struct ChangesPeriodBasic {
+    #[serde(rename = "entity", skip_serializing_if = "Option::is_none")]
+    pub entity: Option<String>,
+    #[serde(rename = "operation", skip_serializing_if = "Option::is_none")]
+    pub operation: Option<String>,
+    #[serde(rename = "permissions", skip_serializing_if = "Option::is_none")]
+    pub permissions: Option<String>,
 }
 
-impl PublicPeriodTag {
-    pub fn new() -> PublicPeriodTag {
-        PublicPeriodTag { name: None }
+impl ChangesPeriodBasic {
+    pub fn new() -> ChangesPeriodBasic {
+        ChangesPeriodBasic {
+            entity: None,
+            operation: None,
+            permissions: None,
+        }
     }
 }

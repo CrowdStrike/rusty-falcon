@@ -9,31 +9,33 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodPrevalence {
-    #[serde(rename = "computed_timestamp")]
-    pub computed_timestamp: String,
-    /// Possible values: PENDING, UNIQUE, LOW, COMMON.
-    #[serde(rename = "current")]
-    pub current: String,
-    #[serde(rename = "key")]
-    pub key: String,
-    /// Possible values: PENDING, UNIQUE, LOW, COMMON.
-    #[serde(rename = "reported")]
-    pub reported: String,
+pub struct ChangesPeriodHost {
+    #[serde(rename = "agent_version", skip_serializing_if = "Option::is_none")]
+    pub agent_version: Option<String>,
+    #[serde(rename = "containment_status", skip_serializing_if = "Option::is_none")]
+    pub containment_status: Option<String>,
+    #[serde(rename = "external_ip", skip_serializing_if = "Option::is_none")]
+    pub external_ip: Option<String>,
+    #[serde(rename = "groups", skip_serializing_if = "Option::is_none")]
+    pub groups: Option<Vec<crate::models::ChangesPeriodHostGroup>>,
+    #[serde(rename = "local_ip", skip_serializing_if = "Option::is_none")]
+    pub local_ip: Option<String>,
+    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "os_version", skip_serializing_if = "Option::is_none")]
+    pub os_version: Option<String>,
 }
 
-impl PublicPeriodPrevalence {
-    pub fn new(
-        computed_timestamp: String,
-        current: String,
-        key: String,
-        reported: String,
-    ) -> PublicPeriodPrevalence {
-        PublicPeriodPrevalence {
-            computed_timestamp,
-            current,
-            key,
-            reported,
+impl ChangesPeriodHost {
+    pub fn new() -> ChangesPeriodHost {
+        ChangesPeriodHost {
+            agent_version: None,
+            containment_status: None,
+            external_ip: None,
+            groups: None,
+            local_ip: None,
+            name: None,
+            os_version: None,
         }
     }
 }

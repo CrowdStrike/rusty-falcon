@@ -40,6 +40,12 @@ pub struct DetectsPeriodAlert {
     pub display_name: Option<String>,
     #[serde(rename = "email_sent", skip_serializing_if = "Option::is_none")]
     pub email_sent: Option<bool>,
+    #[serde(rename = "es_doc_id", skip_serializing_if = "Option::is_none")]
+    pub es_doc_id: Option<String>,
+    #[serde(rename = "es_doc_version", skip_serializing_if = "Option::is_none")]
+    pub es_doc_version: Option<i64>,
+    #[serde(rename = "es_routing_id", skip_serializing_if = "Option::is_none")]
+    pub es_routing_id: Option<String>,
     #[serde(rename = "external", skip_serializing_if = "Option::is_none")]
     pub external: Option<bool>,
     #[serde(rename = "id")]
@@ -98,6 +104,9 @@ impl DetectsPeriodAlert {
             description: None,
             display_name: None,
             email_sent: None,
+            es_doc_id: None,
+            es_doc_version: None,
+            es_routing_id: None,
             external: None,
             id,
             name: None,

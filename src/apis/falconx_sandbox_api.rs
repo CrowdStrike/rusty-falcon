@@ -130,6 +130,42 @@ pub enum GetSummaryReportsError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`interactive_detonation_delete`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum InteractiveDetonationDeleteError {
+    Status400(crate::models::MsaspecPeriodQueryResponse),
+    Status403(crate::models::MsaPeriodReplyMetaOnly),
+    Status404(crate::models::MsaspecPeriodQueryResponse),
+    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status500(crate::models::MsaspecPeriodQueryResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`interactive_detonation_get`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum InteractiveDetonationGetError {
+    Status400(crate::models::MsaspecPeriodQueryResponse),
+    Status403(crate::models::MsaPeriodReplyMetaOnly),
+    Status404(crate::models::MsaspecPeriodQueryResponse),
+    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status500(crate::models::MsaspecPeriodQueryResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`interactive_detonation_post`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum InteractiveDetonationPostError {
+    Status400(crate::models::MsaspecPeriodQueryResponse),
+    Status403(crate::models::MsaPeriodReplyMetaOnly),
+    Status404(crate::models::MsaspecPeriodQueryResponse),
+    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status500(crate::models::MsaspecPeriodQueryResponse),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`query_reports`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -702,6 +738,150 @@ pub async fn get_summary_reports(
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetSummaryReportsError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Stops an interactive detonation.
+pub async fn interactive_detonation_delete(
+    configuration: &configuration::Configuration,
+    x_cs_useruuid: &str,
+    id: &str,
+) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<InteractiveDetonationDeleteError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/falconx-interactive/tunnels/{id}/v1",
+        local_var_configuration.base_path,
+        id = crate::apis::urlencode(id)
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    local_var_req_builder =
+        local_var_req_builder.header("X-CS-USERUUID", x_cs_useruuid.to_string());
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<InteractiveDetonationDeleteError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Performs an interactive detonation.
+pub async fn interactive_detonation_get(
+    configuration: &configuration::Configuration,
+    x_cs_useruuid: &str,
+    id: &str,
+) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<InteractiveDetonationGetError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/falconx-interactive/tunnels/{id}/v1",
+        local_var_configuration.base_path,
+        id = crate::apis::urlencode(id)
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    local_var_req_builder =
+        local_var_req_builder.header("X-CS-USERUUID", x_cs_useruuid.to_string());
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<InteractiveDetonationGetError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Performs an interactive detonation.
+pub async fn interactive_detonation_post(
+    configuration: &configuration::Configuration,
+    x_cs_useruuid: &str,
+    id: &str,
+) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<InteractiveDetonationPostError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/falconx-interactive/tunnels/{id}/v1",
+        local_var_configuration.base_path,
+        id = crate::apis::urlencode(id)
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    local_var_req_builder =
+        local_var_req_builder.header("X-CS-USERUUID", x_cs_useruuid.to_string());
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<InteractiveDetonationPostError> =
             serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,

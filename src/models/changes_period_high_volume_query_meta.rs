@@ -9,33 +9,24 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodHost {
-    #[serde(rename = "agent_version", skip_serializing_if = "Option::is_none")]
-    pub agent_version: Option<String>,
-    #[serde(rename = "containment_status", skip_serializing_if = "Option::is_none")]
-    pub containment_status: Option<String>,
-    #[serde(rename = "external_ip", skip_serializing_if = "Option::is_none")]
-    pub external_ip: Option<String>,
-    #[serde(rename = "groups", skip_serializing_if = "Option::is_none")]
-    pub groups: Option<Vec<crate::models::PublicPeriodHostGroup>>,
-    #[serde(rename = "local_ip", skip_serializing_if = "Option::is_none")]
-    pub local_ip: Option<String>,
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
-    #[serde(rename = "os_version", skip_serializing_if = "Option::is_none")]
-    pub os_version: Option<String>,
+pub struct ChangesPeriodHighVolumeQueryMeta {
+    #[serde(rename = "pagination", skip_serializing_if = "Option::is_none")]
+    pub pagination: Option<Box<crate::models::ChangesPeriodHighVolumeQueryPaging>>,
+    #[serde(rename = "powered_by", skip_serializing_if = "Option::is_none")]
+    pub powered_by: Option<String>,
+    #[serde(rename = "query_time")]
+    pub query_time: f64,
+    #[serde(rename = "trace_id")]
+    pub trace_id: String,
 }
 
-impl PublicPeriodHost {
-    pub fn new() -> PublicPeriodHost {
-        PublicPeriodHost {
-            agent_version: None,
-            containment_status: None,
-            external_ip: None,
-            groups: None,
-            local_ip: None,
-            name: None,
-            os_version: None,
+impl ChangesPeriodHighVolumeQueryMeta {
+    pub fn new(query_time: f64, trace_id: String) -> ChangesPeriodHighVolumeQueryMeta {
+        ChangesPeriodHighVolumeQueryMeta {
+            pagination: None,
+            powered_by: None,
+            query_time,
+            trace_id,
         }
     }
 }

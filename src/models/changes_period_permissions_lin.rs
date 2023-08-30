@@ -9,24 +9,24 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodPermissionsLin {
+pub struct ChangesPeriodPermissionsLin {
     #[serde(rename = "acl", skip_serializing_if = "Option::is_none")]
-    pub acl: Option<Vec<crate::models::PublicPeriodAcl>>,
+    pub acl: Option<Vec<crate::models::ChangesPeriodAcl>>,
     #[serde(rename = "basic", skip_serializing_if = "Option::is_none")]
-    pub basic: Option<Vec<crate::models::PublicPeriodBasic>>,
+    pub basic: Option<Vec<crate::models::ChangesPeriodBasic>>,
     #[serde(rename = "default_acl", skip_serializing_if = "Option::is_none")]
-    pub default_acl: Option<Vec<crate::models::PublicPeriodAcl>>,
+    pub default_acl: Option<Vec<crate::models::ChangesPeriodAcl>>,
     #[serde(rename = "group", skip_serializing_if = "Option::is_none")]
-    pub group: Option<Box<crate::models::PublicPeriodGroup>>,
+    pub group: Option<Box<crate::models::ChangesPeriodGroup>>,
     #[serde(rename = "owner", skip_serializing_if = "Option::is_none")]
-    pub owner: Option<Box<crate::models::PublicPeriodOwner>>,
+    pub owner: Option<Box<crate::models::ChangesPeriodOwner>>,
     #[serde(rename = "security_info", skip_serializing_if = "Option::is_none")]
     pub security_info: Option<i32>,
 }
 
-impl PublicPeriodPermissionsLin {
-    pub fn new() -> PublicPeriodPermissionsLin {
-        PublicPeriodPermissionsLin {
+impl ChangesPeriodPermissionsLin {
+    pub fn new() -> ChangesPeriodPermissionsLin {
+        ChangesPeriodPermissionsLin {
             acl: None,
             basic: None,
             default_acl: None,

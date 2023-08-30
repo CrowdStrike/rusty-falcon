@@ -14,8 +14,6 @@ pub struct DomainPeriodApiEvaluationLogicItemV1 {
     pub comparison_check: Option<String>,
     #[serde(rename = "comparisons", skip_serializing_if = "Option::is_none")]
     pub comparisons: Option<Box<crate::models::DomainPeriodApiEvaluationLogicComparisonsV1>>,
-    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
-    pub description: Option<String>,
     #[serde(
         rename = "determined_by_comparison",
         skip_serializing_if = "Option::is_none"
@@ -29,6 +27,8 @@ pub struct DomainPeriodApiEvaluationLogicItemV1 {
     pub items: Option<Vec<serde_json::Value>>,
     #[serde(rename = "negate", skip_serializing_if = "Option::is_none")]
     pub negate: Option<bool>,
+    #[serde(rename = "status")]
+    pub status: String,
     #[serde(rename = "title")]
     pub title: String,
     #[serde(rename = "type")]
@@ -36,16 +36,20 @@ pub struct DomainPeriodApiEvaluationLogicItemV1 {
 }
 
 impl DomainPeriodApiEvaluationLogicItemV1 {
-    pub fn new(title: String, r#type: String) -> DomainPeriodApiEvaluationLogicItemV1 {
+    pub fn new(
+        status: String,
+        title: String,
+        r#type: String,
+    ) -> DomainPeriodApiEvaluationLogicItemV1 {
         DomainPeriodApiEvaluationLogicItemV1 {
             comparison_check: None,
             comparisons: None,
-            description: None,
             determined_by_comparison: None,
             existence_check: None,
             id: None,
             items: None,
             negate: None,
+            status,
             title,
             r#type,
         }

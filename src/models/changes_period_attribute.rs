@@ -9,27 +9,15 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct PublicPeriodAcl {
-    #[serde(
-        rename = "acl_permission_change",
-        skip_serializing_if = "Option::is_none"
-    )]
-    pub acl_permission_change: Option<Vec<crate::models::PublicPeriodAclChange>>,
-    #[serde(rename = "entity", skip_serializing_if = "Option::is_none")]
-    pub entity: Option<String>,
-    #[serde(rename = "entity_id", skip_serializing_if = "Option::is_none")]
-    pub entity_id: Option<String>,
-    #[serde(rename = "entity_name", skip_serializing_if = "Option::is_none")]
-    pub entity_name: Option<String>,
+pub struct ChangesPeriodAttribute {
+    #[serde(rename = "attribute")]
+    pub attribute: String,
+    #[serde(rename = "change")]
+    pub change: String,
 }
 
-impl PublicPeriodAcl {
-    pub fn new() -> PublicPeriodAcl {
-        PublicPeriodAcl {
-            acl_permission_change: None,
-            entity: None,
-            entity_id: None,
-            entity_name: None,
-        }
+impl ChangesPeriodAttribute {
+    pub fn new(attribute: String, change: String) -> ChangesPeriodAttribute {
+        ChangesPeriodAttribute { attribute, change }
     }
 }

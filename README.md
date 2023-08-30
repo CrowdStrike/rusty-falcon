@@ -57,7 +57,8 @@ Ready-made examples can be found in [git repo](https://github.com/CrowdStrike/ru
 # Generating models from OpenApi Specification
 
 This api model is generated from OpenApi specification using OpenApi Generator for Rust language.
-> Note: In the OpenApi specification please update version to rolling, if required and update version on the list below.
+> Note: In the OpenApi specification please update version to `rolling``, if required and update version on the list below.
+> This will prevent crazy long PRs with updates.
 
 An example command to generate `api` and `model`:
 

@@ -9,16 +9,13 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct DomainPeriodApiEvaluationLogicHostInfoV1 {
-    /// Refers to all the entities that were matched together during entity resolution process
-    #[serde(rename = "entities_matched")]
-    pub entities_matched: Vec<crate::models::DomainPeriodApiEntityMatchedV1>,
+pub struct ChangesPeriodHostGroup {
+    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
 }
 
-impl DomainPeriodApiEvaluationLogicHostInfoV1 {
-    pub fn new(
-        entities_matched: Vec<crate::models::DomainPeriodApiEntityMatchedV1>,
-    ) -> DomainPeriodApiEvaluationLogicHostInfoV1 {
-        DomainPeriodApiEvaluationLogicHostInfoV1 { entities_matched }
+impl ChangesPeriodHostGroup {
+    pub fn new() -> ChangesPeriodHostGroup {
+        ChangesPeriodHostGroup { name: None }
     }
 }
