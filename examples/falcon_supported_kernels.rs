@@ -2,6 +2,7 @@ use clap::Parser;
 use rusty_falcon::apis::sensor_update_policies_api;
 use rusty_falcon::easy::client::FalconHandle;
 use std::io;
+use std::io::Write;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
@@ -23,20 +24,22 @@ async fn main() {
 
     let mut distro = String::new();
     if args.distro.is_none() {
-        println!("distro was not provided. Please enter a distro.");
+        println!("Missing --distro command-line option. Available distributions are: [amzn1, amzn2, debian9, elrepo7, elrepo8, oracle6, oracle7, oracle8, rhel6, rhel7, rhel8, rhel9, suse11, suse12, suse15, ubuntu14, ubuntu16, ubuntu18, ubuntu20, ubuntu22]");
+        print!("Selected distro: ");
+        io::stdout().flush().unwrap();
         let mut input = String::new();
         let _ = io::stdin().read_line(&mut input);
         distro.push_str(input.trim());
-        println!("distro = {distro}");
     }
 
     let mut arch = String::new();
     if args.arch.is_none() {
-        println!("arch was not provided. Please enter an arch.");
+        println!("Missing --arch command-line option. Available architectures are: [aarch64, s390x, x86_64]");
+        print!("Selected architecture: ");
+        io::stdout().flush().unwrap();
         let mut input = String::new();
         let _ = io::stdin().read_line(&mut input);
         arch.push_str(input.trim());
-        println!("arch = {arch}");
     }
 
     let mut filter = String::new();
