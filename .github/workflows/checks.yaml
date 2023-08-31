@@ -113,20 +113,6 @@ jobs:
         # https://github.com/13rac1/block-fixup-merge-action
         uses: 13rac1/block-fixup-merge-action@v2.0.0
 
-  udeps:
-    name: Check for unused dependencies
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install nightly
-        uses: dtolnay/rust-toolchain@nightly
-
-      - name: Run cargo-udeps
-        run: |
-          cargo install --git https://github.com/est31/cargo-udeps --locked
-          cargo udeps --all-features --all-targets
-
   cargo-sort:
     name: Run cargo sort
     runs-on: ubuntu-latest
