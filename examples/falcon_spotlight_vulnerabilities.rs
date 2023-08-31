@@ -38,7 +38,7 @@ async fn main() {
         }
 
         after = match response.meta.next() {
-            Some(pagination_token) if pagination_token.is_empty() => {
+            Some(pagination_token) if !pagination_token.is_empty() => {
                 Some(pagination_token.to_owned())
             }
             _ => break,
