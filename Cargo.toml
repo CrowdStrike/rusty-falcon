@@ -1,6 +1,6 @@
 [package]
 name = "rusty_falcon"
-version = "0.3.2"
+version = "0.3.3"
 authors = ["CrowdStrike Inc"]
 description = "Rust bindings for CrowdStrike Falcon API"
 homepage = "https://github.com/CrowdStrike/rusty-falcon"
@@ -26,3 +26,8 @@ url = "2.4.0"
 [dev-dependencies]
 clap = { version = "4.3", features = ["derive"] }
 tokio = { version = "1.30", features = ["rt-multi-thread", "macros"] }
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
+opt-level = "z" 
