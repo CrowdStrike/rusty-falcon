@@ -13,6 +13,7 @@ Some examples available here are rather similar to the [gofalcon (Golang-based S
 5. [Intel Indicators](#intel_indicators)
 6. [Supported Kernels](#falcon_supported_kernels)
 7. [Falcon Custom IOAs](#falcon_custom_ioas)
+8. [Discover API Hosts Details](#falcon_discover_hosts)
 
 ### simple
 
@@ -146,4 +147,15 @@ Filtered by `enabled`:
 
 ```bash
 cargo run --example falcon_custom_ioas -- --filter enabled:true
+```
+
+### falcon_discover_hosts
+
+[falcon_discover_hosts.rs](falcon_discover_hosts.rs)
+
+This example prints out details for all the hosts on the tenant.
+
+```bash
+FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
+     cargo run --example falcon_discover_hosts -- --sort hostname
 ```
