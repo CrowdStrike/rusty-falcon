@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Example: Falcon Custom IOAs
 - Change log using Keep a Changelog format
 
 ## [<= 0.3.x] - Historical
