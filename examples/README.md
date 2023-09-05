@@ -4,7 +4,16 @@ This directory contains useful code patterns for using `rusty_falcon` and commun
 
 Some examples available here are rather similar to the [gofalcon (Golang-based SDK) examples](https://github.com/CrowdStrike/gofalcon/tree/main/examples). Experienced golang users may find it useful to compare `rusty_falcon` and `gofalcon` counterparts.
 
-## simple
+## Examples
+
+1. [Simple client usage](#simple)
+2. [Get Customer ID](#falcon_get_cid)
+3. [Get Host Details](#falcon_host_details)
+4. [Spotlight Vulnerabilities](#falcon_spotlight_vulnerabilities)
+5. [Intel Indicators](#intel_indicators)
+6. [Supported Kernels](#falcon_supported_kernels)
+
+### simple
 
 [simple.rs](simple.rs)
 
@@ -17,7 +26,7 @@ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
     cargo run  --example simple
 ```
 
-## falcon_get_cid
+### falcon_get_cid
 
 [falcon_get_cid.rs](falcon_get_cid.rs)
 
@@ -30,7 +39,7 @@ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
     cargo run  --example falcon_get_cid
 ```
 
-## falcon_host_details
+### falcon_host_details
 
 [falcon_host_details.rs](falcon_host_details.rs)
 
@@ -64,7 +73,7 @@ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
     cargo run  --example falcon_host_details | jq -r ' map( { (.hostname) : .agent_version } ) | add'
 ```
 
-## falcon_spotlight_vulnerabilities
+### falcon_spotlight_vulnerabilities
 
 [falcon_spotlight_vulnerabilities.rs](falcon_spotlight_vulnerabilities.rs)
 
@@ -77,7 +86,7 @@ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
     cargo run  --example falcon_spotlight_vulnerabilities | jq
 ```
 
-## intel_indicators
+### intel_indicators
 
 [intel_indicators.rs](intel_indicators.rs)
 
@@ -90,7 +99,7 @@ FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
      cargo run --example intel_indicators -- --sort published_date.asc --filter deleted:false -q abc | jq
 ```
 
-## falcon_supported_kernels
+### falcon_supported_kernels
 
 [falcon_supported_kernels.rs](falcon_supported_kernels.rs)
 
@@ -100,5 +109,5 @@ Supported kernels example:
 
 ```bash
 FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
-     cargo run --example falcon_supported_kernels -- --distro=rhel9 --arch=aarch64 
+     cargo run --example falcon_supported_kernels -- --distro=rhel9 --arch=aarch64
 ```
