@@ -13,7 +13,7 @@ pub struct DomainPeriodAssessmentsResponse {
     #[serde(rename = "errors")]
     pub errors: Vec<crate::models::MsaspecPeriodError>,
     #[serde(rename = "meta")]
-    pub meta: Box<crate::models::DomainPeriodMetaInfo>,
+    pub meta: Box<crate::models::MsaspecPeriodMetaInfo>,
     #[serde(rename = "resources")]
     pub resources: Vec<crate::models::DomainPeriodSignalProperties>,
 }
@@ -21,7 +21,7 @@ pub struct DomainPeriodAssessmentsResponse {
 impl DomainPeriodAssessmentsResponse {
     pub fn new(
         errors: Vec<crate::models::MsaspecPeriodError>,
-        meta: crate::models::DomainPeriodMetaInfo,
+        meta: crate::models::MsaspecPeriodMetaInfo,
         resources: Vec<crate::models::DomainPeriodSignalProperties>,
     ) -> DomainPeriodAssessmentsResponse {
         DomainPeriodAssessmentsResponse {
