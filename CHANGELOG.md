@@ -12,11 +12,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Example: Falcon Custom IOAs
-- Example Discover API Host Details
+- Example: Discover API Host Details
+- Example: Falcon ZTA example
 - Change log using Keep a Changelog format
 
-## [<= 0.3.2] - Historical
+### Fixed
 
-### Added
+- Use `MsaspecPeriodMetaInfo` in `DomainPeriodAssessmentsResponse`:`Meta` field
+
+## [<= 0.3.2] - Historical
 
 - Support for Falcon API
