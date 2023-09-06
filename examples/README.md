@@ -12,6 +12,7 @@ Some examples available here are rather similar to the [gofalcon (Golang-based S
 4. [Spotlight Vulnerabilities](#falcon_spotlight_vulnerabilities)
 5. [Intel Indicators](#intel_indicators)
 6. [Supported Kernels](#falcon_supported_kernels)
+7. [Falcon Custom IOAs](#falcon_custom_ioas)
 
 ### simple
 
@@ -110,4 +111,39 @@ Supported kernels example:
 ```bash
 FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
      cargo run --example falcon_supported_kernels -- --distro=rhel9 --arch=aarch64
+```
+
+### falcon_custom_ioas
+
+[falcon_custom_ioas.rs](falcon_custom_ioas.rs)
+
+This example shows listing of the custom IOAs.
+The cli allows to provide parameters to the call to sort or filter the results, more details can be found in the API documentation.
+
+```bash
+Options:
+  -f, --filter <FILTER>
+  -s, --sort <SORT>
+  -q, --query <QUERY>
+  -l, --limit <LIMIT>    [default: 100]
+```
+
+To run the example:
+
+```bash
+FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
+     cargo run --example falcon_custom_ioas
+```
+
+Sorted by `created_on`:
+
+```bash
+FALCON_CLIENT_ID="abc" FALCON_CLIENT_SECRET="XYZ" FALCON_CLOUD="us-2" \
+cargo run --example falcon_custom_ioas -- --sort created_on
+```
+
+Filtered by `enabled`:
+
+```bash
+cargo run --example falcon_custom_ioas -- --filter enabled:true
 ```
