@@ -1,0 +1,11 @@
+[book]
+title = "`rusty-falcon` Documentation"
+language = "en"
+multilingual = false
+src = "src"
+
+[rust]
+edition = "2021"
+
+[output.html]
+git-repository-url = "https://github.com/CrowdStrike/rusty-falcon"
