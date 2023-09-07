@@ -4,8 +4,16 @@ language = "en"
 multilingual = false
 src = "src"
 
-[rust]
-edition = "2021"
+[build]
+create-missing = true
+use-default-preprocessors = false
+
+[preprocessor.links]
 
 [output.html]
 git-repository-url = "https://github.com/CrowdStrike/rusty-falcon"
+no-section-label = true
+fold = { enable = true }
+
+[rust]
+edition = "2021"
