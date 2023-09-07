@@ -1,4 +1,4 @@
-# \IntelApi
+# IntelApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_intel_indicator_entities
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_intel_report_entities
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_intel_report_pdf
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/octet-stream, application/json, application/pdf
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_intel_rule_entities
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_intel_rule_file
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/zip, application/gzip, application/octet-stream, application/json, */*
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_latest_intel_rule_file
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/zip, application/gzip, application/octet-stream, application/json, */*
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_mitre_report
 
@@ -240,7 +240,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/octet-stream, application/json, text/csv
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_vulnerabilities
 
@@ -266,7 +266,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## post_mitre_attacks
 
@@ -292,7 +292,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_intel_actor_entities
 
@@ -323,7 +323,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_intel_actor_ids
 
@@ -353,7 +353,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_intel_indicator_entities
 
@@ -385,7 +385,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_intel_indicator_ids
 
@@ -417,7 +417,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_intel_report_entities
 
@@ -448,7 +448,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_intel_report_ids
 
@@ -478,7 +478,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_intel_rule_ids
 
@@ -513,7 +513,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_mitre_attacks
 
@@ -540,7 +540,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_vulnerabilities
 
@@ -570,4 +570,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
