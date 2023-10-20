@@ -1,6 +1,7 @@
 use clap::Parser;
 use rusty_falcon::apis::sensor_update_policies_api;
 use rusty_falcon::easy::client::FalconHandle;
+use std::collections::HashSet;
 use std::io;
 use std::io::Write;
 
@@ -22,9 +23,34 @@ async fn main() {
         .await
         .expect("Could not authenticate with CrowdStrike API");
 
+    let offset = 0;
+    let limit = 100;
+    let kernels = sensor_update_policies_api::query_combined_sensor_update_kernels(
+        &falcon.cfg,
+        None,
+        Some(offset),
+        Some(limit),
+    )
+    .await
+    .expect("Could not fetch sensor update policy.");
+
+    let mut arch_set = HashSet::new();
+    let mut distro_set = HashSet::new();
+    for kernel in kernels.resources.unwrap() {
+        arch_set.insert(kernel.architecture);
+        distro_set.insert(kernel.distro);
+    }
+
+    let mut valid_archs = Vec::from_iter(arch_set);
+    let mut valid_distros = Vec::from_iter(distro_set);
+    valid_archs.sort_by_key(|name| name.to_lowercase());
+    valid_distros.sort_by_key(|name| name.to_lowercase());
+
     let mut distro = String::new();
     if args.distro.is_none() {
-        println!("Missing --distro command-line option. Available distributions are: [amzn1, amzn2, debian9, elrepo7, elrepo8, oracle6, oracle7, oracle8, rhel6, rhel7, rhel8, rhel9, suse11, suse12, suse15, ubuntu14, ubuntu16, ubuntu18, ubuntu20, ubuntu22]");
+        println!(
+            "Missing --distro command-line option. Available distributions are: {valid_distros:?}"
+        );
         print!("Selected distro: ");
         io::stdout().flush().unwrap();
         let mut input = String::new();
@@ -34,7 +60,9 @@ async fn main() {
 
     let mut arch = String::new();
     if args.arch.is_none() {
-        println!("Missing --arch command-line option. Available architectures are: [aarch64, s390x, x86_64]");
+        println!(
+            "Missing --arch command-line option. Available architectures are: {valid_archs:?}"
+        );
         print!("Selected architecture: ");
         io::stdout().flush().unwrap();
         let mut input = String::new();
