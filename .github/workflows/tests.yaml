@@ -16,7 +16,7 @@ jobs:
       matrix:
         toolchain: [stable, beta]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
       - name: Install ${{ matrix.toolchain }}
@@ -38,7 +38,7 @@ jobs:
       matrix:
         toolchain: [stable, beta]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
       - name: Install ${{ matrix.toolchain }}
@@ -58,7 +58,7 @@ jobs:
     name: Rust nightly
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@nightly
         with:
           components: rust-src
@@ -72,7 +72,7 @@ jobs:
     runs-on: ubuntu-latest
     name: ubuntu / stable / minimal-versions
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
       - name: Install stable
@@ -98,7 +98,7 @@ jobs:
         if: runner.os == 'Windows'
       - run: vcpkg install openssl:x64-windows-static-md
         if: runner.os == 'Windows'
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
       - name: Install stable
