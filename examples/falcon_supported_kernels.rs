@@ -1,15 +1,18 @@
 use clap::Parser;
 use rusty_falcon::apis::sensor_update_policies_api;
 use rusty_falcon::easy::client::FalconHandle;
+use std::collections::HashSet;
+use std::io;
+use std::io::Write;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 struct Args {
     #[arg(short, long)]
-    distro: String,
+    distro: Option<String>,
 
     #[arg(short, long)]
-    arch: String,
+    arch: Option<String>,
 }
 
 #[tokio::main]
@@ -20,7 +23,67 @@ async fn main() {
         .await
         .expect("Could not authenticate with CrowdStrike API");
 
-    let filter = format!("distro:'{}'+architecture:'{}'", args.distro, args.arch);
+    let offset = 0;
+    let limit = 100;
+    let kernels = sensor_update_policies_api::query_combined_sensor_update_kernels(
+        &falcon.cfg,
+        None,
+        Some(offset),
+        Some(limit),
+    )
+    .await
+    .expect("Could not fetch sensor update policy.");
+
+    let mut arch_set = HashSet::new();
+    let mut distro_set = HashSet::new();
+    for kernel in kernels.resources.unwrap() {
+        arch_set.insert(kernel.architecture);
+        distro_set.insert(kernel.distro);
+    }
+
+    let mut valid_archs = Vec::from_iter(arch_set);
+    let mut valid_distros = Vec::from_iter(distro_set);
+    valid_archs.sort_by_key(|name| name.to_lowercase());
+    valid_distros.sort_by_key(|name| name.to_lowercase());
+
+    let mut distro = String::new();
+    if args.distro.is_none() {
+        println!(
+            "Missing --distro command-line option. Available distributions are: {valid_distros:?}"
+        );
+        print!("Selected distro: ");
+        io::stdout().flush().unwrap();
+        let mut input = String::new();
+        let _ = io::stdin().read_line(&mut input);
+        distro.push_str(input.trim());
+    }
+
+    let mut arch = String::new();
+    if args.arch.is_none() {
+        println!(
+            "Missing --arch command-line option. Available architectures are: {valid_archs:?}"
+        );
+        print!("Selected architecture: ");
+        io::stdout().flush().unwrap();
+        let mut input = String::new();
+        let _ = io::stdin().read_line(&mut input);
+        arch.push_str(input.trim());
+    }
+
+    let mut filter = String::new();
+    if args.distro.is_some() && args.arch.is_some() {
+        filter.push_str(
+            format!(
+                "distro:'{}'+architecture:'{}'",
+                args.distro.as_deref().unwrap_or_default(),
+                args.arch.as_deref().unwrap_or_default()
+            )
+            .as_str(),
+        );
+    } else {
+        filter.push_str(format!("distro:'{distro}'+architecture:'{arch}'").as_str());
+    }
+
     let offset = 0;
     let limit = 100;
     let response = sensor_update_policies_api::query_combined_sensor_update_kernels(
