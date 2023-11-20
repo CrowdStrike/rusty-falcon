@@ -54,6 +54,16 @@ async fn main() {
 
 Ready-made examples can be found in [git repo](https://github.com/CrowdStrike/rusty-falcon/tree/main/examples).
 
+# [WIP] Project Documentation
+
+This project uses `mdbook` to serve its documentation, to run it locally:
+
+```bash
+cd docs
+mdbook build
+mdbook serve
+```
+
 # Generating models from OpenApi Specification
 
 This api model is generated from OpenApi specification using OpenApi Generator for Rust language.
