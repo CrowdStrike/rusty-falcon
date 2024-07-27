@@ -26,12 +26,13 @@ async fn get_all_hosts(
     let mut details = Vec::<models::DeviceapiPeriodDeviceSwagger>::new();
     let mut offset = String::new();
     loop {
-        let response = query_devices_by_filter_offset(configuration, sort, filter, offset).await?;
+        let mut response =
+            query_devices_by_filter_offset(configuration, sort, filter, offset).await?;
         let resources_count = response.resources.len();
         if resources_count == 0 {
             break;
         }
-        offset = response.resources[resources_count - 1].clone();
+        offset = response.resources.pop().unwrap();
         details.append(&mut get_device_details(configuration, &response.resources).await?);
         if resources_count < 5000 {
             break;
