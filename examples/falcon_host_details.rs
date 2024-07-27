@@ -47,7 +47,7 @@ async fn get_device_details(
 ) -> Result<Vec<models::DeviceapiPeriodDeviceSwagger>, Box<dyn error::Error>> {
     let response = hosts_api::post_device_details_v2(
         configuration,
-        crate::models::MsaPeriodIdsRequest::new(ids.to_owned()),
+        models::MsaPeriodIdsRequest::new(ids.to_owned()),
     )
     .await?;
 
@@ -66,7 +66,7 @@ async fn query_devices_by_filter_offset(
     configuration: &configuration::Configuration,
     sort: Option<&str>,
     filter: Option<&str>,
-    offset: std::string::String,
+    offset: String,
 ) -> Result<models::DeviceapiPeriodDeviceResponse, Box<dyn error::Error>> {
     let response = hosts_api::query_devices_by_filter_scroll(
         configuration,
