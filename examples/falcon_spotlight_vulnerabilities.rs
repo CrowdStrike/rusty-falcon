@@ -62,10 +62,7 @@ async fn get_vulnerabilities(
         None,
     )
     .await?;
-    let errors = match response.errors {
-        None => Vec::new(),
-        Some(errors) => errors,
-    };
+    let errors = response.errors.unwrap_or_default();
     if !errors.is_empty() {
         return Err(ApiError(format!(
             "while listing Spotlight Vulnerabilities: '{errors:?}'"
