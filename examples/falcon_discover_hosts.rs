@@ -30,12 +30,12 @@ async fn main() {
         .expect("Could not authenticate with CrowdStrike API");
 
     let mut details = vec![];
-    let mut offset = 0usize;
+    let mut offset = 0i64;
 
     loop {
         let response = query_hosts(
             &falcon.cfg,
-            Some(offset as i32),
+            Some(offset as i32), // Casting is safe here because i64 will fit in i32
             Some(LIMIT),
             Some(args.sort.as_str()),
             args.filter.as_deref(),
@@ -56,7 +56,7 @@ async fn main() {
             break;
         }
 
-        offset += response.resources.len();
+        offset += response.resources.len() as i64;
 
         let batch_details = get_hosts(&falcon.cfg, response.resources)
             .await
@@ -65,7 +65,7 @@ async fn main() {
         details.extend(batch_details);
 
         match response.meta.pagination {
-            Some(pagination) if offset < pagination.total as usize => {}
+            Some(pagination) if offset < pagination.total as i64 => {}
             _ => break,
         };
     }
