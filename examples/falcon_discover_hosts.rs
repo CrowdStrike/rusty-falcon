@@ -65,7 +65,7 @@ async fn main() {
         details.extend(batch_details);
 
         match response.meta.pagination {
-            Some(pagination) if offset < pagination.total as i64 => {}
+            Some(pagination) if offset < pagination.total => {}
             _ => break,
         };
     }
