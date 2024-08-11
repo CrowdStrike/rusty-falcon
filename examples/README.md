@@ -20,7 +20,7 @@ Some examples available here are rather similar to the [gofalcon (Golang-based S
 
 [simple.rs](simple.rs)
 
-Minimalist example to show case authentication and initialisation of client library. Upon successful authentication the very latest [CrowdStrike Score](https://www.crowdstrike.com/blog/tech-center/crowdscore-efficiency/) is shown.
+Minimalist example to showcase authentication and initialisation of client library. Upon successful authentication the very latest [CrowdStrike Score](https://www.crowdstrike.com/blog/tech-center/crowdscore-efficiency/) is shown.
 
 Example run:
 
