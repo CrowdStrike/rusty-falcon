@@ -82,7 +82,7 @@ jobs:
       - name: rustup default stable
         run: rustup default stable
       - name: cargo update -Zminimal-versions
-        run: cargo +nightly update -Zminimal-versions
+        run: cargo +nightly update -Zdirect-minimal-versions
       - name: cargo test
         run: cargo test --locked --all-features --all-targets
 
