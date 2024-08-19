@@ -26,12 +26,13 @@ async fn get_all_hosts(
     let mut details = Vec::<models::DeviceapiPeriodDeviceSwagger>::new();
     let mut offset = String::new();
     loop {
-        let response = query_devices_by_filter_offset(configuration, sort, filter, offset).await?;
+        let response =
+            query_devices_by_filter_offset(configuration, sort, filter, offset.as_str()).await?;
         let resources_count = response.resources.len();
         if resources_count == 0 {
             break;
         }
-        offset = response.resources[resources_count - 1].clone();
+        offset = response.resources[resources_count - 1].to_string();
         details.append(&mut get_device_details(configuration, &response.resources).await?);
         if resources_count < 5000 {
             break;
@@ -46,7 +47,7 @@ async fn get_device_details(
 ) -> Result<Vec<models::DeviceapiPeriodDeviceSwagger>, Box<dyn error::Error>> {
     let response = hosts_api::post_device_details_v2(
         configuration,
-        crate::models::MsaPeriodIdsRequest::new(ids.to_owned()),
+        models::MsaPeriodIdsRequest::new(ids.to_owned()),
     )
     .await?;
 
@@ -65,11 +66,11 @@ async fn query_devices_by_filter_offset(
     configuration: &configuration::Configuration,
     sort: Option<&str>,
     filter: Option<&str>,
-    offset: std::string::String,
+    offset: &str,
 ) -> Result<models::DeviceapiPeriodDeviceResponse, Box<dyn error::Error>> {
     let response = hosts_api::query_devices_by_filter_scroll(
         configuration,
-        Some(offset.as_str()),
+        Some(offset),
         Some(5000),
         sort,
         filter,
