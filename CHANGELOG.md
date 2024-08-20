@@ -20,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update example code to follow the latest OpenAPI spec changes
 - Fix links in the README
 - Fix spelling for docs and api files
+- Error hierarchy revamp to structured errors based on `thiserror` crate
+
 
 ## [0.3.3] - 2023-09-04
 

@@ -1,5 +1,6 @@
-use crate::easy::errors::CredentialsError;
 use std::{env, str::FromStr};
+
+use crate::error::CredentialsError;
 
 #[derive(Debug, Clone, Copy)]
 pub enum FalconCloud {
@@ -24,7 +25,7 @@ impl FalconCloud {
     }
 
     pub fn from_env() -> Result<Self, CredentialsError> {
-        let cloud_str = env::var("FALCON_CLOUD").map_err(|_| CredentialsError("Missing FALCON_CLOUD environment variable. Please provide your Falcon Cloud region".to_string()))?;
+        let cloud_str = env::var("FALCON_CLOUD").map_err(|_| CredentialsError::CloudEnv)?;
         Self::from_str(cloud_str.as_str())
     }
 }
@@ -38,7 +39,7 @@ impl FromStr for FalconCloud {
             "us-2" => Ok(Self::Us2),
             "eu-1" => Ok(Self::Eu1),
             "us-gov-1" => Ok(Self::UsGov1),
-            _ => Err(CredentialsError(format!("Invalid FALCON_CLOUD specifier: '{s}'. Supported values are: us-1, us-2, eu-1, us-gov-1"))),
+            _ => Err(CredentialsError::Cloud(s.to_string())),
         }
     }
 }
