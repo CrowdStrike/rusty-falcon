@@ -30,7 +30,7 @@ async fn main() {
         .expect("Could not authenticate with CrowdStrike API");
 
     let mut details = vec![];
-    let mut offset = 0;
+    let mut offset: i64 = 0;
     loop {
         let response = query_rule_groups_mixin0(
             &falcon.cfg,
@@ -62,7 +62,9 @@ async fn main() {
         details.extend(details_response);
 
         offset = match response.meta.pagination {
-            Some(pagination) if pagination.offset < pagination.total as i32 => pagination.offset,
+            Some(pagination) if i64::from(pagination.offset) < pagination.total => {
+                i64::from(pagination.offset)
+            }
             _ => break,
         };
     }
