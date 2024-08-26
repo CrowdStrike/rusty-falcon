@@ -11,16 +11,15 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`get_assessment_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAssessmentV1Error {
-    Status400(crate::models::DomainPeriodAssessmentsResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodAssessmentsResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodAssessmentsResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +27,10 @@ pub enum GetAssessmentV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAssessmentsByScoreV1Error {
-    Status400(crate::models::DomainPeriodAssessmentsByScoreResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodAssessmentsByScoreResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodAssessmentsByScoreResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodAssessmentsByScoreResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,16 +38,16 @@ pub enum GetAssessmentsByScoreV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAuditV1Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodAuditResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodAuditResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn get_assessment_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodAssessmentsResponse, Error<GetAssessmentV1Error>> {
+) -> Result<models::DomainPeriodAssessmentsResponse, Error<GetAssessmentV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -63,7 +62,7 @@ pub async fn get_assessment_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -109,10 +108,7 @@ pub async fn get_assessments_by_score_v1(
     limit: Option<i32>,
     after: Option<&str>,
     sort: Option<&str>,
-) -> Result<
-    crate::models::DomainPeriodAssessmentsByScoreResponse,
-    Error<GetAssessmentsByScoreV1Error>,
-> {
+) -> Result<models::DomainPeriodAssessmentsByScoreResponse, Error<GetAssessmentsByScoreV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -167,7 +163,7 @@ pub async fn get_assessments_by_score_v1(
 
 pub async fn get_audit_v1(
     configuration: &configuration::Configuration,
-) -> Result<crate::models::DomainPeriodAuditResponse, Error<GetAuditV1Error>> {
+) -> Result<models::DomainPeriodAuditResponse, Error<GetAuditV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

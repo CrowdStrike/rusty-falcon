@@ -11,14 +11,14 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`aggregate_alerts`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateAlertsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -26,8 +26,8 @@ pub enum AggregateAlertsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateAllowListError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -35,8 +35,8 @@ pub enum AggregateAllowListError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateBlockListError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -44,8 +44,8 @@ pub enum AggregateBlockListError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateDetectionsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -53,8 +53,8 @@ pub enum AggregateDetectionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateDeviceCountCollectionError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,8 +62,8 @@ pub enum AggregateDeviceCountCollectionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateEscalationsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -71,8 +71,19 @@ pub enum AggregateEscalationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateFcIncidentsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`aggregate_prevention_policy`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum AggregatePreventionPolicyError {
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -80,8 +91,41 @@ pub enum AggregateFcIncidentsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateRemediationsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`aggregate_sensor_update_policy`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum AggregateSensorUpdatePolicyError {
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`aggregate_support_issues`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum AggregateSupportIssuesError {
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`aggregate_total_device_counts`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum AggregateTotalDeviceCountsError {
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -89,8 +133,8 @@ pub enum AggregateRemediationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetDeviceCountCollectionQueriesByFilterError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -98,8 +142,8 @@ pub enum GetDeviceCountCollectionQueriesByFilterError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryAlertIdsByFilterError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -107,8 +151,8 @@ pub enum QueryAlertIdsByFilterError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryAllowListFilterError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -116,8 +160,8 @@ pub enum QueryAllowListFilterError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryBlockListFilterError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -125,8 +169,8 @@ pub enum QueryBlockListFilterError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryDetectionIdsByFilterError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -134,8 +178,8 @@ pub enum QueryDetectionIdsByFilterError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryEscalationsFilterError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -143,8 +187,8 @@ pub enum QueryEscalationsFilterError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIncidentIdsByFilterError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -152,15 +196,15 @@ pub enum QueryIncidentIdsByFilterError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRemediationsFilterError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn aggregate_alerts(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<AggregateAlertsError>> {
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateAlertsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -203,8 +247,8 @@ pub async fn aggregate_alerts(
 
 pub async fn aggregate_allow_list(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<AggregateAllowListError>> {
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateAllowListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -247,8 +291,8 @@ pub async fn aggregate_allow_list(
 
 pub async fn aggregate_block_list(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<AggregateBlockListError>> {
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateBlockListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -292,8 +336,8 @@ pub async fn aggregate_block_list(
 /// Fields allowed to aggregate on:  - indexed_time   - created_time   - detect_time   - ldt   - cid   - aid   - platform_name   - os_version   - device_tags   - host_name   - status   - severity   - adversary_ids   - behavior_ids   - behavior_names   - num_blocked_processes   - num_quarantined_files   - pattern_ids   - first_behavior_time   - last_behavior_time   - show_in_ui   - seconds_to_triaged   - seconds_to_resolved   - assigned_to_uid   - public_tags   - vertical_tags
 pub async fn aggregate_detections(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<AggregateDetectionsError>> {
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateDetectionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -336,9 +380,8 @@ pub async fn aggregate_detections(
 
 pub async fn aggregate_device_count_collection(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<AggregateDeviceCountCollectionError>>
-{
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateDeviceCountCollectionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -381,8 +424,8 @@ pub async fn aggregate_device_count_collection(
 
 pub async fn aggregate_escalations(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<AggregateEscalationsError>> {
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateEscalationsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -425,8 +468,8 @@ pub async fn aggregate_escalations(
 
 pub async fn aggregate_fc_incidents(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<AggregateFcIncidentsError>> {
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateFcIncidentsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -467,10 +510,54 @@ pub async fn aggregate_fc_incidents(
     }
 }
 
+pub async fn aggregate_prevention_policy(
+    configuration: &configuration::Configuration,
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregatePreventionPolicyError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/falcon-complete-dashboards/aggregates/prevention-policies/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<AggregatePreventionPolicyError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn aggregate_remediations(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<AggregateRemediationsError>> {
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateRemediationsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -511,16 +598,146 @@ pub async fn aggregate_remediations(
     }
 }
 
+pub async fn aggregate_sensor_update_policy(
+    configuration: &configuration::Configuration,
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateSensorUpdatePolicyError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/falcon-complete-dashboards/aggregates/sensor-update-policies/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<AggregateSensorUpdatePolicyError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn aggregate_support_issues(
+    configuration: &configuration::Configuration,
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateSupportIssuesError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/falcon-complete-dashboards/aggregates/support-issues/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<AggregateSupportIssuesError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn aggregate_total_device_counts(
+    configuration: &configuration::Configuration,
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateTotalDeviceCountsError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/falcon-complete-dashboards/aggregates/total-device-counts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<AggregateTotalDeviceCountsError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn get_device_count_collection_queries_by_filter(
     configuration: &configuration::Configuration,
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
     offset: Option<&str>,
-) -> Result<
-    crate::models::MsaspecPeriodQueryResponse,
-    Error<GetDeviceCountCollectionQueriesByFilterError>,
-> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<GetDeviceCountCollectionQueriesByFilterError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -582,7 +799,7 @@ pub async fn query_alert_ids_by_filter(
     sort: Option<&str>,
     filter: Option<&str>,
     offset: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryAlertIdsByFilterError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryAlertIdsByFilterError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -644,7 +861,7 @@ pub async fn query_allow_list_filter(
     sort: Option<&str>,
     filter: Option<&str>,
     offset: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryAllowListFilterError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryAllowListFilterError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -706,7 +923,7 @@ pub async fn query_block_list_filter(
     sort: Option<&str>,
     filter: Option<&str>,
     offset: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryBlockListFilterError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryBlockListFilterError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -768,7 +985,7 @@ pub async fn query_detection_ids_by_filter(
     sort: Option<&str>,
     filter: Option<&str>,
     offset: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryDetectionIdsByFilterError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryDetectionIdsByFilterError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -830,7 +1047,7 @@ pub async fn query_escalations_filter(
     sort: Option<&str>,
     filter: Option<&str>,
     offset: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryEscalationsFilterError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryEscalationsFilterError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -892,7 +1109,7 @@ pub async fn query_incident_ids_by_filter(
     sort: Option<&str>,
     filter: Option<&str>,
     offset: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryIncidentIdsByFilterError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryIncidentIdsByFilterError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -954,7 +1171,7 @@ pub async fn query_remediations_filter(
     sort: Option<&str>,
     filter: Option<&str>,
     offset: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryRemediationsFilterError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryRemediationsFilterError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

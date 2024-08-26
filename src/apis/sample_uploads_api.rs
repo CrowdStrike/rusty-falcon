@@ -11,16 +11,16 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`archive_delete_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ArchiveDeleteV1Error {
     Status400(),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
     Status404(),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     Status500(),
     UnknownValue(serde_json::Value),
 }
@@ -29,10 +29,10 @@ pub enum ArchiveDeleteV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ArchiveGetV1Error {
-    Status400(crate::models::ClientPeriodArchiveCreateResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ClientPeriodArchiveCreateResponseV1),
+    Status400(models::ClientPeriodArchiveCreateResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ClientPeriodArchiveCreateResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,10 +40,10 @@ pub enum ArchiveGetV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ArchiveListV1Error {
-    Status400(crate::models::ClientPeriodArchiveListFilesResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ClientPeriodArchiveListFilesResponseV1),
+    Status400(models::ClientPeriodArchiveListFilesResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ClientPeriodArchiveListFilesResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,10 +51,10 @@ pub enum ArchiveListV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ArchiveUploadV1Error {
-    Status400(crate::models::ClientPeriodArchiveCreateResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ClientPeriodArchiveCreateResponseV1),
+    Status400(models::ClientPeriodArchiveCreateResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ClientPeriodArchiveCreateResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,10 +62,10 @@ pub enum ArchiveUploadV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ArchiveUploadV2Error {
-    Status400(crate::models::ClientPeriodArchiveCreateResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ClientPeriodArchiveCreateResponseV1),
+    Status400(models::ClientPeriodArchiveCreateResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ClientPeriodArchiveCreateResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -73,11 +73,11 @@ pub enum ArchiveUploadV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteSampleV3Error {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodQueryResponse),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodQueryResponse),
+    Status404(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -85,10 +85,10 @@ pub enum DeleteSampleV3Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtractionCreateV1Error {
-    Status400(crate::models::ClientPeriodExtractionCreateResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ClientPeriodExtractionCreateResponseV1),
+    Status400(models::ClientPeriodExtractionCreateResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ClientPeriodExtractionCreateResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -96,10 +96,10 @@ pub enum ExtractionCreateV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtractionGetV1Error {
-    Status400(crate::models::ClientPeriodExtractionCreateResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ClientPeriodExtractionCreateResponseV1),
+    Status400(models::ClientPeriodExtractionCreateResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ClientPeriodExtractionCreateResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -107,10 +107,10 @@ pub enum ExtractionGetV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtractionListV1Error {
-    Status400(crate::models::ClientPeriodExtractionListFilesResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ClientPeriodExtractionListFilesResponseV1),
+    Status400(models::ClientPeriodExtractionListFilesResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ClientPeriodExtractionListFilesResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -118,11 +118,11 @@ pub enum ExtractionListV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSampleV3Error {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -130,10 +130,10 @@ pub enum GetSampleV3Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UploadSampleV3Error {
-    Status400(crate::models::ClientPeriodSampleMetadataResponseV2),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ClientPeriodSampleMetadataResponseV2),
+    Status400(models::ClientPeriodSampleMetadataResponseV2),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ClientPeriodSampleMetadataResponseV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -185,7 +185,7 @@ pub async fn archive_get_v1(
     configuration: &configuration::Configuration,
     id: &str,
     include_files: Option<bool>,
-) -> Result<crate::models::ClientPeriodArchiveCreateResponseV1, Error<ArchiveGetV1Error>> {
+) -> Result<models::ClientPeriodArchiveCreateResponseV1, Error<ArchiveGetV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -235,7 +235,7 @@ pub async fn archive_list_v1(
     id: &str,
     limit: Option<i32>,
     offset: Option<&str>,
-) -> Result<crate::models::ClientPeriodArchiveListFilesResponseV1, Error<ArchiveListV1Error>> {
+) -> Result<models::ClientPeriodArchiveListFilesResponseV1, Error<ArchiveListV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -291,7 +291,7 @@ pub async fn archive_upload_v1(
     password: Option<&str>,
     is_confidential: Option<bool>,
     comment: Option<&str>,
-) -> Result<crate::models::ClientPeriodArchiveCreateResponseV1, Error<ArchiveUploadV1Error>> {
+) -> Result<models::ClientPeriodArchiveCreateResponseV1, Error<ArchiveUploadV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -352,7 +352,7 @@ pub async fn archive_upload_v2(
     password: Option<&str>,
     is_confidential: Option<bool>,
     comment: Option<&str>,
-) -> Result<crate::models::ClientPeriodArchiveCreateResponseV1, Error<ArchiveUploadV2Error>> {
+) -> Result<models::ClientPeriodArchiveCreateResponseV1, Error<ArchiveUploadV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -408,7 +408,7 @@ pub async fn archive_upload_v2(
 pub async fn delete_sample_v3(
     configuration: &configuration::Configuration,
     ids: &str,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<DeleteSampleV3Error>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<DeleteSampleV3Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -451,8 +451,8 @@ pub async fn delete_sample_v3(
 
 pub async fn extraction_create_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::ClientPeriodExtractionCreateRequestV1,
-) -> Result<crate::models::ClientPeriodExtractionCreateResponseV1, Error<ExtractionCreateV1Error>> {
+    body: models::ClientPeriodExtractionCreateRequestV1,
+) -> Result<models::ClientPeriodExtractionCreateResponseV1, Error<ExtractionCreateV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -497,7 +497,7 @@ pub async fn extraction_get_v1(
     configuration: &configuration::Configuration,
     id: &str,
     include_files: Option<bool>,
-) -> Result<crate::models::ClientPeriodExtractionCreateResponseV1, Error<ExtractionGetV1Error>> {
+) -> Result<models::ClientPeriodExtractionCreateResponseV1, Error<ExtractionGetV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -547,8 +547,7 @@ pub async fn extraction_list_v1(
     id: &str,
     limit: Option<i32>,
     offset: Option<&str>,
-) -> Result<crate::models::ClientPeriodExtractionListFilesResponseV1, Error<ExtractionListV1Error>>
-{
+) -> Result<models::ClientPeriodExtractionListFilesResponseV1, Error<ExtractionListV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -652,7 +651,7 @@ pub async fn upload_sample_v3(
     file_name: &str,
     comment: Option<&str>,
     is_confidential: Option<bool>,
-) -> Result<crate::models::ClientPeriodSampleMetadataResponseV2, Error<UploadSampleV3Error>> {
+) -> Result<models::ClientPeriodSampleMetadataResponseV2, Error<UploadSampleV3Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

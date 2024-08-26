@@ -9,8 +9,7 @@
  */
 
 /// HostGroupsPeriodHostGroupV1 : A host group which targets a set of devices either through a dynamic assignment rule or a static set of hosts
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct HostGroupsPeriodHostGroupV1 {
     /// The assignment rule of a group
     #[serde(rename = "assignment_rule", skip_serializing_if = "Option::is_none")]
@@ -65,7 +64,6 @@ impl HostGroupsPeriodHostGroupV1 {
         }
     }
 }
-
 /// The method by which this host group is managed
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum GroupType {

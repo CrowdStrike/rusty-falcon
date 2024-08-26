@@ -11,16 +11,38 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
+
+/// struct for typed errors of method [`combined_applications`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CombinedApplicationsError {
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`combined_hosts`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CombinedHostsError {
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
+    UnknownValue(serde_json::Value),
+}
 
 /// struct for typed errors of method [`get_accounts`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAccountsError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +50,10 @@ pub enum GetAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetApplicationsError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +61,10 @@ pub enum GetApplicationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetHostsError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +72,10 @@ pub enum GetHostsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLoginsError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,10 +83,10 @@ pub enum GetLoginsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryAccountsError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -72,10 +94,10 @@ pub enum QueryAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryApplicationsError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -83,10 +105,10 @@ pub enum QueryApplicationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryHostsError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -94,18 +116,178 @@ pub enum QueryHostsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryLoginsError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
+}
+
+pub async fn combined_applications(
+    configuration: &configuration::Configuration,
+    filter: &str,
+    after: Option<&str>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    facet: Option<Vec<String>>,
+) -> Result<
+    models::DomainPeriodDiscoverApiCombinedApplicationsResponse,
+    Error<CombinedApplicationsError>,
+> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/discover/combined/applications/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = after {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    local_var_req_builder = local_var_req_builder.query(&[("filter", &filter.to_string())]);
+    if let Some(ref local_var_str) = facet {
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("facet".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "facet",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
+        };
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CombinedApplicationsError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn combined_hosts(
+    configuration: &configuration::Configuration,
+    filter: &str,
+    after: Option<&str>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    facet: Option<Vec<String>>,
+) -> Result<models::DomainPeriodDiscoverApiCombinedHostsResponse, Error<CombinedHostsError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/discover/combined/hosts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = after {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("after", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    local_var_req_builder = local_var_req_builder.query(&[("filter", &filter.to_string())]);
+    if let Some(ref local_var_str) = facet {
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("facet".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "facet",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
+        };
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CombinedHostsError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
 }
 
 pub async fn get_accounts(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodDiscoverApiAccountEntitiesResponse, Error<GetAccountsError>>
-{
+) -> Result<models::DomainPeriodDiscoverApiAccountEntitiesResponse, Error<GetAccountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -120,7 +302,7 @@ pub async fn get_accounts(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -163,10 +345,8 @@ pub async fn get_accounts(
 pub async fn get_applications(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    crate::models::DomainPeriodDiscoverApiApplicationEntitiesResponse,
-    Error<GetApplicationsError>,
-> {
+) -> Result<models::DomainPeriodDiscoverApiApplicationEntitiesResponse, Error<GetApplicationsError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -181,7 +361,7 @@ pub async fn get_applications(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -224,7 +404,7 @@ pub async fn get_applications(
 pub async fn get_hosts(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodDiscoverApiHostEntitiesResponse, Error<GetHostsError>> {
+) -> Result<models::DomainPeriodDiscoverApiHostEntitiesResponse, Error<GetHostsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -239,7 +419,7 @@ pub async fn get_hosts(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -281,7 +461,7 @@ pub async fn get_hosts(
 pub async fn get_logins(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodDiscoverApiLoginEntitiesResponse, Error<GetLoginsError>> {
+) -> Result<models::DomainPeriodDiscoverApiLoginEntitiesResponse, Error<GetLoginsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -296,7 +476,7 @@ pub async fn get_logins(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -342,7 +522,7 @@ pub async fn query_accounts(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryAccountsError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryAccountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -404,7 +584,7 @@ pub async fn query_applications(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryApplicationsError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryApplicationsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -466,7 +646,7 @@ pub async fn query_hosts(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryHostsError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryHostsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -528,7 +708,7 @@ pub async fn query_logins(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryLoginsError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryLoginsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

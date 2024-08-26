@@ -11,17 +11,17 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`create_registry_entities`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateRegistryEntitiesError {
-    Status400(crate::models::DomainPeriodExternalRegistryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status409(crate::models::DomainPeriodExternalRegistryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodExternalRegistryResponse),
+    Status400(models::DomainPeriodExternalRegistryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status409(models::DomainPeriodExternalRegistryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodExternalRegistryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,19 +29,8 @@ pub enum CreateRegistryEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteRegistryEntitiesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_combined_images`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetCombinedImagesError {
-    Status403(crate::models::ImagesPeriodExtCombinedImagesResponse),
-    Status404(crate::models::ImagesPeriodExtCombinedImagesResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ImagesPeriodExtCombinedImagesResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -49,10 +38,10 @@ pub enum GetCombinedImagesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadRegistryEntitiesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodExternalQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodExternalQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodExternalQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodExternalQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -60,10 +49,10 @@ pub enum ReadRegistryEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadRegistryEntitiesByUuidError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodExternalRegistryListResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodExternalRegistryListResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodExternalRegistryListResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodExternalRegistryListResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -71,19 +60,18 @@ pub enum ReadRegistryEntitiesByUuidError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateRegistryEntitiesError {
-    Status400(crate::models::DomainPeriodExternalRegistryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodExternalRegistryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodExternalRegistryResponse),
+    Status400(models::DomainPeriodExternalRegistryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodExternalRegistryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodExternalRegistryResponse),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_registry_entities(
     configuration: &configuration::Configuration,
-    body: crate::models::RegistryassessmentPeriodExternalRegistryPayload,
-) -> Result<crate::models::DomainPeriodExternalRegistryResponse, Error<CreateRegistryEntitiesError>>
-{
+    body: models::RegistryassessmentPeriodExternalRegistryPayload,
+) -> Result<models::DomainPeriodExternalRegistryResponse, Error<CreateRegistryEntitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -127,10 +115,7 @@ pub async fn create_registry_entities(
 pub async fn delete_registry_entities(
     configuration: &configuration::Configuration,
     ids: &str,
-) -> Result<
-    crate::models::DomainPeriodExternalRegistryListResponse,
-    Error<DeleteRegistryEntitiesError>,
-> {
+) -> Result<models::DomainPeriodExternalRegistryListResponse, Error<DeleteRegistryEntitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -171,74 +156,12 @@ pub async fn delete_registry_entities(
     }
 }
 
-pub async fn get_combined_images(
-    configuration: &configuration::Configuration,
-    filter: Option<&str>,
-    limit: Option<i32>,
-    offset: Option<i32>,
-    sort: Option<&str>,
-) -> Result<crate::models::ImagesPeriodExtCombinedImagesResponse, Error<GetCombinedImagesError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!(
-        "{}/container-security/combined/image-assessment/images/v1",
-        local_var_configuration.base_path
-    );
-    let mut local_var_req_builder =
-        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = filter {
-        local_var_req_builder =
-            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = limit {
-        local_var_req_builder =
-            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = offset {
-        local_var_req_builder =
-            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = sort {
-        local_var_req_builder =
-            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder =
-            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<GetCombinedImagesError> =
-            serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
 pub async fn read_registry_entities(
     configuration: &configuration::Configuration,
     limit: Option<i32>,
     offset: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::DomainPeriodExternalQueryResponse, Error<ReadRegistryEntitiesError>> {
+) -> Result<models::DomainPeriodExternalQueryResponse, Error<ReadRegistryEntitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -293,10 +216,8 @@ pub async fn read_registry_entities(
 pub async fn read_registry_entities_by_uuid(
     configuration: &configuration::Configuration,
     ids: &str,
-) -> Result<
-    crate::models::DomainPeriodExternalRegistryListResponse,
-    Error<ReadRegistryEntitiesByUuidError>,
-> {
+) -> Result<models::DomainPeriodExternalRegistryListResponse, Error<ReadRegistryEntitiesByUuidError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -340,9 +261,8 @@ pub async fn read_registry_entities_by_uuid(
 pub async fn update_registry_entities(
     configuration: &configuration::Configuration,
     id: &str,
-    body: crate::models::RegistryassessmentPeriodExternalRegistryPatchPayload,
-) -> Result<crate::models::DomainPeriodExternalRegistryResponse, Error<UpdateRegistryEntitiesError>>
-{
+    body: models::RegistryassessmentPeriodExternalRegistryPatchPayload,
+) -> Result<models::DomainPeriodExternalRegistryResponse, Error<UpdateRegistryEntitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

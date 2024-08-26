@@ -11,15 +11,15 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`add_cid_group_members`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AddCidGroupMembersError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,9 +27,9 @@ pub enum AddCidGroupMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AddRoleError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,9 +37,9 @@ pub enum AddRoleError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AddUserGroupMembersError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -47,9 +47,9 @@ pub enum AddUserGroupMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCidGroupsError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -57,9 +57,9 @@ pub enum CreateCidGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateUserGroupsError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -67,9 +67,9 @@ pub enum CreateUserGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteCidGroupMembersError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -77,9 +77,9 @@ pub enum DeleteCidGroupMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteCidGroupMembersV2Error {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -87,9 +87,9 @@ pub enum DeleteCidGroupMembersV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteCidGroupsError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -97,9 +97,9 @@ pub enum DeleteCidGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteUserGroupMembersError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -107,9 +107,9 @@ pub enum DeleteUserGroupMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteUserGroupsError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -117,9 +117,9 @@ pub enum DeleteUserGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeletedRolesError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -127,9 +127,9 @@ pub enum DeletedRolesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetChildrenError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -137,9 +137,9 @@ pub enum GetChildrenError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetChildrenV2Error {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -147,9 +147,9 @@ pub enum GetChildrenV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCidGroupByIdError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -157,9 +157,9 @@ pub enum GetCidGroupByIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCidGroupByIdV2Error {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -167,9 +167,9 @@ pub enum GetCidGroupByIdV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCidGroupMembersByError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -177,9 +177,9 @@ pub enum GetCidGroupMembersByError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCidGroupMembersByV2Error {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -187,9 +187,9 @@ pub enum GetCidGroupMembersByV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRolesByIdError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -197,9 +197,9 @@ pub enum GetRolesByIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserGroupMembersByIdError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -207,9 +207,9 @@ pub enum GetUserGroupMembersByIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserGroupMembersByIdv2Error {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -217,9 +217,9 @@ pub enum GetUserGroupMembersByIdv2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserGroupsByIdError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -227,9 +227,9 @@ pub enum GetUserGroupsByIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserGroupsByIdv2Error {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -237,9 +237,9 @@ pub enum GetUserGroupsByIdv2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryChildrenError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -247,8 +247,8 @@ pub enum QueryChildrenError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCidGroupMembersError {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -256,8 +256,8 @@ pub enum QueryCidGroupMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCidGroupsError {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -265,8 +265,8 @@ pub enum QueryCidGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRolesError {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -274,8 +274,8 @@ pub enum QueryRolesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryUserGroupMembersError {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -283,9 +283,9 @@ pub enum QueryUserGroupMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryUserGroupsError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -293,9 +293,9 @@ pub enum QueryUserGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateCidGroupsError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -303,16 +303,16 @@ pub enum UpdateCidGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateUserGroupsError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn add_cid_group_members(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodCidGroupMembersRequestV1,
-) -> Result<crate::models::DomainPeriodCidGroupMembersResponseV1, Error<AddCidGroupMembersError>> {
+    body: models::DomainPeriodCidGroupMembersRequestV1,
+) -> Result<models::DomainPeriodCidGroupMembersResponseV1, Error<AddCidGroupMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -355,8 +355,8 @@ pub async fn add_cid_group_members(
 
 pub async fn add_role(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodMsspRoleRequestV1,
-) -> Result<crate::models::DomainPeriodMsspRoleResponseV1, Error<AddRoleError>> {
+    body: models::DomainPeriodMsspRoleRequestV1,
+) -> Result<models::DomainPeriodMsspRoleResponseV1, Error<AddRoleError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -398,9 +398,8 @@ pub async fn add_role(
 
 pub async fn add_user_group_members(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodUserGroupMembersRequestV1,
-) -> Result<crate::models::DomainPeriodUserGroupMembersResponseV1, Error<AddUserGroupMembersError>>
-{
+    body: models::DomainPeriodUserGroupMembersRequestV1,
+) -> Result<models::DomainPeriodUserGroupMembersResponseV1, Error<AddUserGroupMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -443,8 +442,8 @@ pub async fn add_user_group_members(
 
 pub async fn create_cid_groups(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodCidGroupsRequestV1,
-) -> Result<crate::models::DomainPeriodCidGroupsResponseV1, Error<CreateCidGroupsError>> {
+    body: models::DomainPeriodCidGroupsRequestV1,
+) -> Result<models::DomainPeriodCidGroupsResponseV1, Error<CreateCidGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -487,8 +486,8 @@ pub async fn create_cid_groups(
 
 pub async fn create_user_groups(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodUserGroupsRequestV1,
-) -> Result<crate::models::DomainPeriodUserGroupsResponseV1, Error<CreateUserGroupsError>> {
+    body: models::DomainPeriodUserGroupsRequestV1,
+) -> Result<models::DomainPeriodUserGroupsResponseV1, Error<CreateUserGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -531,9 +530,8 @@ pub async fn create_user_groups(
 
 pub async fn delete_cid_group_members(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodCidGroupMembersRequestV1,
-) -> Result<crate::models::DomainPeriodCidGroupMembersResponseV1, Error<DeleteCidGroupMembersError>>
-{
+    body: models::DomainPeriodCidGroupMembersRequestV1,
+) -> Result<models::DomainPeriodCidGroupMembersResponseV1, Error<DeleteCidGroupMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -576,9 +574,8 @@ pub async fn delete_cid_group_members(
 
 pub async fn delete_cid_group_members_v2(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodCidGroupMembersRequestV1,
-) -> Result<crate::models::DomainPeriodCidGroupMembersResponseV1, Error<DeleteCidGroupMembersV2Error>>
-{
+    body: models::DomainPeriodCidGroupMembersRequestV1,
+) -> Result<models::DomainPeriodCidGroupMembersResponseV1, Error<DeleteCidGroupMembersV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -622,7 +619,7 @@ pub async fn delete_cid_group_members_v2(
 pub async fn delete_cid_groups(
     configuration: &configuration::Configuration,
     cid_group_ids: Vec<String>,
-) -> Result<crate::models::MsaPeriodEntitiesResponse, Error<DeleteCidGroupsError>> {
+) -> Result<models::MsaPeriodEntitiesResponse, Error<DeleteCidGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -638,7 +635,7 @@ pub async fn delete_cid_groups(
         "multi" => local_var_req_builder.query(
             &cid_group_ids
                 .into_iter()
-                .map(|p| ("cid_group_ids".to_owned(), p))
+                .map(|p| ("cid_group_ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -681,9 +678,8 @@ pub async fn delete_cid_groups(
 
 pub async fn delete_user_group_members(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodUserGroupMembersRequestV1,
-) -> Result<crate::models::DomainPeriodUserGroupMembersResponseV1, Error<DeleteUserGroupMembersError>>
-{
+    body: models::DomainPeriodUserGroupMembersRequestV1,
+) -> Result<models::DomainPeriodUserGroupMembersResponseV1, Error<DeleteUserGroupMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -727,7 +723,7 @@ pub async fn delete_user_group_members(
 pub async fn delete_user_groups(
     configuration: &configuration::Configuration,
     user_group_ids: Vec<String>,
-) -> Result<crate::models::MsaPeriodEntitiesResponse, Error<DeleteUserGroupsError>> {
+) -> Result<models::MsaPeriodEntitiesResponse, Error<DeleteUserGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -743,7 +739,7 @@ pub async fn delete_user_groups(
         "multi" => local_var_req_builder.query(
             &user_group_ids
                 .into_iter()
-                .map(|p| ("user_group_ids".to_owned(), p))
+                .map(|p| ("user_group_ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -786,8 +782,8 @@ pub async fn delete_user_groups(
 
 pub async fn deleted_roles(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodMsspRoleRequestV1,
-) -> Result<crate::models::DomainPeriodMsspRoleResponseV1, Error<DeletedRolesError>> {
+    body: models::DomainPeriodMsspRoleRequestV1,
+) -> Result<models::DomainPeriodMsspRoleResponseV1, Error<DeletedRolesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -831,7 +827,7 @@ pub async fn deleted_roles(
 pub async fn get_children(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodChildrenResponseV1, Error<GetChildrenError>> {
+) -> Result<models::DomainPeriodChildrenResponseV1, Error<GetChildrenError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -846,7 +842,7 @@ pub async fn get_children(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -888,8 +884,8 @@ pub async fn get_children(
 
 pub async fn get_children_v2(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaspecPeriodIdsRequest,
-) -> Result<crate::models::DomainPeriodChildrenResponseV1, Error<GetChildrenV2Error>> {
+    body: models::MsaspecPeriodIdsRequest,
+) -> Result<models::DomainPeriodChildrenResponseV1, Error<GetChildrenV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -933,7 +929,7 @@ pub async fn get_children_v2(
 pub async fn get_cid_group_by_id(
     configuration: &configuration::Configuration,
     cid_group_ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodCidGroupsResponseV1, Error<GetCidGroupByIdError>> {
+) -> Result<models::DomainPeriodCidGroupsResponseV1, Error<GetCidGroupByIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -949,7 +945,7 @@ pub async fn get_cid_group_by_id(
         "multi" => local_var_req_builder.query(
             &cid_group_ids
                 .into_iter()
-                .map(|p| ("cid_group_ids".to_owned(), p))
+                .map(|p| ("cid_group_ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -993,7 +989,7 @@ pub async fn get_cid_group_by_id(
 pub async fn get_cid_group_by_id_v2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodCidGroupsResponseV1, Error<GetCidGroupByIdV2Error>> {
+) -> Result<models::DomainPeriodCidGroupsResponseV1, Error<GetCidGroupByIdV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1008,7 +1004,7 @@ pub async fn get_cid_group_by_id_v2(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1051,8 +1047,7 @@ pub async fn get_cid_group_by_id_v2(
 pub async fn get_cid_group_members_by(
     configuration: &configuration::Configuration,
     cid_group_ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodCidGroupMembersResponseV1, Error<GetCidGroupMembersByError>>
-{
+) -> Result<models::DomainPeriodCidGroupMembersResponseV1, Error<GetCidGroupMembersByError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1068,7 +1063,7 @@ pub async fn get_cid_group_members_by(
         "multi" => local_var_req_builder.query(
             &cid_group_ids
                 .into_iter()
-                .map(|p| ("cid_group_ids".to_owned(), p))
+                .map(|p| ("cid_group_ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1112,8 +1107,7 @@ pub async fn get_cid_group_members_by(
 pub async fn get_cid_group_members_by_v2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodCidGroupMembersResponseV1, Error<GetCidGroupMembersByV2Error>>
-{
+) -> Result<models::DomainPeriodCidGroupMembersResponseV1, Error<GetCidGroupMembersByV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1128,7 +1122,7 @@ pub async fn get_cid_group_members_by_v2(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1171,7 +1165,7 @@ pub async fn get_cid_group_members_by_v2(
 pub async fn get_roles_by_id(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodMsspRoleResponseV1, Error<GetRolesByIdError>> {
+) -> Result<models::DomainPeriodMsspRoleResponseV1, Error<GetRolesByIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1186,7 +1180,7 @@ pub async fn get_roles_by_id(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1229,10 +1223,7 @@ pub async fn get_roles_by_id(
 pub async fn get_user_group_members_by_id(
     configuration: &configuration::Configuration,
     user_group_ids: Vec<String>,
-) -> Result<
-    crate::models::DomainPeriodUserGroupMembersResponseV1,
-    Error<GetUserGroupMembersByIdError>,
-> {
+) -> Result<models::DomainPeriodUserGroupMembersResponseV1, Error<GetUserGroupMembersByIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1248,7 +1239,7 @@ pub async fn get_user_group_members_by_id(
         "multi" => local_var_req_builder.query(
             &user_group_ids
                 .into_iter()
-                .map(|p| ("user_group_ids".to_owned(), p))
+                .map(|p| ("user_group_ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1292,10 +1283,7 @@ pub async fn get_user_group_members_by_id(
 pub async fn get_user_group_members_by_idv2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    crate::models::DomainPeriodUserGroupMembersResponseV1,
-    Error<GetUserGroupMembersByIdv2Error>,
-> {
+) -> Result<models::DomainPeriodUserGroupMembersResponseV1, Error<GetUserGroupMembersByIdv2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1310,7 +1298,7 @@ pub async fn get_user_group_members_by_idv2(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1353,7 +1341,7 @@ pub async fn get_user_group_members_by_idv2(
 pub async fn get_user_groups_by_id(
     configuration: &configuration::Configuration,
     user_group_ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodUserGroupsResponseV1, Error<GetUserGroupsByIdError>> {
+) -> Result<models::DomainPeriodUserGroupsResponseV1, Error<GetUserGroupsByIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1369,7 +1357,7 @@ pub async fn get_user_groups_by_id(
         "multi" => local_var_req_builder.query(
             &user_group_ids
                 .into_iter()
-                .map(|p| ("user_group_ids".to_owned(), p))
+                .map(|p| ("user_group_ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1413,7 +1401,7 @@ pub async fn get_user_groups_by_id(
 pub async fn get_user_groups_by_idv2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodUserGroupsResponseV1, Error<GetUserGroupsByIdv2Error>> {
+) -> Result<models::DomainPeriodUserGroupsResponseV1, Error<GetUserGroupsByIdv2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1428,7 +1416,7 @@ pub async fn get_user_groups_by_idv2(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1474,7 +1462,7 @@ pub async fn query_children(
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryChildrenError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryChildrenError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1536,7 +1524,7 @@ pub async fn query_cid_group_members(
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryCidGroupMembersError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryCidGroupMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1595,7 +1583,7 @@ pub async fn query_cid_groups(
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryCidGroupsError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryCidGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1659,7 +1647,7 @@ pub async fn query_roles(
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryRolesError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryRolesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1729,7 +1717,7 @@ pub async fn query_user_group_members(
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryUserGroupMembersError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryUserGroupMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1788,7 +1776,7 @@ pub async fn query_user_groups(
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryUserGroupsError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryUserGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1846,8 +1834,8 @@ pub async fn query_user_groups(
 
 pub async fn update_cid_groups(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodCidGroupsRequestV1,
-) -> Result<crate::models::DomainPeriodCidGroupsResponseV1, Error<UpdateCidGroupsError>> {
+    body: models::DomainPeriodCidGroupsRequestV1,
+) -> Result<models::DomainPeriodCidGroupsResponseV1, Error<UpdateCidGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1890,8 +1878,8 @@ pub async fn update_cid_groups(
 
 pub async fn update_user_groups(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodUserGroupsRequestV1,
-) -> Result<crate::models::DomainPeriodUserGroupsResponseV1, Error<UpdateUserGroupsError>> {
+    body: models::DomainPeriodUserGroupsRequestV1,
+) -> Result<models::DomainPeriodUserGroupsResponseV1, Error<UpdateUserGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

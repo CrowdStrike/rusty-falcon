@@ -11,16 +11,16 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`create_ml_exclusions_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateMlExclusionsV1Error {
-    Status400(crate::models::ExclusionsPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ExclusionsPeriodRespV1),
+    Status400(models::ExclusionsPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ExclusionsPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum CreateMlExclusionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteMlExclusionsV1Error {
-    Status400(crate::models::ExclusionsPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ExclusionsPeriodRespV1),
+    Status400(models::ExclusionsPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ExclusionsPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum DeleteMlExclusionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMlExclusionsV1Error {
-    Status400(crate::models::ExclusionsPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ExclusionsPeriodRespV1),
+    Status400(models::ExclusionsPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ExclusionsPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +50,10 @@ pub enum GetMlExclusionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryMlExclusionsV1Error {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,17 +61,17 @@ pub enum QueryMlExclusionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateMlExclusionsV1Error {
-    Status400(crate::models::ExclusionsPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ExclusionsPeriodRespV1),
+    Status400(models::ExclusionsPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ExclusionsPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_ml_exclusions_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::ExclusionsPeriodCreateReqV1,
-) -> Result<crate::models::ExclusionsPeriodRespV1, Error<CreateMlExclusionsV1Error>> {
+    body: models::ExclusionsPeriodCreateReqV1,
+) -> Result<models::ExclusionsPeriodRespV1, Error<CreateMlExclusionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -116,7 +116,7 @@ pub async fn delete_ml_exclusions_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     comment: Option<&str>,
-) -> Result<crate::models::ExclusionsPeriodRespV1, Error<DeleteMlExclusionsV1Error>> {
+) -> Result<models::ExclusionsPeriodRespV1, Error<DeleteMlExclusionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -131,7 +131,7 @@ pub async fn delete_ml_exclusions_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -178,7 +178,7 @@ pub async fn delete_ml_exclusions_v1(
 pub async fn get_ml_exclusions_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::ExclusionsPeriodRespV1, Error<GetMlExclusionsV1Error>> {
+) -> Result<models::ExclusionsPeriodRespV1, Error<GetMlExclusionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -193,7 +193,7 @@ pub async fn get_ml_exclusions_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -239,7 +239,7 @@ pub async fn query_ml_exclusions_v1(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryMlExclusionsV1Error>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryMlExclusionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -297,8 +297,8 @@ pub async fn query_ml_exclusions_v1(
 
 pub async fn update_ml_exclusions_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::SvExclusionsPeriodUpdateReqV1,
-) -> Result<crate::models::ExclusionsPeriodRespV1, Error<UpdateMlExclusionsV1Error>> {
+    body: models::SvExclusionsPeriodUpdateReqV1,
+) -> Result<models::ExclusionsPeriodRespV1, Error<UpdateMlExclusionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

@@ -11,16 +11,16 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`batch_admin_cmd`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BatchAdminCmdError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodApiError),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,9 +28,9 @@ pub enum BatchAdminCmdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrCheckAdminCommandStatusError {
-    Status401(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status401(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -38,9 +38,9 @@ pub enum RTrCheckAdminCommandStatusError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrCreatePutFilesError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -48,9 +48,9 @@ pub enum RTrCreatePutFilesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrCreateScriptsError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -58,10 +58,10 @@ pub enum RTrCreateScriptsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrDeletePutFilesError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -69,10 +69,10 @@ pub enum RTrDeletePutFilesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrDeleteScriptsError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -80,9 +80,20 @@ pub enum RTrDeleteScriptsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrExecuteAdminCommandError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`r_tr_get_falcon_scripts`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum RTrGetFalconScriptsError {
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -90,10 +101,10 @@ pub enum RTrExecuteAdminCommandError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrGetPutFilesError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodApiError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -101,10 +112,10 @@ pub enum RTrGetPutFilesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrGetPutFilesV2Error {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodApiError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -112,10 +123,10 @@ pub enum RTrGetPutFilesV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrGetScriptsError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodApiError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -123,10 +134,21 @@ pub enum RTrGetScriptsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrGetScriptsV2Error {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodApiError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`r_tr_list_falcon_scripts`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum RTrListFalconScriptsError {
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -134,10 +156,10 @@ pub enum RTrGetScriptsV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrListPutFilesError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodApiError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -145,10 +167,10 @@ pub enum RTrListPutFilesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrListScriptsError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodApiError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -156,20 +178,19 @@ pub enum RTrListScriptsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrUpdateScriptsError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn batch_admin_cmd(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodBatchExecuteCommandRequest,
+    body: models::DomainPeriodBatchExecuteCommandRequest,
     timeout: Option<i32>,
     timeout_duration: Option<&str>,
     host_timeout_duration: Option<&str>,
-) -> Result<crate::models::DomainPeriodMultiCommandExecuteResponseWrapper, Error<BatchAdminCmdError>>
-{
+) -> Result<models::DomainPeriodMultiCommandExecuteResponseWrapper, Error<BatchAdminCmdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -226,8 +247,7 @@ pub async fn r_tr_check_admin_command_status(
     configuration: &configuration::Configuration,
     cloud_request_id: &str,
     sequence_id: i32,
-) -> Result<crate::models::DomainPeriodStatusResponseWrapper, Error<RTrCheckAdminCommandStatusError>>
-{
+) -> Result<models::DomainPeriodStatusResponseWrapper, Error<RTrCheckAdminCommandStatusError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -277,7 +297,7 @@ pub async fn r_tr_create_put_files(
     description: &str,
     name: Option<&str>,
     comments_for_audit_log: Option<&str>,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<RTrCreatePutFilesError>> {
+) -> Result<models::MsaPeriodReplyMetaOnly, Error<RTrCreatePutFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -337,7 +357,7 @@ pub async fn r_tr_create_scripts(
     comments_for_audit_log: Option<&str>,
     content: Option<&str>,
     platform: Option<Vec<String>>,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<RTrCreateScriptsError>> {
+) -> Result<models::MsaPeriodReplyMetaOnly, Error<RTrCreateScriptsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -406,7 +426,7 @@ pub async fn r_tr_create_scripts(
 pub async fn r_tr_delete_put_files(
     configuration: &configuration::Configuration,
     ids: &str,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<RTrDeletePutFilesError>> {
+) -> Result<models::MsaPeriodReplyMetaOnly, Error<RTrDeletePutFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -450,7 +470,7 @@ pub async fn r_tr_delete_put_files(
 pub async fn r_tr_delete_scripts(
     configuration: &configuration::Configuration,
     ids: &str,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<RTrDeleteScriptsError>> {
+) -> Result<models::MsaPeriodReplyMetaOnly, Error<RTrDeleteScriptsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -493,11 +513,8 @@ pub async fn r_tr_delete_scripts(
 
 pub async fn r_tr_execute_admin_command(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodCommandExecuteRequest,
-) -> Result<
-    crate::models::DomainPeriodCommandExecuteResponseWrapper,
-    Error<RTrExecuteAdminCommandError>,
-> {
+    body: models::DomainPeriodCommandExecuteRequest,
+) -> Result<models::DomainPeriodCommandExecuteResponseWrapper, Error<RTrExecuteAdminCommandError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -538,10 +555,68 @@ pub async fn r_tr_execute_admin_command(
     }
 }
 
+pub async fn r_tr_get_falcon_scripts(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<models::EmpowerapiPeriodMsaFalconScriptResponse, Error<RTrGetFalconScriptsError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/real-time-response/entities/falcon-scripts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p.to_string()))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
+    };
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<RTrGetFalconScriptsError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn r_tr_get_put_files(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::EmpowerapiPeriodMsaPfResponseV1, Error<RTrGetPutFilesError>> {
+) -> Result<models::EmpowerapiPeriodMsaPfResponseV1, Error<RTrGetPutFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -556,7 +631,7 @@ pub async fn r_tr_get_put_files(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -599,7 +674,7 @@ pub async fn r_tr_get_put_files(
 pub async fn r_tr_get_put_files_v2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::EmpowerapiPeriodMsaPfResponseV2, Error<RTrGetPutFilesV2Error>> {
+) -> Result<models::EmpowerapiPeriodMsaPfResponseV2, Error<RTrGetPutFilesV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -614,7 +689,7 @@ pub async fn r_tr_get_put_files_v2(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -657,7 +732,7 @@ pub async fn r_tr_get_put_files_v2(
 pub async fn r_tr_get_scripts(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::EmpowerapiPeriodMsaPfResponseV1, Error<RTrGetScriptsError>> {
+) -> Result<models::EmpowerapiPeriodMsaPfResponseV1, Error<RTrGetScriptsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -672,7 +747,7 @@ pub async fn r_tr_get_scripts(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -715,7 +790,7 @@ pub async fn r_tr_get_scripts(
 pub async fn r_tr_get_scripts_v2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::EmpowerapiPeriodMsaPfResponseV2, Error<RTrGetScriptsV2Error>> {
+) -> Result<models::EmpowerapiPeriodMsaPfResponseV2, Error<RTrGetScriptsV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -730,7 +805,7 @@ pub async fn r_tr_get_scripts_v2(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -770,13 +845,75 @@ pub async fn r_tr_get_scripts_v2(
     }
 }
 
+pub async fn r_tr_list_falcon_scripts(
+    configuration: &configuration::Configuration,
+    filter: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+) -> Result<models::EmpowerapiPeriodMsaIdListResponse, Error<RTrListFalconScriptsError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/real-time-response/queries/falcon-scripts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = filter {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<RTrListFalconScriptsError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn r_tr_list_put_files(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
     offset: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::BinservapiPeriodMsaPutFileResponse, Error<RTrListPutFilesError>> {
+) -> Result<models::BinservapiPeriodMsaPutFileResponse, Error<RTrListPutFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -838,7 +975,7 @@ pub async fn r_tr_list_scripts(
     offset: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::BinservapiPeriodMsaPutFileResponse, Error<RTrListScriptsError>> {
+) -> Result<models::BinservapiPeriodMsaPutFileResponse, Error<RTrListScriptsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -904,7 +1041,7 @@ pub async fn r_tr_update_scripts(
     permission_type: Option<&str>,
     content: Option<&str>,
     platform: Option<Vec<String>>,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<RTrUpdateScriptsError>> {
+) -> Result<models::MsaPeriodReplyMetaOnly, Error<RTrUpdateScriptsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

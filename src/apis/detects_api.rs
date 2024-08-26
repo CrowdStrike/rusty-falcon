@@ -11,16 +11,16 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`get_aggregate_detects`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAggregateDetectsError {
-    Status400(crate::models::MsaPeriodAggregatesResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodAggregatesResponse),
+    Status400(models::MsaPeriodAggregatesResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodAggregatesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum GetAggregateDetectsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetDetectSummariesError {
-    Status400(crate::models::DomainPeriodMsaDetectSummariesResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodMsaDetectSummariesResponse),
+    Status400(models::DomainPeriodMsaDetectSummariesResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodMsaDetectSummariesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum GetDetectSummariesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryDetectsError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,17 +50,17 @@ pub enum QueryDetectsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateDetectsByIdsV2Error {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn get_aggregate_detects(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<GetAggregateDetectsError>> {
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<GetAggregateDetectsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -103,8 +103,8 @@ pub async fn get_aggregate_detects(
 
 pub async fn get_detect_summaries(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaPeriodIdsRequest,
-) -> Result<crate::models::DomainPeriodMsaDetectSummariesResponse, Error<GetDetectSummariesError>> {
+    body: models::MsaPeriodIdsRequest,
+) -> Result<models::DomainPeriodMsaDetectSummariesResponse, Error<GetDetectSummariesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -152,7 +152,7 @@ pub async fn query_detects(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryDetectsError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryDetectsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -213,8 +213,8 @@ pub async fn query_detects(
 
 pub async fn update_detects_by_ids_v2(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodDetectsEntitiesPatchRequest,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<UpdateDetectsByIdsV2Error>> {
+    body: models::DomainPeriodDetectsEntitiesPatchRequest,
+) -> Result<models::MsaPeriodReplyMetaOnly, Error<UpdateDetectsByIdsV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

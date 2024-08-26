@@ -11,14 +11,14 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`aggregates_detections_global_counts`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregatesDetectionsGlobalCountsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -26,8 +26,8 @@ pub enum AggregatesDetectionsGlobalCountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregatesEventsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -35,8 +35,8 @@ pub enum AggregatesEventsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregatesEventsCollectionsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -44,8 +44,8 @@ pub enum AggregatesEventsCollectionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregatesIncidentsGlobalCountsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -53,15 +53,15 @@ pub enum AggregatesIncidentsGlobalCountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregatesOwEventsGlobalCountsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn aggregates_detections_global_counts(
     configuration: &configuration::Configuration,
     filter: &str,
-) -> Result<crate::models::MsaPeriodFacetsResponse, Error<AggregatesDetectionsGlobalCountsError>> {
+) -> Result<models::MsaPeriodFacetsResponse, Error<AggregatesDetectionsGlobalCountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -104,8 +104,8 @@ pub async fn aggregates_detections_global_counts(
 
 pub async fn aggregates_events(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<AggregatesEventsError>> {
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregatesEventsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -148,8 +148,8 @@ pub async fn aggregates_events(
 
 pub async fn aggregates_events_collections(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<AggregatesEventsCollectionsError>> {
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregatesEventsCollectionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -193,7 +193,7 @@ pub async fn aggregates_events_collections(
 pub async fn aggregates_incidents_global_counts(
     configuration: &configuration::Configuration,
     filter: &str,
-) -> Result<crate::models::MsaPeriodFacetsResponse, Error<AggregatesIncidentsGlobalCountsError>> {
+) -> Result<models::MsaPeriodFacetsResponse, Error<AggregatesIncidentsGlobalCountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -237,7 +237,7 @@ pub async fn aggregates_incidents_global_counts(
 pub async fn aggregates_ow_events_global_counts(
     configuration: &configuration::Configuration,
     filter: &str,
-) -> Result<crate::models::MsaPeriodFacetsResponse, Error<AggregatesOwEventsGlobalCountsError>> {
+) -> Result<models::MsaPeriodFacetsResponse, Error<AggregatesOwEventsGlobalCountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

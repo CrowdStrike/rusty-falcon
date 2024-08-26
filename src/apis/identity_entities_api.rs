@@ -11,14 +11,14 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`get_sensor_aggregates`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSensorAggregatesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -26,8 +26,8 @@ pub enum GetSensorAggregatesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSensorDetailsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -35,15 +35,15 @@ pub enum GetSensorDetailsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QuerySensorsByFilterError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn get_sensor_aggregates(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaPeriodAggregateQueryRequest,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<GetSensorAggregatesError>> {
+    body: models::MsaPeriodAggregateQueryRequest,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<GetSensorAggregatesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -86,8 +86,8 @@ pub async fn get_sensor_aggregates(
 
 pub async fn get_sensor_details(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaPeriodIdsRequest,
-) -> Result<crate::models::ApiPeriodSensorDetailsResponseSwagger, Error<GetSensorDetailsError>> {
+    body: models::MsaPeriodIdsRequest,
+) -> Result<models::ApiPeriodSensorDetailsResponseSwagger, Error<GetSensorDetailsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -134,7 +134,7 @@ pub async fn query_sensors_by_filter(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QuerySensorsByFilterError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QuerySensorsByFilterError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

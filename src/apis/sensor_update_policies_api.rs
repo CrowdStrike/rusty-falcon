@@ -11,17 +11,17 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`create_sensor_update_policies`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateSensorUpdatePoliciesError {
-    Status400(crate::models::SensorUpdatePeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::SensorUpdatePeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::SensorUpdatePeriodRespV1),
+    Status400(models::SensorUpdatePeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::SensorUpdatePeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::SensorUpdatePeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,11 +29,11 @@ pub enum CreateSensorUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateSensorUpdatePoliciesV2Error {
-    Status400(crate::models::SensorUpdatePeriodRespV2),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::SensorUpdatePeriodRespV2),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::SensorUpdatePeriodRespV2),
+    Status400(models::SensorUpdatePeriodRespV2),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::SensorUpdatePeriodRespV2),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::SensorUpdatePeriodRespV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,10 +41,10 @@ pub enum CreateSensorUpdatePoliciesV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteSensorUpdatePoliciesError {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -52,10 +52,10 @@ pub enum DeleteSensorUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSensorUpdatePoliciesError {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::SensorUpdatePeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::SensorUpdatePeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::SensorUpdatePeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::SensorUpdatePeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -63,10 +63,10 @@ pub enum GetSensorUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSensorUpdatePoliciesV2Error {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::SensorUpdatePeriodRespV2),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::SensorUpdatePeriodRespV2),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::SensorUpdatePeriodRespV2),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::SensorUpdatePeriodRespV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -74,11 +74,11 @@ pub enum GetSensorUpdatePoliciesV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PerformSensorUpdatePoliciesActionError {
-    Status400(crate::models::SensorUpdatePeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::SensorUpdatePeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::SensorUpdatePeriodRespV1),
+    Status400(models::SensorUpdatePeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::SensorUpdatePeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::SensorUpdatePeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,10 +86,10 @@ pub enum PerformSensorUpdatePoliciesActionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedSensorUpdateBuildsError {
-    Status400(crate::models::SensorUpdatePeriodBuildsRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::SensorUpdatePeriodBuildsRespV1),
+    Status400(models::SensorUpdatePeriodBuildsRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::SensorUpdatePeriodBuildsRespV1),
     DefaultResponse(String),
     UnknownValue(serde_json::Value),
 }
@@ -98,10 +98,10 @@ pub enum QueryCombinedSensorUpdateBuildsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedSensorUpdateKernelsError {
-    Status400(crate::models::SensorUpdatePeriodKernelsRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::SensorUpdatePeriodKernelsRespV1),
+    Status400(models::SensorUpdatePeriodKernelsRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::SensorUpdatePeriodKernelsRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -109,10 +109,10 @@ pub enum QueryCombinedSensorUpdateKernelsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedSensorUpdatePoliciesError {
-    Status400(crate::models::SensorUpdatePeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::SensorUpdatePeriodRespV1),
+    Status400(models::SensorUpdatePeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::SensorUpdatePeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -120,10 +120,10 @@ pub enum QueryCombinedSensorUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedSensorUpdatePoliciesV2Error {
-    Status400(crate::models::SensorUpdatePeriodRespV2),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::SensorUpdatePeriodRespV2),
+    Status400(models::SensorUpdatePeriodRespV2),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::SensorUpdatePeriodRespV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -131,11 +131,11 @@ pub enum QueryCombinedSensorUpdatePoliciesV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedSensorUpdatePolicyMembersError {
-    Status400(crate::models::BasePeriodPolicyMembersRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::BasePeriodPolicyMembersRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::BasePeriodPolicyMembersRespV1),
+    Status400(models::BasePeriodPolicyMembersRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::BasePeriodPolicyMembersRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::BasePeriodPolicyMembersRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -143,10 +143,10 @@ pub enum QueryCombinedSensorUpdatePolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QuerySensorUpdateKernelsDistinctError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -154,10 +154,10 @@ pub enum QuerySensorUpdateKernelsDistinctError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QuerySensorUpdatePoliciesError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -165,11 +165,11 @@ pub enum QuerySensorUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QuerySensorUpdatePolicyMembersError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -177,10 +177,10 @@ pub enum QuerySensorUpdatePolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RevealUninstallTokenError {
-    Status400(crate::models::UninstallTokenPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::UninstallTokenPeriodRespV1),
+    Status400(models::UninstallTokenPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::UninstallTokenPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -188,10 +188,10 @@ pub enum RevealUninstallTokenError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SetSensorUpdatePoliciesPrecedenceError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -199,11 +199,11 @@ pub enum SetSensorUpdatePoliciesPrecedenceError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateSensorUpdatePoliciesError {
-    Status400(crate::models::SensorUpdatePeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::SensorUpdatePeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::SensorUpdatePeriodRespV1),
+    Status400(models::SensorUpdatePeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::SensorUpdatePeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::SensorUpdatePeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -211,18 +211,18 @@ pub enum UpdateSensorUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateSensorUpdatePoliciesV2Error {
-    Status400(crate::models::SensorUpdatePeriodRespV2),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::SensorUpdatePeriodRespV2),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::SensorUpdatePeriodRespV2),
+    Status400(models::SensorUpdatePeriodRespV2),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::SensorUpdatePeriodRespV2),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::SensorUpdatePeriodRespV2),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_sensor_update_policies(
     configuration: &configuration::Configuration,
-    body: crate::models::SensorUpdatePeriodCreatePoliciesReqV1,
-) -> Result<crate::models::SensorUpdatePeriodRespV1, Error<CreateSensorUpdatePoliciesError>> {
+    body: models::SensorUpdatePeriodCreatePoliciesReqV1,
+) -> Result<models::SensorUpdatePeriodRespV1, Error<CreateSensorUpdatePoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -265,8 +265,8 @@ pub async fn create_sensor_update_policies(
 
 pub async fn create_sensor_update_policies_v2(
     configuration: &configuration::Configuration,
-    body: crate::models::SensorUpdatePeriodCreatePoliciesReqV2,
-) -> Result<crate::models::SensorUpdatePeriodRespV2, Error<CreateSensorUpdatePoliciesV2Error>> {
+    body: models::SensorUpdatePeriodCreatePoliciesReqV2,
+) -> Result<models::SensorUpdatePeriodRespV2, Error<CreateSensorUpdatePoliciesV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -310,7 +310,7 @@ pub async fn create_sensor_update_policies_v2(
 pub async fn delete_sensor_update_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<DeleteSensorUpdatePoliciesError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<DeleteSensorUpdatePoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -325,7 +325,7 @@ pub async fn delete_sensor_update_policies(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -368,7 +368,7 @@ pub async fn delete_sensor_update_policies(
 pub async fn get_sensor_update_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::SensorUpdatePeriodRespV1, Error<GetSensorUpdatePoliciesError>> {
+) -> Result<models::SensorUpdatePeriodRespV1, Error<GetSensorUpdatePoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -383,7 +383,7 @@ pub async fn get_sensor_update_policies(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -426,7 +426,7 @@ pub async fn get_sensor_update_policies(
 pub async fn get_sensor_update_policies_v2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::SensorUpdatePeriodRespV2, Error<GetSensorUpdatePoliciesV2Error>> {
+) -> Result<models::SensorUpdatePeriodRespV2, Error<GetSensorUpdatePoliciesV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -441,7 +441,7 @@ pub async fn get_sensor_update_policies_v2(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -484,9 +484,8 @@ pub async fn get_sensor_update_policies_v2(
 pub async fn perform_sensor_update_policies_action(
     configuration: &configuration::Configuration,
     action_name: &str,
-    body: crate::models::MsaPeriodEntityActionRequestV2,
-) -> Result<crate::models::SensorUpdatePeriodRespV1, Error<PerformSensorUpdatePoliciesActionError>>
-{
+    body: models::MsaPeriodEntityActionRequestV2,
+) -> Result<models::SensorUpdatePeriodRespV1, Error<PerformSensorUpdatePoliciesActionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -533,10 +532,7 @@ pub async fn query_combined_sensor_update_builds(
     configuration: &configuration::Configuration,
     platform: Option<&str>,
     stage: Option<Vec<String>>,
-) -> Result<
-    crate::models::SensorUpdatePeriodBuildsRespV1,
-    Error<QueryCombinedSensorUpdateBuildsError>,
-> {
+) -> Result<models::SensorUpdatePeriodBuildsRespV1, Error<QueryCombinedSensorUpdateBuildsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -604,10 +600,7 @@ pub async fn query_combined_sensor_update_kernels(
     filter: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<
-    crate::models::SensorUpdatePeriodKernelsRespV1,
-    Error<QueryCombinedSensorUpdateKernelsError>,
-> {
+) -> Result<models::SensorUpdatePeriodKernelsRespV1, Error<QueryCombinedSensorUpdateKernelsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -665,8 +658,7 @@ pub async fn query_combined_sensor_update_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::SensorUpdatePeriodRespV1, Error<QueryCombinedSensorUpdatePoliciesError>>
-{
+) -> Result<models::SensorUpdatePeriodRespV1, Error<QueryCombinedSensorUpdatePoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -728,8 +720,7 @@ pub async fn query_combined_sensor_update_policies_v2(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::SensorUpdatePeriodRespV2, Error<QueryCombinedSensorUpdatePoliciesV2Error>>
-{
+) -> Result<models::SensorUpdatePeriodRespV2, Error<QueryCombinedSensorUpdatePoliciesV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -792,10 +783,8 @@ pub async fn query_combined_sensor_update_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<
-    crate::models::BasePeriodPolicyMembersRespV1,
-    Error<QueryCombinedSensorUpdatePolicyMembersError>,
-> {
+) -> Result<models::BasePeriodPolicyMembersRespV1, Error<QueryCombinedSensorUpdatePolicyMembersError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -860,15 +849,15 @@ pub async fn query_sensor_update_kernels_distinct(
     filter: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QuerySensorUpdateKernelsDistinctError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QuerySensorUpdateKernelsDistinctError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!(
-        "{}/policy/queries/sensor-update-kernels/{distinct_field_encoded}/v1",
+        "{}/policy/queries/sensor-update-kernels/{distinct_field}/v1",
         local_var_configuration.base_path,
-        distinct_field_encoded = crate::apis::urlencode(distinct_field)
+        distinct_field = crate::apis::urlencode(distinct_field)
     );
     let mut local_var_req_builder =
         local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
@@ -919,7 +908,7 @@ pub async fn query_sensor_update_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QuerySensorUpdatePoliciesError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QuerySensorUpdatePoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -982,7 +971,7 @@ pub async fn query_sensor_update_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QuerySensorUpdatePolicyMembersError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QuerySensorUpdatePolicyMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1043,8 +1032,8 @@ pub async fn query_sensor_update_policy_members(
 
 pub async fn reveal_uninstall_token(
     configuration: &configuration::Configuration,
-    body: crate::models::UninstallTokenPeriodRevealUninstallTokenReqV1,
-) -> Result<crate::models::UninstallTokenPeriodRespV1, Error<RevealUninstallTokenError>> {
+    body: models::UninstallTokenPeriodRevealUninstallTokenReqV1,
+) -> Result<models::UninstallTokenPeriodRespV1, Error<RevealUninstallTokenError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1087,8 +1076,8 @@ pub async fn reveal_uninstall_token(
 
 pub async fn set_sensor_update_policies_precedence(
     configuration: &configuration::Configuration,
-    body: crate::models::BasePeriodSetPolicyPrecedenceReqV1,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<SetSensorUpdatePoliciesPrecedenceError>> {
+    body: models::BasePeriodSetPolicyPrecedenceReqV1,
+) -> Result<models::MsaPeriodQueryResponse, Error<SetSensorUpdatePoliciesPrecedenceError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1131,8 +1120,8 @@ pub async fn set_sensor_update_policies_precedence(
 
 pub async fn update_sensor_update_policies(
     configuration: &configuration::Configuration,
-    body: crate::models::SensorUpdatePeriodUpdatePoliciesReqV1,
-) -> Result<crate::models::SensorUpdatePeriodRespV1, Error<UpdateSensorUpdatePoliciesError>> {
+    body: models::SensorUpdatePeriodUpdatePoliciesReqV1,
+) -> Result<models::SensorUpdatePeriodRespV1, Error<UpdateSensorUpdatePoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1175,8 +1164,8 @@ pub async fn update_sensor_update_policies(
 
 pub async fn update_sensor_update_policies_v2(
     configuration: &configuration::Configuration,
-    body: crate::models::SensorUpdatePeriodUpdatePoliciesReqV2,
-) -> Result<crate::models::SensorUpdatePeriodRespV2, Error<UpdateSensorUpdatePoliciesV2Error>> {
+    body: models::SensorUpdatePeriodUpdatePoliciesReqV2,
+) -> Result<models::SensorUpdatePeriodRespV2, Error<UpdateSensorUpdatePoliciesV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

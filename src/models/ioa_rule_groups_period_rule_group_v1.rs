@@ -9,8 +9,7 @@
  */
 
 /// IoaRuleGroupsPeriodRuleGroupV1 : An IOA rule group which contains a set of IOA rules
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct IoaRuleGroupsPeriodRuleGroupV1 {
     #[serde(rename = "comment")]
     pub comment: String,

@@ -11,14 +11,14 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`fdrschema_period_entities_period_field_period_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum FdrschemaPeriodEntitiesPeriodFieldPeriodGetError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -26,8 +26,8 @@ pub enum FdrschemaPeriodEntitiesPeriodFieldPeriodGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum FdrschemaPeriodQueriesPeriodFieldPeriodGetError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -35,7 +35,7 @@ pub async fn fdrschema_period_entities_period_field_period_get(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
 ) -> Result<
-    crate::models::SchemaPeriodSensorFieldResponseV1,
+    models::SchemaPeriodSensorFieldResponseV1,
     Error<FdrschemaPeriodEntitiesPeriodFieldPeriodGetError>,
 > {
     let local_var_configuration = configuration;
@@ -103,7 +103,7 @@ pub async fn fdrschema_period_queries_period_field_period_get(
     filter: Option<&str>,
     sort: Option<&str>,
 ) -> Result<
-    crate::models::MsaspecPeriodQueryResponse,
+    models::MsaspecPeriodQueryResponse,
     Error<FdrschemaPeriodQueriesPeriodFieldPeriodGetError>,
 > {
     let local_var_configuration = configuration;

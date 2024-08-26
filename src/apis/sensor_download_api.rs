@@ -11,16 +11,27 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`download_sensor_installer_by_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DownloadSensorInstallerByIdError {
-    Status400(crate::models::MsaspecPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecPeriodQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`download_sensor_installer_by_id_v2`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DownloadSensorInstallerByIdV2Error {
+    Status400(models::MsaspecPeriodQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,9 +39,19 @@ pub enum DownloadSensorInstallerByIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCombinedSensorInstallersByQueryError {
-    Status400(crate::models::MsaspecPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecPeriodQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_combined_sensor_installers_by_query_v2`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetCombinedSensorInstallersByQueryV2Error {
+    Status400(models::MsaspecPeriodQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -38,9 +59,19 @@ pub enum GetCombinedSensorInstallersByQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSensorInstallersByQueryError {
-    Status400(crate::models::MsaspecPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecPeriodQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_sensor_installers_by_query_v2`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetSensorInstallersByQueryV2Error {
+    Status400(models::MsaspecPeriodQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -48,9 +79,9 @@ pub enum GetSensorInstallersByQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSensorInstallersCcidbyQueryError {
-    Status400(crate::models::MsaspecPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecPeriodQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -58,10 +89,21 @@ pub enum GetSensorInstallersCcidbyQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSensorInstallersEntitiesError {
-    Status400(crate::models::MsaspecPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecPeriodQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_sensor_installers_entities_v2`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetSensorInstallersEntitiesV2Error {
+    Status400(models::MsaspecPeriodQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -109,16 +151,58 @@ pub async fn download_sensor_installer_by_id(
     }
 }
 
+pub async fn download_sensor_installer_by_id_v2(
+    configuration: &configuration::Configuration,
+    id: &str,
+) -> Result<serde_json::Value, Error<DownloadSensorInstallerByIdV2Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/sensors/entities/download-installer/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<DownloadSensorInstallerByIdV2Error> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn get_combined_sensor_installers_by_query(
     configuration: &configuration::Configuration,
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<
-    crate::models::DomainPeriodSensorInstallersV1,
-    Error<GetCombinedSensorInstallersByQueryError>,
-> {
+) -> Result<models::DomainPeriodSensorInstallersV1, Error<GetCombinedSensorInstallersByQueryError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -174,13 +258,76 @@ pub async fn get_combined_sensor_installers_by_query(
     }
 }
 
+pub async fn get_combined_sensor_installers_by_query_v2(
+    configuration: &configuration::Configuration,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    filter: Option<&str>,
+) -> Result<models::DomainPeriodSensorInstallersV2, Error<GetCombinedSensorInstallersByQueryV2Error>>
+{
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/sensors/combined/installers/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = filter {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetCombinedSensorInstallersByQueryV2Error> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn get_sensor_installers_by_query(
     configuration: &configuration::Configuration,
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<GetSensorInstallersByQueryError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<GetSensorInstallersByQueryError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -236,9 +383,71 @@ pub async fn get_sensor_installers_by_query(
     }
 }
 
+pub async fn get_sensor_installers_by_query_v2(
+    configuration: &configuration::Configuration,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    filter: Option<&str>,
+) -> Result<models::MsaspecPeriodQueryResponse, Error<GetSensorInstallersByQueryV2Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/sensors/queries/installers/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = filter {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetSensorInstallersByQueryV2Error> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn get_sensor_installers_ccidby_query(
     configuration: &configuration::Configuration,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<GetSensorInstallersCcidbyQueryError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<GetSensorInstallersCcidbyQueryError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -281,8 +490,7 @@ pub async fn get_sensor_installers_ccidby_query(
 pub async fn get_sensor_installers_entities(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodSensorInstallersV1, Error<GetSensorInstallersEntitiesError>>
-{
+) -> Result<models::DomainPeriodSensorInstallersV1, Error<GetSensorInstallersEntitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -297,7 +505,7 @@ pub async fn get_sensor_installers_entities(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -327,6 +535,64 @@ pub async fn get_sensor_installers_entities(
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetSensorInstallersEntitiesError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn get_sensor_installers_entities_v2(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<models::DomainPeriodSensorInstallersV2, Error<GetSensorInstallersEntitiesV2Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/sensors/entities/installers/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p.to_string()))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
+    };
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetSensorInstallersEntitiesV2Error> =
             serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,

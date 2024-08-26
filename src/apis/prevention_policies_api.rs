@@ -11,17 +11,17 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`create_prevention_policies`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreatePreventionPoliciesError {
-    Status400(crate::models::PreventionPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::PreventionPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::PreventionPeriodRespV1),
+    Status400(models::PreventionPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::PreventionPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::PreventionPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,10 +29,10 @@ pub enum CreatePreventionPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeletePreventionPoliciesError {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,10 +40,10 @@ pub enum DeletePreventionPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetPreventionPoliciesError {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::PreventionPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::PreventionPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::PreventionPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::PreventionPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,11 +51,11 @@ pub enum GetPreventionPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PerformPreventionPoliciesActionError {
-    Status400(crate::models::PreventionPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::PreventionPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::PreventionPeriodRespV1),
+    Status400(models::PreventionPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::PreventionPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::PreventionPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -63,10 +63,10 @@ pub enum PerformPreventionPoliciesActionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedPreventionPoliciesError {
-    Status400(crate::models::PreventionPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::PreventionPeriodRespV1),
+    Status400(models::PreventionPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::PreventionPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -74,11 +74,11 @@ pub enum QueryCombinedPreventionPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedPreventionPolicyMembersError {
-    Status400(crate::models::BasePeriodPolicyMembersRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::BasePeriodPolicyMembersRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::BasePeriodPolicyMembersRespV1),
+    Status400(models::BasePeriodPolicyMembersRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::BasePeriodPolicyMembersRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::BasePeriodPolicyMembersRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,10 +86,10 @@ pub enum QueryCombinedPreventionPolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryPreventionPoliciesError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -97,11 +97,11 @@ pub enum QueryPreventionPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryPreventionPolicyMembersError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -109,10 +109,10 @@ pub enum QueryPreventionPolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SetPreventionPoliciesPrecedenceError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -120,18 +120,18 @@ pub enum SetPreventionPoliciesPrecedenceError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdatePreventionPoliciesError {
-    Status400(crate::models::PreventionPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::PreventionPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::PreventionPeriodRespV1),
+    Status400(models::PreventionPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::PreventionPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::PreventionPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_prevention_policies(
     configuration: &configuration::Configuration,
-    body: crate::models::PreventionPeriodCreatePoliciesReqV1,
-) -> Result<crate::models::PreventionPeriodRespV1, Error<CreatePreventionPoliciesError>> {
+    body: models::PreventionPeriodCreatePoliciesReqV1,
+) -> Result<models::PreventionPeriodRespV1, Error<CreatePreventionPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -175,7 +175,7 @@ pub async fn create_prevention_policies(
 pub async fn delete_prevention_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<DeletePreventionPoliciesError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<DeletePreventionPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -190,7 +190,7 @@ pub async fn delete_prevention_policies(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -233,7 +233,7 @@ pub async fn delete_prevention_policies(
 pub async fn get_prevention_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::PreventionPeriodRespV1, Error<GetPreventionPoliciesError>> {
+) -> Result<models::PreventionPeriodRespV1, Error<GetPreventionPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -248,7 +248,7 @@ pub async fn get_prevention_policies(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -291,8 +291,8 @@ pub async fn get_prevention_policies(
 pub async fn perform_prevention_policies_action(
     configuration: &configuration::Configuration,
     action_name: &str,
-    body: crate::models::MsaPeriodEntityActionRequestV2,
-) -> Result<crate::models::PreventionPeriodRespV1, Error<PerformPreventionPoliciesActionError>> {
+    body: models::MsaPeriodEntityActionRequestV2,
+) -> Result<models::PreventionPeriodRespV1, Error<PerformPreventionPoliciesActionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -341,7 +341,7 @@ pub async fn query_combined_prevention_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::PreventionPeriodRespV1, Error<QueryCombinedPreventionPoliciesError>> {
+) -> Result<models::PreventionPeriodRespV1, Error<QueryCombinedPreventionPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -404,10 +404,8 @@ pub async fn query_combined_prevention_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<
-    crate::models::BasePeriodPolicyMembersRespV1,
-    Error<QueryCombinedPreventionPolicyMembersError>,
-> {
+) -> Result<models::BasePeriodPolicyMembersRespV1, Error<QueryCombinedPreventionPolicyMembersError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -472,7 +470,7 @@ pub async fn query_prevention_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryPreventionPoliciesError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryPreventionPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -535,7 +533,7 @@ pub async fn query_prevention_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryPreventionPolicyMembersError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryPreventionPolicyMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -596,8 +594,8 @@ pub async fn query_prevention_policy_members(
 
 pub async fn set_prevention_policies_precedence(
     configuration: &configuration::Configuration,
-    body: crate::models::BasePeriodSetPolicyPrecedenceReqV1,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<SetPreventionPoliciesPrecedenceError>> {
+    body: models::BasePeriodSetPolicyPrecedenceReqV1,
+) -> Result<models::MsaPeriodQueryResponse, Error<SetPreventionPoliciesPrecedenceError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -640,8 +638,8 @@ pub async fn set_prevention_policies_precedence(
 
 pub async fn update_prevention_policies(
     configuration: &configuration::Configuration,
-    body: crate::models::PreventionPeriodUpdatePoliciesReqV1,
-) -> Result<crate::models::PreventionPeriodRespV1, Error<UpdatePreventionPoliciesError>> {
+    body: models::PreventionPeriodUpdatePoliciesReqV1,
+) -> Result<models::PreventionPeriodRespV1, Error<UpdatePreventionPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

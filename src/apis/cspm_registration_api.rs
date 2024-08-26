@@ -11,16 +11,28 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`azure_download_certificate`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AzureDownloadCertificateError {
-    Status400(crate::models::RegistrationPeriodAzureDownloadCertificateResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAzureDownloadCertificateResponseV1),
+    Status400(models::RegistrationPeriodAzureDownloadCertificateResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureDownloadCertificateResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`connect_cspmgcp_account`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ConnectCspmgcpAccountError {
+    Status400(models::RegistrationPeriodGcpAccountResponseExtV2),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status409(models::RegistrationPeriodGcpAccountResponseExtV2),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodGcpAccountResponseExtV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +40,10 @@ pub enum AzureDownloadCertificateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCspmAwsAccountError {
-    Status400(crate::models::RegistrationPeriodAwsAccountResponseV2),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAwsAccountResponseV2),
+    Status400(models::RegistrationPeriodAwsAccountResponseV2),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAwsAccountResponseV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +51,33 @@ pub enum CreateCspmAwsAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCspmAzureAccountError {
-    Status400(crate::models::RegistrationPeriodAzureAccountResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAzureAccountResponseV1),
+    Status400(models::RegistrationPeriodAzureAccountResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status409(models::RegistrationPeriodAzureAccountResponseV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureAccountResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_cspm_azure_management_group`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateCspmAzureManagementGroupError {
+    Status400(models::RegistrationPeriodAzureAccountResponseV1),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureAccountResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_cspmgcp_account`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateCspmgcpAccountError {
+    Status400(models::RegistrationPeriodGcpAccountResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodGcpAccountResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +85,10 @@ pub enum CreateCspmAzureAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteCspmAwsAccountError {
-    Status400(crate::models::MsaPeriodBaseEntitiesResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodBaseEntitiesResponse),
+    Status400(models::MsaPeriodBaseEntitiesResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodBaseEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,10 +96,33 @@ pub enum DeleteCspmAwsAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteCspmAzureAccountError {
-    Status400(crate::models::MsaPeriodBaseEntitiesResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAzureAccountResponseV1),
+    Status400(models::MsaPeriodBaseEntitiesResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodBaseEntitiesResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureAccountResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_cspm_azure_management_group`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteCspmAzureManagementGroupError {
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_cspmgcp_account`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteCspmgcpAccountError {
+    Status400(models::MsaPeriodBaseEntitiesResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodBaseEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -72,10 +130,10 @@ pub enum DeleteCspmAzureAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetBehaviorDetectionsError {
-    Status400(crate::models::RegistrationPeriodExternalIoaEventResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodExternalIoaEventResponse),
+    Status400(models::RegistrationPeriodExternalIoaEventResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodExternalIoaEventResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -83,10 +141,10 @@ pub enum GetBehaviorDetectionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetConfigurationDetectionEntitiesError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -94,10 +152,10 @@ pub enum GetConfigurationDetectionEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetConfigurationDetectionIdsV2Error {
-    Status400(crate::models::MsaspecPeriodMetaInfo),
-    Status403(crate::models::MsaspecPeriodMetaInfo),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodMetaInfo),
+    Status400(models::MsaspecPeriodMetaInfo),
+    Status403(models::MsaspecPeriodMetaInfo),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodMetaInfo),
     UnknownValue(serde_json::Value),
 }
 
@@ -105,10 +163,10 @@ pub enum GetConfigurationDetectionIdsV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetConfigurationDetectionsError {
-    Status400(crate::models::RegistrationPeriodExternalIomEventResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::RegistrationPeriodExternalIomEventResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -116,10 +174,10 @@ pub enum GetConfigurationDetectionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmAwsAccountError {
-    Status400(crate::models::RegistrationPeriodAwsAccountResponseV2),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAwsAccountResponseV2),
+    Status400(models::RegistrationPeriodAwsAccountResponseV2),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAwsAccountResponseV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -127,10 +185,10 @@ pub enum GetCspmAwsAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmAwsAccountScriptsAttachmentError {
-    Status400(crate::models::RegistrationPeriodAwsProvisionGetAccountScriptResponseV2),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAwsProvisionGetAccountScriptResponseV2),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -138,10 +196,10 @@ pub enum GetCspmAwsAccountScriptsAttachmentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmAwsConsoleSetupUrlsError {
-    Status400(crate::models::RegistrationPeriodAwsAccountConsoleUrl),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAwsAccountConsoleUrl),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -149,10 +207,21 @@ pub enum GetCspmAwsConsoleSetupUrlsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmAzureAccountError {
-    Status400(crate::models::RegistrationPeriodAzureAccountResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAzureAccountResponseV1),
+    Status400(models::RegistrationPeriodAzureAccountResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureAccountResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_cspm_azure_management_group`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetCspmAzureManagementGroupError {
+    Status400(models::RegistrationPeriodAzureManagementGroupResponseV1),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureManagementGroupResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -160,10 +229,10 @@ pub enum GetCspmAzureAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmAzureUserScriptsAttachmentError {
-    Status400(crate::models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1),
+    Status400(models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -171,10 +240,10 @@ pub enum GetCspmAzureUserScriptsAttachmentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmPoliciesDetailsError {
-    Status400(crate::models::RegistrationPeriodPolicyResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodPolicyResponseV1),
+    Status400(models::RegistrationPeriodPolicyResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodPolicyResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -182,10 +251,10 @@ pub enum GetCspmPoliciesDetailsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmPolicyError {
-    Status400(crate::models::RegistrationPeriodPolicyResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodPolicyResponseV1),
+    Status400(models::RegistrationPeriodPolicyResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodPolicyResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -193,10 +262,10 @@ pub enum GetCspmPolicyError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmPolicySettingsError {
-    Status400(crate::models::RegistrationPeriodPolicySettingsResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodPolicySettingsResponseV1),
+    Status400(models::RegistrationPeriodPolicySettingsResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodPolicySettingsResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -204,10 +273,55 @@ pub enum GetCspmPolicySettingsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmScanScheduleError {
-    Status400(crate::models::RegistrationPeriodScanScheduleResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodScanScheduleResponseV1),
+    Status400(models::RegistrationPeriodScanScheduleResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodScanScheduleResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_cspmcgp_account`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetCspmcgpAccountError {
+    Status400(models::RegistrationPeriodGcpAccountResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodGcpAccountResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_cspmgcp_service_accounts_ext`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetCspmgcpServiceAccountsExtError {
+    Status400(models::RegistrationPeriodGcpServiceAccountResponseExtV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodGcpServiceAccountResponseExtV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_cspmgcp_user_scripts_attachment`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetCspmgcpUserScriptsAttachmentError {
+    Status400(models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_cspmgcp_validate_accounts_ext`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetCspmgcpValidateAccountsExtError {
+    Status400(models::RegistrationPeriodGcpAccountValidationResponseV1),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status404(models::RegistrationPeriodGcpAccountValidationResponseV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodGcpAccountValidationResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -215,10 +329,21 @@ pub enum GetCspmScanScheduleError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PatchCspmAwsAccountError {
-    Status400(crate::models::RegistrationPeriodAwsAccountResponseV2),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAwsAccountResponseV2),
+    Status400(models::RegistrationPeriodAwsAccountResponseV2),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAwsAccountResponseV2),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_cspm_azure_account`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateCspmAzureAccountError {
+    Status400(models::RegistrationPeriodAzureAccountResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureAccountResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -226,10 +351,10 @@ pub enum PatchCspmAwsAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateCspmAzureAccountClientIdError {
-    Status400(crate::models::RegistrationPeriodAzureTenantConfigurationResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAzureTenantConfigurationResponseV1),
+    Status400(models::RegistrationPeriodAzureTenantConfigurationResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureTenantConfigurationResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -237,10 +362,10 @@ pub enum UpdateCspmAzureAccountClientIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateCspmAzureTenantDefaultSubscriptionIdError {
-    Status400(crate::models::RegistrationPeriodAzureTenantDefaultSubscriptionIdResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAzureTenantDefaultSubscriptionIdResponseV1),
+    Status400(models::RegistrationPeriodAzureTenantDefaultSubscriptionIdResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureTenantDefaultSubscriptionIdResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -248,10 +373,10 @@ pub enum UpdateCspmAzureTenantDefaultSubscriptionIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateCspmPolicySettingsError {
-    Status400(crate::models::RegistrationPeriodPolicySettingsResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodPolicySettingsResponseV1),
+    Status400(models::RegistrationPeriodPolicySettingsResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodPolicySettingsResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -259,10 +384,44 @@ pub enum UpdateCspmPolicySettingsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateCspmScanScheduleError {
-    Status400(crate::models::RegistrationPeriodScanScheduleResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodScanScheduleResponseV1),
+    Status400(models::RegistrationPeriodScanScheduleResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodScanScheduleResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_cspmgcp_account`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateCspmgcpAccountError {
+    Status400(models::RegistrationPeriodGcpAccountResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodGcpAccountResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_cspmgcp_service_accounts_ext`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateCspmgcpServiceAccountsExtError {
+    Status400(models::RegistrationPeriodGcpServiceAccountResponseExtV1),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodGcpServiceAccountResponseExtV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`validate_cspmgcp_service_account_ext`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ValidateCspmgcpServiceAccountExtError {
+    Status400(models::RegistrationPeriodGcpServiceAccountValidationResponseV1),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status404(models::RegistrationPeriodGcpServiceAccountValidationResponseV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodGcpServiceAccountValidationResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -272,7 +431,7 @@ pub async fn azure_download_certificate(
     refresh: Option<bool>,
     years_valid: Option<&str>,
 ) -> Result<
-    crate::models::RegistrationPeriodAzureDownloadCertificateResponseV1,
+    models::RegistrationPeriodAzureDownloadCertificateResponseV1,
     Error<AzureDownloadCertificateError>,
 > {
     let local_var_configuration = configuration;
@@ -290,7 +449,7 @@ pub async fn azure_download_certificate(
         "multi" => local_var_req_builder.query(
             &tenant_id
                 .into_iter()
-                .map(|p| ("tenant_id".to_owned(), p))
+                .map(|p| ("tenant_id".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -339,11 +498,54 @@ pub async fn azure_download_certificate(
     }
 }
 
+pub async fn connect_cspmgcp_account(
+    configuration: &configuration::Configuration,
+    body: models::RegistrationPeriodGcpAccountExtRequestV2,
+) -> Result<models::RegistrationPeriodGcpAccountResponseExtV2, Error<ConnectCspmgcpAccountError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-gcp/entities/account/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ConnectCspmgcpAccountError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn create_cspm_aws_account(
     configuration: &configuration::Configuration,
-    body: crate::models::RegistrationPeriodAwsAccountCreateRequestExtV2,
-) -> Result<crate::models::RegistrationPeriodAwsAccountResponseV2, Error<CreateCspmAwsAccountError>>
-{
+    body: models::RegistrationPeriodAwsAccountCreateRequestExtV2,
+) -> Result<models::RegistrationPeriodAwsAccountResponseV2, Error<CreateCspmAwsAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -386,11 +588,8 @@ pub async fn create_cspm_aws_account(
 
 pub async fn create_cspm_azure_account(
     configuration: &configuration::Configuration,
-    body: crate::models::RegistrationPeriodAzureAccountCreateRequestExternalV1,
-) -> Result<
-    crate::models::RegistrationPeriodAzureAccountResponseV1,
-    Error<CreateCspmAzureAccountError>,
-> {
+    body: models::RegistrationPeriodAzureAccountCreateRequestExternalV1,
+) -> Result<models::RegistrationPeriodAzureAccountResponseV1, Error<CreateCspmAzureAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -431,11 +630,102 @@ pub async fn create_cspm_azure_account(
     }
 }
 
+pub async fn create_cspm_azure_management_group(
+    configuration: &configuration::Configuration,
+    body: models::RegistrationPeriodAzureManagementGroupCreateRequestExternalV1,
+) -> Result<
+    models::RegistrationPeriodAzureAccountResponseV1,
+    Error<CreateCspmAzureManagementGroupError>,
+> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-azure/entities/management-group/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CreateCspmAzureManagementGroupError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn create_cspmgcp_account(
+    configuration: &configuration::Configuration,
+    body: models::RegistrationPeriodGcpAccountCreateRequestExtV1,
+) -> Result<models::RegistrationPeriodGcpAccountResponseV1, Error<CreateCspmgcpAccountError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-gcp/entities/account/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CreateCspmgcpAccountError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn delete_cspm_aws_account(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
     organization_ids: Option<Vec<String>>,
-) -> Result<crate::models::MsaPeriodBaseEntitiesResponse, Error<DeleteCspmAwsAccountError>> {
+) -> Result<models::MsaPeriodBaseEntitiesResponse, Error<DeleteCspmAwsAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -518,7 +808,7 @@ pub async fn delete_cspm_azure_account(
     ids: Option<Vec<String>>,
     tenant_ids: Option<Vec<String>>,
     retain_tenant: Option<&str>,
-) -> Result<crate::models::MsaPeriodBaseEntitiesResponse, Error<DeleteCspmAzureAccountError>> {
+) -> Result<models::MsaPeriodBaseEntitiesResponse, Error<DeleteCspmAzureAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -600,6 +890,130 @@ pub async fn delete_cspm_azure_account(
     }
 }
 
+pub async fn delete_cspm_azure_management_group(
+    configuration: &configuration::Configuration,
+    tenant_ids: Option<Vec<String>>,
+) -> Result<models::MsaspecPeriodResponseFields, Error<DeleteCspmAzureManagementGroupError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-azure/entities/management-group/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = tenant_ids {
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("tenant_ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "tenant_ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
+        };
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<DeleteCspmAzureManagementGroupError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn delete_cspmgcp_account(
+    configuration: &configuration::Configuration,
+    ids: Option<Vec<String>>,
+) -> Result<models::MsaPeriodBaseEntitiesResponse, Error<DeleteCspmgcpAccountError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-gcp/entities/account/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = ids {
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
+        };
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<DeleteCspmgcpAccountError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn get_behavior_detections(
     configuration: &configuration::Configuration,
     cloud_provider: Option<&str>,
@@ -616,10 +1030,7 @@ pub async fn get_behavior_detections(
     limit: Option<i32>,
     resource_id: Option<Vec<String>>,
     resource_uuid: Option<Vec<String>>,
-) -> Result<
-    crate::models::RegistrationPeriodExternalIoaEventResponse,
-    Error<GetBehaviorDetectionsError>,
-> {
+) -> Result<models::RegistrationPeriodExternalIoaEventResponse, Error<GetBehaviorDetectionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -749,7 +1160,7 @@ pub async fn get_configuration_detection_entities(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
 ) -> Result<
-    crate::models::RegistrationPeriodExternalIomEventResponseV2,
+    models::RegistrationPeriodExternalIomEventResponseV2,
     Error<GetConfigurationDetectionEntitiesError>,
 > {
     let local_var_configuration = configuration;
@@ -766,7 +1177,7 @@ pub async fn get_configuration_detection_entities(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -814,7 +1225,7 @@ pub async fn get_configuration_detection_ids_v2(
     offset: Option<i32>,
     next_token: Option<&str>,
 ) -> Result<
-    crate::models::RegistrationPeriodIomEventIdsResponseV2,
+    models::RegistrationPeriodIomEventIdsResponseV2,
     Error<GetConfigurationDetectionIdsV2Error>,
 > {
     let local_var_configuration = configuration;
@@ -889,7 +1300,7 @@ pub async fn get_configuration_detections(
     next_token: Option<&str>,
     limit: Option<i32>,
 ) -> Result<
-    crate::models::RegistrationPeriodExternalIomEventResponse,
+    models::RegistrationPeriodExternalIomEventResponse,
     Error<GetConfigurationDetectionsError>,
 > {
     let local_var_configuration = configuration;
@@ -979,10 +1390,11 @@ pub async fn get_cspm_aws_account(
     organization_ids: Option<Vec<String>>,
     status: Option<&str>,
     limit: Option<i32>,
+    cspm_lite: Option<&str>,
     migrated: Option<&str>,
     offset: Option<i32>,
     group_by: Option<&str>,
-) -> Result<crate::models::RegistrationPeriodAwsAccountResponseV2, Error<GetCspmAwsAccountError>> {
+) -> Result<models::RegistrationPeriodAwsAccountResponseV2, Error<GetCspmAwsAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1063,6 +1475,10 @@ pub async fn get_cspm_aws_account(
         local_var_req_builder =
             local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
+    if let Some(ref local_var_str) = cspm_lite {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("cspm_lite", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_str) = migrated {
         local_var_req_builder =
             local_var_req_builder.query(&[("migrated", &local_var_str.to_string())]);
@@ -1106,8 +1522,17 @@ pub async fn get_cspm_aws_account(
 pub async fn get_cspm_aws_account_scripts_attachment(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
+    template: Option<&str>,
+    account_type: Option<&str>,
+    accounts: Option<Vec<String>>,
+    behavior_assessment_enabled: Option<&str>,
+    sensor_management_enabled: Option<&str>,
+    use_existing_cloudtrail: Option<&str>,
+    organization_id: Option<&str>,
+    aws_profile: Option<&str>,
+    custom_role_name: Option<&str>,
 ) -> Result<
-    crate::models::RegistrationPeriodAwsProvisionGetAccountScriptResponseV2,
+    models::RegistrationPeriodAwsProvisionGetAccountScriptResponseV2,
     Error<GetCspmAwsAccountScriptsAttachmentError>,
 > {
     let local_var_configuration = configuration;
@@ -1139,6 +1564,57 @@ pub async fn get_cspm_aws_account_scripts_attachment(
                     .to_string(),
             )]),
         };
+    }
+    if let Some(ref local_var_str) = template {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("template", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = account_type {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("account_type", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = accounts {
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("accounts".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "accounts",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
+        };
+    }
+    if let Some(ref local_var_str) = behavior_assessment_enabled {
+        local_var_req_builder = local_var_req_builder
+            .query(&[("behavior_assessment_enabled", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sensor_management_enabled {
+        local_var_req_builder = local_var_req_builder
+            .query(&[("sensor_management_enabled", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = use_existing_cloudtrail {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("use_existing_cloudtrail", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = organization_id {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("organization_id", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = aws_profile {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("aws_profile", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = custom_role_name {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("custom_role_name", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder =
@@ -1173,10 +1649,9 @@ pub async fn get_cspm_aws_console_setup_urls(
     ids: Option<Vec<String>>,
     use_existing_cloudtrail: Option<&str>,
     region: Option<&str>,
-) -> Result<
-    crate::models::RegistrationPeriodAwsAccountConsoleUrl,
-    Error<GetCspmAwsConsoleSetupUrlsError>,
-> {
+    template: Option<&str>,
+) -> Result<models::RegistrationPeriodAwsConsoleUrlResponseV2, Error<GetCspmAwsConsoleSetupUrlsError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1215,6 +1690,10 @@ pub async fn get_cspm_aws_console_setup_urls(
         local_var_req_builder =
             local_var_req_builder.query(&[("region", &local_var_str.to_string())]);
     }
+    if let Some(ref local_var_str) = template {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("template", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder =
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1249,10 +1728,10 @@ pub async fn get_cspm_azure_account(
     tenant_ids: Option<Vec<String>>,
     scan_type: Option<&str>,
     status: Option<&str>,
+    cspm_lite: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<crate::models::RegistrationPeriodAzureAccountResponseV1, Error<GetCspmAzureAccountError>>
-{
+) -> Result<models::RegistrationPeriodAzureAccountResponseV1, Error<GetCspmAzureAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1310,6 +1789,10 @@ pub async fn get_cspm_azure_account(
         local_var_req_builder =
             local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
     }
+    if let Some(ref local_var_str) = cspm_lite {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("cspm_lite", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_str) = limit {
         local_var_req_builder =
             local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
@@ -1346,14 +1829,90 @@ pub async fn get_cspm_azure_account(
     }
 }
 
+pub async fn get_cspm_azure_management_group(
+    configuration: &configuration::Configuration,
+    tenant_ids: Option<Vec<String>>,
+    limit: Option<i32>,
+    offset: Option<i32>,
+) -> Result<
+    models::RegistrationPeriodAzureManagementGroupResponseV1,
+    Error<GetCspmAzureManagementGroupError>,
+> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-azure/entities/management-group/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = tenant_ids {
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("tenant_ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "tenant_ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
+        };
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetCspmAzureManagementGroupError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn get_cspm_azure_user_scripts_attachment(
     configuration: &configuration::Configuration,
     tenant_id: Option<&str>,
     subscription_ids: Option<Vec<String>>,
     account_type: Option<&str>,
     template: Option<&str>,
+    azure_management_group: Option<bool>,
 ) -> Result<
-    crate::models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1,
+    models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1,
     Error<GetCspmAzureUserScriptsAttachmentError>,
 > {
     let local_var_configuration = configuration;
@@ -1398,6 +1957,10 @@ pub async fn get_cspm_azure_user_scripts_attachment(
         local_var_req_builder =
             local_var_req_builder.query(&[("template", &local_var_str.to_string())]);
     }
+    if let Some(ref local_var_str) = azure_management_group {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("azure_management_group", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder =
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1429,7 +1992,7 @@ pub async fn get_cspm_azure_user_scripts_attachment(
 pub async fn get_cspm_policies_details(
     configuration: &configuration::Configuration,
     ids: Vec<i32>,
-) -> Result<crate::models::RegistrationPeriodPolicyResponseV1, Error<GetCspmPoliciesDetailsError>> {
+) -> Result<models::RegistrationPeriodPolicyResponseV1, Error<GetCspmPoliciesDetailsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1444,8 +2007,8 @@ pub async fn get_cspm_policies_details(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
-                .collect::<Vec<(std::string::String, i32)>>(),
+                .map(|p| ("ids".to_owned(), p.to_string()))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
             "ids",
@@ -1487,7 +2050,7 @@ pub async fn get_cspm_policies_details(
 pub async fn get_cspm_policy(
     configuration: &configuration::Configuration,
     ids: i32,
-) -> Result<crate::models::RegistrationPeriodPolicyResponseV1, Error<GetCspmPolicyError>> {
+) -> Result<models::RegistrationPeriodPolicyResponseV1, Error<GetCspmPolicyError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1533,10 +2096,7 @@ pub async fn get_cspm_policy_settings(
     service: Option<&str>,
     policy_id: Option<&str>,
     cloud_platform: Option<&str>,
-) -> Result<
-    crate::models::RegistrationPeriodPolicySettingsResponseV1,
-    Error<GetCspmPolicySettingsError>,
-> {
+) -> Result<models::RegistrationPeriodPolicySettingsResponseV1, Error<GetCspmPolicySettingsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1591,8 +2151,7 @@ pub async fn get_cspm_policy_settings(
 pub async fn get_cspm_scan_schedule(
     configuration: &configuration::Configuration,
     cloud_platform: Option<Vec<String>>,
-) -> Result<crate::models::RegistrationPeriodScanScheduleResponseV1, Error<GetCspmScanScheduleError>>
-{
+) -> Result<models::RegistrationPeriodScanScheduleResponseV1, Error<GetCspmScanScheduleError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1651,11 +2210,268 @@ pub async fn get_cspm_scan_schedule(
     }
 }
 
+pub async fn get_cspmcgp_account(
+    configuration: &configuration::Configuration,
+    parent_type: Option<&str>,
+    ids: Option<Vec<String>>,
+    scan_type: Option<&str>,
+    status: Option<&str>,
+    limit: Option<i32>,
+    offset: Option<i32>,
+    sort: Option<&str>,
+) -> Result<models::RegistrationPeriodGcpAccountResponseV1, Error<GetCspmcgpAccountError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-gcp/entities/account/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = parent_type {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("parent_type", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = ids {
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
+        };
+    }
+    if let Some(ref local_var_str) = scan_type {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("scan-type", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = status {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetCspmcgpAccountError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn get_cspmgcp_service_accounts_ext(
+    configuration: &configuration::Configuration,
+    id: Option<&str>,
+) -> Result<
+    models::RegistrationPeriodGcpServiceAccountResponseExtV1,
+    Error<GetCspmgcpServiceAccountsExtError>,
+> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-gcp/entities/service-accounts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = id {
+        local_var_req_builder = local_var_req_builder.query(&[("id", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetCspmgcpServiceAccountsExtError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn get_cspmgcp_user_scripts_attachment(
+    configuration: &configuration::Configuration,
+    parent_type: Option<&str>,
+    ids: Option<Vec<String>>,
+) -> Result<
+    models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1,
+    Error<GetCspmgcpUserScriptsAttachmentError>,
+> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-gcp/entities/user-scripts-download/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = parent_type {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("parent_type", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = ids {
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
+        };
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetCspmgcpUserScriptsAttachmentError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn get_cspmgcp_validate_accounts_ext(
+    configuration: &configuration::Configuration,
+    body: models::RegistrationPeriodGcpAccountValidationRequestV1,
+) -> Result<
+    models::RegistrationPeriodGcpAccountValidationResponseV1,
+    Error<GetCspmgcpValidateAccountsExtError>,
+> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-gcp/entities/account/validate/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetCspmgcpValidateAccountsExtError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn patch_cspm_aws_account(
     configuration: &configuration::Configuration,
-    body: crate::models::RegistrationPeriodAwsAccountPatchRequest,
-) -> Result<crate::models::RegistrationPeriodAwsAccountResponseV2, Error<PatchCspmAwsAccountError>>
-{
+    body: models::RegistrationPeriodAwsAccountPatchRequest,
+) -> Result<models::RegistrationPeriodAwsAccountResponseV2, Error<PatchCspmAwsAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1696,12 +2512,56 @@ pub async fn patch_cspm_aws_account(
     }
 }
 
+pub async fn update_cspm_azure_account(
+    configuration: &configuration::Configuration,
+    body: models::RegistrationPeriodAzureAccountPatchRequest,
+) -> Result<models::RegistrationPeriodAzureAccountResponseV1, Error<UpdateCspmAzureAccountError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-azure/entities/account/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UpdateCspmAzureAccountError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn update_cspm_azure_account_client_id(
     configuration: &configuration::Configuration,
     id: &str,
     tenant_id: Option<&str>,
 ) -> Result<
-    crate::models::RegistrationPeriodAzureTenantConfigurationResponseV1,
+    models::RegistrationPeriodAzureTenantConfigurationResponseV1,
     Error<UpdateCspmAzureAccountClientIdError>,
 > {
     let local_var_configuration = configuration;
@@ -1753,7 +2613,7 @@ pub async fn update_cspm_azure_tenant_default_subscription_id(
     subscription_id: &str,
     tenant_id: Option<&str>,
 ) -> Result<
-    crate::models::RegistrationPeriodAzureTenantDefaultSubscriptionIdResponseV1,
+    models::RegistrationPeriodAzureTenantDefaultSubscriptionIdResponseV1,
     Error<UpdateCspmAzureTenantDefaultSubscriptionIdError>,
 > {
     let local_var_configuration = configuration;
@@ -1803,11 +2663,9 @@ pub async fn update_cspm_azure_tenant_default_subscription_id(
 
 pub async fn update_cspm_policy_settings(
     configuration: &configuration::Configuration,
-    body: crate::models::RegistrationPeriodPolicyRequestExtV1,
-) -> Result<
-    crate::models::RegistrationPeriodPolicySettingsResponseV1,
-    Error<UpdateCspmPolicySettingsError>,
-> {
+    body: models::RegistrationPeriodPolicyRequestExtV1,
+) -> Result<models::RegistrationPeriodPolicySettingsResponseV1, Error<UpdateCspmPolicySettingsError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1850,11 +2708,8 @@ pub async fn update_cspm_policy_settings(
 
 pub async fn update_cspm_scan_schedule(
     configuration: &configuration::Configuration,
-    body: crate::models::RegistrationPeriodScanScheduleUpdateRequestV1,
-) -> Result<
-    crate::models::RegistrationPeriodScanScheduleResponseV1,
-    Error<UpdateCspmScanScheduleError>,
-> {
+    body: models::RegistrationPeriodScanScheduleUpdateRequestV1,
+) -> Result<models::RegistrationPeriodScanScheduleResponseV1, Error<UpdateCspmScanScheduleError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1885,6 +2740,144 @@ pub async fn update_cspm_scan_schedule(
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<UpdateCspmScanScheduleError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn update_cspmgcp_account(
+    configuration: &configuration::Configuration,
+    body: models::RegistrationPeriodGcpAccountPatchRequestV1,
+) -> Result<models::RegistrationPeriodGcpAccountResponseV1, Error<UpdateCspmgcpAccountError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-gcp/entities/account/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UpdateCspmgcpAccountError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn update_cspmgcp_service_accounts_ext(
+    configuration: &configuration::Configuration,
+    body: models::RegistrationPeriodGcpServiceAccountPatchRequestV1,
+) -> Result<
+    models::RegistrationPeriodGcpServiceAccountResponseExtV1,
+    Error<UpdateCspmgcpServiceAccountsExtError>,
+> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-gcp/entities/service-accounts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UpdateCspmgcpServiceAccountsExtError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn validate_cspmgcp_service_account_ext(
+    configuration: &configuration::Configuration,
+    body: models::RegistrationPeriodGcpServiceAccountValidationRequestV1,
+) -> Result<
+    models::RegistrationPeriodGcpServiceAccountValidationResponseV1,
+    Error<ValidateCspmgcpServiceAccountExtError>,
+> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-cspm-gcp/entities/service-accounts/validate/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ValidateCspmgcpServiceAccountExtError> =
             serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent {
             status: local_var_status,

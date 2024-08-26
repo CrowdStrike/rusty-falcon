@@ -11,22 +11,22 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`read_image_vulnerabilities`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadImageVulnerabilitiesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::CorePeriodEntitiesResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::CorePeriodEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn read_image_vulnerabilities(
     configuration: &configuration::Configuration,
-    body: crate::models::ApiPeriodImageLookupRequest,
-) -> Result<crate::models::CorePeriodEntitiesResponse, Error<ReadImageVulnerabilitiesError>> {
+    body: models::ApiPeriodImageLookupRequest,
+) -> Result<models::CorePeriodEntitiesResponse, Error<ReadImageVulnerabilitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

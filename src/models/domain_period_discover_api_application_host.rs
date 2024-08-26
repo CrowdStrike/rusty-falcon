@@ -9,8 +9,7 @@
  */
 
 /// DomainPeriodDiscoverApiApplicationHost : Represents information about an application's host'.
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodDiscoverApiApplicationHost {
     /// The version of the Falcon sensor that's installed on the asset.
     #[serde(rename = "agent_version", skip_serializing_if = "Option::is_none")]

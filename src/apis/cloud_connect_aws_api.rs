@@ -11,16 +11,16 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`create_or_update_aws_settings`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateOrUpdateAwsSettingsError {
-    Status400(crate::models::ModelsPeriodCustomerConfigurationsV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ModelsPeriodCustomerConfigurationsV1),
+    Status400(models::ModelsPeriodCustomerConfigurationsV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ModelsPeriodCustomerConfigurationsV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum CreateOrUpdateAwsSettingsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteAwsAccountsError {
-    Status400(crate::models::ModelsPeriodBaseResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ModelsPeriodBaseResponseV1),
+    Status400(models::ModelsPeriodBaseResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ModelsPeriodBaseResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,11 +39,11 @@ pub enum DeleteAwsAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAwsAccountsError {
-    Status400(crate::models::ModelsPeriodAwsAccountsV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::ModelsPeriodAwsAccountsV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ModelsPeriodAwsAccountsV1),
+    Status400(models::ModelsPeriodAwsAccountsV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::ModelsPeriodAwsAccountsV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ModelsPeriodAwsAccountsV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,10 +51,10 @@ pub enum GetAwsAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAwsSettingsError {
-    Status400(crate::models::ModelsPeriodCustomerConfigurationsV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ModelsPeriodCustomerConfigurationsV1),
+    Status400(models::ModelsPeriodCustomerConfigurationsV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ModelsPeriodCustomerConfigurationsV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,10 +62,10 @@ pub enum GetAwsSettingsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProvisionAwsAccountsError {
-    Status400(crate::models::ModelsPeriodAwsAccountsV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ModelsPeriodAwsAccountsV1),
+    Status400(models::ModelsPeriodAwsAccountsV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ModelsPeriodAwsAccountsV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -73,10 +73,10 @@ pub enum ProvisionAwsAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryAwsAccountsError {
-    Status400(crate::models::ModelsPeriodAwsAccountsV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ModelsPeriodAwsAccountsV1),
+    Status400(models::ModelsPeriodAwsAccountsV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ModelsPeriodAwsAccountsV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -84,10 +84,10 @@ pub enum QueryAwsAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryAwsAccountsForIdsError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -95,11 +95,11 @@ pub enum QueryAwsAccountsForIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateAwsAccountsError {
-    Status400(crate::models::ModelsPeriodAwsAccountsV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::ModelsPeriodAwsAccountsV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ModelsPeriodAwsAccountsV1),
+    Status400(models::ModelsPeriodAwsAccountsV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::ModelsPeriodAwsAccountsV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ModelsPeriodAwsAccountsV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -107,20 +107,17 @@ pub enum UpdateAwsAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum VerifyAwsAccountAccessError {
-    Status400(crate::models::ModelsPeriodVerifyAccessResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ModelsPeriodVerifyAccessResponseV1),
+    Status400(models::ModelsPeriodVerifyAccessResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ModelsPeriodVerifyAccessResponseV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_or_update_aws_settings(
     configuration: &configuration::Configuration,
-    body: crate::models::ModelsPeriodModifyAwsCustomerSettingsV1,
-) -> Result<
-    crate::models::ModelsPeriodCustomerConfigurationsV1,
-    Error<CreateOrUpdateAwsSettingsError>,
-> {
+    body: models::ModelsPeriodModifyAwsCustomerSettingsV1,
+) -> Result<models::ModelsPeriodCustomerConfigurationsV1, Error<CreateOrUpdateAwsSettingsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -164,7 +161,7 @@ pub async fn create_or_update_aws_settings(
 pub async fn delete_aws_accounts(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::ModelsPeriodBaseResponseV1, Error<DeleteAwsAccountsError>> {
+) -> Result<models::ModelsPeriodBaseResponseV1, Error<DeleteAwsAccountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -179,7 +176,7 @@ pub async fn delete_aws_accounts(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -222,7 +219,7 @@ pub async fn delete_aws_accounts(
 pub async fn get_aws_accounts(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::ModelsPeriodAwsAccountsV1, Error<GetAwsAccountsError>> {
+) -> Result<models::ModelsPeriodAwsAccountsV1, Error<GetAwsAccountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -237,7 +234,7 @@ pub async fn get_aws_accounts(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -279,7 +276,7 @@ pub async fn get_aws_accounts(
 
 pub async fn get_aws_settings(
     configuration: &configuration::Configuration,
-) -> Result<crate::models::ModelsPeriodCustomerConfigurationsV1, Error<GetAwsSettingsError>> {
+) -> Result<models::ModelsPeriodCustomerConfigurationsV1, Error<GetAwsSettingsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -321,9 +318,9 @@ pub async fn get_aws_settings(
 
 pub async fn provision_aws_accounts(
     configuration: &configuration::Configuration,
-    body: crate::models::ModelsPeriodCreateAwsAccountsV1,
+    body: models::ModelsPeriodCreateAwsAccountsV1,
     mode: Option<&str>,
-) -> Result<crate::models::ModelsPeriodAwsAccountsV1, Error<ProvisionAwsAccountsError>> {
+) -> Result<models::ModelsPeriodAwsAccountsV1, Error<ProvisionAwsAccountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -374,7 +371,7 @@ pub async fn query_aws_accounts(
     offset: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<crate::models::ModelsPeriodAwsAccountsV1, Error<QueryAwsAccountsError>> {
+) -> Result<models::ModelsPeriodAwsAccountsV1, Error<QueryAwsAccountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -436,7 +433,7 @@ pub async fn query_aws_accounts_for_ids(
     offset: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryAwsAccountsForIdsError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryAwsAccountsForIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -494,8 +491,8 @@ pub async fn query_aws_accounts_for_ids(
 
 pub async fn update_aws_accounts(
     configuration: &configuration::Configuration,
-    body: crate::models::ModelsPeriodUpdateAwsAccountsV1,
-) -> Result<crate::models::ModelsPeriodAwsAccountsV1, Error<UpdateAwsAccountsError>> {
+    body: models::ModelsPeriodUpdateAwsAccountsV1,
+) -> Result<models::ModelsPeriodAwsAccountsV1, Error<UpdateAwsAccountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -539,7 +536,7 @@ pub async fn update_aws_accounts(
 pub async fn verify_aws_account_access(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::ModelsPeriodVerifyAccessResponseV1, Error<VerifyAwsAccountAccessError>> {
+) -> Result<models::ModelsPeriodVerifyAccessResponseV1, Error<VerifyAwsAccountAccessError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -554,7 +551,7 @@ pub async fn verify_aws_account_access(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(

@@ -9,8 +9,7 @@
  */
 
 /// DomainPeriodDiscoverApiActiveDiscoveryNetwork : Information about an active discovery network this asset is associated with.
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodDiscoverApiActiveDiscoveryNetwork {
     /// The id of the network
     #[serde(rename = "id")]

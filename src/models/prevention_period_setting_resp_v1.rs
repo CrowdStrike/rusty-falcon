@@ -9,8 +9,7 @@
  */
 
 /// PreventionPeriodSettingRespV1 : A prevention policy setting
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PreventionPeriodSettingRespV1 {
     /// The human readable description of the setting
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
@@ -23,7 +22,7 @@ pub struct PreventionPeriodSettingRespV1 {
     pub name: String,
     /// The type of the setting which can be used as a hint when displaying in the UI
     #[serde(rename = "type")]
-    pub r#type: RHashType,
+    pub r#type: Type,
     /// The value for the setting. For a toggle this value will take the form {'enabled':true|false}. For an mlslider this will take the form {'detection':'DISABLED|CAUTIOUS|MODERATE|AGGRESSIVE|EXTRA_AGGRESSIVE','prevention':'DISABLED|CAUTIOUS|MODERATE|AGGRESSIVE|EXTRA_AGGRESSIVE'}
     #[serde(rename = "value")]
     pub value: serde_json::Value,
@@ -34,7 +33,7 @@ impl PreventionPeriodSettingRespV1 {
     pub fn new(
         id: String,
         name: String,
-        r#type: RHashType,
+        r#type: Type,
         value: serde_json::Value,
     ) -> PreventionPeriodSettingRespV1 {
         PreventionPeriodSettingRespV1 {
@@ -46,18 +45,17 @@ impl PreventionPeriodSettingRespV1 {
         }
     }
 }
-
 /// The type of the setting which can be used as a hint when displaying in the UI
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum RHashType {
+pub enum Type {
     #[serde(rename = "toggle")]
     Toggle,
     #[serde(rename = "mlslider")]
     Mlslider,
 }
 
-impl Default for RHashType {
-    fn default() -> RHashType {
+impl Default for Type {
+    fn default() -> Type {
         Self::Toggle
     }
 }

@@ -11,15 +11,15 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`create_rule`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateRuleError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,9 +27,9 @@ pub enum CreateRuleError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateRuleGroupMixin0Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,9 +37,9 @@ pub enum CreateRuleGroupMixin0Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteRuleGroupsMixin0Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -47,9 +47,9 @@ pub enum DeleteRuleGroupsMixin0Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteRulesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -57,8 +57,8 @@ pub enum DeleteRulesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetPatternsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -66,8 +66,8 @@ pub enum GetPatternsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetPlatformsMixin0Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -75,9 +75,9 @@ pub enum GetPlatformsMixin0Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRuleGroupsMixin0Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -85,9 +85,9 @@ pub enum GetRuleGroupsMixin0Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRuleTypesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -95,9 +95,9 @@ pub enum GetRuleTypesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRulesGetError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -105,9 +105,9 @@ pub enum GetRulesGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRulesMixin0Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -115,8 +115,8 @@ pub enum GetRulesMixin0Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryPatternsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -124,8 +124,8 @@ pub enum QueryPatternsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryPlatformsMixin0Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -133,9 +133,9 @@ pub enum QueryPlatformsMixin0Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRuleGroupsFullError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -143,9 +143,9 @@ pub enum QueryRuleGroupsFullError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRuleGroupsMixin0Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -153,8 +153,8 @@ pub enum QueryRuleGroupsMixin0Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRuleTypesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -162,9 +162,9 @@ pub enum QueryRuleTypesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRulesMixin0Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -172,9 +172,9 @@ pub enum QueryRulesMixin0Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateRuleGroupMixin0Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -182,9 +182,19 @@ pub enum UpdateRuleGroupMixin0Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateRulesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_rules_v2`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateRulesV2Error {
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -192,16 +202,16 @@ pub enum UpdateRulesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ValidateError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_rule(
     configuration: &configuration::Configuration,
-    body: crate::models::ApiPeriodRuleCreateV1,
-) -> Result<crate::models::ApiPeriodRulesResponse, Error<CreateRuleError>> {
+    body: models::ApiPeriodRuleCreateV1,
+) -> Result<models::ApiPeriodRulesResponse, Error<CreateRuleError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -244,8 +254,8 @@ pub async fn create_rule(
 
 pub async fn create_rule_group_mixin0(
     configuration: &configuration::Configuration,
-    body: crate::models::ApiPeriodRuleGroupCreateRequestV1,
-) -> Result<crate::models::ApiPeriodRuleGroupsResponse, Error<CreateRuleGroupMixin0Error>> {
+    body: models::ApiPeriodRuleGroupCreateRequestV1,
+) -> Result<models::ApiPeriodRuleGroupsResponse, Error<CreateRuleGroupMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -290,7 +300,7 @@ pub async fn delete_rule_groups_mixin0(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     comment: Option<&str>,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<DeleteRuleGroupsMixin0Error>> {
+) -> Result<models::MsaPeriodReplyMetaOnly, Error<DeleteRuleGroupsMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -309,7 +319,7 @@ pub async fn delete_rule_groups_mixin0(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -354,7 +364,7 @@ pub async fn delete_rules(
     rule_group_id: &str,
     ids: Vec<String>,
     comment: Option<&str>,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<DeleteRulesError>> {
+) -> Result<models::MsaPeriodReplyMetaOnly, Error<DeleteRulesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -375,7 +385,7 @@ pub async fn delete_rules(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -418,7 +428,7 @@ pub async fn delete_rules(
 pub async fn get_patterns(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::ApiPeriodPatternsResponse, Error<GetPatternsError>> {
+) -> Result<models::ApiPeriodPatternsResponse, Error<GetPatternsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -433,7 +443,7 @@ pub async fn get_patterns(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -476,7 +486,7 @@ pub async fn get_patterns(
 pub async fn get_platforms_mixin0(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::ApiPeriodPlatformsResponse, Error<GetPlatformsMixin0Error>> {
+) -> Result<models::ApiPeriodPlatformsResponse, Error<GetPlatformsMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -491,7 +501,7 @@ pub async fn get_platforms_mixin0(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -534,7 +544,7 @@ pub async fn get_platforms_mixin0(
 pub async fn get_rule_groups_mixin0(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::ApiPeriodRuleGroupsResponse, Error<GetRuleGroupsMixin0Error>> {
+) -> Result<models::ApiPeriodRuleGroupsResponse, Error<GetRuleGroupsMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -549,7 +559,7 @@ pub async fn get_rule_groups_mixin0(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -592,7 +602,7 @@ pub async fn get_rule_groups_mixin0(
 pub async fn get_rule_types(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::ApiPeriodRuleTypesResponse, Error<GetRuleTypesError>> {
+) -> Result<models::ApiPeriodRuleTypesResponse, Error<GetRuleTypesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -607,7 +617,7 @@ pub async fn get_rule_types(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -649,8 +659,8 @@ pub async fn get_rule_types(
 
 pub async fn get_rules_get(
     configuration: &configuration::Configuration,
-    body: crate::models::ApiPeriodRulesGetRequestV1,
-) -> Result<crate::models::ApiPeriodRulesResponse, Error<GetRulesGetError>> {
+    body: models::ApiPeriodRulesGetRequestV1,
+) -> Result<models::ApiPeriodRulesResponse, Error<GetRulesGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -694,7 +704,7 @@ pub async fn get_rules_get(
 pub async fn get_rules_mixin0(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::ApiPeriodRulesResponse, Error<GetRulesMixin0Error>> {
+) -> Result<models::ApiPeriodRulesResponse, Error<GetRulesMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -709,7 +719,7 @@ pub async fn get_rules_mixin0(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -753,7 +763,7 @@ pub async fn query_patterns(
     configuration: &configuration::Configuration,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryPatternsError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryPatternsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -805,7 +815,7 @@ pub async fn query_platforms_mixin0(
     configuration: &configuration::Configuration,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryPlatformsMixin0Error>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryPlatformsMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -860,7 +870,7 @@ pub async fn query_rule_groups_full(
     q: Option<&str>,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryRuleGroupsFullError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryRuleGroupsFullError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -926,7 +936,7 @@ pub async fn query_rule_groups_mixin0(
     q: Option<&str>,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryRuleGroupsMixin0Error>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryRuleGroupsMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -989,7 +999,7 @@ pub async fn query_rule_types(
     configuration: &configuration::Configuration,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryRuleTypesError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryRuleTypesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1044,7 +1054,7 @@ pub async fn query_rules_mixin0(
     q: Option<&str>,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryRulesMixin0Error>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryRulesMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1105,8 +1115,8 @@ pub async fn query_rules_mixin0(
 
 pub async fn update_rule_group_mixin0(
     configuration: &configuration::Configuration,
-    body: crate::models::ApiPeriodRuleGroupModifyRequestV1,
-) -> Result<crate::models::ApiPeriodRuleGroupsResponse, Error<UpdateRuleGroupMixin0Error>> {
+    body: models::ApiPeriodRuleGroupModifyRequestV1,
+) -> Result<models::ApiPeriodRuleGroupsResponse, Error<UpdateRuleGroupMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1149,8 +1159,8 @@ pub async fn update_rule_group_mixin0(
 
 pub async fn update_rules(
     configuration: &configuration::Configuration,
-    body: crate::models::ApiPeriodRuleUpdatesRequestV1,
-) -> Result<crate::models::ApiPeriodRulesResponse, Error<UpdateRulesError>> {
+    body: models::ApiPeriodRuleUpdatesRequestV1,
+) -> Result<models::ApiPeriodRulesResponse, Error<UpdateRulesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1191,10 +1201,54 @@ pub async fn update_rules(
     }
 }
 
+pub async fn update_rules_v2(
+    configuration: &configuration::Configuration,
+    body: models::ApiPeriodRuleUpdatesRequestV2,
+) -> Result<models::ApiPeriodRulesResponse, Error<UpdateRulesV2Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/ioarules/entities/rules/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UpdateRulesV2Error> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn validate(
     configuration: &configuration::Configuration,
-    body: crate::models::ApiPeriodValidationRequestV1,
-) -> Result<crate::models::ApiPeriodValidationResponseV1, Error<ValidateError>> {
+    body: models::ApiPeriodValidationRequestV1,
+) -> Result<models::ApiPeriodValidationResponseV1, Error<ValidateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

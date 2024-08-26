@@ -9,8 +9,7 @@
  */
 
 /// UninstallTokenPeriodUninstallTokenV1 : An uninstall token for a device
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct UninstallTokenPeriodUninstallTokenV1 {
     /// The device the token belongs to
     #[serde(rename = "device_id")]

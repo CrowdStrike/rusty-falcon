@@ -11,15 +11,15 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`scheduled_reports_period_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ScheduledReportsPeriodGetError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,9 +27,9 @@ pub enum ScheduledReportsPeriodGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ScheduledReportsPeriodLaunchError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,19 +37,16 @@ pub enum ScheduledReportsPeriodLaunchError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ScheduledReportsPeriodQueryError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn scheduled_reports_period_get(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    crate::models::DomainPeriodScheduledReportsResultV1,
-    Error<ScheduledReportsPeriodGetError>,
-> {
+) -> Result<models::DomainPeriodScheduledReportsResultV1, Error<ScheduledReportsPeriodGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -64,7 +61,7 @@ pub async fn scheduled_reports_period_get(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -106,11 +103,9 @@ pub async fn scheduled_reports_period_get(
 
 pub async fn scheduled_reports_period_launch(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::DomainPeriodReportExecutionLaunchRequestV1>,
-) -> Result<
-    crate::models::DomainPeriodReportExecutionsResponseV1,
-    Error<ScheduledReportsPeriodLaunchError>,
-> {
+    body: Vec<models::DomainPeriodReportExecutionLaunchRequestV1>,
+) -> Result<models::DomainPeriodReportExecutionsResponseV1, Error<ScheduledReportsPeriodLaunchError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -158,7 +153,7 @@ pub async fn scheduled_reports_period_query(
     q: Option<&str>,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<ScheduledReportsPeriodQueryError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<ScheduledReportsPeriodQueryError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

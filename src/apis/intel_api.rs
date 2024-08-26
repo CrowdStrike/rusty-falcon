@@ -11,15 +11,15 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`get_intel_actor_entities`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntelActorEntitiesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,9 +27,9 @@ pub enum GetIntelActorEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntelIndicatorEntitiesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,9 +37,9 @@ pub enum GetIntelIndicatorEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntelReportEntitiesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -47,10 +47,10 @@ pub enum GetIntelReportEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntelReportPdfError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodErrorsOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -58,9 +58,9 @@ pub enum GetIntelReportPdfError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntelRuleEntitiesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -68,11 +68,11 @@ pub enum GetIntelRuleEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntelRuleFileError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodErrorsOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -80,11 +80,20 @@ pub enum GetIntelRuleFileError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLatestIntelRuleFileError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodErrorsOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodErrorsOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_malware_entities`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetMalwareEntitiesError {
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -92,8 +101,8 @@ pub enum GetLatestIntelRuleFileError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMitreReportError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -101,10 +110,10 @@ pub enum GetMitreReportError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetVulnerabilitiesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -112,8 +121,8 @@ pub enum GetVulnerabilitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostMitreAttacksError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -121,10 +130,10 @@ pub enum PostMitreAttacksError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIntelActorEntitiesError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodErrorsOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -132,10 +141,10 @@ pub enum QueryIntelActorEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIntelActorIdsError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodErrorsOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -143,10 +152,10 @@ pub enum QueryIntelActorIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIntelIndicatorEntitiesError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodErrorsOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -154,10 +163,10 @@ pub enum QueryIntelIndicatorEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIntelIndicatorIdsError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodErrorsOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -166,9 +175,9 @@ pub enum QueryIntelIndicatorIdsError {
 #[serde(untagged)]
 pub enum QueryIntelReportEntitiesError {
     Status400(),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -176,10 +185,10 @@ pub enum QueryIntelReportEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIntelReportIdsError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodErrorsOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -187,10 +196,21 @@ pub enum QueryIntelReportIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIntelRuleIdsError {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodErrorsOnly),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodErrorsOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`query_malware`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum QueryMalwareError {
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -198,8 +218,17 @@ pub enum QueryIntelRuleIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryMitreAttacksError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`query_mitre_attacks_for_malware`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum QueryMitreAttacksForMalwareError {
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -207,10 +236,10 @@ pub enum QueryMitreAttacksError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryVulnerabilitiesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -218,7 +247,7 @@ pub async fn get_intel_actor_entities(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     fields: Option<Vec<String>>,
-) -> Result<crate::models::DomainPeriodActorsResponse, Error<GetIntelActorEntitiesError>> {
+) -> Result<models::DomainPeriodActorsResponse, Error<GetIntelActorEntitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -233,7 +262,7 @@ pub async fn get_intel_actor_entities(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -294,11 +323,8 @@ pub async fn get_intel_actor_entities(
 
 pub async fn get_intel_indicator_entities(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaPeriodIdsRequest,
-) -> Result<
-    crate::models::DomainPeriodPublicIndicatorsV3Response,
-    Error<GetIntelIndicatorEntitiesError>,
-> {
+    body: models::MsaPeriodIdsRequest,
+) -> Result<models::DomainPeriodPublicIndicatorsV3Response, Error<GetIntelIndicatorEntitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -343,7 +369,7 @@ pub async fn get_intel_report_entities(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     fields: Option<Vec<String>>,
-) -> Result<crate::models::DomainPeriodNewsResponse, Error<GetIntelReportEntitiesError>> {
+) -> Result<models::DomainPeriodNewsResponse, Error<GetIntelReportEntitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -358,7 +384,7 @@ pub async fn get_intel_report_entities(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -470,7 +496,7 @@ pub async fn get_intel_report_pdf(
 pub async fn get_intel_rule_entities(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodRulesResponse, Error<GetIntelRuleEntitiesError>> {
+) -> Result<models::DomainPeriodRulesResponse, Error<GetIntelRuleEntitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -485,7 +511,7 @@ pub async fn get_intel_rule_entities(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -643,6 +669,64 @@ pub async fn get_latest_intel_rule_file(
     }
 }
 
+pub async fn get_malware_entities(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<models::DomainPeriodMalwareResponse, Error<GetMalwareEntitiesError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/intel/entities/malware/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p.to_string()))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
+    };
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetMalwareEntitiesError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn get_mitre_report(
     configuration: &configuration::Configuration,
     actor_id: &str,
@@ -691,8 +775,8 @@ pub async fn get_mitre_report(
 
 pub async fn get_vulnerabilities(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaPeriodIdsRequest,
-) -> Result<crate::models::DomainPeriodVulnerabilityResponse, Error<GetVulnerabilitiesError>> {
+    body: models::MsaPeriodIdsRequest,
+) -> Result<models::DomainPeriodVulnerabilityResponse, Error<GetVulnerabilitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -735,7 +819,7 @@ pub async fn get_vulnerabilities(
 
 pub async fn post_mitre_attacks(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaPeriodIdsRequest,
+    body: models::MsaPeriodIdsRequest,
 ) -> Result<(), Error<PostMitreAttacksError>> {
     let local_var_configuration = configuration;
 
@@ -785,7 +869,7 @@ pub async fn query_intel_actor_entities(
     filter: Option<&str>,
     q: Option<&str>,
     fields: Option<Vec<String>>,
-) -> Result<crate::models::DomainPeriodActorsResponse, Error<QueryIntelActorEntitiesError>> {
+) -> Result<models::DomainPeriodActorsResponse, Error<QueryIntelActorEntitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -870,7 +954,7 @@ pub async fn query_intel_actor_ids(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryIntelActorIdsError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryIntelActorIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -938,10 +1022,8 @@ pub async fn query_intel_indicator_entities(
     q: Option<&str>,
     include_deleted: Option<bool>,
     include_relations: Option<bool>,
-) -> Result<
-    crate::models::DomainPeriodPublicIndicatorsV3Response,
-    Error<QueryIntelIndicatorEntitiesError>,
-> {
+) -> Result<models::DomainPeriodPublicIndicatorsV3Response, Error<QueryIntelIndicatorEntitiesError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1017,7 +1099,7 @@ pub async fn query_intel_indicator_ids(
     q: Option<&str>,
     include_deleted: Option<bool>,
     include_relations: Option<bool>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryIntelIndicatorIdsError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryIntelIndicatorIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1092,7 +1174,7 @@ pub async fn query_intel_report_entities(
     filter: Option<&str>,
     q: Option<&str>,
     fields: Option<Vec<String>>,
-) -> Result<crate::models::DomainPeriodNewsResponse, Error<QueryIntelReportEntitiesError>> {
+) -> Result<models::DomainPeriodNewsResponse, Error<QueryIntelReportEntitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1177,7 +1259,7 @@ pub async fn query_intel_report_ids(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryIntelReportIdsError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryIntelReportIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1248,7 +1330,7 @@ pub async fn query_intel_rule_ids(
     min_created_date: Option<i32>,
     max_created_date: Option<&str>,
     q: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryIntelRuleIdsError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryIntelRuleIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1369,11 +1451,77 @@ pub async fn query_intel_rule_ids(
     }
 }
 
+pub async fn query_malware(
+    configuration: &configuration::Configuration,
+    offset: Option<i32>,
+    limit: Option<i32>,
+    sort: Option<&str>,
+    filter: Option<&str>,
+    q: Option<&str>,
+) -> Result<models::DomainPeriodQueryResponse, Error<QueryMalwareError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/intel/queries/malware/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = filter {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("filter", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = q {
+        local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<QueryMalwareError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn query_mitre_attacks(
     configuration: &configuration::Configuration,
     id: Option<&str>,
     ids: Option<Vec<String>>,
-) -> Result<crate::models::DomainPeriodQueryMitreAttacksResponse, Error<QueryMitreAttacksError>> {
+) -> Result<models::DomainPeriodQueryMitreAttacksResponse, Error<QueryMitreAttacksError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1435,6 +1583,64 @@ pub async fn query_mitre_attacks(
     }
 }
 
+pub async fn query_mitre_attacks_for_malware(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<models::DomainPeriodQueryResponse, Error<QueryMitreAttacksForMalwareError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/intel/queries/mitre-malware/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p.to_string()))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
+    };
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<QueryMitreAttacksForMalwareError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn query_vulnerabilities(
     configuration: &configuration::Configuration,
     offset: Option<&str>,
@@ -1442,7 +1648,7 @@ pub async fn query_vulnerabilities(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryVulnerabilitiesError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryVulnerabilitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

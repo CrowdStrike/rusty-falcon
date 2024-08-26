@@ -11,16 +11,17 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`combined_query_vulnerabilities`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedQueryVulnerabilitiesError {
-    Status400(crate::models::DomainPeriodSpapiCombinedVulnerabilitiesResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodSpapiCombinedVulnerabilitiesResponse),
+    Status400(models::DomainPeriodSpapiCombinedVulnerabilitiesResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodSpapiCombinedVulnerabilitiesResponse),
+    Status503(models::DomainPeriodSpapiCombinedVulnerabilitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,8 +29,9 @@ pub enum CombinedQueryVulnerabilitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRemediationsV2Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status503(models::DomainPeriodSpapiRemediationEntitiesResponseV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,8 +39,9 @@ pub enum GetRemediationsV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetVulnerabilitiesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status503(models::DomainPeriodSpapiVulnerabilitiesEntitiesResponseV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -46,10 +49,11 @@ pub enum GetVulnerabilitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryVulnerabilitiesError {
-    Status400(crate::models::DomainPeriodSpapiQueryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodSpapiQueryResponse),
+    Status400(models::DomainPeriodSpapiQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodSpapiQueryResponse),
+    Status503(models::DomainPeriodSpapiQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,7 +65,7 @@ pub async fn combined_query_vulnerabilities(
     sort: Option<&str>,
     facet: Option<Vec<String>>,
 ) -> Result<
-    crate::models::DomainPeriodSpapiCombinedVulnerabilitiesResponse,
+    models::DomainPeriodSpapiCombinedVulnerabilitiesResponse,
     Error<CombinedQueryVulnerabilitiesError>,
 > {
     let local_var_configuration = configuration;
@@ -138,10 +142,7 @@ pub async fn combined_query_vulnerabilities(
 pub async fn get_remediations_v2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    crate::models::DomainPeriodSpapiRemediationEntitiesResponseV2,
-    Error<GetRemediationsV2Error>,
-> {
+) -> Result<models::DomainPeriodSpapiRemediationEntitiesResponseV2, Error<GetRemediationsV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -156,7 +157,7 @@ pub async fn get_remediations_v2(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -200,7 +201,7 @@ pub async fn get_vulnerabilities(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
 ) -> Result<
-    crate::models::DomainPeriodSpapiVulnerabilitiesEntitiesResponseV2,
+    models::DomainPeriodSpapiVulnerabilitiesEntitiesResponseV2,
     Error<GetVulnerabilitiesError>,
 > {
     let local_var_configuration = configuration;
@@ -217,7 +218,7 @@ pub async fn get_vulnerabilities(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -263,7 +264,7 @@ pub async fn query_vulnerabilities(
     after: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::DomainPeriodSpapiQueryResponse, Error<QueryVulnerabilitiesError>> {
+) -> Result<models::DomainPeriodSpapiQueryResponse, Error<QueryVulnerabilitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

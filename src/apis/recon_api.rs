@@ -11,17 +11,17 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`aggregate_notifications_exposed_data_records_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateNotificationsExposedDataRecordsV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,11 +29,11 @@ pub enum AggregateNotificationsExposedDataRecordsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateNotificationsV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,12 +41,12 @@ pub enum AggregateNotificationsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateActionsV1Error {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status401(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status401(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -54,12 +54,12 @@ pub enum CreateActionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateExportJobsV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status404(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status404(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -67,11 +67,11 @@ pub enum CreateExportJobsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateRulesV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -79,11 +79,11 @@ pub enum CreateRulesV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteActionV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -91,11 +91,11 @@ pub enum DeleteActionV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteExportJobsV1Error {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status401(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status401(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -103,11 +103,11 @@ pub enum DeleteExportJobsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteNotificationsV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -115,11 +115,11 @@ pub enum DeleteNotificationsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteRulesV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -127,11 +127,11 @@ pub enum DeleteRulesV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetActionsV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -139,11 +139,11 @@ pub enum GetActionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetExportJobsV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -151,11 +151,11 @@ pub enum GetExportJobsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetFileContentForExportJobsV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -163,11 +163,11 @@ pub enum GetFileContentForExportJobsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetNotificationsDetailedTranslatedV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -175,11 +175,11 @@ pub enum GetNotificationsDetailedTranslatedV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetNotificationsDetailedV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -187,11 +187,11 @@ pub enum GetNotificationsDetailedV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetNotificationsExposedDataRecordsV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -199,11 +199,11 @@ pub enum GetNotificationsExposedDataRecordsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetNotificationsTranslatedV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -211,11 +211,11 @@ pub enum GetNotificationsTranslatedV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetNotificationsV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -223,11 +223,11 @@ pub enum GetNotificationsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRulesV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -235,11 +235,11 @@ pub enum GetRulesV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PreviewRuleV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -247,11 +247,11 @@ pub enum PreviewRuleV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryActionsV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -259,11 +259,11 @@ pub enum QueryActionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryNotificationsExposedDataRecordsV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -271,11 +271,11 @@ pub enum QueryNotificationsExposedDataRecordsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryNotificationsV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -283,11 +283,11 @@ pub enum QueryNotificationsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRulesV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -295,11 +295,11 @@ pub enum QueryRulesV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateActionV1Error {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status401(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status401(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -307,11 +307,11 @@ pub enum UpdateActionV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateNotificationsV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -319,19 +319,19 @@ pub enum UpdateNotificationsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateRulesV1Error {
-    Status400(crate::models::DomainPeriodErrorsOnly),
-    Status401(crate::models::DomainPeriodErrorsOnly),
-    Status403(crate::models::DomainPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodErrorsOnly),
+    Status400(models::DomainPeriodErrorsOnly),
+    Status401(models::DomainPeriodErrorsOnly),
+    Status403(models::DomainPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn aggregate_notifications_exposed_data_records_v1(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
 ) -> Result<
-    crate::models::DomainPeriodAggregatesResponse,
+    models::DomainPeriodAggregatesResponse,
     Error<AggregateNotificationsExposedDataRecordsV1Error>,
 > {
     let local_var_configuration = configuration;
@@ -376,8 +376,8 @@ pub async fn aggregate_notifications_exposed_data_records_v1(
 
 pub async fn aggregate_notifications_v1(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::DomainPeriodAggregatesResponse, Error<AggregateNotificationsV1Error>> {
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::DomainPeriodAggregatesResponse, Error<AggregateNotificationsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -420,8 +420,8 @@ pub async fn aggregate_notifications_v1(
 
 pub async fn create_actions_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodRegisterActionsRequest,
-) -> Result<crate::models::DomainPeriodActionEntitiesResponseV1, Error<CreateActionsV1Error>> {
+    body: models::DomainPeriodRegisterActionsRequest,
+) -> Result<models::DomainPeriodActionEntitiesResponseV1, Error<CreateActionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -464,8 +464,8 @@ pub async fn create_actions_v1(
 
 pub async fn create_export_jobs_v1(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::DomainPeriodLaunchExportJobRequestV1>,
-) -> Result<crate::models::DomainPeriodLaunchExportJobResponseV1, Error<CreateExportJobsV1Error>> {
+    body: Vec<models::DomainPeriodLaunchExportJobRequestV1>,
+) -> Result<models::DomainPeriodLaunchExportJobResponseV1, Error<CreateExportJobsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -508,8 +508,8 @@ pub async fn create_export_jobs_v1(
 
 pub async fn create_rules_v1(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::SadomainPeriodCreateRuleRequestV1>,
-) -> Result<crate::models::DomainPeriodRulesEntitiesResponseV1, Error<CreateRulesV1Error>> {
+    body: Vec<models::SadomainPeriodCreateRuleRequestV1>,
+) -> Result<models::DomainPeriodRulesEntitiesResponseV1, Error<CreateRulesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -553,7 +553,7 @@ pub async fn create_rules_v1(
 pub async fn delete_action_v1(
     configuration: &configuration::Configuration,
     id: &str,
-) -> Result<crate::models::DomainPeriodQueryResponse, Error<DeleteActionV1Error>> {
+) -> Result<models::DomainPeriodQueryResponse, Error<DeleteActionV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -597,7 +597,7 @@ pub async fn delete_action_v1(
 pub async fn delete_export_jobs_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodExportJobIdResponseV1, Error<DeleteExportJobsV1Error>> {
+) -> Result<models::DomainPeriodExportJobIdResponseV1, Error<DeleteExportJobsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -612,7 +612,7 @@ pub async fn delete_export_jobs_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -655,7 +655,7 @@ pub async fn delete_export_jobs_v1(
 pub async fn delete_notifications_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodNotificationIdResponse, Error<DeleteNotificationsV1Error>> {
+) -> Result<models::DomainPeriodNotificationIdResponse, Error<DeleteNotificationsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -670,7 +670,7 @@ pub async fn delete_notifications_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -714,7 +714,7 @@ pub async fn delete_rules_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     notifications_deletion_requested: Option<bool>,
-) -> Result<crate::models::DomainPeriodRuleQueryResponseV1, Error<DeleteRulesV1Error>> {
+) -> Result<models::DomainPeriodRuleQueryResponseV1, Error<DeleteRulesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -729,7 +729,7 @@ pub async fn delete_rules_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -776,7 +776,7 @@ pub async fn delete_rules_v1(
 pub async fn get_actions_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodActionEntitiesResponseV1, Error<GetActionsV1Error>> {
+) -> Result<models::DomainPeriodActionEntitiesResponseV1, Error<GetActionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -791,7 +791,7 @@ pub async fn get_actions_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -834,7 +834,7 @@ pub async fn get_actions_v1(
 pub async fn get_export_jobs_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodExportJobEntitiesResponseV1, Error<GetExportJobsV1Error>> {
+) -> Result<models::DomainPeriodExportJobEntitiesResponseV1, Error<GetExportJobsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -849,7 +849,7 @@ pub async fn get_export_jobs_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -933,11 +933,12 @@ pub async fn get_file_content_for_export_jobs_v1(
     }
 }
 
+/// Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it. This API endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request. In case the item's content is only partial, a URL is provided under the resource's 'details.full_content_url' path, but the content available at this URL will be the original one.
 pub async fn get_notifications_detailed_translated_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
 ) -> Result<
-    crate::models::DomainPeriodNotificationDetailsResponseV1,
+    models::DomainPeriodNotificationDetailsResponseV1,
     Error<GetNotificationsDetailedTranslatedV1Error>,
 > {
     let local_var_configuration = configuration;
@@ -954,7 +955,7 @@ pub async fn get_notifications_detailed_translated_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -994,13 +995,12 @@ pub async fn get_notifications_detailed_translated_v1(
     }
 }
 
+/// Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it. In case the content is only partial, a URL is provided under the resource's 'details.full_content_url' path. When present, use this URL to retrieve the full raw text content of the item. Please note this URL has a limited TTL. To get a fresh valid one, perform a new call to this API endpoint.
 pub async fn get_notifications_detailed_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    crate::models::DomainPeriodNotificationDetailsResponseV1,
-    Error<GetNotificationsDetailedV1Error>,
-> {
+) -> Result<models::DomainPeriodNotificationDetailsResponseV1, Error<GetNotificationsDetailedV1Error>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1015,7 +1015,7 @@ pub async fn get_notifications_detailed_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1059,7 +1059,7 @@ pub async fn get_notifications_exposed_data_records_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
 ) -> Result<
-    crate::models::ApiPeriodNotificationExposedDataRecordEntitiesResponseV1,
+    models::ApiPeriodNotificationExposedDataRecordEntitiesResponseV1,
     Error<GetNotificationsExposedDataRecordsV1Error>,
 > {
     let local_var_configuration = configuration;
@@ -1076,7 +1076,7 @@ pub async fn get_notifications_exposed_data_records_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1120,7 +1120,7 @@ pub async fn get_notifications_translated_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
 ) -> Result<
-    crate::models::DomainPeriodNotificationEntitiesResponseV1,
+    models::DomainPeriodNotificationEntitiesResponseV1,
     Error<GetNotificationsTranslatedV1Error>,
 > {
     let local_var_configuration = configuration;
@@ -1137,7 +1137,7 @@ pub async fn get_notifications_translated_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1180,8 +1180,7 @@ pub async fn get_notifications_translated_v1(
 pub async fn get_notifications_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodNotificationEntitiesResponseV1, Error<GetNotificationsV1Error>>
-{
+) -> Result<models::DomainPeriodNotificationEntitiesResponseV1, Error<GetNotificationsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1196,7 +1195,7 @@ pub async fn get_notifications_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1239,7 +1238,7 @@ pub async fn get_notifications_v1(
 pub async fn get_rules_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DomainPeriodRulesEntitiesResponseV1, Error<GetRulesV1Error>> {
+) -> Result<models::DomainPeriodRulesEntitiesResponseV1, Error<GetRulesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1254,7 +1253,7 @@ pub async fn get_rules_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1296,8 +1295,8 @@ pub async fn get_rules_v1(
 
 pub async fn preview_rule_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodRulePreviewRequest,
-) -> Result<crate::models::DomainPeriodAggregatesResponse, Error<PreviewRuleV1Error>> {
+    body: models::DomainPeriodRulePreviewRequest,
+) -> Result<models::DomainPeriodAggregatesResponse, Error<PreviewRuleV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1345,7 +1344,7 @@ pub async fn query_actions_v1(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<crate::models::DomainPeriodQueryResponse, Error<QueryActionsV1Error>> {
+) -> Result<models::DomainPeriodQueryResponse, Error<QueryActionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1411,10 +1410,7 @@ pub async fn query_notifications_exposed_data_records_v1(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<
-    crate::models::DomainPeriodQueryResponse,
-    Error<QueryNotificationsExposedDataRecordsV1Error>,
-> {
+) -> Result<models::DomainPeriodQueryResponse, Error<QueryNotificationsExposedDataRecordsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1480,7 +1476,7 @@ pub async fn query_notifications_v1(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<crate::models::DomainPeriodQueryResponse, Error<QueryNotificationsV1Error>> {
+) -> Result<models::DomainPeriodQueryResponse, Error<QueryNotificationsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1546,7 +1542,8 @@ pub async fn query_rules_v1(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<crate::models::DomainPeriodRuleQueryResponseV1, Error<QueryRulesV1Error>> {
+    secondary_sort: Option<&str>,
+) -> Result<models::DomainPeriodRuleQueryResponseV1, Error<QueryRulesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1576,6 +1573,10 @@ pub async fn query_rules_v1(
     }
     if let Some(ref local_var_str) = q {
         local_var_req_builder = local_var_req_builder.query(&[("q", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = secondary_sort {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("secondarySort", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder =
@@ -1607,8 +1608,8 @@ pub async fn query_rules_v1(
 
 pub async fn update_action_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodUpdateActionRequest,
-) -> Result<crate::models::DomainPeriodActionEntitiesResponseV1, Error<UpdateActionV1Error>> {
+    body: models::DomainPeriodUpdateActionRequest,
+) -> Result<models::DomainPeriodActionEntitiesResponseV1, Error<UpdateActionV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1651,11 +1652,8 @@ pub async fn update_action_v1(
 
 pub async fn update_notifications_v1(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::DomainPeriodUpdateNotificationRequestV1>,
-) -> Result<
-    crate::models::DomainPeriodNotificationEntitiesResponseV1,
-    Error<UpdateNotificationsV1Error>,
-> {
+    body: Vec<models::DomainPeriodUpdateNotificationRequestV1>,
+) -> Result<models::DomainPeriodNotificationEntitiesResponseV1, Error<UpdateNotificationsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1698,8 +1696,8 @@ pub async fn update_notifications_v1(
 
 pub async fn update_rules_v1(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::DomainPeriodUpdateRuleRequestV1>,
-) -> Result<crate::models::DomainPeriodRulesEntitiesResponseV1, Error<UpdateRulesV1Error>> {
+    body: Vec<models::DomainPeriodUpdateRuleRequestV1>,
+) -> Result<models::DomainPeriodRulesEntitiesResponseV1, Error<UpdateRulesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

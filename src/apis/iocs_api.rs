@@ -11,14 +11,14 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`devices_count`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DevicesCountError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -26,8 +26,8 @@ pub enum DevicesCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DevicesRanOnError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -35,8 +35,8 @@ pub enum DevicesRanOnError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EntitiesPeriodProcessesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -44,8 +44,8 @@ pub enum EntitiesPeriodProcessesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProcessesRanOnError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -53,7 +53,7 @@ pub async fn devices_count(
     configuration: &configuration::Configuration,
     r#type: &str,
     value: &str,
-) -> Result<crate::models::IocapiPeriodMsaReplyIocDevicesCount, Error<DevicesCountError>> {
+) -> Result<models::IocapiPeriodMsaReplyIocDevicesCount, Error<DevicesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -101,7 +101,7 @@ pub async fn devices_ran_on(
     value: &str,
     limit: Option<&str>,
     offset: Option<&str>,
-) -> Result<crate::models::IocapiPeriodMsaReplyDevicesRanOn, Error<DevicesRanOnError>> {
+) -> Result<models::IocapiPeriodMsaReplyDevicesRanOn, Error<DevicesRanOnError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -154,10 +154,8 @@ pub async fn devices_ran_on(
 pub async fn entities_period_processes(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    crate::models::ProcessesapiPeriodMsaProcessDetailResponse,
-    Error<EntitiesPeriodProcessesError>,
-> {
+) -> Result<models::ProcessesapiPeriodMsaProcessDetailResponse, Error<EntitiesPeriodProcessesError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -172,7 +170,7 @@ pub async fn entities_period_processes(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -219,7 +217,7 @@ pub async fn processes_ran_on(
     device_id: &str,
     limit: Option<&str>,
     offset: Option<&str>,
-) -> Result<crate::models::IocapiPeriodMsaReplyProcessesRanOn, Error<ProcessesRanOnError>> {
+) -> Result<models::IocapiPeriodMsaReplyProcessesRanOn, Error<ProcessesRanOnError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

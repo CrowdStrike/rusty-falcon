@@ -20,7 +20,7 @@ To get you started quickly, the easiest and highest-level way to establish API c
 `easy::client::FalconHandle`. The most convenient way is to use `easy::client::FalconHandle::from_env`
 function that will read the following environment variables to authenticate with falcon cloud:
 `FALCON_CLIENT_ID`, `FALCON_CLIENT_SECRET`, and `FALCON_CLOUD`. Unless you already have a CrowdStrike key
-pair you can establish a new one in [Falcon Portal](https://falcon.crowdstrike.com/support/api-clients-and-keys).
+pair you can establish a new one in [Falcon Portal](https://falcon.crowdstrike.com/api-clients-and-keys).
 
 ```rust
 use rusty_falcon::apis::sensor_download_api;
@@ -56,7 +56,7 @@ Ready-made examples can be found in [git repo](https://github.com/CrowdStrike/ru
 
 # Generating models from OpenApi Specification
 
-This api model is generated from OpenApi specification using OpenApi Generator for Rust language.
+This api model is generated from OpenApi specification using [OpenApi Generator](https://openapi-generator.tech/docs/installation/) for Rust language.
 > Note: In the OpenApi specification please update version to `rolling``, if required and update version on the list below.
 > This will prevent crazy long PRs with updates.
 
@@ -68,7 +68,7 @@ openapi-generator generate -g rust -i swagger.json -o ./new
 
 ## OpenApi Specification Version
 
-`2023-08-23T23:00:01Z`
+`2024-05-29T00:00:02Z`
 
 # Getting Help
 

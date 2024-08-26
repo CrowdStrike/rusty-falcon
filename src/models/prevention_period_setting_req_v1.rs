@@ -9,8 +9,7 @@
  */
 
 /// PreventionPeriodSettingReqV1 : A specific setting to update
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PreventionPeriodSettingReqV1 {
     /// The id of the setting to update
     #[serde(rename = "id")]

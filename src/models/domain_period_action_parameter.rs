@@ -9,8 +9,7 @@
  */
 
 /// DomainPeriodActionParameter : Action to be performed.
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodActionParameter {
     /// Action name.
     #[serde(rename = "name")]
@@ -26,7 +25,6 @@ impl DomainPeriodActionParameter {
         DomainPeriodActionParameter { name, value }
     }
 }
-
 /// Action name.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Name {

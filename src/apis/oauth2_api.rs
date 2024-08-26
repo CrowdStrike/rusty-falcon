@@ -11,16 +11,16 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`oauth2_access_token`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum Oauth2AccessTokenError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum Oauth2AccessTokenError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum Oauth2RevokeTokenError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,7 +40,7 @@ pub async fn oauth2_access_token(
     client_id: &str,
     client_secret: &str,
     member_cid: Option<&str>,
-) -> Result<crate::models::DomainPeriodAccessTokenResponseV1, Error<Oauth2AccessTokenError>> {
+) -> Result<models::DomainPeriodAccessTokenResponseV1, Error<Oauth2AccessTokenError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -91,7 +91,7 @@ pub async fn oauth2_revoke_token(
     configuration: &configuration::Configuration,
     token: &str,
     client_id: Option<&str>,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<Oauth2RevokeTokenError>> {
+) -> Result<models::MsaspecPeriodResponseFields, Error<Oauth2RevokeTokenError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

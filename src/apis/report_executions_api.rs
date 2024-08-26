@@ -11,16 +11,16 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`report_executions_download_period_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReportExecutionsDownloadPeriodGetError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,9 +28,9 @@ pub enum ReportExecutionsDownloadPeriodGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReportExecutionsPeriodGetError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -38,9 +38,9 @@ pub enum ReportExecutionsPeriodGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReportExecutionsPeriodQueryError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -48,9 +48,9 @@ pub enum ReportExecutionsPeriodQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReportExecutionsPeriodRetryError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -101,10 +101,7 @@ pub async fn report_executions_download_period_get(
 pub async fn report_executions_period_get(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    crate::models::DomainPeriodReportExecutionsResponseV1,
-    Error<ReportExecutionsPeriodGetError>,
-> {
+) -> Result<models::DomainPeriodReportExecutionsResponseV1, Error<ReportExecutionsPeriodGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -119,7 +116,7 @@ pub async fn report_executions_period_get(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -166,7 +163,7 @@ pub async fn report_executions_period_query(
     q: Option<&str>,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<ReportExecutionsPeriodQueryError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<ReportExecutionsPeriodQueryError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -227,11 +224,9 @@ pub async fn report_executions_period_query(
 
 pub async fn report_executions_period_retry(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::DomainPeriodReportExecutionRetryRequestV1>,
-) -> Result<
-    crate::models::DomainPeriodReportExecutionsResponseV1,
-    Error<ReportExecutionsPeriodRetryError>,
-> {
+    body: Vec<models::DomainPeriodReportExecutionRetryRequestV1>,
+) -> Result<models::DomainPeriodReportExecutionsResponseV1, Error<ReportExecutionsPeriodRetryError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

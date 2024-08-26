@@ -11,14 +11,14 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`action_period_get_period_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ActionPeriodGetPeriodV1Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -26,8 +26,8 @@ pub enum ActionPeriodGetPeriodV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ActionPeriodQueryPeriodV1Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -35,8 +35,8 @@ pub enum ActionPeriodQueryPeriodV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIndicatorsReportError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -44,8 +44,8 @@ pub enum GetIndicatorsReportError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum IndicatorPeriodAggregatePeriodV1Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -53,8 +53,8 @@ pub enum IndicatorPeriodAggregatePeriodV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum IndicatorPeriodCombinedPeriodV1Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,9 +62,9 @@ pub enum IndicatorPeriodCombinedPeriodV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum IndicatorPeriodCreatePeriodV1Error {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -72,8 +72,35 @@ pub enum IndicatorPeriodCreatePeriodV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum IndicatorPeriodDeletePeriodV1Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`indicator_period_get_period_device_count_period_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum IndicatorPeriodGetPeriodDeviceCountPeriodV1Error {
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`indicator_period_get_period_devices_ran_on_period_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum IndicatorPeriodGetPeriodDevicesRanOnPeriodV1Error {
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`indicator_period_get_period_processes_ran_on_period_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum IndicatorPeriodGetPeriodProcessesRanOnPeriodV1Error {
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -81,8 +108,8 @@ pub enum IndicatorPeriodDeletePeriodV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum IndicatorPeriodGetPeriodV1Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -90,8 +117,8 @@ pub enum IndicatorPeriodGetPeriodV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum IndicatorPeriodSearchPeriodV1Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -99,8 +126,8 @@ pub enum IndicatorPeriodSearchPeriodV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum IndicatorPeriodUpdatePeriodV1Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -108,8 +135,8 @@ pub enum IndicatorPeriodUpdatePeriodV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum IocTypePeriodQueryPeriodV1Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -117,8 +144,8 @@ pub enum IocTypePeriodQueryPeriodV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PlatformPeriodQueryPeriodV1Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -126,15 +153,15 @@ pub enum PlatformPeriodQueryPeriodV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SeverityPeriodQueryPeriodV1Error {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn action_period_get_period_v1(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
-) -> Result<crate::models::ApiPeriodActionRespV1, Error<ActionPeriodGetPeriodV1Error>> {
+) -> Result<models::ApiPeriodActionRespV1, Error<ActionPeriodGetPeriodV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -197,7 +224,7 @@ pub async fn action_period_query_period_v1(
     configuration: &configuration::Configuration,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::ApiPeriodIndicatorQueryRespV1, Error<ActionPeriodQueryPeriodV1Error>> {
+) -> Result<models::ApiPeriodIndicatorQueryRespV1, Error<ActionPeriodQueryPeriodV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -247,8 +274,8 @@ pub async fn action_period_query_period_v1(
 
 pub async fn get_indicators_report(
     configuration: &configuration::Configuration,
-    body: crate::models::ApiPeriodIndicatorsReportRequest,
-) -> Result<crate::models::MsaPeriodEntitiesResponse, Error<GetIndicatorsReportError>> {
+    body: models::ApiPeriodIndicatorsReportRequest,
+) -> Result<models::MsaPeriodEntitiesResponse, Error<GetIndicatorsReportError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -291,11 +318,10 @@ pub async fn get_indicators_report(
 
 pub async fn indicator_period_aggregate_period_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaPeriodAggregateQueryRequest,
+    body: models::MsaPeriodAggregateQueryRequest,
     filter: Option<&str>,
     from_parent: Option<bool>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<IndicatorPeriodAggregatePeriodV1Error>>
-{
+) -> Result<models::MsaPeriodAggregatesResponse, Error<IndicatorPeriodAggregatePeriodV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -352,7 +378,7 @@ pub async fn indicator_period_combined_period_v1(
     sort: Option<&str>,
     after: Option<&str>,
     from_parent: Option<bool>,
-) -> Result<crate::models::ApiPeriodIndicatorRespV1, Error<IndicatorPeriodCombinedPeriodV1Error>> {
+) -> Result<models::ApiPeriodIndicatorRespV1, Error<IndicatorPeriodCombinedPeriodV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -418,10 +444,10 @@ pub async fn indicator_period_combined_period_v1(
 
 pub async fn indicator_period_create_period_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::ApiPeriodIndicatorCreateReqsV1,
+    body: models::ApiPeriodIndicatorCreateReqsV1,
     retrodetects: Option<bool>,
     ignore_warnings: Option<bool>,
-) -> Result<crate::models::ApiPeriodIndicatorRespV1, Error<IndicatorPeriodCreatePeriodV1Error>> {
+) -> Result<models::ApiPeriodIndicatorRespV1, Error<IndicatorPeriodCreatePeriodV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -476,8 +502,7 @@ pub async fn indicator_period_delete_period_v1(
     ids: Option<Vec<String>>,
     comment: Option<&str>,
     from_parent: Option<bool>,
-) -> Result<crate::models::ApiPeriodIndicatorQueryRespV1, Error<IndicatorPeriodDeletePeriodV1Error>>
-{
+) -> Result<models::ApiPeriodIndicatorQueryRespV1, Error<IndicatorPeriodDeletePeriodV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -548,10 +573,179 @@ pub async fn indicator_period_delete_period_v1(
     }
 }
 
+pub async fn indicator_period_get_period_device_count_period_v1(
+    configuration: &configuration::Configuration,
+    r#type: &str,
+    value: &str,
+) -> Result<
+    models::ApiPeriodDeviceCountRespV1,
+    Error<IndicatorPeriodGetPeriodDeviceCountPeriodV1Error>,
+> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/iocs/aggregates/indicators/device-count/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("type", &r#type.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("value", &value.to_string())]);
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<IndicatorPeriodGetPeriodDeviceCountPeriodV1Error> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn indicator_period_get_period_devices_ran_on_period_v1(
+    configuration: &configuration::Configuration,
+    r#type: &str,
+    value: &str,
+    limit: Option<&str>,
+    offset: Option<&str>,
+) -> Result<
+    models::ApiPeriodDevicesRanOnRespV1,
+    Error<IndicatorPeriodGetPeriodDevicesRanOnPeriodV1Error>,
+> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/iocs/queries/indicators/devices/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("type", &r#type.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("value", &value.to_string())]);
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<IndicatorPeriodGetPeriodDevicesRanOnPeriodV1Error> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn indicator_period_get_period_processes_ran_on_period_v1(
+    configuration: &configuration::Configuration,
+    r#type: &str,
+    value: &str,
+    device_id: &str,
+    limit: Option<&str>,
+    offset: Option<&str>,
+) -> Result<
+    models::ApiPeriodProcessesRanOnRespV1,
+    Error<IndicatorPeriodGetPeriodProcessesRanOnPeriodV1Error>,
+> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/iocs/queries/indicators/processes/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("type", &r#type.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("value", &value.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("device_id", &device_id.to_string())]);
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<IndicatorPeriodGetPeriodProcessesRanOnPeriodV1Error> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn indicator_period_get_period_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::ApiPeriodIndicatorRespV1, Error<IndicatorPeriodGetPeriodV1Error>> {
+) -> Result<models::ApiPeriodIndicatorRespV1, Error<IndicatorPeriodGetPeriodV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -566,7 +760,7 @@ pub async fn indicator_period_get_period_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -614,8 +808,7 @@ pub async fn indicator_period_search_period_v1(
     sort: Option<&str>,
     after: Option<&str>,
     from_parent: Option<bool>,
-) -> Result<crate::models::ApiPeriodIndicatorQueryRespV1, Error<IndicatorPeriodSearchPeriodV1Error>>
-{
+) -> Result<models::ApiPeriodIndicatorQueryRespV1, Error<IndicatorPeriodSearchPeriodV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -681,10 +874,10 @@ pub async fn indicator_period_search_period_v1(
 
 pub async fn indicator_period_update_period_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::ApiPeriodIndicatorUpdateReqsV1,
+    body: models::ApiPeriodIndicatorUpdateReqsV1,
     retrodetects: Option<bool>,
     ignore_warnings: Option<bool>,
-) -> Result<crate::models::ApiPeriodIndicatorRespV1, Error<IndicatorPeriodUpdatePeriodV1Error>> {
+) -> Result<models::ApiPeriodIndicatorRespV1, Error<IndicatorPeriodUpdatePeriodV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -737,7 +930,7 @@ pub async fn ioc_type_period_query_period_v1(
     configuration: &configuration::Configuration,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::ApiPeriodIndicatorQueryRespV1, Error<IocTypePeriodQueryPeriodV1Error>> {
+) -> Result<models::ApiPeriodIndicatorQueryRespV1, Error<IocTypePeriodQueryPeriodV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -789,7 +982,7 @@ pub async fn platform_period_query_period_v1(
     configuration: &configuration::Configuration,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::ApiPeriodIndicatorQueryRespV1, Error<PlatformPeriodQueryPeriodV1Error>> {
+) -> Result<models::ApiPeriodIndicatorQueryRespV1, Error<PlatformPeriodQueryPeriodV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -841,7 +1034,7 @@ pub async fn severity_period_query_period_v1(
     configuration: &configuration::Configuration,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::ApiPeriodIndicatorQueryRespV1, Error<SeverityPeriodQueryPeriodV1Error>> {
+) -> Result<models::ApiPeriodIndicatorQueryRespV1, Error<SeverityPeriodQueryPeriodV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
