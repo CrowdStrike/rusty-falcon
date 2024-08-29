@@ -1,4 +1,4 @@
-# SensorUpdatePoliciesApi
+# \SensorUpdatePoliciesApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -25,7 +25,7 @@ Method | HTTP request | Description
 
 ## create_sensor_update_policies
 
-> crate::models::SensorUpdatePeriodRespV1 create_sensor_update_policies(body)
+> models::SensorUpdatePeriodRespV1 create_sensor_update_policies(body)
 Create Sensor Update Policies by specifying details about the policy to create
 
 ### Parameters
@@ -36,7 +36,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SensorUpdatePeriodRespV1**](sensor_update.RespV1.md)
+[**models::SensorUpdatePeriodRespV1**](sensor_update.RespV1.md)
 
 ### Authorization
 
@@ -47,11 +47,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## create_sensor_update_policies_v2
 
-> crate::models::SensorUpdatePeriodRespV2 create_sensor_update_policies_v2(body)
+> models::SensorUpdatePeriodRespV2 create_sensor_update_policies_v2(body)
 Create Sensor Update Policies by specifying details about the policy to create with additional support for uninstall protection
 
 ### Parameters
@@ -62,7 +62,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SensorUpdatePeriodRespV2**](sensor_update.RespV2.md)
+[**models::SensorUpdatePeriodRespV2**](sensor_update.RespV2.md)
 
 ### Authorization
 
@@ -73,11 +73,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## delete_sensor_update_policies
 
-> crate::models::MsaPeriodQueryResponse delete_sensor_update_policies(ids)
+> models::MsaPeriodQueryResponse delete_sensor_update_policies(ids)
 Delete a set of Sensor Update Policies by specifying their IDs
 
 ### Parameters
@@ -88,7 +88,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -99,11 +99,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_sensor_update_policies
 
-> crate::models::SensorUpdatePeriodRespV1 get_sensor_update_policies(ids)
+> models::SensorUpdatePeriodRespV1 get_sensor_update_policies(ids)
 Retrieve a set of Sensor Update Policies by specifying their IDs
 
 ### Parameters
@@ -114,7 +114,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SensorUpdatePeriodRespV1**](sensor_update.RespV1.md)
+[**models::SensorUpdatePeriodRespV1**](sensor_update.RespV1.md)
 
 ### Authorization
 
@@ -125,11 +125,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_sensor_update_policies_v2
 
-> crate::models::SensorUpdatePeriodRespV2 get_sensor_update_policies_v2(ids)
+> models::SensorUpdatePeriodRespV2 get_sensor_update_policies_v2(ids)
 Retrieve a set of Sensor Update Policies with additional support for uninstall protection by specifying their IDs
 
 ### Parameters
@@ -140,7 +140,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SensorUpdatePeriodRespV2**](sensor_update.RespV2.md)
+[**models::SensorUpdatePeriodRespV2**](sensor_update.RespV2.md)
 
 ### Authorization
 
@@ -151,11 +151,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## perform_sensor_update_policies_action
 
-> crate::models::SensorUpdatePeriodRespV1 perform_sensor_update_policies_action(action_name, body)
+> models::SensorUpdatePeriodRespV1 perform_sensor_update_policies_action(action_name, body)
 Perform the specified action on the Sensor Update Policies specified in the request
 
 ### Parameters
@@ -167,7 +167,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SensorUpdatePeriodRespV1**](sensor_update.RespV1.md)
+[**models::SensorUpdatePeriodRespV1**](sensor_update.RespV1.md)
 
 ### Authorization
 
@@ -178,11 +178,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_combined_sensor_update_builds
 
-> crate::models::SensorUpdatePeriodBuildsRespV1 query_combined_sensor_update_builds(platform, stage)
+> models::SensorUpdatePeriodBuildsRespV1 query_combined_sensor_update_builds(platform, stage)
 Retrieve available builds for use with Sensor Update Policies
 
 ### Parameters
@@ -194,7 +194,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SensorUpdatePeriodBuildsRespV1**](sensor_update.BuildsRespV1.md)
+[**models::SensorUpdatePeriodBuildsRespV1**](sensor_update.BuildsRespV1.md)
 
 ### Authorization
 
@@ -205,11 +205,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_combined_sensor_update_kernels
 
-> crate::models::SensorUpdatePeriodKernelsRespV1 query_combined_sensor_update_kernels(filter, offset, limit)
+> models::SensorUpdatePeriodKernelsRespV1 query_combined_sensor_update_kernels(filter, offset, limit)
 Retrieve kernel compatibility info for Sensor Update Builds
 
 ### Parameters
@@ -222,7 +222,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SensorUpdatePeriodKernelsRespV1**](sensor_update.KernelsRespV1.md)
+[**models::SensorUpdatePeriodKernelsRespV1**](sensor_update.KernelsRespV1.md)
 
 ### Authorization
 
@@ -233,11 +233,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_combined_sensor_update_policies
 
-> crate::models::SensorUpdatePeriodRespV1 query_combined_sensor_update_policies(filter, offset, limit, sort)
+> models::SensorUpdatePeriodRespV1 query_combined_sensor_update_policies(filter, offset, limit, sort)
 Search for Sensor Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policies which match the filter criteria
 
 ### Parameters
@@ -251,7 +251,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SensorUpdatePeriodRespV1**](sensor_update.RespV1.md)
+[**models::SensorUpdatePeriodRespV1**](sensor_update.RespV1.md)
 
 ### Authorization
 
@@ -262,11 +262,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_combined_sensor_update_policies_v2
 
-> crate::models::SensorUpdatePeriodRespV2 query_combined_sensor_update_policies_v2(filter, offset, limit, sort)
+> models::SensorUpdatePeriodRespV2 query_combined_sensor_update_policies_v2(filter, offset, limit, sort)
 Search for Sensor Update Policies with additional support for uninstall protection in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policies which match the filter criteria
 
 ### Parameters
@@ -280,7 +280,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SensorUpdatePeriodRespV2**](sensor_update.RespV2.md)
+[**models::SensorUpdatePeriodRespV2**](sensor_update.RespV2.md)
 
 ### Authorization
 
@@ -291,11 +291,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_combined_sensor_update_policy_members
 
-> crate::models::BasePeriodPolicyMembersRespV1 query_combined_sensor_update_policy_members(id, filter, offset, limit, sort)
+> models::BasePeriodPolicyMembersRespV1 query_combined_sensor_update_policy_members(id, filter, offset, limit, sort)
 Search for members of a Sensor Update Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
 
 ### Parameters
@@ -310,7 +310,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::BasePeriodPolicyMembersRespV1**](base.PolicyMembersRespV1.md)
+[**models::BasePeriodPolicyMembersRespV1**](base.PolicyMembersRespV1.md)
 
 ### Authorization
 
@@ -321,11 +321,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_sensor_update_kernels_distinct
 
-> crate::models::MsaPeriodQueryResponse query_sensor_update_kernels_distinct(distinct_field, filter, offset, limit)
+> models::MsaPeriodQueryResponse query_sensor_update_kernels_distinct(distinct_field, filter, offset, limit)
 Retrieve kernel compatibility info for Sensor Update Builds
 
 ### Parameters
@@ -339,7 +339,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -350,11 +350,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_sensor_update_policies
 
-> crate::models::MsaPeriodQueryResponse query_sensor_update_policies(filter, offset, limit, sort)
+> models::MsaPeriodQueryResponse query_sensor_update_policies(filter, offset, limit, sort)
 Search for Sensor Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policy IDs which match the filter criteria
 
 ### Parameters
@@ -368,7 +368,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -379,11 +379,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_sensor_update_policy_members
 
-> crate::models::MsaPeriodQueryResponse query_sensor_update_policy_members(id, filter, offset, limit, sort)
+> models::MsaPeriodQueryResponse query_sensor_update_policy_members(id, filter, offset, limit, sort)
 Search for members of a Sensor Update Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
 
 ### Parameters
@@ -398,7 +398,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -409,11 +409,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## reveal_uninstall_token
 
-> crate::models::UninstallTokenPeriodRespV1 reveal_uninstall_token(body)
+> models::UninstallTokenPeriodRespV1 reveal_uninstall_token(body)
 Reveals an uninstall token for a specific device. To retrieve the bulk maintenance token pass the value 'MAINTENANCE' as the value for 'device_id'
 
 ### Parameters
@@ -424,7 +424,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::UninstallTokenPeriodRespV1**](uninstall_token.RespV1.md)
+[**models::UninstallTokenPeriodRespV1**](uninstall_token.RespV1.md)
 
 ### Authorization
 
@@ -435,11 +435,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## set_sensor_update_policies_precedence
 
-> crate::models::MsaPeriodQueryResponse set_sensor_update_policies_precedence(body)
+> models::MsaPeriodQueryResponse set_sensor_update_policies_precedence(body)
 Sets the precedence of Sensor Update Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
 
 ### Parameters
@@ -450,7 +450,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -461,11 +461,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_sensor_update_policies
 
-> crate::models::SensorUpdatePeriodRespV1 update_sensor_update_policies(body)
+> models::SensorUpdatePeriodRespV1 update_sensor_update_policies(body)
 Update Sensor Update Policies by specifying the ID of the policy and details to update
 
 ### Parameters
@@ -476,7 +476,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SensorUpdatePeriodRespV1**](sensor_update.RespV1.md)
+[**models::SensorUpdatePeriodRespV1**](sensor_update.RespV1.md)
 
 ### Authorization
 
@@ -487,11 +487,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_sensor_update_policies_v2
 
-> crate::models::SensorUpdatePeriodRespV2 update_sensor_update_policies_v2(body)
+> models::SensorUpdatePeriodRespV2 update_sensor_update_policies_v2(body)
 Update Sensor Update Policies by specifying the ID of the policy and details to update with additional support for uninstall protection
 
 ### Parameters
@@ -502,7 +502,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SensorUpdatePeriodRespV2**](sensor_update.RespV2.md)
+[**models::SensorUpdatePeriodRespV2**](sensor_update.RespV2.md)
 
 ### Authorization
 
@@ -513,4 +513,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

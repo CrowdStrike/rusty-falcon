@@ -1,4 +1,4 @@
-# IntelApi
+# \IntelApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**get_intel_rule_entities**](IntelApi.md#get_intel_rule_entities) | **GET** /intel/entities/rules/v1 | Retrieve details for rule sets for the specified ids.
 [**get_intel_rule_file**](IntelApi.md#get_intel_rule_file) | **GET** /intel/entities/rules-files/v1 | Download earlier rule sets.
 [**get_latest_intel_rule_file**](IntelApi.md#get_latest_intel_rule_file) | **GET** /intel/entities/rules-latest-files/v1 | Download the latest rule set.
+[**get_malware_entities**](IntelApi.md#get_malware_entities) | **GET** /intel/entities/malware/v1 | Get malware entities for specified ids.
 [**get_mitre_report**](IntelApi.md#get_mitre_report) | **GET** /intel/entities/mitre-reports/v1 | Export Mitre ATT&CK information for a given actor.
 [**get_vulnerabilities**](IntelApi.md#get_vulnerabilities) | **POST** /intel/entities/vulnerabilities/GET/v1 | Get vulnerabilities
 [**post_mitre_attacks**](IntelApi.md#post_mitre_attacks) | **POST** /intel/entities/mitre/v1 | Retrieves report and observable IDs associated with the given actor and attacks
@@ -21,12 +22,14 @@ Method | HTTP request | Description
 [**query_intel_report_entities**](IntelApi.md#query_intel_report_entities) | **GET** /intel/combined/reports/v1 | Get info about reports that match provided FQL filters.
 [**query_intel_report_ids**](IntelApi.md#query_intel_report_ids) | **GET** /intel/queries/reports/v1 | Get report IDs that match provided FQL filters.
 [**query_intel_rule_ids**](IntelApi.md#query_intel_rule_ids) | **GET** /intel/queries/rules/v1 | Search for rule IDs that match provided filter criteria.
+[**query_malware**](IntelApi.md#query_malware) | **GET** /intel/queries/malware/v1 | Get malware family names that match provided FQL filters.
 [**query_mitre_attacks**](IntelApi.md#query_mitre_attacks) | **GET** /intel/queries/mitre/v1 | Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071
+[**query_mitre_attacks_for_malware**](IntelApi.md#query_mitre_attacks_for_malware) | **GET** /intel/queries/mitre-malware/v1 | Gets MITRE tactics and techniques for the given malware
 [**query_vulnerabilities**](IntelApi.md#query_vulnerabilities) | **GET** /intel/queries/vulnerabilities/v1 | Get vulnerabilities IDs
 
 ## get_intel_actor_entities
 
-> crate::models::DomainPeriodActorsResponse get_intel_actor_entities(ids, fields)
+> models::DomainPeriodActorsResponse get_intel_actor_entities(ids, fields)
 Retrieve specific actors using their actor IDs.
 
 ### Parameters
@@ -38,7 +41,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodActorsResponse**](domain.ActorsResponse.md)
+[**models::DomainPeriodActorsResponse**](domain.ActorsResponse.md)
 
 ### Authorization
 
@@ -49,11 +52,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_intel_indicator_entities
 
-> crate::models::DomainPeriodPublicIndicatorsV3Response get_intel_indicator_entities(body)
+> models::DomainPeriodPublicIndicatorsV3Response get_intel_indicator_entities(body)
 Retrieve specific indicators using their indicator IDs.
 
 ### Parameters
@@ -64,7 +67,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodPublicIndicatorsV3Response**](domain.PublicIndicatorsV3Response.md)
+[**models::DomainPeriodPublicIndicatorsV3Response**](domain.PublicIndicatorsV3Response.md)
 
 ### Authorization
 
@@ -75,11 +78,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_intel_report_entities
 
-> crate::models::DomainPeriodNewsResponse get_intel_report_entities(ids, fields)
+> models::DomainPeriodNewsResponse get_intel_report_entities(ids, fields)
 Retrieve specific reports using their report IDs.
 
 ### Parameters
@@ -91,7 +94,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodNewsResponse**](domain.NewsResponse.md)
+[**models::DomainPeriodNewsResponse**](domain.NewsResponse.md)
 
 ### Authorization
 
@@ -102,7 +105,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_intel_report_pdf
 
@@ -129,11 +132,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/octet-stream, application/json, application/pdf
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_intel_rule_entities
 
-> crate::models::DomainPeriodRulesResponse get_intel_rule_entities(ids)
+> models::DomainPeriodRulesResponse get_intel_rule_entities(ids)
 Retrieve details for rule sets for the specified ids.
 
 ### Parameters
@@ -144,7 +147,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodRulesResponse**](domain.RulesResponse.md)
+[**models::DomainPeriodRulesResponse**](domain.RulesResponse.md)
 
 ### Authorization
 
@@ -155,7 +158,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_intel_rule_file
 
@@ -183,7 +186,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/zip, application/gzip, application/octet-stream, application/json, */*
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_latest_intel_rule_file
 
@@ -194,7 +197,7 @@ Download the latest rule set.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**r#type** | **String** | The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness | [required] |
+**r#type** | **String** | The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog | [required] |
 **accept** | Option<**String**> | Choose the format you want the rule set in. |  |
 **if_none_match** | Option<**String**> | Download the latest rule set only if it doesn't have an ETag matching the given ones. |  |
 **if_modified_since** | Option<**String**> | Download the latest rule set only if the rule was modified after this date. http, ANSIC and RFC850 formats accepted |  |
@@ -213,7 +216,33 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/zip, application/gzip, application/octet-stream, application/json, */*
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## get_malware_entities
+
+> models::DomainPeriodMalwareResponse get_malware_entities(ids)
+Get malware entities for specified ids.
+
+### Parameters
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**ids** | [**Vec<String>**](String.md) | Malware family name in lower case with spaces, dots and slashes replaced with dashes | [required] |
+
+### Return type
+
+[**models::DomainPeriodMalwareResponse**](domain.MalwareResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_mitre_report
 
@@ -240,11 +269,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/octet-stream, application/json, text/csv
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_vulnerabilities
 
-> crate::models::DomainPeriodVulnerabilityResponse get_vulnerabilities(body)
+> models::DomainPeriodVulnerabilityResponse get_vulnerabilities(body)
 Get vulnerabilities
 
 ### Parameters
@@ -255,7 +284,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodVulnerabilityResponse**](domain.VulnerabilityResponse.md)
+[**models::DomainPeriodVulnerabilityResponse**](domain.VulnerabilityResponse.md)
 
 ### Authorization
 
@@ -266,7 +295,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## post_mitre_attacks
 
@@ -292,11 +321,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_intel_actor_entities
 
-> crate::models::DomainPeriodActorsResponse query_intel_actor_entities(offset, limit, sort, filter, q, fields)
+> models::DomainPeriodActorsResponse query_intel_actor_entities(offset, limit, sort, filter, q, fields)
 Get info about actors that match provided FQL filters.
 
 ### Parameters
@@ -312,7 +341,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodActorsResponse**](domain.ActorsResponse.md)
+[**models::DomainPeriodActorsResponse**](domain.ActorsResponse.md)
 
 ### Authorization
 
@@ -323,11 +352,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_intel_actor_ids
 
-> crate::models::MsaPeriodQueryResponse query_intel_actor_ids(offset, limit, sort, filter, q)
+> models::MsaPeriodQueryResponse query_intel_actor_ids(offset, limit, sort, filter, q)
 Get actor IDs that match provided FQL filters.
 
 ### Parameters
@@ -342,7 +371,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -353,11 +382,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_intel_indicator_entities
 
-> crate::models::DomainPeriodPublicIndicatorsV3Response query_intel_indicator_entities(offset, limit, sort, filter, q, include_deleted, include_relations)
+> models::DomainPeriodPublicIndicatorsV3Response query_intel_indicator_entities(offset, limit, sort, filter, q, include_deleted, include_relations)
 Get info about indicators that match provided FQL filters.
 
 ### Parameters
@@ -374,7 +403,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodPublicIndicatorsV3Response**](domain.PublicIndicatorsV3Response.md)
+[**models::DomainPeriodPublicIndicatorsV3Response**](domain.PublicIndicatorsV3Response.md)
 
 ### Authorization
 
@@ -385,11 +414,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_intel_indicator_ids
 
-> crate::models::MsaPeriodQueryResponse query_intel_indicator_ids(offset, limit, sort, filter, q, include_deleted, include_relations)
+> models::MsaPeriodQueryResponse query_intel_indicator_ids(offset, limit, sort, filter, q, include_deleted, include_relations)
 Get indicators IDs that match provided FQL filters.
 
 ### Parameters
@@ -406,7 +435,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -417,11 +446,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_intel_report_entities
 
-> crate::models::DomainPeriodNewsResponse query_intel_report_entities(offset, limit, sort, filter, q, fields)
+> models::DomainPeriodNewsResponse query_intel_report_entities(offset, limit, sort, filter, q, fields)
 Get info about reports that match provided FQL filters.
 
 ### Parameters
@@ -431,13 +460,13 @@ Name | Type | Description  | Required | Notes
 **offset** | Option<**i32**> | Set the starting row number to return reports from. Defaults to 0. |  |
 **limit** | Option<**i32**> | Set the number of reports to return. The value must be between 1 and 5000. |  |
 **sort** | Option<**String**> | Order fields in ascending or descending order. Ex: created_date|asc. |  |
-**filter** | Option<**String**> | Filter your query by specifying FQL filter parameters. Filter parameters include:  actors, actors.id, actors.name, actors.slug, actors.url, created_date, description, id, last_modified_date, motivations, motivations.id, motivations.slug, motivations.value, name, name.raw, short_description, slug, sub_type, sub_type.id, sub_type.name, sub_type.slug, tags, tags.id, tags.slug, tags.value, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, type, type.id, type.name, type.slug, url. |  |
+**filter** | Option<**String**> | Filter your query by specifying FQL filter parameters. Filter parameters include:  actors, actors.id, actors.name, actors.slug, actors.url, created_date, description, id, last_modified_date, malware, malware.community_identifiers, malware.family_name, malware.slug, motivations, motivations.id, motivations.slug, motivations.value, name, name.raw, short_description, slug, sub_type, sub_type.id, sub_type.name, sub_type.slug, tags, tags.id, tags.slug, tags.value, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, type, type.id, type.name, type.slug, url. |  |
 **q** | Option<**String**> | Perform a generic substring search across all fields. |  |
 **fields** | Option<[**Vec<String>**](String.md)> | The fields to return, or a predefined set of fields in the form of the collection name surrounded by two underscores like:  \\*\\*\\<collection\\>\\*\\*.  Ex: slug \\*\\*full\\*\\*.  Defaults to \\*\\*basic\\*\\*. |  |
 
 ### Return type
 
-[**crate::models::DomainPeriodNewsResponse**](domain.NewsResponse.md)
+[**models::DomainPeriodNewsResponse**](domain.NewsResponse.md)
 
 ### Authorization
 
@@ -448,11 +477,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_intel_report_ids
 
-> crate::models::MsaPeriodQueryResponse query_intel_report_ids(offset, limit, sort, filter, q)
+> models::MsaPeriodQueryResponse query_intel_report_ids(offset, limit, sort, filter, q)
 Get report IDs that match provided FQL filters.
 
 ### Parameters
@@ -462,12 +491,12 @@ Name | Type | Description  | Required | Notes
 **offset** | Option<**i32**> | Set the starting row number to return report IDs from. Defaults to 0. |  |
 **limit** | Option<**i32**> | Set the number of report IDs to return. The value must be between 1 and 5000. |  |
 **sort** | Option<**String**> | Order fields in ascending or descending order.  Ex: created_date|asc. |  |
-**filter** | Option<**String**> | Filter your query by specifying FQL filter parameters. Filter parameters include:  actors, actors.id, actors.name, actors.slug, actors.url, created_date, description, id, last_modified_date, motivations, motivations.id, motivations.slug, motivations.value, name, name.raw, short_description, slug, sub_type, sub_type.id, sub_type.name, sub_type.slug, tags, tags.id, tags.slug, tags.value, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, type, type.id, type.name, type.slug, url. |  |
+**filter** | Option<**String**> | Filter your query by specifying FQL filter parameters. Filter parameters include:  actors, actors.id, actors.name, actors.slug, actors.url, created_date, description, id, last_modified_date, malware, malware.community_identifiers, malware.family_name, malware.slug, motivations, motivations.id, motivations.slug, motivations.value, name, name.raw, short_description, slug, sub_type, sub_type.id, sub_type.name, sub_type.slug, tags, tags.id, tags.slug, tags.value, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, type, type.id, type.name, type.slug, url. |  |
 **q** | Option<**String**> | Perform a generic substring search across all fields. |  |
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -478,18 +507,18 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_intel_rule_ids
 
-> crate::models::MsaPeriodQueryResponse query_intel_rule_ids(r#type, offset, limit, sort, name, description, tags, min_created_date, max_created_date, q)
+> models::MsaPeriodQueryResponse query_intel_rule_ids(r#type, offset, limit, sort, name, description, tags, min_created_date, max_created_date, q)
 Search for rule IDs that match provided filter criteria.
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**r#type** | **String** | The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness | [required] |
+**r#type** | **String** | The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog | [required] |
 **offset** | Option<**i32**> | Set the starting row number to return reports from. Defaults to 0. |  |
 **limit** | Option<**i32**> | The number of rule IDs to return. Defaults to 10. |  |
 **sort** | Option<**String**> | Order fields in ascending or descending order.  Ex: created_date|asc. |  |
@@ -502,7 +531,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -513,11 +542,41 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## query_malware
+
+> models::DomainPeriodQueryResponse query_malware(offset, limit, sort, filter, q)
+Get malware family names that match provided FQL filters.
+
+### Parameters
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**offset** | Option<**i32**> | Set the starting row number to return malware IDs from. Defaults to 0. |  |
+**limit** | Option<**i32**> | Set the number of malware IDs to return. The value must be between 1 and 5000. |  |
+**sort** | Option<**String**> | Order fields in ascending or descending order.  Ex: created_date|asc. |  |
+**filter** | Option<**String**> | Filter your query by specifying FQL filter parameters. |  |
+**q** | Option<**String**> | Perform a generic substring search across all fields. |  |
+
+### Return type
+
+[**models::DomainPeriodQueryResponse**](domain.QueryResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_mitre_attacks
 
-> crate::models::DomainPeriodQueryMitreAttacksResponse query_mitre_attacks(id, ids)
+> models::DomainPeriodQueryMitreAttacksResponse query_mitre_attacks(id, ids)
 Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071
 
 ### Parameters
@@ -529,7 +588,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodQueryMitreAttacksResponse**](domain.QueryMitreAttacksResponse.md)
+[**models::DomainPeriodQueryMitreAttacksResponse**](domain.QueryMitreAttacksResponse.md)
 
 ### Authorization
 
@@ -540,11 +599,37 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## query_mitre_attacks_for_malware
+
+> models::DomainPeriodQueryResponse query_mitre_attacks_for_malware(ids)
+Gets MITRE tactics and techniques for the given malware
+
+### Parameters
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**ids** | [**Vec<String>**](String.md) | Malware family name in lower case with spaces replaced with dashes | [required] |
+
+### Return type
+
+[**models::DomainPeriodQueryResponse**](domain.QueryResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_vulnerabilities
 
-> crate::models::MsaPeriodQueryResponse query_vulnerabilities(offset, limit, sort, filter, q)
+> models::MsaPeriodQueryResponse query_vulnerabilities(offset, limit, sort, filter, q)
 Get vulnerabilities IDs
 
 ### Parameters
@@ -555,11 +640,11 @@ Name | Type | Description  | Required | Notes
 **limit** | Option<**i32**> | Number of IDs to return. |  |
 **sort** | Option<**String**> | Order by fields. |  |
 **filter** | Option<**String**> | FQL query specifying the filter parameters. |  |
-**q** | Option<**String**> | Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed). |  |
+**q** | Option<**String**> | Match phrase_prefix query criteria; included fields:_all (all filter string fields indexed). |  |
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -570,4 +655,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

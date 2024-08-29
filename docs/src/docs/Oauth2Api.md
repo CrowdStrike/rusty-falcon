@@ -1,4 +1,4 @@
-# Oauth2Api
+# \Oauth2Api
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 ## oauth2_access_token
 
-> crate::models::DomainPeriodAccessTokenResponseV1 oauth2_access_token(client_id, client_secret, member_cid)
+> models::DomainPeriodAccessTokenResponseV1 oauth2_access_token(client_id, client_secret, member_cid)
 Generate an OAuth2 access token
 
 ### Parameters
@@ -22,7 +22,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodAccessTokenResponseV1**](domain.AccessTokenResponseV1.md)
+[**models::DomainPeriodAccessTokenResponseV1**](domain.AccessTokenResponseV1.md)
 
 ### Authorization
 
@@ -33,11 +33,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/x-www-form-urlencoded, text/html
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## oauth2_revoke_token
 
-> crate::models::MsaPeriodReplyMetaOnly oauth2_revoke_token(token, client_id)
+> models::MsaspecPeriodResponseFields oauth2_revoke_token(token, client_id)
 Revoke a previously issued OAuth2 access token before the end of its standard 30-minute lifespan.
 
 ### Parameters
@@ -49,7 +49,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
+[**models::MsaspecPeriodResponseFields**](msaspec.ResponseFields.md)
 
 ### Authorization
 
@@ -60,4 +60,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/x-www-form-urlencoded
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

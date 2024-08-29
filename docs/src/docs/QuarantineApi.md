@@ -1,4 +1,4 @@
-# QuarantineApi
+# \QuarantineApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## action_update_count
 
-> crate::models::MsaPeriodAggregatesResponse action_update_count(filter)
+> models::MsaPeriodAggregatesResponse action_update_count(filter)
 Returns count of potentially affected quarantined files for each action.
 
 ### Parameters
@@ -24,7 +24,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -35,11 +35,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_aggregate_files
 
-> crate::models::MsaPeriodAggregatesResponse get_aggregate_files(body)
+> models::MsaPeriodAggregatesResponse get_aggregate_files(body)
 Get quarantine file aggregates as specified via json in request body.
 
 ### Parameters
@@ -50,7 +50,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -61,11 +61,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_quarantine_files
 
-> crate::models::DomainPeriodMsaQfResponse get_quarantine_files(body)
+> models::DomainPeriodMsaQfResponse get_quarantine_files(body)
 Get quarantine file metadata for specified ids.
 
 ### Parameters
@@ -76,7 +76,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodMsaQfResponse**](domain.MsaQfResponse.md)
+[**models::DomainPeriodMsaQfResponse**](domain.MsaQfResponse.md)
 
 ### Authorization
 
@@ -87,11 +87,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_quarantine_files
 
-> crate::models::MsaPeriodQueryResponse query_quarantine_files(offset, limit, sort, filter, q)
+> models::MsaPeriodQueryResponse query_quarantine_files(offset, limit, sort, filter, q)
 Get quarantine file ids that match the provided filter criteria.
 
 ### Parameters
@@ -102,11 +102,11 @@ Name | Type | Description  | Required | Notes
 **limit** | Option<**i32**> | Number of ids to return. |  |
 **sort** | Option<**String**> | Possible order by fields: hostname, username, date_updated, date_created, paths.path, state, paths.state. Ex: 'date_created|asc'. |  |
 **filter** | Option<**String**> | FQL query specifying the filter parameters. Special value '*' means to not filter on anything. Filter term criteria: status, adversary_id, device.device_id, device.country, device.hostname, behaviors.behavior_id, behaviors.ioc_type, behaviors.ioc_value, behaviors.username, behaviors.tree_root_hash. Filter range criteria:, max_severity, max_confidence, first_behavior, last_behavior. |  |
-**q** | Option<**String**> | Match phrase_prefix query criteria; included fields: _all (all filter string fields), sha256, state, paths.path, paths.state, hostname, username, date_updated, date_created. |  |
+**q** | Option<**String**> | Match phrase_prefix query criteria; included fields:_all (all filter string fields), sha256, state, paths.path, paths.state, hostname, username, date_updated, date_created. |  |
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -117,11 +117,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_qf_by_query
 
-> crate::models::MsaPeriodReplyMetaOnly update_qf_by_query(body)
+> models::MsaPeriodReplyMetaOnly update_qf_by_query(body)
 Apply quarantine file actions by query.
 
 ### Parameters
@@ -132,7 +132,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
+[**models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
 
 ### Authorization
 
@@ -143,11 +143,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_quarantined_detects_by_ids
 
-> crate::models::MsaPeriodReplyMetaOnly update_quarantined_detects_by_ids(body)
+> models::MsaPeriodReplyMetaOnly update_quarantined_detects_by_ids(body)
 Apply action by quarantine file ids
 
 ### Parameters
@@ -158,7 +158,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
+[**models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
 
 ### Authorization
 
@@ -169,4 +169,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

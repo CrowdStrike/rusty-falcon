@@ -1,4 +1,4 @@
-# FalconContainerCliApi
+# \FalconContainerCliApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 ## read_image_vulnerabilities
 
-> crate::models::CorePeriodEntitiesResponse read_image_vulnerabilities(body)
+> models::CorePeriodEntitiesResponse read_image_vulnerabilities(body)
 Retrieve known vulnerabilities for the provided image
 
 ### Parameters
@@ -19,7 +19,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::CorePeriodEntitiesResponse**](core.EntitiesResponse.md)
+[**models::CorePeriodEntitiesResponse**](core.EntitiesResponse.md)
 
 ### Authorization
 
@@ -30,4 +30,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

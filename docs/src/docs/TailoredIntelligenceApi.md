@@ -1,4 +1,4 @@
-# TailoredIntelligenceApi
+# \TailoredIntelligenceApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -34,11 +34,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_events_entities
 
-> crate::models::DomainPeriodEventEntitiesResponse get_events_entities(body)
+> models::DomainPeriodEventEntitiesResponse get_events_entities(body)
 Get events entities for specified ids.
 
 ### Parameters
@@ -49,7 +49,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodEventEntitiesResponse**](domain.EventEntitiesResponse.md)
+[**models::DomainPeriodEventEntitiesResponse**](domain.EventEntitiesResponse.md)
 
 ### Authorization
 
@@ -60,11 +60,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_rules_entities
 
-> crate::models::DomainPeriodRuleEntitiesResponse get_rules_entities(body)
+> models::DomainPeriodRuleEntitiesResponse get_rules_entities(body)
 Get rules entities for specified ids.
 
 ### Parameters
@@ -75,7 +75,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodRuleEntitiesResponse**](domain.RuleEntitiesResponse.md)
+[**models::DomainPeriodRuleEntitiesResponse**](domain.RuleEntitiesResponse.md)
 
 ### Authorization
 
@@ -86,11 +86,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_events
 
-> crate::models::DomainPeriodQueryResponse query_events(offset, limit, sort, filter, q)
+> models::DomainPeriodQueryResponse query_events(offset, limit, sort, filter, q)
 Get events ids that match the provided filter criteria.
 
 ### Parameters
@@ -101,11 +101,11 @@ Name | Type | Description  | Required | Notes
 **limit** | Option<**i32**> | Number of ids to return. |  |
 **sort** | Option<**String**> | Possible order by fields: source_type, created_date, updated_date. Ex: 'updated_date|desc'. |  |
 **filter** | Option<**String**> | FQL query specifying the filter parameters. Special value '*' means to not filter on anything. |  |
-**q** | Option<**String**> | Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed). |  |
+**q** | Option<**String**> | Match phrase_prefix query criteria; included fields:_all (all filter string fields indexed). |  |
 
 ### Return type
 
-[**crate::models::DomainPeriodQueryResponse**](domain.QueryResponse.md)
+[**models::DomainPeriodQueryResponse**](domain.QueryResponse.md)
 
 ### Authorization
 
@@ -116,11 +116,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_rules
 
-> crate::models::DomainPeriodQueryResponse query_rules(offset, limit, sort, filter, q)
+> models::DomainPeriodQueryResponse query_rules(offset, limit, sort, filter, q)
 Get rules ids that match the provided filter criteria.
 
 ### Parameters
@@ -131,11 +131,11 @@ Name | Type | Description  | Required | Notes
 **limit** | Option<**i32**> | Number of ids to return. |  |
 **sort** | Option<**String**> | Possible order by fields: name, value, rule_type, customer_id, created_date, updated_date. Ex: 'updated_date|asc'. |  |
 **filter** | Option<**String**> | FQL query specifying the filter parameters. Special value '*' means to not filter on anything. |  |
-**q** | Option<**String**> | Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed). |  |
+**q** | Option<**String**> | Match phrase_prefix query criteria; included fields:_all (all filter string fields indexed). |  |
 
 ### Return type
 
-[**crate::models::DomainPeriodQueryResponse**](domain.QueryResponse.md)
+[**models::DomainPeriodQueryResponse**](domain.QueryResponse.md)
 
 ### Authorization
 
@@ -146,4 +146,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

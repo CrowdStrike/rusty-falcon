@@ -1,16 +1,16 @@
-# HostsApi
+# \HostsApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**entities_period_perform_action**](HostsApi.md#entities_period_perform_action) | **POST** /devices/entities/group-actions/v1 | Performs the specified action on the provided group IDs.
-[**get_device_details**](HostsApi.md#get_device_details) | **GET** /devices/entities/devices/v1 | Deprecated: Please use new GET or POST /devices/entities/devices/v2 endpoints.  This endpoint will be removed on or sometime after February 9, 2023.  Get details on one or more hosts by providing agent IDs (AID). You can get a host's agent IDs (AIDs) from the /devices/queries/devices/v1 endpoint, the Falcon console or the Streaming API
 [**get_device_details_v2**](HostsApi.md#get_device_details_v2) | **GET** /devices/entities/devices/v2 | Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs.
 [**get_online_state_period_v1**](HostsApi.md#get_online_state_period_v1) | **GET** /devices/entities/online-state/v1 | Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a `state` of `online`, `offline`, or `unknown` for each host, identified by host `id`.  Make a `GET` request to `/devices/queries/devices/v1` to get a list of host IDs.
 [**perform_action_v2**](HostsApi.md#perform_action_v2) | **POST** /devices/entities/devices-actions/v2 | Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host.
 [**post_device_details_v2**](HostsApi.md#post_device_details_v2) | **POST** /devices/entities/devices/v2 | Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs.
 [**query_device_login_history**](HostsApi.md#query_device_login_history) | **POST** /devices/combined/devices/login-history/v1 | Retrieve details about recent login sessions for a set of devices.
+[**query_device_login_history_v2**](HostsApi.md#query_device_login_history_v2) | **POST** /devices/combined/devices/login-history/v2 | Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
 [**query_devices_by_filter**](HostsApi.md#query_devices_by_filter) | **GET** /devices/queries/devices/v1 | Search for hosts in your environment by platform, hostname, IP, and other criteria.
 [**query_devices_by_filter_scroll**](HostsApi.md#query_devices_by_filter_scroll) | **GET** /devices/queries/devices-scroll/v1 | Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)
 [**query_get_network_address_history_v1**](HostsApi.md#query_get_network_address_history_v1) | **POST** /devices/combined/devices/network-address-history/v1 | Retrieve history of IP and MAC addresses of devices.
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## entities_period_perform_action
 
-> crate::models::DeviceapiPeriodGroupsResponseV1 entities_period_perform_action(ids, action_name, body, disable_hostname_check)
+> models::DeviceapiPeriodGroupsResponseV1 entities_period_perform_action(ids, action_name, body, disable_hostname_check)
 Performs the specified action on the provided group IDs.
 
 ### Parameters
@@ -33,7 +33,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DeviceapiPeriodGroupsResponseV1**](deviceapi.GroupsResponseV1.md)
+[**models::DeviceapiPeriodGroupsResponseV1**](deviceapi.GroupsResponseV1.md)
 
 ### Authorization
 
@@ -44,37 +44,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
-
-## get_device_details
-
-> crate::models::DeviceapiPeriodDeviceDetailsResponseSwagger get_device_details(ids)
-Deprecated: Please use new GET or POST /devices/entities/devices/v2 endpoints.  This endpoint will be removed on or sometime after February 9, 2023.  Get details on one or more hosts by providing agent IDs (AID). You can get a host's agent IDs (AIDs) from the /devices/queries/devices/v1 endpoint, the Falcon console or the Streaming API
-
-### Parameters
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**ids** | [**Vec<String>**](String.md) | The host agentIDs used to get details on | [required] |
-
-### Return type
-
-[**crate::models::DeviceapiPeriodDeviceDetailsResponseSwagger**](deviceapi.DeviceDetailsResponseSwagger.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_device_details_v2
 
-> crate::models::DeviceapiPeriodDeviceDetailsResponseSwagger get_device_details_v2(ids)
+> models::DeviceapiPeriodDeviceDetailsResponseSwagger get_device_details_v2(ids)
 Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs.
 
 ### Parameters
@@ -85,7 +59,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DeviceapiPeriodDeviceDetailsResponseSwagger**](deviceapi.DeviceDetailsResponseSwagger.md)
+[**models::DeviceapiPeriodDeviceDetailsResponseSwagger**](deviceapi.DeviceDetailsResponseSwagger.md)
 
 ### Authorization
 
@@ -96,11 +70,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_online_state_period_v1
 
-> crate::models::StatePeriodOnlineStateRespV1 get_online_state_period_v1(ids)
+> models::StatePeriodOnlineStateRespV1 get_online_state_period_v1(ids)
 Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a `state` of `online`, `offline`, or `unknown` for each host, identified by host `id`.  Make a `GET` request to `/devices/queries/devices/v1` to get a list of host IDs.
 
 ### Parameters
@@ -111,7 +85,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::StatePeriodOnlineStateRespV1**](state.OnlineStateRespV1.md)
+[**models::StatePeriodOnlineStateRespV1**](state.OnlineStateRespV1.md)
 
 ### Authorization
 
@@ -122,11 +96,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## perform_action_v2
 
-> crate::models::MsaPeriodReplyAffectedEntities perform_action_v2(action_name, body)
+> models::MsaPeriodReplyAffectedEntities perform_action_v2(action_name, body)
 Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host.
 
 ### Parameters
@@ -138,7 +112,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyAffectedEntities**](msa.ReplyAffectedEntities.md)
+[**models::MsaPeriodReplyAffectedEntities**](msa.ReplyAffectedEntities.md)
 
 ### Authorization
 
@@ -149,11 +123,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## post_device_details_v2
 
-> crate::models::DeviceapiPeriodDeviceDetailsResponseSwagger post_device_details_v2(body)
+> models::DeviceapiPeriodDeviceDetailsResponseSwagger post_device_details_v2(body)
 Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs.
 
 ### Parameters
@@ -164,7 +138,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DeviceapiPeriodDeviceDetailsResponseSwagger**](deviceapi.DeviceDetailsResponseSwagger.md)
+[**models::DeviceapiPeriodDeviceDetailsResponseSwagger**](deviceapi.DeviceDetailsResponseSwagger.md)
 
 ### Authorization
 
@@ -175,11 +149,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_device_login_history
 
-> crate::models::DeviceapiPeriodLoginHistoryResponseV1 query_device_login_history(body)
+> models::DeviceapiPeriodLoginHistoryResponseV1 query_device_login_history(body)
 Retrieve details about recent login sessions for a set of devices.
 
 ### Parameters
@@ -190,7 +164,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DeviceapiPeriodLoginHistoryResponseV1**](deviceapi.LoginHistoryResponseV1.md)
+[**models::DeviceapiPeriodLoginHistoryResponseV1**](deviceapi.LoginHistoryResponseV1.md)
 
 ### Authorization
 
@@ -201,11 +175,37 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## query_device_login_history_v2
+
+> models::DeviceapiPeriodLoginHistoryResponseV1 query_device_login_history_v2(body)
+Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
+
+### Parameters
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**body** | [**MsaPeriodIdsRequest**](MsaPeriodIdsRequest.md) |  | [required] |
+
+### Return type
+
+[**models::DeviceapiPeriodLoginHistoryResponseV1**](deviceapi.LoginHistoryResponseV1.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_devices_by_filter
 
-> crate::models::MsaPeriodQueryResponse query_devices_by_filter(offset, limit, sort, filter)
+> models::MsaPeriodQueryResponse query_devices_by_filter(offset, limit, sort, filter)
 Search for hosts in your environment by platform, hostname, IP, and other criteria.
 
 ### Parameters
@@ -219,7 +219,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -230,11 +230,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_devices_by_filter_scroll
 
-> crate::models::DeviceapiPeriodDeviceResponse query_devices_by_filter_scroll(offset, limit, sort, filter)
+> models::DeviceapiPeriodDeviceResponse query_devices_by_filter_scroll(offset, limit, sort, filter)
 Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)
 
 ### Parameters
@@ -248,7 +248,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DeviceapiPeriodDeviceResponse**](deviceapi.DeviceResponse.md)
+[**models::DeviceapiPeriodDeviceResponse**](deviceapi.DeviceResponse.md)
 
 ### Authorization
 
@@ -259,11 +259,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_get_network_address_history_v1
 
-> crate::models::DeviceapiPeriodNetworkAddressHistoryResponseV1 query_get_network_address_history_v1(body)
+> models::DeviceapiPeriodNetworkAddressHistoryResponseV1 query_get_network_address_history_v1(body)
 Retrieve history of IP and MAC addresses of devices.
 
 ### Parameters
@@ -274,7 +274,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DeviceapiPeriodNetworkAddressHistoryResponseV1**](deviceapi.NetworkAddressHistoryResponseV1.md)
+[**models::DeviceapiPeriodNetworkAddressHistoryResponseV1**](deviceapi.NetworkAddressHistoryResponseV1.md)
 
 ### Authorization
 
@@ -285,11 +285,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_hidden_devices
 
-> crate::models::MsaPeriodQueryResponse query_hidden_devices(offset, limit, sort, filter)
+> models::MsaPeriodQueryResponse query_hidden_devices(offset, limit, sort, filter)
 Retrieve hidden hosts that match the provided filter criteria.
 
 ### Parameters
@@ -303,7 +303,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -314,11 +314,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_device_tags
 
-> crate::models::DeviceapiPeriodUpdateDeviceTagsSwaggerV1 update_device_tags(body)
+> models::DeviceapiPeriodUpdateDeviceTagsSwaggerV1 update_device_tags(body)
 Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/
 
 ### Parameters
@@ -329,7 +329,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DeviceapiPeriodUpdateDeviceTagsSwaggerV1**](deviceapi.UpdateDeviceTagsSwaggerV1.md)
+[**models::DeviceapiPeriodUpdateDeviceTagsSwaggerV1**](deviceapi.UpdateDeviceTagsSwaggerV1.md)
 
 ### Authorization
 
@@ -340,4 +340,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

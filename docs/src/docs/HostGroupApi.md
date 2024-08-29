@@ -1,4 +1,4 @@
-# HostGroupApi
+# \HostGroupApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## create_host_groups
 
-> crate::models::HostGroupsPeriodRespV1 create_host_groups(body)
+> models::HostGroupsPeriodRespV1 create_host_groups(body)
 Create Host Groups by specifying details about the group to create
 
 ### Parameters
@@ -27,7 +27,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::HostGroupsPeriodRespV1**](host_groups.RespV1.md)
+[**models::HostGroupsPeriodRespV1**](host_groups.RespV1.md)
 
 ### Authorization
 
@@ -38,11 +38,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## delete_host_groups
 
-> crate::models::MsaPeriodQueryResponse delete_host_groups(ids)
+> models::MsaPeriodQueryResponse delete_host_groups(ids)
 Delete a set of Host Groups by specifying their IDs
 
 ### Parameters
@@ -53,7 +53,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -64,11 +64,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_host_groups
 
-> crate::models::HostGroupsPeriodRespV1 get_host_groups(ids)
+> models::HostGroupsPeriodRespV1 get_host_groups(ids)
 Retrieve a set of Host Groups by specifying their IDs
 
 ### Parameters
@@ -79,7 +79,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::HostGroupsPeriodRespV1**](host_groups.RespV1.md)
+[**models::HostGroupsPeriodRespV1**](host_groups.RespV1.md)
 
 ### Authorization
 
@@ -90,11 +90,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## perform_group_action
 
-> crate::models::HostGroupsPeriodRespV1 perform_group_action(action_name, body, disable_hostname_check)
+> models::HostGroupsPeriodRespV1 perform_group_action(action_name, body, disable_hostname_check)
 Perform the specified action on the Host Groups specified in the request
 
 ### Parameters
@@ -107,7 +107,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::HostGroupsPeriodRespV1**](host_groups.RespV1.md)
+[**models::HostGroupsPeriodRespV1**](host_groups.RespV1.md)
 
 ### Authorization
 
@@ -118,11 +118,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_combined_group_members
 
-> crate::models::HostGroupsPeriodMembersRespV1 query_combined_group_members(id, filter, offset, limit, sort)
+> models::HostGroupsPeriodMembersRespV1 query_combined_group_members(id, filter, offset, limit, sort)
 Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
 
 ### Parameters
@@ -137,7 +137,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::HostGroupsPeriodMembersRespV1**](host_groups.MembersRespV1.md)
+[**models::HostGroupsPeriodMembersRespV1**](host_groups.MembersRespV1.md)
 
 ### Authorization
 
@@ -148,11 +148,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_combined_host_groups
 
-> crate::models::HostGroupsPeriodRespV1 query_combined_host_groups(filter, offset, limit, sort)
+> models::HostGroupsPeriodRespV1 query_combined_host_groups(filter, offset, limit, sort)
 Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria
 
 ### Parameters
@@ -166,7 +166,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::HostGroupsPeriodRespV1**](host_groups.RespV1.md)
+[**models::HostGroupsPeriodRespV1**](host_groups.RespV1.md)
 
 ### Authorization
 
@@ -177,11 +177,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_group_members
 
-> crate::models::MsaPeriodQueryResponse query_group_members(id, filter, offset, limit, sort)
+> models::MsaPeriodQueryResponse query_group_members(id, filter, offset, limit, sort)
 Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
 
 ### Parameters
@@ -196,7 +196,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -207,11 +207,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_host_groups
 
-> crate::models::MsaPeriodQueryResponse query_host_groups(filter, offset, limit, sort)
+> models::MsaPeriodQueryResponse query_host_groups(filter, offset, limit, sort)
 Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Group IDs which match the filter criteria
 
 ### Parameters
@@ -225,7 +225,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -236,11 +236,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_host_groups
 
-> crate::models::HostGroupsPeriodRespV1 update_host_groups(body)
+> models::HostGroupsPeriodRespV1 update_host_groups(body)
 Update Host Groups by specifying the ID of the group and details to update
 
 ### Parameters
@@ -251,7 +251,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::HostGroupsPeriodRespV1**](host_groups.RespV1.md)
+[**models::HostGroupsPeriodRespV1**](host_groups.RespV1.md)
 
 ### Authorization
 
@@ -262,4 +262,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -1,4 +1,4 @@
-# RealTimeResponseApi
+w# \RealTimeResponseApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -30,21 +30,21 @@ Method | HTTP request | Description
 
 ## batch_active_responder_cmd
 
-> crate::models::DomainPeriodMultiCommandExecuteResponseWrapper batch_active_responder_cmd(body, timeout, timeout_duration, host_timeout_duration)
+> models::DomainPeriodMultiCommandExecuteResponseWrapper batch_active_responder_cmd(body, timeout, timeout_duration, host_timeout_duration)
 Batch executes a RTR active-responder command across the hosts mapped to the given batch ID.
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**DomainPeriodBatchExecuteCommandRequest**](DomainPeriodBatchExecuteCommandRequest.md) | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands): - `cat` - `cd` - `clear` - `cp` - `encrypt` - `env` - `eventlog` - `filehash` - `get` - `getsid` - `help` - `history` - `ipconfig` - `kill` - `ls` - `map` - `memdump` - `mkdir` - `mount` - `mv` - `netstat` - `ps` - `reg query` - `reg set` - `reg delete` - `reg load` - `reg unload` - `restart` - `rm` - `runscript` - `shutdown` - `unmap` - `update history` - `update install` - `update list` - `update query` - `xmemdump` - `zip`  **`base_command`** Active-Responder command type we are going to execute, for example: `get` or `cp`.  Refer to the RTR documentation for the full list of commands. **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/batch-init-session/v1`. **`command_string`** Full command string for the command. For example  `get some_file.txt` **`optional_hosts`** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command. | [required] |
+**body** | [**DomainPeriodBatchExecuteCommandRequest**](DomainPeriodBatchExecuteCommandRequest.md) | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/documentation/page/b8c1738c/real-time-response-and-network-containment#k893b7c0): - `cat` - `cd` - `clear` - `cp` - `encrypt` - `env` - `eventlog` - `filehash` - `get` - `getsid` - `help` - `history` - `ipconfig` - `kill` - `ls` - `map` - `memdump` - `mkdir` - `mount` - `mv` - `netstat` - `ps` - `reg query` - `reg set` - `reg delete` - `reg load` - `reg unload` - `restart` - `rm` - `runscript` - `shutdown` - `unmap` - `update history` - `update install` - `update list` - `update query` - `xmemdump` - `zip`  **`base_command`** Active-Responder command type we are going to execute, for example: `get` or `cp`.  Refer to the RTR documentation for the full list of commands. **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/batch-init-session/v1`. **`command_string`** Full command string for the command. For example  `get some_file.txt` **`optional_hosts`** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command. | [required] |
 **timeout** | Option<**i32**> | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes. |  |[default to 30]
 **timeout_duration** | Option<**String**> | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 5 minutes. |  |[default to 30s]
 **host_timeout_duration** | Option<**String**> | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 5 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`.  |  |[default to tiny bit less than overall request timeout]
 
 ### Return type
 
-[**crate::models::DomainPeriodMultiCommandExecuteResponseWrapper**](domain.MultiCommandExecuteResponseWrapper.md)
+[**models::DomainPeriodMultiCommandExecuteResponseWrapper**](domain.MultiCommandExecuteResponseWrapper.md)
 
 ### Authorization
 
@@ -55,25 +55,25 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## batch_cmd
 
-> crate::models::DomainPeriodMultiCommandExecuteResponseWrapper batch_cmd(body, timeout, timeout_duration, host_timeout_duration)
+> models::DomainPeriodMultiCommandExecuteResponseWrapper batch_cmd(body, timeout, timeout_duration, host_timeout_duration)
 Batch executes a RTR read-only command across the hosts mapped to the given batch ID.
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**DomainPeriodBatchExecuteCommandRequest**](DomainPeriodBatchExecuteCommandRequest.md) | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands): - `cat` - `cd` - `clear` - `env` - `eventlog` - `filehash` - `getsid` - `help` - `history` - `ipconfig` - `ls` - `mount` - `netstat` - `ps` - `reg query`  **`base_command`** read-only command type we are going to execute, for example: `ls` or `cd`.  Refer to the RTR documentation for the full list of commands. **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/batch-init-session/v1`. **`command_string`** Full command string for the command. For example  `cd C:\\some_directory` **`optional_hosts`** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command. | [required] |
+**body** | [**DomainPeriodBatchExecuteCommandRequest**](DomainPeriodBatchExecuteCommandRequest.md) | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/documentation/page/b8c1738c/real-time-response-and-network-containment#k893b7c0): - `cat` - `cd` - `clear` - `env` - `eventlog` - `filehash` - `getsid` - `help` - `history` - `ipconfig` - `ls` - `mount` - `netstat` - `ps` - `reg query`  **`base_command`** read-only command type we are going to execute, for example: `ls` or `cd`.  Refer to the RTR documentation for the full list of commands. **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/batch-init-session/v1`. **`command_string`** Full command string for the command. For example  `cd C:\\some_directory` **`optional_hosts`** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command. | [required] |
 **timeout** | Option<**i32**> | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes. |  |[default to 30]
 **timeout_duration** | Option<**String**> | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 5 minutes. |  |[default to 30s]
 **host_timeout_duration** | Option<**String**> | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 5 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`.  |  |[default to tiny bit less than overall request timeout]
 
 ### Return type
 
-[**crate::models::DomainPeriodMultiCommandExecuteResponseWrapper**](domain.MultiCommandExecuteResponseWrapper.md)
+[**models::DomainPeriodMultiCommandExecuteResponseWrapper**](domain.MultiCommandExecuteResponseWrapper.md)
 
 ### Authorization
 
@@ -84,11 +84,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## batch_get_cmd
 
-> crate::models::DomainPeriodBatchGetCommandResponse batch_get_cmd(body, timeout, timeout_duration, host_timeout_duration)
+> models::DomainPeriodBatchGetCommandResponse batch_get_cmd(body, timeout, timeout_duration, host_timeout_duration)
 Batch executes `get` command across hosts to retrieve files. After this call is made `GET /real-time-response/combined/batch-get-command/v1` is used to query for the results.
 
 ### Parameters
@@ -102,7 +102,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodBatchGetCommandResponse**](domain.BatchGetCommandResponse.md)
+[**models::DomainPeriodBatchGetCommandResponse**](domain.BatchGetCommandResponse.md)
 
 ### Authorization
 
@@ -113,11 +113,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## batch_get_cmd_status
 
-> crate::models::DomainPeriodBatchGetCmdStatusResponse batch_get_cmd_status(batch_get_cmd_req_id, timeout, timeout_duration)
+> models::DomainPeriodBatchGetCmdStatusResponse batch_get_cmd_status(batch_get_cmd_req_id, timeout, timeout_duration)
 Retrieves the status of the specified batch get command.  Will return successful files when they are finished processing.
 
 ### Parameters
@@ -130,7 +130,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodBatchGetCmdStatusResponse**](domain.BatchGetCmdStatusResponse.md)
+[**models::DomainPeriodBatchGetCmdStatusResponse**](domain.BatchGetCmdStatusResponse.md)
 
 ### Authorization
 
@@ -141,11 +141,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## batch_init_sessions
 
-> crate::models::DomainPeriodBatchInitSessionResponse batch_init_sessions(body, timeout, timeout_duration, host_timeout_duration)
+> models::DomainPeriodBatchInitSessionResponse batch_init_sessions(body, timeout, timeout_duration, host_timeout_duration)
 Batch initialize a RTR session on multiple hosts.  Before any RTR commands can be used, an active session is needed on the host.
 
 ### Parameters
@@ -159,7 +159,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodBatchInitSessionResponse**](domain.BatchInitSessionResponse.md)
+[**models::DomainPeriodBatchInitSessionResponse**](domain.BatchInitSessionResponse.md)
 
 ### Authorization
 
@@ -170,11 +170,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## batch_refresh_sessions
 
-> crate::models::DomainPeriodBatchRefreshSessionResponse batch_refresh_sessions(body, timeout, timeout_duration)
+> models::DomainPeriodBatchRefreshSessionResponse batch_refresh_sessions(body, timeout, timeout_duration)
 Batch refresh a RTR session on multiple hosts. RTR sessions will expire after 10 minutes unless refreshed.
 
 ### Parameters
@@ -187,7 +187,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodBatchRefreshSessionResponse**](domain.BatchRefreshSessionResponse.md)
+[**models::DomainPeriodBatchRefreshSessionResponse**](domain.BatchRefreshSessionResponse.md)
 
 ### Authorization
 
@@ -198,22 +198,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_aggregate_sessions
 
-> crate::models::MsaPeriodAggregatesResponse r_tr_aggregate_sessions(body)
+> models::MsaPeriodAggregatesResponse r_tr_aggregate_sessions(body)
 Get aggregates on session data.
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) | Supported aggregations:  - `term` - `date_range`  Supported aggregation members:  **`date_ranges`** If peforming a date range query specify the **`from`** and **`to`** date ranges.  These can be in common date formats like `2019-07-18` or `now` **`field`** Term you want to aggregate on.  If doing a `date_range` query, this is the date field you want to apply the date ranges to **`filter`** Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide). **`name`** Name of the aggregation **`size`** Size limit to apply to the queries. | [required] |
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) | Supported aggregations:  - `term` - `date_range`  Supported aggregation members:  **`date_ranges`** If peforming a date range query specify the **`from`** and **`to`** date ranges.  These can be in common date formats like `2019-07-18` or `now` **`field`** Term you want to aggregate on.  If doing a `date_range` query, this is the date field you want to apply the date ranges to **`filter`** Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide). **`name`** Name of the aggregation **`size`** Size limit to apply to the queries. | [required] |
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -224,11 +224,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_check_active_responder_command_status
 
-> crate::models::DomainPeriodStatusResponseWrapper r_tr_check_active_responder_command_status(cloud_request_id, sequence_id)
+> models::DomainPeriodStatusResponseWrapper r_tr_check_active_responder_command_status(cloud_request_id, sequence_id)
 Get status of an executed active-responder command on a single host.
 
 ### Parameters
@@ -240,7 +240,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodStatusResponseWrapper**](domain.StatusResponseWrapper.md)
+[**models::DomainPeriodStatusResponseWrapper**](domain.StatusResponseWrapper.md)
 
 ### Authorization
 
@@ -251,11 +251,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_check_command_status
 
-> crate::models::DomainPeriodStatusResponseWrapper r_tr_check_command_status(cloud_request_id, sequence_id)
+> models::DomainPeriodStatusResponseWrapper r_tr_check_command_status(cloud_request_id, sequence_id)
 Get status of an executed command on a single host.
 
 ### Parameters
@@ -267,7 +267,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodStatusResponseWrapper**](domain.StatusResponseWrapper.md)
+[**models::DomainPeriodStatusResponseWrapper**](domain.StatusResponseWrapper.md)
 
 ### Authorization
 
@@ -278,11 +278,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_delete_file
 
-> crate::models::MsaPeriodReplyMetaOnly r_tr_delete_file(ids, session_id)
+> models::MsaPeriodReplyMetaOnly r_tr_delete_file(ids, session_id)
 Delete a RTR session file.
 
 ### Parameters
@@ -294,7 +294,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
+[**models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
 
 ### Authorization
 
@@ -305,11 +305,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_delete_file_v2
 
-> crate::models::MsaPeriodReplyMetaOnly r_tr_delete_file_v2(ids, session_id)
+> models::MsaPeriodReplyMetaOnly r_tr_delete_file_v2(ids, session_id)
 Delete a RTR session file.
 
 ### Parameters
@@ -321,7 +321,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
+[**models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
 
 ### Authorization
 
@@ -332,11 +332,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_delete_queued_session
 
-> crate::models::MsaPeriodReplyMetaOnly r_tr_delete_queued_session(session_id, cloud_request_id)
+> models::MsaspecPeriodQueryResponse r_tr_delete_queued_session(session_id, cloud_request_id)
 Delete a queued session command
 
 ### Parameters
@@ -348,7 +348,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -359,11 +359,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_delete_session
 
-> crate::models::MsaPeriodReplyMetaOnly r_tr_delete_session(session_id)
+> models::MsaPeriodReplyMetaOnly r_tr_delete_session(session_id)
 Delete a session.
 
 ### Parameters
@@ -374,7 +374,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
+[**models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
 
 ### Authorization
 
@@ -385,22 +385,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_execute_active_responder_command
 
-> crate::models::DomainPeriodCommandExecuteResponseWrapper r_tr_execute_active_responder_command(body)
+> models::DomainPeriodCommandExecuteResponseWrapper r_tr_execute_active_responder_command(body)
 Execute an active responder command on a single host.
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**DomainPeriodCommandExecuteRequest**](DomainPeriodCommandExecuteRequest.md) | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands): - `cat` - `cd` - `clear` - `cp` - `encrypt` - `env` - `eventlog` - `filehash` - `get` - `getsid` - `help` - `history` - `ipconfig` - `kill` - `ls` - `map` - `memdump` - `mkdir` - `mount` - `mv` - `netstat` - `ps` - `reg query` - `reg set` - `reg delete` - `reg load` - `reg unload` - `restart` - `rm` - `runscript` - `shutdown` - `unmap` - `update history` - `update install` - `update list` - `update query` - `xmemdump` - `zip`  Required values.  The rest of the fields are unused. **`base_command`** Active-Responder command type we are going to execute, for example: `get` or `cp`.  Refer to the RTR documentation for the full list of commands. **`command_string`** Full command string for the command. For example  `get some_file.txt` **`session_id`** RTR session ID to run the command on | [required] |
+**body** | [**DomainPeriodCommandExecuteRequest**](DomainPeriodCommandExecuteRequest.md) | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/documentation/page/b8c1738c/real-time-response-and-network-containment#k893b7c0): - `cat` - `cd` - `clear` - `cp` - `encrypt` - `env` - `eventlog` - `filehash` - `get` - `getsid` - `help` - `history` - `ipconfig` - `kill` - `ls` - `map` - `memdump` - `mkdir` - `mount` - `mv` - `netstat` - `ps` - `reg query` - `reg set` - `reg delete` - `reg load` - `reg unload` - `restart` - `rm` - `runscript` - `shutdown` - `unmap` - `update history` - `update install` - `update list` - `update query` - `xmemdump` - `zip`  Required values.  The rest of the fields are unused. **`base_command`** Active-Responder command type we are going to execute, for example: `get` or `cp`.  Refer to the RTR documentation for the full list of commands. **`command_string`** Full command string for the command. For example  `get some_file.txt` **`session_id`** RTR session ID to run the command on | [required] |
 
 ### Return type
 
-[**crate::models::DomainPeriodCommandExecuteResponseWrapper**](domain.CommandExecuteResponseWrapper.md)
+[**models::DomainPeriodCommandExecuteResponseWrapper**](domain.CommandExecuteResponseWrapper.md)
 
 ### Authorization
 
@@ -411,22 +411,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_execute_command
 
-> crate::models::DomainPeriodCommandExecuteResponseWrapper r_tr_execute_command(body)
+> models::DomainPeriodCommandExecuteResponseWrapper r_tr_execute_command(body)
 Execute a command on a single host.
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**DomainPeriodCommandExecuteRequest**](DomainPeriodCommandExecuteRequest.md) | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands): - `cat` - `cd` - `clear` - `env` - `eventlog` - `filehash` - `getsid` - `help` - `history` - `ipconfig` - `ls` - `mount` - `netstat` - `ps` - `reg query`  Required values.  The rest of the fields are unused. **`base_command`** read-only command type we are going to execute, for example: `ls` or `cd`.  Refer to the RTR documentation for the full list of commands. **`command_string`** Full command string for the command. For example  `cd C:\\some_directory` **`session_id`** RTR session ID to run the command on | [required] |
+**body** | [**DomainPeriodCommandExecuteRequest**](DomainPeriodCommandExecuteRequest.md) | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/documentation/page/b8c1738c/real-time-response-and-network-containment#k893b7c0): - `cat` - `cd` - `clear` - `env` - `eventlog` - `filehash` - `getsid` - `help` - `history` - `ipconfig` - `ls` - `mount` - `netstat` - `ps` - `reg query`  Required values.  The rest of the fields are unused. **`base_command`** read-only command type we are going to execute, for example: `ls` or `cd`.  Refer to the RTR documentation for the full list of commands. **`command_string`** Full command string for the command. For example  `cd C:\\some_directory` **`session_id`** RTR session ID to run the command on | [required] |
 
 ### Return type
 
-[**crate::models::DomainPeriodCommandExecuteResponseWrapper**](domain.CommandExecuteResponseWrapper.md)
+[**models::DomainPeriodCommandExecuteResponseWrapper**](domain.CommandExecuteResponseWrapper.md)
 
 ### Authorization
 
@@ -437,7 +437,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_get_extracted_file_contents
 
@@ -465,11 +465,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/x-7z-compressed, application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_init_session
 
-> crate::models::DomainPeriodInitResponseWrapper r_tr_init_session(body, timeout, timeout_duration)
+> models::DomainPeriodInitResponseWrapper r_tr_init_session(body, timeout, timeout_duration)
 Initialize a new session with the RTR cloud.
 
 ### Parameters
@@ -482,7 +482,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodInitResponseWrapper**](domain.InitResponseWrapper.md)
+[**models::DomainPeriodInitResponseWrapper**](domain.InitResponseWrapper.md)
 
 ### Authorization
 
@@ -493,11 +493,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_list_all_sessions
 
-> crate::models::DomainPeriodListSessionsResponseMsa r_tr_list_all_sessions(offset, limit, sort, filter)
+> models::DomainPeriodListSessionsResponseMsa r_tr_list_all_sessions(offset, limit, sort, filter)
 Get a list of session_ids.
 
 ### Parameters
@@ -511,7 +511,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodListSessionsResponseMsa**](domain.ListSessionsResponseMsa.md)
+[**models::DomainPeriodListSessionsResponseMsa**](domain.ListSessionsResponseMsa.md)
 
 ### Authorization
 
@@ -522,11 +522,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_list_files
 
-> crate::models::DomainPeriodListFilesResponseWrapper r_tr_list_files(session_id)
+> models::DomainPeriodListFilesResponseWrapper r_tr_list_files(session_id)
 Get a list of files for the specified RTR session.
 
 ### Parameters
@@ -537,7 +537,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodListFilesResponseWrapper**](domain.ListFilesResponseWrapper.md)
+[**models::DomainPeriodListFilesResponseWrapper**](domain.ListFilesResponseWrapper.md)
 
 ### Authorization
 
@@ -548,11 +548,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_list_files_v2
 
-> crate::models::DomainPeriodListFilesV2ResponseWrapper r_tr_list_files_v2(session_id)
+> models::DomainPeriodListFilesV2ResponseWrapper r_tr_list_files_v2(session_id)
 Get a list of files for the specified RTR session.
 
 ### Parameters
@@ -563,7 +563,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodListFilesV2ResponseWrapper**](domain.ListFilesV2ResponseWrapper.md)
+[**models::DomainPeriodListFilesV2ResponseWrapper**](domain.ListFilesV2ResponseWrapper.md)
 
 ### Authorization
 
@@ -574,11 +574,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_list_queued_sessions
 
-> crate::models::DomainPeriodQueuedSessionResponseWrapper r_tr_list_queued_sessions(body)
+> models::DomainPeriodQueuedSessionResponseWrapper r_tr_list_queued_sessions(body)
 Get queued session metadata by session ID.
 
 ### Parameters
@@ -589,7 +589,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodQueuedSessionResponseWrapper**](domain.QueuedSessionResponseWrapper.md)
+[**models::DomainPeriodQueuedSessionResponseWrapper**](domain.QueuedSessionResponseWrapper.md)
 
 ### Authorization
 
@@ -600,11 +600,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_list_sessions
 
-> crate::models::DomainPeriodSessionResponseWrapper r_tr_list_sessions(body)
+> models::DomainPeriodSessionResponseWrapper r_tr_list_sessions(body)
 Get session metadata by session id.
 
 ### Parameters
@@ -615,7 +615,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodSessionResponseWrapper**](domain.SessionResponseWrapper.md)
+[**models::DomainPeriodSessionResponseWrapper**](domain.SessionResponseWrapper.md)
 
 ### Authorization
 
@@ -626,11 +626,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_pulse_session
 
-> crate::models::DomainPeriodInitResponseWrapper r_tr_pulse_session(body)
+> models::DomainPeriodInitResponseWrapper r_tr_pulse_session(body)
 Refresh a session timeout on a single host.
 
 ### Parameters
@@ -641,7 +641,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodInitResponseWrapper**](domain.InitResponseWrapper.md)
+[**models::DomainPeriodInitResponseWrapper**](domain.InitResponseWrapper.md)
 
 ### Authorization
 
@@ -652,4 +652,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

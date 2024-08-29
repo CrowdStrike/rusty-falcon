@@ -1,4 +1,4 @@
-# SensorVisibilityExclusionsApi
+# \SensorVisibilityExclusionsApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## create_sv_exclusions_v1
 
-> crate::models::ExclusionsPeriodRespV1 create_sv_exclusions_v1(body)
+> models::ExclusionsPeriodRespV1 create_sv_exclusions_v1(body)
 Create the sensor visibility exclusions
 
 ### Parameters
@@ -23,7 +23,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ExclusionsPeriodRespV1**](exclusions.RespV1.md)
+[**models::ExclusionsPeriodRespV1**](exclusions.RespV1.md)
 
 ### Authorization
 
@@ -34,11 +34,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## delete_sensor_visibility_exclusions_v1
 
-> crate::models::MsaPeriodQueryResponse delete_sensor_visibility_exclusions_v1(ids, comment)
+> models::MsaPeriodQueryResponse delete_sensor_visibility_exclusions_v1(ids, comment)
 Delete the sensor visibility exclusions by id
 
 ### Parameters
@@ -50,7 +50,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -61,11 +61,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_sensor_visibility_exclusions_v1
 
-> crate::models::SvExclusionsPeriodRespV1 get_sensor_visibility_exclusions_v1(ids)
+> models::SvExclusionsPeriodRespV1 get_sensor_visibility_exclusions_v1(ids)
 Get a set of Sensor Visibility Exclusions by specifying their IDs
 
 ### Parameters
@@ -76,7 +76,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SvExclusionsPeriodRespV1**](sv_exclusions.RespV1.md)
+[**models::SvExclusionsPeriodRespV1**](sv_exclusions.RespV1.md)
 
 ### Authorization
 
@@ -87,11 +87,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_sensor_visibility_exclusions_v1
 
-> crate::models::MsaPeriodQueryResponse query_sensor_visibility_exclusions_v1(filter, offset, limit, sort)
+> models::MsaPeriodQueryResponse query_sensor_visibility_exclusions_v1(filter, offset, limit, sort)
 Search for sensor visibility exclusions.
 
 ### Parameters
@@ -105,7 +105,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -116,11 +116,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_sensor_visibility_exclusions_v1
 
-> crate::models::SvExclusionsPeriodRespV1 update_sensor_visibility_exclusions_v1(body)
+> models::SvExclusionsPeriodRespV1 update_sensor_visibility_exclusions_v1(body)
 Update the sensor visibility exclusions
 
 ### Parameters
@@ -131,7 +131,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SvExclusionsPeriodRespV1**](sv_exclusions.RespV1.md)
+[**models::SvExclusionsPeriodRespV1**](sv_exclusions.RespV1.md)
 
 ### Authorization
 
@@ -142,4 +142,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

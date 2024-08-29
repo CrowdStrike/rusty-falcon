@@ -1,4 +1,4 @@
-# FirewallManagementApi
+# \FirewallManagementApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -40,18 +40,18 @@ Method | HTTP request | Description
 
 ## aggregate_events
 
-> crate::models::FwmgrPeriodApiPeriodAggregatesResponse aggregate_events(body)
+> models::FwmgrPeriodApiPeriodAggregatesResponse aggregate_events(body)
 Aggregate events for customer
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::FwmgrPeriodMsaPeriodAggregateQueryRequest>**](fwmgr.msa.AggregateQueryRequest.md) | Query criteria and settings | [required] |
+**body** | [**Vec<models::FwmgrPeriodMsaPeriodAggregateQueryRequest>**](fwmgr.msa.AggregateQueryRequest.md) | Query criteria and settings | [required] |
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodAggregatesResponse**](fwmgr.api.AggregatesResponse.md)
+[**models::FwmgrPeriodApiPeriodAggregatesResponse**](fwmgr.api.AggregatesResponse.md)
 
 ### Authorization
 
@@ -62,22 +62,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## aggregate_policy_rules
 
-> crate::models::FwmgrPeriodApiPeriodAggregatesResponse aggregate_policy_rules(body)
+> models::FwmgrPeriodApiPeriodAggregatesResponse aggregate_policy_rules(body)
 Aggregate rules within a policy for customer
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::FwmgrPeriodMsaPeriodAggregateQueryRequest>**](fwmgr.msa.AggregateQueryRequest.md) | Query criteria and settings | [required] |
+**body** | [**Vec<models::FwmgrPeriodMsaPeriodAggregateQueryRequest>**](fwmgr.msa.AggregateQueryRequest.md) | Query criteria and settings | [required] |
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodAggregatesResponse**](fwmgr.api.AggregatesResponse.md)
+[**models::FwmgrPeriodApiPeriodAggregatesResponse**](fwmgr.api.AggregatesResponse.md)
 
 ### Authorization
 
@@ -88,22 +88,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## aggregate_rule_groups
 
-> crate::models::FwmgrPeriodApiPeriodAggregatesResponse aggregate_rule_groups(body)
+> models::FwmgrPeriodApiPeriodAggregatesResponse aggregate_rule_groups(body)
 Aggregate rule groups for customer
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::FwmgrPeriodMsaPeriodAggregateQueryRequest>**](fwmgr.msa.AggregateQueryRequest.md) | Query criteria and settings | [required] |
+**body** | [**Vec<models::FwmgrPeriodMsaPeriodAggregateQueryRequest>**](fwmgr.msa.AggregateQueryRequest.md) | Query criteria and settings | [required] |
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodAggregatesResponse**](fwmgr.api.AggregatesResponse.md)
+[**models::FwmgrPeriodApiPeriodAggregatesResponse**](fwmgr.api.AggregatesResponse.md)
 
 ### Authorization
 
@@ -114,22 +114,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## aggregate_rules
 
-> crate::models::FwmgrPeriodApiPeriodAggregatesResponse aggregate_rules(body)
+> models::FwmgrPeriodApiPeriodAggregatesResponse aggregate_rules(body)
 Aggregate rules for customer
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::FwmgrPeriodMsaPeriodAggregateQueryRequest>**](fwmgr.msa.AggregateQueryRequest.md) | Query criteria and settings | [required] |
+**body** | [**Vec<models::FwmgrPeriodMsaPeriodAggregateQueryRequest>**](fwmgr.msa.AggregateQueryRequest.md) | Query criteria and settings | [required] |
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodAggregatesResponse**](fwmgr.api.AggregatesResponse.md)
+[**models::FwmgrPeriodApiPeriodAggregatesResponse**](fwmgr.api.AggregatesResponse.md)
 
 ### Authorization
 
@@ -140,11 +140,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## create_network_locations
 
-> crate::models::FwmgrPeriodApiPeriodNetworkLocationsResponse create_network_locations(body, clone_id, add_fw_rules, comment)
+> models::FwmgrPeriodApiPeriodNetworkLocationsResponse create_network_locations(body, clone_id, add_fw_rules, comment)
 Create new network locations provided, and return the ID.
 
 ### Parameters
@@ -158,7 +158,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodNetworkLocationsResponse**](fwmgr.api.NetworkLocationsResponse.md)
+[**models::FwmgrPeriodApiPeriodNetworkLocationsResponse**](fwmgr.api.NetworkLocationsResponse.md)
 
 ### Authorization
 
@@ -169,11 +169,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## create_rule_group
 
-> crate::models::FwmgrPeriodApiPeriodQueryResponse create_rule_group(body, clone_id, library, comment)
+> models::FwmgrPeriodApiPeriodQueryResponse create_rule_group(body, clone_id, library, comment)
 Create new rule group on a platform for a customer with a name and description, and return the ID
 
 ### Parameters
@@ -187,7 +187,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodQueryResponse**](fwmgr.api.QueryResponse.md)
+[**models::FwmgrPeriodApiPeriodQueryResponse**](fwmgr.api.QueryResponse.md)
 
 ### Authorization
 
@@ -198,11 +198,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## create_rule_group_validation
 
-> crate::models::FwmgrPeriodMsaspecPeriodQueryResponse create_rule_group_validation(body, clone_id, library, comment)
+> models::FwmgrPeriodMsaspecPeriodQueryResponse create_rule_group_validation(body, clone_id, library, comment)
 Validates the request of creating a new rule group on a platform for a customer with a name and description
 
 ### Parameters
@@ -216,7 +216,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
+[**models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -227,11 +227,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## delete_network_locations
 
-> crate::models::FwmgrPeriodMsaspecPeriodQueryResponse delete_network_locations(ids)
+> models::FwmgrPeriodMsaspecPeriodQueryResponse delete_network_locations(ids)
 Delete network location entities by ID.
 
 ### Parameters
@@ -242,7 +242,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
+[**models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -253,11 +253,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## delete_rule_groups
 
-> crate::models::FwmgrPeriodApiPeriodQueryResponse delete_rule_groups(ids, comment)
+> models::FwmgrPeriodApiPeriodQueryResponse delete_rule_groups(ids, comment)
 Delete rule group entities by ID
 
 ### Parameters
@@ -269,7 +269,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodQueryResponse**](fwmgr.api.QueryResponse.md)
+[**models::FwmgrPeriodApiPeriodQueryResponse**](fwmgr.api.QueryResponse.md)
 
 ### Authorization
 
@@ -280,11 +280,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_events
 
-> crate::models::FwmgrPeriodApiPeriodEventsResponse get_events(ids)
+> models::FwmgrPeriodApiPeriodEventsResponse get_events(ids)
 Get events entities by ID and optionally version
 
 ### Parameters
@@ -295,7 +295,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodEventsResponse**](fwmgr.api.EventsResponse.md)
+[**models::FwmgrPeriodApiPeriodEventsResponse**](fwmgr.api.EventsResponse.md)
 
 ### Authorization
 
@@ -306,11 +306,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_firewall_fields
 
-> crate::models::FwmgrPeriodApiPeriodFirewallFieldsResponse get_firewall_fields(ids)
+> models::FwmgrPeriodApiPeriodFirewallFieldsResponse get_firewall_fields(ids)
 Get the firewall field specifications by ID
 
 ### Parameters
@@ -321,7 +321,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodFirewallFieldsResponse**](fwmgr.api.FirewallFieldsResponse.md)
+[**models::FwmgrPeriodApiPeriodFirewallFieldsResponse**](fwmgr.api.FirewallFieldsResponse.md)
 
 ### Authorization
 
@@ -332,11 +332,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_network_locations
 
-> crate::models::FwmgrPeriodApiPeriodNetworkLocationSummariesResponse get_network_locations(ids)
+> models::FwmgrPeriodApiPeriodNetworkLocationSummariesResponse get_network_locations(ids)
 Get a summary of network locations entities by ID
 
 This endpoint returns a summary of network locations that includes name, description, enabled/disabled status, a count of associated rules etc
@@ -349,7 +349,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodNetworkLocationSummariesResponse**](fwmgr.api.NetworkLocationSummariesResponse.md)
+[**models::FwmgrPeriodApiPeriodNetworkLocationSummariesResponse**](fwmgr.api.NetworkLocationSummariesResponse.md)
 
 ### Authorization
 
@@ -360,11 +360,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_network_locations_details
 
-> crate::models::FwmgrPeriodApiPeriodNetworkLocationsResponse get_network_locations_details(ids)
+> models::FwmgrPeriodApiPeriodNetworkLocationsResponse get_network_locations_details(ids)
 Get network locations entities by ID
 
 This endpoint returns the complete network locations objects that includes all the network location conditions.
@@ -377,7 +377,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodNetworkLocationsResponse**](fwmgr.api.NetworkLocationsResponse.md)
+[**models::FwmgrPeriodApiPeriodNetworkLocationsResponse**](fwmgr.api.NetworkLocationsResponse.md)
 
 ### Authorization
 
@@ -388,11 +388,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_platforms
 
-> crate::models::FwmgrPeriodApiPeriodPlatformsResponse get_platforms(ids)
+> models::FwmgrPeriodApiPeriodPlatformsResponse get_platforms(ids)
 Get platforms by ID, e.g., windows or mac or droid
 
 ### Parameters
@@ -403,7 +403,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodPlatformsResponse**](fwmgr.api.PlatformsResponse.md)
+[**models::FwmgrPeriodApiPeriodPlatformsResponse**](fwmgr.api.PlatformsResponse.md)
 
 ### Authorization
 
@@ -414,11 +414,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_policy_containers
 
-> crate::models::FwmgrPeriodApiPeriodPolicyContainersResponse get_policy_containers(ids)
+> models::FwmgrPeriodApiPeriodPolicyContainersResponse get_policy_containers(ids)
 Get policy container entities by policy ID
 
 ### Parameters
@@ -429,7 +429,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodPolicyContainersResponse**](fwmgr.api.PolicyContainersResponse.md)
+[**models::FwmgrPeriodApiPeriodPolicyContainersResponse**](fwmgr.api.PolicyContainersResponse.md)
 
 ### Authorization
 
@@ -440,11 +440,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_rule_groups
 
-> crate::models::FwmgrPeriodApiPeriodRuleGroupsResponse get_rule_groups(ids)
+> models::FwmgrPeriodApiPeriodRuleGroupsResponse get_rule_groups(ids)
 Get rule group entities by ID. These groups do not contain their rule entites, just the rule IDs in precedence order.
 
 ### Parameters
@@ -455,7 +455,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodRuleGroupsResponse**](fwmgr.api.RuleGroupsResponse.md)
+[**models::FwmgrPeriodApiPeriodRuleGroupsResponse**](fwmgr.api.RuleGroupsResponse.md)
 
 ### Authorization
 
@@ -466,11 +466,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_rules
 
-> crate::models::FwmgrPeriodApiPeriodRulesResponse get_rules(ids)
+> models::FwmgrPeriodApiPeriodRulesResponse get_rules(ids)
 Get rule entities by ID (64-bit unsigned int as decimal string) or Family ID (32-character hexadecimal string)
 
 ### Parameters
@@ -481,7 +481,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodRulesResponse**](fwmgr.api.RulesResponse.md)
+[**models::FwmgrPeriodApiPeriodRulesResponse**](fwmgr.api.RulesResponse.md)
 
 ### Authorization
 
@@ -492,11 +492,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_events
 
-> crate::models::FwmgrPeriodApiPeriodQueryResponse query_events(sort, filter, q, offset, after, limit)
+> models::FwmgrPeriodApiPeriodQueryResponse query_events(sort, filter, q, offset, after, limit)
 Find all event IDs matching the query with filter
 
 ### Parameters
@@ -512,7 +512,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodQueryResponse**](fwmgr.api.QueryResponse.md)
+[**models::FwmgrPeriodApiPeriodQueryResponse**](fwmgr.api.QueryResponse.md)
 
 ### Authorization
 
@@ -523,11 +523,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_firewall_fields
 
-> crate::models::FwmgrPeriodMsaspecPeriodQueryResponse query_firewall_fields(platform_id, offset, limit)
+> models::FwmgrPeriodMsaspecPeriodQueryResponse query_firewall_fields(platform_id, offset, limit)
 Get the firewall field specification IDs for the provided platform
 
 ### Parameters
@@ -540,7 +540,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
+[**models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -551,11 +551,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_network_locations
 
-> crate::models::FwmgrPeriodApiPeriodQueryResponse query_network_locations(sort, filter, q, offset, after, limit)
+> models::FwmgrPeriodApiPeriodQueryResponse query_network_locations(sort, filter, q, offset, after, limit)
 Get a list of network location IDs
 
 This endpoint returns a list of network location IDs based of query parameter.
@@ -573,7 +573,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodQueryResponse**](fwmgr.api.QueryResponse.md)
+[**models::FwmgrPeriodApiPeriodQueryResponse**](fwmgr.api.QueryResponse.md)
 
 ### Authorization
 
@@ -584,11 +584,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_platforms
 
-> crate::models::FwmgrPeriodMsaspecPeriodQueryResponse query_platforms(offset, limit)
+> models::FwmgrPeriodMsaspecPeriodQueryResponse query_platforms(offset, limit)
 Get the list of platform names
 
 ### Parameters
@@ -600,7 +600,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
+[**models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -611,11 +611,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_policy_rules
 
-> crate::models::FwmgrPeriodApiPeriodQueryResponse query_policy_rules(id, sort, filter, q, offset, limit)
+> models::FwmgrPeriodApiPeriodQueryResponse query_policy_rules(id, sort, filter, q, offset, limit)
 Find all firewall rule IDs matching the query with filter, and return them in precedence order
 
 ### Parameters
@@ -631,7 +631,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodQueryResponse**](fwmgr.api.QueryResponse.md)
+[**models::FwmgrPeriodApiPeriodQueryResponse**](fwmgr.api.QueryResponse.md)
 
 ### Authorization
 
@@ -642,11 +642,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_rule_groups
 
-> crate::models::FwmgrPeriodApiPeriodQueryResponse query_rule_groups(sort, filter, q, offset, after, limit)
+> models::FwmgrPeriodApiPeriodQueryResponse query_rule_groups(sort, filter, q, offset, after, limit)
 Find all rule group IDs matching the query with filter
 
 ### Parameters
@@ -662,7 +662,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodQueryResponse**](fwmgr.api.QueryResponse.md)
+[**models::FwmgrPeriodApiPeriodQueryResponse**](fwmgr.api.QueryResponse.md)
 
 ### Authorization
 
@@ -673,11 +673,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_rules
 
-> crate::models::FwmgrPeriodApiPeriodQueryResponse query_rules(sort, filter, q, offset, after, limit)
+> models::FwmgrPeriodApiPeriodQueryResponse query_rules(sort, filter, q, offset, after, limit)
 Find all rule IDs matching the query with filter
 
 ### Parameters
@@ -693,7 +693,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodQueryResponse**](fwmgr.api.QueryResponse.md)
+[**models::FwmgrPeriodApiPeriodQueryResponse**](fwmgr.api.QueryResponse.md)
 
 ### Authorization
 
@@ -704,11 +704,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_network_locations
 
-> crate::models::FwmgrPeriodMsaspecPeriodQueryResponse update_network_locations(body, comment)
+> models::FwmgrPeriodMsaspecPeriodQueryResponse update_network_locations(body, comment)
 Updates the network locations provided, and return the ID.
 
 ### Parameters
@@ -720,7 +720,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
+[**models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -731,11 +731,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_network_locations_metadata
 
-> crate::models::FwmgrPeriodMsaspecPeriodQueryResponse update_network_locations_metadata(body, comment)
+> models::FwmgrPeriodMsaspecPeriodQueryResponse update_network_locations_metadata(body, comment)
 Updates the network locations metadata such as polling_intervals for the cid
 
 ### Parameters
@@ -747,7 +747,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
+[**models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -758,11 +758,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_network_locations_precedence
 
-> crate::models::FwmgrPeriodMsaspecPeriodQueryResponse update_network_locations_precedence(body, comment)
+> models::FwmgrPeriodMsaspecPeriodQueryResponse update_network_locations_precedence(body, comment)
 Updates the network locations precedence according to the list of ids provided.
 
 ### Parameters
@@ -774,7 +774,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
+[**models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -785,11 +785,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_policy_container
 
-> crate::models::FwmgrPeriodMsaspecPeriodResponseFields update_policy_container(body)
+> models::FwmgrPeriodMsaspecPeriodResponseFields update_policy_container(body)
 Update an identified policy container, including local logging functionality.
 
 ### Parameters
@@ -800,7 +800,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodMsaspecPeriodResponseFields**](fwmgr.msaspec.ResponseFields.md)
+[**models::FwmgrPeriodMsaspecPeriodResponseFields**](fwmgr.msaspec.ResponseFields.md)
 
 ### Authorization
 
@@ -811,11 +811,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_policy_container_v1
 
-> crate::models::FwmgrPeriodMsaspecPeriodResponseFields update_policy_container_v1(body)
+> models::FwmgrPeriodMsaspecPeriodResponseFields update_policy_container_v1(body)
 Update an identified policy container. WARNING: This endpoint is deprecated in favor of v2, using this endpoint could disable your local logging setting.
 
 ### Parameters
@@ -826,7 +826,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodMsaspecPeriodResponseFields**](fwmgr.msaspec.ResponseFields.md)
+[**models::FwmgrPeriodMsaspecPeriodResponseFields**](fwmgr.msaspec.ResponseFields.md)
 
 ### Authorization
 
@@ -837,11 +837,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_rule_group
 
-> crate::models::FwmgrPeriodApiPeriodQueryResponse update_rule_group(body, comment)
+> models::FwmgrPeriodApiPeriodQueryResponse update_rule_group(body, comment)
 Update name, description, or enabled status of a rule group, or create, edit, delete, or reorder rules
 
 ### Parameters
@@ -853,7 +853,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodQueryResponse**](fwmgr.api.QueryResponse.md)
+[**models::FwmgrPeriodApiPeriodQueryResponse**](fwmgr.api.QueryResponse.md)
 
 ### Authorization
 
@@ -864,11 +864,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_rule_group_validation
 
-> crate::models::FwmgrPeriodMsaspecPeriodQueryResponse update_rule_group_validation(body, comment)
+> models::FwmgrPeriodMsaspecPeriodQueryResponse update_rule_group_validation(body, comment)
 Validates the request of updating name, description, or enabled status of a rule group, or create, edit, delete, or reorder rules
 
 ### Parameters
@@ -880,7 +880,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
+[**models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -891,11 +891,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## upsert_network_locations
 
-> crate::models::FwmgrPeriodMsaspecPeriodQueryResponse upsert_network_locations(body, comment)
+> models::FwmgrPeriodMsaspecPeriodQueryResponse upsert_network_locations(body, comment)
 Updates the network locations provided, and return the ID.
 
 ### Parameters
@@ -907,7 +907,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
+[**models::FwmgrPeriodMsaspecPeriodQueryResponse**](fwmgr.msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -918,11 +918,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## validate_filepath_pattern
 
-> crate::models::FwmgrPeriodApiPeriodValidateFilepathResponse validate_filepath_pattern(body)
+> models::FwmgrPeriodApiPeriodValidateFilepathResponse validate_filepath_pattern(body)
 Validates that the test pattern matches the executable filepath glob pattern.
 
 ### Parameters
@@ -933,7 +933,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FwmgrPeriodApiPeriodValidateFilepathResponse**](fwmgr.api.ValidateFilepathResponse.md)
+[**models::FwmgrPeriodApiPeriodValidateFilepathResponse**](fwmgr.api.ValidateFilepathResponse.md)
 
 ### Authorization
 
@@ -944,4 +944,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

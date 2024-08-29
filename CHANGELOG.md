@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.4.0] - 2024-08-27
 
+### Added
+
+- Docs: Added initial documentation drop
+
 ### Changed
 
 - Update Rusty Falcon to use the latest OpenAPI spec
@@ -19,7 +23,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Docs: Added initial documentation drop
 - Example: Falcon Custom IOAs
 - Example: Discover API Host Details
 - Example: Falcon ZTA example

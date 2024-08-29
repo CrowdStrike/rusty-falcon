@@ -1,4 +1,4 @@
-# MalqueryApi
+# \MalqueryApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -38,7 +38,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/octet-stream, application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_mal_query_entities_samples_fetch_v1
 
@@ -64,11 +64,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/zip, application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_mal_query_metadata_v1
 
-> crate::models::MalqueryPeriodSampleMetadataResponse get_mal_query_metadata_v1(ids)
+> models::MalqueryPeriodSampleMetadataResponse get_mal_query_metadata_v1(ids)
 Retrieve indexed files metadata by their hash
 
 ### Parameters
@@ -79,7 +79,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MalqueryPeriodSampleMetadataResponse**](malquery.SampleMetadataResponse.md)
+[**models::MalqueryPeriodSampleMetadataResponse**](malquery.SampleMetadataResponse.md)
 
 ### Authorization
 
@@ -90,11 +90,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_mal_query_quotas_v1
 
-> crate::models::MalqueryPeriodRateLimitsResponse get_mal_query_quotas_v1()
+> models::MalqueryPeriodRateLimitsResponse get_mal_query_quotas_v1()
 Get information about search and download quotas in your environment
 
 ### Parameters
@@ -103,7 +103,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**crate::models::MalqueryPeriodRateLimitsResponse**](malquery.RateLimitsResponse.md)
+[**models::MalqueryPeriodRateLimitsResponse**](malquery.RateLimitsResponse.md)
 
 ### Authorization
 
@@ -114,11 +114,11 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_mal_query_request_v1
 
-> crate::models::MalqueryPeriodRequestResponse get_mal_query_request_v1(ids)
+> models::MalqueryPeriodRequestResponse get_mal_query_request_v1(ids)
 Check the status and results of an asynchronous request, such as hunt or exact-search. Supports a single request id at this time.
 
 ### Parameters
@@ -129,7 +129,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MalqueryPeriodRequestResponse**](malquery.RequestResponse.md)
+[**models::MalqueryPeriodRequestResponse**](malquery.RequestResponse.md)
 
 ### Authorization
 
@@ -140,11 +140,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## post_mal_query_entities_samples_multidownload_v1
 
-> crate::models::MalqueryPeriodExternalQueryResponse post_mal_query_entities_samples_multidownload_v1(body)
+> models::MalqueryPeriodExternalQueryResponse post_mal_query_entities_samples_multidownload_v1(body)
 Schedule samples for download. Use the result id with the /request endpoint to check if the download is ready after which you can call the /entities/samples-fetch to get the zip
 
 ### Parameters
@@ -155,7 +155,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MalqueryPeriodExternalQueryResponse**](malquery.ExternalQueryResponse.md)
+[**models::MalqueryPeriodExternalQueryResponse**](malquery.ExternalQueryResponse.md)
 
 ### Authorization
 
@@ -166,11 +166,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## post_mal_query_exact_search_v1
 
-> crate::models::MalqueryPeriodExternalQueryResponse post_mal_query_exact_search_v1(body)
+> models::MalqueryPeriodExternalQueryResponse post_mal_query_exact_search_v1(body)
 Search Falcon MalQuery for a combination of hex patterns and strings in order to identify samples based upon file content at byte level granularity. You can filter results on criteria such as file type, file size and first seen date. Returns a request id which can be used with the /request endpoint
 
 ### Parameters
@@ -181,7 +181,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MalqueryPeriodExternalQueryResponse**](malquery.ExternalQueryResponse.md)
+[**models::MalqueryPeriodExternalQueryResponse**](malquery.ExternalQueryResponse.md)
 
 ### Authorization
 
@@ -192,11 +192,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## post_mal_query_fuzzy_search_v1
 
-> crate::models::MalqueryPeriodFuzzySearchResponse post_mal_query_fuzzy_search_v1(body)
+> models::MalqueryPeriodFuzzySearchResponse post_mal_query_fuzzy_search_v1(body)
 Search Falcon MalQuery quickly, but with more potential for false positives. Search for a combination of hex patterns and strings in order to identify samples based upon file content at byte level granularity.
 
 ### Parameters
@@ -207,7 +207,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MalqueryPeriodFuzzySearchResponse**](malquery.FuzzySearchResponse.md)
+[**models::MalqueryPeriodFuzzySearchResponse**](malquery.FuzzySearchResponse.md)
 
 ### Authorization
 
@@ -218,11 +218,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## post_mal_query_hunt_v1
 
-> crate::models::MalqueryPeriodExternalQueryResponse post_mal_query_hunt_v1(body)
+> models::MalqueryPeriodExternalQueryResponse post_mal_query_hunt_v1(body)
 Schedule a YARA-based search for execution. Returns a request id which can be used with the /request endpoint
 
 ### Parameters
@@ -233,7 +233,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MalqueryPeriodExternalQueryResponse**](malquery.ExternalQueryResponse.md)
+[**models::MalqueryPeriodExternalQueryResponse**](malquery.ExternalQueryResponse.md)
 
 ### Authorization
 
@@ -244,4 +244,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -1,4 +1,4 @@
-# CloudConnectAwsApi
+# \CloudConnectAwsApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## create_or_update_aws_settings
 
-> crate::models::ModelsPeriodCustomerConfigurationsV1 create_or_update_aws_settings(body)
+> models::ModelsPeriodCustomerConfigurationsV1 create_or_update_aws_settings(body)
 Create or update Global Settings which are applicable to all provisioned AWS accounts
 
 ### Parameters
@@ -27,7 +27,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ModelsPeriodCustomerConfigurationsV1**](models.CustomerConfigurationsV1.md)
+[**models::ModelsPeriodCustomerConfigurationsV1**](models.CustomerConfigurationsV1.md)
 
 ### Authorization
 
@@ -38,11 +38,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# delete_aws_accounts
+## delete_aws_accounts
 
-> crate::models::ModelsPeriodBaseResponseV1 delete_aws_accounts(ids)
+> models::ModelsPeriodBaseResponseV1 delete_aws_accounts(ids)
 Delete a set of AWS Accounts by specifying their IDs
 
 ### Parameters
@@ -53,7 +53,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ModelsPeriodBaseResponseV1**](models.BaseResponseV1.md)
+[**models::ModelsPeriodBaseResponseV1**](models.BaseResponseV1.md)
 
 ### Authorization
 
@@ -64,11 +64,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_aws_accounts
 
-> crate::models::ModelsPeriodAwsAccountsV1 get_aws_accounts(ids)
+> models::ModelsPeriodAwsAccountsV1 get_aws_accounts(ids)
 Retrieve a set of AWS Accounts by specifying their IDs
 
 ### Parameters
@@ -79,7 +79,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ModelsPeriodAwsAccountsV1**](models.AWSAccountsV1.md)
+[**models::ModelsPeriodAwsAccountsV1**](models.AWSAccountsV1.md)
 
 ### Authorization
 
@@ -90,11 +90,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_aws_settings
 
-> crate::models::ModelsPeriodCustomerConfigurationsV1 get_aws_settings()
+> models::ModelsPeriodCustomerConfigurationsV1 get_aws_settings()
 Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts
 
 ### Parameters
@@ -103,7 +103,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**crate::models::ModelsPeriodCustomerConfigurationsV1**](models.CustomerConfigurationsV1.md)
+[**models::ModelsPeriodCustomerConfigurationsV1**](models.CustomerConfigurationsV1.md)
 
 ### Authorization
 
@@ -114,11 +114,11 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## provision_aws_accounts
 
-> crate::models::ModelsPeriodAwsAccountsV1 provision_aws_accounts(body, mode)
+> models::ModelsPeriodAwsAccountsV1 provision_aws_accounts(body, mode)
 Provision AWS Accounts by specifying details about the accounts to provision
 
 ### Parameters
@@ -130,7 +130,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ModelsPeriodAwsAccountsV1**](models.AWSAccountsV1.md)
+[**models::ModelsPeriodAwsAccountsV1**](models.AWSAccountsV1.md)
 
 ### Authorization
 
@@ -141,11 +141,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_aws_accounts
 
-> crate::models::ModelsPeriodAwsAccountsV1 query_aws_accounts(limit, offset, sort, filter)
+> models::ModelsPeriodAwsAccountsV1 query_aws_accounts(limit, offset, sort, filter)
 Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS accounts which match the filter criteria
 
 ### Parameters
@@ -159,7 +159,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ModelsPeriodAwsAccountsV1**](models.AWSAccountsV1.md)
+[**models::ModelsPeriodAwsAccountsV1**](models.AWSAccountsV1.md)
 
 ### Authorization
 
@@ -170,11 +170,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_aws_accounts_for_ids
 
-> crate::models::MsaPeriodQueryResponse query_aws_accounts_for_ids(limit, offset, sort, filter)
+> models::MsaPeriodQueryResponse query_aws_accounts_for_ids(limit, offset, sort, filter)
 Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS account IDs which match the filter criteria
 
 ### Parameters
@@ -188,7 +188,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -199,11 +199,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_aws_accounts
 
-> crate::models::ModelsPeriodAwsAccountsV1 update_aws_accounts(body)
+> models::ModelsPeriodAwsAccountsV1 update_aws_accounts(body)
 Update AWS Accounts by specifying the ID of the account and details to update
 
 ### Parameters
@@ -214,7 +214,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ModelsPeriodAwsAccountsV1**](models.AWSAccountsV1.md)
+[**models::ModelsPeriodAwsAccountsV1**](models.AWSAccountsV1.md)
 
 ### Authorization
 
@@ -225,11 +225,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## verify_aws_account_access
 
-> crate::models::ModelsPeriodVerifyAccessResponseV1 verify_aws_account_access(ids)
+> models::ModelsPeriodVerifyAccessResponseV1 verify_aws_account_access(ids)
 Performs an Access Verification check on the specified AWS Account IDs
 
 ### Parameters
@@ -240,7 +240,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ModelsPeriodVerifyAccessResponseV1**](models.VerifyAccessResponseV1.md)
+[**models::ModelsPeriodVerifyAccessResponseV1**](models.VerifyAccessResponseV1.md)
 
 ### Authorization
 
@@ -251,4 +251,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

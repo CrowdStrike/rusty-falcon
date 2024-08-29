@@ -1,4 +1,4 @@
-# MsspApi
+# \MsspApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -37,7 +37,7 @@ Method | HTTP request | Description
 
 ## add_cid_group_members
 
-> crate::models::DomainPeriodCidGroupMembersResponseV1 add_cid_group_members(body)
+> models::DomainPeriodCidGroupMembersResponseV1 add_cid_group_members(body)
 Add new CID group member.
 
 ### Parameters
@@ -48,7 +48,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodCidGroupMembersResponseV1**](domain.CIDGroupMembersResponseV1.md)
+[**models::DomainPeriodCidGroupMembersResponseV1**](domain.CIDGroupMembersResponseV1.md)
 
 ### Authorization
 
@@ -59,11 +59,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## add_role
 
-> crate::models::DomainPeriodMsspRoleResponseV1 add_role(body)
+> models::DomainPeriodMsspRoleResponseV1 add_role(body)
 Create a link between user group and CID group, with zero or more additional roles. The call does not replace any existing link between them. User group ID and CID group ID have to be specified in request.
 
 ### Parameters
@@ -74,7 +74,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodMsspRoleResponseV1**](domain.MSSPRoleResponseV1.md)
+[**models::DomainPeriodMsspRoleResponseV1**](domain.MSSPRoleResponseV1.md)
 
 ### Authorization
 
@@ -85,11 +85,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## add_user_group_members
 
-> crate::models::DomainPeriodUserGroupMembersResponseV1 add_user_group_members(body)
+> models::DomainPeriodUserGroupMembersResponseV1 add_user_group_members(body)
 Add new user group member. Maximum 500 members allowed per user group.
 
 ### Parameters
@@ -100,7 +100,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodUserGroupMembersResponseV1**](domain.UserGroupMembersResponseV1.md)
+[**models::DomainPeriodUserGroupMembersResponseV1**](domain.UserGroupMembersResponseV1.md)
 
 ### Authorization
 
@@ -111,11 +111,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## create_cid_groups
 
-> crate::models::DomainPeriodCidGroupsResponseV1 create_cid_groups(body)
+> models::DomainPeriodCidGroupsResponseV1 create_cid_groups(body)
 Create new CID groups. Name is a required field but description is an optional field. Maximum 500 CID groups allowed.
 
 ### Parameters
@@ -126,7 +126,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodCidGroupsResponseV1**](domain.CIDGroupsResponseV1.md)
+[**models::DomainPeriodCidGroupsResponseV1**](domain.CIDGroupsResponseV1.md)
 
 ### Authorization
 
@@ -137,11 +137,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## create_user_groups
 
-> crate::models::DomainPeriodUserGroupsResponseV1 create_user_groups(body)
+> models::DomainPeriodUserGroupsResponseV1 create_user_groups(body)
 Create new user groups. Name is a required field but description is an optional field. Maximum 500 user groups allowed per customer.
 
 ### Parameters
@@ -152,7 +152,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodUserGroupsResponseV1**](domain.UserGroupsResponseV1.md)
+[**models::DomainPeriodUserGroupsResponseV1**](domain.UserGroupsResponseV1.md)
 
 ### Authorization
 
@@ -163,11 +163,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## delete_cid_group_members
 
-> crate::models::DomainPeriodCidGroupMembersResponseV1 delete_cid_group_members(body)
+> models::DomainPeriodCidGroupMembersResponseV1 delete_cid_group_members(body)
 Deprecated : Please use DELETE /entities/cid-group-members/v2. Delete CID group members.
 
 ### Parameters
@@ -178,7 +178,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodCidGroupMembersResponseV1**](domain.CIDGroupMembersResponseV1.md)
+[**models::DomainPeriodCidGroupMembersResponseV1**](domain.CIDGroupMembersResponseV1.md)
 
 ### Authorization
 
@@ -189,11 +189,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## delete_cid_group_members_v2
 
-> crate::models::DomainPeriodCidGroupMembersResponseV1 delete_cid_group_members_v2(body)
+> models::DomainPeriodCidGroupMembersResponseV1 delete_cid_group_members_v2(body)
 Delete CID group members. Prevents removal of a cid group a cid group if it is only part of one cid group.
 
 ### Parameters
@@ -204,7 +204,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodCidGroupMembersResponseV1**](domain.CIDGroupMembersResponseV1.md)
+[**models::DomainPeriodCidGroupMembersResponseV1**](domain.CIDGroupMembersResponseV1.md)
 
 ### Authorization
 
@@ -215,11 +215,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## delete_cid_groups
 
-> crate::models::MsaPeriodEntitiesResponse delete_cid_groups(cid_group_ids)
+> models::MsaPeriodEntitiesResponse delete_cid_groups(cid_group_ids)
 Delete CID groups by ID.
 
 ### Parameters
@@ -230,7 +230,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodEntitiesResponse**](msa.EntitiesResponse.md)
+[**models::MsaPeriodEntitiesResponse**](msa.EntitiesResponse.md)
 
 ### Authorization
 
@@ -241,11 +241,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## delete_user_group_members
 
-> crate::models::DomainPeriodUserGroupMembersResponseV1 delete_user_group_members(body)
+> models::DomainPeriodUserGroupMembersResponseV1 delete_user_group_members(body)
 Delete user group members entry.
 
 ### Parameters
@@ -256,7 +256,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodUserGroupMembersResponseV1**](domain.UserGroupMembersResponseV1.md)
+[**models::DomainPeriodUserGroupMembersResponseV1**](domain.UserGroupMembersResponseV1.md)
 
 ### Authorization
 
@@ -267,11 +267,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## delete_user_groups
 
-> crate::models::MsaPeriodEntitiesResponse delete_user_groups(user_group_ids)
+> models::MsaPeriodEntitiesResponse delete_user_groups(user_group_ids)
 Delete user groups by ID.
 
 ### Parameters
@@ -282,7 +282,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodEntitiesResponse**](msa.EntitiesResponse.md)
+[**models::MsaPeriodEntitiesResponse**](msa.EntitiesResponse.md)
 
 ### Authorization
 
@@ -293,11 +293,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## deleted_roles
 
-> crate::models::DomainPeriodMsspRoleResponseV1 deleted_roles(body)
+> models::DomainPeriodMsspRoleResponseV1 deleted_roles(body)
 Delete links or additional roles between user groups and CID groups. User group ID and CID group ID have to be specified in request. Only specified roles are removed if specified in request payload, else association between User Group and CID group is dissolved completely (if no roles specified).
 
 ### Parameters
@@ -308,7 +308,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodMsspRoleResponseV1**](domain.MSSPRoleResponseV1.md)
+[**models::DomainPeriodMsspRoleResponseV1**](domain.MSSPRoleResponseV1.md)
 
 ### Authorization
 
@@ -319,11 +319,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_children
 
-> crate::models::DomainPeriodChildrenResponseV1 get_children(ids)
+> models::DomainPeriodChildrenResponseV1 get_children(ids)
 Get link to child customer by child CID(s)
 
 ### Parameters
@@ -334,7 +334,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodChildrenResponseV1**](domain.ChildrenResponseV1.md)
+[**models::DomainPeriodChildrenResponseV1**](domain.ChildrenResponseV1.md)
 
 ### Authorization
 
@@ -345,11 +345,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_children_v2
 
-> crate::models::DomainPeriodChildrenResponseV1 get_children_v2(body)
+> models::DomainPeriodChildrenResponseV1 get_children_v2(body)
 Get link to child customer by child CID(s)
 
 ### Parameters
@@ -360,7 +360,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodChildrenResponseV1**](domain.ChildrenResponseV1.md)
+[**models::DomainPeriodChildrenResponseV1**](domain.ChildrenResponseV1.md)
 
 ### Authorization
 
@@ -371,11 +371,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_cid_group_by_id
 
-> crate::models::DomainPeriodCidGroupsResponseV1 get_cid_group_by_id(cid_group_ids)
+> models::DomainPeriodCidGroupsResponseV1 get_cid_group_by_id(cid_group_ids)
 Deprecated : Please use GET /mssp/entities/cid-groups/v2. Get CID groups by ID.
 
 ### Parameters
@@ -386,7 +386,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodCidGroupsResponseV1**](domain.CIDGroupsResponseV1.md)
+[**models::DomainPeriodCidGroupsResponseV1**](domain.CIDGroupsResponseV1.md)
 
 ### Authorization
 
@@ -397,11 +397,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_cid_group_by_id_v2
 
-> crate::models::DomainPeriodCidGroupsResponseV1 get_cid_group_by_id_v2(ids)
+> models::DomainPeriodCidGroupsResponseV1 get_cid_group_by_id_v2(ids)
 Get CID Groups by ID.
 
 ### Parameters
@@ -412,7 +412,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodCidGroupsResponseV1**](domain.CIDGroupsResponseV1.md)
+[**models::DomainPeriodCidGroupsResponseV1**](domain.CIDGroupsResponseV1.md)
 
 ### Authorization
 
@@ -423,11 +423,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_cid_group_members_by
 
-> crate::models::DomainPeriodCidGroupMembersResponseV1 get_cid_group_members_by(cid_group_ids)
+> models::DomainPeriodCidGroupMembersResponseV1 get_cid_group_members_by(cid_group_ids)
 Deprecated : Please use GET /mssp/entities/cid-group-members/v2. Get CID group members by CID group ID.
 
 ### Parameters
@@ -438,7 +438,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodCidGroupMembersResponseV1**](domain.CIDGroupMembersResponseV1.md)
+[**models::DomainPeriodCidGroupMembersResponseV1**](domain.CIDGroupMembersResponseV1.md)
 
 ### Authorization
 
@@ -449,11 +449,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_cid_group_members_by_v2
 
-> crate::models::DomainPeriodCidGroupMembersResponseV1 get_cid_group_members_by_v2(ids)
+> models::DomainPeriodCidGroupMembersResponseV1 get_cid_group_members_by_v2(ids)
 Get CID group members by CID Group ID.
 
 ### Parameters
@@ -464,7 +464,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodCidGroupMembersResponseV1**](domain.CIDGroupMembersResponseV1.md)
+[**models::DomainPeriodCidGroupMembersResponseV1**](domain.CIDGroupMembersResponseV1.md)
 
 ### Authorization
 
@@ -475,11 +475,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_roles_by_id
 
-> crate::models::DomainPeriodMsspRoleResponseV1 get_roles_by_id(ids)
+> models::DomainPeriodMsspRoleResponseV1 get_roles_by_id(ids)
 Get link between user group and CID group by ID. Link ID is a string consisting of multiple components, but should be treated as opaque.
 
 ### Parameters
@@ -490,7 +490,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodMsspRoleResponseV1**](domain.MSSPRoleResponseV1.md)
+[**models::DomainPeriodMsspRoleResponseV1**](domain.MSSPRoleResponseV1.md)
 
 ### Authorization
 
@@ -501,11 +501,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_user_group_members_by_id
 
-> crate::models::DomainPeriodUserGroupMembersResponseV1 get_user_group_members_by_id(user_group_ids)
+> models::DomainPeriodUserGroupMembersResponseV1 get_user_group_members_by_id(user_group_ids)
 Deprecated : Please use GET /mssp/entities/user-group-members/v2. Get user group members by user group ID.
 
 ### Parameters
@@ -516,7 +516,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodUserGroupMembersResponseV1**](domain.UserGroupMembersResponseV1.md)
+[**models::DomainPeriodUserGroupMembersResponseV1**](domain.UserGroupMembersResponseV1.md)
 
 ### Authorization
 
@@ -527,11 +527,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_user_group_members_by_idv2
 
-> crate::models::DomainPeriodUserGroupMembersResponseV1 get_user_group_members_by_idv2(ids)
+> models::DomainPeriodUserGroupMembersResponseV1 get_user_group_members_by_idv2(ids)
 Get user group members by user group ID.
 
 ### Parameters
@@ -542,7 +542,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodUserGroupMembersResponseV1**](domain.UserGroupMembersResponseV1.md)
+[**models::DomainPeriodUserGroupMembersResponseV1**](domain.UserGroupMembersResponseV1.md)
 
 ### Authorization
 
@@ -553,11 +553,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_user_groups_by_id
 
-> crate::models::DomainPeriodUserGroupsResponseV1 get_user_groups_by_id(user_group_ids)
+> models::DomainPeriodUserGroupsResponseV1 get_user_groups_by_id(user_group_ids)
 Deprecated : Please use GET /entities/user-groups/v2. Get user groups by ID.
 
 ### Parameters
@@ -568,7 +568,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodUserGroupsResponseV1**](domain.UserGroupsResponseV1.md)
+[**models::DomainPeriodUserGroupsResponseV1**](domain.UserGroupsResponseV1.md)
 
 ### Authorization
 
@@ -579,11 +579,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_user_groups_by_idv2
 
-> crate::models::DomainPeriodUserGroupsResponseV1 get_user_groups_by_idv2(ids)
+> models::DomainPeriodUserGroupsResponseV1 get_user_groups_by_idv2(ids)
 Get user groups by ID.
 
 ### Parameters
@@ -594,7 +594,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodUserGroupsResponseV1**](domain.UserGroupsResponseV1.md)
+[**models::DomainPeriodUserGroupsResponseV1**](domain.UserGroupsResponseV1.md)
 
 ### Authorization
 
@@ -605,11 +605,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_children
 
-> crate::models::MsaspecPeriodQueryResponse query_children(filter, sort, offset, limit)
+> models::MsaspecPeriodQueryResponse query_children(filter, sort, offset, limit)
 Query for customers linked as children
 
 ### Parameters
@@ -623,7 +623,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -634,11 +634,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_cid_group_members
 
-> crate::models::MsaPeriodQueryResponse query_cid_group_members(cid, sort, offset, limit)
+> models::MsaPeriodQueryResponse query_cid_group_members(cid, sort, offset, limit)
 Query a CID groups members by associated CID.
 
 ### Parameters
@@ -652,7 +652,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -663,11 +663,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_cid_groups
 
-> crate::models::MsaPeriodQueryResponse query_cid_groups(name, sort, offset, limit)
+> models::MsaPeriodQueryResponse query_cid_groups(name, sort, offset, limit)
 Query CID groups.
 
 ### Parameters
@@ -681,7 +681,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -692,11 +692,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_roles
 
-> crate::models::MsaPeriodQueryResponse query_roles(user_group_id, cid_group_id, role_id, sort, offset, limit)
+> models::MsaPeriodQueryResponse query_roles(user_group_id, cid_group_id, role_id, sort, offset, limit)
 Query links between user groups and CID groups. At least one of CID group ID or user group ID should also be provided. Role ID is optional.
 
 ### Parameters
@@ -712,7 +712,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -723,11 +723,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_user_group_members
 
-> crate::models::MsaPeriodQueryResponse query_user_group_members(user_uuid, sort, offset, limit)
+> models::MsaPeriodQueryResponse query_user_group_members(user_uuid, sort, offset, limit)
 Query user group member by user UUID.
 
 ### Parameters
@@ -741,7 +741,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -752,11 +752,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_user_groups
 
-> crate::models::MsaPeriodQueryResponse query_user_groups(name, sort, offset, limit)
+> models::MsaPeriodQueryResponse query_user_groups(name, sort, offset, limit)
 Query user groups.
 
 ### Parameters
@@ -770,7 +770,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -781,11 +781,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_cid_groups
 
-> crate::models::DomainPeriodCidGroupsResponseV1 update_cid_groups(body)
+> models::DomainPeriodCidGroupsResponseV1 update_cid_groups(body)
 Update existing CID groups. CID group ID is expected for each CID group definition provided in request body. Name is a required field but description is an optional field. Empty description will override existing value. CID group member(s) remain unaffected.
 
 ### Parameters
@@ -796,7 +796,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodCidGroupsResponseV1**](domain.CIDGroupsResponseV1.md)
+[**models::DomainPeriodCidGroupsResponseV1**](domain.CIDGroupsResponseV1.md)
 
 ### Authorization
 
@@ -807,11 +807,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_user_groups
 
-> crate::models::DomainPeriodUserGroupsResponseV1 update_user_groups(body)
+> models::DomainPeriodUserGroupsResponseV1 update_user_groups(body)
 Update existing user group(s). User group ID is expected for each user group definition provided in request body. Name is a required field but description is an optional field. Empty description will override existing value. User group member(s) remain unaffected.
 
 ### Parameters
@@ -822,7 +822,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodUserGroupsResponseV1**](domain.UserGroupsResponseV1.md)
+[**models::DomainPeriodUserGroupsResponseV1**](domain.UserGroupsResponseV1.md)
 
 ### Authorization
 
@@ -833,4 +833,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

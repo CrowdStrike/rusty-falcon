@@ -1,4 +1,4 @@
-# InstallationTokensApi
+# \InstallationTokensApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## audit_events_query
 
-> crate::models::MsaPeriodQueryResponse audit_events_query(offset, limit, sort, filter)
+> models::MsaspecPeriodQueryResponse audit_events_query(offset, limit, sort, filter)
 Search for audit events by providing an FQL filter and paging details.
 
 ### Parameters
@@ -29,7 +29,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -40,11 +40,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## audit_events_read
 
-> crate::models::ApiPeriodAuditEventDetailsResponseV1 audit_events_read(ids)
+> models::ApiPeriodAuditEventDetailsResponseV1 audit_events_read(ids)
 Gets the details of one or more audit events by id.
 
 ### Parameters
@@ -55,7 +55,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodAuditEventDetailsResponseV1**](api.auditEventDetailsResponseV1.md)
+[**models::ApiPeriodAuditEventDetailsResponseV1**](api.auditEventDetailsResponseV1.md)
 
 ### Authorization
 
@@ -66,11 +66,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## customer_settings_read
 
-> crate::models::ApiPeriodCustomerSettingsResponseV1 customer_settings_read()
+> models::ApiPeriodCustomerSettingsResponseV1 customer_settings_read()
 Check current installation token settings.
 
 ### Parameters
@@ -79,7 +79,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**crate::models::ApiPeriodCustomerSettingsResponseV1**](api.customerSettingsResponseV1.md)
+[**models::ApiPeriodCustomerSettingsResponseV1**](api.customerSettingsResponseV1.md)
 
 ### Authorization
 
@@ -90,11 +90,11 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## tokens_create
 
-> crate::models::ApiPeriodTokenDetailsResponseV1 tokens_create(body)
+> models::ApiPeriodTokenDetailsResponseV1 tokens_create(body)
 Creates a token.
 
 ### Parameters
@@ -105,7 +105,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodTokenDetailsResponseV1**](api.tokenDetailsResponseV1.md)
+[**models::ApiPeriodTokenDetailsResponseV1**](api.TokenDetailsResponseV1.md)
 
 ### Authorization
 
@@ -116,11 +116,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## tokens_delete
 
-> crate::models::MsaPeriodReplyMetaOnly tokens_delete(ids)
+> models::MsaspecPeriodResponseFields tokens_delete(ids)
 Deletes a token immediately. To revoke a token, use PATCH /installation-tokens/entities/tokens/v1 instead.
 
 ### Parameters
@@ -131,7 +131,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
+[**models::MsaspecPeriodResponseFields**](msaspec.ResponseFields.md)
 
 ### Authorization
 
@@ -142,11 +142,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## tokens_query
 
-> crate::models::MsaPeriodQueryResponse tokens_query(offset, limit, sort, filter)
+> models::MsaspecPeriodQueryResponse tokens_query(offset, limit, sort, filter)
 Search for tokens by providing an FQL filter and paging details.
 
 ### Parameters
@@ -160,7 +160,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -171,11 +171,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## tokens_read
 
-> crate::models::ApiPeriodTokenDetailsResponseV1 tokens_read(ids)
+> models::ApiPeriodTokenDetailsResponseV1 tokens_read(ids)
 Gets the details of one or more tokens by id.
 
 ### Parameters
@@ -186,7 +186,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodTokenDetailsResponseV1**](api.tokenDetailsResponseV1.md)
+[**models::ApiPeriodTokenDetailsResponseV1**](api.TokenDetailsResponseV1.md)
 
 ### Authorization
 
@@ -197,11 +197,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## tokens_update
 
-> crate::models::MsaPeriodQueryResponse tokens_update(ids, body)
+> models::MsaspecPeriodQueryResponse tokens_update(ids, body)
 Updates one or more tokens. Use this endpoint to edit labels, change expiration, revoke, or restore.
 
 ### Parameters
@@ -213,7 +213,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -224,4 +224,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

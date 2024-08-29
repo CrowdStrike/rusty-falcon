@@ -1,4 +1,4 @@
-# IocApi
+# \IocApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -11,6 +11,9 @@ Method | HTTP request | Description
 [**indicator_period_combined_period_v1**](IocApi.md#indicator_period_combined_period_v1) | **GET** /iocs/combined/indicator/v1 | Get Combined for Indicators.
 [**indicator_period_create_period_v1**](IocApi.md#indicator_period_create_period_v1) | **POST** /iocs/entities/indicators/v1 | Create Indicators.
 [**indicator_period_delete_period_v1**](IocApi.md#indicator_period_delete_period_v1) | **DELETE** /iocs/entities/indicators/v1 | Delete Indicators by ids.
+[**indicator_period_get_period_device_count_period_v1**](IocApi.md#indicator_period_get_period_device_count_period_v1) | **GET** /iocs/aggregates/indicators/device-count/v1 | Get the number of devices the indicator has run on
+[**indicator_period_get_period_devices_ran_on_period_v1**](IocApi.md#indicator_period_get_period_devices_ran_on_period_v1) | **GET** /iocs/queries/indicators/devices/v1 | Get the IDs of devices the indicator has run on
+[**indicator_period_get_period_processes_ran_on_period_v1**](IocApi.md#indicator_period_get_period_processes_ran_on_period_v1) | **GET** /iocs/queries/indicators/processes/v1 | Get the number of processes the indicator has run on
 [**indicator_period_get_period_v1**](IocApi.md#indicator_period_get_period_v1) | **GET** /iocs/entities/indicators/v1 | Get Indicators by ids.
 [**indicator_period_search_period_v1**](IocApi.md#indicator_period_search_period_v1) | **GET** /iocs/queries/indicators/v1 | Search for Indicators.
 [**indicator_period_update_period_v1**](IocApi.md#indicator_period_update_period_v1) | **PATCH** /iocs/entities/indicators/v1 | Update Indicators.
@@ -20,7 +23,7 @@ Method | HTTP request | Description
 
 ## action_period_get_period_v1
 
-> crate::models::ApiPeriodActionRespV1 action_period_get_period_v1(ids)
+> models::ApiPeriodActionRespV1 action_period_get_period_v1(ids)
 Get Actions by ids.
 
 ### Parameters
@@ -31,7 +34,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodActionRespV1**](api.ActionRespV1.md)
+[**models::ApiPeriodActionRespV1**](api.ActionRespV1.md)
 
 ### Authorization
 
@@ -42,11 +45,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## action_period_query_period_v1
 
-> crate::models::ApiPeriodIndicatorQueryRespV1 action_period_query_period_v1(offset, limit)
+> models::ApiPeriodIndicatorQueryRespV1 action_period_query_period_v1(offset, limit)
 Query Actions.
 
 ### Parameters
@@ -58,7 +61,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodIndicatorQueryRespV1**](api.IndicatorQueryRespV1.md)
+[**models::ApiPeriodIndicatorQueryRespV1**](api.IndicatorQueryRespV1.md)
 
 ### Authorization
 
@@ -69,11 +72,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_indicators_report
 
-> crate::models::MsaPeriodEntitiesResponse get_indicators_report(body)
+> models::MsaPeriodEntitiesResponse get_indicators_report(body)
 Launch an indicators report creation job
 
 ### Parameters
@@ -84,7 +87,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodEntitiesResponse**](msa.EntitiesResponse.md)
+[**models::MsaPeriodEntitiesResponse**](msa.EntitiesResponse.md)
 
 ### Authorization
 
@@ -95,11 +98,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## indicator_period_aggregate_period_v1
 
-> crate::models::MsaPeriodAggregatesResponse indicator_period_aggregate_period_v1(body, filter, from_parent)
+> models::MsaPeriodAggregatesResponse indicator_period_aggregate_period_v1(body, filter, from_parent)
 Get Indicators aggregates as specified via json in the request body.
 
 ### Parameters
@@ -112,7 +115,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -123,11 +126,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## indicator_period_combined_period_v1
 
-> crate::models::ApiPeriodIndicatorRespV1 indicator_period_combined_period_v1(filter, offset, limit, sort, after, from_parent)
+> models::ApiPeriodIndicatorRespV1 indicator_period_combined_period_v1(filter, offset, limit, sort, after, from_parent)
 Get Combined for Indicators.
 
 ### Parameters
@@ -143,7 +146,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodIndicatorRespV1**](api.IndicatorRespV1.md)
+[**models::ApiPeriodIndicatorRespV1**](api.IndicatorRespV1.md)
 
 ### Authorization
 
@@ -154,11 +157,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## indicator_period_create_period_v1
 
-> crate::models::ApiPeriodIndicatorRespV1 indicator_period_create_period_v1(body, retrodetects, ignore_warnings)
+> models::ApiPeriodIndicatorRespV1 indicator_period_create_period_v1(body, retrodetects, ignore_warnings)
 Create Indicators.
 
 ### Parameters
@@ -171,7 +174,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodIndicatorRespV1**](api.IndicatorRespV1.md)
+[**models::ApiPeriodIndicatorRespV1**](api.IndicatorRespV1.md)
 
 ### Authorization
 
@@ -182,11 +185,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## indicator_period_delete_period_v1
 
-> crate::models::ApiPeriodIndicatorQueryRespV1 indicator_period_delete_period_v1(filter, ids, comment, from_parent)
+> models::ApiPeriodIndicatorQueryRespV1 indicator_period_delete_period_v1(filter, ids, comment, from_parent)
 Delete Indicators by ids.
 
 ### Parameters
@@ -200,7 +203,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodIndicatorQueryRespV1**](api.IndicatorQueryRespV1.md)
+[**models::ApiPeriodIndicatorQueryRespV1**](api.IndicatorQueryRespV1.md)
 
 ### Authorization
 
@@ -211,11 +214,97 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## indicator_period_get_period_device_count_period_v1
+
+> models::ApiPeriodDeviceCountRespV1 indicator_period_get_period_device_count_period_v1(r#type, value)
+Get the number of devices the indicator has run on
+
+### Parameters
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**r#type** | **String** |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.  | [required] |
+**value** | **String** | The string representation of the indicator | [required] |
+
+### Return type
+
+[**models::ApiPeriodDeviceCountRespV1**](api.DeviceCountRespV1.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## indicator_period_get_period_devices_ran_on_period_v1
+
+> models::ApiPeriodDevicesRanOnRespV1 indicator_period_get_period_devices_ran_on_period_v1(r#type, value, limit, offset)
+Get the IDs of devices the indicator has run on
+
+### Parameters
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**r#type** | **String** |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.  | [required] |
+**value** | **String** | The string representation of the indicator | [required] |
+**limit** | Option<**String**> | The maximum number of results to return. Use with the offset parameter to manage pagination of results. |  |
+**offset** | Option<**String**> | The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results. |  |
+
+### Return type
+
+[**models::ApiPeriodDevicesRanOnRespV1**](api.DevicesRanOnRespV1.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## indicator_period_get_period_processes_ran_on_period_v1
+
+> models::ApiPeriodProcessesRanOnRespV1 indicator_period_get_period_processes_ran_on_period_v1(r#type, value, device_id, limit, offset)
+Get the number of processes the indicator has run on
+
+### Parameters
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**r#type** | **String** |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.  | [required] |
+**value** | **String** | The string representation of the indicator | [required] |
+**device_id** | **String** | Specify a host's ID to return only processes from that host. Get a host's ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API. | [required] |
+**limit** | Option<**String**> | The maximum number of results to return. Use with the offset parameter to manage pagination of results. |  |
+**offset** | Option<**String**> | The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results. |  |
+
+### Return type
+
+[**models::ApiPeriodProcessesRanOnRespV1**](api.ProcessesRanOnRespV1.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## indicator_period_get_period_v1
 
-> crate::models::ApiPeriodIndicatorRespV1 indicator_period_get_period_v1(ids)
+> models::ApiPeriodIndicatorRespV1 indicator_period_get_period_v1(ids)
 Get Indicators by ids.
 
 ### Parameters
@@ -226,7 +315,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodIndicatorRespV1**](api.IndicatorRespV1.md)
+[**models::ApiPeriodIndicatorRespV1**](api.IndicatorRespV1.md)
 
 ### Authorization
 
@@ -237,11 +326,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## indicator_period_search_period_v1
 
-> crate::models::ApiPeriodIndicatorQueryRespV1 indicator_period_search_period_v1(filter, offset, limit, sort, after, from_parent)
+> models::ApiPeriodIndicatorQueryRespV1 indicator_period_search_period_v1(filter, offset, limit, sort, after, from_parent)
 Search for Indicators.
 
 ### Parameters
@@ -257,7 +346,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodIndicatorQueryRespV1**](api.IndicatorQueryRespV1.md)
+[**models::ApiPeriodIndicatorQueryRespV1**](api.IndicatorQueryRespV1.md)
 
 ### Authorization
 
@@ -268,11 +357,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## indicator_period_update_period_v1
 
-> crate::models::ApiPeriodIndicatorRespV1 indicator_period_update_period_v1(body, retrodetects, ignore_warnings)
+> models::ApiPeriodIndicatorRespV1 indicator_period_update_period_v1(body, retrodetects, ignore_warnings)
 Update Indicators.
 
 ### Parameters
@@ -285,7 +374,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodIndicatorRespV1**](api.IndicatorRespV1.md)
+[**models::ApiPeriodIndicatorRespV1**](api.IndicatorRespV1.md)
 
 ### Authorization
 
@@ -296,11 +385,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## ioc_type_period_query_period_v1
 
-> crate::models::ApiPeriodIndicatorQueryRespV1 ioc_type_period_query_period_v1(offset, limit)
+> models::ApiPeriodIndicatorQueryRespV1 ioc_type_period_query_period_v1(offset, limit)
 Query IOC Types.
 
 ### Parameters
@@ -312,7 +401,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodIndicatorQueryRespV1**](api.IndicatorQueryRespV1.md)
+[**models::ApiPeriodIndicatorQueryRespV1**](api.IndicatorQueryRespV1.md)
 
 ### Authorization
 
@@ -323,11 +412,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## platform_period_query_period_v1
 
-> crate::models::ApiPeriodIndicatorQueryRespV1 platform_period_query_period_v1(offset, limit)
+> models::ApiPeriodIndicatorQueryRespV1 platform_period_query_period_v1(offset, limit)
 Query Platforms.
 
 ### Parameters
@@ -339,7 +428,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodIndicatorQueryRespV1**](api.IndicatorQueryRespV1.md)
+[**models::ApiPeriodIndicatorQueryRespV1**](api.IndicatorQueryRespV1.md)
 
 ### Authorization
 
@@ -350,11 +439,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## severity_period_query_period_v1
 
-> crate::models::ApiPeriodIndicatorQueryRespV1 severity_period_query_period_v1(offset, limit)
+> models::ApiPeriodIndicatorQueryRespV1 severity_period_query_period_v1(offset, limit)
 Query Severities.
 
 ### Parameters
@@ -366,7 +455,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodIndicatorQueryRespV1**](api.IndicatorQueryRespV1.md)
+[**models::ApiPeriodIndicatorQueryRespV1**](api.IndicatorQueryRespV1.md)
 
 ### Authorization
 
@@ -377,4 +466,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -1,4 +1,4 @@
-# IdentityEntitiesApi
+# \IdentityEntitiesApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## get_sensor_aggregates
 
-> crate::models::MsaPeriodAggregatesResponse get_sensor_aggregates(body)
+> models::MsaPeriodAggregatesResponse get_sensor_aggregates(body)
 Get sensor aggregates as specified via json in request body.
 
 ### Parameters
@@ -21,7 +21,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -32,11 +32,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_sensor_details
 
-> crate::models::ApiPeriodSensorDetailsResponseSwagger get_sensor_details(body)
+> models::ApiPeriodSensorDetailsResponseSwagger get_sensor_details(body)
 Get details on one or more sensors by providing device IDs in a POST body. Supports up to a maximum of 5000 IDs.
 
 ### Parameters
@@ -47,7 +47,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodSensorDetailsResponseSwagger**](api.SensorDetailsResponseSwagger.md)
+[**models::ApiPeriodSensorDetailsResponseSwagger**](api.SensorDetailsResponseSwagger.md)
 
 ### Authorization
 
@@ -58,11 +58,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_sensors_by_filter
 
-> crate::models::MsaspecPeriodQueryResponse query_sensors_by_filter(offset, limit, sort, filter)
+> models::MsaspecPeriodQueryResponse query_sensors_by_filter(offset, limit, sort, filter)
 Search for sensors in your environment by hostname, IP, and other criteria.
 
 ### Parameters
@@ -76,7 +76,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -87,4 +87,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

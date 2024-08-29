@@ -1,4 +1,4 @@
-# RealTimeResponseAdminApi
+# \RealTimeResponseAdminApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -11,31 +11,33 @@ Method | HTTP request | Description
 [**r_tr_delete_put_files**](RealTimeResponseAdminApi.md#r_tr_delete_put_files) | **DELETE** /real-time-response/entities/put-files/v1 | Delete a put-file based on the ID given.  Can only delete one file at a time.
 [**r_tr_delete_scripts**](RealTimeResponseAdminApi.md#r_tr_delete_scripts) | **DELETE** /real-time-response/entities/scripts/v1 | Delete a custom-script based on the ID given.  Can only delete one script at a time.
 [**r_tr_execute_admin_command**](RealTimeResponseAdminApi.md#r_tr_execute_admin_command) | **POST** /real-time-response/entities/admin-command/v1 | Execute a RTR administrator command on a single host.
+[**r_tr_get_falcon_scripts**](RealTimeResponseAdminApi.md#r_tr_get_falcon_scripts) | **GET** /real-time-response/entities/falcon-scripts/v1 | Get Falcon scripts with metadata and content of script
 [**r_tr_get_put_files**](RealTimeResponseAdminApi.md#r_tr_get_put_files) | **GET** /real-time-response/entities/put-files/v1 | Get put-files based on the ID's given. These are used for the RTR `put` command.
 [**r_tr_get_put_files_v2**](RealTimeResponseAdminApi.md#r_tr_get_put_files_v2) | **GET** /real-time-response/entities/put-files/v2 | Get put-files based on the ID's given. These are used for the RTR `put` command.
 [**r_tr_get_scripts**](RealTimeResponseAdminApi.md#r_tr_get_scripts) | **GET** /real-time-response/entities/scripts/v1 | Get custom-scripts based on the ID's given. These are used for the RTR `runscript` command.
 [**r_tr_get_scripts_v2**](RealTimeResponseAdminApi.md#r_tr_get_scripts_v2) | **GET** /real-time-response/entities/scripts/v2 | Get custom-scripts based on the ID's given. These are used for the RTR `runscript` command.
+[**r_tr_list_falcon_scripts**](RealTimeResponseAdminApi.md#r_tr_list_falcon_scripts) | **GET** /real-time-response/queries/falcon-scripts/v1 | Get a list of Falcon script IDs available to the user to run
 [**r_tr_list_put_files**](RealTimeResponseAdminApi.md#r_tr_list_put_files) | **GET** /real-time-response/queries/put-files/v1 | Get a list of put-file ID's that are available to the user for the `put` command.
 [**r_tr_list_scripts**](RealTimeResponseAdminApi.md#r_tr_list_scripts) | **GET** /real-time-response/queries/scripts/v1 | Get a list of custom-script ID's that are available to the user for the `runscript` command.
 [**r_tr_update_scripts**](RealTimeResponseAdminApi.md#r_tr_update_scripts) | **PATCH** /real-time-response/entities/scripts/v1 | Upload a new scripts to replace an existing one.
 
 ## batch_admin_cmd
 
-> crate::models::DomainPeriodMultiCommandExecuteResponseWrapper batch_admin_cmd(body, timeout, timeout_duration, host_timeout_duration)
+> models::DomainPeriodMultiCommandExecuteResponseWrapper batch_admin_cmd(body, timeout, timeout_duration, host_timeout_duration)
 Batch executes a RTR administrator command across the hosts mapped to the given batch ID.
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**DomainPeriodBatchExecuteCommandRequest**](DomainPeriodBatchExecuteCommandRequest.md) | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands): - `cat` - `cd` - `clear` - `cp` - `encrypt` - `env` - `eventlog` - `filehash` - `get` - `getsid` - `help` - `history` - `ipconfig` - `kill` - `ls` - `map` - `memdump` - `mkdir` - `mount` - `mv` - `netstat` - `ps` - `put` - `reg query` - `reg set` - `reg delete` - `reg load` - `reg unload` - `restart` - `rm` - `run` - `runscript` - `shutdown` - `unmap` - `update history` - `update install` - `update list` - `update query` - `xmemdump` - `zip`  **`base_command`** Active-Responder command type we are going to execute, for example: `get` or `cp`.  Refer to the RTR documentation for the full list of commands. **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/batch-init-session/v1`. **`command_string`** Full command string for the command. For example  `get some_file.txt` **`optional_hosts`** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command. | [required] |
+**body** | [**DomainPeriodBatchExecuteCommandRequest**](DomainPeriodBatchExecuteCommandRequest.md) | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/documentation/page/b8c1738c/real-time-response-and-network-containment#k893b7c0): - `cat` - `cd` - `clear` - `cp` - `encrypt` - `env` - `eventlog` - `filehash` - `get` - `getsid` - `help` - `history` - `ipconfig` - `kill` - `ls` - `map` - `memdump` - `mkdir` - `mount` - `mv` - `netstat` - `ps` - `put` - `reg query` - `reg set` - `reg delete` - `reg load` - `reg unload` - `restart` - `rm` - `run` - `runscript` - `shutdown` - `unmap` - `update history` - `update install` - `update list` - `update query` - `xmemdump` - `zip`  **`base_command`** Active-Responder command type we are going to execute, for example: `get` or `cp`.  Refer to the RTR documentation for the full list of commands. **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/batch-init-session/v1`. **`command_string`** Full command string for the command. For example  `get some_file.txt` **`optional_hosts`** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command. | [required] |
 **timeout** | Option<**i32**> | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes. |  |[default to 30]
 **timeout_duration** | Option<**String**> | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 5 minutes. |  |[default to 30s]
 **host_timeout_duration** | Option<**String**> | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 5 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`.  |  |[default to tiny bit less than overall request timeout]
 
 ### Return type
 
-[**crate::models::DomainPeriodMultiCommandExecuteResponseWrapper**](domain.MultiCommandExecuteResponseWrapper.md)
+[**models::DomainPeriodMultiCommandExecuteResponseWrapper**](domain.MultiCommandExecuteResponseWrapper.md)
 
 ### Authorization
 
@@ -46,11 +48,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_check_admin_command_status
 
-> crate::models::DomainPeriodStatusResponseWrapper r_tr_check_admin_command_status(cloud_request_id, sequence_id)
+> models::DomainPeriodStatusResponseWrapper r_tr_check_admin_command_status(cloud_request_id, sequence_id)
 Get status of an executed RTR administrator command on a single host.
 
 ### Parameters
@@ -62,7 +64,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodStatusResponseWrapper**](domain.StatusResponseWrapper.md)
+[**models::DomainPeriodStatusResponseWrapper**](domain.StatusResponseWrapper.md)
 
 ### Authorization
 
@@ -73,11 +75,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_create_put_files
 
-> crate::models::MsaPeriodReplyMetaOnly r_tr_create_put_files(file, description, name, comments_for_audit_log)
+> models::MsaPeriodReplyMetaOnly r_tr_create_put_files(file, description, name, comments_for_audit_log)
 Upload a new put-file to use for the RTR `put` command.
 
 ### Parameters
@@ -91,7 +93,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
+[**models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
 
 ### Authorization
 
@@ -102,11 +104,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_create_scripts
 
-> crate::models::MsaPeriodReplyMetaOnly r_tr_create_scripts(description, permission_type, file, name, comments_for_audit_log, content, platform)
+> models::MsaPeriodReplyMetaOnly r_tr_create_scripts(description, permission_type, file, name, comments_for_audit_log, content, platform)
 Upload a new custom-script to use for the RTR `runscript` command.
 
 ### Parameters
@@ -123,7 +125,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
+[**models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
 
 ### Authorization
 
@@ -134,11 +136,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_delete_put_files
 
-> crate::models::MsaPeriodReplyMetaOnly r_tr_delete_put_files(ids)
+> models::MsaPeriodReplyMetaOnly r_tr_delete_put_files(ids)
 Delete a put-file based on the ID given.  Can only delete one file at a time.
 
 ### Parameters
@@ -149,7 +151,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
+[**models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
 
 ### Authorization
 
@@ -160,11 +162,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_delete_scripts
 
-> crate::models::MsaPeriodReplyMetaOnly r_tr_delete_scripts(ids)
+> models::MsaPeriodReplyMetaOnly r_tr_delete_scripts(ids)
 Delete a custom-script based on the ID given.  Can only delete one script at a time.
 
 ### Parameters
@@ -175,7 +177,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
+[**models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
 
 ### Authorization
 
@@ -186,22 +188,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_execute_admin_command
 
-> crate::models::DomainPeriodCommandExecuteResponseWrapper r_tr_execute_admin_command(body)
+> models::DomainPeriodCommandExecuteResponseWrapper r_tr_execute_admin_command(body)
 Execute a RTR administrator command on a single host.
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**DomainPeriodCommandExecuteRequest**](DomainPeriodCommandExecuteRequest.md) | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands): - `cat` - `cd` - `clear` - `cp` - `encrypt` - `env` - `eventlog` - `filehash` - `get` - `getsid` - `help` - `history` - `ipconfig` - `kill` - `ls` - `map` - `memdump` - `mkdir` - `mount` - `mv` - `netstat` - `ps` - `put` - `reg query` - `reg set` - `reg delete` - `reg load` - `reg unload` - `restart` - `rm` - `run` - `runscript` - `shutdown` - `unmap` - `update history` - `update install` - `update list` - `update query` - `xmemdump` - `zip`  Required values.  The rest of the fields are unused. **`base_command`** Active-Responder command type we are going to execute, for example: `get` or `cp`.  Refer to the RTR documentation for the full list of commands. **`command_string`** Full command string for the command. For example  `get some_file.txt` **`session_id`** RTR session ID to run the command on | [required] |
+**body** | [**DomainPeriodCommandExecuteRequest**](DomainPeriodCommandExecuteRequest.md) | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/documentation/page/b8c1738c/real-time-response-and-network-containment#k893b7c0): - `cat` - `cd` - `clear` - `cp` - `encrypt` - `env` - `eventlog` - `filehash` - `get` - `getsid` - `help` - `history` - `ipconfig` - `kill` - `ls` - `map` - `memdump` - `mkdir` - `mount` - `mv` - `netstat` - `ps` - `put` - `reg query` - `reg set` - `reg delete` - `reg load` - `reg unload` - `restart` - `rm` - `run` - `runscript` - `shutdown` - `unmap` - `update history` - `update install` - `update list` - `update query` - `xmemdump` - `zip`  Required values.  The rest of the fields are unused. **`base_command`** Active-Responder command type we are going to execute, for example: `get` or `cp`.  Refer to the RTR documentation for the full list of commands. **`command_string`** Full command string for the command. For example  `get some_file.txt` **`session_id`** RTR session ID to run the command on | [required] |
 
 ### Return type
 
-[**crate::models::DomainPeriodCommandExecuteResponseWrapper**](domain.CommandExecuteResponseWrapper.md)
+[**models::DomainPeriodCommandExecuteResponseWrapper**](domain.CommandExecuteResponseWrapper.md)
 
 ### Authorization
 
@@ -212,11 +214,37 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## r_tr_get_falcon_scripts
+
+> models::EmpowerapiPeriodMsaFalconScriptResponse r_tr_get_falcon_scripts(ids)
+Get Falcon scripts with metadata and content of script
+
+### Parameters
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**ids** | [**Vec<String>**](String.md) | IDs of the Falcon scripts you want to retrieve | [required] |
+
+### Return type
+
+[**models::EmpowerapiPeriodMsaFalconScriptResponse**](empowerapi.MsaFalconScriptResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_get_put_files
 
-> crate::models::EmpowerapiPeriodMsaPfResponseV1 r_tr_get_put_files(ids)
+> models::EmpowerapiPeriodMsaPfResponseV1 r_tr_get_put_files(ids)
 Get put-files based on the ID's given. These are used for the RTR `put` command.
 
 ### Parameters
@@ -227,7 +255,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::EmpowerapiPeriodMsaPfResponseV1**](empowerapi.MsaPFResponseV1.md)
+[**models::EmpowerapiPeriodMsaPfResponseV1**](empowerapi.MsaPFResponseV1.md)
 
 ### Authorization
 
@@ -238,11 +266,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_get_put_files_v2
 
-> crate::models::EmpowerapiPeriodMsaPfResponseV2 r_tr_get_put_files_v2(ids)
+> models::EmpowerapiPeriodMsaPfResponseV2 r_tr_get_put_files_v2(ids)
 Get put-files based on the ID's given. These are used for the RTR `put` command.
 
 ### Parameters
@@ -253,7 +281,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::EmpowerapiPeriodMsaPfResponseV2**](empowerapi.MsaPFResponseV2.md)
+[**models::EmpowerapiPeriodMsaPfResponseV2**](empowerapi.MsaPFResponseV2.md)
 
 ### Authorization
 
@@ -264,11 +292,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_get_scripts
 
-> crate::models::EmpowerapiPeriodMsaPfResponseV1 r_tr_get_scripts(ids)
+> models::EmpowerapiPeriodMsaPfResponseV1 r_tr_get_scripts(ids)
 Get custom-scripts based on the ID's given. These are used for the RTR `runscript` command.
 
 ### Parameters
@@ -279,7 +307,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::EmpowerapiPeriodMsaPfResponseV1**](empowerapi.MsaPFResponseV1.md)
+[**models::EmpowerapiPeriodMsaPfResponseV1**](empowerapi.MsaPFResponseV1.md)
 
 ### Authorization
 
@@ -290,11 +318,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_get_scripts_v2
 
-> crate::models::EmpowerapiPeriodMsaPfResponseV2 r_tr_get_scripts_v2(ids)
+> models::EmpowerapiPeriodMsaPfResponseV2 r_tr_get_scripts_v2(ids)
 Get custom-scripts based on the ID's given. These are used for the RTR `runscript` command.
 
 ### Parameters
@@ -305,7 +333,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::EmpowerapiPeriodMsaPfResponseV2**](empowerapi.MsaPFResponseV2.md)
+[**models::EmpowerapiPeriodMsaPfResponseV2**](empowerapi.MsaPFResponseV2.md)
 
 ### Authorization
 
@@ -316,11 +344,40 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## r_tr_list_falcon_scripts
+
+> models::EmpowerapiPeriodMsaIdListResponse r_tr_list_falcon_scripts(filter, offset, limit, sort)
+Get a list of Falcon script IDs available to the user to run
+
+### Parameters
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**filter** | Option<**String**> | Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide). |  |
+**offset** | Option<**i32**> | Starting index of overall result set from which to return ids. |  |
+**limit** | Option<**i32**> | Number of ids to return. |  |
+**sort** | Option<**String**> | Sort by spec. Ex: 'created_at|asc'. |  |
+
+### Return type
+
+[**models::EmpowerapiPeriodMsaIdListResponse**](empowerapi.MsaIDListResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_list_put_files
 
-> crate::models::BinservapiPeriodMsaPutFileResponse r_tr_list_put_files(filter, offset, limit, sort)
+> models::BinservapiPeriodMsaPutFileResponse r_tr_list_put_files(filter, offset, limit, sort)
 Get a list of put-file ID's that are available to the user for the `put` command.
 
 ### Parameters
@@ -334,7 +391,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::BinservapiPeriodMsaPutFileResponse**](binservapi.MsaPutFileResponse.md)
+[**models::BinservapiPeriodMsaPutFileResponse**](binservapi.MsaPutFileResponse.md)
 
 ### Authorization
 
@@ -345,11 +402,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_list_scripts
 
-> crate::models::BinservapiPeriodMsaPutFileResponse r_tr_list_scripts(filter, offset, limit, sort)
+> models::BinservapiPeriodMsaPutFileResponse r_tr_list_scripts(filter, offset, limit, sort)
 Get a list of custom-script ID's that are available to the user for the `runscript` command.
 
 ### Parameters
@@ -363,7 +420,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::BinservapiPeriodMsaPutFileResponse**](binservapi.MsaPutFileResponse.md)
+[**models::BinservapiPeriodMsaPutFileResponse**](binservapi.MsaPutFileResponse.md)
 
 ### Authorization
 
@@ -374,11 +431,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## r_tr_update_scripts
 
-> crate::models::MsaPeriodReplyMetaOnly r_tr_update_scripts(id, file, description, name, comments_for_audit_log, permission_type, content, platform)
+> models::MsaPeriodReplyMetaOnly r_tr_update_scripts(id, file, description, name, comments_for_audit_log, permission_type, content, platform)
 Upload a new scripts to replace an existing one.
 
 ### Parameters
@@ -396,7 +453,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
+[**models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
 
 ### Authorization
 
@@ -407,4 +464,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

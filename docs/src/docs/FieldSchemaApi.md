@@ -1,4 +1,4 @@
-# FieldSchemaApi
+# \FieldSchemaApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 ## fdrschema_period_entities_period_field_period_get
 
-> crate::models::SchemaPeriodSensorFieldResponseV1 fdrschema_period_entities_period_field_period_get(ids)
+> models::SchemaPeriodSensorFieldResponseV1 fdrschema_period_entities_period_field_period_get(ids)
 Fetch field schema by ID
 
 ### Parameters
@@ -20,7 +20,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SchemaPeriodSensorFieldResponseV1**](schema.SensorFieldResponseV1.md)
+[**models::SchemaPeriodSensorFieldResponseV1**](schema.SensorFieldResponseV1.md)
 
 ### Authorization
 
@@ -31,11 +31,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## fdrschema_period_queries_period_field_period_get
 
-> crate::models::MsaspecPeriodQueryResponse fdrschema_period_queries_period_field_period_get(limit, offset, filter, sort)
+> models::MsaspecPeriodQueryResponse fdrschema_period_queries_period_field_period_get(limit, offset, filter, sort)
 Get list of field IDs given a particular query.
 
 ### Parameters
@@ -49,7 +49,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -60,4 +60,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

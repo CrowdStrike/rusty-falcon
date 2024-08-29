@@ -1,4 +1,4 @@
-# IocsApi
+# \IocsApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## devices_count
 
-> crate::models::IocapiPeriodMsaReplyIocDevicesCount devices_count(r#type, value)
+> models::IocapiPeriodMsaReplyIocDevicesCount devices_count(r#type, value)
 Number of hosts in your customer account that have observed a given custom IOC
 
 ### Parameters
@@ -23,7 +23,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::IocapiPeriodMsaReplyIocDevicesCount**](iocapi.MsaReplyIOCDevicesCount.md)
+[**models::IocapiPeriodMsaReplyIocDevicesCount**](iocapi.MsaReplyIOCDevicesCount.md)
 
 ### Authorization
 
@@ -34,11 +34,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## devices_ran_on
 
-> crate::models::IocapiPeriodMsaReplyDevicesRanOn devices_ran_on(r#type, value, limit, offset)
+> models::IocapiPeriodMsaReplyDevicesRanOn devices_ran_on(r#type, value, limit, offset)
 Find hosts that have observed a given custom IOC. For details about those hosts, use GET /devices/entities/devices/v1
 
 ### Parameters
@@ -52,7 +52,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::IocapiPeriodMsaReplyDevicesRanOn**](iocapi.MsaReplyDevicesRanOn.md)
+[**models::IocapiPeriodMsaReplyDevicesRanOn**](iocapi.MsaReplyDevicesRanOn.md)
 
 ### Authorization
 
@@ -63,11 +63,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## entities_period_processes
 
-> crate::models::ProcessesapiPeriodMsaProcessDetailResponse entities_period_processes(ids)
+> models::ProcessesapiPeriodMsaProcessDetailResponse entities_period_processes(ids)
 For the provided ProcessID retrieve the process details
 
 ### Parameters
@@ -78,7 +78,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ProcessesapiPeriodMsaProcessDetailResponse**](processesapi.MsaProcessDetailResponse.md)
+[**models::ProcessesapiPeriodMsaProcessDetailResponse**](processesapi.MsaProcessDetailResponse.md)
 
 ### Authorization
 
@@ -89,11 +89,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## processes_ran_on
 
-> crate::models::IocapiPeriodMsaReplyProcessesRanOn processes_ran_on(r#type, value, device_id, limit, offset)
+> models::IocapiPeriodMsaReplyProcessesRanOn processes_ran_on(r#type, value, device_id, limit, offset)
 Search for processes associated with a custom IOC
 
 ### Parameters
@@ -108,7 +108,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::IocapiPeriodMsaReplyProcessesRanOn**](iocapi.MsaReplyProcessesRanOn.md)
+[**models::IocapiPeriodMsaReplyProcessesRanOn**](iocapi.MsaReplyProcessesRanOn.md)
 
 ### Authorization
 
@@ -119,4 +119,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

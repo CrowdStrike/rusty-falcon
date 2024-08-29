@@ -1,4 +1,4 @@
-# UserManagementApi
+# \UserManagementApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -29,7 +29,7 @@ Method | HTTP request | Description
 
 ## combined_user_roles_v1
 
-> crate::models::FlightcontrolapiPeriodUserGrantResponse combined_user_roles_v1(user_uuid, cid, direct_only, filter, offset, limit, sort)
+> models::FlightcontrolapiPeriodUserGrantResponse combined_user_roles_v1(user_uuid, cid, direct_only, filter, offset, limit, sort)
 Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer.
 
 ### Parameters
@@ -46,7 +46,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FlightcontrolapiPeriodUserGrantResponse**](flightcontrolapi.userGrantResponse.md)
+[**models::FlightcontrolapiPeriodUserGrantResponse**](flightcontrolapi.userGrantResponse.md)
 
 ### Authorization
 
@@ -57,11 +57,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## create_user
 
-> crate::models::ApiPeriodUserMetadataResponse create_user(body)
+> models::ApiPeriodUserMetadataResponse create_user(body)
 Deprecated : Please use POST /user-management/entities/users/v1. Create a new user. After creating a user, assign one or more roles with POST /user-roles/entities/user-roles/v1
 
 ### Parameters
@@ -72,7 +72,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodUserMetadataResponse**](api.userMetadataResponse.md)
+[**models::ApiPeriodUserMetadataResponse**](api.userMetadataResponse.md)
 
 ### Authorization
 
@@ -83,11 +83,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## create_user_v1
 
-> crate::models::FlightcontrolapiPeriodUserResponse create_user_v1(body, validate_only)
+> models::FlightcontrolapiPeriodUserResponse create_user_v1(body, validate_only)
 Create a new user. After creating a user, assign one or more roles with POST '/user-management/entities/user-role-actions/v1'
 
 ### Parameters
@@ -99,7 +99,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FlightcontrolapiPeriodUserResponse**](flightcontrolapi.userResponse.md)
+[**models::FlightcontrolapiPeriodUserResponse**](flightcontrolapi.userResponse.md)
 
 ### Authorization
 
@@ -110,11 +110,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## delete_user
 
-> crate::models::MsaPeriodReplyMetaOnly delete_user(user_uuid)
+> models::MsaPeriodReplyMetaOnly delete_user(user_uuid)
 Deprecated : Please use DELETE /user-management/entities/users/v1. Delete a user permanently
 
 ### Parameters
@@ -125,7 +125,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
+[**models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
 
 ### Authorization
 
@@ -136,11 +136,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## delete_user_v1
 
-> crate::models::MsaspecPeriodResponseFields delete_user_v1(user_uuid)
+> models::MsaspecPeriodResponseFields delete_user_v1(user_uuid)
 Delete a user permanently.
 
 ### Parameters
@@ -151,7 +151,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodResponseFields**](msaspec.ResponseFields.md)
+[**models::MsaspecPeriodResponseFields**](msaspec.ResponseFields.md)
 
 ### Authorization
 
@@ -162,11 +162,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## entities_roles_v1
 
-> crate::models::FlightcontrolapiPeriodGetRolesResponse entities_roles_v1(ids, cid)
+> models::FlightcontrolapiPeriodGetRolesResponse entities_roles_v1(ids, cid)
 Get info about a role
 
 ### Parameters
@@ -178,7 +178,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FlightcontrolapiPeriodGetRolesResponse**](flightcontrolapi.getRolesResponse.md)
+[**models::FlightcontrolapiPeriodGetRolesResponse**](flightcontrolapi.getRolesResponse.md)
 
 ### Authorization
 
@@ -189,11 +189,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_available_role_ids
 
-> crate::models::MsaPeriodQueryResponse get_available_role_ids()
+> models::MsaPeriodQueryResponse get_available_role_ids()
 Deprecated : Please use GET /user-management/queries/roles/v1. Show role IDs for all roles available in your customer account. For more information on each role, provide the role ID to `/customer/entities/roles/v1`.
 
 ### Parameters
@@ -202,7 +202,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -213,11 +213,11 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_roles
 
-> crate::models::ApiPeriodUserRoleResponse get_roles(ids)
+> models::ApiPeriodUserRoleResponse get_roles(ids)
 Deprecated : Please use GET /user-management/entities/roles/v1. Get info about a role
 
 ### Parameters
@@ -228,7 +228,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodUserRoleResponse**](api.userRoleResponse.md)
+[**models::ApiPeriodUserRoleResponse**](api.userRoleResponse.md)
 
 ### Authorization
 
@@ -239,11 +239,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_user_role_ids
 
-> crate::models::MsaPeriodQueryResponse get_user_role_ids(user_uuid)
+> models::MsaPeriodQueryResponse get_user_role_ids(user_uuid)
 Deprecated : Please use GET /user-management/combined/user-roles/v1. Show role IDs of roles assigned to a user. For more information on each role, provide the role ID to `/customer/entities/roles/v1`.
 
 ### Parameters
@@ -254,7 +254,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -265,11 +265,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## grant_user_role_ids
 
-> crate::models::ApiPeriodUserRoleIdsResponse grant_user_role_ids(user_uuid, body)
+> models::ApiPeriodUserRoleIdsResponse grant_user_role_ids(user_uuid, body)
 Deprecated : Please use POST /user-management/entities/user-role-actions/v1. Assign one or more roles to a user
 
 ### Parameters
@@ -281,7 +281,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodUserRoleIdsResponse**](api.userRoleIDsResponse.md)
+[**models::ApiPeriodUserRoleIdsResponse**](api.userRoleIDsResponse.md)
 
 ### Authorization
 
@@ -292,11 +292,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## queries_roles_v1
 
-> crate::models::MsaspecPeriodQueryResponse queries_roles_v1(cid, user_uuid, action)
+> models::MsaspecPeriodQueryResponse queries_roles_v1(cid, user_uuid, action)
 Show role IDs for all roles available in your customer account. For more information on each role, provide the role ID to `/user-management/entities/roles/v1`.
 
 ### Parameters
@@ -309,7 +309,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -320,11 +320,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_user_v1
 
-> crate::models::MsaspecPeriodQueryResponse query_user_v1(filter, offset, limit, sort)
+> models::MsaspecPeriodQueryResponse query_user_v1(filter, offset, limit, sort)
 List user IDs for all users in your customer account. For more information on each user, provide the user ID to `/user-management/entities/users/GET/v1`.
 
 ### Parameters
@@ -338,7 +338,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -349,11 +349,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## retrieve_emails_by_cid
 
-> crate::models::MsaPeriodQueryResponse retrieve_emails_by_cid()
+> models::MsaPeriodQueryResponse retrieve_emails_by_cid()
 Deprecated : Please use POST /user-management/entities/users/GET/v1. List the usernames (usually an email address) for all users in your customer account
 
 ### Parameters
@@ -362,7 +362,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -373,11 +373,11 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## retrieve_user
 
-> crate::models::ApiPeriodUserMetadataResponse retrieve_user(ids)
+> models::ApiPeriodUserMetadataResponse retrieve_user(ids)
 Deprecated : Please use POST /user-management/entities/users/GET/v1. Get info about a user
 
 ### Parameters
@@ -388,7 +388,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodUserMetadataResponse**](api.userMetadataResponse.md)
+[**models::ApiPeriodUserMetadataResponse**](api.userMetadataResponse.md)
 
 ### Authorization
 
@@ -399,11 +399,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## retrieve_user_uuid
 
-> crate::models::MsaPeriodQueryResponse retrieve_user_uuid(uid)
+> models::MsaPeriodQueryResponse retrieve_user_uuid(uid)
 Deprecated : Please use GET /user-management/queries/users/v1. Get a user's ID by providing a username (usually an email address)
 
 ### Parameters
@@ -414,7 +414,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -425,11 +425,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## retrieve_user_uuids_by_cid
 
-> crate::models::MsaPeriodQueryResponse retrieve_user_uuids_by_cid()
+> models::MsaPeriodQueryResponse retrieve_user_uuids_by_cid()
 Deprecated : Please use GET /user-management/queries/users/v1. List user IDs for all users in your customer account. For more information on each user, provide the user ID to `/users/entities/user/v1`.
 
 ### Parameters
@@ -438,7 +438,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -449,11 +449,11 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## retrieve_users_getv1
 
-> crate::models::FlightcontrolapiPeriodUserResponse retrieve_users_getv1(body)
+> models::FlightcontrolapiPeriodUserResponse retrieve_users_getv1(body)
 Get info about users including their name, UID and CID by providing user UUIDs
 
 ### Parameters
@@ -464,7 +464,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FlightcontrolapiPeriodUserResponse**](flightcontrolapi.userResponse.md)
+[**models::FlightcontrolapiPeriodUserResponse**](flightcontrolapi.userResponse.md)
 
 ### Authorization
 
@@ -475,11 +475,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## revoke_user_role_ids
 
-> crate::models::ApiPeriodUserRoleIdsResponse revoke_user_role_ids(user_uuid, ids)
+> models::ApiPeriodUserRoleIdsResponse revoke_user_role_ids(user_uuid, ids)
 Deprecated : Please use POST /user-management/entities/user-role-actions/v1. Revoke one or more roles from a user
 
 ### Parameters
@@ -491,7 +491,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodUserRoleIdsResponse**](api.userRoleIDsResponse.md)
+[**models::ApiPeriodUserRoleIdsResponse**](api.userRoleIDsResponse.md)
 
 ### Authorization
 
@@ -502,11 +502,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_user
 
-> crate::models::ApiPeriodUserMetadataResponse update_user(user_uuid, body)
+> models::ApiPeriodUserMetadataResponse update_user(user_uuid, body)
 Deprecated : Please use PATCH /user-management/entities/users/v1. Modify an existing user's first or last name
 
 ### Parameters
@@ -518,7 +518,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodUserMetadataResponse**](api.userMetadataResponse.md)
+[**models::ApiPeriodUserMetadataResponse**](api.userMetadataResponse.md)
 
 ### Authorization
 
@@ -529,11 +529,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_user_v1
 
-> crate::models::FlightcontrolapiPeriodUserResponse update_user_v1(user_uuid, body)
+> models::FlightcontrolapiPeriodUserResponse update_user_v1(user_uuid, body)
 Modify an existing user's first or last name.
 
 ### Parameters
@@ -545,7 +545,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FlightcontrolapiPeriodUserResponse**](flightcontrolapi.userResponse.md)
+[**models::FlightcontrolapiPeriodUserResponse**](flightcontrolapi.userResponse.md)
 
 ### Authorization
 
@@ -556,11 +556,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## user_action_v1
 
-> crate::models::MsaspecPeriodResponseFields user_action_v1(body)
+> models::MsaspecPeriodResponseFields user_action_v1(body)
 Apply actions to one or more User. Available action names: reset_2fa, reset_password. User UUIDs can be provided in `ids` param as part of request payload.
 
 ### Parameters
@@ -571,7 +571,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodResponseFields**](msaspec.ResponseFields.md)
+[**models::MsaspecPeriodResponseFields**](msaspec.ResponseFields.md)
 
 ### Authorization
 
@@ -582,11 +582,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## user_roles_action_v1
 
-> crate::models::MsaspecPeriodResponseFields user_roles_action_v1(body)
+> models::MsaspecPeriodResponseFields user_roles_action_v1(body)
 Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke
 
 ### Parameters
@@ -597,7 +597,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodResponseFields**](msaspec.ResponseFields.md)
+[**models::MsaspecPeriodResponseFields**](msaspec.ResponseFields.md)
 
 ### Authorization
 
@@ -608,4 +608,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

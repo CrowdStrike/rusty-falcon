@@ -1,4 +1,4 @@
-# ConfigurationAssessmentEvaluationLogicApi
+# \ConfigurationAssessmentEvaluationLogicApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 ## get_evaluation_logic_mixin0
 
-> crate::models::DomainPeriodApiEvaluationLogicEntitiesResponseV1 get_evaluation_logic_mixin0(ids)
+> models::DomainPeriodApiEvaluationLogicEntitiesResponseV1 get_evaluation_logic_mixin0(ids)
 Get details on evaluation logic items by providing one or more finding IDs.
 
 ### Parameters
@@ -19,7 +19,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodApiEvaluationLogicEntitiesResponseV1**](domain.APIEvaluationLogicEntitiesResponseV1.md)
+[**models::DomainPeriodApiEvaluationLogicEntitiesResponseV1**](domain.APIEvaluationLogicEntitiesResponseV1.md)
 
 ### Authorization
 
@@ -30,4 +30,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

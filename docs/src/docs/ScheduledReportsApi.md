@@ -1,4 +1,4 @@
-# ScheduledReportsApi
+# \ScheduledReportsApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## scheduled_reports_period_get
 
-> crate::models::DomainPeriodScheduledReportsResultV1 scheduled_reports_period_get(ids)
+> models::DomainPeriodScheduledReportsResultV1 scheduled_reports_period_get(ids)
 Retrieve scheduled reports for the provided report IDs.
 
 ### Parameters
@@ -21,7 +21,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodScheduledReportsResultV1**](domain.ScheduledReportsResultV1.md)
+[**models::DomainPeriodScheduledReportsResultV1**](domain.ScheduledReportsResultV1.md)
 
 ### Authorization
 
@@ -32,22 +32,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## scheduled_reports_period_launch
 
-> crate::models::DomainPeriodReportExecutionsResponseV1 scheduled_reports_period_launch(body)
+> models::DomainPeriodReportExecutionsResponseV1 scheduled_reports_period_launch(body)
 Launch scheduled reports executions for the provided report IDs.
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::DomainPeriodReportExecutionLaunchRequestV1>**](domain.ReportExecutionLaunchRequestV1.md) |  | [required] |
+**body** | [**Vec<models::DomainPeriodReportExecutionLaunchRequestV1>**](domain.ReportExecutionLaunchRequestV1.md) |  | [required] |
 
 ### Return type
 
-[**crate::models::DomainPeriodReportExecutionsResponseV1**](domain.ReportExecutionsResponseV1.md)
+[**models::DomainPeriodReportExecutionsResponseV1**](domain.ReportExecutionsResponseV1.md)
 
 ### Authorization
 
@@ -58,11 +58,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## scheduled_reports_period_query
 
-> crate::models::MsaPeriodQueryResponse scheduled_reports_period_query(sort, filter, q, offset, limit)
+> models::MsaPeriodQueryResponse scheduled_reports_period_query(sort, filter, q, offset, limit)
 Find all report IDs matching the query with filter
 
 ### Parameters
@@ -77,7 +77,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -88,4 +88,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -1,4 +1,4 @@
-# DetectsApi
+# \DetectsApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -11,18 +11,18 @@ Method | HTTP request | Description
 
 ## get_aggregate_detects
 
-> crate::models::MsaPeriodAggregatesResponse get_aggregate_detects(body)
+> models::MsaPeriodAggregatesResponse get_aggregate_detects(body)
 Get detect aggregates as specified via json in request body.
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) | Query criteria and settings | [required] |
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) | Query criteria and settings | [required] |
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -33,11 +33,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_detect_summaries
 
-> crate::models::DomainPeriodMsaDetectSummariesResponse get_detect_summaries(body)
+> models::DomainPeriodMsaDetectSummariesResponse get_detect_summaries(body)
 View information about detections
 
 ### Parameters
@@ -48,7 +48,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodMsaDetectSummariesResponse**](domain.MsaDetectSummariesResponse.md)
+[**models::DomainPeriodMsaDetectSummariesResponse**](domain.MsaDetectSummariesResponse.md)
 
 ### Authorization
 
@@ -59,11 +59,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_detects
 
-> crate::models::MsaPeriodQueryResponse query_detects(offset, limit, sort, filter, q)
+> models::MsaPeriodQueryResponse query_detects(offset, limit, sort, filter, q)
 Search for detection IDs that match a given query
 
 ### Parameters
@@ -78,7 +78,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -89,11 +89,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## update_detects_by_ids_v2
 
-> crate::models::MsaPeriodReplyMetaOnly update_detects_by_ids_v2(body)
+> models::MsaPeriodReplyMetaOnly update_detects_by_ids_v2(body)
 Modify the state, assignee, and visibility of detections
 
 ### Parameters
@@ -104,7 +104,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
+[**models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
 
 ### Authorization
 
@@ -115,4 +115,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -1,4 +1,4 @@
-# FalconxSandboxApi
+# \FalconxSandboxApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -14,9 +14,6 @@ Method | HTTP request | Description
 [**get_sample_v2**](FalconxSandboxApi.md#get_sample_v2) | **GET** /samples/entities/samples/v2 | Retrieves the file associated with the given ID (SHA256)
 [**get_submissions**](FalconxSandboxApi.md#get_submissions) | **GET** /falconx/entities/submissions/v1 | Check the status of a sandbox analysis. Time required for analysis varies but is usually less than 15 minutes.
 [**get_summary_reports**](FalconxSandboxApi.md#get_summary_reports) | **GET** /falconx/entities/report-summaries/v1 | Get a short summary version of a sandbox report.
-[**interactive_detonation_delete**](FalconxSandboxApi.md#interactive_detonation_delete) | **DELETE** /falconx-interactive/tunnels/{id}/v1 | Stops an interactive detonation.
-[**interactive_detonation_get**](FalconxSandboxApi.md#interactive_detonation_get) | **GET** /falconx-interactive/tunnels/{id}/v1 | Performs an interactive detonation.
-[**interactive_detonation_post**](FalconxSandboxApi.md#interactive_detonation_post) | **POST** /falconx-interactive/tunnels/{id}/v1 | Performs an interactive detonation.
 [**query_reports**](FalconxSandboxApi.md#query_reports) | **GET** /falconx/queries/reports/v1 | Find sandbox reports by providing an FQL filter and paging details. Returns a set of report IDs that match your criteria.
 [**query_sample_v1**](FalconxSandboxApi.md#query_sample_v1) | **POST** /samples/queries/samples/GET/v1 | Retrieves a list with sha256 of samples that exist and customer has rights to access them, maximum number of accepted items is 200
 [**query_submissions**](FalconxSandboxApi.md#query_submissions) | **GET** /falconx/queries/submissions/v1 | Find submission IDs for uploaded files by providing an FQL filter and paging details. Returns a set of submission IDs that match your criteria.
@@ -25,7 +22,7 @@ Method | HTTP request | Description
 
 ## delete_report
 
-> crate::models::FalconxPeriodQueryResponse delete_report(ids)
+> models::FalconxPeriodQueryResponse delete_report(ids)
 Delete report based on the report ID. Operation can be checked for success by polling for the report ID on the report-summaries endpoint.
 
 ### Parameters
@@ -36,7 +33,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FalconxPeriodQueryResponse**](falconx.QueryResponse.md)
+[**models::FalconxPeriodQueryResponse**](falconx.QueryResponse.md)
 
 ### Authorization
 
@@ -47,11 +44,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## delete_sample_v2
 
-> crate::models::MsaPeriodQueryResponse delete_sample_v2(ids)
+> models::MsaPeriodQueryResponse delete_sample_v2(ids)
 Removes a sample, including file, meta and submissions from the collection
 
 ### Parameters
@@ -62,7 +59,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -73,11 +70,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_artifacts
 
-> crate::models::MsaspecPeriodQueryResponse get_artifacts(id, name, accept_encoding)
+> models::MsaspecPeriodQueryResponse get_artifacts(id, name, accept_encoding)
 Download IOC packs, PCAP files, memory dumps, and other analysis artifacts.
 
 ### Parameters
@@ -90,7 +87,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -101,11 +98,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: */*, application/octet-stream, application/json, text/plain, text/csv, image/png, image/jpeg, application/gzip
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_memory_dump
 
-> crate::models::MsaspecPeriodQueryResponse get_memory_dump(id, name, accept_encoding)
+> models::MsaspecPeriodQueryResponse get_memory_dump(id, name, accept_encoding)
 Get memory dump content, as binary
 
 ### Parameters
@@ -118,7 +115,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -129,11 +126,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_memory_dump_extracted_strings
 
-> crate::models::MsaspecPeriodQueryResponse get_memory_dump_extracted_strings(id, name, accept_encoding)
+> models::MsaspecPeriodQueryResponse get_memory_dump_extracted_strings(id, name, accept_encoding)
 Get extracted strings from a memory dump
 
 ### Parameters
@@ -146,7 +143,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -157,11 +154,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json, application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_memory_dump_hex_dump
 
-> crate::models::MsaspecPeriodQueryResponse get_memory_dump_hex_dump(id, name, accept_encoding)
+> models::MsaspecPeriodQueryResponse get_memory_dump_hex_dump(id, name, accept_encoding)
 Get hex view of a memory dump
 
 ### Parameters
@@ -174,7 +171,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -185,11 +182,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json, application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_reports
 
-> crate::models::FalconxPeriodReportV1Response get_reports(ids)
+> models::FalconxPeriodReportV1Response get_reports(ids)
 Get a full sandbox report.
 
 ### Parameters
@@ -200,7 +197,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FalconxPeriodReportV1Response**](falconx.ReportV1Response.md)
+[**models::FalconxPeriodReportV1Response**](falconx.ReportV1Response.md)
 
 ### Authorization
 
@@ -211,7 +208,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_sample_v2
 
@@ -238,11 +235,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_submissions
 
-> crate::models::FalconxPeriodSubmissionV1Response get_submissions(ids)
+> models::FalconxPeriodSubmissionV1Response get_submissions(ids)
 Check the status of a sandbox analysis. Time required for analysis varies but is usually less than 15 minutes.
 
 ### Parameters
@@ -253,7 +250,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FalconxPeriodSubmissionV1Response**](falconx.SubmissionV1Response.md)
+[**models::FalconxPeriodSubmissionV1Response**](falconx.SubmissionV1Response.md)
 
 ### Authorization
 
@@ -264,11 +261,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_summary_reports
 
-> crate::models::FalconxPeriodSummaryReportV1Response get_summary_reports(ids)
+> models::FalconxPeriodSummaryReportV1Response get_summary_reports(ids)
 Get a short summary version of a sandbox report.
 
 ### Parameters
@@ -279,7 +276,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::FalconxPeriodSummaryReportV1Response**](falconx.SummaryReportV1Response.md)
+[**models::FalconxPeriodSummaryReportV1Response**](falconx.SummaryReportV1Response.md)
 
 ### Authorization
 
@@ -290,98 +287,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
-
-## interactive_detonation_delete
-
-> crate::models::MsaspecPeriodQueryResponse interactive_detonation_delete(x_cs_useruuid, id)
-Stops an interactive detonation.
-
-Stops an interactive detonation.
-
-### Parameters
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**x_cs_useruuid** | **String** | User UUID | [required] |
-**id** | **String** | Interactive detonation identifier. | [required] |
-
-### Return type
-
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
-
-## interactive_detonation_get
-
-> crate::models::MsaspecPeriodQueryResponse interactive_detonation_get(x_cs_useruuid, id)
-Performs an interactive detonation.
-
-Performs an interactive detonation.
-
-### Parameters
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**x_cs_useruuid** | **String** | User UUID | [required] |
-**id** | **String** | Interactive detonation identifier. | [required] |
-
-### Return type
-
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/octet-stream
-
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
-
-## interactive_detonation_post
-
-> crate::models::MsaspecPeriodQueryResponse interactive_detonation_post(x_cs_useruuid, id)
-Performs an interactive detonation.
-
-Performs an interactive detonation.
-
-### Parameters
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**x_cs_useruuid** | **String** | User UUID | [required] |
-**id** | **String** | Interactive detonation identifier. | [required] |
-
-### Return type
-
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/octet-stream
-
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_reports
 
-> crate::models::MsaspecPeriodQueryResponse query_reports(filter, offset, limit, sort)
+> models::MsaspecPeriodQueryResponse query_reports(filter, offset, limit, sort)
 Find sandbox reports by providing an FQL filter and paging details. Returns a set of report IDs that match your criteria.
 
 ### Parameters
@@ -395,7 +305,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -406,11 +316,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_sample_v1
 
-> crate::models::MsaPeriodQueryResponse query_sample_v1(body)
+> models::MsaPeriodQueryResponse query_sample_v1(body)
 Retrieves a list with sha256 of samples that exist and customer has rights to access them, maximum number of accepted items is 200
 
 ### Parameters
@@ -421,7 +331,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -432,11 +342,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_submissions
 
-> crate::models::MsaspecPeriodQueryResponse query_submissions(filter, offset, limit, sort)
+> models::MsaspecPeriodQueryResponse query_submissions(filter, offset, limit, sort)
 Find submission IDs for uploaded files by providing an FQL filter and paging details. Returns a set of submission IDs that match your criteria.
 
 ### Parameters
@@ -450,7 +360,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -461,22 +371,23 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## submit
 
-> crate::models::FalconxPeriodSubmissionV1Response submit(body)
+> models::FalconxPeriodSubmissionV1Response submit(body, aid)
 Submit an uploaded file or a URL for sandbox analysis. Time required for analysis varies but is usually less than 15 minutes.
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**FalconxPeriodSubmissionParametersV1**](FalconxPeriodSubmissionParametersV1.md) | Submit either a URL or a sample SHA256 for sandbox analysis. The sample file must have been previously uploaded through `/samples/entities/samples/v2`. You must specify a JSON object that includes the `falconx.SubmissionParametersV1` key/value pairs shown below.  **`environment_id`**: Specifies the sandbox environment used for analysis. Values:  - `300`: Linux Ubuntu 16.04, 64-bit - `200`: Android (static analysis) - `160`: Windows 10, 64-bit - `110`: Windows 7, 64-bit - `100`: Windows 7, 32-bit  **`sha256`** ID of the sample, which is a SHA256 hash value. Find a sample ID from the response when uploading a malware sample or search with `/falconx/queries/submissions/v1`.The `url` parameter must be unset if `sha256` is used.  **`url`** A web page or file URL. It can be HTTP(S) or FTP. The `sha256` parameter must be unset if `url` is used.  **`action_script`** (optional): Runtime script for sandbox analysis. Values:  - `default` - `default_maxantievasion` - `default_randomfiles` - `default_randomtheme` - `default_openie`  **`command_line`** (optional): Command line script passed to the submitted file at runtime. Max length: 2048 characters  **`document_password`** (optional): Auto-filled for Adobe or Office files that prompt for a password. Max length: 32 characters  **`enable_tor`** (optional): Deprecated, please use `network_settings` instead. If `true`, sandbox analysis routes network traffic via TOR. Default: `false`.  **`network_settings`** (optional): Specifies the sandbox network_settings used for analysis. Values:  - `default`: Fully operating network - `tor`: Route network traffic via TOR - `simulated`: Simulate network traffic - `offline`: No network traffic  **`submit_name`** (optional): Name of the malware sample that's used for file type detection and analysis  **`system_date`** (optional): Set a custom date in the format `yyyy-MM-dd` for the sandbox environment  **`system_time`** (optional): Set a custom time in the format `HH:mm` for the sandbox environment. | [required] |
+**body** | [**FalconxPeriodSubmissionParametersV1**](FalconxPeriodSubmissionParametersV1.md) | Submit either a URL or a sample SHA256 for sandbox analysis. The sample file must have been previously uploaded through `/samples/entities/samples/v2`. You must specify a JSON object that includes the `falconx.SubmissionParametersV1` key/value pairs shown below.  **`environment_id`**: Specifies the sandbox environment used for analysis. Values:  - `400`: MacOS Catalina 10.15 - `410`: MacOS Sonoma ARM 64 bit - `300`: Linux Ubuntu 16.04, 64-bit - `200`: Android (static analysis) - `160`: Windows 10, 64-bit - `140`: Windows 11, 64-bit - `110`: Windows 7, 64-bit - `100`: Windows 7, 32-bit  **`sha256`** ID of the sample, which is a SHA256 hash value. Find a sample ID from the response when uploading a malware sample or search with `/falconx/queries/submissions/v1`.The `url` parameter must be unset if `sha256` is used.  **`url`** A web page or file URL. It can be HTTP(S) or FTP. The `sha256` parameter must be unset if `url` is used.  **`action_script`** (optional): Runtime script for sandbox analysis. Values:  - `default` - `default_maxantievasion` - `default_randomfiles` - `default_randomtheme` - `default_openie`  **`command_line`** (optional): Command line script passed to the submitted file at runtime. Max length: 2048 characters  **`document_password`** (optional): Auto-filled for Adobe or Office files that prompt for a password. Max length: 32 characters  **`enable_tor`** (optional): Deprecated, please use `network_settings` instead. If `true`, sandbox analysis routes network traffic via TOR. Default: `false`.  **`network_settings`** (optional): Specifies the sandbox network_settings used for analysis. Values:  - `default`: Fully operating network - `tor`: Route network traffic via TOR - `simulated`: Simulate network traffic - `offline`: No network traffic  **`submit_name`** (optional): Name of the malware sample that's used for file type detection and analysis  **`system_date`** (optional): Set a custom date in the format `yyyy-MM-dd` for the sandbox environment  **`system_time`** (optional): Set a custom time in the format `HH:mm` for the sandbox environment. | [required] |
+**aid** | Option<**String**> | Agent ID |  |
 
 ### Return type
 
-[**crate::models::FalconxPeriodSubmissionV1Response**](falconx.SubmissionV1Response.md)
+[**models::FalconxPeriodSubmissionV1Response**](falconx.SubmissionV1Response.md)
 
 ### Authorization
 
@@ -487,11 +398,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## upload_sample_v2
 
-> crate::models::ClientPeriodSampleMetadataResponseV2 upload_sample_v2(sample, file_name, comment, is_confidential)
+> models::ClientPeriodSampleMetadataResponseV2 upload_sample_v2(sample, file_name, comment, is_confidential)
 Upload a file for sandbox analysis. After uploading, use `/falconx/entities/submissions/v1` to start analyzing the file.
 
 ### Parameters
@@ -505,7 +416,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ClientPeriodSampleMetadataResponseV2**](client.SampleMetadataResponseV2.md)
+[**models::ClientPeriodSampleMetadataResponseV2**](client.SampleMetadataResponseV2.md)
 
 ### Authorization
 
@@ -516,4 +427,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: multipart/form-data, application/octet-stream
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

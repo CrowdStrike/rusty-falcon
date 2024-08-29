@@ -1,4 +1,4 @@
-# OverwatchDashboardApi
+# \OverwatchDashboardApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## aggregates_detections_global_counts
 
-> crate::models::MsaPeriodFacetsResponse aggregates_detections_global_counts(filter)
+> models::MsaPeriodFacetsResponse aggregates_detections_global_counts(filter)
 Get the total number of detections pushed across all customers
 
 ### Parameters
@@ -23,7 +23,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodFacetsResponse**](msa.FacetsResponse.md)
+[**models::MsaPeriodFacetsResponse**](msa.FacetsResponse.md)
 
 ### Authorization
 
@@ -34,22 +34,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## aggregates_events
 
-> crate::models::MsaPeriodAggregatesResponse aggregates_events(body)
+> models::MsaPeriodAggregatesResponse aggregates_events(body)
 Get aggregate OverWatch detection event info by providing an aggregate query
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -60,22 +60,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## aggregates_events_collections
 
-> crate::models::MsaPeriodAggregatesResponse aggregates_events_collections(body)
+> models::MsaPeriodAggregatesResponse aggregates_events_collections(body)
 Get OverWatch detection event collection info by providing an aggregate query
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -86,11 +86,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## aggregates_incidents_global_counts
 
-> crate::models::MsaPeriodFacetsResponse aggregates_incidents_global_counts(filter)
+> models::MsaPeriodFacetsResponse aggregates_incidents_global_counts(filter)
 Get the total number of incidents pushed across all customers
 
 ### Parameters
@@ -101,7 +101,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodFacetsResponse**](msa.FacetsResponse.md)
+[**models::MsaPeriodFacetsResponse**](msa.FacetsResponse.md)
 
 ### Authorization
 
@@ -112,11 +112,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## aggregates_ow_events_global_counts
 
-> crate::models::MsaPeriodFacetsResponse aggregates_ow_events_global_counts(filter)
+> models::MsaPeriodFacetsResponse aggregates_ow_events_global_counts(filter)
 Get the total number of OverWatch events across all customers
 
 ### Parameters
@@ -127,7 +127,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodFacetsResponse**](msa.FacetsResponse.md)
+[**models::MsaPeriodFacetsResponse**](msa.FacetsResponse.md)
 
 ### Authorization
 
@@ -138,4 +138,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

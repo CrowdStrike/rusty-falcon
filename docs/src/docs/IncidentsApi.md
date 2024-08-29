@@ -1,4 +1,4 @@
-# IncidentsApi
+# \IncidentsApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## crowd_score
 
-> crate::models::DomainPeriodMsaEnvironmentScoreResponse crowd_score(filter, offset, limit, sort)
+> models::DomainPeriodMsaEnvironmentScoreResponse crowd_score(filter, offset, limit, sort)
 Query environment wide CrowdScore and return the entity data
 
 ### Parameters
@@ -27,7 +27,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodMsaEnvironmentScoreResponse**](domain.MsaEnvironmentScoreResponse.md)
+[**models::DomainPeriodMsaEnvironmentScoreResponse**](domain.MsaEnvironmentScoreResponse.md)
 
 ### Authorization
 
@@ -38,11 +38,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_behaviors
 
-> crate::models::DomainPeriodMsaExternalBehaviorResponse get_behaviors(body)
+> models::DomainPeriodMsaExternalBehaviorResponse get_behaviors(body)
 Get details on behaviors by providing behavior IDs
 
 ### Parameters
@@ -53,7 +53,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodMsaExternalBehaviorResponse**](domain.MsaExternalBehaviorResponse.md)
+[**models::DomainPeriodMsaExternalBehaviorResponse**](domain.MsaExternalBehaviorResponse.md)
 
 ### Authorization
 
@@ -64,11 +64,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_incidents
 
-> crate::models::DomainPeriodMsaExternalIncidentResponse get_incidents(body)
+> models::DomainPeriodMsaExternalIncidentResponse get_incidents(body)
 Get details on incidents by providing incident IDs
 
 ### Parameters
@@ -79,7 +79,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodMsaExternalIncidentResponse**](domain.MsaExternalIncidentResponse.md)
+[**models::DomainPeriodMsaExternalIncidentResponse**](domain.MsaExternalIncidentResponse.md)
 
 ### Authorization
 
@@ -90,11 +90,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## perform_incident_action
 
-> crate::models::DomainPeriodMsaIncidentPerformActionResponse perform_incident_action(body, update_detects, overwrite_detects)
+> models::DomainPeriodMsaIncidentPerformActionResponse perform_incident_action(body, update_detects, overwrite_detects)
 Perform a set of actions on one or more incidents, such as adding tags or comments or updating the incident name or description
 
 ### Parameters
@@ -107,7 +107,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodMsaIncidentPerformActionResponse**](domain.MsaIncidentPerformActionResponse.md)
+[**models::DomainPeriodMsaIncidentPerformActionResponse**](domain.MsaIncidentPerformActionResponse.md)
 
 ### Authorization
 
@@ -118,11 +118,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_behaviors
 
-> crate::models::MsaPeriodQueryResponse query_behaviors(filter, offset, limit, sort)
+> models::MsaPeriodQueryResponse query_behaviors(filter, offset, limit, sort)
 Search for behaviors by providing an FQL filter, sorting, and paging details
 
 ### Parameters
@@ -136,7 +136,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -147,11 +147,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_incidents
 
-> crate::models::DomainPeriodMsaIncidentQueryResponse query_incidents(sort, filter, offset, limit)
+> models::DomainPeriodMsaIncidentQueryResponse query_incidents(sort, filter, offset, limit)
 Search for incidents by providing an FQL filter, sorting, and paging details
 
 ### Parameters
@@ -165,7 +165,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodMsaIncidentQueryResponse**](domain.MsaIncidentQueryResponse.md)
+[**models::DomainPeriodMsaIncidentQueryResponse**](domain.MsaIncidentQueryResponse.md)
 
 ### Authorization
 
@@ -176,4 +176,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

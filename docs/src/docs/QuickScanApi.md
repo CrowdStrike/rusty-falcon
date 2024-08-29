@@ -1,4 +1,4 @@
-# QuickScanApi
+# \QuickScanApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## get_scans
 
-> crate::models::MlscannerapiPeriodScanV1Response get_scans(ids)
+> models::MlscannerapiPeriodScanV1Response get_scans(ids)
 Check the status of a volume scan. Time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute
 
 ### Parameters
@@ -22,7 +22,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MlscannerapiPeriodScanV1Response**](mlscannerapi.ScanV1Response.md)
+[**models::MlscannerapiPeriodScanV1Response**](mlscannerapi.ScanV1Response.md)
 
 ### Authorization
 
@@ -33,7 +33,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_scans_aggregates
 
@@ -59,11 +59,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_submissions_mixin0
 
-> crate::models::MlscannerapiPeriodQueryResponse query_submissions_mixin0(filter, offset, limit, sort)
+> models::MlscannerapiPeriodQueryResponse query_submissions_mixin0(filter, offset, limit, sort)
 Find IDs for submitted scans by providing an FQL filter and paging details. Returns a set of volume IDs that match your criteria.
 
 ### Parameters
@@ -77,7 +77,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MlscannerapiPeriodQueryResponse**](mlscannerapi.QueryResponse.md)
+[**models::MlscannerapiPeriodQueryResponse**](mlscannerapi.QueryResponse.md)
 
 ### Authorization
 
@@ -88,11 +88,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## scan_samples
 
-> crate::models::MlscannerapiPeriodQueryResponse scan_samples(body)
+> models::MlscannerapiPeriodQueryResponse scan_samples(body)
 Submit a volume of files for ml scanning. Time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute
 
 ### Parameters
@@ -103,7 +103,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MlscannerapiPeriodQueryResponse**](mlscannerapi.QueryResponse.md)
+[**models::MlscannerapiPeriodQueryResponse**](mlscannerapi.QueryResponse.md)
 
 ### Authorization
 
@@ -114,4 +114,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

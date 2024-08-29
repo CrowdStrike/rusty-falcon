@@ -1,4 +1,4 @@
-# FalconCompleteDashboardApi
+# \FalconCompleteDashboardApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -11,7 +11,11 @@ Method | HTTP request | Description
 [**aggregate_device_count_collection**](FalconCompleteDashboardApi.md#aggregate_device_count_collection) | **POST** /falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1 | Retrieve aggregate host/devices count based on the matched filter
 [**aggregate_escalations**](FalconCompleteDashboardApi.md#aggregate_escalations) | **POST** /falcon-complete-dashboards/aggregates/escalations/GET/v1 | Retrieve aggregate escalation ticket values based on the matched filter
 [**aggregate_fc_incidents**](FalconCompleteDashboardApi.md#aggregate_fc_incidents) | **POST** /falcon-complete-dashboards/aggregates/incidents/GET/v1 | Retrieve aggregate incident values based on the matched filter
+[**aggregate_prevention_policy**](FalconCompleteDashboardApi.md#aggregate_prevention_policy) | **POST** /falcon-complete-dashboards/aggregates/prevention-policies/v1 | Retrieve prevention policies aggregate values based on the matched filter
 [**aggregate_remediations**](FalconCompleteDashboardApi.md#aggregate_remediations) | **POST** /falcon-complete-dashboards/aggregates/remediations/GET/v1 | Retrieve aggregate remediation ticket values based on the matched filter
+[**aggregate_sensor_update_policy**](FalconCompleteDashboardApi.md#aggregate_sensor_update_policy) | **POST** /falcon-complete-dashboards/aggregates/sensor-update-policies/v1 | Retrieve sensor update policies aggregate values
+[**aggregate_support_issues**](FalconCompleteDashboardApi.md#aggregate_support_issues) | **POST** /falcon-complete-dashboards/aggregates/support-issues/v1 | Retrieve aggregate support issue ticket values based on the matched filter
+[**aggregate_total_device_counts**](FalconCompleteDashboardApi.md#aggregate_total_device_counts) | **POST** /falcon-complete-dashboards/aggregates/total-device-counts/v1 | Retrieve aggregate total host/devices based on the matched filter
 [**get_device_count_collection_queries_by_filter**](FalconCompleteDashboardApi.md#get_device_count_collection_queries_by_filter) | **GET** /falcon-complete-dashboards/queries/devicecount-collections/v1 | Retrieve device count collection Ids that match the provided FQL filter, criteria with scrolling enabled
 [**query_alert_ids_by_filter**](FalconCompleteDashboardApi.md#query_alert_ids_by_filter) | **GET** /falcon-complete-dashboards/queries/alerts/v1 | Retrieve Alerts Ids that match the provided FQL filter criteria with scrolling enabled
 [**query_allow_list_filter**](FalconCompleteDashboardApi.md#query_allow_list_filter) | **GET** /falcon-complete-dashboards/queries/allowlist/v1 | Retrieve allowlist tickets that match the provided filter criteria with scrolling enabled
@@ -23,18 +27,18 @@ Method | HTTP request | Description
 
 ## aggregate_alerts
 
-> crate::models::MsaPeriodAggregatesResponse aggregate_alerts(body)
+> models::MsaPeriodAggregatesResponse aggregate_alerts(body)
 Retrieve aggregate alerts values based on the matched filter
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -45,22 +49,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## aggregate_allow_list
 
-> crate::models::MsaPeriodAggregatesResponse aggregate_allow_list(body)
+> models::MsaPeriodAggregatesResponse aggregate_allow_list(body)
 Retrieve aggregate allowlist ticket values based on the matched filter
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -71,22 +75,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## aggregate_block_list
 
-> crate::models::MsaPeriodAggregatesResponse aggregate_block_list(body)
+> models::MsaPeriodAggregatesResponse aggregate_block_list(body)
 Retrieve aggregate blocklist ticket values based on the matched filter
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -97,11 +101,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## aggregate_detections
 
-> crate::models::MsaPeriodAggregatesResponse aggregate_detections(body)
+> models::MsaPeriodAggregatesResponse aggregate_detections(body)
 Retrieve aggregate detection values based on the matched filter
 
 Fields allowed to aggregate on:  - indexed_time   - created_time   - detect_time   - ldt   - cid   - aid   - platform_name   - os_version   - device_tags   - host_name   - status   - severity   - adversary_ids   - behavior_ids   - behavior_names   - num_blocked_processes   - num_quarantined_files   - pattern_ids   - first_behavior_time   - last_behavior_time   - show_in_ui   - seconds_to_triaged   - seconds_to_resolved   - assigned_to_uid   - public_tags   - vertical_tags
@@ -110,11 +114,11 @@ Fields allowed to aggregate on:  - indexed_time   - created_time   - detect_time
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -125,22 +129,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## aggregate_device_count_collection
 
-> crate::models::MsaPeriodAggregatesResponse aggregate_device_count_collection(body)
+> models::MsaPeriodAggregatesResponse aggregate_device_count_collection(body)
 Retrieve aggregate host/devices count based on the matched filter
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -151,22 +155,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## aggregate_escalations
 
-> crate::models::MsaPeriodAggregatesResponse aggregate_escalations(body)
+> models::MsaPeriodAggregatesResponse aggregate_escalations(body)
 Retrieve aggregate escalation ticket values based on the matched filter
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -177,22 +181,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## aggregate_fc_incidents
 
-> crate::models::MsaPeriodAggregatesResponse aggregate_fc_incidents(body)
+> models::MsaPeriodAggregatesResponse aggregate_fc_incidents(body)
 Retrieve aggregate incident values based on the matched filter
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -203,22 +207,48 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## aggregate_prevention_policy
+
+> models::MsaPeriodAggregatesResponse aggregate_prevention_policy(body)
+Retrieve prevention policies aggregate values based on the matched filter
+
+### Parameters
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+
+### Return type
+
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## aggregate_remediations
 
-> crate::models::MsaPeriodAggregatesResponse aggregate_remediations(body)
+> models::MsaPeriodAggregatesResponse aggregate_remediations(body)
 Retrieve aggregate remediation ticket values based on the matched filter
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -229,11 +259,89 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## aggregate_sensor_update_policy
+
+> models::MsaPeriodAggregatesResponse aggregate_sensor_update_policy(body)
+Retrieve sensor update policies aggregate values
+
+### Parameters
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+
+### Return type
+
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## aggregate_support_issues
+
+> models::MsaPeriodAggregatesResponse aggregate_support_issues(body)
+Retrieve aggregate support issue ticket values based on the matched filter
+
+### Parameters
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+
+### Return type
+
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## aggregate_total_device_counts
+
+> models::MsaPeriodAggregatesResponse aggregate_total_device_counts(body)
+Retrieve aggregate total host/devices based on the matched filter
+
+### Parameters
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+
+### Return type
+
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_device_count_collection_queries_by_filter
 
-> crate::models::MsaspecPeriodQueryResponse get_device_count_collection_queries_by_filter(limit, sort, filter, offset)
+> models::MsaspecPeriodQueryResponse get_device_count_collection_queries_by_filter(limit, sort, filter, offset)
 Retrieve device count collection Ids that match the provided FQL filter, criteria with scrolling enabled
 
 ### Parameters
@@ -247,7 +355,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -258,11 +366,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_alert_ids_by_filter
 
-> crate::models::MsaspecPeriodQueryResponse query_alert_ids_by_filter(limit, sort, filter, offset)
+> models::MsaspecPeriodQueryResponse query_alert_ids_by_filter(limit, sort, filter, offset)
 Retrieve Alerts Ids that match the provided FQL filter criteria with scrolling enabled
 
 ### Parameters
@@ -276,7 +384,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -287,11 +395,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_allow_list_filter
 
-> crate::models::MsaspecPeriodQueryResponse query_allow_list_filter(limit, sort, filter, offset)
+> models::MsaspecPeriodQueryResponse query_allow_list_filter(limit, sort, filter, offset)
 Retrieve allowlist tickets that match the provided filter criteria with scrolling enabled
 
 ### Parameters
@@ -305,7 +413,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -316,11 +424,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_block_list_filter
 
-> crate::models::MsaspecPeriodQueryResponse query_block_list_filter(limit, sort, filter, offset)
+> models::MsaspecPeriodQueryResponse query_block_list_filter(limit, sort, filter, offset)
 Retrieve block listtickets that match the provided filter criteria with scrolling enabled
 
 ### Parameters
@@ -334,7 +442,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -345,11 +453,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_detection_ids_by_filter
 
-> crate::models::MsaspecPeriodQueryResponse query_detection_ids_by_filter(limit, sort, filter, offset)
+> models::MsaspecPeriodQueryResponse query_detection_ids_by_filter(limit, sort, filter, offset)
 Retrieve DetectionsIds that match the provided FQL filter, criteria with scrolling enabled
 
 ### Parameters
@@ -363,7 +471,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -374,11 +482,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_escalations_filter
 
-> crate::models::MsaspecPeriodQueryResponse query_escalations_filter(limit, sort, filter, offset)
+> models::MsaspecPeriodQueryResponse query_escalations_filter(limit, sort, filter, offset)
 Retrieve escalation tickets that match the provided filter criteria with scrolling enabled
 
 ### Parameters
@@ -392,7 +500,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -403,11 +511,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_incident_ids_by_filter
 
-> crate::models::MsaspecPeriodQueryResponse query_incident_ids_by_filter(limit, sort, filter, offset)
+> models::MsaspecPeriodQueryResponse query_incident_ids_by_filter(limit, sort, filter, offset)
 Retrieve incidents that match the provided filter criteria with scrolling enabled
 
 ### Parameters
@@ -421,7 +529,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -432,11 +540,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_remediations_filter
 
-> crate::models::MsaspecPeriodQueryResponse query_remediations_filter(limit, sort, filter, offset)
+> models::MsaspecPeriodQueryResponse query_remediations_filter(limit, sort, filter, offset)
 Retrieve remediation tickets that match the provided filter criteria with scrolling enabled
 
 ### Parameters
@@ -450,7 +558,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -461,4 +569,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

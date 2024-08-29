@@ -1,4 +1,4 @@
-# ZeroTrustAssessmentApi
+# \ZeroTrustAssessmentApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## get_assessment_v1
 
-> crate::models::DomainPeriodAssessmentsResponse get_assessment_v1(ids)
+> models::DomainPeriodAssessmentsResponse get_assessment_v1(ids)
 Get Zero Trust Assessment data for one or more hosts by providing agent IDs (AID) and a customer ID (CID).
 
 ### Parameters
@@ -21,7 +21,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodAssessmentsResponse**](domain.AssessmentsResponse.md)
+[**models::DomainPeriodAssessmentsResponse**](domain.AssessmentsResponse.md)
 
 ### Authorization
 
@@ -32,11 +32,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_assessments_by_score_v1
 
-> crate::models::DomainPeriodAssessmentsByScoreResponse get_assessments_by_score_v1(filter, limit, after, sort)
+> models::DomainPeriodAssessmentsByScoreResponse get_assessments_by_score_v1(filter, limit, after, sort)
 Get Zero Trust Assessment data for one or more hosts by providing a customer ID (CID) and a range of scores.
 
 ### Parameters
@@ -50,7 +50,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodAssessmentsByScoreResponse**](domain.AssessmentsByScoreResponse.md)
+[**models::DomainPeriodAssessmentsByScoreResponse**](domain.AssessmentsByScoreResponse.md)
 
 ### Authorization
 
@@ -61,11 +61,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_audit_v1
 
-> crate::models::DomainPeriodAuditResponse get_audit_v1()
+> models::DomainPeriodAuditResponse get_audit_v1()
 Get the Zero Trust Assessment audit report for one customer ID (CID).
 
 ### Parameters
@@ -74,7 +74,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**crate::models::DomainPeriodAuditResponse**](domain.AuditResponse.md)
+[**models::DomainPeriodAuditResponse**](domain.AuditResponse.md)
 
 ### Authorization
 
@@ -85,4 +85,4 @@ This endpoint does not need any parameter.
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -1,4 +1,4 @@
-# SampleUploadsApi
+# \SampleUploadsApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -40,11 +40,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## archive_get_v1
 
-> crate::models::ClientPeriodArchiveCreateResponseV1 archive_get_v1(id, include_files)
+> models::ClientPeriodArchiveCreateResponseV1 archive_get_v1(id, include_files)
 Retrieves the archives upload operation statuses. Status `done` means that archive was processed successfully. Status `error` means that archive was not processed successfully.
 
 ### Parameters
@@ -56,7 +56,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ClientPeriodArchiveCreateResponseV1**](client.ArchiveCreateResponseV1.md)
+[**models::ClientPeriodArchiveCreateResponseV1**](client.ArchiveCreateResponseV1.md)
 
 ### Authorization
 
@@ -67,11 +67,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## archive_list_v1
 
-> crate::models::ClientPeriodArchiveListFilesResponseV1 archive_list_v1(id, limit, offset)
+> models::ClientPeriodArchiveListFilesResponseV1 archive_list_v1(id, limit, offset)
 Retrieves the archives files in chunks.
 
 ### Parameters
@@ -84,7 +84,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ClientPeriodArchiveListFilesResponseV1**](client.ArchiveListFilesResponseV1.md)
+[**models::ClientPeriodArchiveListFilesResponseV1**](client.ArchiveListFilesResponseV1.md)
 
 ### Authorization
 
@@ -95,11 +95,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## archive_upload_v1
 
-> crate::models::ClientPeriodArchiveCreateResponseV1 archive_upload_v1(name, body, password, is_confidential, comment)
+> models::ClientPeriodArchiveCreateResponseV1 archive_upload_v1(name, body, password, is_confidential, comment)
 Uploads an archive and extracts files list from it. Operation is asynchronous use `/archives/entities/archives/v1` to check the status. After uploading, use `/archives/entities/extractions/v1` to copy the file to internal storage making it available for content analysis. This method is deprecated in favor of `/archives/entities/archives/v2`
 
 ### Parameters
@@ -114,7 +114,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ClientPeriodArchiveCreateResponseV1**](client.ArchiveCreateResponseV1.md)
+[**models::ClientPeriodArchiveCreateResponseV1**](client.ArchiveCreateResponseV1.md)
 
 ### Authorization
 
@@ -125,11 +125,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/octet-stream, application/zip, application/x-7z-compressed, application/x-zip-compressed
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## archive_upload_v2
 
-> crate::models::ClientPeriodArchiveCreateResponseV1 archive_upload_v2(file, name, password, is_confidential, comment)
+> models::ClientPeriodArchiveCreateResponseV1 archive_upload_v2(file, name, password, is_confidential, comment)
 Uploads an archive and extracts files list from it. Operation is asynchronous use `/archives/entities/archives/v1` to check the status. After uploading, use `/archives/entities/extractions/v1` to copy the file to internal storage making it available for content analysis.
 
 ### Parameters
@@ -144,7 +144,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ClientPeriodArchiveCreateResponseV1**](client.ArchiveCreateResponseV1.md)
+[**models::ClientPeriodArchiveCreateResponseV1**](client.ArchiveCreateResponseV1.md)
 
 ### Authorization
 
@@ -155,11 +155,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## delete_sample_v3
 
-> crate::models::MsaPeriodQueryResponse delete_sample_v3(ids)
+> models::MsaPeriodQueryResponse delete_sample_v3(ids)
 Removes a sample, including file, meta and submissions from the collection
 
 ### Parameters
@@ -170,7 +170,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
 
 ### Authorization
 
@@ -181,11 +181,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## extraction_create_v1
 
-> crate::models::ClientPeriodExtractionCreateResponseV1 extraction_create_v1(body)
+> models::ClientPeriodExtractionCreateResponseV1 extraction_create_v1(body)
 Extracts files from an uploaded archive and copies them to internal storage making it available for content analysis.
 
 ### Parameters
@@ -196,7 +196,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ClientPeriodExtractionCreateResponseV1**](client.ExtractionCreateResponseV1.md)
+[**models::ClientPeriodExtractionCreateResponseV1**](client.ExtractionCreateResponseV1.md)
 
 ### Authorization
 
@@ -207,11 +207,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## extraction_get_v1
 
-> crate::models::ClientPeriodExtractionCreateResponseV1 extraction_get_v1(id, include_files)
+> models::ClientPeriodExtractionCreateResponseV1 extraction_get_v1(id, include_files)
 Retrieves the files extraction operation statuses. Status `done` means that all files were processed successfully. Status `error` means that at least one of the file could not be processed.
 
 ### Parameters
@@ -223,7 +223,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ClientPeriodExtractionCreateResponseV1**](client.ExtractionCreateResponseV1.md)
+[**models::ClientPeriodExtractionCreateResponseV1**](client.ExtractionCreateResponseV1.md)
 
 ### Authorization
 
@@ -234,11 +234,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## extraction_list_v1
 
-> crate::models::ClientPeriodExtractionListFilesResponseV1 extraction_list_v1(id, limit, offset)
+> models::ClientPeriodExtractionListFilesResponseV1 extraction_list_v1(id, limit, offset)
 Retrieves the files extractions in chunks. Status `done` means that all files were processed successfully. Status `error` means that at least one of the file could not be processed.
 
 ### Parameters
@@ -251,7 +251,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ClientPeriodExtractionListFilesResponseV1**](client.ExtractionListFilesResponseV1.md)
+[**models::ClientPeriodExtractionListFilesResponseV1**](client.ExtractionListFilesResponseV1.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_sample_v3
 
@@ -289,11 +289,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## upload_sample_v3
 
-> crate::models::ClientPeriodSampleMetadataResponseV2 upload_sample_v3(sample, file_name, comment, is_confidential)
+> models::ClientPeriodSampleMetadataResponseV2 upload_sample_v3(sample, file_name, comment, is_confidential)
 Upload a file for further cloud analysis. After uploading, call the specific analysis API endpoint.
 
 ### Parameters
@@ -307,7 +307,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ClientPeriodSampleMetadataResponseV2**](client.SampleMetadataResponseV2.md)
+[**models::ClientPeriodSampleMetadataResponseV2**](client.SampleMetadataResponseV2.md)
 
 ### Authorization
 
@@ -318,4 +318,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: multipart/form-data, application/octet-stream
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

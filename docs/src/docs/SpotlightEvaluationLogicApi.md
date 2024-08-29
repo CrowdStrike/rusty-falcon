@@ -1,4 +1,4 @@
-# SpotlightEvaluationLogicApi
+# \SpotlightEvaluationLogicApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## combined_query_evaluation_logic
 
-> crate::models::DomainPeriodSpapiEvaluationLogicCombinedResponseV1 combined_query_evaluation_logic(filter, after, limit, sort)
+> models::DomainPeriodSpapiEvaluationLogicCombinedResponseV1 combined_query_evaluation_logic(filter, after, limit, sort)
 Search for evaluation logic in your environment by providing a FQL filter and paging details. Returns a set of evaluation logic entities which match the filter criteria.
 
 ### Parameters
@@ -24,7 +24,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodSpapiEvaluationLogicCombinedResponseV1**](domain.SPAPIEvaluationLogicCombinedResponseV1.md)
+[**models::DomainPeriodSpapiEvaluationLogicCombinedResponseV1**](domain.SPAPIEvaluationLogicCombinedResponseV1.md)
 
 ### Authorization
 
@@ -35,11 +35,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_evaluation_logic
 
-> crate::models::DomainPeriodSpapiEvaluationLogicEntitiesResponseV1 get_evaluation_logic(ids)
+> models::DomainPeriodSpapiEvaluationLogicEntitiesResponseV1 get_evaluation_logic(ids)
 Get details on evaluation logic items by providing one or more IDs.
 
 ### Parameters
@@ -50,7 +50,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodSpapiEvaluationLogicEntitiesResponseV1**](domain.SPAPIEvaluationLogicEntitiesResponseV1.md)
+[**models::DomainPeriodSpapiEvaluationLogicEntitiesResponseV1**](domain.SPAPIEvaluationLogicEntitiesResponseV1.md)
 
 ### Authorization
 
@@ -61,11 +61,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_evaluation_logic
 
-> crate::models::DomainPeriodSpapiQueryResponse query_evaluation_logic(filter, after, limit, sort)
+> models::DomainPeriodSpapiQueryResponse query_evaluation_logic(filter, after, limit, sort)
 Search for evaluation logic in your environment by providing a FQL filter and paging details. Returns a set of evaluation logic IDs which match the filter criteria.
 
 ### Parameters
@@ -79,7 +79,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainPeriodSpapiQueryResponse**](domain.SPAPIQueryResponse.md)
+[**models::DomainPeriodSpapiQueryResponse**](domain.SPAPIQueryResponse.md)
 
 ### Authorization
 
@@ -90,4 +90,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

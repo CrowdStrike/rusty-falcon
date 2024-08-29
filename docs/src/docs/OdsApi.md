@@ -1,4 +1,4 @@
-# OdsApi
+# \OdsApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**get_malicious_files_by_ids**](OdsApi.md#get_malicious_files_by_ids) | **GET** /ods/entities/malicious-files/v1 | Get malicious files by ids.
 [**get_scan_host_metadata_by_ids**](OdsApi.md#get_scan_host_metadata_by_ids) | **GET** /ods/entities/scan-hosts/v1 | Get scan hosts by ids.
 [**get_scans_by_scan_ids**](OdsApi.md#get_scans_by_scan_ids) | **GET** /ods/entities/scans/v1 | Get Scans by IDs.
+[**get_scans_by_scan_ids_v2**](OdsApi.md#get_scans_by_scan_ids_v2) | **GET** /ods/entities/scans/v2 | Get Scans by IDs.
 [**get_scheduled_scans_by_scan_ids**](OdsApi.md#get_scheduled_scans_by_scan_ids) | **GET** /ods/entities/scheduled-scans/v1 | Get ScheduledScans by IDs.
 [**query_malicious_files**](OdsApi.md#query_malicious_files) | **GET** /ods/queries/malicious-files/v1 | Query malicious files.
 [**query_scan_host_metadata**](OdsApi.md#query_scan_host_metadata) | **GET** /ods/queries/scan-hosts/v1 | Query scan hosts.
@@ -22,18 +23,18 @@ Method | HTTP request | Description
 
 ## aggregate_query_scan_host_metadata
 
-> crate::models::MsaPeriodAggregatesResponse aggregate_query_scan_host_metadata(body)
+> models::MsaPeriodAggregatesResponse aggregate_query_scan_host_metadata(body)
 Get aggregates on ODS scan-hosts data.
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -44,22 +45,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## aggregate_scans
 
-> crate::models::MsaPeriodAggregatesResponse aggregate_scans(body)
+> models::MsaPeriodAggregatesResponse aggregate_scans(body)
 Get aggregates on ODS scan data.
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -70,22 +71,22 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## aggregate_scheduled_scans
 
-> crate::models::MsaPeriodAggregatesResponse aggregate_scheduled_scans(body)
+> models::MsaPeriodAggregatesResponse aggregate_scheduled_scans(body)
 Get aggregates on ODS scheduled-scan data.
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -96,11 +97,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## cancel_scans
 
-> crate::models::MsaspecPeriodQueryResponse cancel_scans(body)
+> models::MsaspecPeriodQueryResponse cancel_scans(body)
 Cancel ODS scans for the given scan ids.
 
 ### Parameters
@@ -111,7 +112,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -122,11 +123,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## create_scan
 
-> crate::models::EntitiesPeriodOdsScanResponse create_scan(body)
+> models::EntitiesPeriodOdsScanResponse create_scan(body)
 Create ODS scan and start or schedule scan for the given scan request.
 
 ### Parameters
@@ -137,7 +138,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::EntitiesPeriodOdsScanResponse**](entities.ODSScanResponse.md)
+[**models::EntitiesPeriodOdsScanResponse**](entities.ODSScanResponse.md)
 
 ### Authorization
 
@@ -148,11 +149,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## delete_scheduled_scans
 
-> crate::models::MsaspecPeriodQueryResponse delete_scheduled_scans(ids, filter)
+> models::MsaspecPeriodQueryResponse delete_scheduled_scans(ids, filter)
 Delete ODS scheduled-scans for the given scheduled-scan ids.
 
 ### Parameters
@@ -164,7 +165,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -175,11 +176,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_malicious_files_by_ids
 
-> crate::models::EntitiesPeriodOdsScanMaliciousFileResponse get_malicious_files_by_ids(ids)
+> models::EntitiesPeriodOdsScanMaliciousFileResponse get_malicious_files_by_ids(ids)
 Get malicious files by ids.
 
 ### Parameters
@@ -190,7 +191,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::EntitiesPeriodOdsScanMaliciousFileResponse**](entities.ODSScanMaliciousFileResponse.md)
+[**models::EntitiesPeriodOdsScanMaliciousFileResponse**](entities.ODSScanMaliciousFileResponse.md)
 
 ### Authorization
 
@@ -201,11 +202,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_scan_host_metadata_by_ids
 
-> crate::models::EntitiesPeriodOdsScanHostResponse get_scan_host_metadata_by_ids(ids)
+> models::EntitiesPeriodOdsScanHostResponse get_scan_host_metadata_by_ids(ids)
 Get scan hosts by ids.
 
 ### Parameters
@@ -216,7 +217,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::EntitiesPeriodOdsScanHostResponse**](entities.ODSScanHostResponse.md)
+[**models::EntitiesPeriodOdsScanHostResponse**](entities.ODSScanHostResponse.md)
 
 ### Authorization
 
@@ -227,11 +228,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_scans_by_scan_ids
 
-> crate::models::EntitiesPeriodOdsScanResponse get_scans_by_scan_ids(ids)
+> models::EntitiesPeriodOdsScanResponse get_scans_by_scan_ids(ids)
 Get Scans by IDs.
 
 ### Parameters
@@ -242,7 +243,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::EntitiesPeriodOdsScanResponse**](entities.ODSScanResponse.md)
+[**models::EntitiesPeriodOdsScanResponse**](entities.ODSScanResponse.md)
 
 ### Authorization
 
@@ -253,11 +254,37 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## get_scans_by_scan_ids_v2
+
+> models::EntitiesPeriodOdsScanResponseV2 get_scans_by_scan_ids_v2(ids)
+Get Scans by IDs.
+
+### Parameters
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**ids** | [**Vec<String>**](String.md) | The scan IDs to retrieve the scan entities | [required] |
+
+### Return type
+
+[**models::EntitiesPeriodOdsScanResponseV2**](entities.ODSScanResponseV2.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_scheduled_scans_by_scan_ids
 
-> crate::models::EntitiesPeriodOdsScheduleScanResponse get_scheduled_scans_by_scan_ids(ids)
+> models::EntitiesPeriodOdsScheduleScanResponse get_scheduled_scans_by_scan_ids(ids)
 Get ScheduledScans by IDs.
 
 ### Parameters
@@ -268,7 +295,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::EntitiesPeriodOdsScheduleScanResponse**](entities.ODSScheduleScanResponse.md)
+[**models::EntitiesPeriodOdsScheduleScanResponse**](entities.ODSScheduleScanResponse.md)
 
 ### Authorization
 
@@ -279,11 +306,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_malicious_files
 
-> crate::models::MsaspecPeriodQueryResponse query_malicious_files(filter, offset, limit, sort)
+> models::MsaspecPeriodQueryResponse query_malicious_files(filter, offset, limit, sort)
 Query malicious files.
 
 ### Parameters
@@ -297,7 +324,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -308,25 +335,25 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_scan_host_metadata
 
-> crate::models::MsaspecPeriodQueryResponse query_scan_host_metadata(filter, offset, limit, sort)
+> models::MsaspecPeriodQueryResponse query_scan_host_metadata(filter, offset, limit, sort)
 Query scan hosts.
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**filter** | Option<**String**> | A FQL compatible query string. Terms: [id profile_id host_id scan_id host_scan_id filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity completed_on started_on last_updated] |  |
+**filter** | Option<**String**> | A FQL compatible query string. Terms: [id profile_id host_id scan_id host_scan_id filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity completed_on started_on last_updated scan_control_reason] |  |
 **offset** | Option<**i32**> | Index of the starting resource |  |[default to 0]
 **limit** | Option<**i32**> | The max number of resources to return |  |[default to 500]
 **sort** | Option<**String**> | The property to sort on, followed by a |, followed by the sort direction, either \"asc\" or \"desc\" |  |[default to last_updated|desc]
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -337,25 +364,25 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_scans
 
-> crate::models::MsaspecPeriodQueryResponse query_scans(filter, offset, limit, sort)
+> models::MsaspecPeriodQueryResponse query_scans(filter, offset, limit, sort)
 Query Scans.
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**filter** | Option<**String**> | A FQL compatible query string. Terms: [id profile_id description.keyword initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated] |  |
+**filter** | Option<**String**> | A FQL compatible query string. Terms: [id profile_id description.keyword initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated targeted_host_count missing_host_count] |  |
 **offset** | Option<**i32**> | Index of the starting resource |  |[default to 0]
 **limit** | Option<**i32**> | The max number of resources to return |  |[default to 500]
 **sort** | Option<**String**> | The property to sort on, followed by a |, followed by the sort direction, either \"asc\" or \"desc\" |  |[default to created_on|desc]
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -366,11 +393,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_scheduled_scans
 
-> crate::models::MsaspecPeriodQueryResponse query_scheduled_scans(filter, offset, limit, sort)
+> models::MsaspecPeriodQueryResponse query_scheduled_scans(filter, offset, limit, sort)
 Query ScheduledScans.
 
 ### Parameters
@@ -384,7 +411,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -395,11 +422,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## schedule_scan
 
-> crate::models::EntitiesPeriodOdsScheduleScanResponse schedule_scan(body)
+> models::EntitiesPeriodOdsScheduleScanResponse schedule_scan(body)
 Create ODS scan and start or schedule scan for the given scan request.
 
 ### Parameters
@@ -410,7 +437,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::EntitiesPeriodOdsScheduleScanResponse**](entities.ODSScheduleScanResponse.md)
+[**models::EntitiesPeriodOdsScheduleScanResponse**](entities.ODSScheduleScanResponse.md)
 
 ### Authorization
 
@@ -421,4 +448,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

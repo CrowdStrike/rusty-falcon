@@ -1,4 +1,4 @@
-# MessageCenterApi
+# \MessageCenterApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -17,18 +17,18 @@ Method | HTTP request | Description
 
 ## aggregate_cases
 
-> crate::models::MsaPeriodAggregatesResponse aggregate_cases(body)
+> models::MsaPeriodAggregatesResponse aggregate_cases(body)
 Retrieve aggregate case values based on the matched filter
 
 ### Parameters
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | [**Vec<crate::models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
+**body** | [**Vec<models::MsaPeriodAggregateQueryRequest>**](msa.AggregateQueryRequest.md) |  | [required] |
 
 ### Return type
 
-[**crate::models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
+[**models::MsaPeriodAggregatesResponse**](msa.AggregatesResponse.md)
 
 ### Authorization
 
@@ -39,11 +39,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## case_add_activity
 
-> crate::models::MsaspecPeriodResponseFields case_add_activity(body)
+> models::MsaspecPeriodResponseFields case_add_activity(body)
 Add an activity to case. Only activities of type comment are allowed via API
 
 ### Parameters
@@ -54,7 +54,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodResponseFields**](msaspec.ResponseFields.md)
+[**models::MsaspecPeriodResponseFields**](msaspec.ResponseFields.md)
 
 ### Authorization
 
@@ -65,11 +65,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## case_add_attachment
 
-> crate::models::ApiPeriodMessageCenterAttachmentUploadResponse case_add_attachment(case_id, user_uuid, file)
+> models::ApiPeriodMessageCenterAttachmentUploadResponse case_add_attachment(case_id, user_uuid, file)
 Upload an attachment for the case.
 
 Upload an attachment for the case. Maximum upload size allowed is *15 MB*.   Filename must start with *[a-zA-Z0-9_-]*. Allowed characters in file name are *[a-zA-Z0-9-_.\\s]*.    Maximum file name is *255* characters      Following attachment types are allowed:   - png   - bmp   - jpg   - jpeg   - gif   - pdf   - doc   - docx   - xls   - xlsx   - pptx   - txt   - csv
@@ -84,7 +84,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodMessageCenterAttachmentUploadResponse**](api.MessageCenterAttachmentUploadResponse.md)
+[**models::ApiPeriodMessageCenterAttachmentUploadResponse**](api.MessageCenterAttachmentUploadResponse.md)
 
 ### Authorization
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## case_download_attachment
 
@@ -121,11 +121,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json, image/png, image/bmp, image/jpeg, image/jpg, image/gif, application/zip, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.presentationml.presentation, text/plain
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## create_case
 
-> crate::models::MsaPeriodReplyAffectedEntities create_case(body)
+> models::MsaPeriodReplyAffectedEntities create_case(body)
 create a new case
 
 ### Parameters
@@ -136,7 +136,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyAffectedEntities**](msa.ReplyAffectedEntities.md)
+[**models::MsaPeriodReplyAffectedEntities**](msa.ReplyAffectedEntities.md)
 
 ### Authorization
 
@@ -147,11 +147,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## create_case_v2
 
-> crate::models::MsaPeriodReplyAffectedEntities create_case_v2(body)
+> models::MsaPeriodReplyAffectedEntities create_case_v2(body)
 create a new case
 
 ### Parameters
@@ -162,7 +162,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyAffectedEntities**](msa.ReplyAffectedEntities.md)
+[**models::MsaPeriodReplyAffectedEntities**](msa.ReplyAffectedEntities.md)
 
 ### Authorization
 
@@ -173,11 +173,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_case_activity_by_ids
 
-> crate::models::ApiPeriodMessageCenterActivityResponse get_case_activity_by_ids(body)
+> models::ApiPeriodMessageCenterActivityResponse get_case_activity_by_ids(body)
 Retrieve activities for given id's
 
 ### Parameters
@@ -188,7 +188,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodMessageCenterActivityResponse**](api.MessageCenterActivityResponse.md)
+[**models::ApiPeriodMessageCenterActivityResponse**](api.MessageCenterActivityResponse.md)
 
 ### Authorization
 
@@ -199,11 +199,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## get_case_entities_by_ids
 
-> crate::models::ApiPeriodMessageCenterCasesResponse get_case_entities_by_ids(body)
+> models::ApiPeriodMessageCenterCasesResponse get_case_entities_by_ids(body)
 Retrieve message center cases
 
 ### Parameters
@@ -214,7 +214,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ApiPeriodMessageCenterCasesResponse**](api.MessageCenterCasesResponse.md)
+[**models::ApiPeriodMessageCenterCasesResponse**](api.MessageCenterCasesResponse.md)
 
 ### Authorization
 
@@ -225,11 +225,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_activity_by_case_id
 
-> crate::models::MsaspecPeriodQueryResponse query_activity_by_case_id(case_id, limit, sort, filter, offset)
+> models::MsaspecPeriodQueryResponse query_activity_by_case_id(case_id, limit, sort, filter, offset)
 Retrieve activities id's for a case
 
 ### Parameters
@@ -244,7 +244,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -255,11 +255,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## query_cases_ids_by_filter
 
-> crate::models::MsaspecPeriodQueryResponse query_cases_ids_by_filter(limit, sort, filter, offset)
+> models::MsaspecPeriodQueryResponse query_cases_ids_by_filter(limit, sort, filter, offset)
 Retrieve case id's that match the provided filter criteria
 
 ### Parameters
@@ -273,7 +273,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -284,4 +284,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -1,4 +1,4 @@
-# EventStreamsApi
+# \EventStreamsApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 ## list_available_streams_o_auth2
 
-> crate::models::MainPeriodDiscoveryResponseV2 list_available_streams_o_auth2(app_id, format)
+> models::MainPeriodDiscoveryResponseV2 list_available_streams_o_auth2(app_id, format)
 Discover all event streams in your environment
 
 ### Parameters
@@ -21,7 +21,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MainPeriodDiscoveryResponseV2**](main.discoveryResponseV2.md)
+[**models::MainPeriodDiscoveryResponseV2**](main.discoveryResponseV2.md)
 
 ### Authorization
 
@@ -32,11 +32,11 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 ## refresh_active_stream_session
 
-> crate::models::MsaPeriodReplyMetaOnly refresh_active_stream_session(action_name, app_id, partition)
+> models::MsaPeriodReplyMetaOnly refresh_active_stream_session(action_name, app_id, partition)
 Refresh an active event stream. Use the URL shown in a GET /sensors/entities/datafeed/v2 response.
 
 ### Parameters
@@ -49,7 +49,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
+[**models::MsaPeriodReplyMetaOnly**](msa.ReplyMetaOnly.md)
 
 ### Authorization
 
@@ -60,4 +60,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

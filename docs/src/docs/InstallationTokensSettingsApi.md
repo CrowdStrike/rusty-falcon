@@ -1,4 +1,4 @@
-# InstallationTokensSettingsApi
+# \InstallationTokensSettingsApi
 
 All URIs are relative to *<https://api.crowdstrike.com>*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 ## customer_settings_update
 
-> crate::models::MsaPeriodQueryResponse customer_settings_update(body)
+> models::MsaspecPeriodQueryResponse customer_settings_update(body)
 Update installation token settings.
 
 ### Parameters
@@ -19,7 +19,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::MsaPeriodQueryResponse**](msa.QueryResponse.md)
+[**models::MsaspecPeriodQueryResponse**](msaspec.QueryResponse.md)
 
 ### Authorization
 
@@ -30,4 +30,4 @@ Name | Type | Description  | Required | Notes
 - **Content-Type**: application/json
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](./README.md#documentation-for-api-endpoints) [[Back to Model list]](./README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
