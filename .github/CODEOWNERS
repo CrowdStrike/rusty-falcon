@@ -1,0 +1,15 @@
+# See docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default unless a later match takes precedence
+* @davidc6 @makr11st @mikemadden42 @tomaszjonak
+
+# CI
+/.github/ @makr11st @mikemadden42
+
+# Documentation
+
+# Testing
+
+# Packaging / Misc. contribution (e.g. config files)
+
+# Rust
