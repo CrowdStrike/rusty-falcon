@@ -9,12 +9,11 @@
  */
 
 /// DomainPeriodUserAction : Action to be performed
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodUserAction {
     /// Action name
-    #[serde(rename = "action_name", skip_serializing_if = "Option::is_none")]
-    pub action_name: Option<ActionName>,
+    #[serde(rename = "action_name")]
+    pub action_name: ActionName,
     /// Value for action, if any
     #[serde(rename = "action_value", skip_serializing_if = "Option::is_none")]
     pub action_value: Option<String>,
@@ -22,14 +21,13 @@ pub struct DomainPeriodUserAction {
 
 impl DomainPeriodUserAction {
     /// Action to be performed
-    pub fn new() -> DomainPeriodUserAction {
+    pub fn new(action_name: ActionName) -> DomainPeriodUserAction {
         DomainPeriodUserAction {
-            action_name: None,
+            action_name,
             action_value: None,
         }
     }
 }
-
 /// Action name
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ActionName {

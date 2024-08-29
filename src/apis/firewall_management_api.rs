@@ -11,15 +11,15 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`aggregate_events`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateEventsError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,9 +27,9 @@ pub enum AggregateEventsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregatePolicyRulesError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,9 +37,9 @@ pub enum AggregatePolicyRulesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateRuleGroupsError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     Status500(),
     UnknownValue(serde_json::Value),
 }
@@ -48,9 +48,9 @@ pub enum AggregateRuleGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateRulesError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -58,9 +58,9 @@ pub enum AggregateRulesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateNetworkLocationsError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -68,9 +68,9 @@ pub enum CreateNetworkLocationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateRuleGroupError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -78,9 +78,9 @@ pub enum CreateRuleGroupError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateRuleGroupValidationError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -88,9 +88,9 @@ pub enum CreateRuleGroupValidationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteNetworkLocationsError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -98,9 +98,9 @@ pub enum DeleteNetworkLocationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteRuleGroupsError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -108,9 +108,9 @@ pub enum DeleteRuleGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetEventsError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -118,8 +118,8 @@ pub enum GetEventsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetFirewallFieldsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -127,9 +127,9 @@ pub enum GetFirewallFieldsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetNetworkLocationsError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -137,9 +137,9 @@ pub enum GetNetworkLocationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetNetworkLocationsDetailsError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -147,8 +147,8 @@ pub enum GetNetworkLocationsDetailsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetPlatformsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -156,9 +156,9 @@ pub enum GetPlatformsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetPolicyContainersError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -166,9 +166,9 @@ pub enum GetPolicyContainersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRuleGroupsError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -176,9 +176,9 @@ pub enum GetRuleGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRulesError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -186,9 +186,9 @@ pub enum GetRulesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryEventsError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -196,8 +196,8 @@ pub enum QueryEventsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryFirewallFieldsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -205,9 +205,9 @@ pub enum QueryFirewallFieldsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryNetworkLocationsError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -215,8 +215,8 @@ pub enum QueryNetworkLocationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryPlatformsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -224,9 +224,9 @@ pub enum QueryPlatformsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryPolicyRulesError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -234,9 +234,9 @@ pub enum QueryPolicyRulesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRuleGroupsError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -244,9 +244,9 @@ pub enum QueryRuleGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRulesError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -254,9 +254,9 @@ pub enum QueryRulesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateNetworkLocationsError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -264,9 +264,9 @@ pub enum UpdateNetworkLocationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateNetworkLocationsMetadataError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -274,9 +274,9 @@ pub enum UpdateNetworkLocationsMetadataError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateNetworkLocationsPrecedenceError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -284,9 +284,9 @@ pub enum UpdateNetworkLocationsPrecedenceError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdatePolicyContainerError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -294,9 +294,9 @@ pub enum UpdatePolicyContainerError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdatePolicyContainerV1Error {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -304,9 +304,9 @@ pub enum UpdatePolicyContainerV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateRuleGroupError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -314,9 +314,9 @@ pub enum UpdateRuleGroupError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateRuleGroupValidationError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -324,9 +324,9 @@ pub enum UpdateRuleGroupValidationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpsertNetworkLocationsError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -334,16 +334,16 @@ pub enum UpsertNetworkLocationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ValidateFilepathPatternError {
-    Status400(crate::models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn aggregate_events(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::FwmgrPeriodMsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodAggregatesResponse, Error<AggregateEventsError>> {
+    body: Vec<models::FwmgrPeriodMsaPeriodAggregateQueryRequest>,
+) -> Result<models::FwmgrPeriodApiPeriodAggregatesResponse, Error<AggregateEventsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -386,9 +386,8 @@ pub async fn aggregate_events(
 
 pub async fn aggregate_policy_rules(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::FwmgrPeriodMsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodAggregatesResponse, Error<AggregatePolicyRulesError>>
-{
+    body: Vec<models::FwmgrPeriodMsaPeriodAggregateQueryRequest>,
+) -> Result<models::FwmgrPeriodApiPeriodAggregatesResponse, Error<AggregatePolicyRulesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -431,9 +430,8 @@ pub async fn aggregate_policy_rules(
 
 pub async fn aggregate_rule_groups(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::FwmgrPeriodMsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodAggregatesResponse, Error<AggregateRuleGroupsError>>
-{
+    body: Vec<models::FwmgrPeriodMsaPeriodAggregateQueryRequest>,
+) -> Result<models::FwmgrPeriodApiPeriodAggregatesResponse, Error<AggregateRuleGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -476,8 +474,8 @@ pub async fn aggregate_rule_groups(
 
 pub async fn aggregate_rules(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::FwmgrPeriodMsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodAggregatesResponse, Error<AggregateRulesError>> {
+    body: Vec<models::FwmgrPeriodMsaPeriodAggregateQueryRequest>,
+) -> Result<models::FwmgrPeriodApiPeriodAggregatesResponse, Error<AggregateRulesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -520,14 +518,12 @@ pub async fn aggregate_rules(
 
 pub async fn create_network_locations(
     configuration: &configuration::Configuration,
-    body: crate::models::FwmgrPeriodApiPeriodNetworkLocationCreateRequestV1,
+    body: models::FwmgrPeriodApiPeriodNetworkLocationCreateRequestV1,
     clone_id: Option<&str>,
     add_fw_rules: Option<bool>,
     comment: Option<&str>,
-) -> Result<
-    crate::models::FwmgrPeriodApiPeriodNetworkLocationsResponse,
-    Error<CreateNetworkLocationsError>,
-> {
+) -> Result<models::FwmgrPeriodApiPeriodNetworkLocationsResponse, Error<CreateNetworkLocationsError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -582,11 +578,11 @@ pub async fn create_network_locations(
 
 pub async fn create_rule_group(
     configuration: &configuration::Configuration,
-    body: crate::models::FwmgrPeriodApiPeriodRuleGroupCreateRequestV1,
+    body: models::FwmgrPeriodApiPeriodRuleGroupCreateRequestV1,
     clone_id: Option<&str>,
     library: Option<&str>,
     comment: Option<&str>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodQueryResponse, Error<CreateRuleGroupError>> {
+) -> Result<models::FwmgrPeriodApiPeriodQueryResponse, Error<CreateRuleGroupError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -641,14 +637,11 @@ pub async fn create_rule_group(
 
 pub async fn create_rule_group_validation(
     configuration: &configuration::Configuration,
-    body: crate::models::FwmgrPeriodApiPeriodRuleGroupCreateRequestV1,
+    body: models::FwmgrPeriodApiPeriodRuleGroupCreateRequestV1,
     clone_id: Option<&str>,
     library: Option<&str>,
     comment: Option<&str>,
-) -> Result<
-    crate::models::FwmgrPeriodMsaspecPeriodQueryResponse,
-    Error<CreateRuleGroupValidationError>,
-> {
+) -> Result<models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<CreateRuleGroupValidationError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -704,8 +697,7 @@ pub async fn create_rule_group_validation(
 pub async fn delete_network_locations(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<DeleteNetworkLocationsError>>
-{
+) -> Result<models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<DeleteNetworkLocationsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -720,7 +712,7 @@ pub async fn delete_network_locations(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -764,7 +756,7 @@ pub async fn delete_rule_groups(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     comment: Option<&str>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodQueryResponse, Error<DeleteRuleGroupsError>> {
+) -> Result<models::FwmgrPeriodApiPeriodQueryResponse, Error<DeleteRuleGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -779,7 +771,7 @@ pub async fn delete_rule_groups(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -826,7 +818,7 @@ pub async fn delete_rule_groups(
 pub async fn get_events(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodEventsResponse, Error<GetEventsError>> {
+) -> Result<models::FwmgrPeriodApiPeriodEventsResponse, Error<GetEventsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -841,7 +833,7 @@ pub async fn get_events(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -884,8 +876,7 @@ pub async fn get_events(
 pub async fn get_firewall_fields(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodFirewallFieldsResponse, Error<GetFirewallFieldsError>>
-{
+) -> Result<models::FwmgrPeriodApiPeriodFirewallFieldsResponse, Error<GetFirewallFieldsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -900,7 +891,7 @@ pub async fn get_firewall_fields(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -945,7 +936,7 @@ pub async fn get_network_locations(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
 ) -> Result<
-    crate::models::FwmgrPeriodApiPeriodNetworkLocationSummariesResponse,
+    models::FwmgrPeriodApiPeriodNetworkLocationSummariesResponse,
     Error<GetNetworkLocationsError>,
 > {
     let local_var_configuration = configuration;
@@ -962,7 +953,7 @@ pub async fn get_network_locations(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1007,7 +998,7 @@ pub async fn get_network_locations_details(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
 ) -> Result<
-    crate::models::FwmgrPeriodApiPeriodNetworkLocationsResponse,
+    models::FwmgrPeriodApiPeriodNetworkLocationsResponse,
     Error<GetNetworkLocationsDetailsError>,
 > {
     let local_var_configuration = configuration;
@@ -1024,7 +1015,7 @@ pub async fn get_network_locations_details(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1067,7 +1058,7 @@ pub async fn get_network_locations_details(
 pub async fn get_platforms(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodPlatformsResponse, Error<GetPlatformsError>> {
+) -> Result<models::FwmgrPeriodApiPeriodPlatformsResponse, Error<GetPlatformsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1082,7 +1073,7 @@ pub async fn get_platforms(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1125,10 +1116,7 @@ pub async fn get_platforms(
 pub async fn get_policy_containers(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    crate::models::FwmgrPeriodApiPeriodPolicyContainersResponse,
-    Error<GetPolicyContainersError>,
-> {
+) -> Result<models::FwmgrPeriodApiPeriodPolicyContainersResponse, Error<GetPolicyContainersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1143,7 +1131,7 @@ pub async fn get_policy_containers(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1186,7 +1174,7 @@ pub async fn get_policy_containers(
 pub async fn get_rule_groups(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodRuleGroupsResponse, Error<GetRuleGroupsError>> {
+) -> Result<models::FwmgrPeriodApiPeriodRuleGroupsResponse, Error<GetRuleGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1201,7 +1189,7 @@ pub async fn get_rule_groups(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1244,7 +1232,7 @@ pub async fn get_rule_groups(
 pub async fn get_rules(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodRulesResponse, Error<GetRulesError>> {
+) -> Result<models::FwmgrPeriodApiPeriodRulesResponse, Error<GetRulesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1259,7 +1247,7 @@ pub async fn get_rules(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1306,7 +1294,7 @@ pub async fn query_events(
     offset: Option<&str>,
     after: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodQueryResponse, Error<QueryEventsError>> {
+) -> Result<models::FwmgrPeriodApiPeriodQueryResponse, Error<QueryEventsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1374,7 +1362,7 @@ pub async fn query_firewall_fields(
     platform_id: Option<&str>,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<QueryFirewallFieldsError>> {
+) -> Result<models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<QueryFirewallFieldsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1435,7 +1423,7 @@ pub async fn query_network_locations(
     offset: Option<&str>,
     after: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodQueryResponse, Error<QueryNetworkLocationsError>> {
+) -> Result<models::FwmgrPeriodApiPeriodQueryResponse, Error<QueryNetworkLocationsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1502,7 +1490,7 @@ pub async fn query_platforms(
     configuration: &configuration::Configuration,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<QueryPlatformsError>> {
+) -> Result<models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<QueryPlatformsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1558,7 +1546,7 @@ pub async fn query_policy_rules(
     q: Option<&str>,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodQueryResponse, Error<QueryPolicyRulesError>> {
+) -> Result<models::FwmgrPeriodApiPeriodQueryResponse, Error<QueryPolicyRulesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1628,7 +1616,7 @@ pub async fn query_rule_groups(
     offset: Option<&str>,
     after: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodQueryResponse, Error<QueryRuleGroupsError>> {
+) -> Result<models::FwmgrPeriodApiPeriodQueryResponse, Error<QueryRuleGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1699,7 +1687,7 @@ pub async fn query_rules(
     offset: Option<&str>,
     after: Option<&str>,
     limit: Option<i32>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodQueryResponse, Error<QueryRulesError>> {
+) -> Result<models::FwmgrPeriodApiPeriodQueryResponse, Error<QueryRulesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1764,10 +1752,9 @@ pub async fn query_rules(
 
 pub async fn update_network_locations(
     configuration: &configuration::Configuration,
-    body: crate::models::FwmgrPeriodApiPeriodNetworkLocationModifyRequestV1,
+    body: models::FwmgrPeriodApiPeriodNetworkLocationModifyRequestV1,
     comment: Option<&str>,
-) -> Result<crate::models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<UpdateNetworkLocationsError>>
-{
+) -> Result<models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<UpdateNetworkLocationsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1814,12 +1801,10 @@ pub async fn update_network_locations(
 
 pub async fn update_network_locations_metadata(
     configuration: &configuration::Configuration,
-    body: crate::models::FwmgrPeriodApiPeriodNetworkLocationModifyMetadataRequestV1,
+    body: models::FwmgrPeriodApiPeriodNetworkLocationModifyMetadataRequestV1,
     comment: Option<&str>,
-) -> Result<
-    crate::models::FwmgrPeriodMsaspecPeriodQueryResponse,
-    Error<UpdateNetworkLocationsMetadataError>,
-> {
+) -> Result<models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<UpdateNetworkLocationsMetadataError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1866,10 +1851,10 @@ pub async fn update_network_locations_metadata(
 
 pub async fn update_network_locations_precedence(
     configuration: &configuration::Configuration,
-    body: crate::models::FwmgrPeriodApiPeriodNetworkLocationModifyPrecedenceRequestV1,
+    body: models::FwmgrPeriodApiPeriodNetworkLocationModifyPrecedenceRequestV1,
     comment: Option<&str>,
 ) -> Result<
-    crate::models::FwmgrPeriodMsaspecPeriodQueryResponse,
+    models::FwmgrPeriodMsaspecPeriodQueryResponse,
     Error<UpdateNetworkLocationsPrecedenceError>,
 > {
     let local_var_configuration = configuration;
@@ -1918,9 +1903,8 @@ pub async fn update_network_locations_precedence(
 
 pub async fn update_policy_container(
     configuration: &configuration::Configuration,
-    body: crate::models::FwmgrPeriodApiPeriodPolicyContainerUpsertRequestV1,
-) -> Result<crate::models::FwmgrPeriodMsaspecPeriodResponseFields, Error<UpdatePolicyContainerError>>
-{
+    body: models::FwmgrPeriodApiPeriodPolicyContainerUpsertRequestV1,
+) -> Result<models::FwmgrPeriodMsaspecPeriodResponseFields, Error<UpdatePolicyContainerError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1963,11 +1947,8 @@ pub async fn update_policy_container(
 
 pub async fn update_policy_container_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::FwmgrPeriodApiPeriodPolicyContainerUpsertRequestV1,
-) -> Result<
-    crate::models::FwmgrPeriodMsaspecPeriodResponseFields,
-    Error<UpdatePolicyContainerV1Error>,
-> {
+    body: models::FwmgrPeriodApiPeriodPolicyContainerUpsertRequestV1,
+) -> Result<models::FwmgrPeriodMsaspecPeriodResponseFields, Error<UpdatePolicyContainerV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -2010,9 +1991,9 @@ pub async fn update_policy_container_v1(
 
 pub async fn update_rule_group(
     configuration: &configuration::Configuration,
-    body: crate::models::FwmgrPeriodApiPeriodRuleGroupModifyRequestV1,
+    body: models::FwmgrPeriodApiPeriodRuleGroupModifyRequestV1,
     comment: Option<&str>,
-) -> Result<crate::models::FwmgrPeriodApiPeriodQueryResponse, Error<UpdateRuleGroupError>> {
+) -> Result<models::FwmgrPeriodApiPeriodQueryResponse, Error<UpdateRuleGroupError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -2059,12 +2040,9 @@ pub async fn update_rule_group(
 
 pub async fn update_rule_group_validation(
     configuration: &configuration::Configuration,
-    body: crate::models::FwmgrPeriodApiPeriodRuleGroupModifyRequestV1,
+    body: models::FwmgrPeriodApiPeriodRuleGroupModifyRequestV1,
     comment: Option<&str>,
-) -> Result<
-    crate::models::FwmgrPeriodMsaspecPeriodQueryResponse,
-    Error<UpdateRuleGroupValidationError>,
-> {
+) -> Result<models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<UpdateRuleGroupValidationError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -2111,10 +2089,9 @@ pub async fn update_rule_group_validation(
 
 pub async fn upsert_network_locations(
     configuration: &configuration::Configuration,
-    body: crate::models::FwmgrPeriodApiPeriodNetworkLocationModifyRequestV1,
+    body: models::FwmgrPeriodApiPeriodNetworkLocationModifyRequestV1,
     comment: Option<&str>,
-) -> Result<crate::models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<UpsertNetworkLocationsError>>
-{
+) -> Result<models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<UpsertNetworkLocationsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -2161,11 +2138,9 @@ pub async fn upsert_network_locations(
 
 pub async fn validate_filepath_pattern(
     configuration: &configuration::Configuration,
-    body: crate::models::FwmgrPeriodApiPeriodFilepathTestRequest,
-) -> Result<
-    crate::models::FwmgrPeriodApiPeriodValidateFilepathResponse,
-    Error<ValidateFilepathPatternError>,
-> {
+    body: models::FwmgrPeriodApiPeriodFilepathTestRequest,
+) -> Result<models::FwmgrPeriodApiPeriodValidateFilepathResponse, Error<ValidateFilepathPatternError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

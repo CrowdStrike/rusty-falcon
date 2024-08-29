@@ -11,16 +11,28 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
+
+/// struct for typed errors of method [`connect_d4_cgcp_account`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ConnectD4CgcpAccountError {
+    Status400(models::RegistrationPeriodGcpAccountResponseExtV2),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status409(models::RegistrationPeriodGcpAccountResponseExtV2),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodGcpAccountResponseExtV2),
+    UnknownValue(serde_json::Value),
+}
 
 /// struct for typed errors of method [`create_d4_c_aws_account`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateD4CAwsAccountError {
-    Status400(crate::models::RegistrationPeriodAwsAccountResponseV2),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAwsAccountResponseV2),
+    Status400(models::RegistrationPeriodAwsAccountResponseV2),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAwsAccountResponseV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +40,10 @@ pub enum CreateD4CAwsAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateD4CgcpAccountError {
-    Status400(crate::models::RegistrationPeriodGcpAccountResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodGcpAccountResponseV1),
+    Status400(models::RegistrationPeriodGcpAccountResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodGcpAccountResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +51,11 @@ pub enum CreateD4CgcpAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateDiscoverCloudAzureAccountError {
-    Status400(crate::models::RegistrationPeriodAzureAccountResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAzureAccountResponseV1),
+    Status400(models::RegistrationPeriodAzureAccountResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status409(models::RegistrationPeriodAzureAccountResponseV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureAccountResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +63,21 @@ pub enum CreateDiscoverCloudAzureAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteD4CAwsAccountError {
-    Status400(crate::models::MsaPeriodBaseEntitiesResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodBaseEntitiesResponse),
+    Status400(models::MsaPeriodBaseEntitiesResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodBaseEntitiesResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_d4_cgcp_account`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteD4CgcpAccountError {
+    Status400(models::MsaPeriodBaseEntitiesResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodBaseEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,10 +85,10 @@ pub enum DeleteD4CAwsAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DiscoverCloudAzureDownloadCertificateError {
-    Status400(crate::models::RegistrationPeriodAzureDownloadCertificateResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAzureDownloadCertificateResponseV1),
+    Status400(models::RegistrationPeriodAzureDownloadCertificateResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureDownloadCertificateResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -72,10 +96,10 @@ pub enum DiscoverCloudAzureDownloadCertificateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetD4CAwsAccountError {
-    Status400(crate::models::RegistrationPeriodAwsAccountResponseV2),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAwsAccountResponseV2),
+    Status400(models::RegistrationPeriodAwsAccountResponseV2),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAwsAccountResponseV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -83,10 +107,10 @@ pub enum GetD4CAwsAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetD4CAwsConsoleSetupUrlsError {
-    Status400(crate::models::RegistrationPeriodAwsAccountConsoleUrl),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAwsAccountConsoleUrl),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -94,10 +118,10 @@ pub enum GetD4CAwsConsoleSetupUrlsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetD4CawsAccountScriptsAttachmentError {
-    Status400(crate::models::RegistrationPeriodAwsProvisionGetAccountScriptResponseV2),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAwsProvisionGetAccountScriptResponseV2),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -105,10 +129,21 @@ pub enum GetD4CawsAccountScriptsAttachmentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetD4CcgpAccountError {
-    Status400(crate::models::RegistrationPeriodGcpAccountResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodGcpAccountResponseV1),
+    Status400(models::RegistrationPeriodGcpAccountResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodGcpAccountResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_d4_cgcp_service_accounts_ext`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetD4CgcpServiceAccountsExtError {
+    Status400(models::RegistrationPeriodGcpServiceAccountResponseExtV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodGcpServiceAccountResponseExtV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -116,10 +151,21 @@ pub enum GetD4CcgpAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetD4CgcpUserScriptsError {
-    Status400(crate::models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1),
+    Status400(models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_d4_cgcp_user_scripts_attachment`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetD4CgcpUserScriptsAttachmentError {
+    Status400(models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -127,10 +173,10 @@ pub enum GetD4CgcpUserScriptsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetDiscoverCloudAzureAccountError {
-    Status400(crate::models::RegistrationPeriodAzureAccountResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAzureAccountResponseV1),
+    Status400(models::RegistrationPeriodAzureAccountResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureAccountResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -138,10 +184,10 @@ pub enum GetDiscoverCloudAzureAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetDiscoverCloudAzureTenantIdsError {
-    Status400(crate::models::RegistrationPeriodAzureTenantIdsResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAzureTenantIdsResponseV1),
+    Status400(models::RegistrationPeriodAzureTenantIdsResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureTenantIdsResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -149,10 +195,10 @@ pub enum GetDiscoverCloudAzureTenantIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetDiscoverCloudAzureUserScriptsError {
-    Status400(crate::models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1),
+    Status400(models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -160,10 +206,10 @@ pub enum GetDiscoverCloudAzureUserScriptsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetDiscoverCloudAzureUserScriptsAttachmentError {
-    Status400(crate::models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1),
+    Status400(models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -171,8 +217,19 @@ pub enum GetDiscoverCloudAzureUserScriptsAttachmentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetHorizonD4CScriptsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_d4_cgcp_service_accounts_ext`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateD4CgcpServiceAccountsExtError {
+    Status400(models::RegistrationPeriodGcpServiceAccountResponseExtV1),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodGcpServiceAccountResponseExtV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -180,18 +237,61 @@ pub enum GetHorizonD4CScriptsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateDiscoverCloudAzureAccountClientIdError {
-    Status400(crate::models::RegistrationPeriodAzureTenantConfigurationResponseV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RegistrationPeriodAzureTenantConfigurationResponseV1),
+    Status400(models::RegistrationPeriodAzureTenantConfigurationResponseV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RegistrationPeriodAzureTenantConfigurationResponseV1),
     UnknownValue(serde_json::Value),
+}
+
+pub async fn connect_d4_cgcp_account(
+    configuration: &configuration::Configuration,
+    body: models::RegistrationPeriodGcpAccountExtRequestV2,
+) -> Result<models::RegistrationPeriodGcpAccountResponseExtV2, Error<ConnectD4CgcpAccountError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-gcp/entities/account/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ConnectD4CgcpAccountError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
 }
 
 pub async fn create_d4_c_aws_account(
     configuration: &configuration::Configuration,
-    body: crate::models::RegistrationPeriodAwsAccountCreateRequestD4CExtV2,
-) -> Result<crate::models::RegistrationPeriodAwsAccountResponseV2, Error<CreateD4CAwsAccountError>>
-{
+    body: models::RegistrationPeriodAwsAccountCreateRequestD4CExtV2,
+) -> Result<models::RegistrationPeriodAwsAccountResponseV2, Error<CreateD4CAwsAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -234,9 +334,8 @@ pub async fn create_d4_c_aws_account(
 
 pub async fn create_d4_cgcp_account(
     configuration: &configuration::Configuration,
-    body: crate::models::RegistrationPeriodGcpAccountCreateRequestExtV1,
-) -> Result<crate::models::RegistrationPeriodGcpAccountResponseV1, Error<CreateD4CgcpAccountError>>
-{
+    body: models::RegistrationPeriodGcpAccountCreateRequestExtV1,
+) -> Result<models::RegistrationPeriodGcpAccountResponseV1, Error<CreateD4CgcpAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -279,9 +378,9 @@ pub async fn create_d4_cgcp_account(
 
 pub async fn create_discover_cloud_azure_account(
     configuration: &configuration::Configuration,
-    body: crate::models::RegistrationPeriodAzureAccountCreateRequestExternalV1,
+    body: models::RegistrationPeriodAzureAccountCreateRequestExternalV1,
 ) -> Result<
-    crate::models::RegistrationPeriodAzureAccountResponseV1,
+    models::RegistrationPeriodAzureAccountResponseV1,
     Error<CreateDiscoverCloudAzureAccountError>,
 > {
     let local_var_configuration = configuration;
@@ -328,7 +427,7 @@ pub async fn delete_d4_c_aws_account(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
     organization_ids: Option<Vec<String>>,
-) -> Result<crate::models::MsaPeriodBaseEntitiesResponse, Error<DeleteD4CAwsAccountError>> {
+) -> Result<models::MsaPeriodBaseEntitiesResponse, Error<DeleteD4CAwsAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -406,13 +505,75 @@ pub async fn delete_d4_c_aws_account(
     }
 }
 
+pub async fn delete_d4_cgcp_account(
+    configuration: &configuration::Configuration,
+    ids: Option<Vec<String>>,
+) -> Result<models::MsaPeriodBaseEntitiesResponse, Error<DeleteD4CgcpAccountError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-gcp/entities/account/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = ids {
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
+        };
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<DeleteD4CgcpAccountError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn discover_cloud_azure_download_certificate(
     configuration: &configuration::Configuration,
     tenant_id: Vec<String>,
     refresh: Option<bool>,
     years_valid: Option<&str>,
 ) -> Result<
-    crate::models::RegistrationPeriodAzureDownloadCertificateResponseV1,
+    models::RegistrationPeriodAzureDownloadCertificateResponseV1,
     Error<DiscoverCloudAzureDownloadCertificateError>,
 > {
     let local_var_configuration = configuration;
@@ -430,7 +591,7 @@ pub async fn discover_cloud_azure_download_certificate(
         "multi" => local_var_req_builder.query(
             &tenant_id
                 .into_iter()
-                .map(|p| ("tenant_id".to_owned(), p))
+                .map(|p| ("tenant_id".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -488,7 +649,7 @@ pub async fn get_d4_c_aws_account(
     limit: Option<i32>,
     offset: Option<i32>,
     migrated: Option<&str>,
-) -> Result<crate::models::RegistrationPeriodAwsAccountResponseV2, Error<GetD4CAwsAccountError>> {
+) -> Result<models::RegistrationPeriodAwsAccountResponseV2, Error<GetD4CAwsAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -589,10 +750,8 @@ pub async fn get_d4_c_aws_account(
 pub async fn get_d4_c_aws_console_setup_urls(
     configuration: &configuration::Configuration,
     region: Option<&str>,
-) -> Result<
-    crate::models::RegistrationPeriodAwsAccountConsoleUrl,
-    Error<GetD4CAwsConsoleSetupUrlsError>,
-> {
+) -> Result<models::RegistrationPeriodAwsConsoleUrlResponseV2, Error<GetD4CAwsConsoleSetupUrlsError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -639,8 +798,16 @@ pub async fn get_d4_c_aws_console_setup_urls(
 pub async fn get_d4_caws_account_scripts_attachment(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
+    template: Option<&str>,
+    accounts: Option<Vec<String>>,
+    behavior_assessment_enabled: Option<&str>,
+    sensor_management_enabled: Option<&str>,
+    use_existing_cloudtrail: Option<&str>,
+    organization_id: Option<&str>,
+    aws_profile: Option<&str>,
+    custom_role_name: Option<&str>,
 ) -> Result<
-    crate::models::RegistrationPeriodAwsProvisionGetAccountScriptResponseV2,
+    models::RegistrationPeriodAwsProvisionGetAccountScriptResponseV2,
     Error<GetD4CawsAccountScriptsAttachmentError>,
 > {
     let local_var_configuration = configuration;
@@ -672,6 +839,53 @@ pub async fn get_d4_caws_account_scripts_attachment(
                     .to_string(),
             )]),
         };
+    }
+    if let Some(ref local_var_str) = template {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("template", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = accounts {
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("accounts".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "accounts",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
+        };
+    }
+    if let Some(ref local_var_str) = behavior_assessment_enabled {
+        local_var_req_builder = local_var_req_builder
+            .query(&[("behavior_assessment_enabled", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sensor_management_enabled {
+        local_var_req_builder = local_var_req_builder
+            .query(&[("sensor_management_enabled", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = use_existing_cloudtrail {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("use_existing_cloudtrail", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = organization_id {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("organization_id", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = aws_profile {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("aws_profile", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = custom_role_name {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("custom_role_name", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder =
@@ -710,7 +924,7 @@ pub async fn get_d4_ccgp_account(
     limit: Option<i32>,
     offset: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::RegistrationPeriodGcpAccountResponseV1, Error<GetD4CcgpAccountError>> {
+) -> Result<models::RegistrationPeriodGcpAccountResponseV1, Error<GetD4CcgpAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -793,11 +1007,60 @@ pub async fn get_d4_ccgp_account(
     }
 }
 
+pub async fn get_d4_cgcp_service_accounts_ext(
+    configuration: &configuration::Configuration,
+    id: Option<&str>,
+) -> Result<
+    models::RegistrationPeriodGcpServiceAccountResponseExtV1,
+    Error<GetD4CgcpServiceAccountsExtError>,
+> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-gcp/entities/service-accounts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = id {
+        local_var_req_builder = local_var_req_builder.query(&[("id", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetD4CgcpServiceAccountsExtError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn get_d4_cgcp_user_scripts(
     configuration: &configuration::Configuration,
     parent_type: Option<&str>,
 ) -> Result<
-    crate::models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1,
+    models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1,
     Error<GetD4CgcpUserScriptsError>,
 > {
     let local_var_configuration = configuration;
@@ -843,6 +1106,81 @@ pub async fn get_d4_cgcp_user_scripts(
     }
 }
 
+pub async fn get_d4_cgcp_user_scripts_attachment(
+    configuration: &configuration::Configuration,
+    parent_type: Option<&str>,
+    ids: Option<Vec<String>>,
+    status: Option<&str>,
+) -> Result<
+    models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1,
+    Error<GetD4CgcpUserScriptsAttachmentError>,
+> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-gcp/entities/user-scripts-download/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = parent_type {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("parent_type", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = ids {
+        local_var_req_builder = match "multi" {
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("ids".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "ids",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
+        };
+    }
+    if let Some(ref local_var_str) = status {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("status", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetD4CgcpUserScriptsAttachmentError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn get_discover_cloud_azure_account(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
@@ -852,7 +1190,7 @@ pub async fn get_discover_cloud_azure_account(
     limit: Option<i32>,
     offset: Option<i32>,
 ) -> Result<
-    crate::models::RegistrationPeriodAzureAccountResponseV1,
+    models::RegistrationPeriodAzureAccountResponseV1,
     Error<GetDiscoverCloudAzureAccountError>,
 > {
     let local_var_configuration = configuration;
@@ -951,7 +1289,7 @@ pub async fn get_discover_cloud_azure_account(
 pub async fn get_discover_cloud_azure_tenant_ids(
     configuration: &configuration::Configuration,
 ) -> Result<
-    crate::models::RegistrationPeriodAzureTenantIdsResponseV1,
+    models::RegistrationPeriodAzureTenantIdsResponseV1,
     Error<GetDiscoverCloudAzureTenantIdsError>,
 > {
     let local_var_configuration = configuration;
@@ -996,7 +1334,7 @@ pub async fn get_discover_cloud_azure_tenant_ids(
 pub async fn get_discover_cloud_azure_user_scripts(
     configuration: &configuration::Configuration,
 ) -> Result<
-    crate::models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1,
+    models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1,
     Error<GetDiscoverCloudAzureUserScriptsError>,
 > {
     let local_var_configuration = configuration;
@@ -1043,8 +1381,9 @@ pub async fn get_discover_cloud_azure_user_scripts_attachment(
     tenant_id: Vec<String>,
     subscription_ids: Option<Vec<String>>,
     template: Option<&str>,
+    azure_management_group: Option<bool>,
 ) -> Result<
-    crate::models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1,
+    models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1,
     Error<GetDiscoverCloudAzureUserScriptsAttachmentError>,
 > {
     let local_var_configuration = configuration;
@@ -1062,7 +1401,7 @@ pub async fn get_discover_cloud_azure_user_scripts_attachment(
         "multi" => local_var_req_builder.query(
             &tenant_id
                 .into_iter()
-                .map(|p| ("tenant-id".to_owned(), p))
+                .map(|p| ("tenant-id".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1098,6 +1437,10 @@ pub async fn get_discover_cloud_azure_user_scripts_attachment(
         local_var_req_builder =
             local_var_req_builder.query(&[("template", &local_var_str.to_string())]);
     }
+    if let Some(ref local_var_str) = azure_management_group {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("azure_management_group", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder =
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1132,8 +1475,7 @@ pub async fn get_horizon_d4_c_scripts(
     organization_id: Option<&str>,
     delete: Option<&str>,
     account_type: Option<&str>,
-) -> Result<crate::models::RegistrationPeriodStaticScriptsResponse, Error<GetHorizonD4CScriptsError>>
-{
+) -> Result<models::RegistrationPeriodStaticScriptsResponse, Error<GetHorizonD4CScriptsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1189,13 +1531,60 @@ pub async fn get_horizon_d4_c_scripts(
     }
 }
 
+pub async fn update_d4_cgcp_service_accounts_ext(
+    configuration: &configuration::Configuration,
+    body: models::RegistrationPeriodGcpServiceAccountPatchRequestV1,
+) -> Result<
+    models::RegistrationPeriodGcpServiceAccountResponseExtV1,
+    Error<UpdateD4CgcpServiceAccountsExtError>,
+> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/cloud-connect-gcp/entities/service-accounts/v1",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UpdateD4CgcpServiceAccountsExtError> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn update_discover_cloud_azure_account_client_id(
     configuration: &configuration::Configuration,
     id: &str,
     object_id: Option<&str>,
     tenant_id: Option<&str>,
 ) -> Result<
-    crate::models::RegistrationPeriodAzureTenantConfigurationResponseV1,
+    models::RegistrationPeriodAzureTenantConfigurationResponseV1,
     Error<UpdateDiscoverCloudAzureAccountClientIdError>,
 > {
     let local_var_configuration = configuration;

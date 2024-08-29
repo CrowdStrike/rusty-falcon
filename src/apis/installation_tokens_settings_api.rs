@@ -11,24 +11,24 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`customer_settings_update`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CustomerSettingsUpdateError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status404(models::MsaspecPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn customer_settings_update(
     configuration: &configuration::Configuration,
-    body: crate::models::ApiPeriodCustomerSettingsPatchRequestV1,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<CustomerSettingsUpdateError>> {
+    body: models::ApiPeriodCustomerSettingsPatchRequestV1,
+) -> Result<models::MsaspecPeriodQueryResponse, Error<CustomerSettingsUpdateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

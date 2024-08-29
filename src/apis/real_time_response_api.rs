@@ -11,16 +11,16 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`batch_active_responder_cmd`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BatchActiveResponderCmdError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodApiError),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum BatchActiveResponderCmdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BatchCmdError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodApiError),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum BatchCmdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BatchGetCmdError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodApiError),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,11 +50,11 @@ pub enum BatchGetCmdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BatchGetCmdStatusError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::DomainPeriodApiError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodApiError),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,10 +62,10 @@ pub enum BatchGetCmdStatusError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BatchInitSessionsError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodApiError),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -73,10 +73,10 @@ pub enum BatchInitSessionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BatchRefreshSessionsError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodApiError),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -84,10 +84,10 @@ pub enum BatchRefreshSessionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrAggregateSessionsError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodApiError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -95,9 +95,9 @@ pub enum RTrAggregateSessionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrCheckActiveResponderCommandStatusError {
-    Status401(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status401(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -105,9 +105,9 @@ pub enum RTrCheckActiveResponderCommandStatusError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrCheckCommandStatusError {
-    Status401(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status401(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -115,10 +115,10 @@ pub enum RTrCheckCommandStatusError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrDeleteFileError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodApiError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -126,10 +126,10 @@ pub enum RTrDeleteFileError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrDeleteFileV2Error {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodApiError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -137,10 +137,10 @@ pub enum RTrDeleteFileV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrDeleteQueuedSessionError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status401(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status401(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -148,10 +148,10 @@ pub enum RTrDeleteQueuedSessionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrDeleteSessionError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status401(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status401(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -159,9 +159,9 @@ pub enum RTrDeleteSessionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrExecuteActiveResponderCommandError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -169,9 +169,9 @@ pub enum RTrExecuteActiveResponderCommandError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrExecuteCommandError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -179,11 +179,11 @@ pub enum RTrExecuteCommandError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrGetExtractedFileContentsError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodApiError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodApiError),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -191,10 +191,10 @@ pub enum RTrGetExtractedFileContentsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrInitSessionError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodApiError),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -202,10 +202,10 @@ pub enum RTrInitSessionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrListAllSessionsError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodApiError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -213,10 +213,10 @@ pub enum RTrListAllSessionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrListFilesError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodApiError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -224,10 +224,10 @@ pub enum RTrListFilesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrListFilesV2Error {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodApiError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -235,11 +235,11 @@ pub enum RTrListFilesV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrListQueuedSessionsError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status401(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodApiError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status401(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -247,10 +247,10 @@ pub enum RTrListQueuedSessionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrListSessionsError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::DomainPeriodApiError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::DomainPeriodApiError),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -258,21 +258,21 @@ pub enum RTrListSessionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrPulseSessionError {
-    Status400(crate::models::DomainPeriodApiError),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodApiError),
+    Status400(models::DomainPeriodApiError),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodApiError),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn batch_active_responder_cmd(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodBatchExecuteCommandRequest,
+    body: models::DomainPeriodBatchExecuteCommandRequest,
     timeout: Option<i32>,
     timeout_duration: Option<&str>,
     host_timeout_duration: Option<&str>,
 ) -> Result<
-    crate::models::DomainPeriodMultiCommandExecuteResponseWrapper,
+    models::DomainPeriodMultiCommandExecuteResponseWrapper,
     Error<BatchActiveResponderCmdError>,
 > {
     let local_var_configuration = configuration;
@@ -329,11 +329,11 @@ pub async fn batch_active_responder_cmd(
 
 pub async fn batch_cmd(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodBatchExecuteCommandRequest,
+    body: models::DomainPeriodBatchExecuteCommandRequest,
     timeout: Option<i32>,
     timeout_duration: Option<&str>,
     host_timeout_duration: Option<&str>,
-) -> Result<crate::models::DomainPeriodMultiCommandExecuteResponseWrapper, Error<BatchCmdError>> {
+) -> Result<models::DomainPeriodMultiCommandExecuteResponseWrapper, Error<BatchCmdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -387,11 +387,11 @@ pub async fn batch_cmd(
 
 pub async fn batch_get_cmd(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodBatchGetCommandRequest,
+    body: models::DomainPeriodBatchGetCommandRequest,
     timeout: Option<i32>,
     timeout_duration: Option<&str>,
     host_timeout_duration: Option<&str>,
-) -> Result<crate::models::DomainPeriodBatchGetCommandResponse, Error<BatchGetCmdError>> {
+) -> Result<models::DomainPeriodBatchGetCommandResponse, Error<BatchGetCmdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -449,7 +449,7 @@ pub async fn batch_get_cmd_status(
     batch_get_cmd_req_id: &str,
     timeout: Option<i32>,
     timeout_duration: Option<&str>,
-) -> Result<crate::models::DomainPeriodBatchGetCmdStatusResponse, Error<BatchGetCmdStatusError>> {
+) -> Result<models::DomainPeriodBatchGetCmdStatusResponse, Error<BatchGetCmdStatusError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -501,11 +501,11 @@ pub async fn batch_get_cmd_status(
 
 pub async fn batch_init_sessions(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodBatchInitSessionRequest,
+    body: models::DomainPeriodBatchInitSessionRequest,
     timeout: Option<i32>,
     timeout_duration: Option<&str>,
     host_timeout_duration: Option<&str>,
-) -> Result<crate::models::DomainPeriodBatchInitSessionResponse, Error<BatchInitSessionsError>> {
+) -> Result<models::DomainPeriodBatchInitSessionResponse, Error<BatchInitSessionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -560,11 +560,10 @@ pub async fn batch_init_sessions(
 
 pub async fn batch_refresh_sessions(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodBatchRefreshSessionRequest,
+    body: models::DomainPeriodBatchRefreshSessionRequest,
     timeout: Option<i32>,
     timeout_duration: Option<&str>,
-) -> Result<crate::models::DomainPeriodBatchRefreshSessionResponse, Error<BatchRefreshSessionsError>>
-{
+) -> Result<models::DomainPeriodBatchRefreshSessionResponse, Error<BatchRefreshSessionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -615,8 +614,8 @@ pub async fn batch_refresh_sessions(
 
 pub async fn r_tr_aggregate_sessions(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<RTrAggregateSessionsError>> {
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<RTrAggregateSessionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -662,7 +661,7 @@ pub async fn r_tr_check_active_responder_command_status(
     cloud_request_id: &str,
     sequence_id: i32,
 ) -> Result<
-    crate::models::DomainPeriodStatusResponseWrapper,
+    models::DomainPeriodStatusResponseWrapper,
     Error<RTrCheckActiveResponderCommandStatusError>,
 > {
     let local_var_configuration = configuration;
@@ -712,7 +711,7 @@ pub async fn r_tr_check_command_status(
     configuration: &configuration::Configuration,
     cloud_request_id: &str,
     sequence_id: i32,
-) -> Result<crate::models::DomainPeriodStatusResponseWrapper, Error<RTrCheckCommandStatusError>> {
+) -> Result<models::DomainPeriodStatusResponseWrapper, Error<RTrCheckCommandStatusError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -760,7 +759,7 @@ pub async fn r_tr_delete_file(
     configuration: &configuration::Configuration,
     ids: &str,
     session_id: &str,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<RTrDeleteFileError>> {
+) -> Result<models::MsaPeriodReplyMetaOnly, Error<RTrDeleteFileError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -806,7 +805,7 @@ pub async fn r_tr_delete_file_v2(
     configuration: &configuration::Configuration,
     ids: &str,
     session_id: &str,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<RTrDeleteFileV2Error>> {
+) -> Result<models::MsaPeriodReplyMetaOnly, Error<RTrDeleteFileV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -852,7 +851,7 @@ pub async fn r_tr_delete_queued_session(
     configuration: &configuration::Configuration,
     session_id: &str,
     cloud_request_id: &str,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<RTrDeleteQueuedSessionError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<RTrDeleteQueuedSessionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -898,7 +897,7 @@ pub async fn r_tr_delete_queued_session(
 pub async fn r_tr_delete_session(
     configuration: &configuration::Configuration,
     session_id: &str,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<RTrDeleteSessionError>> {
+) -> Result<models::MsaPeriodReplyMetaOnly, Error<RTrDeleteSessionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -941,9 +940,9 @@ pub async fn r_tr_delete_session(
 
 pub async fn r_tr_execute_active_responder_command(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodCommandExecuteRequest,
+    body: models::DomainPeriodCommandExecuteRequest,
 ) -> Result<
-    crate::models::DomainPeriodCommandExecuteResponseWrapper,
+    models::DomainPeriodCommandExecuteResponseWrapper,
     Error<RTrExecuteActiveResponderCommandError>,
 > {
     let local_var_configuration = configuration;
@@ -988,9 +987,8 @@ pub async fn r_tr_execute_active_responder_command(
 
 pub async fn r_tr_execute_command(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodCommandExecuteRequest,
-) -> Result<crate::models::DomainPeriodCommandExecuteResponseWrapper, Error<RTrExecuteCommandError>>
-{
+    body: models::DomainPeriodCommandExecuteRequest,
+) -> Result<models::DomainPeriodCommandExecuteResponseWrapper, Error<RTrExecuteCommandError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1084,10 +1082,10 @@ pub async fn r_tr_get_extracted_file_contents(
 
 pub async fn r_tr_init_session(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodInitRequest,
+    body: models::DomainPeriodInitRequest,
     timeout: Option<i32>,
     timeout_duration: Option<&str>,
-) -> Result<crate::models::DomainPeriodInitResponseWrapper, Error<RTrInitSessionError>> {
+) -> Result<models::DomainPeriodInitResponseWrapper, Error<RTrInitSessionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1142,7 +1140,7 @@ pub async fn r_tr_list_all_sessions(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<crate::models::DomainPeriodListSessionsResponseMsa, Error<RTrListAllSessionsError>> {
+) -> Result<models::DomainPeriodListSessionsResponseMsa, Error<RTrListAllSessionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1201,7 +1199,7 @@ pub async fn r_tr_list_all_sessions(
 pub async fn r_tr_list_files(
     configuration: &configuration::Configuration,
     session_id: &str,
-) -> Result<crate::models::DomainPeriodListFilesResponseWrapper, Error<RTrListFilesError>> {
+) -> Result<models::DomainPeriodListFilesResponseWrapper, Error<RTrListFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1245,7 +1243,7 @@ pub async fn r_tr_list_files(
 pub async fn r_tr_list_files_v2(
     configuration: &configuration::Configuration,
     session_id: &str,
-) -> Result<crate::models::DomainPeriodListFilesV2ResponseWrapper, Error<RTrListFilesV2Error>> {
+) -> Result<models::DomainPeriodListFilesV2ResponseWrapper, Error<RTrListFilesV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1288,11 +1286,8 @@ pub async fn r_tr_list_files_v2(
 
 pub async fn r_tr_list_queued_sessions(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaPeriodIdsRequest,
-) -> Result<
-    crate::models::DomainPeriodQueuedSessionResponseWrapper,
-    Error<RTrListQueuedSessionsError>,
-> {
+    body: models::MsaPeriodIdsRequest,
+) -> Result<models::DomainPeriodQueuedSessionResponseWrapper, Error<RTrListQueuedSessionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1335,8 +1330,8 @@ pub async fn r_tr_list_queued_sessions(
 
 pub async fn r_tr_list_sessions(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaPeriodIdsRequest,
-) -> Result<crate::models::DomainPeriodSessionResponseWrapper, Error<RTrListSessionsError>> {
+    body: models::MsaPeriodIdsRequest,
+) -> Result<models::DomainPeriodSessionResponseWrapper, Error<RTrListSessionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1379,8 +1374,8 @@ pub async fn r_tr_list_sessions(
 
 pub async fn r_tr_pulse_session(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodInitRequest,
-) -> Result<crate::models::DomainPeriodInitResponseWrapper, Error<RTrPulseSessionError>> {
+    body: models::DomainPeriodInitRequest,
+) -> Result<models::DomainPeriodInitResponseWrapper, Error<RTrPulseSessionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

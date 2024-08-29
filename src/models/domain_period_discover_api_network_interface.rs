@@ -9,8 +9,7 @@
  */
 
 /// DomainPeriodDiscoverApiNetworkInterface : The local IPv4 address or addresses of the network interface associated with the asset over time.
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodDiscoverApiNetworkInterface {
     /// The name or alias of the network interface associated with the asset.
     #[serde(rename = "interface_alias", skip_serializing_if = "Option::is_none")]

@@ -11,17 +11,17 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`delete_report`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteReportError {
-    Status400(crate::models::FalconxPeriodErrorsOnly),
-    Status403(crate::models::FalconxPeriodErrorsOnly),
-    Status404(crate::models::FalconxPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::FalconxPeriodErrorsOnly),
+    Status400(models::FalconxPeriodErrorsOnly),
+    Status403(models::FalconxPeriodErrorsOnly),
+    Status404(models::FalconxPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::FalconxPeriodErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,11 +29,11 @@ pub enum DeleteReportError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteSampleV2Error {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodQueryResponse),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodQueryResponse),
+    Status404(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,11 +41,11 @@ pub enum DeleteSampleV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetArtifactsError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -53,11 +53,11 @@ pub enum GetArtifactsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMemoryDumpError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -65,11 +65,11 @@ pub enum GetMemoryDumpError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMemoryDumpExtractedStringsError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -77,11 +77,11 @@ pub enum GetMemoryDumpExtractedStringsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMemoryDumpHexDumpError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -89,10 +89,10 @@ pub enum GetMemoryDumpHexDumpError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetReportsError {
-    Status400(crate::models::FalconxPeriodReportV1Response),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::FalconxPeriodReportV1Response),
+    Status400(models::FalconxPeriodReportV1Response),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::FalconxPeriodReportV1Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -100,11 +100,11 @@ pub enum GetReportsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSampleV2Error {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -112,10 +112,10 @@ pub enum GetSampleV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSubmissionsError {
-    Status400(crate::models::FalconxPeriodSubmissionV1Response),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::FalconxPeriodSubmissionV1Response),
+    Status400(models::FalconxPeriodSubmissionV1Response),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::FalconxPeriodSubmissionV1Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -123,46 +123,10 @@ pub enum GetSubmissionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSummaryReportsError {
-    Status400(crate::models::FalconxPeriodSummaryReportV1Response),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::FalconxPeriodSummaryReportV1Response),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`interactive_detonation_delete`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum InteractiveDetonationDeleteError {
-    Status400(crate::models::MsaspecPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodQueryResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`interactive_detonation_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum InteractiveDetonationGetError {
-    Status400(crate::models::MsaspecPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodQueryResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`interactive_detonation_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum InteractiveDetonationPostError {
-    Status400(crate::models::MsaspecPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodQueryResponse),
+    Status400(models::FalconxPeriodSummaryReportV1Response),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::FalconxPeriodSummaryReportV1Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -170,10 +134,10 @@ pub enum InteractiveDetonationPostError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryReportsError {
-    Status400(crate::models::MsaspecPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodQueryResponse),
+    Status400(models::MsaspecPeriodQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -181,10 +145,10 @@ pub enum QueryReportsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QuerySampleV1Error {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -192,10 +156,10 @@ pub enum QuerySampleV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QuerySubmissionsError {
-    Status400(crate::models::MsaspecPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodQueryResponse),
+    Status400(models::MsaspecPeriodQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -203,10 +167,10 @@ pub enum QuerySubmissionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SubmitError {
-    Status400(crate::models::FalconxPeriodSubmissionV1Response),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::FalconxPeriodSubmissionV1Response),
-    Status500(crate::models::FalconxPeriodSubmissionV1Response),
+    Status400(models::FalconxPeriodSubmissionV1Response),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::FalconxPeriodSubmissionV1Response),
+    Status500(models::FalconxPeriodSubmissionV1Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -214,17 +178,17 @@ pub enum SubmitError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UploadSampleV2Error {
-    Status400(crate::models::ClientPeriodSampleMetadataResponseV2),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ClientPeriodSampleMetadataResponseV2),
+    Status400(models::ClientPeriodSampleMetadataResponseV2),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ClientPeriodSampleMetadataResponseV2),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn delete_report(
     configuration: &configuration::Configuration,
     ids: &str,
-) -> Result<crate::models::FalconxPeriodQueryResponse, Error<DeleteReportError>> {
+) -> Result<models::FalconxPeriodQueryResponse, Error<DeleteReportError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -268,7 +232,7 @@ pub async fn delete_report(
 pub async fn delete_sample_v2(
     configuration: &configuration::Configuration,
     ids: &str,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<DeleteSampleV2Error>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<DeleteSampleV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -314,7 +278,7 @@ pub async fn get_artifacts(
     id: &str,
     name: Option<&str>,
     accept_encoding: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<GetArtifactsError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<GetArtifactsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -368,7 +332,7 @@ pub async fn get_memory_dump(
     id: &str,
     name: Option<&str>,
     accept_encoding: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<GetMemoryDumpError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<GetMemoryDumpError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -422,7 +386,7 @@ pub async fn get_memory_dump_extracted_strings(
     id: &str,
     name: Option<&str>,
     accept_encoding: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<GetMemoryDumpExtractedStringsError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<GetMemoryDumpExtractedStringsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -476,7 +440,7 @@ pub async fn get_memory_dump_hex_dump(
     id: &str,
     name: Option<&str>,
     accept_encoding: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<GetMemoryDumpHexDumpError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<GetMemoryDumpHexDumpError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -528,7 +492,7 @@ pub async fn get_memory_dump_hex_dump(
 pub async fn get_reports(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::FalconxPeriodReportV1Response, Error<GetReportsError>> {
+) -> Result<models::FalconxPeriodReportV1Response, Error<GetReportsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -543,7 +507,7 @@ pub async fn get_reports(
     local_var_req_builder = match "csv" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -635,7 +599,7 @@ pub async fn get_sample_v2(
 pub async fn get_submissions(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::FalconxPeriodSubmissionV1Response, Error<GetSubmissionsError>> {
+) -> Result<models::FalconxPeriodSubmissionV1Response, Error<GetSubmissionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -650,7 +614,7 @@ pub async fn get_submissions(
     local_var_req_builder = match "csv" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -693,7 +657,7 @@ pub async fn get_submissions(
 pub async fn get_summary_reports(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::FalconxPeriodSummaryReportV1Response, Error<GetSummaryReportsError>> {
+) -> Result<models::FalconxPeriodSummaryReportV1Response, Error<GetSummaryReportsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -708,7 +672,7 @@ pub async fn get_summary_reports(
     local_var_req_builder = match "csv" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -748,157 +712,13 @@ pub async fn get_summary_reports(
     }
 }
 
-/// Stops an interactive detonation.
-pub async fn interactive_detonation_delete(
-    configuration: &configuration::Configuration,
-    x_cs_useruuid: &str,
-    id: &str,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<InteractiveDetonationDeleteError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!(
-        "{}/falconx-interactive/tunnels/{id}/v1",
-        local_var_configuration.base_path,
-        id = crate::apis::urlencode(id)
-    );
-    let mut local_var_req_builder =
-        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder =
-            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    local_var_req_builder =
-        local_var_req_builder.header("X-CS-USERUUID", x_cs_useruuid.to_string());
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<InteractiveDetonationDeleteError> =
-            serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// Performs an interactive detonation.
-pub async fn interactive_detonation_get(
-    configuration: &configuration::Configuration,
-    x_cs_useruuid: &str,
-    id: &str,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<InteractiveDetonationGetError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!(
-        "{}/falconx-interactive/tunnels/{id}/v1",
-        local_var_configuration.base_path,
-        id = crate::apis::urlencode(id)
-    );
-    let mut local_var_req_builder =
-        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder =
-            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    local_var_req_builder =
-        local_var_req_builder.header("X-CS-USERUUID", x_cs_useruuid.to_string());
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<InteractiveDetonationGetError> =
-            serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// Performs an interactive detonation.
-pub async fn interactive_detonation_post(
-    configuration: &configuration::Configuration,
-    x_cs_useruuid: &str,
-    id: &str,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<InteractiveDetonationPostError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!(
-        "{}/falconx-interactive/tunnels/{id}/v1",
-        local_var_configuration.base_path,
-        id = crate::apis::urlencode(id)
-    );
-    let mut local_var_req_builder =
-        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder =
-            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    local_var_req_builder =
-        local_var_req_builder.header("X-CS-USERUUID", x_cs_useruuid.to_string());
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<InteractiveDetonationPostError> =
-            serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
 pub async fn query_reports(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
     offset: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryReportsError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryReportsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -956,8 +776,8 @@ pub async fn query_reports(
 
 pub async fn query_sample_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::ClientPeriodQuerySamplesRequest,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QuerySampleV1Error>> {
+    body: models::ClientPeriodQuerySamplesRequest,
+) -> Result<models::MsaPeriodQueryResponse, Error<QuerySampleV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1004,7 +824,7 @@ pub async fn query_submissions(
     offset: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QuerySubmissionsError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QuerySubmissionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1062,8 +882,9 @@ pub async fn query_submissions(
 
 pub async fn submit(
     configuration: &configuration::Configuration,
-    body: crate::models::FalconxPeriodSubmissionParametersV1,
-) -> Result<crate::models::FalconxPeriodSubmissionV1Response, Error<SubmitError>> {
+    body: models::FalconxPeriodSubmissionParametersV1,
+    aid: Option<&str>,
+) -> Result<models::FalconxPeriodSubmissionV1Response, Error<SubmitError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1075,6 +896,9 @@ pub async fn submit(
     let mut local_var_req_builder =
         local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
+    if let Some(ref local_var_str) = aid {
+        local_var_req_builder = local_var_req_builder.query(&[("aid", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder =
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1109,7 +933,7 @@ pub async fn upload_sample_v2(
     file_name: &str,
     comment: Option<&str>,
     is_confidential: Option<bool>,
-) -> Result<crate::models::ClientPeriodSampleMetadataResponseV2, Error<UploadSampleV2Error>> {
+) -> Result<models::ClientPeriodSampleMetadataResponseV2, Error<UploadSampleV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

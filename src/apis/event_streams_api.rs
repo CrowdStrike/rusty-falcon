@@ -11,16 +11,16 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`list_available_streams_o_auth2`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListAvailableStreamsOAuth2Error {
-    Status400(crate::models::MainPeriodDiscoveryResponseV2),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MainPeriodDiscoveryResponseV2),
+    Status400(models::MainPeriodDiscoveryResponseV2),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MainPeriodDiscoveryResponseV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum ListAvailableStreamsOAuth2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RefreshActiveStreamSessionError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,7 +39,7 @@ pub async fn list_available_streams_o_auth2(
     configuration: &configuration::Configuration,
     app_id: &str,
     format: Option<&str>,
-) -> Result<crate::models::MainPeriodDiscoveryResponseV2, Error<ListAvailableStreamsOAuth2Error>> {
+) -> Result<models::MainPeriodDiscoveryResponseV2, Error<ListAvailableStreamsOAuth2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -89,7 +89,7 @@ pub async fn refresh_active_stream_session(
     action_name: &str,
     app_id: &str,
     partition: i32,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<RefreshActiveStreamSessionError>> {
+) -> Result<models::MsaPeriodReplyMetaOnly, Error<RefreshActiveStreamSessionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

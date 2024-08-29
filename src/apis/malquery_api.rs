@@ -11,18 +11,18 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`get_mal_query_download_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMalQueryDownloadV1Error {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status401(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status401(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -30,10 +30,10 @@ pub enum GetMalQueryDownloadV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMalQueryEntitiesSamplesFetchV1Error {
-    Status401(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MalqueryPeriodExternalQueryResponse),
+    Status401(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MalqueryPeriodExternalQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,11 +41,11 @@ pub enum GetMalQueryEntitiesSamplesFetchV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMalQueryMetadataV1Error {
-    Status400(crate::models::MalqueryPeriodSampleMetadataResponse),
-    Status401(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MalqueryPeriodSampleMetadataResponse),
+    Status400(models::MalqueryPeriodSampleMetadataResponse),
+    Status401(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MalqueryPeriodSampleMetadataResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -53,12 +53,12 @@ pub enum GetMalQueryMetadataV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMalQueryQuotasV1Error {
-    Status400(crate::models::MsaPeriodErrorsOnly),
-    Status401(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::MalqueryPeriodRateLimitsResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MalqueryPeriodRateLimitsResponse),
+    Status400(models::MsaPeriodErrorsOnly),
+    Status401(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::MalqueryPeriodRateLimitsResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MalqueryPeriodRateLimitsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -66,11 +66,11 @@ pub enum GetMalQueryQuotasV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMalQueryRequestV1Error {
-    Status400(crate::models::MalqueryPeriodRequestResponse),
-    Status401(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MalqueryPeriodRequestResponse),
+    Status400(models::MalqueryPeriodRequestResponse),
+    Status401(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MalqueryPeriodRequestResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -78,12 +78,12 @@ pub enum GetMalQueryRequestV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostMalQueryEntitiesSamplesMultidownloadV1Error {
-    Status400(crate::models::MalqueryPeriodExternalQueryResponse),
-    Status401(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::MalqueryPeriodExternalQueryResponse),
-    Status429(crate::models::MalqueryPeriodExternalQueryResponse),
-    Status500(crate::models::MalqueryPeriodExternalQueryResponse),
+    Status400(models::MalqueryPeriodExternalQueryResponse),
+    Status401(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::MalqueryPeriodExternalQueryResponse),
+    Status429(models::MalqueryPeriodExternalQueryResponse),
+    Status500(models::MalqueryPeriodExternalQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -91,11 +91,11 @@ pub enum PostMalQueryEntitiesSamplesMultidownloadV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostMalQueryExactSearchV1Error {
-    Status400(crate::models::MalqueryPeriodExternalQueryResponse),
-    Status401(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MalqueryPeriodExternalQueryResponse),
-    Status500(crate::models::MalqueryPeriodExternalQueryResponse),
+    Status400(models::MalqueryPeriodExternalQueryResponse),
+    Status401(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MalqueryPeriodExternalQueryResponse),
+    Status500(models::MalqueryPeriodExternalQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -103,11 +103,11 @@ pub enum PostMalQueryExactSearchV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostMalQueryFuzzySearchV1Error {
-    Status400(crate::models::MalqueryPeriodFuzzySearchResponse),
-    Status401(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MalqueryPeriodFuzzySearchResponse),
+    Status400(models::MalqueryPeriodFuzzySearchResponse),
+    Status401(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MalqueryPeriodFuzzySearchResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -115,11 +115,11 @@ pub enum PostMalQueryFuzzySearchV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostMalQueryHuntV1Error {
-    Status400(crate::models::MalqueryPeriodExternalQueryResponse),
-    Status401(crate::models::MsaPeriodErrorsOnly),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MalqueryPeriodExternalQueryResponse),
-    Status500(crate::models::MalqueryPeriodExternalQueryResponse),
+    Status400(models::MalqueryPeriodExternalQueryResponse),
+    Status401(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MalqueryPeriodExternalQueryResponse),
+    Status500(models::MalqueryPeriodExternalQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -141,7 +141,7 @@ pub async fn get_mal_query_download_v1(
     local_var_req_builder = match "csv" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -228,8 +228,7 @@ pub async fn get_mal_query_entities_samples_fetch_v1(
 pub async fn get_mal_query_metadata_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::MalqueryPeriodSampleMetadataResponse, Error<GetMalQueryMetadataV1Error>>
-{
+) -> Result<models::MalqueryPeriodSampleMetadataResponse, Error<GetMalQueryMetadataV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -244,7 +243,7 @@ pub async fn get_mal_query_metadata_v1(
     local_var_req_builder = match "csv" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -286,7 +285,7 @@ pub async fn get_mal_query_metadata_v1(
 
 pub async fn get_mal_query_quotas_v1(
     configuration: &configuration::Configuration,
-) -> Result<crate::models::MalqueryPeriodRateLimitsResponse, Error<GetMalQueryQuotasV1Error>> {
+) -> Result<models::MalqueryPeriodRateLimitsResponse, Error<GetMalQueryQuotasV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -329,7 +328,7 @@ pub async fn get_mal_query_quotas_v1(
 pub async fn get_mal_query_request_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::MalqueryPeriodRequestResponse, Error<GetMalQueryRequestV1Error>> {
+) -> Result<models::MalqueryPeriodRequestResponse, Error<GetMalQueryRequestV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -344,7 +343,7 @@ pub async fn get_mal_query_request_v1(
     local_var_req_builder = match "csv" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -386,9 +385,9 @@ pub async fn get_mal_query_request_v1(
 
 pub async fn post_mal_query_entities_samples_multidownload_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::MalqueryPeriodMultiDownloadRequestV1,
+    body: models::MalqueryPeriodMultiDownloadRequestV1,
 ) -> Result<
-    crate::models::MalqueryPeriodExternalQueryResponse,
+    models::MalqueryPeriodExternalQueryResponse,
     Error<PostMalQueryEntitiesSamplesMultidownloadV1Error>,
 > {
     let local_var_configuration = configuration;
@@ -433,9 +432,8 @@ pub async fn post_mal_query_entities_samples_multidownload_v1(
 
 pub async fn post_mal_query_exact_search_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::MalqueryPeriodExternalExactSearchParametersV1,
-) -> Result<crate::models::MalqueryPeriodExternalQueryResponse, Error<PostMalQueryExactSearchV1Error>>
-{
+    body: models::MalqueryPeriodExternalExactSearchParametersV1,
+) -> Result<models::MalqueryPeriodExternalQueryResponse, Error<PostMalQueryExactSearchV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -478,9 +476,8 @@ pub async fn post_mal_query_exact_search_v1(
 
 pub async fn post_mal_query_fuzzy_search_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::MalqueryPeriodFuzzySearchParametersV1,
-) -> Result<crate::models::MalqueryPeriodFuzzySearchResponse, Error<PostMalQueryFuzzySearchV1Error>>
-{
+    body: models::MalqueryPeriodFuzzySearchParametersV1,
+) -> Result<models::MalqueryPeriodFuzzySearchResponse, Error<PostMalQueryFuzzySearchV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -523,8 +520,8 @@ pub async fn post_mal_query_fuzzy_search_v1(
 
 pub async fn post_mal_query_hunt_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::MalqueryPeriodExternalHuntParametersV1,
-) -> Result<crate::models::MalqueryPeriodExternalQueryResponse, Error<PostMalQueryHuntV1Error>> {
+    body: models::MalqueryPeriodExternalHuntParametersV1,
+) -> Result<models::MalqueryPeriodExternalQueryResponse, Error<PostMalQueryHuntV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

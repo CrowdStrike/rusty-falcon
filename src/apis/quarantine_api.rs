@@ -11,14 +11,14 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`action_update_count`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ActionUpdateCountError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -26,8 +26,8 @@ pub enum ActionUpdateCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAggregateFilesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -35,8 +35,8 @@ pub enum GetAggregateFilesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetQuarantineFilesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -44,8 +44,8 @@ pub enum GetQuarantineFilesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryQuarantineFilesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -53,8 +53,8 @@ pub enum QueryQuarantineFilesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateQfByQueryError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,15 +62,15 @@ pub enum UpdateQfByQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateQuarantinedDetectsByIdsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn action_update_count(
     configuration: &configuration::Configuration,
     filter: &str,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<ActionUpdateCountError>> {
+) -> Result<models::MsaPeriodAggregatesResponse, Error<ActionUpdateCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -113,8 +113,8 @@ pub async fn action_update_count(
 
 pub async fn get_aggregate_files(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaPeriodAggregateQueryRequest,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<GetAggregateFilesError>> {
+    body: models::MsaPeriodAggregateQueryRequest,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<GetAggregateFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -157,8 +157,8 @@ pub async fn get_aggregate_files(
 
 pub async fn get_quarantine_files(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaPeriodIdsRequest,
-) -> Result<crate::models::DomainPeriodMsaQfResponse, Error<GetQuarantineFilesError>> {
+    body: models::MsaPeriodIdsRequest,
+) -> Result<models::DomainPeriodMsaQfResponse, Error<GetQuarantineFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -206,7 +206,7 @@ pub async fn query_quarantine_files(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryQuarantineFilesError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryQuarantineFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -267,8 +267,8 @@ pub async fn query_quarantine_files(
 
 pub async fn update_qf_by_query(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodQueriesPatchRequest,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<UpdateQfByQueryError>> {
+    body: models::DomainPeriodQueriesPatchRequest,
+) -> Result<models::MsaPeriodReplyMetaOnly, Error<UpdateQfByQueryError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -311,8 +311,8 @@ pub async fn update_qf_by_query(
 
 pub async fn update_quarantined_detects_by_ids(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodEntitiesPatchRequest,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<UpdateQuarantinedDetectsByIdsError>> {
+    body: models::DomainPeriodEntitiesPatchRequest,
+) -> Result<models::MsaPeriodReplyMetaOnly, Error<UpdateQuarantinedDetectsByIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

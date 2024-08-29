@@ -11,16 +11,16 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`create_host_groups`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateHostGroupsError {
-    Status400(crate::models::HostGroupsPeriodRespV1),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::HostGroupsPeriodRespV1),
+    Status400(models::HostGroupsPeriodRespV1),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::HostGroupsPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum CreateHostGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteHostGroupsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,11 +39,11 @@ pub enum DeleteHostGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetHostGroupsError {
-    Status400(crate::models::HostGroupsPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::HostGroupsPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::HostGroupsPeriodRespV1),
+    Status400(models::HostGroupsPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::HostGroupsPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::HostGroupsPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,11 +51,11 @@ pub enum GetHostGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PerformGroupActionError {
-    Status400(crate::models::HostGroupsPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::HostGroupsPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::HostGroupsPeriodRespV1),
+    Status400(models::HostGroupsPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::HostGroupsPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::HostGroupsPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -63,11 +63,11 @@ pub enum PerformGroupActionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedGroupMembersError {
-    Status400(crate::models::HostGroupsPeriodMembersRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::HostGroupsPeriodMembersRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::HostGroupsPeriodMembersRespV1),
+    Status400(models::HostGroupsPeriodMembersRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::HostGroupsPeriodMembersRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::HostGroupsPeriodMembersRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -75,10 +75,10 @@ pub enum QueryCombinedGroupMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedHostGroupsError {
-    Status400(crate::models::HostGroupsPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::HostGroupsPeriodRespV1),
+    Status400(models::HostGroupsPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::HostGroupsPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,11 +86,11 @@ pub enum QueryCombinedHostGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryGroupMembersError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -98,10 +98,10 @@ pub enum QueryGroupMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryHostGroupsError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -109,18 +109,18 @@ pub enum QueryHostGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateHostGroupsError {
-    Status400(crate::models::HostGroupsPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::HostGroupsPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::HostGroupsPeriodRespV1),
+    Status400(models::HostGroupsPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::HostGroupsPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::HostGroupsPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_host_groups(
     configuration: &configuration::Configuration,
-    body: crate::models::HostGroupsPeriodCreateGroupsReqV1,
-) -> Result<crate::models::HostGroupsPeriodRespV1, Error<CreateHostGroupsError>> {
+    body: models::HostGroupsPeriodCreateGroupsReqV1,
+) -> Result<models::HostGroupsPeriodRespV1, Error<CreateHostGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -164,7 +164,7 @@ pub async fn create_host_groups(
 pub async fn delete_host_groups(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<DeleteHostGroupsError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<DeleteHostGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -179,7 +179,7 @@ pub async fn delete_host_groups(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -222,7 +222,7 @@ pub async fn delete_host_groups(
 pub async fn get_host_groups(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::HostGroupsPeriodRespV1, Error<GetHostGroupsError>> {
+) -> Result<models::HostGroupsPeriodRespV1, Error<GetHostGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -237,7 +237,7 @@ pub async fn get_host_groups(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -280,9 +280,9 @@ pub async fn get_host_groups(
 pub async fn perform_group_action(
     configuration: &configuration::Configuration,
     action_name: &str,
-    body: crate::models::MsaPeriodEntityActionRequestV2,
+    body: models::MsaPeriodEntityActionRequestV2,
     disable_hostname_check: Option<bool>,
-) -> Result<crate::models::HostGroupsPeriodRespV1, Error<PerformGroupActionError>> {
+) -> Result<models::HostGroupsPeriodRespV1, Error<PerformGroupActionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -336,7 +336,7 @@ pub async fn query_combined_group_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::HostGroupsPeriodMembersRespV1, Error<QueryCombinedGroupMembersError>> {
+) -> Result<models::HostGroupsPeriodMembersRespV1, Error<QueryCombinedGroupMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -401,7 +401,7 @@ pub async fn query_combined_host_groups(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::HostGroupsPeriodRespV1, Error<QueryCombinedHostGroupsError>> {
+) -> Result<models::HostGroupsPeriodRespV1, Error<QueryCombinedHostGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -464,7 +464,7 @@ pub async fn query_group_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryGroupMembersError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryGroupMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -529,7 +529,7 @@ pub async fn query_host_groups(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryHostGroupsError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryHostGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -587,8 +587,8 @@ pub async fn query_host_groups(
 
 pub async fn update_host_groups(
     configuration: &configuration::Configuration,
-    body: crate::models::HostGroupsPeriodUpdateGroupsReqV1,
-) -> Result<crate::models::HostGroupsPeriodRespV1, Error<UpdateHostGroupsError>> {
+    body: models::HostGroupsPeriodUpdateGroupsReqV1,
+) -> Result<models::HostGroupsPeriodRespV1, Error<UpdateHostGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

@@ -9,8 +9,7 @@
  */
 
 /// BasePeriodSetPolicyPrecedenceReqV1 : Sets the precedence order for policies of a given platform
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BasePeriodSetPolicyPrecedenceReqV1 {
     /// The ids of all current prevention policies for the platform specified. The precedence will be set in the order the ids are specified
     #[serde(rename = "ids")]
@@ -29,7 +28,6 @@ impl BasePeriodSetPolicyPrecedenceReqV1 {
         BasePeriodSetPolicyPrecedenceReqV1 { ids, platform_name }
     }
 }
-
 /// The name of the platform for which to set precedence
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum PlatformName {

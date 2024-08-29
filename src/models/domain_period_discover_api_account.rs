@@ -9,8 +9,7 @@
  */
 
 /// DomainPeriodDiscoverApiAccount : Represents information about an account.
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodDiscoverApiAccount {
     /// The account's name (Domain\\Username or Hostname\\Username).
     #[serde(rename = "account_name", skip_serializing_if = "Option::is_none")]
@@ -45,7 +44,7 @@ pub struct DomainPeriodDiscoverApiAccount {
         skip_serializing_if = "Option::is_none"
     )]
     pub last_failed_login_timestamp: Option<String>,
-    /// The type of the account's most recent failed login. <ul><li>Interactive</li><li>Network</li><li>Batch</li><li>Service</li><li>Unlock</li><li>Network cleartext</li><li>New credentials</li><li>Terminal server</li><li>Cached credentials</li><li>Auditing</li></ul>
+    /// The type of the account's most recent failed login. <ul><li>Interactive</li><li>Network</li><li>Batch</li><li>Service</li><li>Unlock</li><li>Network cleartext</li><li>New credentials</li><li>Remote interactive</li><li>Cached credentials</li><li>Auditing</li></ul>
     #[serde(
         rename = "last_failed_login_type",
         skip_serializing_if = "Option::is_none"
@@ -81,7 +80,7 @@ pub struct DomainPeriodDiscoverApiAccount {
         skip_serializing_if = "Option::is_none"
     )]
     pub last_successful_login_timestamp: Option<String>,
-    /// The type of the account's most recent successful login. <ul><li>Interactive</li><li>Service</li><li>Terminal server</li><li>Cached credentials</li><li>Auditing</li></ul>
+    /// The type of the account's most recent successful login. <ul><li>Interactive</li><li>Network</li><li>Service</li><li>Remote interactive</li><li>Cached credentials</li><li>Auditing</li></ul>
     #[serde(
         rename = "last_successful_login_type",
         skip_serializing_if = "Option::is_none"

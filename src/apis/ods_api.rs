@@ -11,15 +11,15 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`aggregate_query_scan_host_metadata`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateQueryScanHostMetadataError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,9 +27,9 @@ pub enum AggregateQueryScanHostMetadataError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateScansError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,9 +37,9 @@ pub enum AggregateScansError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateScheduledScansError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -47,9 +47,9 @@ pub enum AggregateScheduledScansError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CancelScansError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -57,8 +57,8 @@ pub enum CancelScansError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateScanError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -66,9 +66,9 @@ pub enum CreateScanError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteScheduledScansError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -76,9 +76,9 @@ pub enum DeleteScheduledScansError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMaliciousFilesByIdsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,9 +86,9 @@ pub enum GetMaliciousFilesByIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetScanHostMetadataByIdsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -96,9 +96,19 @@ pub enum GetScanHostMetadataByIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetScansByScanIdsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_scans_by_scan_ids_v2`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetScansByScanIdsV2Error {
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -106,9 +116,9 @@ pub enum GetScansByScanIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetScheduledScansByScanIdsError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -116,9 +126,9 @@ pub enum GetScheduledScansByScanIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryMaliciousFilesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -126,9 +136,9 @@ pub enum QueryMaliciousFilesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryScanHostMetadataError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -136,9 +146,9 @@ pub enum QueryScanHostMetadataError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryScansError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -146,9 +156,9 @@ pub enum QueryScansError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryScheduledScansError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -156,16 +166,15 @@ pub enum QueryScheduledScansError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ScheduleScanError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn aggregate_query_scan_host_metadata(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<AggregateQueryScanHostMetadataError>>
-{
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateQueryScanHostMetadataError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -208,8 +217,8 @@ pub async fn aggregate_query_scan_host_metadata(
 
 pub async fn aggregate_scans(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<AggregateScansError>> {
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateScansError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -252,8 +261,8 @@ pub async fn aggregate_scans(
 
 pub async fn aggregate_scheduled_scans(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<AggregateScheduledScansError>> {
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateScheduledScansError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -296,8 +305,8 @@ pub async fn aggregate_scheduled_scans(
 
 pub async fn cancel_scans(
     configuration: &configuration::Configuration,
-    body: crate::models::EntitiesPeriodOdsCancelScanRequest,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<CancelScansError>> {
+    body: models::EntitiesPeriodOdsCancelScanRequest,
+) -> Result<models::MsaspecPeriodQueryResponse, Error<CancelScansError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -340,8 +349,8 @@ pub async fn cancel_scans(
 
 pub async fn create_scan(
     configuration: &configuration::Configuration,
-    body: crate::models::EntitiesPeriodOdsScanRequest,
-) -> Result<crate::models::EntitiesPeriodOdsScanResponse, Error<CreateScanError>> {
+    body: models::EntitiesPeriodOdsScanRequest,
+) -> Result<models::EntitiesPeriodOdsScanResponse, Error<CreateScanError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -386,7 +395,7 @@ pub async fn delete_scheduled_scans(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     filter: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<DeleteScheduledScansError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<DeleteScheduledScansError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -401,7 +410,7 @@ pub async fn delete_scheduled_scans(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -448,10 +457,8 @@ pub async fn delete_scheduled_scans(
 pub async fn get_malicious_files_by_ids(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    crate::models::EntitiesPeriodOdsScanMaliciousFileResponse,
-    Error<GetMaliciousFilesByIdsError>,
-> {
+) -> Result<models::EntitiesPeriodOdsScanMaliciousFileResponse, Error<GetMaliciousFilesByIdsError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -466,7 +473,7 @@ pub async fn get_malicious_files_by_ids(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -509,8 +516,7 @@ pub async fn get_malicious_files_by_ids(
 pub async fn get_scan_host_metadata_by_ids(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::EntitiesPeriodOdsScanHostResponse, Error<GetScanHostMetadataByIdsError>>
-{
+) -> Result<models::EntitiesPeriodOdsScanHostResponse, Error<GetScanHostMetadataByIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -525,7 +531,7 @@ pub async fn get_scan_host_metadata_by_ids(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -568,7 +574,7 @@ pub async fn get_scan_host_metadata_by_ids(
 pub async fn get_scans_by_scan_ids(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::EntitiesPeriodOdsScanResponse, Error<GetScansByScanIdsError>> {
+) -> Result<models::EntitiesPeriodOdsScanResponse, Error<GetScansByScanIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -583,7 +589,7 @@ pub async fn get_scans_by_scan_ids(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -623,13 +629,68 @@ pub async fn get_scans_by_scan_ids(
     }
 }
 
+pub async fn get_scans_by_scan_ids_v2(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<models::EntitiesPeriodOdsScanResponseV2, Error<GetScansByScanIdsV2Error>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!(
+        "{}/ods/entities/scans/v2",
+        local_var_configuration.base_path
+    );
+    let mut local_var_req_builder =
+        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = match "multi" {
+        "multi" => local_var_req_builder.query(
+            &ids.into_iter()
+                .map(|p| ("ids".to_owned(), p.to_string()))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => local_var_req_builder.query(&[(
+            "ids",
+            &ids.into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
+    };
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder =
+            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetScansByScanIdsV2Error> =
+            serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent {
+            status: local_var_status,
+            content: local_var_content,
+            entity: local_var_entity,
+        };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn get_scheduled_scans_by_scan_ids(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    crate::models::EntitiesPeriodOdsScheduleScanResponse,
-    Error<GetScheduledScansByScanIdsError>,
-> {
+) -> Result<models::EntitiesPeriodOdsScheduleScanResponse, Error<GetScheduledScansByScanIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -644,7 +705,7 @@ pub async fn get_scheduled_scans_by_scan_ids(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -690,7 +751,7 @@ pub async fn query_malicious_files(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryMaliciousFilesError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryMaliciousFilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -752,7 +813,7 @@ pub async fn query_scan_host_metadata(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryScanHostMetadataError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryScanHostMetadataError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -814,7 +875,7 @@ pub async fn query_scans(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryScansError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryScansError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -873,7 +934,7 @@ pub async fn query_scheduled_scans(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryScheduledScansError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryScheduledScansError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -931,8 +992,8 @@ pub async fn query_scheduled_scans(
 
 pub async fn schedule_scan(
     configuration: &configuration::Configuration,
-    body: crate::models::EntitiesPeriodOdsScheduleScanRequest,
-) -> Result<crate::models::EntitiesPeriodOdsScheduleScanResponse, Error<ScheduleScanError>> {
+    body: models::EntitiesPeriodOdsScheduleScanRequest,
+) -> Result<models::EntitiesPeriodOdsScheduleScanResponse, Error<ScheduleScanError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

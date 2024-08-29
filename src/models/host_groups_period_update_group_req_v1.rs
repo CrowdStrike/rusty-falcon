@@ -9,8 +9,7 @@
  */
 
 /// HostGroupsPeriodUpdateGroupReqV1 : A specific group to be updated
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct HostGroupsPeriodUpdateGroupReqV1 {
     /// The new assignment rule of the group. Note: If the group type is static, this field cannot be updated manually
     #[serde(rename = "assignment_rule", skip_serializing_if = "Option::is_none")]

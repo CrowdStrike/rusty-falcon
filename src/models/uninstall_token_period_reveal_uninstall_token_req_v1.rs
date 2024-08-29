@@ -9,8 +9,7 @@
  */
 
 /// UninstallTokenPeriodRevealUninstallTokenReqV1 : A req to reveal an uninstall token for a specific device
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct UninstallTokenPeriodRevealUninstallTokenReqV1 {
     /// An optional message to append to the recorded audit log
     #[serde(rename = "audit_message", skip_serializing_if = "Option::is_none")]

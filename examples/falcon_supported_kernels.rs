@@ -36,7 +36,7 @@ async fn main() {
 
     let mut arch_set = HashSet::new();
     let mut distro_set = HashSet::new();
-    for kernel in kernels.resources.unwrap() {
+    for kernel in kernels.resources {
         arch_set.insert(kernel.architecture);
         distro_set.insert(kernel.distro);
     }
@@ -102,14 +102,13 @@ async fn main() {
         );
     }
 
-    if response.resources.is_none() {
+    if response.resources.is_empty() {
         eprintln!("No CCID returned");
         return;
     }
 
     let releases = response
         .resources
-        .expect("Could not find the releases.")
         .into_iter()
         .map(|obj| obj.release)
         .collect::<Vec<String>>();

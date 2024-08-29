@@ -11,17 +11,17 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`create_rt_response_policies`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateRtResponsePoliciesError {
-    Status400(crate::models::RemoteResponsePeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::RemoteResponsePeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RemoteResponsePeriodRespV1),
+    Status400(models::RemoteResponsePeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::RemoteResponsePeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RemoteResponsePeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,10 +29,10 @@ pub enum CreateRtResponsePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteRtResponsePoliciesError {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,10 +40,10 @@ pub enum DeleteRtResponsePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRtResponsePoliciesError {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::RemoteResponsePeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RemoteResponsePeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::RemoteResponsePeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RemoteResponsePeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,11 +51,11 @@ pub enum GetRtResponsePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PerformRtResponsePoliciesActionError {
-    Status400(crate::models::RemoteResponsePeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::RemoteResponsePeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RemoteResponsePeriodRespV1),
+    Status400(models::RemoteResponsePeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::RemoteResponsePeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RemoteResponsePeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -63,10 +63,10 @@ pub enum PerformRtResponsePoliciesActionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedRtResponsePoliciesError {
-    Status400(crate::models::RemoteResponsePeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RemoteResponsePeriodRespV1),
+    Status400(models::RemoteResponsePeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RemoteResponsePeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -74,11 +74,11 @@ pub enum QueryCombinedRtResponsePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedRtResponsePolicyMembersError {
-    Status400(crate::models::BasePeriodPolicyMembersRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::BasePeriodPolicyMembersRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::BasePeriodPolicyMembersRespV1),
+    Status400(models::BasePeriodPolicyMembersRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::BasePeriodPolicyMembersRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::BasePeriodPolicyMembersRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,10 +86,10 @@ pub enum QueryCombinedRtResponsePolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRtResponsePoliciesError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -97,11 +97,11 @@ pub enum QueryRtResponsePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRtResponsePolicyMembersError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -109,10 +109,10 @@ pub enum QueryRtResponsePolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SetRtResponsePoliciesPrecedenceError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -120,18 +120,18 @@ pub enum SetRtResponsePoliciesPrecedenceError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateRtResponsePoliciesError {
-    Status400(crate::models::RemoteResponsePeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::RemoteResponsePeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::RemoteResponsePeriodRespV1),
+    Status400(models::RemoteResponsePeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::RemoteResponsePeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::RemoteResponsePeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_rt_response_policies(
     configuration: &configuration::Configuration,
-    body: crate::models::RemoteResponsePeriodCreatePoliciesV1,
-) -> Result<crate::models::RemoteResponsePeriodRespV1, Error<CreateRtResponsePoliciesError>> {
+    body: models::RemoteResponsePeriodCreatePoliciesV1,
+) -> Result<models::RemoteResponsePeriodRespV1, Error<CreateRtResponsePoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -175,7 +175,7 @@ pub async fn create_rt_response_policies(
 pub async fn delete_rt_response_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<DeleteRtResponsePoliciesError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<DeleteRtResponsePoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -190,7 +190,7 @@ pub async fn delete_rt_response_policies(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -233,7 +233,7 @@ pub async fn delete_rt_response_policies(
 pub async fn get_rt_response_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::RemoteResponsePeriodRespV1, Error<GetRtResponsePoliciesError>> {
+) -> Result<models::RemoteResponsePeriodRespV1, Error<GetRtResponsePoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -248,7 +248,7 @@ pub async fn get_rt_response_policies(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -291,9 +291,8 @@ pub async fn get_rt_response_policies(
 pub async fn perform_rt_response_policies_action(
     configuration: &configuration::Configuration,
     action_name: &str,
-    body: crate::models::MsaPeriodEntityActionRequestV2,
-) -> Result<crate::models::RemoteResponsePeriodRespV1, Error<PerformRtResponsePoliciesActionError>>
-{
+    body: models::MsaPeriodEntityActionRequestV2,
+) -> Result<models::RemoteResponsePeriodRespV1, Error<PerformRtResponsePoliciesActionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -342,8 +341,7 @@ pub async fn query_combined_rt_response_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::RemoteResponsePeriodRespV1, Error<QueryCombinedRtResponsePoliciesError>>
-{
+) -> Result<models::RemoteResponsePeriodRespV1, Error<QueryCombinedRtResponsePoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -406,10 +404,8 @@ pub async fn query_combined_rt_response_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<
-    crate::models::BasePeriodPolicyMembersRespV1,
-    Error<QueryCombinedRtResponsePolicyMembersError>,
-> {
+) -> Result<models::BasePeriodPolicyMembersRespV1, Error<QueryCombinedRtResponsePolicyMembersError>>
+{
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -474,7 +470,7 @@ pub async fn query_rt_response_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryRtResponsePoliciesError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryRtResponsePoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -537,7 +533,7 @@ pub async fn query_rt_response_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryRtResponsePolicyMembersError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryRtResponsePolicyMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -598,8 +594,8 @@ pub async fn query_rt_response_policy_members(
 
 pub async fn set_rt_response_policies_precedence(
     configuration: &configuration::Configuration,
-    body: crate::models::BasePeriodSetPolicyPrecedenceReqV1,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<SetRtResponsePoliciesPrecedenceError>> {
+    body: models::BasePeriodSetPolicyPrecedenceReqV1,
+) -> Result<models::MsaPeriodQueryResponse, Error<SetRtResponsePoliciesPrecedenceError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -642,8 +638,8 @@ pub async fn set_rt_response_policies_precedence(
 
 pub async fn update_rt_response_policies(
     configuration: &configuration::Configuration,
-    body: crate::models::RemoteResponsePeriodUpdatePoliciesReqV1,
-) -> Result<crate::models::RemoteResponsePeriodRespV1, Error<UpdateRtResponsePoliciesError>> {
+    body: models::RemoteResponsePeriodUpdatePoliciesReqV1,
+) -> Result<models::RemoteResponsePeriodRespV1, Error<UpdateRtResponsePoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

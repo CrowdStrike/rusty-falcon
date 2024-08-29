@@ -11,14 +11,14 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`aggregate_cases`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateCasesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -26,10 +26,10 @@ pub enum AggregateCasesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CaseAddActivityError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,10 +37,10 @@ pub enum CaseAddActivityError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CaseAddAttachmentError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -48,11 +48,11 @@ pub enum CaseAddAttachmentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CaseDownloadAttachmentError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -60,10 +60,10 @@ pub enum CaseDownloadAttachmentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCaseError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -71,10 +71,10 @@ pub enum CreateCaseError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCaseV2Error {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -82,10 +82,10 @@ pub enum CreateCaseV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCaseActivityByIdsError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -93,10 +93,10 @@ pub enum GetCaseActivityByIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCaseEntitiesByIdsError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -104,10 +104,10 @@ pub enum GetCaseEntitiesByIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryActivityByCaseIdError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -115,17 +115,17 @@ pub enum QueryActivityByCaseIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCasesIdsByFilterError {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn aggregate_cases(
     configuration: &configuration::Configuration,
-    body: Vec<crate::models::MsaPeriodAggregateQueryRequest>,
-) -> Result<crate::models::MsaPeriodAggregatesResponse, Error<AggregateCasesError>> {
+    body: Vec<models::MsaPeriodAggregateQueryRequest>,
+) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateCasesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -168,8 +168,8 @@ pub async fn aggregate_cases(
 
 pub async fn case_add_activity(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodActivityCreationRequest,
-) -> Result<crate::models::MsaspecPeriodResponseFields, Error<CaseAddActivityError>> {
+    body: models::DomainPeriodActivityCreationRequest,
+) -> Result<models::MsaspecPeriodResponseFields, Error<CaseAddActivityError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -216,10 +216,7 @@ pub async fn case_add_attachment(
     case_id: &str,
     user_uuid: &str,
     _file: std::path::PathBuf,
-) -> Result<
-    crate::models::ApiPeriodMessageCenterAttachmentUploadResponse,
-    Error<CaseAddAttachmentError>,
-> {
+) -> Result<models::ApiPeriodMessageCenterAttachmentUploadResponse, Error<CaseAddAttachmentError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -310,8 +307,8 @@ pub async fn case_download_attachment(
 
 pub async fn create_case(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodCaseCreationRequest,
-) -> Result<crate::models::MsaPeriodReplyAffectedEntities, Error<CreateCaseError>> {
+    body: models::DomainPeriodCaseCreationRequest,
+) -> Result<models::MsaPeriodReplyAffectedEntities, Error<CreateCaseError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -354,8 +351,8 @@ pub async fn create_case(
 
 pub async fn create_case_v2(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodCaseCreationRequestV2,
-) -> Result<crate::models::MsaPeriodReplyAffectedEntities, Error<CreateCaseV2Error>> {
+    body: models::DomainPeriodCaseCreationRequestV2,
+) -> Result<models::MsaPeriodReplyAffectedEntities, Error<CreateCaseV2Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -398,9 +395,8 @@ pub async fn create_case_v2(
 
 pub async fn get_case_activity_by_ids(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaPeriodIdsRequest,
-) -> Result<crate::models::ApiPeriodMessageCenterActivityResponse, Error<GetCaseActivityByIdsError>>
-{
+    body: models::MsaPeriodIdsRequest,
+) -> Result<models::ApiPeriodMessageCenterActivityResponse, Error<GetCaseActivityByIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -443,8 +439,8 @@ pub async fn get_case_activity_by_ids(
 
 pub async fn get_case_entities_by_ids(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaPeriodIdsRequest,
-) -> Result<crate::models::ApiPeriodMessageCenterCasesResponse, Error<GetCaseEntitiesByIdsError>> {
+    body: models::MsaPeriodIdsRequest,
+) -> Result<models::ApiPeriodMessageCenterCasesResponse, Error<GetCaseEntitiesByIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -492,7 +488,7 @@ pub async fn query_activity_by_case_id(
     sort: Option<&str>,
     filter: Option<&str>,
     offset: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryActivityByCaseIdError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryActivityByCaseIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -555,7 +551,7 @@ pub async fn query_cases_ids_by_filter(
     sort: Option<&str>,
     filter: Option<&str>,
     offset: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryCasesIdsByFilterError>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryCasesIdsByFilterError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

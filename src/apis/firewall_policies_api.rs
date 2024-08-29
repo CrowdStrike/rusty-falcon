@@ -11,17 +11,17 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`create_firewall_policies`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateFirewallPoliciesError {
-    Status400(crate::models::FirewallPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::FirewallPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::FirewallPeriodRespV1),
+    Status400(models::FirewallPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::FirewallPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::FirewallPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,10 +29,10 @@ pub enum CreateFirewallPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteFirewallPoliciesError {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,10 +40,10 @@ pub enum DeleteFirewallPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetFirewallPoliciesError {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::FirewallPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::FirewallPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::FirewallPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::FirewallPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,11 +51,11 @@ pub enum GetFirewallPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PerformFirewallPoliciesActionError {
-    Status400(crate::models::FirewallPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::FirewallPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::FirewallPeriodRespV1),
+    Status400(models::FirewallPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::FirewallPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::FirewallPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -63,10 +63,10 @@ pub enum PerformFirewallPoliciesActionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedFirewallPoliciesError {
-    Status400(crate::models::FirewallPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::FirewallPeriodRespV1),
+    Status400(models::FirewallPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::FirewallPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -74,11 +74,11 @@ pub enum QueryCombinedFirewallPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedFirewallPolicyMembersError {
-    Status400(crate::models::BasePeriodPolicyMembersRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::BasePeriodPolicyMembersRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::BasePeriodPolicyMembersRespV1),
+    Status400(models::BasePeriodPolicyMembersRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::BasePeriodPolicyMembersRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::BasePeriodPolicyMembersRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,10 +86,10 @@ pub enum QueryCombinedFirewallPolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryFirewallPoliciesError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -97,11 +97,11 @@ pub enum QueryFirewallPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryFirewallPolicyMembersError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -109,10 +109,10 @@ pub enum QueryFirewallPolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SetFirewallPoliciesPrecedenceError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -120,19 +120,19 @@ pub enum SetFirewallPoliciesPrecedenceError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateFirewallPoliciesError {
-    Status400(crate::models::FirewallPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::FirewallPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::FirewallPeriodRespV1),
+    Status400(models::FirewallPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::FirewallPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::FirewallPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_firewall_policies(
     configuration: &configuration::Configuration,
-    body: crate::models::FirewallPeriodCreateFirewallPoliciesReqV1,
+    body: models::FirewallPeriodCreateFirewallPoliciesReqV1,
     clone_id: Option<&str>,
-) -> Result<crate::models::FirewallPeriodRespV1, Error<CreateFirewallPoliciesError>> {
+) -> Result<models::FirewallPeriodRespV1, Error<CreateFirewallPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -180,7 +180,7 @@ pub async fn create_firewall_policies(
 pub async fn delete_firewall_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<DeleteFirewallPoliciesError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<DeleteFirewallPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -195,7 +195,7 @@ pub async fn delete_firewall_policies(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -238,7 +238,7 @@ pub async fn delete_firewall_policies(
 pub async fn get_firewall_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::FirewallPeriodRespV1, Error<GetFirewallPoliciesError>> {
+) -> Result<models::FirewallPeriodRespV1, Error<GetFirewallPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -253,7 +253,7 @@ pub async fn get_firewall_policies(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -296,8 +296,8 @@ pub async fn get_firewall_policies(
 pub async fn perform_firewall_policies_action(
     configuration: &configuration::Configuration,
     action_name: &str,
-    body: crate::models::MsaPeriodEntityActionRequestV2,
-) -> Result<crate::models::FirewallPeriodRespV1, Error<PerformFirewallPoliciesActionError>> {
+    body: models::MsaPeriodEntityActionRequestV2,
+) -> Result<models::FirewallPeriodRespV1, Error<PerformFirewallPoliciesActionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -346,7 +346,7 @@ pub async fn query_combined_firewall_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::FirewallPeriodRespV1, Error<QueryCombinedFirewallPoliciesError>> {
+) -> Result<models::FirewallPeriodRespV1, Error<QueryCombinedFirewallPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -409,10 +409,7 @@ pub async fn query_combined_firewall_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<
-    crate::models::BasePeriodPolicyMembersRespV1,
-    Error<QueryCombinedFirewallPolicyMembersError>,
-> {
+) -> Result<models::BasePeriodPolicyMembersRespV1, Error<QueryCombinedFirewallPolicyMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -477,7 +474,7 @@ pub async fn query_firewall_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryFirewallPoliciesError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryFirewallPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -540,7 +537,7 @@ pub async fn query_firewall_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryFirewallPolicyMembersError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryFirewallPolicyMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -601,8 +598,8 @@ pub async fn query_firewall_policy_members(
 
 pub async fn set_firewall_policies_precedence(
     configuration: &configuration::Configuration,
-    body: crate::models::BasePeriodSetPolicyPrecedenceReqV1,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<SetFirewallPoliciesPrecedenceError>> {
+    body: models::BasePeriodSetPolicyPrecedenceReqV1,
+) -> Result<models::MsaPeriodQueryResponse, Error<SetFirewallPoliciesPrecedenceError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -645,8 +642,8 @@ pub async fn set_firewall_policies_precedence(
 
 pub async fn update_firewall_policies(
     configuration: &configuration::Configuration,
-    body: crate::models::FirewallPeriodUpdateFirewallPoliciesReqV1,
-) -> Result<crate::models::FirewallPeriodRespV1, Error<UpdateFirewallPoliciesError>> {
+    body: models::FirewallPeriodUpdateFirewallPoliciesReqV1,
+) -> Result<models::FirewallPeriodRespV1, Error<UpdateFirewallPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

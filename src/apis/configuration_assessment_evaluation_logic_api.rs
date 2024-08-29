@@ -11,15 +11,15 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`get_evaluation_logic_mixin0`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetEvaluationLogicMixin0Error {
     Status400(),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     Status500(),
     UnknownValue(serde_json::Value),
 }
@@ -28,7 +28,7 @@ pub async fn get_evaluation_logic_mixin0(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
 ) -> Result<
-    crate::models::DomainPeriodApiEvaluationLogicEntitiesResponseV1,
+    models::DomainPeriodApiEvaluationLogicEntitiesResponseV1,
     Error<GetEvaluationLogicMixin0Error>,
 > {
     let local_var_configuration = configuration;
@@ -45,7 +45,7 @@ pub async fn get_evaluation_logic_mixin0(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(

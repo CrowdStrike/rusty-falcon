@@ -11,16 +11,16 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`combined_user_roles_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedUserRolesV1Error {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,9 +28,9 @@ pub enum CombinedUserRolesV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateUserError {
-    Status400(crate::models::MsaPeriodEntitiesResponse),
-    Status403(crate::models::MsaPeriodEntitiesResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodEntitiesResponse),
+    Status403(models::MsaPeriodEntitiesResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -38,10 +38,10 @@ pub enum CreateUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateUserV1Error {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -49,10 +49,10 @@ pub enum CreateUserV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteUserError {
-    Status400(crate::models::MsaPeriodReplyMetaOnly),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -60,10 +60,10 @@ pub enum DeleteUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteUserV1Error {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -71,11 +71,11 @@ pub enum DeleteUserV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EntitiesRolesV1Error {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status404(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status404(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -83,10 +83,10 @@ pub enum EntitiesRolesV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAvailableRoleIdsError {
-    Status403(crate::models::MsaPeriodQueryResponse),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodQueryResponse),
+    Status404(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -94,11 +94,11 @@ pub enum GetAvailableRoleIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRolesError {
-    Status400(crate::models::MsaPeriodEntitiesResponse),
-    Status403(crate::models::MsaPeriodEntitiesResponse),
-    Status404(crate::models::MsaPeriodEntitiesResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodEntitiesResponse),
+    Status400(models::MsaPeriodEntitiesResponse),
+    Status403(models::MsaPeriodEntitiesResponse),
+    Status404(models::MsaPeriodEntitiesResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -106,10 +106,10 @@ pub enum GetRolesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserRoleIdsError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -117,9 +117,9 @@ pub enum GetUserRoleIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GrantUserRoleIdsError {
-    Status400(crate::models::MsaPeriodEntitiesResponse),
-    Status403(crate::models::MsaPeriodEntitiesResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodEntitiesResponse),
+    Status403(models::MsaPeriodEntitiesResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -127,10 +127,10 @@ pub enum GrantUserRoleIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueriesRolesV1Error {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -138,10 +138,10 @@ pub enum QueriesRolesV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryUserV1Error {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -149,9 +149,9 @@ pub enum QueryUserV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RetrieveEmailsByCidError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -159,10 +159,10 @@ pub enum RetrieveEmailsByCidError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RetrieveUserError {
-    Status400(crate::models::MsaPeriodEntitiesResponse),
-    Status403(crate::models::MsaPeriodEntitiesResponse),
-    Status404(crate::models::MsaPeriodEntitiesResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodEntitiesResponse),
+    Status403(models::MsaPeriodEntitiesResponse),
+    Status404(models::MsaPeriodEntitiesResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -170,10 +170,10 @@ pub enum RetrieveUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RetrieveUserUuidError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodQueryResponse),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodQueryResponse),
+    Status404(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -181,9 +181,9 @@ pub enum RetrieveUserUuidError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RetrieveUserUuidsByCidError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -191,10 +191,10 @@ pub enum RetrieveUserUuidsByCidError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RetrieveUsersGetv1Error {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -202,9 +202,9 @@ pub enum RetrieveUsersGetv1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RevokeUserRoleIdsError {
-    Status400(crate::models::MsaPeriodEntitiesResponse),
-    Status403(crate::models::MsaPeriodEntitiesResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodEntitiesResponse),
+    Status403(models::MsaPeriodEntitiesResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -212,10 +212,10 @@ pub enum RevokeUserRoleIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateUserError {
-    Status400(crate::models::MsaPeriodEntitiesResponse),
-    Status403(crate::models::MsaPeriodEntitiesResponse),
-    Status404(crate::models::MsaPeriodEntitiesResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaPeriodEntitiesResponse),
+    Status403(models::MsaPeriodEntitiesResponse),
+    Status404(models::MsaPeriodEntitiesResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -223,10 +223,10 @@ pub enum UpdateUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateUserV1Error {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -234,10 +234,10 @@ pub enum UpdateUserV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UserActionV1Error {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -245,10 +245,10 @@ pub enum UserActionV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UserRolesActionV1Error {
-    Status400(crate::models::MsaspecPeriodResponseFields),
-    Status403(crate::models::MsaspecPeriodResponseFields),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaspecPeriodResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -261,8 +261,7 @@ pub async fn combined_user_roles_v1(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::FlightcontrolapiPeriodUserGrantResponse, Error<CombinedUserRolesV1Error>>
-{
+) -> Result<models::FlightcontrolapiPeriodUserGrantResponse, Error<CombinedUserRolesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -328,8 +327,8 @@ pub async fn combined_user_roles_v1(
 
 pub async fn create_user(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodUserCreateRequest,
-) -> Result<crate::models::ApiPeriodUserMetadataResponse, Error<CreateUserError>> {
+    body: models::DomainPeriodUserCreateRequest,
+) -> Result<models::ApiPeriodUserMetadataResponse, Error<CreateUserError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -372,9 +371,9 @@ pub async fn create_user(
 
 pub async fn create_user_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodCreateUserRequest,
+    body: models::DomainPeriodCreateUserRequest,
     validate_only: Option<bool>,
-) -> Result<crate::models::FlightcontrolapiPeriodUserResponse, Error<CreateUserV1Error>> {
+) -> Result<models::FlightcontrolapiPeriodUserResponse, Error<CreateUserV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -422,7 +421,7 @@ pub async fn create_user_v1(
 pub async fn delete_user(
     configuration: &configuration::Configuration,
     user_uuid: &str,
-) -> Result<crate::models::MsaPeriodReplyMetaOnly, Error<DeleteUserError>> {
+) -> Result<models::MsaPeriodReplyMetaOnly, Error<DeleteUserError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -466,7 +465,7 @@ pub async fn delete_user(
 pub async fn delete_user_v1(
     configuration: &configuration::Configuration,
     user_uuid: &str,
-) -> Result<crate::models::MsaspecPeriodResponseFields, Error<DeleteUserV1Error>> {
+) -> Result<models::MsaspecPeriodResponseFields, Error<DeleteUserV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -511,7 +510,7 @@ pub async fn entities_roles_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     cid: Option<&str>,
-) -> Result<crate::models::FlightcontrolapiPeriodGetRolesResponse, Error<EntitiesRolesV1Error>> {
+) -> Result<models::FlightcontrolapiPeriodGetRolesResponse, Error<EntitiesRolesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -529,7 +528,7 @@ pub async fn entities_roles_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -571,7 +570,7 @@ pub async fn entities_roles_v1(
 
 pub async fn get_available_role_ids(
     configuration: &configuration::Configuration,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<GetAvailableRoleIdsError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<GetAvailableRoleIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -614,7 +613,7 @@ pub async fn get_available_role_ids(
 pub async fn get_roles(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::ApiPeriodUserRoleResponse, Error<GetRolesError>> {
+) -> Result<models::ApiPeriodUserRoleResponse, Error<GetRolesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -629,7 +628,7 @@ pub async fn get_roles(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -671,7 +670,7 @@ pub async fn get_roles(
 pub async fn get_user_role_ids(
     configuration: &configuration::Configuration,
     user_uuid: &str,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<GetUserRoleIdsError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<GetUserRoleIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -715,8 +714,8 @@ pub async fn get_user_role_ids(
 pub async fn grant_user_role_ids(
     configuration: &configuration::Configuration,
     user_uuid: &str,
-    body: crate::models::DomainPeriodRoleIds,
-) -> Result<crate::models::ApiPeriodUserRoleIdsResponse, Error<GrantUserRoleIdsError>> {
+    body: models::DomainPeriodRoleIds,
+) -> Result<models::ApiPeriodUserRoleIdsResponse, Error<GrantUserRoleIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -763,7 +762,7 @@ pub async fn queries_roles_v1(
     cid: Option<&str>,
     user_uuid: Option<&str>,
     action: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueriesRolesV1Error>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueriesRolesV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -820,7 +819,7 @@ pub async fn query_user_v1(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaspecPeriodQueryResponse, Error<QueryUserV1Error>> {
+) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryUserV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -878,7 +877,7 @@ pub async fn query_user_v1(
 
 pub async fn retrieve_emails_by_cid(
     configuration: &configuration::Configuration,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<RetrieveEmailsByCidError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<RetrieveEmailsByCidError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -921,7 +920,7 @@ pub async fn retrieve_emails_by_cid(
 pub async fn retrieve_user(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::ApiPeriodUserMetadataResponse, Error<RetrieveUserError>> {
+) -> Result<models::ApiPeriodUserMetadataResponse, Error<RetrieveUserError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -936,7 +935,7 @@ pub async fn retrieve_user(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -979,7 +978,7 @@ pub async fn retrieve_user(
 pub async fn retrieve_user_uuid(
     configuration: &configuration::Configuration,
     uid: Vec<String>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<RetrieveUserUuidError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<RetrieveUserUuidError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -994,7 +993,7 @@ pub async fn retrieve_user_uuid(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &uid.into_iter()
-                .map(|p| ("uid".to_owned(), p))
+                .map(|p| ("uid".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1036,7 +1035,7 @@ pub async fn retrieve_user_uuid(
 
 pub async fn retrieve_user_uuids_by_cid(
     configuration: &configuration::Configuration,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<RetrieveUserUuidsByCidError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<RetrieveUserUuidsByCidError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1078,8 +1077,8 @@ pub async fn retrieve_user_uuids_by_cid(
 
 pub async fn retrieve_users_getv1(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaspecPeriodIdsRequest,
-) -> Result<crate::models::FlightcontrolapiPeriodUserResponse, Error<RetrieveUsersGetv1Error>> {
+    body: models::MsaspecPeriodIdsRequest,
+) -> Result<models::FlightcontrolapiPeriodUserResponse, Error<RetrieveUsersGetv1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1124,7 +1123,7 @@ pub async fn revoke_user_role_ids(
     configuration: &configuration::Configuration,
     user_uuid: &str,
     ids: Vec<String>,
-) -> Result<crate::models::ApiPeriodUserRoleIdsResponse, Error<RevokeUserRoleIdsError>> {
+) -> Result<models::ApiPeriodUserRoleIdsResponse, Error<RevokeUserRoleIdsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1140,7 +1139,7 @@ pub async fn revoke_user_role_ids(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -1183,8 +1182,8 @@ pub async fn revoke_user_role_ids(
 pub async fn update_user(
     configuration: &configuration::Configuration,
     user_uuid: &str,
-    body: crate::models::DomainPeriodUpdateUserFields,
-) -> Result<crate::models::ApiPeriodUserMetadataResponse, Error<UpdateUserError>> {
+    body: models::DomainPeriodUpdateUserFields,
+) -> Result<models::ApiPeriodUserMetadataResponse, Error<UpdateUserError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1229,8 +1228,8 @@ pub async fn update_user(
 pub async fn update_user_v1(
     configuration: &configuration::Configuration,
     user_uuid: &str,
-    body: crate::models::DomainPeriodUpdateUserRequest,
-) -> Result<crate::models::FlightcontrolapiPeriodUserResponse, Error<UpdateUserV1Error>> {
+    body: models::DomainPeriodUpdateUserRequest,
+) -> Result<models::FlightcontrolapiPeriodUserResponse, Error<UpdateUserV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1274,8 +1273,8 @@ pub async fn update_user_v1(
 
 pub async fn user_action_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodUserActionRequest,
-) -> Result<crate::models::MsaspecPeriodResponseFields, Error<UserActionV1Error>> {
+    body: models::DomainPeriodUserActionRequest,
+) -> Result<models::MsaspecPeriodResponseFields, Error<UserActionV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1318,8 +1317,8 @@ pub async fn user_action_v1(
 
 pub async fn user_roles_action_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::DomainPeriodActionUserRolesRequest,
-) -> Result<crate::models::MsaspecPeriodResponseFields, Error<UserRolesActionV1Error>> {
+    body: models::DomainPeriodActionUserRolesRequest,
+) -> Result<models::MsaspecPeriodResponseFields, Error<UserRolesActionV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

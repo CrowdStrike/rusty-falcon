@@ -11,17 +11,17 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`create_device_control_policies`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateDeviceControlPoliciesError {
-    Status400(crate::models::DeviceControlPeriodRespV2),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::DeviceControlPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DeviceControlPeriodRespV2),
+    Status400(models::DeviceControlPeriodRespV2),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::DeviceControlPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DeviceControlPeriodRespV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,10 +29,10 @@ pub enum CreateDeviceControlPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteDeviceControlPoliciesError {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,10 +40,10 @@ pub enum DeleteDeviceControlPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetDefaultDeviceControlPoliciesError {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::DeviceControlPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DeviceControlPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::DeviceControlPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DeviceControlPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,10 +51,10 @@ pub enum GetDefaultDeviceControlPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetDeviceControlPoliciesError {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::DeviceControlPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DeviceControlPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::DeviceControlPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DeviceControlPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,11 +62,11 @@ pub enum GetDeviceControlPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PerformDeviceControlPoliciesActionError {
-    Status400(crate::models::DeviceControlPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::DeviceControlPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DeviceControlPeriodRespV1),
+    Status400(models::DeviceControlPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::DeviceControlPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DeviceControlPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -74,10 +74,10 @@ pub enum PerformDeviceControlPoliciesActionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedDeviceControlPoliciesError {
-    Status400(crate::models::DeviceControlPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DeviceControlPeriodRespV1),
+    Status400(models::DeviceControlPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DeviceControlPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -85,11 +85,11 @@ pub enum QueryCombinedDeviceControlPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedDeviceControlPolicyMembersError {
-    Status400(crate::models::BasePeriodPolicyMembersRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::BasePeriodPolicyMembersRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::BasePeriodPolicyMembersRespV1),
+    Status400(models::BasePeriodPolicyMembersRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::BasePeriodPolicyMembersRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::BasePeriodPolicyMembersRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -97,10 +97,10 @@ pub enum QueryCombinedDeviceControlPolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryDeviceControlPoliciesError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -108,11 +108,11 @@ pub enum QueryDeviceControlPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryDeviceControlPolicyMembersError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::MsaPeriodQueryResponse),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::MsaPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -120,10 +120,10 @@ pub enum QueryDeviceControlPolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SetDeviceControlPoliciesPrecedenceError {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -131,10 +131,10 @@ pub enum SetDeviceControlPoliciesPrecedenceError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateDefaultDeviceControlPoliciesError {
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::DeviceControlPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DeviceControlPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::DeviceControlPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DeviceControlPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -142,18 +142,18 @@ pub enum UpdateDefaultDeviceControlPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateDeviceControlPoliciesError {
-    Status400(crate::models::DeviceControlPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status404(crate::models::DeviceControlPeriodRespV1),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DeviceControlPeriodRespV1),
+    Status400(models::DeviceControlPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status404(models::DeviceControlPeriodRespV1),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DeviceControlPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_device_control_policies(
     configuration: &configuration::Configuration,
-    body: crate::models::DeviceControlPeriodCreatePoliciesV1,
-) -> Result<crate::models::DeviceControlPeriodRespV2, Error<CreateDeviceControlPoliciesError>> {
+    body: models::DeviceControlPeriodCreatePoliciesV1,
+) -> Result<models::DeviceControlPeriodRespV2, Error<CreateDeviceControlPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -197,7 +197,7 @@ pub async fn create_device_control_policies(
 pub async fn delete_device_control_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<DeleteDeviceControlPoliciesError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<DeleteDeviceControlPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -212,7 +212,7 @@ pub async fn delete_device_control_policies(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -254,7 +254,7 @@ pub async fn delete_device_control_policies(
 
 pub async fn get_default_device_control_policies(
     configuration: &configuration::Configuration,
-) -> Result<crate::models::DeviceControlPeriodRespV1, Error<GetDefaultDeviceControlPoliciesError>> {
+) -> Result<models::DeviceControlPeriodRespV1, Error<GetDefaultDeviceControlPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -297,7 +297,7 @@ pub async fn get_default_device_control_policies(
 pub async fn get_device_control_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::DeviceControlPeriodRespV1, Error<GetDeviceControlPoliciesError>> {
+) -> Result<models::DeviceControlPeriodRespV1, Error<GetDeviceControlPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -312,7 +312,7 @@ pub async fn get_device_control_policies(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -355,9 +355,8 @@ pub async fn get_device_control_policies(
 pub async fn perform_device_control_policies_action(
     configuration: &configuration::Configuration,
     action_name: &str,
-    body: crate::models::MsaPeriodEntityActionRequestV2,
-) -> Result<crate::models::DeviceControlPeriodRespV1, Error<PerformDeviceControlPoliciesActionError>>
-{
+    body: models::MsaPeriodEntityActionRequestV2,
+) -> Result<models::DeviceControlPeriodRespV1, Error<PerformDeviceControlPoliciesActionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -406,8 +405,7 @@ pub async fn query_combined_device_control_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::DeviceControlPeriodRespV1, Error<QueryCombinedDeviceControlPoliciesError>>
-{
+) -> Result<models::DeviceControlPeriodRespV1, Error<QueryCombinedDeviceControlPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -471,7 +469,7 @@ pub async fn query_combined_device_control_policy_members(
     limit: Option<i32>,
     sort: Option<&str>,
 ) -> Result<
-    crate::models::BasePeriodPolicyMembersRespV1,
+    models::BasePeriodPolicyMembersRespV1,
     Error<QueryCombinedDeviceControlPolicyMembersError>,
 > {
     let local_var_configuration = configuration;
@@ -538,7 +536,7 @@ pub async fn query_device_control_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryDeviceControlPoliciesError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryDeviceControlPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -601,7 +599,7 @@ pub async fn query_device_control_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QueryDeviceControlPolicyMembersError>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QueryDeviceControlPolicyMembersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -662,8 +660,8 @@ pub async fn query_device_control_policy_members(
 
 pub async fn set_device_control_policies_precedence(
     configuration: &configuration::Configuration,
-    body: crate::models::BasePeriodSetPolicyPrecedenceReqV1,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<SetDeviceControlPoliciesPrecedenceError>> {
+    body: models::BasePeriodSetPolicyPrecedenceReqV1,
+) -> Result<models::MsaPeriodQueryResponse, Error<SetDeviceControlPoliciesPrecedenceError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -706,9 +704,8 @@ pub async fn set_device_control_policies_precedence(
 
 pub async fn update_default_device_control_policies(
     configuration: &configuration::Configuration,
-    body: crate::models::DeviceControlPeriodReqUpdateDefaultDcPolicyV1,
-) -> Result<crate::models::DeviceControlPeriodRespV1, Error<UpdateDefaultDeviceControlPoliciesError>>
-{
+    body: models::DeviceControlPeriodReqUpdateDefaultDcPolicyV1,
+) -> Result<models::DeviceControlPeriodRespV1, Error<UpdateDefaultDeviceControlPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -751,8 +748,8 @@ pub async fn update_default_device_control_policies(
 
 pub async fn update_device_control_policies(
     configuration: &configuration::Configuration,
-    body: crate::models::DeviceControlPeriodUpdatePoliciesReqV1,
-) -> Result<crate::models::DeviceControlPeriodRespV1, Error<UpdateDeviceControlPoliciesError>> {
+    body: models::DeviceControlPeriodUpdatePoliciesReqV1,
+) -> Result<models::DeviceControlPeriodRespV1, Error<UpdateDeviceControlPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

@@ -11,7 +11,7 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`get_events_body`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -19,7 +19,7 @@ use crate::apis::ResponseContent;
 pub enum GetEventsBodyError {
     Status400(String),
     Status403(),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     Status500(Vec<i32>),
     UnknownValue(serde_json::Value),
 }
@@ -28,10 +28,10 @@ pub enum GetEventsBodyError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetEventsEntitiesError {
-    Status400(crate::models::DomainPeriodEventEntitiesResponse),
+    Status400(models::DomainPeriodEventEntitiesResponse),
     Status403(),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodEventEntitiesResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodEventEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum GetEventsEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRulesEntitiesError {
-    Status400(crate::models::DomainPeriodRuleEntitiesResponse),
+    Status400(models::DomainPeriodRuleEntitiesResponse),
     Status403(),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodRuleEntitiesResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodRuleEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +50,10 @@ pub enum GetRulesEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryEventsError {
-    Status400(crate::models::DomainPeriodQueryResponse),
+    Status400(models::DomainPeriodQueryResponse),
     Status403(),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,10 +61,10 @@ pub enum QueryEventsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRulesError {
-    Status400(crate::models::DomainPeriodQueryResponse),
+    Status400(models::DomainPeriodQueryResponse),
     Status403(),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodQueryResponse),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -114,8 +114,8 @@ pub async fn get_events_body(
 
 pub async fn get_events_entities(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaPeriodIdsRequest,
-) -> Result<crate::models::DomainPeriodEventEntitiesResponse, Error<GetEventsEntitiesError>> {
+    body: models::MsaPeriodIdsRequest,
+) -> Result<models::DomainPeriodEventEntitiesResponse, Error<GetEventsEntitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -158,8 +158,8 @@ pub async fn get_events_entities(
 
 pub async fn get_rules_entities(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaPeriodIdsRequest,
-) -> Result<crate::models::DomainPeriodRuleEntitiesResponse, Error<GetRulesEntitiesError>> {
+    body: models::MsaPeriodIdsRequest,
+) -> Result<models::DomainPeriodRuleEntitiesResponse, Error<GetRulesEntitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -207,7 +207,7 @@ pub async fn query_events(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<crate::models::DomainPeriodQueryResponse, Error<QueryEventsError>> {
+) -> Result<models::DomainPeriodQueryResponse, Error<QueryEventsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -273,7 +273,7 @@ pub async fn query_rules(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<crate::models::DomainPeriodQueryResponse, Error<QueryRulesError>> {
+) -> Result<models::DomainPeriodQueryResponse, Error<QueryRulesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

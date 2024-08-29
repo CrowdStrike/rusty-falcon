@@ -9,8 +9,7 @@
  */
 
 /// HostGroupsPeriodCreateGroupReqV1 : A specific device group to create
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct HostGroupsPeriodCreateGroupReqV1 {
     /// The FQL assignment rule for the group. This may only be specified if the groups type is 'dynamic'
     #[serde(rename = "assignment_rule", skip_serializing_if = "Option::is_none")]
@@ -37,7 +36,6 @@ impl HostGroupsPeriodCreateGroupReqV1 {
         }
     }
 }
-
 /// The type of device group to create
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum GroupType {

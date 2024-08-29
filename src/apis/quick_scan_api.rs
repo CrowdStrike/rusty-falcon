@@ -11,17 +11,17 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`get_scans`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetScansError {
-    Status400(crate::models::MlscannerapiPeriodScanV1Response),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status404(crate::models::MlscannerapiPeriodScanV1Response),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MlscannerapiPeriodScanV1Response),
+    Status400(models::MlscannerapiPeriodScanV1Response),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status404(models::MlscannerapiPeriodScanV1Response),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MlscannerapiPeriodScanV1Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,8 +29,8 @@ pub enum GetScansError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetScansAggregatesError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -38,10 +38,10 @@ pub enum GetScansAggregatesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QuerySubmissionsMixin0Error {
-    Status400(crate::models::MlscannerapiPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MlscannerapiPeriodQueryResponse),
+    Status400(models::MlscannerapiPeriodQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MlscannerapiPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -49,17 +49,17 @@ pub enum QuerySubmissionsMixin0Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ScanSamplesError {
-    Status400(crate::models::MlscannerapiPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MlscannerapiPeriodQueryResponse),
+    Status400(models::MlscannerapiPeriodQueryResponse),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MlscannerapiPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn get_scans(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::MlscannerapiPeriodScanV1Response, Error<GetScansError>> {
+) -> Result<models::MlscannerapiPeriodScanV1Response, Error<GetScansError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -74,7 +74,7 @@ pub async fn get_scans(
     local_var_req_builder = match "csv" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -115,7 +115,7 @@ pub async fn get_scans(
 
 pub async fn get_scans_aggregates(
     configuration: &configuration::Configuration,
-    body: crate::models::MsaPeriodAggregateQueryRequest,
+    body: models::MsaPeriodAggregateQueryRequest,
 ) -> Result<(), Error<GetScansAggregatesError>> {
     let local_var_configuration = configuration;
 
@@ -163,7 +163,7 @@ pub async fn query_submissions_mixin0(
     offset: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MlscannerapiPeriodQueryResponse, Error<QuerySubmissionsMixin0Error>> {
+) -> Result<models::MlscannerapiPeriodQueryResponse, Error<QuerySubmissionsMixin0Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -221,8 +221,8 @@ pub async fn query_submissions_mixin0(
 
 pub async fn scan_samples(
     configuration: &configuration::Configuration,
-    body: crate::models::MlscannerapiPeriodSamplesScanParameters,
-) -> Result<crate::models::MlscannerapiPeriodQueryResponse, Error<ScanSamplesError>> {
+    body: models::MlscannerapiPeriodSamplesScanParameters,
+) -> Result<models::MlscannerapiPeriodQueryResponse, Error<ScanSamplesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

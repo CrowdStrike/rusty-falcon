@@ -11,16 +11,17 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`combined_query_evaluation_logic`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedQueryEvaluationLogicError {
     Status400(),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     Status500(),
+    Status503(),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,9 +30,10 @@ pub enum CombinedQueryEvaluationLogicError {
 #[serde(untagged)]
 pub enum GetEvaluationLogicError {
     Status400(),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     Status500(),
+    Status503(),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,9 +42,10 @@ pub enum GetEvaluationLogicError {
 #[serde(untagged)]
 pub enum QueryEvaluationLogicError {
     Status400(),
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     Status500(),
+    Status503(),
     UnknownValue(serde_json::Value),
 }
 
@@ -53,7 +56,7 @@ pub async fn combined_query_evaluation_logic(
     limit: Option<i32>,
     sort: Option<&str>,
 ) -> Result<
-    crate::models::DomainPeriodSpapiEvaluationLogicCombinedResponseV1,
+    models::DomainPeriodSpapiEvaluationLogicCombinedResponseV1,
     Error<CombinedQueryEvaluationLogicError>,
 > {
     let local_var_configuration = configuration;
@@ -112,7 +115,7 @@ pub async fn get_evaluation_logic(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
 ) -> Result<
-    crate::models::DomainPeriodSpapiEvaluationLogicEntitiesResponseV1,
+    models::DomainPeriodSpapiEvaluationLogicEntitiesResponseV1,
     Error<GetEvaluationLogicError>,
 > {
     let local_var_configuration = configuration;
@@ -129,7 +132,7 @@ pub async fn get_evaluation_logic(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -175,7 +178,7 @@ pub async fn query_evaluation_logic(
     after: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::DomainPeriodSpapiQueryResponse, Error<QueryEvaluationLogicError>> {
+) -> Result<models::DomainPeriodSpapiQueryResponse, Error<QueryEvaluationLogicError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

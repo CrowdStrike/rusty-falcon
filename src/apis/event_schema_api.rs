@@ -11,14 +11,14 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`fdrschema_period_combined_period_event_period_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum FdrschemaPeriodCombinedPeriodEventPeriodGetError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -26,8 +26,8 @@ pub enum FdrschemaPeriodCombinedPeriodEventPeriodGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum FdrschemaPeriodEntitiesPeriodEventPeriodGetError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -35,15 +35,15 @@ pub enum FdrschemaPeriodEntitiesPeriodEventPeriodGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum FdrschemaPeriodQueriesPeriodEventPeriodGetError {
-    Status403(crate::models::MsaPeriodReplyMetaOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn fdrschema_period_combined_period_event_period_get(
     configuration: &configuration::Configuration,
 ) -> Result<
-    crate::models::SchemaPeriodSensorEventResponseV1,
+    models::SchemaPeriodSensorEventResponseV1,
     Error<FdrschemaPeriodCombinedPeriodEventPeriodGetError>,
 > {
     let local_var_configuration = configuration;
@@ -89,7 +89,7 @@ pub async fn fdrschema_period_entities_period_event_period_get(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
 ) -> Result<
-    crate::models::SchemaPeriodSensorEventResponseV1,
+    models::SchemaPeriodSensorEventResponseV1,
     Error<FdrschemaPeriodEntitiesPeriodEventPeriodGetError>,
 > {
     let local_var_configuration = configuration;
@@ -157,7 +157,7 @@ pub async fn fdrschema_period_queries_period_event_period_get(
     filter: Option<&str>,
     sort: Option<&str>,
 ) -> Result<
-    crate::models::MsaspecPeriodQueryResponse,
+    models::MsaspecPeriodQueryResponse,
     Error<FdrschemaPeriodQueriesPeriodEventPeriodGetError>,
 > {
     let local_var_configuration = configuration;

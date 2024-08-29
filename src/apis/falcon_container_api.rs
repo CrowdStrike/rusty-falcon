@@ -11,23 +11,23 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`get_credentials`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCredentialsError {
-    Status400(crate::models::MsaspecPeriodError),
-    Status401(crate::models::MsaspecPeriodError),
-    Status403(crate::models::MsaspecPeriodError),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::DomainPeriodRegistryCredentialsResponse),
+    Status400(models::MsaspecPeriodError),
+    Status401(models::MsaspecPeriodError),
+    Status403(models::MsaspecPeriodError),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::DomainPeriodRegistryCredentialsResponse),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn get_credentials(
     configuration: &configuration::Configuration,
-) -> Result<crate::models::DomainPeriodRegistryCredentialsResponse, Error<GetCredentialsError>> {
+) -> Result<models::DomainPeriodRegistryCredentialsResponse, Error<GetCredentialsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

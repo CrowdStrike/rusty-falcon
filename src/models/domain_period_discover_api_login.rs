@@ -9,8 +9,7 @@
  */
 
 /// DomainPeriodDiscoverApiLogin : Represents information about a successful or a failed login.
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodDiscoverApiLogin {
     /// The ID of the account that made the login.
     #[serde(rename = "account_id", skip_serializing_if = "Option::is_none")]
@@ -81,7 +80,7 @@ pub struct DomainPeriodDiscoverApiLogin {
     /// The date and time of the most recent attempt in the login.
     #[serde(rename = "login_timestamp", skip_serializing_if = "Option::is_none")]
     pub login_timestamp: Option<String>,
-    /// The type of the login.  For successful logins: <ul><li>Interactive</li><li>Service</li><li>Terminal server</li><li>Cached credentials</li><li>Auditing</li></ul> For failed logins: <ul><li>Interactive</li><li>Network</li><li>Batch</li><li>Service</li><li>Unlock</li><li>Network cleartext</li><li>New credentials</li><li>Terminal server</li><li>Cached credentials</li><li>Auditing</li></ul>
+    /// The type of the login.  For successful logins: <ul><li>Interactive</li><li>Network</li><li>Service</li><li>Remote interactive</li><li>Cached credentials</li><li>Auditing</li></ul> For failed logins: <ul><li>Interactive</li><li>Network</li><li>Batch</li><li>Service</li><li>Unlock</li><li>Network cleartext</li><li>New credentials</li><li>Remote Credentials</li><li>Cached credentials</li><li>Auditing</li></ul>
     #[serde(rename = "login_type", skip_serializing_if = "Option::is_none")]
     pub login_type: Option<String>,
     /// The remote IP address where the login was initiated.

@@ -11,16 +11,16 @@
 use reqwest;
 
 use super::{configuration, Error};
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 
 /// struct for typed errors of method [`create_sv_exclusions_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateSvExclusionsV1Error {
-    Status400(crate::models::ExclusionsPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::ExclusionsPeriodRespV1),
+    Status400(models::ExclusionsPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::ExclusionsPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum CreateSvExclusionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteSensorVisibilityExclusionsV1Error {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum DeleteSensorVisibilityExclusionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSensorVisibilityExclusionsV1Error {
-    Status400(crate::models::SvExclusionsPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::SvExclusionsPeriodRespV1),
+    Status400(models::SvExclusionsPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::SvExclusionsPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +50,10 @@ pub enum GetSensorVisibilityExclusionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QuerySensorVisibilityExclusionsV1Error {
-    Status400(crate::models::MsaPeriodQueryResponse),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::MsaPeriodQueryResponse),
+    Status400(models::MsaPeriodQueryResponse),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,17 +61,17 @@ pub enum QuerySensorVisibilityExclusionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateSensorVisibilityExclusionsV1Error {
-    Status400(crate::models::SvExclusionsPeriodRespV1),
-    Status403(crate::models::MsaPeriodErrorsOnly),
-    Status429(crate::models::MsaPeriodReplyMetaOnly),
-    Status500(crate::models::SvExclusionsPeriodRespV1),
+    Status400(models::SvExclusionsPeriodRespV1),
+    Status403(models::MsaPeriodErrorsOnly),
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::SvExclusionsPeriodRespV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_sv_exclusions_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::SvExclusionsPeriodCreateReqV1,
-) -> Result<crate::models::ExclusionsPeriodRespV1, Error<CreateSvExclusionsV1Error>> {
+    body: models::SvExclusionsPeriodCreateReqV1,
+) -> Result<models::ExclusionsPeriodRespV1, Error<CreateSvExclusionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -116,7 +116,7 @@ pub async fn delete_sensor_visibility_exclusions_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     comment: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<DeleteSensorVisibilityExclusionsV1Error>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<DeleteSensorVisibilityExclusionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -131,7 +131,7 @@ pub async fn delete_sensor_visibility_exclusions_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -178,7 +178,7 @@ pub async fn delete_sensor_visibility_exclusions_v1(
 pub async fn get_sensor_visibility_exclusions_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<crate::models::SvExclusionsPeriodRespV1, Error<GetSensorVisibilityExclusionsV1Error>> {
+) -> Result<models::SvExclusionsPeriodRespV1, Error<GetSensorVisibilityExclusionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -193,7 +193,7 @@ pub async fn get_sensor_visibility_exclusions_v1(
     local_var_req_builder = match "multi" {
         "multi" => local_var_req_builder.query(
             &ids.into_iter()
-                .map(|p| ("ids".to_owned(), p))
+                .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => local_var_req_builder.query(&[(
@@ -239,7 +239,7 @@ pub async fn query_sensor_visibility_exclusions_v1(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<crate::models::MsaPeriodQueryResponse, Error<QuerySensorVisibilityExclusionsV1Error>> {
+) -> Result<models::MsaPeriodQueryResponse, Error<QuerySensorVisibilityExclusionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -297,9 +297,8 @@ pub async fn query_sensor_visibility_exclusions_v1(
 
 pub async fn update_sensor_visibility_exclusions_v1(
     configuration: &configuration::Configuration,
-    body: crate::models::SvExclusionsPeriodUpdateReqV1,
-) -> Result<crate::models::SvExclusionsPeriodRespV1, Error<UpdateSensorVisibilityExclusionsV1Error>>
-{
+    body: models::SvExclusionsPeriodUpdateReqV1,
+) -> Result<models::SvExclusionsPeriodRespV1, Error<UpdateSensorVisibilityExclusionsV1Error>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

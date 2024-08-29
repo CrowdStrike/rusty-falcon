@@ -56,7 +56,7 @@ async fn main() {
             break;
         }
 
-        offset = offset + response.resources.len();
+        offset += response.resources.len();
 
         let batch_details = get_hosts(&falcon.cfg, response.resources)
             .await

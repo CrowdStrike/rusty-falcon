@@ -9,8 +9,7 @@
  */
 
 /// DomainPeriodDiscoverApiFieldMetadata : The metadata information for a host for each field
-
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodDiscoverApiFieldMetadata {
     /// Providers which have set the value.
     #[serde(rename = "providers", skip_serializing_if = "Option::is_none")]
