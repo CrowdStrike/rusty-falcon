@@ -1,9 +1,9 @@
 use clap::Parser;
-
 use rusty_falcon::{
     apis::discover_api::{get_hosts, query_hosts},
     easy::client::FalconHandle,
 };
+use std::convert::{TryFrom, TryInto};
 
 // We set API limits to a constant value as the `get_hosts` takes max 100 elements.
 const LIMIT: i32 = 100;
@@ -33,9 +33,12 @@ async fn main() {
     let mut offset = 0usize;
 
     loop {
+        // Use try_into() for safe conversion from usize to i32
+        let offset_i32: i32 = offset.try_into().expect("Offset exceeded i32 range");
+
         let response = query_hosts(
             &falcon.cfg,
-            Some(offset as i32),
+            Some(offset_i32),
             Some(LIMIT),
             Some(args.sort.as_str()),
             args.filter.as_deref(),
@@ -65,7 +68,15 @@ async fn main() {
         details.extend(batch_details);
 
         match response.meta.pagination {
-            Some(pagination) if offset < pagination.total as usize => {}
+            Some(pagination) => {
+                // Use `try_from()` to safely convert `i64` to `usize`
+                if let Ok(total_usize) = usize::try_from(pagination.total) {
+                    if offset < total_usize {
+                        continue;
+                    }
+                }
+                break;
+            }
             _ => break,
         };
     }
