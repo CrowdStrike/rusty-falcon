@@ -54,6 +54,12 @@ async fn main() {
 
 Ready-made examples can be found in [git repo](https://github.com/CrowdStrike/rusty-falcon/tree/main/examples).
 
+There's a [handy script](https://github.com/CrowdStrike/rusty-falcon/tree/main/scripts/run-examples.sh) that can be used to (sequentially) run the examples.
+
+```sh
+./scripts/run-examples.sh
+```
+
 # Generating models from OpenApi Specification
 
 This api model is generated from OpenApi specification using [OpenApi Generator](https://openapi-generator.tech/docs/installation/) for Rust language.
