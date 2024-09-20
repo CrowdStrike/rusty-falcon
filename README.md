@@ -60,6 +60,16 @@ There's a [handy script](https://github.com/CrowdStrike/rusty-falcon/tree/main/s
 ./scripts/run-examples.sh
 ```
 
+# [WIP] Project Documentation
+
+This project uses `mdbook` to serve its documentation, to run it locally:
+
+```bash
+cd docs
+mdbook build
+mdbook serve
+```
+
 # Generating models from OpenApi Specification
 
 This api model is generated from OpenApi specification using [OpenApi Generator](https://openapi-generator.tech/docs/installation/) for Rust language.

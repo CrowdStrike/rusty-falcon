@@ -1,0 +1,19 @@
+[book]
+title = "`rusty-falcon` Documentation"
+language = "en"
+multilingual = false
+src = "src"
+
+[build]
+create-missing = true
+use-default-preprocessors = false
+
+[preprocessor.links]
+
+[output.html]
+git-repository-url = "https://github.com/CrowdStrike/rusty-falcon"
+no-section-label = true
+fold = { enable = true }
+
+[rust]
+edition = "2021"
