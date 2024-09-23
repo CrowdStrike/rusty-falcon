@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.1] - 2024-09-23
+
+### Added
+
+- Feature: A script to run and display a status (pass/fail) of each example
+
 ## [0.4.0] - 2024-08-27
 
 ### Added
