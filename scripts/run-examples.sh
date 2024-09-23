@@ -35,13 +35,13 @@ do
         # Handle example specific mandatory flags / options
         if [ "$example_name" == "falcon_discover_hosts" ]
         then
-            cargo run --example "$example_name" -- --sort hostname > /dev/null 2>&1
+            cargo_run="cargo run --example $example_name -- --sort hostname > /dev/null 2>&1"
         else
-            cargo run --example "$example_name" > /dev/null 2>&1
+            cargo_run="cargo run --example $example_name > /dev/null 2>&1"
         fi
 
         # Check command error code and exit if any error code
-        if [ "$?" != 0 ]
+        if ! eval "$cargo_run"
         then
             echo -e "${example_label} ${red}${bold}failed${not_bold}${clear}"
             echo "${line_separator}"
@@ -52,5 +52,5 @@ do
     fi
 
     (( count++ ))
-# The varible gets printed with a newline and fed into the while loop
+# The variable gets printed with a newline and fed into the while loop
 done < <(printf '%s\n' "$cmd_output")
