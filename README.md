@@ -54,6 +54,12 @@ async fn main() {
 
 Ready-made examples can be found in [git repo](https://github.com/CrowdStrike/rusty-falcon/tree/main/examples).
 
+There's a [handy script](https://github.com/CrowdStrike/rusty-falcon/tree/main/scripts/run-examples.sh) that can be used to (sequentially) run and test the examples. This script will show the status (pass / fail) of each example.
+
+```sh
+./scripts/run-examples.sh
+```
+
 # [WIP] Project Documentation
 
 This project uses `mdbook` to serve its documentation, to run it locally:
