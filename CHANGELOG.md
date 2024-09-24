@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix spelling for docs and api files
 - Error hierarchy revamp to structured errors based on `thiserror` crate
 
+- Updated `serde` to `1.0.210`
 
 ## [0.3.3] - 2023-09-04
 
