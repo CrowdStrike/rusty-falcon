@@ -10,7 +10,7 @@ Rust-based SDK to CrowdStrike's Falcon APIs
 
 rusty_falcon documentation is available on [docs.rs](https://docs.rs/rusty_falcon/latest/rusty_falcon/).
 Users are advised to consult this rusty_falcon documentation together with the comprehensive CrowdStrike
-API documentation published on [Developer Portal](https://developer.crowdstrike.com/crowdstrike/docs).
+API documentation published on [Developer Center](https://developer.crowdstrike.com/docs/openapi).
 The easiest way to learn about the SDK is to consult the set of
 [examples](https://github.com/CrowdStrike/rusty-falcon/tree/main/examples) built on top of the SDK.
 
