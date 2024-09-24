@@ -19,7 +19,7 @@ Method | HTTP request | Description
 [**get_network_locations_details**](FirewallManagementApi.md#get_network_locations_details) | **GET** /fwmgr/entities/network-locations-details/v1 | Get network locations entities by ID
 [**get_platforms**](FirewallManagementApi.md#get_platforms) | **GET** /fwmgr/entities/platforms/v1 | Get platforms by ID, e.g., windows or mac or droid
 [**get_policy_containers**](FirewallManagementApi.md#get_policy_containers) | **GET** /fwmgr/entities/policies/v1 | Get policy container entities by policy ID
-[**get_rule_groups**](FirewallManagementApi.md#get_rule_groups) | **GET** /fwmgr/entities/rule-groups/v1 | Get rule group entities by ID. These groups do not contain their rule entites, just the rule IDs in precedence order.
+[**get_rule_groups**](FirewallManagementApi.md#get_rule_groups) | **GET** /fwmgr/entities/rule-groups/v1 | Get rule group entities by ID. These groups do not contain their rule entities, just the rule IDs in precedence order.
 [**get_rules**](FirewallManagementApi.md#get_rules) | **GET** /fwmgr/entities/rules/v1 | Get rule entities by ID (64-bit unsigned int as decimal string) or Family ID (32-character hexadecimal string)
 [**query_events**](FirewallManagementApi.md#query_events) | **GET** /fwmgr/queries/events/v1 | Find all event IDs matching the query with filter
 [**query_firewall_fields**](FirewallManagementApi.md#query_firewall_fields) | **GET** /fwmgr/queries/firewall-fields/v1 | Get the firewall field specification IDs for the provided platform
@@ -182,7 +182,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **body** | [**FwmgrPeriodApiPeriodRuleGroupCreateRequestV1**](FwmgrPeriodApiPeriodRuleGroupCreateRequestV1.md) |  | [required] |
 **clone_id** | Option<**String**> | A rule group ID from which to copy rules. If this is provided then the 'rules' property of the body is ignored. |  |
-**library** | Option<**String**> | If this flag is set to true then the rules will be cloned from the clone_id from the CrowdStrike Firewal Rule Groups Library. |  |
+**library** | Option<**String**> | If this flag is set to true then the rules will be cloned from the clone_id from the CrowdStrike Firewall Rule Groups Library. |  |
 **comment** | Option<**String**> | Audit log comment for this action |  |
 
 ### Return type
@@ -445,7 +445,7 @@ Name | Type | Description  | Required | Notes
 ## get_rule_groups
 
 > models::FwmgrPeriodApiPeriodRuleGroupsResponse get_rule_groups(ids)
-Get rule group entities by ID. These groups do not contain their rule entites, just the rule IDs in precedence order.
+Get rule group entities by ID. These groups do not contain their rule entities, just the rule IDs in precedence order.
 
 ### Parameters
 

@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update Rusty Falcon to use the latest OpenAPI spec
 - Update example code to follow the latest OpenAPI spec changes
 - Fix links in the README
+- Fix spelling for docs and api files
 
 ## [0.3.3] - 2023-09-04
 

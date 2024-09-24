@@ -30,4 +30,13 @@ tokio = { version = "1.30", features = ["rt-multi-thread", "macros"] }
 [profile.release]
 codegen-units = 1
 lto = "thin"
-opt-level = "z" 
+opt-level = "z"
+
+[package.metadata.typos]
+default = { extend-ignore-identifiers-re = [
+    # ignore hexa data samples
+    "[0-9a-fA-F][0-9a-fA-F]",
+    "ot_",
+    "_tto",
+] }
+files = { extend-exclude = [] }
