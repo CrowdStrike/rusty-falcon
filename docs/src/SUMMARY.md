@@ -21,7 +21,7 @@
   - [Falcon Complete Dashboard](./docs/FalconCompleteDashboardApi.md)
   - [Falcon Container](./docs/FalconContainerApi.md)
   - [Falcon Container CLI](./docs/FalconContainerCliApi.md)
-  - [Falcon Containe Image](./docs/FalconContainerImageApi.md)
+  - [Falcon Container Image](./docs/FalconContainerImageApi.md)
   - [Falconx Sandbox](./docs/FalconxSandboxApi.md)
   - [Field Schema](./docs/FieldSchemaApi.md)
   - [Filevantage](./docs/FilevantageApi.md)

@@ -449,7 +449,7 @@ pub struct DomainPeriodDiscoverApiHost {
     /// A list of network ids to which host belongs
     #[serde(rename = "ot_network_ids", skip_serializing_if = "Option::is_none")]
     pub ot_network_ids: Option<Vec<String>>,
-    /// A list of ot serial numbers that discovered with host
+    /// A list of serial numbers that discovered with host
     #[serde(rename = "ot_serial_numbers", skip_serializing_if = "Option::is_none")]
     pub ot_serial_numbers: Option<Vec<String>>,
     /// The organizational unit of the asset.
