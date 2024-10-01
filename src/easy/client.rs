@@ -2,7 +2,7 @@ use crate::apis::configuration::Configuration;
 use crate::apis::oauth2_api::{oauth2_access_token, Oauth2AccessTokenError};
 use crate::apis::Error;
 use crate::easy::cloud::FalconCloud;
-use crate::easy::errors::CredentialsError;
+use crate::error::CredentialsError;
 use std::env;
 
 #[derive(Clone)]
@@ -39,7 +39,7 @@ impl FalconHandle {
         Ok(())
     }
 
-    pub async fn from_env() -> Result<Self, Box<dyn std::error::Error>> {
+    pub async fn from_env() -> Result<Self, CredentialsError> {
         Ok(FalconHandle::from_cfg(Credentials::from_env()?).await?)
     }
 }
@@ -54,19 +54,10 @@ pub struct Credentials {
 
 impl Credentials {
     pub fn from_env() -> Result<Self, CredentialsError> {
-        let client_id = env::var("FALCON_CLIENT_ID").map_err(|_| {
-            CredentialsError(
-                "Missing FALCON_CLIENT_ID environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys."
-                    .to_string(),
-            )
-        })?;
+        let client_id = env::var("FALCON_CLIENT_ID").map_err(|_| CredentialsError::ClientID)?;
 
-        let client_secret = env::var("FALCON_CLIENT_SECRET").map_err(|_| {
-            CredentialsError(
-                "Missing FALCON_CLIENT_SECRET environment variable. Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform. Establishing and retrieving OAuth2 API credentials can be performed at https://falcon.crowdstrike.com/support/api-clients-and-keys."
-                    .to_string(),
-            )
-        })?;
+        let client_secret =
+            env::var("FALCON_CLIENT_SECRET").map_err(|_| CredentialsError::Secret)?;
         let member_cid = env::var("FALCON_MEMBER_CID").ok();
 
         Ok(Credentials {

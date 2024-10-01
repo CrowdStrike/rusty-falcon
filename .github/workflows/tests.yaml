@@ -52,7 +52,7 @@ jobs:
         run: cargo test --locked --all-features --all-targets
       # https://github.com/rust-lang/cargo/issues/6669
       - name: cargo test --doc
-        run: cargo test --locked --all-features --doc | grep 'Missing FALCON_CLIENT_ID environment variable.'
+        run: cargo test --locked --all-features --doc | grep 'Could not authenticate with `CrowdStrike` API: ClientID'
 
   nightly:
     name: Rust nightly
@@ -66,7 +66,7 @@ jobs:
           cargo test --lib --bins --examples --benches
       - run: |
           # We expect doc example to fail without Falcon Credentials
-          cargo test --doc | grep 'Missing FALCON_CLIENT_ID environment variable.'
+          cargo test --doc | grep 'Could not authenticate with `CrowdStrike` API: ClientID'
 
   minimal:
     runs-on: ubuntu-latest
