@@ -14,10 +14,10 @@ categories = ["api-bindings", "asynchronous", "web-programming"]
 
 [dependencies]
 # To satisfy minimal version check
-openssl = "0.10.56"
+openssl = "0.10.66"
 # To satisfy minimal version check
 openssl-sys = "0.9.103"
-reqwest = { version = "0.12.7", features = ["json", "multipart"] }
+reqwest = { version = "0.12.8", features = ["json", "multipart"] }
 serde = "1.0.210"
 serde_derive = "1.0.210"
 serde_json = "1.0.128"
@@ -25,7 +25,7 @@ thiserror = "1.0.63"
 url = "2.5.2"
 
 [dev-dependencies]
-clap = { version = "4.5.18", features = ["derive"] }
+clap = { version = "4.5.19", features = ["derive"] }
 tokio = { version = "1.40.0", features = ["rt-multi-thread", "macros"] }
 
 [profile.release]
