@@ -22,6 +22,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix spelling for docs and api files
 - Error hierarchy revamp to structured errors based on `thiserror` crate
 
+- Upgrade dependencies:
+  - `clap` to `4.5.18`
+  - `openssl` to `0.10.66`
+  - `openssl-sys` to `0.9.103`
+  - `reqwest` to `0.12.8`
+  - `serde` to `1.0.210`
+  - `serde_derive` to `1.0.210`
+  - `serde_json` to `1.0.128`
+  - `tokio` to `1.40.0`
+  - `url` to `2.5.2`
 
 ## [0.3.3] - 2023-09-04
 
