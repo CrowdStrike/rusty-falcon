@@ -31,6 +31,7 @@ pub enum ReportExecutionsPeriodGetError {
     Status400(models::MsaPeriodReplyMetaOnly),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,6 +42,7 @@ pub enum ReportExecutionsPeriodQueryError {
     Status400(models::MsaPeriodReplyMetaOnly),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,6 +53,7 @@ pub enum ReportExecutionsPeriodRetryError {
     Status400(models::MsaPeriodReplyMetaOnly),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

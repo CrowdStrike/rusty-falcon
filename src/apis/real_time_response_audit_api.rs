@@ -21,6 +21,7 @@ pub enum RTrAuditSessionsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

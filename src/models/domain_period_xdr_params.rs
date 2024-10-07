@@ -34,6 +34,8 @@ pub struct DomainPeriodXdrParams {
     pub technique: String,
     #[serde(rename = "template_id")]
     pub template_id: String,
+    #[serde(rename = "trigger_mode")]
+    pub trigger_mode: String,
     #[serde(rename = "type")]
     pub r#type: String,
 }
@@ -52,6 +54,7 @@ impl DomainPeriodXdrParams {
         tags: Vec<String>,
         technique: String,
         template_id: String,
+        trigger_mode: String,
         r#type: String,
     ) -> DomainPeriodXdrParams {
         DomainPeriodXdrParams {
@@ -67,6 +70,7 @@ impl DomainPeriodXdrParams {
             tags,
             technique,
             template_id,
+            trigger_mode,
             r#type,
         }
     }

@@ -19,6 +19,10 @@ pub struct JsonschemaPeriodSignalsExtensions {
     pub example_display_map: Option<std::collections::HashMap<String, String>>,
     #[serde(rename = "path_name", skip_serializing_if = "Option::is_none")]
     pub path_name: Option<String>,
+    #[serde(rename = "use_case", skip_serializing_if = "Option::is_none")]
+    pub use_case: Option<String>,
+    #[serde(rename = "vendor", skip_serializing_if = "Option::is_none")]
+    pub vendor: Option<String>,
 }
 
 impl JsonschemaPeriodSignalsExtensions {
@@ -27,6 +31,8 @@ impl JsonschemaPeriodSignalsExtensions {
             enum_wrapper: None,
             example_display_map: None,
             path_name: None,
+            use_case: None,
+            vendor: None,
         }
     }
 }

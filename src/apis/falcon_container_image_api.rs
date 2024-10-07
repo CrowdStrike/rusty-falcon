@@ -31,6 +31,7 @@ pub enum CreateRegistryEntitiesError {
 pub enum DeleteRegistryEntitiesError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

@@ -94,6 +94,7 @@ pub enum GetLatestIntelRuleFileError {
 pub enum GetMalwareEntitiesError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -103,6 +104,7 @@ pub enum GetMalwareEntitiesError {
 pub enum GetMitreReportError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -123,6 +125,7 @@ pub enum GetVulnerabilitiesError {
 pub enum PostMitreAttacksError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -220,6 +223,7 @@ pub enum QueryMalwareError {
 pub enum QueryMitreAttacksError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -229,6 +233,7 @@ pub enum QueryMitreAttacksError {
 pub enum QueryMitreAttacksForMalwareError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

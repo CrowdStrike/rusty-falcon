@@ -18,6 +18,11 @@ pub struct DomainPeriodApiFindingRuleV1 {
     pub benchmark_type: Option<String>,
     #[serde(rename = "cce", skip_serializing_if = "Option::is_none")]
     pub cce: Option<String>,
+    #[serde(
+        rename = "compliance_mappings",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub compliance_mappings: Option<Vec<models::DomainPeriodApiComplianceMappingV1>>,
     #[serde(rename = "edited")]
     pub edited: bool,
     #[serde(rename = "group_id", skip_serializing_if = "Option::is_none")]
@@ -56,6 +61,7 @@ impl DomainPeriodApiFindingRuleV1 {
             authority: None,
             benchmark_type: None,
             cce: None,
+            compliance_mappings: None,
             edited,
             group_id: None,
             group_name: None,

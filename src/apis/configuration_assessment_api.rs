@@ -30,6 +30,7 @@ pub enum GetCombinedAssessmentsQueryError {
 pub enum GetRuleDetailsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

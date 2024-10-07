@@ -93,6 +93,7 @@ pub enum DeleteTagsError {
     Status401(models::TypesPeriodErrorMessage),
     Status403(models::TypesPeriodErrorMessage),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     Status503(models::TypesPeriodErrorMessage),
     UnknownValue(serde_json::Value),
 }
@@ -105,6 +106,7 @@ pub enum ExecuteQueryError {
     Status401(models::TypesPeriodErrorMessage),
     Status403(models::TypesPeriodErrorMessage),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     Status503(models::TypesPeriodErrorMessage),
     UnknownValue(serde_json::Value),
 }
@@ -164,6 +166,7 @@ pub enum GetServiceViolationTypesError {
     Status401(models::TypesPeriodErrorMessage),
     Status403(models::TypesPeriodErrorMessage),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     Status503(models::TypesPeriodErrorMessage),
     UnknownValue(serde_json::Value),
 }
@@ -212,6 +215,7 @@ pub enum ServiceNowGetDeploymentsError {
     Status401(models::TypesPeriodErrorMessage),
     Status403(models::TypesPeriodErrorMessage),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -223,6 +227,7 @@ pub enum ServiceNowGetServicesError {
     Status401(models::TypesPeriodErrorMessage),
     Status403(models::TypesPeriodErrorMessage),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -270,6 +275,7 @@ pub enum UpsertBusinessApplicationsError {
     Status401(models::TypesPeriodErrorMessage),
     Status403(models::TypesPeriodErrorMessage),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     Status503(models::TypesPeriodErrorMessage),
     UnknownValue(serde_json::Value),
 }
@@ -282,6 +288,7 @@ pub enum UpsertTagsError {
     Status401(models::TypesPeriodErrorMessage),
     Status403(models::TypesPeriodErrorMessage),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     Status503(models::TypesPeriodErrorMessage),
     UnknownValue(serde_json::Value),
 }

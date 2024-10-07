@@ -31,6 +31,7 @@ pub enum CreateUserError {
     Status400(models::MsaPeriodEntitiesResponse),
     Status403(models::MsaPeriodEntitiesResponse),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -53,6 +54,7 @@ pub enum DeleteUserError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -120,6 +122,7 @@ pub enum GrantUserRoleIdsError {
     Status400(models::MsaPeriodEntitiesResponse),
     Status403(models::MsaPeriodEntitiesResponse),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -152,6 +155,7 @@ pub enum RetrieveEmailsByCidError {
     Status400(models::MsaPeriodQueryResponse),
     Status403(models::MsaPeriodQueryResponse),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -163,6 +167,7 @@ pub enum RetrieveUserError {
     Status403(models::MsaPeriodEntitiesResponse),
     Status404(models::MsaPeriodEntitiesResponse),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -174,6 +179,7 @@ pub enum RetrieveUserUuidError {
     Status403(models::MsaPeriodQueryResponse),
     Status404(models::MsaPeriodQueryResponse),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -184,6 +190,7 @@ pub enum RetrieveUserUuidsByCidError {
     Status400(models::MsaPeriodQueryResponse),
     Status403(models::MsaPeriodQueryResponse),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -205,6 +212,7 @@ pub enum RevokeUserRoleIdsError {
     Status400(models::MsaPeriodEntitiesResponse),
     Status403(models::MsaPeriodEntitiesResponse),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -216,6 +224,7 @@ pub enum UpdateUserError {
     Status403(models::MsaPeriodEntitiesResponse),
     Status404(models::MsaPeriodEntitiesResponse),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

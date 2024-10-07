@@ -53,12 +53,6 @@ pub async fn oauth2_access_token(
         local_var_req_builder =
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
-        local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.to_owned(),
-            local_var_auth_conf.1.to_owned(),
-        );
-    };
     let mut local_var_form_params = std::collections::HashMap::new();
     local_var_form_params.insert("client_id", client_id.to_string());
     local_var_form_params.insert("client_secret", client_secret.to_string());
@@ -104,12 +98,6 @@ pub async fn oauth2_revoke_token(
         local_var_req_builder =
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_auth_conf) = local_var_configuration.basic_auth {
-        local_var_req_builder = local_var_req_builder.basic_auth(
-            local_var_auth_conf.0.to_owned(),
-            local_var_auth_conf.1.to_owned(),
-        );
-    };
     let mut local_var_form_params = std::collections::HashMap::new();
     if let Some(local_var_param_value) = client_id {
         local_var_form_params.insert("client_id", local_var_param_value.to_string());

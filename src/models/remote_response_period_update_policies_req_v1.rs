@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+
 /// RemoteResponsePeriodUpdatePoliciesReqV1 : A req to update realtime response policies
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RemoteResponsePeriodUpdatePoliciesReqV1 {

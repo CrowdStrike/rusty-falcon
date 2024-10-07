@@ -1,34 +1,95 @@
-use std::fmt::{Debug, Display};
+use std::error;
+use std::fmt;
 
 #[derive(Debug, Clone)]
-pub struct ResponseContent<T: Debug> {
+pub struct ResponseContent<T> {
     pub status: reqwest::StatusCode,
     pub content: String,
     pub entity: Option<T>,
 }
 
-impl<T: Debug> Display for ResponseContent<T> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}: {:?} {:?}", self.status, self.content, self.entity)
+#[derive(Debug)]
+pub enum Error<T> {
+    Reqwest(reqwest::Error),
+    Serde(serde_json::Error),
+    Io(std::io::Error),
+    ResponseError(ResponseContent<T>),
+}
+
+impl<T> fmt::Display for Error<T> {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let (module, e) = match self {
+            Error::Reqwest(e) => ("reqwest", e.to_string()),
+            Error::Serde(e) => ("serde", e.to_string()),
+            Error::Io(e) => ("IO", e.to_string()),
+            Error::ResponseError(e) => ("response", format!("status code {}", e.status)),
+        };
+        write!(f, "error in {}: {}", module, e)
     }
 }
 
-impl<T: Debug> std::error::Error for ResponseContent<T> {}
+impl<T: fmt::Debug> error::Error for Error<T> {
+    fn source(&self) -> Option<&(dyn error::Error + 'static)> {
+        Some(match self {
+            Error::Reqwest(e) => e,
+            Error::Serde(e) => e,
+            Error::Io(e) => e,
+            Error::ResponseError(_) => return None,
+        })
+    }
+}
 
-#[derive(Debug, thiserror::Error)]
-pub enum Error<T: Debug> {
-    #[error(transparent)]
-    Reqwest(#[from] reqwest::Error),
-    #[error("serde error: {0}")]
-    Serde(#[from] serde_json::Error),
-    #[error("io error: {0}")]
-    Io(#[from] std::io::Error),
-    #[error("Response error: {0}")]
-    ResponseError(#[from] ResponseContent<T>),
+impl<T> From<reqwest::Error> for Error<T> {
+    fn from(e: reqwest::Error) -> Self {
+        Error::Reqwest(e)
+    }
+}
+
+impl<T> From<serde_json::Error> for Error<T> {
+    fn from(e: serde_json::Error) -> Self {
+        Error::Serde(e)
+    }
+}
+
+impl<T> From<std::io::Error> for Error<T> {
+    fn from(e: std::io::Error) -> Self {
+        Error::Io(e)
+    }
 }
 
 pub fn urlencode<T: AsRef<str>>(s: T) -> String {
     ::url::form_urlencoded::byte_serialize(s.as_ref().as_bytes()).collect()
+}
+
+pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String, String)> {
+    if let serde_json::Value::Object(object) = value {
+        let mut params = vec![];
+
+        for (key, value) in object {
+            match value {
+                serde_json::Value::Object(_) => params.append(&mut parse_deep_object(
+                    &format!("{}[{}]", prefix, key),
+                    value,
+                )),
+                serde_json::Value::Array(array) => {
+                    for (i, value) in array.iter().enumerate() {
+                        params.append(&mut parse_deep_object(
+                            &format!("{}[{}][{}]", prefix, key, i),
+                            value,
+                        ));
+                    }
+                }
+                serde_json::Value::String(s) => {
+                    params.push((format!("{}[{}]", prefix, key), s.clone()))
+                }
+                _ => params.push((format!("{}[{}]", prefix, key), value.to_string())),
+            }
+        }
+
+        return params;
+    }
+
+    unimplemented!("Only objects are supported with style=deepObject")
 }
 
 pub mod alerts_api;
@@ -51,11 +112,13 @@ pub mod custom_ioa_api;
 pub mod custom_storage_api;
 pub mod d4c_registration_api;
 pub mod datascanner_api;
+pub mod default_api;
 pub mod delivery_settings_api;
 pub mod detects_api;
 pub mod device_control_policies_api;
 pub mod discover_api;
 pub mod discover_iot_api;
+pub mod downloads_api_api;
 pub mod drift_indicators_api;
 pub mod event_schema_api;
 pub mod event_streams_api;
@@ -97,6 +160,7 @@ pub mod overwatch_dashboard_api;
 pub mod prevention_policies_api;
 pub mod quarantine_api;
 pub mod quick_scan_api;
+pub mod quick_scan_pro_api;
 pub mod real_time_response_admin_api;
 pub mod real_time_response_api;
 pub mod real_time_response_audit_api;
@@ -108,6 +172,7 @@ pub mod sample_uploads_api;
 pub mod scheduled_reports_api;
 pub mod sensor_download_api;
 pub mod sensor_update_policies_api;
+pub mod sensor_usage_api_api;
 pub mod sensor_visibility_exclusions_api;
 pub mod spotlight_evaluation_logic_api;
 pub mod spotlight_vulnerabilities_api;

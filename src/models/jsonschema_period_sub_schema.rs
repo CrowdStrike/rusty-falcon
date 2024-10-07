@@ -111,6 +111,8 @@ pub struct JsonschemaPeriodSubSchema {
     pub x_cs_condition_group_fields: Option<Box<models::JsonschemaPeriodConditionGroupFields>>,
     #[serde(rename = "x-cs-do-not-hide", skip_serializing_if = "Option::is_none")]
     pub x_cs_do_not_hide: Option<bool>,
+    #[serde(rename = "x-cs-immutable", skip_serializing_if = "Option::is_none")]
+    pub x_cs_immutable: Option<bool>,
     #[serde(rename = "x-cs-indexable", skip_serializing_if = "Option::is_none")]
     pub x_cs_indexable: Option<bool>,
     #[serde(
@@ -150,6 +152,8 @@ pub struct JsonschemaPeriodSubSchema {
     pub x_cs_signals_sub_category: Option<String>,
     #[serde(rename = "x-cs-tags", skip_serializing_if = "Option::is_none")]
     pub x_cs_tags: Option<Vec<String>>,
+    #[serde(rename = "x-cs-ui", skip_serializing_if = "Option::is_none")]
+    pub x_cs_ui: Option<Box<models::JsonschemaPeriodUiExtensions>>,
     #[serde(rename = "x-cs-workflow", skip_serializing_if = "Option::is_none")]
     pub x_cs_workflow: Option<Box<models::JsonschemaPeriodWorkflowExtensions>>,
 }
@@ -203,6 +207,7 @@ impl JsonschemaPeriodSubSchema {
             x_cs_can_create: None,
             x_cs_condition_group_fields: None,
             x_cs_do_not_hide: None,
+            x_cs_immutable: None,
             x_cs_indexable: None,
             x_cs_indexable_fields: None,
             x_cs_max_duration: None,
@@ -215,6 +220,7 @@ impl JsonschemaPeriodSubSchema {
             x_cs_signals_operators: None,
             x_cs_signals_sub_category: None,
             x_cs_tags: None,
+            x_cs_ui: None,
             x_cs_workflow: None,
         }
     }

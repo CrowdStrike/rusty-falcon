@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+
 /// SensorUpdatePeriodUpdatePolicyReqV1 : An update for a specific policy
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SensorUpdatePeriodUpdatePolicyReqV1 {

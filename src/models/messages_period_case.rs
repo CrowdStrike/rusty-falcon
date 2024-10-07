@@ -38,6 +38,12 @@ pub struct MessagesPeriodCase {
     pub key: String,
     #[serde(rename = "last_modified_time")]
     pub last_modified_time: String,
+    #[serde(rename = "malware_submission_id")]
+    pub malware_submission_id: String,
+    #[serde(rename = "malware_submission_url")]
+    pub malware_submission_url: String,
+    #[serde(rename = "recon_rule_type")]
+    pub recon_rule_type: String,
     #[serde(rename = "status")]
     pub status: String,
     #[serde(rename = "title")]
@@ -61,6 +67,9 @@ impl MessagesPeriodCase {
         ip_addresses: Vec<String>,
         key: String,
         last_modified_time: String,
+        malware_submission_id: String,
+        malware_submission_url: String,
+        recon_rule_type: String,
         status: String,
         title: String,
         r#type: String,
@@ -79,6 +88,9 @@ impl MessagesPeriodCase {
             ip_addresses,
             key,
             last_modified_time,
+            malware_submission_id,
+            malware_submission_url,
+            recon_rule_type,
             status,
             title,
             r#type,

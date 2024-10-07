@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+
 /// HostGroupsPeriodUpdateGroupsReqV1 : A request to update a set of device groups
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct HostGroupsPeriodUpdateGroupsReqV1 {

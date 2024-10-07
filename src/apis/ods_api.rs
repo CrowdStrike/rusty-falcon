@@ -20,6 +20,7 @@ pub enum AggregateQueryScanHostMetadataError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -30,6 +31,7 @@ pub enum AggregateScansError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,6 +42,7 @@ pub enum AggregateScheduledScansError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,6 +53,7 @@ pub enum CancelScansError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -59,6 +63,7 @@ pub enum CancelScansError {
 pub enum CreateScanError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -69,6 +74,7 @@ pub enum DeleteScheduledScansError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -79,6 +85,7 @@ pub enum GetMaliciousFilesByIdsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -89,6 +96,7 @@ pub enum GetScanHostMetadataByIdsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -99,6 +107,7 @@ pub enum GetScansByScanIdsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -109,6 +118,7 @@ pub enum GetScansByScanIdsV2Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -119,6 +129,7 @@ pub enum GetScheduledScansByScanIdsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -129,6 +140,7 @@ pub enum QueryMaliciousFilesError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -139,6 +151,7 @@ pub enum QueryScanHostMetadataError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -149,6 +162,7 @@ pub enum QueryScansError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -159,6 +173,7 @@ pub enum QueryScheduledScansError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -168,6 +183,7 @@ pub enum QueryScheduledScansError {
 pub enum ScheduleScanError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

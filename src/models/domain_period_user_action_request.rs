@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+
 /// DomainPeriodUserActionRequest : ID(s) of users the action(s) are to applied to
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodUserActionRequest {

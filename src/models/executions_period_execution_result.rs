@@ -33,6 +33,9 @@ pub struct ExecutionsPeriodExecutionResult {
     /// Details for the results of each loop in the workflow definition.
     #[serde(rename = "loops")]
     pub loops: Vec<models::ExecutionsPeriodLoopResult>,
+    /// Output from this workflow execution
+    #[serde(rename = "output", skip_serializing_if = "Option::is_none")]
+    pub output: Option<serde_json::Value>,
     /// A boolean value indicating whether the failed workflow execution is retryable
     #[serde(rename = "retryable")]
     pub retryable: bool,
@@ -67,6 +70,7 @@ impl ExecutionsPeriodExecutionResult {
             end_timestamp: None,
             execution_id,
             loops,
+            output: None,
             retryable,
             start_timestamp,
             status,

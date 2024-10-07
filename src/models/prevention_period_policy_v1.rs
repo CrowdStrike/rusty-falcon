@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+
 /// PreventionPeriodPolicyV1 : A fully formed prevention policy
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PreventionPeriodPolicyV1 {

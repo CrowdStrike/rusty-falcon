@@ -20,6 +20,8 @@ pub struct JsonschemaPeriodConditionGroupFields {
     pub controller: Option<bool>,
     #[serde(rename = "dependent_control", skip_serializing_if = "Option::is_none")]
     pub dependent_control: Option<String>,
+    #[serde(rename = "requires_meta", skip_serializing_if = "Option::is_none")]
+    pub requires_meta: Option<String>,
     #[serde(rename = "reset_fields", skip_serializing_if = "Option::is_none")]
     pub reset_fields: Option<Box<models::JsonschemaPeriodResetFields>>,
 }
@@ -31,6 +33,7 @@ impl JsonschemaPeriodConditionGroupFields {
             control_name: None,
             controller: None,
             dependent_control: None,
+            requires_meta: None,
             reset_fields: None,
         }
     }

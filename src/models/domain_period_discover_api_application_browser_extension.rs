@@ -26,7 +26,7 @@ pub struct DomainPeriodDiscoverApiApplicationBrowserExtension {
     #[serde(rename = "installations", skip_serializing_if = "Option::is_none")]
     pub installations:
         Option<Vec<models::DomainPeriodDiscoverApiApplicationBrowserExtensionInstallation>>,
-    /// The computed severity of all permissions requested by the browser extension
+    /// The computed serverity of all permissions requested by the browser extension
     #[serde(
         rename = "permission_severity",
         skip_serializing_if = "Option::is_none"
@@ -35,7 +35,7 @@ pub struct DomainPeriodDiscoverApiApplicationBrowserExtension {
     /// The browser permissions the extension requires to run
     #[serde(rename = "permissions", skip_serializing_if = "Option::is_none")]
     pub permissions: Option<Vec<String>>,
-    /// The calculated browser web store URL for this extension
+    /// The calculated browser webstore URL for this extension
     #[serde(rename = "store_url", skip_serializing_if = "Option::is_none")]
     pub store_url: Option<String>,
 }

@@ -20,6 +20,7 @@ pub enum GetAssessmentV1Error {
     Status400(models::DomainPeriodAssessmentsResponse),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -31,6 +32,7 @@ pub enum GetAssessmentsByScoreV1Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodAssessmentsByScoreResponse),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,6 +43,7 @@ pub enum GetAuditV1Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodAuditResponse),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

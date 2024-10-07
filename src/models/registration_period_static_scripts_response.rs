@@ -12,8 +12,8 @@ use crate::models;
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RegistrationPeriodStaticScriptsResponse {
-    #[serde(rename = "errors")]
-    pub errors: Vec<models::MsaspecPeriodError>,
+    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
+    pub errors: Option<Vec<models::MsaspecPeriodError>>,
     #[serde(rename = "meta")]
     pub meta: Box<models::MsaspecPeriodMetaInfo>,
     #[serde(rename = "resources")]
@@ -22,12 +22,11 @@ pub struct RegistrationPeriodStaticScriptsResponse {
 
 impl RegistrationPeriodStaticScriptsResponse {
     pub fn new(
-        errors: Vec<models::MsaspecPeriodError>,
         meta: models::MsaspecPeriodMetaInfo,
         resources: Vec<serde_json::Value>,
     ) -> RegistrationPeriodStaticScriptsResponse {
         RegistrationPeriodStaticScriptsResponse {
-            errors,
+            errors: None,
             meta: Box::new(meta),
             resources,
         }

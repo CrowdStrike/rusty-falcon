@@ -19,6 +19,18 @@ pub struct DomainPeriodApiRemediationV2 {
     /// Link to the remediation page for the vendor
     #[serde(rename = "link")]
     pub link: String,
+    /// The timestamp that this remediation was published
+    #[serde(
+        rename = "patch_publication_date",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub patch_publication_date: Option<String>,
+    /// The type of recommendation for this remediation, usually either 'recommended' or 'minimum'
+    #[serde(
+        rename = "recommendation_type",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub recommendation_type: Option<String>,
     /// Relevant reference for the remediation that can be used to get additional details for the remediation. For example, a KB number that needs to be installed for a KB_SECURITY_UPDATE
     #[serde(rename = "reference")]
     pub reference: String,
@@ -43,6 +55,8 @@ impl DomainPeriodApiRemediationV2 {
             action,
             id,
             link,
+            patch_publication_date: None,
+            recommendation_type: None,
             reference,
             title,
             vendor_url,

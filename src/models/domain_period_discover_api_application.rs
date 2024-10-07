@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+
 /// DomainPeriodDiscoverApiApplication : Represents information about an application.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodDiscoverApiApplication {
