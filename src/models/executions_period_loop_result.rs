@@ -35,6 +35,9 @@ pub struct ExecutionsPeriodLoopResult {
     /// Unique id of the node as specified in the definition.
     #[serde(rename = "node_id")]
     pub node_id: String,
+    /// Outputs from all the iterations of the sub model
+    #[serde(rename = "outputs", skip_serializing_if = "Option::is_none")]
+    pub outputs: Option<Vec<serde_json::Value>>,
     /// Timestamp of when the execution first started.
     #[serde(rename = "start_timestamp")]
     pub start_timestamp: String,
@@ -61,6 +64,7 @@ impl ExecutionsPeriodLoopResult {
             iterations: Box::new(iterations),
             mocked: None,
             node_id,
+            outputs: None,
             start_timestamp,
             status,
         }

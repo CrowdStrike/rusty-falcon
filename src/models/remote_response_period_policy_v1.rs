@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+
 /// RemoteResponsePeriodPolicyV1 : A fully formed RTR policy
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RemoteResponsePeriodPolicyV1 {

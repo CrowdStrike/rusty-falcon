@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+
 /// RemoteResponsePeriodCreatePoliciesV1 : A req to create realtime policies
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RemoteResponsePeriodCreatePoliciesV1 {

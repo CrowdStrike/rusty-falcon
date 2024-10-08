@@ -31,6 +31,7 @@ pub enum CombinedQueryVulnerabilitiesError {
 pub enum GetRemediationsV2Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     Status503(models::DomainPeriodSpapiRemediationEntitiesResponseV2),
     UnknownValue(serde_json::Value),
 }
@@ -41,6 +42,7 @@ pub enum GetRemediationsV2Error {
 pub enum GetVulnerabilitiesError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     Status503(models::DomainPeriodSpapiVulnerabilitiesEntitiesResponseV2),
     UnknownValue(serde_json::Value),
 }

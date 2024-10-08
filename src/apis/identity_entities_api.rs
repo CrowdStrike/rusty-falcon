@@ -19,6 +19,7 @@ use crate::{apis::ResponseContent, models};
 pub enum GetSensorAggregatesError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,6 +29,7 @@ pub enum GetSensorAggregatesError {
 pub enum GetSensorDetailsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,6 +39,7 @@ pub enum GetSensorDetailsError {
 pub enum QuerySensorsByFilterError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

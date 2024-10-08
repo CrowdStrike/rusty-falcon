@@ -20,6 +20,7 @@ pub enum AggregateEventsError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -30,6 +31,7 @@ pub enum AggregatePolicyRulesError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,6 +53,7 @@ pub enum AggregateRulesError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,6 +64,7 @@ pub enum CreateNetworkLocationsError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -71,6 +75,7 @@ pub enum CreateRuleGroupError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -81,6 +86,7 @@ pub enum CreateRuleGroupValidationError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -91,6 +97,7 @@ pub enum DeleteNetworkLocationsError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -101,6 +108,7 @@ pub enum DeleteRuleGroupsError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -111,6 +119,7 @@ pub enum GetEventsError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -120,6 +129,7 @@ pub enum GetEventsError {
 pub enum GetFirewallFieldsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -130,6 +140,7 @@ pub enum GetNetworkLocationsError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -140,6 +151,7 @@ pub enum GetNetworkLocationsDetailsError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -149,6 +161,7 @@ pub enum GetNetworkLocationsDetailsError {
 pub enum GetPlatformsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -159,6 +172,7 @@ pub enum GetPolicyContainersError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -169,6 +183,7 @@ pub enum GetRuleGroupsError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -179,6 +194,7 @@ pub enum GetRulesError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -189,6 +205,7 @@ pub enum QueryEventsError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -198,6 +215,7 @@ pub enum QueryEventsError {
 pub enum QueryFirewallFieldsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -208,6 +226,7 @@ pub enum QueryNetworkLocationsError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -217,6 +236,7 @@ pub enum QueryNetworkLocationsError {
 pub enum QueryPlatformsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -227,6 +247,7 @@ pub enum QueryPolicyRulesError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -237,6 +258,7 @@ pub enum QueryRuleGroupsError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -247,6 +269,7 @@ pub enum QueryRulesError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -257,6 +280,7 @@ pub enum UpdateNetworkLocationsError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -267,6 +291,7 @@ pub enum UpdateNetworkLocationsMetadataError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -277,6 +302,7 @@ pub enum UpdateNetworkLocationsPrecedenceError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -287,6 +313,7 @@ pub enum UpdatePolicyContainerError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -297,6 +324,7 @@ pub enum UpdatePolicyContainerV1Error {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -307,6 +335,7 @@ pub enum UpdateRuleGroupError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -317,6 +346,7 @@ pub enum UpdateRuleGroupValidationError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -327,6 +357,7 @@ pub enum UpsertNetworkLocationsError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -337,6 +368,7 @@ pub enum ValidateFilepathPatternError {
     Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

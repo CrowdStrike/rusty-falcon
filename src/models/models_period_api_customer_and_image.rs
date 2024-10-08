@@ -12,6 +12,8 @@ use crate::models;
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ModelsPeriodApiCustomerAndImage {
+    #[serde(rename = "base_image_id", skip_serializing_if = "Option::is_none")]
+    pub base_image_id: Option<String>,
     #[serde(rename = "base_os")]
     pub base_os: String,
     #[serde(rename = "base_os_version")]
@@ -36,10 +38,16 @@ pub struct ModelsPeriodApiCustomerAndImage {
     pub image_scanning_active: bool,
     #[serde(rename = "image_size")]
     pub image_size: i64,
+    #[serde(rename = "is_base_image")]
+    pub is_base_image: bool,
     #[serde(rename = "registry")]
     pub registry: String,
     #[serde(rename = "repository")]
     pub repository: String,
+    #[serde(rename = "source")]
+    pub source: String,
+    #[serde(rename = "source_base_image")]
+    pub source_base_image: Box<models::ModelsPeriodImageDetails>,
     #[serde(rename = "tag")]
     pub tag: String,
     #[serde(rename = "updated_at")]
@@ -63,14 +71,18 @@ impl ModelsPeriodApiCustomerAndImage {
         image_id: String,
         image_scanning_active: bool,
         image_size: i64,
+        is_base_image: bool,
         registry: String,
         repository: String,
+        source: String,
+        source_base_image: models::ModelsPeriodImageDetails,
         tag: String,
         updated_at: String,
         uuid: String,
         warning: i32,
     ) -> ModelsPeriodApiCustomerAndImage {
         ModelsPeriodApiCustomerAndImage {
+            base_image_id: None,
             base_os,
             base_os_version,
             cid,
@@ -83,8 +95,11 @@ impl ModelsPeriodApiCustomerAndImage {
             image_id,
             image_scanning_active,
             image_size,
+            is_base_image,
             registry,
             repository,
+            source,
+            source_base_image: Box::new(source_base_image),
             tag,
             updated_at,
             uuid,

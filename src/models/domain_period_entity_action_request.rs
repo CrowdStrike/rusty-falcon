@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+
 /// DomainPeriodEntityActionRequest : Incident ID(s) for incidents upon which action(s) have to be performed. Action(s) to be performed on Incident(s).
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodEntityActionRequest {

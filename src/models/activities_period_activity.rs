@@ -33,6 +33,8 @@ pub struct ActivitiesPeriodActivity {
     /// Input fields required for configuring activity
     #[serde(rename = "input_fields", skip_serializing_if = "Option::is_none")]
     pub input_fields: Option<Vec<models::ActivitiesPeriodActivityExtField>>,
+    #[serde(rename = "input_schema", skip_serializing_if = "Option::is_none")]
+    pub input_schema: Option<Box<models::JsonschemaPeriodSchema>>,
     #[serde(rename = "mock_output", skip_serializing_if = "Option::is_none")]
     pub mock_output: Option<serde_json::Value>,
     /// UI name for displaying the activity to a user
@@ -73,6 +75,7 @@ impl ActivitiesPeriodActivity {
             has_permission,
             id,
             input_fields: None,
+            input_schema: None,
             mock_output: None,
             name,
             namespace: None,

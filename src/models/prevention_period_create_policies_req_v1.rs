@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+
 /// PreventionPeriodCreatePoliciesReqV1 : A request to create prevention policies
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PreventionPeriodCreatePoliciesReqV1 {

@@ -21,6 +21,7 @@ pub enum CbExclusionsPeriodCreatePeriodV1Error {
     Status401(models::MsaspecPeriodResponseFields),
     Status403(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -32,6 +33,7 @@ pub enum CbExclusionsPeriodDeletePeriodV1Error {
     Status401(models::MsaspecPeriodResponseFields),
     Status403(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -43,6 +45,7 @@ pub enum CbExclusionsPeriodGetPeriodV1Error {
     Status401(models::MsaspecPeriodResponseFields),
     Status403(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -54,6 +57,7 @@ pub enum CbExclusionsPeriodQueryPeriodV1Error {
     Status401(models::MsaspecPeriodResponseFields),
     Status403(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -65,6 +69,7 @@ pub enum CbExclusionsPeriodUpdatePeriodV1Error {
     Status401(models::MsaspecPeriodResponseFields),
     Status403(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -76,6 +81,7 @@ pub enum CertificatesPeriodGetPeriodV1Error {
     Status401(models::MsaspecPeriodResponseFields),
     Status403(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

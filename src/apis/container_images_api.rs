@@ -518,6 +518,7 @@ pub async fn combined_image_issues_summary(
     registry: &str,
     repository: &str,
     tag: &str,
+    include_base_image_vuln: Option<bool>,
 ) -> Result<models::ImagesPeriodApiImageIssuesSummary, Error<CombinedImageIssuesSummaryError>> {
     let local_var_configuration = configuration;
 
@@ -534,6 +535,10 @@ pub async fn combined_image_issues_summary(
     local_var_req_builder = local_var_req_builder.query(&[("registry", &registry.to_string())]);
     local_var_req_builder = local_var_req_builder.query(&[("repository", &repository.to_string())]);
     local_var_req_builder = local_var_req_builder.query(&[("tag", &tag.to_string())]);
+    if let Some(ref local_var_str) = include_base_image_vuln {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("include_base_image_vuln", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder =
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -568,6 +573,7 @@ pub async fn combined_image_vulnerability_summary(
     registry: &str,
     repository: &str,
     tag: &str,
+    include_base_image_vuln: Option<bool>,
 ) -> Result<
     models::ImagesPeriodApiImageVulnerabilitiesSummary,
     Error<CombinedImageVulnerabilitySummaryError>,
@@ -587,6 +593,10 @@ pub async fn combined_image_vulnerability_summary(
     local_var_req_builder = local_var_req_builder.query(&[("registry", &registry.to_string())]);
     local_var_req_builder = local_var_req_builder.query(&[("repository", &repository.to_string())]);
     local_var_req_builder = local_var_req_builder.query(&[("tag", &tag.to_string())]);
+    if let Some(ref local_var_str) = include_base_image_vuln {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("include_base_image_vuln", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder =
             local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

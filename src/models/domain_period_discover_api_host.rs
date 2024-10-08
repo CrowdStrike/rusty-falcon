@@ -417,6 +417,12 @@ pub struct DomainPeriodDiscoverApiHost {
     /// The asset's network interfaces (Cannot be used for filtering, sorting, or querying).
     #[serde(rename = "network_interfaces", skip_serializing_if = "Option::is_none")]
     pub network_interfaces: Option<Vec<models::DomainPeriodDiscoverApiNetworkInterface>>,
+    /// The set of unique identifiers for the asset scanned by the Falcon sensor.
+    #[serde(
+        rename = "network_scanned_ids",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub network_scanned_ids: Option<Vec<String>>,
     /// The number of active physical drives available on the system.
     #[serde(
         rename = "number_of_disk_drives",
@@ -449,7 +455,7 @@ pub struct DomainPeriodDiscoverApiHost {
     /// A list of network ids to which host belongs
     #[serde(rename = "ot_network_ids", skip_serializing_if = "Option::is_none")]
     pub ot_network_ids: Option<Vec<String>>,
-    /// A list of serial numbers that discovered with host
+    /// A list of ot serial numbers that discovered with host
     #[serde(rename = "ot_serial_numbers", skip_serializing_if = "Option::is_none")]
     pub ot_serial_numbers: Option<Vec<String>>,
     /// The organizational unit of the asset.
@@ -707,6 +713,7 @@ impl DomainPeriodDiscoverApiHost {
             mount_storage_info: None,
             network_id: None,
             network_interfaces: None,
+            network_scanned_ids: None,
             number_of_disk_drives: None,
             object_guid: None,
             object_sid: None,

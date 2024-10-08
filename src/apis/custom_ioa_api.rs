@@ -20,6 +20,7 @@ pub enum CreateRuleError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -30,6 +31,7 @@ pub enum CreateRuleGroupMixin0Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,6 +42,7 @@ pub enum DeleteRuleGroupsMixin0Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,6 +53,7 @@ pub enum DeleteRulesError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -59,6 +63,7 @@ pub enum DeleteRulesError {
 pub enum GetPatternsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -68,6 +73,7 @@ pub enum GetPatternsError {
 pub enum GetPlatformsMixin0Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -78,6 +84,7 @@ pub enum GetRuleGroupsMixin0Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -88,6 +95,7 @@ pub enum GetRuleTypesError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -98,6 +106,7 @@ pub enum GetRulesGetError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -108,6 +117,7 @@ pub enum GetRulesMixin0Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -117,6 +127,7 @@ pub enum GetRulesMixin0Error {
 pub enum QueryPatternsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -126,6 +137,7 @@ pub enum QueryPatternsError {
 pub enum QueryPlatformsMixin0Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -136,6 +148,7 @@ pub enum QueryRuleGroupsFullError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -146,6 +159,7 @@ pub enum QueryRuleGroupsMixin0Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -155,6 +169,7 @@ pub enum QueryRuleGroupsMixin0Error {
 pub enum QueryRuleTypesError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -165,6 +180,7 @@ pub enum QueryRulesMixin0Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -175,6 +191,7 @@ pub enum UpdateRuleGroupMixin0Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -185,6 +202,7 @@ pub enum UpdateRulesError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -195,6 +213,7 @@ pub enum UpdateRulesV2Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -205,6 +224,7 @@ pub enum ValidateError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

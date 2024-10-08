@@ -12,6 +12,9 @@
 pub struct JsonschemaPeriodWorkflowExtensions {
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
+    /// max file size allowed in bytes
+    #[serde(rename = "max_file_size", skip_serializing_if = "Option::is_none")]
+    pub max_file_size: Option<i32>,
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
     #[serde(rename = "node_id", skip_serializing_if = "Option::is_none")]
@@ -31,6 +34,7 @@ impl JsonschemaPeriodWorkflowExtensions {
     pub fn new() -> JsonschemaPeriodWorkflowExtensions {
         JsonschemaPeriodWorkflowExtensions {
             description: None,
+            max_file_size: None,
             name: None,
             node_id: None,
             system: None,

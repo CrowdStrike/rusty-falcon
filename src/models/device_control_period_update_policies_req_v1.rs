@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+
 /// DeviceControlPeriodUpdatePoliciesReqV1 : A req to update DeviceControl policies
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DeviceControlPeriodUpdatePoliciesReqV1 {

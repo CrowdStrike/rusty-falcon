@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+
 /// PreventionPeriodCategoryRespV1 : A prevention policy category
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PreventionPeriodCategoryRespV1 {

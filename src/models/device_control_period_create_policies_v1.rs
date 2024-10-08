@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+
 /// DeviceControlPeriodCreatePoliciesV1 : A req to create DeviceControl policies
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DeviceControlPeriodCreatePoliciesV1 {

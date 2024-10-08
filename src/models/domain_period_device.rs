@@ -12,7 +12,7 @@ use crate::models;
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodDevice {
-    #[serde(rename = "PlatformIDNumeric")]
+    #[serde(rename = "platform_id_numeric")]
     pub platform_id_numeric: i32,
     #[serde(rename = "agent_version", skip_serializing_if = "Option::is_none")]
     pub agent_version: Option<String>,

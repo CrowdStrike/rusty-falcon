@@ -31,6 +31,7 @@ pub enum RTrCheckAdminCommandStatusError {
     Status401(models::DomainPeriodApiError),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,6 +42,7 @@ pub enum RTrCreatePutFilesError {
     Status400(models::DomainPeriodApiError),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,6 +53,7 @@ pub enum RTrCreateScriptsError {
     Status400(models::DomainPeriodApiError),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,6 +65,7 @@ pub enum RTrDeletePutFilesError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -73,6 +77,7 @@ pub enum RTrDeleteScriptsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -83,6 +88,7 @@ pub enum RTrExecuteAdminCommandError {
     Status400(models::DomainPeriodApiError),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -94,6 +100,7 @@ pub enum RTrGetFalconScriptsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -105,6 +112,7 @@ pub enum RTrGetPutFilesError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -116,6 +124,7 @@ pub enum RTrGetPutFilesV2Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -127,6 +136,7 @@ pub enum RTrGetScriptsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -138,6 +148,7 @@ pub enum RTrGetScriptsV2Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -149,6 +160,7 @@ pub enum RTrListFalconScriptsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -160,6 +172,7 @@ pub enum RTrListPutFilesError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -171,6 +184,7 @@ pub enum RTrListScriptsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -181,6 +195,7 @@ pub enum RTrUpdateScriptsError {
     Status400(models::DomainPeriodApiError),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

@@ -19,6 +19,7 @@ use crate::{apis::ResponseContent, models};
 pub enum AggregateCasesError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

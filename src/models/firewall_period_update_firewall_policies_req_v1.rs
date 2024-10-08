@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+
 /// FirewallPeriodUpdateFirewallPoliciesReqV1 : A req to update firewall policies
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FirewallPeriodUpdateFirewallPoliciesReqV1 {

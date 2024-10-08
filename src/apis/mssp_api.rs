@@ -20,6 +20,7 @@ pub enum AddCidGroupMembersError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -30,6 +31,7 @@ pub enum AddRoleError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,6 +42,7 @@ pub enum AddUserGroupMembersError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,6 +53,7 @@ pub enum CreateCidGroupsError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -60,6 +64,7 @@ pub enum CreateUserGroupsError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -70,6 +75,7 @@ pub enum DeleteCidGroupMembersError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -80,6 +86,7 @@ pub enum DeleteCidGroupMembersV2Error {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -90,6 +97,7 @@ pub enum DeleteCidGroupsError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -100,6 +108,7 @@ pub enum DeleteUserGroupMembersError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -110,6 +119,7 @@ pub enum DeleteUserGroupsError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -120,6 +130,7 @@ pub enum DeletedRolesError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -130,6 +141,7 @@ pub enum GetChildrenError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -140,6 +152,7 @@ pub enum GetChildrenV2Error {
     Status400(models::MsaspecPeriodResponseFields),
     Status403(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -150,6 +163,7 @@ pub enum GetCidGroupByIdError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -160,6 +174,7 @@ pub enum GetCidGroupByIdV2Error {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -170,6 +185,7 @@ pub enum GetCidGroupMembersByError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -180,6 +196,7 @@ pub enum GetCidGroupMembersByV2Error {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -190,6 +207,7 @@ pub enum GetRolesByIdError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -200,6 +218,7 @@ pub enum GetUserGroupMembersByIdError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -210,6 +229,7 @@ pub enum GetUserGroupMembersByIdv2Error {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -220,6 +240,7 @@ pub enum GetUserGroupsByIdError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -230,6 +251,7 @@ pub enum GetUserGroupsByIdv2Error {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -240,6 +262,7 @@ pub enum QueryChildrenError {
     Status400(models::MsaspecPeriodResponseFields),
     Status403(models::MsaspecPeriodResponseFields),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -249,6 +272,7 @@ pub enum QueryChildrenError {
 pub enum QueryCidGroupMembersError {
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -258,6 +282,7 @@ pub enum QueryCidGroupMembersError {
 pub enum QueryCidGroupsError {
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -267,6 +292,7 @@ pub enum QueryCidGroupsError {
 pub enum QueryRolesError {
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -276,6 +302,7 @@ pub enum QueryRolesError {
 pub enum QueryUserGroupMembersError {
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -286,6 +313,7 @@ pub enum QueryUserGroupsError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -296,6 +324,7 @@ pub enum UpdateCidGroupsError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -306,6 +335,7 @@ pub enum UpdateUserGroupsError {
     Status400(models::MsaPeriodErrorsOnly),
     Status403(models::MsaPeriodErrorsOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

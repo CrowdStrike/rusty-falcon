@@ -12,6 +12,8 @@
 pub struct ApiPeriodObjectMetadata {
     #[serde(rename = "collection_name")]
     pub collection_name: String,
+    #[serde(rename = "collection_version", skip_serializing_if = "Option::is_none")]
+    pub collection_version: Option<String>,
     #[serde(rename = "last_modified_time", skip_serializing_if = "Option::is_none")]
     pub last_modified_time: Option<String>,
     #[serde(rename = "namespace")]
@@ -31,6 +33,7 @@ impl ApiPeriodObjectMetadata {
     ) -> ApiPeriodObjectMetadata {
         ApiPeriodObjectMetadata {
             collection_name,
+            collection_version: None,
             last_modified_time: None,
             namespace,
             object_key,

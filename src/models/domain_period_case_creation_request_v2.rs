@@ -18,6 +18,10 @@ pub struct DomainPeriodCaseCreationRequestV2 {
     pub detections: Vec<models::MessagesPeriodAlert>,
     #[serde(rename = "incidents")]
     pub incidents: Vec<models::MessagesPeriodIncident>,
+    #[serde(rename = "malware_submission_id")]
+    pub malware_submission_id: String,
+    #[serde(rename = "recon_rule_type")]
+    pub recon_rule_type: String,
     #[serde(rename = "title")]
     pub title: String,
     #[serde(rename = "type")]
@@ -31,6 +35,8 @@ impl DomainPeriodCaseCreationRequestV2 {
         body: String,
         detections: Vec<models::MessagesPeriodAlert>,
         incidents: Vec<models::MessagesPeriodIncident>,
+        malware_submission_id: String,
+        recon_rule_type: String,
         title: String,
         r#type: String,
     ) -> DomainPeriodCaseCreationRequestV2 {
@@ -38,6 +44,8 @@ impl DomainPeriodCaseCreationRequestV2 {
             body,
             detections,
             incidents,
+            malware_submission_id,
+            recon_rule_type,
             title,
             r#type,
             user_uuid: None,

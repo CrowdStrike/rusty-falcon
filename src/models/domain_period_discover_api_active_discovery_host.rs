@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+
 /// DomainPeriodDiscoverApiActiveDiscoveryHost : Information obtained from active discovery.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodDiscoverApiActiveDiscoveryHost {

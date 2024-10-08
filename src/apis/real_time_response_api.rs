@@ -88,6 +88,7 @@ pub enum RTrAggregateSessionsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -98,6 +99,7 @@ pub enum RTrCheckActiveResponderCommandStatusError {
     Status401(models::DomainPeriodApiError),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -108,6 +110,7 @@ pub enum RTrCheckCommandStatusError {
     Status401(models::DomainPeriodApiError),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -119,6 +122,7 @@ pub enum RTrDeleteFileError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -130,6 +134,7 @@ pub enum RTrDeleteFileV2Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -141,6 +146,7 @@ pub enum RTrDeleteQueuedSessionError {
     Status401(models::DomainPeriodApiError),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -152,6 +158,7 @@ pub enum RTrDeleteSessionError {
     Status401(models::DomainPeriodApiError),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -162,6 +169,7 @@ pub enum RTrExecuteActiveResponderCommandError {
     Status400(models::DomainPeriodApiError),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -172,6 +180,7 @@ pub enum RTrExecuteCommandError {
     Status400(models::DomainPeriodApiError),
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -206,6 +215,7 @@ pub enum RTrListAllSessionsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -217,6 +227,7 @@ pub enum RTrListFilesError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -228,6 +239,7 @@ pub enum RTrListFilesV2Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -240,6 +252,7 @@ pub enum RTrListQueuedSessionsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -251,6 +264,7 @@ pub enum RTrListSessionsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status404(models::DomainPeriodApiError),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

@@ -10,6 +10,8 @@
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ModelsPeriodApiImageCombinedExport {
+    #[serde(rename = "architecture")]
+    pub architecture: String,
     #[serde(rename = "base_os")]
     pub base_os: String,
     #[serde(rename = "cid")]
@@ -30,6 +32,8 @@ pub struct ModelsPeriodApiImageCombinedExport {
     pub image_digest: String,
     #[serde(rename = "image_id")]
     pub image_id: String,
+    #[serde(rename = "is_base_image")]
+    pub is_base_image: bool,
     #[serde(rename = "last_seen")]
     pub last_seen: String,
     #[serde(rename = "packages_impacted")]
@@ -38,6 +42,8 @@ pub struct ModelsPeriodApiImageCombinedExport {
     pub registry: String,
     #[serde(rename = "repository")]
     pub repository: String,
+    #[serde(rename = "source")]
+    pub source: String,
     #[serde(rename = "started_containers")]
     pub started_containers: i64,
     #[serde(rename = "stopped_containers")]
@@ -54,6 +60,7 @@ pub struct ModelsPeriodApiImageCombinedExport {
 
 impl ModelsPeriodApiImageCombinedExport {
     pub fn new(
+        architecture: String,
         base_os: String,
         cid: String,
         cve_id: String,
@@ -64,10 +71,12 @@ impl ModelsPeriodApiImageCombinedExport {
         first_seen: String,
         image_digest: String,
         image_id: String,
+        is_base_image: bool,
         last_seen: String,
         packages_impacted: i32,
         registry: String,
         repository: String,
+        source: String,
         started_containers: i64,
         stopped_containers: i64,
         tag: String,
@@ -76,6 +85,7 @@ impl ModelsPeriodApiImageCombinedExport {
         vulnerability_severity: String,
     ) -> ModelsPeriodApiImageCombinedExport {
         ModelsPeriodApiImageCombinedExport {
+            architecture,
             base_os,
             cid,
             cve_id,
@@ -86,10 +96,12 @@ impl ModelsPeriodApiImageCombinedExport {
             first_seen,
             image_digest,
             image_id,
+            is_base_image,
             last_seen,
             packages_impacted,
             registry,
             repository,
+            source,
             started_containers,
             stopped_containers,
             tag,

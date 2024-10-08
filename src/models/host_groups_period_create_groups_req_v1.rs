@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+
 /// HostGroupsPeriodCreateGroupsReqV1 : A request to create device groups
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct HostGroupsPeriodCreateGroupsReqV1 {

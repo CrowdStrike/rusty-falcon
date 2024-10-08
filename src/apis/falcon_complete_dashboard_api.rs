@@ -19,6 +19,7 @@ use crate::{apis::ResponseContent, models};
 pub enum AggregateAlertsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,6 +29,7 @@ pub enum AggregateAlertsError {
 pub enum AggregateAllowListError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,6 +39,7 @@ pub enum AggregateAllowListError {
 pub enum AggregateBlockListError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -46,6 +49,7 @@ pub enum AggregateBlockListError {
 pub enum AggregateDetectionsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -55,6 +59,7 @@ pub enum AggregateDetectionsError {
 pub enum AggregateDeviceCountCollectionError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -64,6 +69,7 @@ pub enum AggregateDeviceCountCollectionError {
 pub enum AggregateEscalationsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -73,6 +79,7 @@ pub enum AggregateEscalationsError {
 pub enum AggregateFcIncidentsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -93,6 +100,7 @@ pub enum AggregatePreventionPolicyError {
 pub enum AggregateRemediationsError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -135,6 +143,7 @@ pub enum AggregateTotalDeviceCountsError {
 pub enum GetDeviceCountCollectionQueriesByFilterError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -144,6 +153,7 @@ pub enum GetDeviceCountCollectionQueriesByFilterError {
 pub enum QueryAlertIdsByFilterError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -153,6 +163,7 @@ pub enum QueryAlertIdsByFilterError {
 pub enum QueryAllowListFilterError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -162,6 +173,7 @@ pub enum QueryAllowListFilterError {
 pub enum QueryBlockListFilterError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -171,6 +183,7 @@ pub enum QueryBlockListFilterError {
 pub enum QueryDetectionIdsByFilterError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -180,6 +193,7 @@ pub enum QueryDetectionIdsByFilterError {
 pub enum QueryEscalationsFilterError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -189,6 +203,7 @@ pub enum QueryEscalationsFilterError {
 pub enum QueryIncidentIdsByFilterError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -198,6 +213,7 @@ pub enum QueryIncidentIdsByFilterError {
 pub enum QueryRemediationsFilterError {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 

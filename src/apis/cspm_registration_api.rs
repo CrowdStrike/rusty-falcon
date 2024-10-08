@@ -1527,6 +1527,9 @@ pub async fn get_cspm_aws_account_scripts_attachment(
     accounts: Option<Vec<String>>,
     behavior_assessment_enabled: Option<&str>,
     sensor_management_enabled: Option<&str>,
+    dspm_enabled: Option<&str>,
+    dspm_regions: Option<Vec<String>>,
+    dspm_role: Option<&str>,
     use_existing_cloudtrail: Option<&str>,
     organization_id: Option<&str>,
     aws_profile: Option<&str>,
@@ -1600,13 +1603,40 @@ pub async fn get_cspm_aws_account_scripts_attachment(
         local_var_req_builder = local_var_req_builder
             .query(&[("sensor_management_enabled", &local_var_str.to_string())]);
     }
+    if let Some(ref local_var_str) = dspm_enabled {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("dspm_enabled", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = dspm_regions {
+        local_var_req_builder = match "csv" {
+            "multi" => local_var_req_builder.query(
+                &local_var_str
+                    .into_iter()
+                    .map(|p| ("dspm_regions".to_owned(), p.to_string()))
+                    .collect::<Vec<(std::string::String, std::string::String)>>(),
+            ),
+            _ => local_var_req_builder.query(&[(
+                "dspm_regions",
+                &local_var_str
+                    .into_iter()
+                    .map(|p| p.to_string())
+                    .collect::<Vec<String>>()
+                    .join(",")
+                    .to_string(),
+            )]),
+        };
+    }
+    if let Some(ref local_var_str) = dspm_role {
+        local_var_req_builder =
+            local_var_req_builder.query(&[("dspm_role", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_str) = use_existing_cloudtrail {
         local_var_req_builder =
             local_var_req_builder.query(&[("use_existing_cloudtrail", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = organization_id {
         local_var_req_builder =
-            local_var_req_builder.query(&[("organization_id", &local_var_str.to_string())]);
+            local_var_req_builder.query(&[("organization-id", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = aws_profile {
         local_var_req_builder =
