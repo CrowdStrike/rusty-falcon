@@ -32,12 +32,17 @@ do
         echo "${line_separator}"
         echo "Running ${example_label} example"
 
+        cargo_run_cmd_segment="cargo run --example $example_name"
+
         # Handle example specific mandatory flags / options
         if [ "$example_name" == "falcon_discover_hosts" ]
         then
-            cargo_run="cargo run --example $example_name -- --sort hostname > /dev/null 2>&1"
+            cargo_run="$cargo_run_cmd_segment -- --sort hostname > /dev/null 2>&1"
+        elif [ "$example_name" == "intel_indicators" ]
+        then
+            cargo_run="$cargo_run_cmd_segment -- --sort published_date.asc --filter deleted:false -q ps1 > /dev/null 2>&1"
         else
-            cargo_run="cargo run --example $example_name > /dev/null 2>&1"
+            cargo_run="$cargo_run_cmd_segment > /dev/null 2>&1"
         fi
 
         # Check command error code and exit if any error code
