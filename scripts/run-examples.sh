@@ -20,17 +20,26 @@ line_separator="==================="
 
 # Exclude extra error text and get only example names, which start from 3rd line onwards
 count=1
+passed=0
+
+# Initial message when the script just starts running
+echo ""
+echo "Starting to test examples"
+echo ""
+
 # IFS= means that string splitting occurs at newlines only
-# read - reads a single line from the input
+# read - reads a single line from the input 
+# (in this case, input being the error that arises when running "cargo run --example" without specifying the example to run)
 while IFS= read -r line
 do
+    # First two lines of stderr are just error text and are irrelevant to the logic below
     if (( count > 2 )); then
         # Trim any whitespace before or after the string
         example_name=$(echo "$line" | xargs )
         example_label="\"$example_name\"";
 
         echo "${line_separator}"
-        echo "Running ${example_label} example"
+        echo "Testing ${example_label}"
 
         cargo_run_cmd_segment="cargo run --example $example_name"
 
@@ -49,13 +58,17 @@ do
         if ! eval "$cargo_run"
         then
             echo -e "${example_label} ${red}${bold}failed${not_bold}${clear}"
-            echo "${line_separator}"
-            exit 1
         else
             echo -e "${example_label} ${green}${bold}passed${not_bold}${clear}"
+            (( passed++ ))
         fi
     fi
 
     (( count++ ))
 # The variable gets printed with a newline and fed into the while loop
 done < <(printf '%s\n' "$cmd_output")
+
+# Print last line separator and tests stats
+echo "${line_separator}"
+total=$(( count - 3 ));
+echo "${passed} out of ${total} passed"

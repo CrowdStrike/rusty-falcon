@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix spelling for docs and api files
 - Error hierarchy revamp to structured errors based on `thiserror` crate
 - Handle `intel_indicators` example case in `run-examples.sh` script
+- Display number of passed examples/tests in `run-examples.sh` script
 
 - Upgrade dependencies:
   - `clap` to `4.5.18`
