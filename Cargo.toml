@@ -12,12 +12,21 @@ license-file = "LICENSE"
 keywords = ["api", "crowdstrike", "falcon", "security", "vulnerability"]
 categories = ["api-bindings", "asynchronous", "web-programming"]
 
+[package.metadata.typos]
+default = { extend-ignore-identifiers-re = [
+    # ignore hexa data samples
+    "[0-9a-fA-F][0-9a-fA-F]",
+    "ot_",
+    "_tto",
+] }
+files = { extend-exclude = [] }
+
 [dependencies]
 # To satisfy minimal version check
-openssl = "0.10.66"
+openssl = "0.10.72"
 # To satisfy minimal version check
 openssl-sys = "0.9.103"
-reqwest = { version = "0.12.8", features = ["json", "multipart"] }
+reqwest = { version = "0.12.20", features = ["json", "multipart"] }
 serde = "1.0.210"
 serde_derive = "1.0.210"
 serde_json = "1.0.128"
@@ -32,12 +41,3 @@ tokio = { version = "1.40.0", features = ["rt-multi-thread", "macros"] }
 codegen-units = 1
 lto = "thin"
 opt-level = "z"
-
-[package.metadata.typos]
-default = { extend-ignore-identifiers-re = [
-    # ignore hexa data samples
-    "[0-9a-fA-F][0-9a-fA-F]",
-    "ot_",
-    "_tto",
-] }
-files = { extend-exclude = [] }

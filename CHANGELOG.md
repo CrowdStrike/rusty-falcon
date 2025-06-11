@@ -27,9 +27,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Upgrade dependencies:
   - `clap` to `4.5.18`
-  - `openssl` to `0.10.66`
+  - `openssl` to `0.10.72`
   - `openssl-sys` to `0.9.103`
-  - `reqwest` to `0.12.8`
+  - `reqwest` to `0.12.20`
   - `serde` to `1.0.210`
   - `serde_derive` to `1.0.210`
   - `serde_json` to `1.0.128`
