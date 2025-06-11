@@ -22,7 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix spelling for docs and api files
 - Error hierarchy revamp to structured errors based on `thiserror` crate
 - Handle `intel_indicators` example case in `run-examples.sh` script
-- Update `rust-version` to `1.72.0`
+- Update `rust-version` to `1.82.0`
 - Display number of passed examples/tests in `run-examples.sh` script
 
 - Upgrade dependencies:
