@@ -56,14 +56,14 @@ handle_example () {
         cargo_run="$cargo_run_cmd_segment 2>&1"
     fi
 
-    echo $cargo_run
+    echo "$cargo_run"
 }
 
 # Run a single example if passed in or run all examples otherwise
 if [ -n "$EXAMPLE" ]; then
     echo "Testing ${EXAMPLE}"
 
-    cargo_run=$(handle_example $EXAMPLE)
+    cargo_run=$(handle_example "$EXAMPLE")
 
     # Check command error code and exit if any error code
     if ! command=$(eval "$cargo_run"); then
@@ -88,7 +88,7 @@ else
             echo "${line_separator}"
             echo "Testing ${example_label}"
 
-            cargo_run=$(handle_example $example_label)
+            cargo_run=$(handle_example "$example_label")
 
             # Check command error code and exit if any error code
             if ! command=$(eval "$cargo_run"); then
