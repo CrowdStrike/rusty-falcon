@@ -81,7 +81,7 @@ jobs:
     # https://docs.github.com/en/actions/learn-github-actions/contexts#context-availability
     strategy:
       matrix:
-        msrv: [1.72.0]
+        msrv: [1.82.0]
     name: ubuntu / ${{ matrix.msrv }}
     steps:
       - uses: actions/checkout@v4
@@ -159,6 +159,9 @@ jobs:
 
       - name: Install stable
         uses: dtolnay/rust-toolchain@stable
+
+      - name: Install cargo audit
+        run: cargo install cargo-audit --locked
 
       - name: Cargo audit
         run: cargo audit

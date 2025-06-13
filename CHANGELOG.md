@@ -22,14 +22,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix spelling for docs and api files
 - Error hierarchy revamp to structured errors based on `thiserror` crate
 - Handle `intel_indicators` example case in `run-examples.sh` script
-- Update `rust-version` to `1.72.0`
+- Update `rust-version` to `1.82.0`
 - Display number of passed examples/tests in `run-examples.sh` script
 
 - Upgrade dependencies:
   - `clap` to `4.5.18`
-  - `openssl` to `0.10.66`
+  - `openssl` to `0.10.72`
   - `openssl-sys` to `0.9.103`
-  - `reqwest` to `0.12.8`
+  - `reqwest` to `0.12.20`
   - `serde` to `1.0.210`
   - `serde_derive` to `1.0.210`
   - `serde_json` to `1.0.128`
