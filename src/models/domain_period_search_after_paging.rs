@@ -10,19 +10,27 @@
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodSearchAfterPaging {
-    #[serde(rename = "after")]
-    pub after: String,
     #[serde(rename = "limit")]
     pub limit: i32,
+    #[serde(rename = "next")]
+    pub next: String,
+    #[serde(rename = "offset")]
+    pub offset: String,
     #[serde(rename = "total")]
     pub total: i64,
 }
 
 impl DomainPeriodSearchAfterPaging {
-    pub fn new(after: String, limit: i32, total: i64) -> DomainPeriodSearchAfterPaging {
+    pub fn new(
+        limit: i32,
+        next: String,
+        offset: String,
+        total: i64,
+    ) -> DomainPeriodSearchAfterPaging {
         DomainPeriodSearchAfterPaging {
-            after,
             limit,
+            next,
+            offset,
             total,
         }
     }

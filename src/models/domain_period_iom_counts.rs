@@ -16,6 +16,8 @@ pub struct DomainPeriodIomCounts {
     pub high: f64,
     #[serde(rename = "informational", skip_serializing_if = "Option::is_none")]
     pub informational: Option<f64>,
+    #[serde(rename = "low", skip_serializing_if = "Option::is_none")]
+    pub low: Option<f64>,
     #[serde(rename = "medium", skip_serializing_if = "Option::is_none")]
     pub medium: Option<f64>,
 }
@@ -26,6 +28,7 @@ impl DomainPeriodIomCounts {
             critical,
             high,
             informational: None,
+            low: None,
             medium: None,
         }
     }

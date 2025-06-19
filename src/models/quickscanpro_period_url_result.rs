@@ -32,6 +32,8 @@ impl QuickscanproPeriodUrlResult {
 pub enum Verdict {
     #[serde(rename = "clean")]
     Clean,
+    #[serde(rename = "likely_benign")]
+    LikelyBenign,
     #[serde(rename = "suspicious")]
     Suspicious,
     #[serde(rename = "malicious")]

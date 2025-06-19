@@ -10,6 +10,11 @@
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodBenchmark {
+    #[serde(
+        rename = "applicable_profiles",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub applicable_profiles: Option<Vec<String>>,
     #[serde(rename = "benchmark_short")]
     pub benchmark_short: String,
     #[serde(rename = "id")]
@@ -25,6 +30,7 @@ impl DomainPeriodBenchmark {
         recommendation_number: String,
     ) -> DomainPeriodBenchmark {
         DomainPeriodBenchmark {
+            applicable_profiles: None,
             benchmark_short,
             id,
             recommendation_number,

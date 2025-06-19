@@ -59,6 +59,9 @@ pub struct DomainPeriodDiscoverApiApplicationHost {
     /// The organizational unit of the asset.
     #[serde(rename = "ou", skip_serializing_if = "Option::is_none")]
     pub ou: Option<String>,
+    /// The organizational units of the asset.
+    #[serde(rename = "ous", skip_serializing_if = "Option::is_none")]
+    pub ous: Option<Vec<String>>,
     /// The platform name of the asset (Windows, Mac, Linux).
     #[serde(rename = "platform_name", skip_serializing_if = "Option::is_none")]
     pub platform_name: Option<String>,
@@ -97,6 +100,7 @@ impl DomainPeriodDiscoverApiApplicationHost {
             machine_domain: None,
             os_version: None,
             ou: None,
+            ous: None,
             platform_name: None,
             product_type_desc: None,
             site_name: None,

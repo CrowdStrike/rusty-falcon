@@ -19,6 +19,9 @@ pub struct SadomainPeriodCreateRuleRequestV1 {
     /// The FQL filter to be used for searching
     #[serde(rename = "filter")]
     pub filter: String,
+    /// Which result types to monitor for. Can be set to only monitor domains or subdomains, as well as both. Only available for the `Typosquatting` rule topic. Possible values: [`basedomains`, `subdomains`]
+    #[serde(rename = "match_on_tsq_result_types")]
+    pub match_on_tsq_result_types: Vec<String>,
     /// The name of a given rule
     #[serde(rename = "name")]
     pub name: String,
@@ -31,7 +34,7 @@ pub struct SadomainPeriodCreateRuleRequestV1 {
     /// The priority for a given rule. Possible values: [`low`, `medium`, `high`]
     #[serde(rename = "priority")]
     pub priority: String,
-    /// Whether to monitor for substring matches. Only available for the `Typosquatting` topic.
+    /// Whether to monitor for substring matches. Only available for the `Typosquatting` rule topic.
     #[serde(rename = "substring_matching_enabled")]
     pub substring_matching_enabled: bool,
     /// The topic of a given rule. Possible values: [`SA_BRAND_PRODUCT`, `SA_VIP`, `SA_THIRD_PARTY`, `SA_IP`, `SA_CVE`, `SA_BIN`, `SA_DOMAIN`, `SA_EMAIL`, `SA_ALIAS`, `SA_AUTHOR`, `SA_CUSTOM`, `SA_TYPOSQUATTING`]
@@ -44,6 +47,7 @@ impl SadomainPeriodCreateRuleRequestV1 {
         breach_monitor_only: bool,
         breach_monitoring_enabled: bool,
         filter: String,
+        match_on_tsq_result_types: Vec<String>,
         name: String,
         originating_template_id: String,
         permissions: String,
@@ -55,6 +59,7 @@ impl SadomainPeriodCreateRuleRequestV1 {
             breach_monitor_only,
             breach_monitoring_enabled,
             filter,
+            match_on_tsq_result_types,
             name,
             originating_template_id,
             permissions,

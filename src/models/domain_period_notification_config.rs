@@ -10,6 +10,8 @@
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodNotificationConfig {
+    #[serde(rename = "channel_id")]
+    pub channel_id: String,
     #[serde(rename = "cid")]
     pub cid: String,
     #[serde(rename = "config_id")]
@@ -20,22 +22,28 @@ pub struct DomainPeriodNotificationConfig {
     pub recipients: Vec<String>,
     #[serde(rename = "severity")]
     pub severity: String,
+    #[serde(rename = "team_id")]
+    pub team_id: String,
 }
 
 impl DomainPeriodNotificationConfig {
     pub fn new(
+        channel_id: String,
         cid: String,
         config_id: String,
         plugin_id: String,
         recipients: Vec<String>,
         severity: String,
+        team_id: String,
     ) -> DomainPeriodNotificationConfig {
         DomainPeriodNotificationConfig {
+            channel_id,
             cid,
             config_id,
             plugin_id,
             recipients,
             severity,
+            team_id,
         }
     }
 }

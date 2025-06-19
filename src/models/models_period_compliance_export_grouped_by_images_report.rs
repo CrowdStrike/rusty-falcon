@@ -14,6 +14,15 @@ pub struct ModelsPeriodComplianceExportGroupedByImagesReport {
     pub authority: String,
     #[serde(rename = "cid")]
     pub cid: String,
+    #[serde(rename = "framework", skip_serializing_if = "Option::is_none")]
+    pub framework: Option<String>,
+    #[serde(
+        rename = "framework_name_version",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub framework_name_version: Option<String>,
+    #[serde(rename = "framework_version", skip_serializing_if = "Option::is_none")]
+    pub framework_version: Option<String>,
     #[serde(rename = "image_digest")]
     pub image_digest: String,
     #[serde(rename = "image_id")]
@@ -51,6 +60,9 @@ impl ModelsPeriodComplianceExportGroupedByImagesReport {
         ModelsPeriodComplianceExportGroupedByImagesReport {
             authority,
             cid,
+            framework: None,
+            framework_name_version: None,
+            framework_version: None,
             image_digest,
             image_id,
             image_registry,

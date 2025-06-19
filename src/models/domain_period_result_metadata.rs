@@ -34,6 +34,8 @@ pub struct DomainPeriodResultMetadata {
     pub search_window_end: String,
     #[serde(rename = "search_window_start")]
     pub search_window_start: String,
+    #[serde(rename = "use_ingest_time")]
+    pub use_ingest_time: bool,
 }
 
 impl DomainPeriodResultMetadata {
@@ -50,6 +52,7 @@ impl DomainPeriodResultMetadata {
         result_id: String,
         search_window_end: String,
         search_window_start: String,
+        use_ingest_time: bool,
     ) -> DomainPeriodResultMetadata {
         DomainPeriodResultMetadata {
             execution_delay,
@@ -64,6 +67,7 @@ impl DomainPeriodResultMetadata {
             result_id,
             search_window_end,
             search_window_start,
+            use_ingest_time,
         }
     }
 }

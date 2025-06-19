@@ -16,6 +16,8 @@ pub struct ModelsPeriodPod {
     pub allow_privilege_escalation: bool,
     #[serde(rename = "annotations_list")]
     pub annotations_list: Vec<String>,
+    #[serde(rename = "app_name")]
+    pub app_name: String,
     #[serde(rename = "automount_service_token")]
     pub automount_service_token: bool,
     #[serde(rename = "cid")]
@@ -109,6 +111,7 @@ impl ModelsPeriodPod {
         agents: Vec<std::collections::HashMap<String, String>>,
         allow_privilege_escalation: bool,
         annotations_list: Vec<String>,
+        app_name: String,
         automount_service_token: bool,
         cid: String,
         cloud_account_id: String,
@@ -156,6 +159,7 @@ impl ModelsPeriodPod {
             agents,
             allow_privilege_escalation,
             annotations_list,
+            app_name,
             automount_service_token,
             cid,
             cloud_account_id,

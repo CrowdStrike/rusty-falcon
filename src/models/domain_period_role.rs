@@ -20,6 +20,8 @@ pub struct DomainPeriodRole {
     pub id: String,
     #[serde(rename = "is_global")]
     pub is_global: bool,
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub r#type: Option<String>,
 }
 
 impl DomainPeriodRole {
@@ -35,6 +37,7 @@ impl DomainPeriodRole {
             display_name,
             id,
             is_global,
+            r#type: None,
         }
     }
 }

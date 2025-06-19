@@ -10,6 +10,8 @@
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodDenormalizedAdversaryReference {
+    #[serde(rename = "animal_classifier", skip_serializing_if = "Option::is_none")]
+    pub animal_classifier: Option<String>,
     #[serde(rename = "id")]
     pub id: String,
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
@@ -21,6 +23,7 @@ pub struct DomainPeriodDenormalizedAdversaryReference {
 impl DomainPeriodDenormalizedAdversaryReference {
     pub fn new(id: String) -> DomainPeriodDenormalizedAdversaryReference {
         DomainPeriodDenormalizedAdversaryReference {
+            animal_classifier: None,
             id,
             name: None,
             r#type: None,

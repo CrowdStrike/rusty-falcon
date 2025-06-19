@@ -18,6 +18,11 @@ pub struct DevicePeriodDevicePolicy {
     pub assigned_date: Option<String>,
     #[serde(rename = "exempt", skip_serializing_if = "Option::is_none")]
     pub exempt: Option<bool>,
+    #[serde(
+        rename = "last_evaluation_date",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub last_evaluation_date: Option<String>,
     #[serde(rename = "policy_id")]
     pub policy_id: String,
     #[serde(rename = "policy_type")]
@@ -42,6 +47,7 @@ impl DevicePeriodDevicePolicy {
             applied_date: None,
             assigned_date: None,
             exempt: None,
+            last_evaluation_date: None,
             policy_id,
             policy_type,
             rule_groups: None,

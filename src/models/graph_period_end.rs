@@ -18,6 +18,9 @@ pub struct GraphPeriodEnd {
     /// Keys of the fields that are the output for this model
     #[serde(rename = "output_fields", skip_serializing_if = "Option::is_none")]
     pub output_fields: Option<Vec<String>>,
+    /// Summary of the workflow is free form text with possibly embedded variables
+    #[serde(rename = "summary", skip_serializing_if = "Option::is_none")]
+    pub summary: Option<String>,
 }
 
 impl GraphPeriodEnd {
@@ -26,6 +29,7 @@ impl GraphPeriodEnd {
             incoming_flows,
             node_id,
             output_fields: None,
+            summary: None,
         }
     }
 }

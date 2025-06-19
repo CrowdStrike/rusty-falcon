@@ -10,6 +10,8 @@
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodExportJobMetadataV1 {
+    #[serde(rename = "created_date", skip_serializing_if = "Option::is_none")]
+    pub created_date: Option<String>,
     #[serde(rename = "entity")]
     pub entity: String,
     #[serde(rename = "filename")]
@@ -28,6 +30,7 @@ impl DomainPeriodExportJobMetadataV1 {
         status: String,
     ) -> DomainPeriodExportJobMetadataV1 {
         DomainPeriodExportJobMetadataV1 {
+            created_date: None,
             entity,
             filename,
             id,

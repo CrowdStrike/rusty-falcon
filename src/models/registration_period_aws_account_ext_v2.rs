@@ -21,16 +21,22 @@ pub struct RegistrationPeriodAwsAccountExtV2 {
     pub behavior_assessment_enabled: Option<bool>,
     #[serde(rename = "cloudtrail_region")]
     pub cloudtrail_region: String,
+    #[serde(rename = "deployment_method", skip_serializing_if = "Option::is_none")]
+    pub deployment_method: Option<String>,
     #[serde(rename = "dspm_enabled", skip_serializing_if = "Option::is_none")]
     pub dspm_enabled: Option<bool>,
     #[serde(rename = "dspm_role", skip_serializing_if = "Option::is_none")]
     pub dspm_role: Option<String>,
+    #[serde(rename = "falcon_client_id", skip_serializing_if = "Option::is_none")]
+    pub falcon_client_id: Option<String>,
     #[serde(rename = "iam_role_arn")]
     pub iam_role_arn: String,
     #[serde(rename = "is_master", skip_serializing_if = "Option::is_none")]
     pub is_master: Option<bool>,
     #[serde(rename = "organization_id")]
     pub organization_id: String,
+    #[serde(rename = "root_stack_id", skip_serializing_if = "Option::is_none")]
+    pub root_stack_id: Option<String>,
     #[serde(
         rename = "sensor_management_enabled",
         skip_serializing_if = "Option::is_none"
@@ -57,11 +63,14 @@ impl RegistrationPeriodAwsAccountExtV2 {
             account_type: None,
             behavior_assessment_enabled: None,
             cloudtrail_region,
+            deployment_method: None,
             dspm_enabled: None,
             dspm_role: None,
+            falcon_client_id: None,
             iam_role_arn,
             is_master: None,
             organization_id,
+            root_stack_id: None,
             sensor_management_enabled: None,
             target_ous: None,
             use_existing_cloudtrail: None,
