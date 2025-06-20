@@ -46,11 +46,11 @@ handle_example () {
     local example=$1
     local cargo_run_cmd_segment="cargo run --example $example"
 
-    if [[ "${example}" == "\"falcon_discover_hosts\"" ]]; then
+    if [[ "${example}" == "falcon_discover_hosts" ]]; then
         cargo_run="$cargo_run_cmd_segment -- --sort hostname 2>&1"
-    elif [[ "${example}" == "\"falcon_supported_kernels\"" ]]; then
+    elif [[ "${example}" == "falcon_supported_kernels" ]]; then
         cargo_run="$cargo_run_cmd_segment -- --distro=oracle6 --arch=aarch64 2>&1"
-    elif [[ "${example}" == "\"intel_indicators\"" ]]; then
+    elif [[ "${example}" == "intel_indicators" ]]; then
         cargo_run="$cargo_run_cmd_segment -- --sort published_date.asc --filter deleted:false -q ps1 2>&1"
     else
         cargo_run="$cargo_run_cmd_segment 2>&1"
@@ -60,7 +60,10 @@ handle_example () {
 }
 
 # Run a single example if passed in or run all examples otherwise
-if [ -n "$EXAMPLE" ]; then
+if [ -n "$EXAMPLE" ]; then            
+    echo "${line_separator}"
+    echo "Testing single example: \"${EXAMPLE}\""
+
     cargo_run=$(handle_example "$EXAMPLE")
 
     # Check command error code and exit if any error code
@@ -81,10 +84,10 @@ else
         if (( count > 2 )); then
             # Trim any whitespace before or after the string
             example_name=$(echo "$line" | xargs )
-            example_label="\"$example_name\"";
+            example_label="$example_name";
 
             echo "${line_separator}"
-            echo "Testing ${example_label}"
+            echo "Testing \"${example_label}\""
 
             cargo_run=$(handle_example "$example_label")
 
