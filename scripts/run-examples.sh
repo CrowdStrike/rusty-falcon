@@ -46,11 +46,11 @@ handle_example () {
     local example=$1
     local cargo_run_cmd_segment="cargo run --example $example"
 
-    if [[ "${example}" == "falcon_discover_hosts" ]]; then
+    if [[ "${example}" == "\"falcon_discover_hosts\"" ]]; then
         cargo_run="$cargo_run_cmd_segment -- --sort hostname 2>&1"
-    elif [[ "${example}" == "falcon_supported_kernels" ]]; then
-        cargo_run="$cargo_run_cmd_segment -- --distro=oracle6 --arch=aarch64"
-    elif [[ "${example}" == "intel_indicators" ]]; then
+    elif [[ "${example}" == "\"falcon_supported_kernels\"" ]]; then
+        cargo_run="$cargo_run_cmd_segment -- --distro=oracle6 --arch=aarch64 2>&1"
+    elif [[ "${example}" == "\"intel_indicators\"" ]]; then
         cargo_run="$cargo_run_cmd_segment -- --sort published_date.asc --filter deleted:false -q ps1 2>&1"
     else
         cargo_run="$cargo_run_cmd_segment 2>&1"
@@ -61,8 +61,6 @@ handle_example () {
 
 # Run a single example if passed in or run all examples otherwise
 if [ -n "$EXAMPLE" ]; then
-    echo "Testing ${EXAMPLE}"
-
     cargo_run=$(handle_example "$EXAMPLE")
 
     # Check command error code and exit if any error code
@@ -78,7 +76,7 @@ else
     # read - reads a single line from the input 
     # (in this case, input being the error that arises when running 
     # "cargo run --example" without specifying the example to run)
-    while IFS= read -r line; do
+    while IFS= read -r line || [[ -n $line ]]; do
         # First two lines of stderr are just error text and are irrelevant to the logic below
         if (( count > 2 )); then
             # Trim any whitespace before or after the string
