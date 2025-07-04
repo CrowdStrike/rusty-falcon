@@ -49,7 +49,9 @@ handle_example () {
     if [[ "${example}" == "falcon_discover_hosts" ]]; then
         cargo_run="$cargo_run_cmd_segment -- --sort hostname 2>&1"
     elif [[ "${example}" == "falcon_supported_kernels" ]]; then
-        cargo_run="$cargo_run_cmd_segment -- --distro=oracle6 --arch=aarch64 2>&1"
+        cargo_run="$cargo_run_cmd_segment -- --distro=oracle6 --arch=x86_64 2>&1"
+    elif [[ "${example}" == "falcon_zta" ]]; then
+        cargo_run="$cargo_run_cmd_segment -- --filter \"platform_name:'Linux'\""
     elif [[ "${example}" == "intel_indicators" ]]; then
         cargo_run="$cargo_run_cmd_segment -- --sort published_date.asc --filter deleted:false -q ps1 2>&1"
     else

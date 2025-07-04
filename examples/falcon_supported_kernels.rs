@@ -1,6 +1,7 @@
 use clap::Parser;
 use rusty_falcon::apis::sensor_update_policies_api;
 use rusty_falcon::easy::client::FalconHandle;
+use rusty_falcon::models::SensorUpdatePeriodKernelRespV1;
 use std::collections::HashSet;
 use std::io;
 use std::io::Write;
@@ -36,10 +37,19 @@ async fn main() {
 
     let mut arch_set = HashSet::new();
     let mut distro_set = HashSet::new();
-    for kernel in kernels.resources {
-        arch_set.insert(kernel.architecture);
-        distro_set.insert(kernel.distro);
-    }
+    if let Some(kernel) = kernels
+        .resources
+        .as_ref()
+        .and_then(|kernels| kernels.first())
+    {
+        let SensorUpdatePeriodKernelRespV1 {
+            architecture,
+            distro,
+            ..
+        } = kernel;
+        arch_set.insert(architecture);
+        distro_set.insert(distro);
+    };
 
     let mut valid_archs = Vec::from_iter(arch_set);
     let mut valid_distros = Vec::from_iter(distro_set);
@@ -95,20 +105,16 @@ async fn main() {
     .await
     .expect("Could not fetch sensor update policy.");
 
-    if !response.errors.is_empty() {
-        eprintln!(
-            "Errors occurred while getting Falcon CCID: {:?}",
-            response.errors
-        );
+    if let Some(errors) = response.errors.filter(|errors| !errors.is_empty()) {
+        eprintln!("Errors occurred while getting Falcon CCID: {:?}", errors);
     }
 
-    if response.resources.is_empty() {
+    let Some(resources) = response.resources else {
         eprintln!("No CCID returned");
         return;
-    }
+    };
 
-    let releases = response
-        .resources
+    let releases = resources
         .into_iter()
         .map(|obj| obj.release)
         .collect::<Vec<String>>();

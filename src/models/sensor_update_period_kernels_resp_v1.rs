@@ -12,19 +12,19 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SensorUpdatePeriodKernelsRespV1 {
     /// A collection of any errors which occurred during execution of the request
-    #[serde(rename = "errors")]
-    pub errors: Vec<models::MsaspecPeriodError>,
+    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
+    pub errors: Option<Vec<models::MsaspecPeriodError>>,
     #[serde(rename = "meta")]
     pub meta: Box<models::MsaspecPeriodMetaInfo>,
-    #[serde(rename = "resources")]
-    pub resources: Vec<models::SensorUpdatePeriodKernelRespV1>,
+    #[serde(rename = "resources", skip_serializing_if = "Option::is_none")]
+    pub resources: Option<Vec<models::SensorUpdatePeriodKernelRespV1>>,
 }
 
 impl SensorUpdatePeriodKernelsRespV1 {
     pub fn new(
-        errors: Vec<models::MsaspecPeriodError>,
+        errors: Option<Vec<models::MsaspecPeriodError>>,
         meta: models::MsaspecPeriodMetaInfo,
-        resources: Vec<models::SensorUpdatePeriodKernelRespV1>,
+        resources: Option<Vec<models::SensorUpdatePeriodKernelRespV1>>,
     ) -> SensorUpdatePeriodKernelsRespV1 {
         SensorUpdatePeriodKernelsRespV1 {
             errors,
