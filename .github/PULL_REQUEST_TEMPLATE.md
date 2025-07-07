@@ -11,6 +11,7 @@
 
 ## Checklist
 
+- [ ] Examples work/pass (i.e. run `./scripts/run-examples.sh`)
 - [ ] No sensitive information has been committed
 - [ ] Changelog file has been updated
 - [ ] Code generates no warnings (i.e. `cargo fmt --check`)
