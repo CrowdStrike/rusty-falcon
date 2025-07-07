@@ -38,6 +38,11 @@ pub struct ModelsPeriodApiKubernetesIom {
     pub cluster_id: String,
     #[serde(rename = "cluster_name")]
     pub cluster_name: String,
+    #[serde(
+        rename = "containers_impacted_ai_related",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub containers_impacted_ai_related: Option<bool>,
     #[serde(rename = "containers_impacted_count")]
     pub containers_impacted_count: String,
     #[serde(rename = "containers_impacted_ids")]
@@ -182,6 +187,7 @@ impl ModelsPeriodApiKubernetesIom {
             cis_id,
             cluster_id,
             cluster_name,
+            containers_impacted_ai_related: None,
             containers_impacted_count,
             containers_impacted_ids,
             description,

@@ -40,6 +40,8 @@ pub struct ModelsPeriodCluster {
     pub first_seen: String,
     #[serde(rename = "iar_coverage")]
     pub iar_coverage: bool,
+    #[serde(rename = "kac_agent_active")]
+    pub kac_agent_active: bool,
     #[serde(rename = "kac_agent_id")]
     pub kac_agent_id: String,
     #[serde(rename = "kubernetes_version")]
@@ -79,6 +81,7 @@ impl ModelsPeriodCluster {
         container_count: i32,
         first_seen: String,
         iar_coverage: bool,
+        kac_agent_active: bool,
         kac_agent_id: String,
         kubernetes_version: String,
         labels_list: Vec<String>,
@@ -106,6 +109,7 @@ impl ModelsPeriodCluster {
             container_count,
             first_seen,
             iar_coverage,
+            kac_agent_active,
             kac_agent_id,
             kubernetes_version,
             labels_list,

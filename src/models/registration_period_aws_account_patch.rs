@@ -12,19 +12,20 @@
 pub struct RegistrationPeriodAwsAccountPatch {
     #[serde(rename = "account_id")]
     pub account_id: String,
-    #[serde(
-        rename = "behavior_assessment_enabled",
-        skip_serializing_if = "Option::is_none"
-    )]
-    pub behavior_assessment_enabled: Option<bool>,
+    #[serde(rename = "behavior_assessment_enabled")]
+    pub behavior_assessment_enabled: bool,
     #[serde(rename = "cloudtrail_region", skip_serializing_if = "Option::is_none")]
     pub cloudtrail_region: Option<String>,
-    #[serde(rename = "dspm_enabled", skip_serializing_if = "Option::is_none")]
-    pub dspm_enabled: Option<bool>,
+    #[serde(rename = "deployment_method", skip_serializing_if = "Option::is_none")]
+    pub deployment_method: Option<String>,
+    #[serde(rename = "dspm_enabled")]
+    pub dspm_enabled: bool,
     #[serde(rename = "dspm_role", skip_serializing_if = "Option::is_none")]
     pub dspm_role: Option<String>,
     #[serde(rename = "environment", skip_serializing_if = "Option::is_none")]
     pub environment: Option<String>,
+    #[serde(rename = "falcon_client_id", skip_serializing_if = "Option::is_none")]
+    pub falcon_client_id: Option<String>,
     #[serde(rename = "iam_role_arn")]
     pub iam_role_arn: String,
     #[serde(rename = "remediation_region", skip_serializing_if = "Option::is_none")]
@@ -34,28 +35,36 @@ pub struct RegistrationPeriodAwsAccountPatch {
         skip_serializing_if = "Option::is_none"
     )]
     pub remediation_tou_accepted: Option<String>,
-    #[serde(
-        rename = "sensor_management_enabled",
-        skip_serializing_if = "Option::is_none"
-    )]
-    pub sensor_management_enabled: Option<bool>,
+    #[serde(rename = "root_stack_id", skip_serializing_if = "Option::is_none")]
+    pub root_stack_id: Option<String>,
+    #[serde(rename = "sensor_management_enabled")]
+    pub sensor_management_enabled: bool,
     #[serde(rename = "target_ous", skip_serializing_if = "Option::is_none")]
     pub target_ous: Option<Vec<String>>,
 }
 
 impl RegistrationPeriodAwsAccountPatch {
-    pub fn new(account_id: String, iam_role_arn: String) -> RegistrationPeriodAwsAccountPatch {
+    pub fn new(
+        account_id: String,
+        behavior_assessment_enabled: bool,
+        dspm_enabled: bool,
+        iam_role_arn: String,
+        sensor_management_enabled: bool,
+    ) -> RegistrationPeriodAwsAccountPatch {
         RegistrationPeriodAwsAccountPatch {
             account_id,
-            behavior_assessment_enabled: None,
+            behavior_assessment_enabled,
             cloudtrail_region: None,
-            dspm_enabled: None,
+            deployment_method: None,
+            dspm_enabled,
             dspm_role: None,
             environment: None,
+            falcon_client_id: None,
             iam_role_arn,
             remediation_region: None,
             remediation_tou_accepted: None,
-            sensor_management_enabled: None,
+            root_stack_id: None,
+            sensor_management_enabled,
             target_ous: None,
         }
     }

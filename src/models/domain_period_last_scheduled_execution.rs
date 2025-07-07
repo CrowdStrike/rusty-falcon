@@ -21,15 +21,22 @@ pub struct DomainPeriodLastScheduledExecution {
     pub search_window_start: Option<String>,
     #[serde(rename = "status_display")]
     pub status_display: String,
+    #[serde(rename = "use_ingest_time")]
+    pub use_ingest_time: bool,
 }
 
 impl DomainPeriodLastScheduledExecution {
-    pub fn new(id: String, status_display: String) -> DomainPeriodLastScheduledExecution {
+    pub fn new(
+        id: String,
+        status_display: String,
+        use_ingest_time: bool,
+    ) -> DomainPeriodLastScheduledExecution {
         DomainPeriodLastScheduledExecution {
             id,
             search_window_end: None,
             search_window_start: None,
             status_display,
+            use_ingest_time,
         }
     }
 }

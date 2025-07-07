@@ -37,6 +37,12 @@ pub struct GraphPeriodValidationError {
     /// Resource ID for property if it exists, e.g. trigger ID or activity ID
     #[serde(rename = "resource_id", skip_serializing_if = "Option::is_none")]
     pub resource_id: Option<String>,
+    /// Undefined Reference  for property which is now undefined
+    #[serde(
+        rename = "undefined_reference",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub undefined_reference: Option<String>,
 }
 
 impl GraphPeriodValidationError {
@@ -51,6 +57,7 @@ impl GraphPeriodValidationError {
             parent_node_id: None,
             property: None,
             resource_id: None,
+            undefined_reference: None,
         }
     }
 }

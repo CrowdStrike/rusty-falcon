@@ -10,6 +10,8 @@
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ModelsPeriodApiImageCombinedExport {
+    #[serde(rename = "ai_related")]
+    pub ai_related: bool,
     #[serde(rename = "architecture")]
     pub architecture: String,
     #[serde(rename = "base_os")]
@@ -28,6 +30,8 @@ pub struct ModelsPeriodApiImageCombinedExport {
     pub detection_type: String,
     #[serde(rename = "first_seen")]
     pub first_seen: String,
+    #[serde(rename = "groups", skip_serializing_if = "Option::is_none")]
+    pub groups: Option<Vec<String>>,
     #[serde(rename = "image_digest")]
     pub image_digest: String,
     #[serde(rename = "image_id")]
@@ -60,6 +64,7 @@ pub struct ModelsPeriodApiImageCombinedExport {
 
 impl ModelsPeriodApiImageCombinedExport {
     pub fn new(
+        ai_related: bool,
         architecture: String,
         base_os: String,
         cid: String,
@@ -85,6 +90,7 @@ impl ModelsPeriodApiImageCombinedExport {
         vulnerability_severity: String,
     ) -> ModelsPeriodApiImageCombinedExport {
         ModelsPeriodApiImageCombinedExport {
+            ai_related,
             architecture,
             base_os,
             cid,
@@ -94,6 +100,7 @@ impl ModelsPeriodApiImageCombinedExport {
             detection_severity,
             detection_type,
             first_seen,
+            groups: None,
             image_digest,
             image_id,
             is_base_image,

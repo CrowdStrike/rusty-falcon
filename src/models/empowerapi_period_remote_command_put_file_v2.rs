@@ -49,8 +49,8 @@ pub struct EmpowerapiPeriodRemoteCommandPutFileV2 {
     pub sha256: Option<String>,
     #[serde(rename = "share_with_workflow")]
     pub share_with_workflow: bool,
-    #[serde(rename = "size", skip_serializing_if = "Option::is_none")]
-    pub size: Option<i32>,
+    #[serde(rename = "size")]
+    pub size: i32,
     #[serde(
         rename = "workflow_input_schema",
         skip_serializing_if = "Option::is_none"
@@ -72,6 +72,7 @@ impl EmpowerapiPeriodRemoteCommandPutFileV2 {
         run_attempt_count: i32,
         run_success_count: i32,
         share_with_workflow: bool,
+        size: i32,
         workflow_is_disruptive: bool,
     ) -> EmpowerapiPeriodRemoteCommandPutFileV2 {
         EmpowerapiPeriodRemoteCommandPutFileV2 {
@@ -93,7 +94,7 @@ impl EmpowerapiPeriodRemoteCommandPutFileV2 {
             run_success_count,
             sha256: None,
             share_with_workflow,
-            size: None,
+            size,
             workflow_input_schema: None,
             workflow_is_disruptive,
             workflow_output_schema: None,

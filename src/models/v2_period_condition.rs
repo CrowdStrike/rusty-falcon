@@ -10,25 +10,28 @@
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct V2PeriodCondition {
+    #[serde(rename = "cel_expression", skip_serializing_if = "Option::is_none")]
+    pub cel_expression: Option<String>,
     #[serde(rename = "display", skip_serializing_if = "Option::is_none")]
     pub display: Option<Vec<String>>,
     #[serde(rename = "else", skip_serializing_if = "Option::is_none")]
     pub r#else: Option<Vec<String>>,
     #[serde(rename = "else_if", skip_serializing_if = "Option::is_none")]
     pub else_if: Option<String>,
-    #[serde(rename = "expression")]
-    pub expression: String,
+    #[serde(rename = "expression", skip_serializing_if = "Option::is_none")]
+    pub expression: Option<String>,
     #[serde(rename = "next")]
     pub next: Vec<String>,
 }
 
 impl V2PeriodCondition {
-    pub fn new(expression: String, next: Vec<String>) -> V2PeriodCondition {
+    pub fn new(next: Vec<String>) -> V2PeriodCondition {
         V2PeriodCondition {
+            cel_expression: None,
             display: None,
             r#else: None,
             else_if: None,
-            expression,
+            expression: None,
             next,
         }
     }

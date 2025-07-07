@@ -10,6 +10,8 @@
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct V2PeriodForLoop {
+    #[serde(rename = "cel_condition", skip_serializing_if = "Option::is_none")]
+    pub cel_condition: Option<String>,
     #[serde(rename = "condition", skip_serializing_if = "Option::is_none")]
     pub condition: Option<String>,
     #[serde(rename = "condition_display", skip_serializing_if = "Option::is_none")]
@@ -35,6 +37,7 @@ pub struct V2PeriodForLoop {
 impl V2PeriodForLoop {
     pub fn new(continue_on_partial_execution: bool, input: String) -> V2PeriodForLoop {
         V2PeriodForLoop {
+            cel_condition: None,
             condition: None,
             condition_display: None,
             continue_on_partial_execution,

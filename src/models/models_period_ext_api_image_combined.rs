@@ -10,6 +10,8 @@
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ModelsPeriodExtApiImageCombined {
+    #[serde(rename = "ai_related")]
+    pub ai_related: bool,
     #[serde(rename = "architecture")]
     pub architecture: String,
     #[serde(rename = "base_os")]
@@ -54,6 +56,7 @@ pub struct ModelsPeriodExtApiImageCombined {
 
 impl ModelsPeriodExtApiImageCombined {
     pub fn new(
+        ai_related: bool,
         architecture: String,
         base_os: String,
         cid: String,
@@ -76,6 +79,7 @@ impl ModelsPeriodExtApiImageCombined {
         warning: i32,
     ) -> ModelsPeriodExtApiImageCombined {
         ModelsPeriodExtApiImageCombined {
+            ai_related,
             architecture,
             base_os,
             cid,

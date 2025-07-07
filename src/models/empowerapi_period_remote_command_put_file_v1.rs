@@ -47,8 +47,8 @@ pub struct EmpowerapiPeriodRemoteCommandPutFileV1 {
     pub run_success_count: i32,
     #[serde(rename = "sha256", skip_serializing_if = "Option::is_none")]
     pub sha256: Option<String>,
-    #[serde(rename = "size", skip_serializing_if = "Option::is_none")]
-    pub size: Option<i32>,
+    #[serde(rename = "size")]
+    pub size: i32,
     #[serde(rename = "write_access", skip_serializing_if = "Option::is_none")]
     pub write_access: Option<bool>,
 }
@@ -57,6 +57,7 @@ impl EmpowerapiPeriodRemoteCommandPutFileV1 {
     pub fn new(
         run_attempt_count: i32,
         run_success_count: i32,
+        size: i32,
     ) -> EmpowerapiPeriodRemoteCommandPutFileV1 {
         EmpowerapiPeriodRemoteCommandPutFileV1 {
             comments_for_audit_log: None,
@@ -76,7 +77,7 @@ impl EmpowerapiPeriodRemoteCommandPutFileV1 {
             run_attempt_count,
             run_success_count,
             sha256: None,
-            size: None,
+            size,
             write_access: None,
         }
     }

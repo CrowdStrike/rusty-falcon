@@ -22,6 +22,9 @@ pub struct DomainPeriodUpdateRuleRequestV1 {
     /// The rule ID to be updated
     #[serde(rename = "id")]
     pub id: String,
+    /// Which result types to monitor for. Can be set to only monitor domains or subdomains, as well as both. Only available for the `Typosquatting` rule topic.
+    #[serde(rename = "match_on_tsq_result_types")]
+    pub match_on_tsq_result_types: Vec<String>,
     /// The name of a given rule
     #[serde(rename = "name")]
     pub name: String,
@@ -42,6 +45,7 @@ impl DomainPeriodUpdateRuleRequestV1 {
         breach_monitoring_enabled: bool,
         filter: String,
         id: String,
+        match_on_tsq_result_types: Vec<String>,
         name: String,
         permissions: String,
         priority: String,
@@ -52,6 +56,7 @@ impl DomainPeriodUpdateRuleRequestV1 {
             breach_monitoring_enabled,
             filter,
             id,
+            match_on_tsq_result_types,
             name,
             permissions,
             priority,

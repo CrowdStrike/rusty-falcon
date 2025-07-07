@@ -24,6 +24,8 @@ pub struct ModelsPeriodApplicationLibrary {
     pub path: Option<String>,
     #[serde(rename = "Version", skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
+    #[serde(rename = "ai_related", skip_serializing_if = "Option::is_none")]
+    pub ai_related: Option<bool>,
 }
 
 impl ModelsPeriodApplicationLibrary {
@@ -36,6 +38,7 @@ impl ModelsPeriodApplicationLibrary {
             name: None,
             path: None,
             version: None,
+            ai_related: None,
         }
     }
 }

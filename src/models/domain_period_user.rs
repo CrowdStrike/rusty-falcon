@@ -14,6 +14,8 @@ pub struct DomainPeriodUser {
     pub cid: Option<String>,
     #[serde(rename = "created_at", skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
+    #[serde(rename = "factors", skip_serializing_if = "Option::is_none")]
+    pub factors: Option<Vec<String>>,
     #[serde(rename = "first_name", skip_serializing_if = "Option::is_none")]
     pub first_name: Option<String>,
     #[serde(rename = "last_login_at", skip_serializing_if = "Option::is_none")]
@@ -35,6 +37,7 @@ impl DomainPeriodUser {
         DomainPeriodUser {
             cid: None,
             created_at: None,
+            factors: None,
             first_name: None,
             last_login_at: None,
             last_name: None,

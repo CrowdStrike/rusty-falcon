@@ -14,6 +14,10 @@ pub struct EntitiesPeriodOdsScanRequest {
     pub cloud_ml_level_detection: i32,
     #[serde(rename = "cloud_ml_level_prevention")]
     pub cloud_ml_level_prevention: i32,
+    #[serde(rename = "cloud_pup_adware_level_detection")]
+    pub cloud_pup_adware_level_detection: i32,
+    #[serde(rename = "cloud_pup_adware_level_prevention")]
+    pub cloud_pup_adware_level_prevention: i32,
     #[serde(rename = "cpu_priority")]
     pub cpu_priority: i32,
     #[serde(rename = "description")]
@@ -48,6 +52,8 @@ impl EntitiesPeriodOdsScanRequest {
     pub fn new(
         cloud_ml_level_detection: i32,
         cloud_ml_level_prevention: i32,
+        cloud_pup_adware_level_detection: i32,
+        cloud_pup_adware_level_prevention: i32,
         cpu_priority: i32,
         description: String,
         endpoint_notification: bool,
@@ -66,6 +72,8 @@ impl EntitiesPeriodOdsScanRequest {
         EntitiesPeriodOdsScanRequest {
             cloud_ml_level_detection,
             cloud_ml_level_prevention,
+            cloud_pup_adware_level_detection,
+            cloud_pup_adware_level_prevention,
             cpu_priority,
             description,
             endpoint_notification,

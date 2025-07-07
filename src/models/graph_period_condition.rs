@@ -10,12 +10,12 @@
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GraphPeriodCondition {
-    /// User friendly description of the FQL expression. This would be supplied by the UI/caller and is not set by the API.
+    /// CEL expression for the condition, should evaluate to a boolean.
+    #[serde(rename = "cel_expression", skip_serializing_if = "Option::is_none")]
+    pub cel_expression: Option<String>,
+    /// User friendly description of the expression. This is generally supplied by the UI/caller.
     #[serde(rename = "display", skip_serializing_if = "Option::is_none")]
     pub display: Option<Vec<String>>,
-    /// Indicates the boolean result of FQL expression when present. This field should be used only in the api response of a graph execution result
-    #[serde(rename = "evaluated", skip_serializing_if = "Option::is_none")]
-    pub evaluated: Option<bool>,
     /// FQL expression for the condition on the sequence flow.
     #[serde(rename = "expression", skip_serializing_if = "Option::is_none")]
     pub expression: Option<String>,
@@ -24,8 +24,8 @@ pub struct GraphPeriodCondition {
 impl GraphPeriodCondition {
     pub fn new() -> GraphPeriodCondition {
         GraphPeriodCondition {
+            cel_expression: None,
             display: None,
-            evaluated: None,
             expression: None,
         }
     }

@@ -34,7 +34,7 @@ async fn get_all_hosts(
         }
         offset = response.resources[resources_count - 1].to_string();
         details.append(&mut get_device_details(configuration, &response.resources).await?);
-        if resources_count < 5000 {
+        if resources_count <= 5000 {
             break;
         }
     }
@@ -51,7 +51,7 @@ async fn get_device_details(
     )
     .await?;
 
-    if !response.errors.is_empty() {
+    if response.errors.is_some() {
         return Err(ApiError(format!(
             "while getting Falcon Host IDs: '{:?}'",
             response.errors

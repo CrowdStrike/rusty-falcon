@@ -14,6 +14,8 @@ pub struct PatterndispositionPeriodPatternDisposition {
     pub blocking_unsupported_or_disabled: bool,
     #[serde(rename = "bootup_safeguard_enabled")]
     pub bootup_safeguard_enabled: bool,
+    #[serde(rename = "containment_file_system")]
+    pub containment_file_system: bool,
     #[serde(rename = "critical_process_disabled")]
     pub critical_process_disabled: bool,
     #[serde(rename = "detect")]
@@ -34,10 +36,14 @@ pub struct PatterndispositionPeriodPatternDisposition {
     pub kill_process: bool,
     #[serde(rename = "kill_subprocess")]
     pub kill_subprocess: bool,
+    #[serde(rename = "mfa_required")]
+    pub mfa_required: bool,
     #[serde(rename = "operation_blocked")]
     pub operation_blocked: bool,
     #[serde(rename = "policy_disabled")]
     pub policy_disabled: bool,
+    #[serde(rename = "prevention_provisioning_enabled")]
+    pub prevention_provisioning_enabled: bool,
     #[serde(rename = "process_blocked")]
     pub process_blocked: bool,
     #[serde(rename = "quarantine_file")]
@@ -46,6 +52,12 @@ pub struct PatterndispositionPeriodPatternDisposition {
     pub quarantine_machine: bool,
     #[serde(rename = "registry_operation_blocked")]
     pub registry_operation_blocked: bool,
+    #[serde(rename = "response_action_already_applied")]
+    pub response_action_already_applied: bool,
+    #[serde(rename = "response_action_failed")]
+    pub response_action_failed: bool,
+    #[serde(rename = "response_action_triggered")]
+    pub response_action_triggered: bool,
     #[serde(rename = "rooting")]
     pub rooting: bool,
     #[serde(rename = "sensor_only")]
@@ -60,6 +72,7 @@ impl PatterndispositionPeriodPatternDisposition {
     pub fn new(
         blocking_unsupported_or_disabled: bool,
         bootup_safeguard_enabled: bool,
+        containment_file_system: bool,
         critical_process_disabled: bool,
         detect: bool,
         fs_operation_blocked: bool,
@@ -70,12 +83,17 @@ impl PatterndispositionPeriodPatternDisposition {
         kill_parent: bool,
         kill_process: bool,
         kill_subprocess: bool,
+        mfa_required: bool,
         operation_blocked: bool,
         policy_disabled: bool,
+        prevention_provisioning_enabled: bool,
         process_blocked: bool,
         quarantine_file: bool,
         quarantine_machine: bool,
         registry_operation_blocked: bool,
+        response_action_already_applied: bool,
+        response_action_failed: bool,
+        response_action_triggered: bool,
         rooting: bool,
         sensor_only: bool,
         suspend_parent: bool,
@@ -84,6 +102,7 @@ impl PatterndispositionPeriodPatternDisposition {
         PatterndispositionPeriodPatternDisposition {
             blocking_unsupported_or_disabled,
             bootup_safeguard_enabled,
+            containment_file_system,
             critical_process_disabled,
             detect,
             fs_operation_blocked,
@@ -94,12 +113,17 @@ impl PatterndispositionPeriodPatternDisposition {
             kill_parent,
             kill_process,
             kill_subprocess,
+            mfa_required,
             operation_blocked,
             policy_disabled,
+            prevention_provisioning_enabled,
             process_blocked,
             quarantine_file,
             quarantine_machine,
             registry_operation_blocked,
+            response_action_already_applied,
+            response_action_failed,
+            response_action_triggered,
             rooting,
             sensor_only,
             suspend_parent,

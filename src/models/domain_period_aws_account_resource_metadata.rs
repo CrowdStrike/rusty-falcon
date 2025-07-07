@@ -10,6 +10,14 @@
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodAwsAccountResourceMetadata {
+    #[serde(rename = "CreatedAt")]
+    pub created_at: String,
+    #[serde(rename = "DeletedAt")]
+    pub deleted_at: String,
+    #[serde(rename = "ID")]
+    pub id: i32,
+    #[serde(rename = "UpdatedAt")]
+    pub updated_at: String,
     /// AWS CloudTrail bucket name to store logs.
     #[serde(
         rename = "aws_cloudtrail_bucket_name",
@@ -25,6 +33,8 @@ pub struct DomainPeriodAwsAccountResourceMetadata {
     /// AWS Eventbus ARN.
     #[serde(rename = "aws_eventbus_arn", skip_serializing_if = "Option::is_none")]
     pub aws_eventbus_arn: Option<String>,
+    #[serde(rename = "cid", skip_serializing_if = "Option::is_none")]
+    pub cid: Option<String>,
     #[serde(rename = "eventbus_name", skip_serializing_if = "Option::is_none")]
     pub eventbus_name: Option<String>,
     /// ID assigned for use with cross account IAM role access.
@@ -41,11 +51,21 @@ pub struct DomainPeriodAwsAccountResourceMetadata {
 }
 
 impl DomainPeriodAwsAccountResourceMetadata {
-    pub fn new() -> DomainPeriodAwsAccountResourceMetadata {
+    pub fn new(
+        created_at: String,
+        deleted_at: String,
+        id: i32,
+        updated_at: String,
+    ) -> DomainPeriodAwsAccountResourceMetadata {
         DomainPeriodAwsAccountResourceMetadata {
+            created_at,
+            deleted_at,
+            id,
+            updated_at,
             aws_cloudtrail_bucket_name: None,
             aws_cloudtrail_region: None,
             aws_eventbus_arn: None,
+            cid: None,
             eventbus_name: None,
             external_id: None,
             iam_role_arn: None,

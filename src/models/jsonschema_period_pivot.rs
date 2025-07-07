@@ -14,10 +14,14 @@ pub struct JsonschemaPeriodPivot {
     pub case_sensitive: Option<bool>,
     #[serde(rename = "entity", skip_serializing_if = "Option::is_none")]
     pub entity: Option<String>,
+    #[serde(rename = "entityOnLoad", skip_serializing_if = "Option::is_none")]
+    pub entity_on_load: Option<String>,
     #[serde(rename = "entityValue", skip_serializing_if = "Option::is_none")]
     pub entity_value: Option<String>,
     #[serde(rename = "queryString", skip_serializing_if = "Option::is_none")]
     pub query_string: Option<String>,
+    #[serde(rename = "queryStringOnLoad", skip_serializing_if = "Option::is_none")]
+    pub query_string_on_load: Option<String>,
     #[serde(rename = "searchable", skip_serializing_if = "Option::is_none")]
     pub searchable: Option<bool>,
     #[serde(rename = "sortByDisplay", skip_serializing_if = "Option::is_none")]
@@ -35,8 +39,10 @@ impl JsonschemaPeriodPivot {
         JsonschemaPeriodPivot {
             case_sensitive: None,
             entity: None,
+            entity_on_load: None,
             entity_value: None,
             query_string: None,
+            query_string_on_load: None,
             searchable: None,
             sort_by_display: None,
             sort_by_value: None,

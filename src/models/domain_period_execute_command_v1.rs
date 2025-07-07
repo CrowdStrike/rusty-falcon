@@ -9,9 +9,18 @@
  */
 
 use crate::models;
+use std::fmt;
+
+impl fmt::Display for DomainPeriodExecuteCommandV1 {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}", self.id)
+    }
+}
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodExecuteCommandV1 {
+    #[serde(rename = "config", skip_serializing_if = "Option::is_none")]
+    pub config: Option<Box<models::DomainPeriodConfigData>>,
     /// Config auth type for plugin to execute. Only applicable for oneOf security scheme plugins. If not provided, it will use the default auth type on the config
     #[serde(rename = "config_auth_type")]
     pub config_auth_type: String,
@@ -45,6 +54,7 @@ impl DomainPeriodExecuteCommandV1 {
         version: i32,
     ) -> DomainPeriodExecuteCommandV1 {
         DomainPeriodExecuteCommandV1 {
+            config: None,
             config_auth_type,
             config_id,
             definition_id,
