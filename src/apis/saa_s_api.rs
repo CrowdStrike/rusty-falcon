@@ -15,20 +15,20 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`entities_period_states_period_v1`]
+/// struct for typed errors of method [`get_integrations_v3`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum EntitiesPeriodStatesPeriodV1Error {
+pub enum GetIntegrationsV3Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
     Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`queries_period_states_period_v1`]
+/// struct for typed errors of method [`get_supported_saas_v3`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueriesPeriodStatesPeriodV1Error {
+pub enum GetSupportedSaasV3Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
     Status500(models::MsaPeriodReplyMetaOnly),
@@ -36,17 +36,17 @@ pub enum QueriesPeriodStatesPeriodV1Error {
 }
 
 
-pub async fn entities_period_states_period_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::DevicecontentapiPeriodEntitiesResponseV1, Error<EntitiesPeriodStatesPeriodV1Error>> {
+/// Get a list of connected integrations in your account
+pub async fn get_integrations_v3(configuration: &configuration::Configuration, saas_id: Option<&str>) -> Result<models::GetIntegrations, Error<GetIntegrationsV3Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_saas_id = saas_id;
 
-    let uri_str = format!("{}/device-content/entities/states/v1", configuration.base_path);
+    let uri_str = format!("{}/saas-security/entities/integrations/v3", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = match "multi" {
-        "multi" => req_builder.query(&p_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => req_builder.query(&[("ids", &p_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
-    };
+    if let Some(ref param_value) = p_saas_id {
+        req_builder = req_builder.query(&[("saas_id", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -69,38 +69,22 @@ pub async fn entities_period_states_period_v1(configuration: &configuration::Con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DevicecontentapiPeriodEntitiesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DevicecontentapiPeriodEntitiesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetIntegrations`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetIntegrations`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<EntitiesPeriodStatesPeriodV1Error> = serde_json::from_str(&content).ok();
+        let entity: Option<GetIntegrationsV3Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn queries_period_states_period_v1(configuration: &configuration::Configuration, limit: Option<i32>, sort: Option<&str>, offset: Option<i32>, filter: Option<&str>) -> Result<models::DevicecontentapiPeriodQueryResponseV1, Error<QueriesPeriodStatesPeriodV1Error>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_filter = filter;
+/// Get a list of supported integrations
+pub async fn get_supported_saas_v3(configuration: &configuration::Configuration, ) -> Result<models::GetSupportedSaas, Error<GetSupportedSaasV3Error>> {
 
-    let uri_str = format!("{}/device-content/queries/states/v1", configuration.base_path);
+    let uri_str = format!("{}/saas-security/entities/supported-saas/v3", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_sort {
-        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_filter {
-        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
-    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -123,12 +107,12 @@ pub async fn queries_period_states_period_v1(configuration: &configuration::Conf
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DevicecontentapiPeriodQueryResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DevicecontentapiPeriodQueryResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetSupportedSaas`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetSupportedSaas`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<QueriesPeriodStatesPeriodV1Error> = serde_json::from_str(&content).ok();
+        let entity: Option<GetSupportedSaasV3Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

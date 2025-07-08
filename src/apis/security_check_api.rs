@@ -15,60 +15,60 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`delete_file`]
+/// struct for typed errors of method [`dismiss_affected_entity_v3`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum DeleteFileError {
+pub enum DismissAffectedEntityV3Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
     Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`delete_scan_result`]
+/// struct for typed errors of method [`dismiss_security_check_v3`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum DeleteScanResultError {
+pub enum DismissSecurityCheckV3Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
     Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_scan_result`]
+/// struct for typed errors of method [`get_metrics_v3`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetScanResultError {
+pub enum GetMetricsV3Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
     Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`launch_scan`]
+/// struct for typed errors of method [`get_security_check_affected_v3`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum LaunchScanError {
+pub enum GetSecurityCheckAffectedV3Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
     Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_scan_results`]
+/// struct for typed errors of method [`get_security_check_compliance_v3`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryScanResultsError {
+pub enum GetSecurityCheckComplianceV3Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
     Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`upload_file_quick_scan_pro`]
+/// struct for typed errors of method [`get_security_checks_v3`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum UploadFileQuickScanProError {
+pub enum GetSecurityChecksV3Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
     Status500(models::MsaPeriodReplyMetaOnly),
@@ -76,149 +76,21 @@ pub enum UploadFileQuickScanProError {
 }
 
 
-pub async fn delete_file(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::QuickscanproPeriodDeleteFileResponse, Error<DeleteFileError>> {
+/// Preform dismiss to an affected entity in a security check
+pub async fn dismiss_affected_entity_v3(configuration: &configuration::Configuration, id: &str) -> Result<models::DismissAffected, Error<DismissAffectedEntityV3Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_id = id;
 
-    let uri_str = format!("{}/quickscanpro/entities/files/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
-
-    req_builder = match "multi" {
-        "multi" => req_builder.query(&p_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => req_builder.query(&[("ids", &p_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
-    };
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::QuickscanproPeriodDeleteFileResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::QuickscanproPeriodDeleteFileResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<DeleteFileError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn delete_scan_result(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::MsaspecPeriodQueryResponse, Error<DeleteScanResultError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-
-    let uri_str = format!("{}/quickscanpro/entities/scans/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
-
-    req_builder = match "multi" {
-        "multi" => req_builder.query(&p_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => req_builder.query(&[("ids", &p_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
-    };
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<DeleteScanResultError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn get_scan_result(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::QuickscanproPeriodGetScanResultResponse, Error<GetScanResultError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-
-    let uri_str = format!("{}/quickscanpro/entities/scans/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = match "multi" {
-        "multi" => req_builder.query(&p_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => req_builder.query(&[("ids", &p_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
-    };
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::QuickscanproPeriodGetScanResultResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::QuickscanproPeriodGetScanResultResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<GetScanResultError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn launch_scan(configuration: &configuration::Configuration, body: models::QuickscanproPeriodLaunchScanRequest) -> Result<models::QuickscanproPeriodLaunchScanResponse, Error<LaunchScanError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-
-    let uri_str = format!("{}/quickscanpro/entities/scans/v1", configuration.base_path);
+    let uri_str = format!("{}/saas-security/entities/check-dismiss-affected/v3", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -235,35 +107,91 @@ pub async fn launch_scan(configuration: &configuration::Configuration, body: mod
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::QuickscanproPeriodLaunchScanResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::QuickscanproPeriodLaunchScanResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DismissAffected`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DismissAffected`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<LaunchScanError> = serde_json::from_str(&content).ok();
+        let entity: Option<DismissAffectedEntityV3Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn query_scan_results(configuration: &configuration::Configuration, filter: &str, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>) -> Result<models::QuickscanproPeriodQueryScanResultsResponse, Error<QueryScanResultsError>> {
+/// Preform dismiss to a security check
+pub async fn dismiss_security_check_v3(configuration: &configuration::Configuration, id: &str) -> Result<models::DismissSecurityCheck, Error<DismissSecurityCheckV3Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_id = id;
 
-    let uri_str = format!("{}/quickscanpro/queries/scans/v1", configuration.base_path);
+    let uri_str = format!("{}/saas-security/entities/check-dismiss/v3", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DismissSecurityCheck`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DismissSecurityCheck`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DismissSecurityCheckV3Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Get metrics on security checks 
+pub async fn get_metrics_v3(configuration: &configuration::Configuration, status: Option<&str>, limit: Option<i32>, offset: Option<i32>, integration_id: Option<&str>, impact: Option<&str>, compliance: Option<bool>, check_type: Option<&str>) -> Result<models::GetMetrics, Error<GetMetricsV3Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_status = status;
+    let p_limit = limit;
+    let p_offset = offset;
+    let p_integration_id = integration_id;
+    let p_impact = impact;
+    let p_compliance = compliance;
+    let p_check_type = check_type;
+
+    let uri_str = format!("{}/saas-security/aggregates/check-metrics/v3", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("filter", &p_filter.to_string())]);
-    if let Some(ref param_value) = p_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    if let Some(ref param_value) = p_status {
+        req_builder = req_builder.query(&[("status", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
-        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
+    if let Some(ref param_value) = p_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_integration_id {
+        req_builder = req_builder.query(&[("integration_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_impact {
+        req_builder = req_builder.query(&[("impact", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_compliance {
+        req_builder = req_builder.query(&[("compliance", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_check_type {
+        req_builder = req_builder.query(&[("check_type", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -287,36 +215,39 @@ pub async fn query_scan_results(configuration: &configuration::Configuration, fi
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::QuickscanproPeriodQueryScanResultsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::QuickscanproPeriodQueryScanResultsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetMetrics`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetMetrics`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<QueryScanResultsError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetMetricsV3Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn upload_file_quick_scan_pro(configuration: &configuration::Configuration, file: std::path::PathBuf, scan: Option<bool>) -> Result<models::QuickscanproPeriodFileUploadResponse, Error<UploadFileQuickScanProError>> {
+/// Get a list of affected entities 
+pub async fn get_security_check_affected_v3(configuration: &configuration::Configuration, id: &str, limit: Option<i32>, offset: Option<i32>) -> Result<models::GetAffected, Error<GetSecurityCheckAffectedV3Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_file = file;
-    let p_scan = scan;
+    let p_id = id;
+    let p_limit = limit;
+    let p_offset = offset;
 
-    let uri_str = format!("{}/quickscanpro/entities/files/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+    let uri_str = format!("{}/saas-security/entities/check-affected/v3", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    if let Some(ref param_value) = p_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    let mut multipart_form = reqwest::multipart::Form::new();
-    // TODO: support file upload for 'file' parameter
-    if let Some(param_value) = p_scan {
-        multipart_form = multipart_form.text("scan", param_value.to_string());
-    }
-    req_builder = req_builder.multipart(multipart_form);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -333,12 +264,124 @@ pub async fn upload_file_quick_scan_pro(configuration: &configuration::Configura
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::QuickscanproPeriodFileUploadResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::QuickscanproPeriodFileUploadResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetAffected`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetAffected`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<UploadFileQuickScanProError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetSecurityCheckAffectedV3Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Get a list of compliance standards attached to a check
+pub async fn get_security_check_compliance_v3(configuration: &configuration::Configuration, id: &str) -> Result<models::GetSecurityCompliance, Error<GetSecurityCheckComplianceV3Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_id = id;
+
+    let uri_str = format!("{}/saas-security/entities/compliance/v3", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetSecurityCompliance`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetSecurityCompliance`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetSecurityCheckComplianceV3Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Get a specific security check by ID or Get all security checks
+pub async fn get_security_checks_v3(configuration: &configuration::Configuration, id: Option<&str>, limit: Option<i32>, offset: Option<i32>, status: Option<&str>, integration_id: Option<&str>, impact: Option<&str>, compliance: Option<bool>, check_type: Option<&str>) -> Result<models::GetSecurityChecks, Error<GetSecurityChecksV3Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_id = id;
+    let p_limit = limit;
+    let p_offset = offset;
+    let p_status = status;
+    let p_integration_id = integration_id;
+    let p_impact = impact;
+    let p_compliance = compliance;
+    let p_check_type = check_type;
+
+    let uri_str = format!("{}/saas-security/entities/checks/v3", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_id {
+        req_builder = req_builder.query(&[("id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_status {
+        req_builder = req_builder.query(&[("status", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_integration_id {
+        req_builder = req_builder.query(&[("integration_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_impact {
+        req_builder = req_builder.query(&[("impact", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_compliance {
+        req_builder = req_builder.query(&[("compliance", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_check_type {
+        req_builder = req_builder.query(&[("check_type", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetSecurityChecks`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetSecurityChecks`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetSecurityChecksV3Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

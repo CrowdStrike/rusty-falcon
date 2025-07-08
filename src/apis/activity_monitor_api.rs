@@ -15,38 +15,55 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`get_runtime_detections_combined_v2`]
+/// struct for typed errors of method [`get_activity_monitor_v3`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetRuntimeDetectionsCombinedV2Error {
+pub enum GetActivityMonitorV3Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 
-pub async fn get_runtime_detections_combined_v2(configuration: &configuration::Configuration, filter: Option<&str>, sort: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::RuntimedetectionsPeriodDetectionsEntityResponse, Error<GetRuntimeDetectionsCombinedV2Error>> {
+/// Get a list of all events in monitor
+pub async fn get_activity_monitor_v3(configuration: &configuration::Configuration, integration_id: Option<&str>, actor: Option<&str>, category: Option<&str>, projection: Option<&str>, from_date: Option<String>, to_date: Option<String>, limit: Option<i32>, skip: Option<i32>) -> Result<models::GetActivityMonitor, Error<GetActivityMonitorV3Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
+    let p_integration_id = integration_id;
+    let p_actor = actor;
+    let p_category = category;
+    let p_projection = projection;
+    let p_from_date = from_date;
+    let p_to_date = to_date;
     let p_limit = limit;
-    let p_offset = offset;
+    let p_skip = skip;
 
-    let uri_str = format!("{}/container-security/combined/runtime-detections/v2", configuration.base_path);
+    let uri_str = format!("{}/saas-security/entities/monitor/v3", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
-        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    if let Some(ref param_value) = p_integration_id {
+        req_builder = req_builder.query(&[("integration_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
-        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
+    if let Some(ref param_value) = p_actor {
+        req_builder = req_builder.query(&[("actor", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_category {
+        req_builder = req_builder.query(&[("category", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_projection {
+        req_builder = req_builder.query(&[("projection", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_from_date {
+        req_builder = req_builder.query(&[("from_date", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_to_date {
+        req_builder = req_builder.query(&[("to_date", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    if let Some(ref param_value) = p_skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -70,12 +87,12 @@ pub async fn get_runtime_detections_combined_v2(configuration: &configuration::C
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RuntimedetectionsPeriodDetectionsEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RuntimedetectionsPeriodDetectionsEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetActivityMonitor`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetActivityMonitor`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetRuntimeDetectionsCombinedV2Error> = serde_json::from_str(&content).ok();
+        let entity: Option<GetActivityMonitorV3Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

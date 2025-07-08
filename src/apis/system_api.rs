@@ -15,20 +15,20 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`entities_period_states_period_v1`]
+/// struct for typed errors of method [`get_system_logs_v3`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum EntitiesPeriodStatesPeriodV1Error {
+pub enum GetSystemLogsV3Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
     Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`queries_period_states_period_v1`]
+/// struct for typed errors of method [`get_system_users_v3`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueriesPeriodStatesPeriodV1Error {
+pub enum GetSystemUsersV3Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
     Status500(models::MsaPeriodReplyMetaOnly),
@@ -36,70 +36,32 @@ pub enum QueriesPeriodStatesPeriodV1Error {
 }
 
 
-pub async fn entities_period_states_period_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::DevicecontentapiPeriodEntitiesResponseV1, Error<EntitiesPeriodStatesPeriodV1Error>> {
+/// Get a list of all system logs
+pub async fn get_system_logs_v3(configuration: &configuration::Configuration, from_date: Option<String>, limit: Option<i32>, offset: Option<i32>, to_date: Option<String>, total_count: Option<bool>) -> Result<models::GetSystemLogs, Error<GetSystemLogsV3Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-
-    let uri_str = format!("{}/device-content/entities/states/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = match "multi" {
-        "multi" => req_builder.query(&p_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => req_builder.query(&[("ids", &p_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
-    };
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DevicecontentapiPeriodEntitiesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DevicecontentapiPeriodEntitiesResponseV1`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<EntitiesPeriodStatesPeriodV1Error> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn queries_period_states_period_v1(configuration: &configuration::Configuration, limit: Option<i32>, sort: Option<&str>, offset: Option<i32>, filter: Option<&str>) -> Result<models::DevicecontentapiPeriodQueryResponseV1, Error<QueriesPeriodStatesPeriodV1Error>> {
-    // add a prefix to parameters to efficiently prevent name collisions
+    let p_from_date = from_date;
     let p_limit = limit;
-    let p_sort = sort;
     let p_offset = offset;
-    let p_filter = filter;
+    let p_to_date = to_date;
+    let p_total_count = total_count;
 
-    let uri_str = format!("{}/device-content/queries/states/v1", configuration.base_path);
+    let uri_str = format!("{}/saas-security/entities/system-logs/v3", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = p_from_date {
+        req_builder = req_builder.query(&[("from_date", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = p_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_sort {
-        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
-        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    if let Some(ref param_value) = p_to_date {
+        req_builder = req_builder.query(&[("to_date", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_total_count {
+        req_builder = req_builder.query(&[("total_count", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -123,12 +85,50 @@ pub async fn queries_period_states_period_v1(configuration: &configuration::Conf
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DevicecontentapiPeriodQueryResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DevicecontentapiPeriodQueryResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetSystemLogs`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetSystemLogs`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<QueriesPeriodStatesPeriodV1Error> = serde_json::from_str(&content).ok();
+        let entity: Option<GetSystemLogsV3Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Get a list of system users
+pub async fn get_system_users_v3(configuration: &configuration::Configuration, ) -> Result<models::GetSystemUsers, Error<GetSystemUsersV3Error>> {
+
+    let uri_str = format!("{}/saas-security/entities/system-users/v3", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetSystemUsers`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetSystemUsers`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetSystemUsersV3Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

@@ -15,44 +15,40 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`get_aggregate_detects`]
+/// struct for typed errors of method [`integration_builder_end_transaction_v3`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetAggregateDetectsError {
-    Status400(models::MsaPeriodAggregatesResponse),
+pub enum IntegrationBuilderEndTransactionV3Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodAggregatesResponse),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_detect_summaries`]
+/// struct for typed errors of method [`integration_builder_get_status_v3`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetDetectSummariesError {
-    Status400(models::DomainPeriodMsaDetectSummariesResponse),
+pub enum IntegrationBuilderGetStatusV3Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodMsaDetectSummariesResponse),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_detects`]
+/// struct for typed errors of method [`integration_builder_reset_v3`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryDetectsError {
-    Status400(models::MsaPeriodQueryResponse),
+pub enum IntegrationBuilderResetV3Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status500(models::MsaPeriodReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`update_detects_by_ids_v2`]
+/// struct for typed errors of method [`integration_builder_upload_v3`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum UpdateDetectsByIdsV2Error {
-    Status400(models::MsaPeriodReplyMetaOnly),
+pub enum IntegrationBuilderUploadV3Error {
     Status403(models::MsaPeriodReplyMetaOnly),
     Status429(models::MsaPeriodReplyMetaOnly),
     Status500(models::MsaPeriodReplyMetaOnly),
@@ -60,20 +56,21 @@ pub enum UpdateDetectsByIdsV2Error {
 }
 
 
-pub async fn get_aggregate_detects(configuration: &configuration::Configuration, body: Vec<models::MsaPeriodAggregateQueryRequest>) -> Result<models::MsaPeriodAggregatesResponse, Error<GetAggregateDetectsError>> {
+/// Make a close transaction call after uploading the data
+pub async fn integration_builder_end_transaction_v3(configuration: &configuration::Configuration, id: &str) -> Result<models::GetEndTransaction, Error<IntegrationBuilderEndTransactionV3Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_id = id;
 
-    let uri_str = format!("{}/detects/aggregates/detects/GET/v1", configuration.base_path);
+    let uri_str = format!("{}/saas-security/entities/custom-integration-close/v3", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -90,82 +87,25 @@ pub async fn get_aggregate_detects(configuration: &configuration::Configuration,
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetEndTransaction`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetEndTransaction`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetAggregateDetectsError> = serde_json::from_str(&content).ok();
+        let entity: Option<IntegrationBuilderEndTransactionV3Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn get_detect_summaries(configuration: &configuration::Configuration, body: models::MsaPeriodIdsRequest) -> Result<models::DomainPeriodMsaDetectSummariesResponse, Error<GetDetectSummariesError>> {
+/// Get transaction status for a custom integration
+pub async fn integration_builder_get_status_v3(configuration: &configuration::Configuration, id: &str) -> Result<models::GetTransactionStatus, Error<IntegrationBuilderGetStatusV3Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_id = id;
 
-    let uri_str = format!("{}/detects/entities/summaries/GET/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-    req_builder = req_builder.json(&p_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodMsaDetectSummariesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodMsaDetectSummariesResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<GetDetectSummariesError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn query_detects(configuration: &configuration::Configuration, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, q: Option<&str>) -> Result<models::MsaPeriodQueryResponse, Error<QueryDetectsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
-
-    let uri_str = format!("{}/detects/queries/detects/v1", configuration.base_path);
+    let uri_str = format!("{}/saas-security/entities/custom-integration-status/v3", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_sort {
-        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_filter {
-        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_q {
-        req_builder = req_builder.query(&[("q", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -188,30 +128,31 @@ pub async fn query_detects(configuration: &configuration::Configuration, offset:
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTransactionStatus`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTransactionStatus`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<QueryDetectsError> = serde_json::from_str(&content).ok();
+        let entity: Option<IntegrationBuilderGetStatusV3Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn update_detects_by_ids_v2(configuration: &configuration::Configuration, body: models::DomainPeriodDetectsEntitiesPatchRequest) -> Result<models::MsaPeriodReplyMetaOnly, Error<UpdateDetectsByIdsV2Error>> {
+/// Make a reset call to a custom integration
+pub async fn integration_builder_reset_v3(configuration: &configuration::Configuration, id: &str) -> Result<models::GetTransactionStatus, Error<IntegrationBuilderResetV3Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_id = id;
 
-    let uri_str = format!("{}/detects/entities/detects/v2", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+    let uri_str = format!("{}/saas-security/entities/custom-integration-reset/v3", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -228,12 +169,57 @@ pub async fn update_detects_by_ids_v2(configuration: &configuration::Configurati
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodReplyMetaOnly`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodReplyMetaOnly`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTransactionStatus`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTransactionStatus`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<UpdateDetectsByIdsV2Error> = serde_json::from_str(&content).ok();
+        let entity: Option<IntegrationBuilderResetV3Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Send data to a specific source in a custom integration
+pub async fn integration_builder_upload_v3(configuration: &configuration::Configuration, id: &str, source_id: &str, data: models::UploadDataRequest) -> Result<models::UploadDataResponse, Error<IntegrationBuilderUploadV3Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_id = id;
+    let p_source_id = source_id;
+    let p_data = data;
+
+    let uri_str = format!("{}/saas-security/entities/custom-integration-upload/v3", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("source_id", &p_source_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    req_builder = req_builder.json(&p_data);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UploadDataResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UploadDataResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<IntegrationBuilderUploadV3Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
