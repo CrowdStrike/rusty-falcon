@@ -15,8 +15,11 @@ use serde::{Deserialize, Serialize};
 pub struct SensorUpdatePeriodKernelRespV1 {
     #[serde(rename = "architecture")]
     pub architecture: String,
-    #[serde(rename = "base_package_supported_sensor_versions")]
-    pub base_package_supported_sensor_versions: Vec<String>,
+    #[serde(
+        rename = "base_package_supported_sensor_versions",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub base_package_supported_sensor_versions: Option<Vec<String>>,
     #[serde(rename = "created_timestamp")]
     pub created_timestamp: String,
     #[serde(rename = "distro")]
@@ -35,14 +38,20 @@ pub struct SensorUpdatePeriodKernelRespV1 {
     pub vendor: String,
     #[serde(rename = "version")]
     pub version: String,
-    #[serde(rename = "ztl_module_supported_sensor_versions")]
-    pub ztl_module_supported_sensor_versions: Vec<String>,
-    #[serde(rename = "ztl_supported_sensor_versions")]
-    pub ztl_supported_sensor_versions: Vec<String>,
+    #[serde(
+        rename = "ztl_module_supported_sensor_versions",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub ztl_module_supported_sensor_versions: Option<Vec<String>>,
+    #[serde(
+        rename = "ztl_supported_sensor_versions",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub ztl_supported_sensor_versions: Option<Vec<String>>,
 }
 
 impl SensorUpdatePeriodKernelRespV1 {
-    pub fn new(architecture: String, base_package_supported_sensor_versions: Vec<String>, created_timestamp: String, distro: String, distro_version: String, flavor: String, id: String, modified_timestamp: String, release: String, vendor: String, version: String, ztl_module_supported_sensor_versions: Vec<String>, ztl_supported_sensor_versions: Vec<String>) -> SensorUpdatePeriodKernelRespV1 {
+    pub fn new(architecture: String, base_package_supported_sensor_versions: Option<Vec<String>>, created_timestamp: String, distro: String, distro_version: String, flavor: String, id: String, modified_timestamp: String, release: String, vendor: String, version: String, ztl_module_supported_sensor_versions: Option<Vec<String>>, ztl_supported_sensor_versions: Option<Vec<String>>) -> SensorUpdatePeriodKernelRespV1 {
         SensorUpdatePeriodKernelRespV1 {
             architecture,
             base_package_supported_sensor_versions,
