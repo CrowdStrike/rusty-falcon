@@ -16,7 +16,7 @@ pub enum Error<T> {
     ResponseError(ResponseContent<T>),
 }
 
-impl <T> fmt::Display for Error<T> {
+impl<T> fmt::Display for Error<T> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         let (module, e) = match self {
             Error::Reqwest(e) => ("reqwest", e.to_string()),
@@ -28,7 +28,7 @@ impl <T> fmt::Display for Error<T> {
     }
 }
 
-impl <T: fmt::Debug> error::Error for Error<T> {
+impl<T: fmt::Debug> error::Error for Error<T> {
     fn source(&self) -> Option<&(dyn error::Error + 'static)> {
         Some(match self {
             Error::Reqwest(e) => e,
@@ -39,19 +39,19 @@ impl <T: fmt::Debug> error::Error for Error<T> {
     }
 }
 
-impl <T> From<reqwest::Error> for Error<T> {
+impl<T> From<reqwest::Error> for Error<T> {
     fn from(e: reqwest::Error) -> Self {
         Error::Reqwest(e)
     }
 }
 
-impl <T> From<serde_json::Error> for Error<T> {
+impl<T> From<serde_json::Error> for Error<T> {
     fn from(e: serde_json::Error) -> Self {
         Error::Serde(e)
     }
 }
 
-impl <T> From<std::io::Error> for Error<T> {
+impl<T> From<std::io::Error> for Error<T> {
     fn from(e: std::io::Error) -> Self {
         Error::Io(e)
     }
@@ -78,8 +78,10 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
                             value,
                         ));
                     }
-                },
-                serde_json::Value::String(s) => params.push((format!("{}[{}]", prefix, key), s.clone())),
+                }
+                serde_json::Value::String(s) => {
+                    params.push((format!("{}[{}]", prefix, key), s.clone()))
+                }
                 _ => params.push((format!("{}[{}]", prefix, key), value.to_string())),
             }
         }
@@ -96,7 +98,7 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
 enum ContentType {
     Json,
     Text,
-    Unsupported(String)
+    Unsupported(String),
 }
 
 impl From<&str> for ContentType {
@@ -111,10 +113,10 @@ impl From<&str> for ContentType {
     }
 }
 
-pub mod aspm_api;
 pub mod activity_monitor_api;
 pub mod alerts_api;
 pub mod api_integrations_api;
+pub mod aspm_api;
 pub mod cao_hunting_api;
 pub mod certificate_based_exclusions_api;
 pub mod cloud_aws_registration_api;
@@ -196,8 +198,8 @@ pub mod prevention_policies_api;
 pub mod quarantine_api;
 pub mod quick_scan_api;
 pub mod quick_scan_pro_api;
-pub mod real_time_response_api;
 pub mod real_time_response_admin_api;
+pub mod real_time_response_api;
 pub mod real_time_response_audit_api;
 pub mod recon_api;
 pub mod release_notes_api;
