@@ -339,7 +339,7 @@ pub async fn r_tr_create_put_files(
     comments_for_audit_log: Option<&str>,
 ) -> Result<models::MsaPeriodReplyMetaOnly, Error<RTrCreatePutFilesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_file = file;
+    let _p_file = file;
     let p_description = description;
     let p_name = name;
     let p_comments_for_audit_log = comments_for_audit_log;
@@ -411,7 +411,7 @@ pub async fn r_tr_create_scripts(
     // add a prefix to parameters to efficiently prevent name collisions
     let p_description = description;
     let p_permission_type = permission_type;
-    let p_file = file;
+    let _p_file = file;
     let p_name = name;
     let p_comments_for_audit_log = comments_for_audit_log;
     let p_content = content;
@@ -1236,7 +1236,7 @@ pub async fn r_tr_update_scripts(
 ) -> Result<models::MsaPeriodReplyMetaOnly, Error<RTrUpdateScriptsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_id = id;
-    let p_file = file;
+    let _p_file = file;
     let p_description = description;
     let p_name = name;
     let p_comments_for_audit_log = comments_for_audit_log;

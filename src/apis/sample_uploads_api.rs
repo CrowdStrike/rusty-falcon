@@ -363,7 +363,7 @@ pub async fn archive_upload_v2(
     comment: Option<&str>,
 ) -> Result<models::ClientPeriodArchiveCreateResponseV1, Error<ArchiveUploadV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_file = file;
+    let _p_file = file;
     let p_name = name;
     let p_password = password;
     let p_is_confidential = is_confidential;
@@ -699,7 +699,7 @@ pub async fn upload_sample_v3(
     is_confidential: Option<bool>,
 ) -> Result<models::ClientPeriodSampleMetadataResponseV2, Error<UploadSampleV3Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_sample = sample;
+    let _p_sample = sample;
     let p_file_name = file_name;
     let p_comment = comment;
     let p_is_confidential = is_confidential;

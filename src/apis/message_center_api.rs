@@ -226,7 +226,7 @@ pub async fn case_add_attachment(
     // add a prefix to parameters to efficiently prevent name collisions
     let p_case_id = case_id;
     let p_user_uuid = user_uuid;
-    let p_file = file;
+    let _p_file = file;
 
     let uri_str = format!(
         "{}/message-center/entities/case-attachment/v1",

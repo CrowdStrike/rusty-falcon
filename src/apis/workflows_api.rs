@@ -502,7 +502,7 @@ pub async fn workflow_definitions_import(
 ) -> Result<models::DefinitionsPeriodDefinitionImportResponse, Error<WorkflowDefinitionsImportError>>
 {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_data_file = data_file;
+    let _p_data_file = data_file;
     let p_name = name;
     let p_validate_only = validate_only;
 

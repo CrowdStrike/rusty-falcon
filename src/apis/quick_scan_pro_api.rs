@@ -383,7 +383,7 @@ pub async fn upload_file_quick_scan_pro(
     scan: Option<bool>,
 ) -> Result<models::QuickscanproPeriodFileUploadResponse, Error<UploadFileQuickScanProError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_file = file;
+    let _p_file = file;
     let p_scan = scan;
 
     let uri_str = format!("{}/quickscanpro/entities/files/v1", configuration.base_path);

@@ -388,7 +388,7 @@ pub async fn upload_lookup_v1(
 ) -> Result<(), Error<UploadLookupV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_repository = repository;
-    let p_file = file;
+    let _p_file = file;
 
     let uri_str = format!(
         "{}/humio/api/v1/repositories/{repository}/files",

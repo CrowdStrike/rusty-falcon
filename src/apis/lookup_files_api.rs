@@ -48,7 +48,7 @@ pub async fn create_file_v1(
     repo: Option<&str>,
 ) -> Result<models::DomainPeriodLookupFileWrapper, Error<CreateFileV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_file = file;
+    let _p_file = file;
     let p_name = name;
     let p_x_cs_username = x_cs_username;
     let p_x_cs_useruuid = x_cs_useruuid;
@@ -129,7 +129,7 @@ pub async fn update_file_v1(
     let p_x_cs_username = x_cs_username;
     let p_x_cs_useruuid = x_cs_useruuid;
     let p_description = description;
-    let p_file = file;
+    let _p_file = file;
 
     let uri_str = format!(
         "{}/loggingapi/entities/lookup-files/v1",

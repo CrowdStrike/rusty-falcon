@@ -959,7 +959,7 @@ pub async fn ingest_data_async_v1(
 ) -> Result<models::ClientPeriodDataIngestResponseWrapperV1, Error<IngestDataAsyncV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_data_content = data_content;
-    let p_data_file = data_file;
+    let _p_data_file = data_file;
     let p_repo = repo;
     let p_tag = tag;
     let p_tag_source = tag_source;
@@ -1045,7 +1045,7 @@ pub async fn ingest_data_v1(
 ) -> Result<models::ClientPeriodDataIngestResponseWrapperV1, Error<IngestDataV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_data_content = data_content;
-    let p_data_file = data_file;
+    let _p_data_file = data_file;
     let p_tag = tag;
     let p_tag_source = tag_source;
     let p_test_data = test_data;

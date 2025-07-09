@@ -1010,7 +1010,7 @@ pub async fn upload_sample_v2(
     is_confidential: Option<bool>,
 ) -> Result<models::ClientPeriodSampleMetadataResponseV2, Error<UploadSampleV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_sample = sample;
+    let _p_sample = sample;
     let p_file_name = file_name;
     let p_comment = comment;
     let p_is_confidential = is_confidential;

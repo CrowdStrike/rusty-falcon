@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::Deserialize;
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct UserC59913813fcc4565a44e697480b8846b {
