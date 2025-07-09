@@ -88,7 +88,7 @@ openapi-generator generate -g rust -i swagger.json -o ./new
 
 ## OpenApi Specification Version
 
-`2024-05-29T00:00:02Z`
+`2025-07-08T00:00:04Z`
 
 # Getting Help
 
