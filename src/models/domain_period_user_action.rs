@@ -32,13 +32,13 @@ impl DomainPeriodUserAction {
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ActionName {
     #[serde(rename = "reset_password")]
-    Password,
+    ResetPassword,
     #[serde(rename = "reset_2fa")]
-    Variant2fa,
+    Reset2fa,
 }
 
 impl Default for ActionName {
     fn default() -> ActionName {
-        Self::Password
+        Self::ResetPassword
     }
 }

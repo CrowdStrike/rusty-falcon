@@ -12,24 +12,24 @@
 pub struct PeriodCosts {
     /// The cost of execution of a live query
     #[serde(rename = "liveCost")]
-    pub live_cost: i64,
+    pub live_cost: f64,
     /// The rate of the live cost query
     #[serde(rename = "liveCostRate")]
-    pub live_cost_rate: i64,
+    pub live_cost_rate: f64,
     /// The cost for executing as a static query
     #[serde(rename = "staticCost")]
-    pub static_cost: i64,
+    pub static_cost: f64,
     /// The rate for executing static queries
     #[serde(rename = "staticCostRate")]
-    pub static_cost_rate: i64,
+    pub static_cost_rate: f64,
 }
 
 impl PeriodCosts {
     pub fn new(
-        live_cost: i64,
-        live_cost_rate: i64,
-        static_cost: i64,
-        static_cost_rate: i64,
+        live_cost: f64,
+        live_cost_rate: f64,
+        static_cost: f64,
+        static_cost_rate: f64,
     ) -> PeriodCosts {
         PeriodCosts {
             live_cost,

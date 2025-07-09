@@ -10,14 +10,23 @@
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodFeatureStatus {
-    #[serde(rename = "feature")]
-    pub feature: String,
-    #[serde(rename = "status")]
-    pub status: String,
+    #[serde(rename = "enabled")]
+    pub enabled: bool,
+    #[serde(rename = "failedPermissions", skip_serializing_if = "Option::is_none")]
+    pub failed_permissions: Option<Vec<String>>,
+    #[serde(rename = "passedPermissions", skip_serializing_if = "Option::is_none")]
+    pub passed_permissions: Option<Vec<String>>,
+    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
+    pub status: Option<String>,
 }
 
 impl DomainPeriodFeatureStatus {
-    pub fn new(feature: String, status: String) -> DomainPeriodFeatureStatus {
-        DomainPeriodFeatureStatus { feature, status }
+    pub fn new(enabled: bool) -> DomainPeriodFeatureStatus {
+        DomainPeriodFeatureStatus {
+            enabled,
+            failed_permissions: None,
+            passed_permissions: None,
+            status: None,
+        }
     }
 }

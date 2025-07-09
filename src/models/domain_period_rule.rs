@@ -10,52 +10,48 @@
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainPeriodRule {
-    /// The categories associated with the rule
-    #[serde(rename = "categories")]
-    pub categories: Vec<String>,
-    /// UTC timestamp when rule was created
     #[serde(rename = "created_date")]
-    pub created_date: String,
-    /// The ID of the customer
-    #[serde(rename = "customer_id")]
-    pub customer_id: String,
-    /// The ID of the rule
+    pub created_date: i64,
+    #[serde(rename = "description")]
+    pub description: String,
     #[serde(rename = "id")]
-    pub id: String,
-    /// The name of the rule
+    pub id: i32,
+    #[serde(rename = "last_modified_date")]
+    pub last_modified_date: i64,
     #[serde(rename = "name")]
     pub name: String,
-    /// The type of the rule
-    #[serde(rename = "rule_type")]
-    pub rule_type: String,
-    /// UTC timestamp when rule was last updated
-    #[serde(rename = "updated_date")]
-    pub updated_date: String,
-    /// The value of the rule
-    #[serde(rename = "value")]
-    pub value: String,
+    #[serde(rename = "rich_text_description")]
+    pub rich_text_description: String,
+    #[serde(rename = "short_description")]
+    pub short_description: String,
+    #[serde(rename = "tags")]
+    pub tags: Vec<String>,
+    #[serde(rename = "type")]
+    pub r#type: String,
 }
 
 impl DomainPeriodRule {
     pub fn new(
-        categories: Vec<String>,
-        created_date: String,
-        customer_id: String,
-        id: String,
+        created_date: i64,
+        description: String,
+        id: i32,
+        last_modified_date: i64,
         name: String,
-        rule_type: String,
-        updated_date: String,
-        value: String,
+        rich_text_description: String,
+        short_description: String,
+        tags: Vec<String>,
+        r#type: String,
     ) -> DomainPeriodRule {
         DomainPeriodRule {
-            categories,
             created_date,
-            customer_id,
+            description,
             id,
+            last_modified_date,
             name,
-            rule_type,
-            updated_date,
-            value,
+            rich_text_description,
+            short_description,
+            tags,
+            r#type,
         }
     }
 }

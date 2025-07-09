@@ -17,7 +17,6 @@ pub struct Configuration {
     pub oauth_access_token: Option<String>,
     pub bearer_access_token: Option<String>,
     pub api_key: Option<ApiKey>,
-    // TODO: take an oauth2 token source, similar to the go one
 }
 
 pub type BasicAuth = (String, Option<String>);
@@ -38,7 +37,7 @@ impl Default for Configuration {
     fn default() -> Self {
         Configuration {
             base_path: "https://api.crowdstrike.com".to_owned(),
-            user_agent: Some("OpenAPI-Generator/rolling/rust".to_owned()),
+            user_agent: Some("OpenAPI-Generator/2025-07-08T00:00:04Z/rust".to_owned()),
             client: reqwest::Client::new(),
             basic_auth: None,
             oauth_access_token: None,
