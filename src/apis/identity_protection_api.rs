@@ -67,60 +67,59 @@ pub async fn api_period_preempt_period_proxy_period_delete_period_policy_rules(
     authorization: &str,
     ids: Vec<String>,
 ) -> Result<(), Error<ApiPeriodPreemptPeriodProxyPeriodDeletePeriodPolicyRulesError>> {
-    let local_var_configuration = configuration;
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_authorization = authorization;
+    let p_ids = ids;
 
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!(
+    let uri_str = format!(
         "{}/identity-protection/entities/policy-rules/v1",
-        local_var_configuration.base_path
+        configuration.base_path
     );
-    let mut local_var_req_builder =
-        local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::DELETE, &uri_str);
 
-    local_var_req_builder = match "csv" {
-        "multi" => local_var_req_builder.query(
-            &ids.into_iter()
+    req_builder = match "multi" {
+        "multi" => req_builder.query(
+            &p_ids
+                .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
-        _ => local_var_req_builder.query(&[(
+        _ => req_builder.query(&[(
             "ids",
-            &ids.into_iter()
+            &p_ids
+                .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
                 .join(",")
                 .to_string(),
         )]),
     };
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder =
-            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    local_var_req_builder =
-        local_var_req_builder.header("Authorization", authorization.to_string());
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    req_builder = req_builder.header("Authorization", p_authorization.to_string());
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
     };
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+    if !status.is_client_error() && !status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<
-            ApiPeriodPreemptPeriodProxyPeriodDeletePeriodPolicyRulesError,
-        > = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiPeriodPreemptPeriodProxyPeriodDeletePeriodPolicyRulesError> =
+            serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
     }
 }
 
@@ -129,59 +128,57 @@ pub async fn api_period_preempt_period_proxy_period_get_period_policy_rules(
     authorization: &str,
     ids: Vec<String>,
 ) -> Result<(), Error<ApiPeriodPreemptPeriodProxyPeriodGetPeriodPolicyRulesError>> {
-    let local_var_configuration = configuration;
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_authorization = authorization;
+    let p_ids = ids;
 
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!(
+    let uri_str = format!(
         "{}/identity-protection/entities/policy-rules/v1",
-        local_var_configuration.base_path
+        configuration.base_path
     );
-    let mut local_var_req_builder =
-        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    local_var_req_builder = match "csv" {
-        "multi" => local_var_req_builder.query(
-            &ids.into_iter()
+    req_builder = match "multi" {
+        "multi" => req_builder.query(
+            &p_ids
+                .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
-        _ => local_var_req_builder.query(&[(
+        _ => req_builder.query(&[(
             "ids",
-            &ids.into_iter()
+            &p_ids
+                .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
                 .join(",")
                 .to_string(),
         )]),
     };
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder =
-            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    local_var_req_builder =
-        local_var_req_builder.header("Authorization", authorization.to_string());
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    req_builder = req_builder.header("Authorization", p_authorization.to_string());
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
     };
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+    if !status.is_client_error() && !status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<ApiPeriodPreemptPeriodProxyPeriodGetPeriodPolicyRulesError> =
-            serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiPeriodPreemptPeriodProxyPeriodGetPeriodPolicyRulesError> =
+            serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
     }
 }
 
@@ -192,57 +189,51 @@ pub async fn api_period_preempt_period_proxy_period_get_period_policy_rules_peri
     simulation_mode: Option<bool>,
     name: Option<&str>,
 ) -> Result<(), Error<ApiPeriodPreemptPeriodProxyPeriodGetPeriodPolicyRulesPeriodQueryError>> {
-    let local_var_configuration = configuration;
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_authorization = authorization;
+    let p_enabled = enabled;
+    let p_simulation_mode = simulation_mode;
+    let p_name = name;
 
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!(
+    let uri_str = format!(
         "{}/identity-protection/queries/policy-rules/v1",
-        local_var_configuration.base_path
+        configuration.base_path
     );
-    let mut local_var_req_builder =
-        local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref local_var_str) = enabled {
-        local_var_req_builder =
-            local_var_req_builder.query(&[("enabled", &local_var_str.to_string())]);
+    if let Some(ref param_value) = p_enabled {
+        req_builder = req_builder.query(&[("enabled", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = simulation_mode {
-        local_var_req_builder =
-            local_var_req_builder.query(&[("simulation_mode", &local_var_str.to_string())]);
+    if let Some(ref param_value) = p_simulation_mode {
+        req_builder = req_builder.query(&[("simulation_mode", &param_value.to_string())]);
     }
-    if let Some(ref local_var_str) = name {
-        local_var_req_builder =
-            local_var_req_builder.query(&[("name", &local_var_str.to_string())]);
+    if let Some(ref param_value) = p_name {
+        req_builder = req_builder.query(&[("name", &param_value.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder =
-            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    local_var_req_builder =
-        local_var_req_builder.header("Authorization", authorization.to_string());
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    req_builder = req_builder.header("Authorization", p_authorization.to_string());
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
     };
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+    if !status.is_client_error() && !status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<
-            ApiPeriodPreemptPeriodProxyPeriodGetPeriodPolicyRulesPeriodQueryError,
-        > = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiPeriodPreemptPeriodProxyPeriodGetPeriodPolicyRulesPeriodQueryError> =
+            serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
     }
 }
 
@@ -250,44 +241,41 @@ pub async fn api_period_preempt_period_proxy_period_post_period_graphql(
     configuration: &configuration::Configuration,
     authorization: &str,
 ) -> Result<(), Error<ApiPeriodPreemptPeriodProxyPeriodPostPeriodGraphqlError>> {
-    let local_var_configuration = configuration;
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_authorization = authorization;
 
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!(
+    let uri_str = format!(
         "{}/identity-protection/combined/graphql/v1",
-        local_var_configuration.base_path
+        configuration.base_path
     );
-    let mut local_var_req_builder =
-        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder =
-            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    local_var_req_builder =
-        local_var_req_builder.header("Authorization", authorization.to_string());
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    req_builder = req_builder.header("Authorization", p_authorization.to_string());
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
     };
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+    if !status.is_client_error() && !status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<ApiPeriodPreemptPeriodProxyPeriodPostPeriodGraphqlError> =
-            serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiPeriodPreemptPeriodProxyPeriodPostPeriodGraphqlError> =
+            serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
     }
 }
 
@@ -296,44 +284,42 @@ pub async fn api_period_preempt_period_proxy_period_post_period_policy_rules(
     authorization: &str,
     body: models::TypesPeriodPolicyRulesCreateBody,
 ) -> Result<(), Error<ApiPeriodPreemptPeriodProxyPeriodPostPeriodPolicyRulesError>> {
-    let local_var_configuration = configuration;
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_authorization = authorization;
+    let p_body = body;
 
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!(
+    let uri_str = format!(
         "{}/identity-protection/entities/policy-rules/v1",
-        local_var_configuration.base_path
+        configuration.base_path
     );
-    let mut local_var_req_builder =
-        local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder =
-            local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    local_var_req_builder =
-        local_var_req_builder.header("Authorization", authorization.to_string());
-    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    req_builder = req_builder.header("Authorization", p_authorization.to_string());
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    local_var_req_builder = local_var_req_builder.json(&body);
+    req_builder = req_builder.json(&p_body);
 
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
 
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
+    let status = resp.status();
 
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+    if !status.is_client_error() && !status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<ApiPeriodPreemptPeriodProxyPeriodPostPeriodPolicyRulesError> =
-            serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent {
-            status: local_var_status,
-            content: local_var_content,
-            entity: local_var_entity,
-        };
-        Err(Error::ResponseError(local_var_error))
+        let content = resp.text().await?;
+        let entity: Option<ApiPeriodPreemptPeriodProxyPeriodPostPeriodPolicyRulesError> =
+            serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
     }
 }

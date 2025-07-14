@@ -16,19 +16,19 @@ pub struct ApiPeriodPatchRuleSearchV1 {
     pub lookback: Option<String>,
     #[serde(rename = "outcome", skip_serializing_if = "Option::is_none")]
     pub outcome: Option<String>,
-    #[serde(rename = "trigger_mode", skip_serializing_if = "Option::is_none")]
-    pub trigger_mode: Option<String>,
+    #[serde(rename = "trigger_mode")]
+    pub trigger_mode: String,
     #[serde(rename = "use_ingest_time", skip_serializing_if = "Option::is_none")]
     pub use_ingest_time: Option<bool>,
 }
 
 impl ApiPeriodPatchRuleSearchV1 {
-    pub fn new() -> ApiPeriodPatchRuleSearchV1 {
+    pub fn new(trigger_mode: String) -> ApiPeriodPatchRuleSearchV1 {
         ApiPeriodPatchRuleSearchV1 {
             filter: None,
             lookback: None,
             outcome: None,
-            trigger_mode: None,
+            trigger_mode,
             use_ingest_time: None,
         }
     }

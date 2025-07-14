@@ -92,6 +92,28 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
     unimplemented!("Only objects are supported with style=deepObject")
 }
 
+/// Internal use only
+/// A content type supported by this client.
+#[allow(dead_code)]
+enum ContentType {
+    Json,
+    Text,
+    Unsupported(String),
+}
+
+impl From<&str> for ContentType {
+    fn from(content_type: &str) -> Self {
+        if content_type.starts_with("application") && content_type.contains("json") {
+            return Self::Json;
+        } else if content_type.starts_with("text/plain") {
+            return Self::Text;
+        } else {
+            return Self::Unsupported(content_type.to_string());
+        }
+    }
+}
+
+pub mod activity_monitor_api;
 pub mod alerts_api;
 pub mod api_integrations_api;
 pub mod aspm_api;
@@ -152,9 +174,11 @@ pub mod image_assessment_policies_api;
 pub mod incidents_api;
 pub mod installation_tokens_api;
 pub mod installation_tokens_settings_api;
+pub mod integration_builder_api;
 pub mod intel_api;
 pub mod intelligence_feeds_api;
 pub mod intelligence_indicator_graph_api;
+pub mod inventories_api;
 pub mod ioa_exclusions_api;
 pub mod ioc_api;
 pub mod iocs_api;
@@ -183,8 +207,10 @@ pub mod releases_api;
 pub mod report_executions_api;
 pub mod response_policies_api;
 pub mod runtime_detections_api;
+pub mod saa_s_api;
 pub mod sample_uploads_api;
 pub mod scheduled_reports_api;
+pub mod security_check_api;
 pub mod sensor_download_api;
 pub mod sensor_update_policies_api;
 pub mod sensor_usage_api_api;
@@ -192,6 +218,7 @@ pub mod sensor_visibility_exclusions_api;
 pub mod serverless_vulnerabilities_api;
 pub mod spotlight_evaluation_logic_api;
 pub mod spotlight_vulnerabilities_api;
+pub mod system_api;
 pub mod tailored_intelligence_api;
 pub mod threatgraph_api;
 pub mod unidentified_containers_api;

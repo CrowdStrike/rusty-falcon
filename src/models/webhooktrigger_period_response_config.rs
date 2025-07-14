@@ -13,9 +13,6 @@ pub struct WebhooktriggerPeriodResponseConfig {
     /// json content of webhook response body
     #[serde(rename = "body_content", skip_serializing_if = "Option::is_none")]
     pub body_content: Option<String>,
-    /// standard http content type of webhook response, only supported value is application/json
-    #[serde(rename = "content_type", skip_serializing_if = "Option::is_none")]
-    pub content_type: Option<String>,
     /// http response code for webhook response
     #[serde(rename = "status_code")]
     pub status_code: i32,
@@ -25,7 +22,6 @@ impl WebhooktriggerPeriodResponseConfig {
     pub fn new(status_code: i32) -> WebhooktriggerPeriodResponseConfig {
         WebhooktriggerPeriodResponseConfig {
             body_content: None,
-            content_type: None,
             status_code,
         }
     }
