@@ -13,8 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DeviceapiPeriodDeviceDetailsResponseSwagger {
-    #[serde(rename = "errors")]
-    pub errors: Vec<models::MsaspecPeriodError>,
+    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
+    pub errors: Option<Vec<models::MsaspecPeriodError>>,
     #[serde(rename = "meta")]
     pub meta: Box<models::MsaspecPeriodMetaInfo>,
     #[serde(rename = "resources")]
@@ -22,7 +22,7 @@ pub struct DeviceapiPeriodDeviceDetailsResponseSwagger {
 }
 
 impl DeviceapiPeriodDeviceDetailsResponseSwagger {
-    pub fn new(errors: Vec<models::MsaspecPeriodError>, meta: models::MsaspecPeriodMetaInfo, resources: Vec<models::DeviceapiPeriodDeviceSwagger>) -> DeviceapiPeriodDeviceDetailsResponseSwagger {
+    pub fn new(errors: Option<Vec<models::MsaspecPeriodError>>, meta: models::MsaspecPeriodMetaInfo, resources: Vec<models::DeviceapiPeriodDeviceSwagger>) -> DeviceapiPeriodDeviceDetailsResponseSwagger {
         DeviceapiPeriodDeviceDetailsResponseSwagger {
             errors,
             meta: Box::new(meta),
