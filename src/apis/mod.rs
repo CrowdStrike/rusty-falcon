@@ -16,7 +16,7 @@ pub enum Error<T> {
     ResponseError(ResponseContent<T>),
 }
 
-impl<T> fmt::Display for Error<T> {
+impl <T> fmt::Display for Error<T> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         let (module, e) = match self {
             Error::Reqwest(e) => ("reqwest", e.to_string()),
@@ -28,7 +28,7 @@ impl<T> fmt::Display for Error<T> {
     }
 }
 
-impl<T: fmt::Debug> error::Error for Error<T> {
+impl <T: fmt::Debug> error::Error for Error<T> {
     fn source(&self) -> Option<&(dyn error::Error + 'static)> {
         Some(match self {
             Error::Reqwest(e) => e,
@@ -39,19 +39,19 @@ impl<T: fmt::Debug> error::Error for Error<T> {
     }
 }
 
-impl<T> From<reqwest::Error> for Error<T> {
+impl <T> From<reqwest::Error> for Error<T> {
     fn from(e: reqwest::Error) -> Self {
         Error::Reqwest(e)
     }
 }
 
-impl<T> From<serde_json::Error> for Error<T> {
+impl <T> From<serde_json::Error> for Error<T> {
     fn from(e: serde_json::Error) -> Self {
         Error::Serde(e)
     }
 }
 
-impl<T> From<std::io::Error> for Error<T> {
+impl <T> From<std::io::Error> for Error<T> {
     fn from(e: std::io::Error) -> Self {
         Error::Io(e)
     }
@@ -78,10 +78,8 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
                             value,
                         ));
                     }
-                }
-                serde_json::Value::String(s) => {
-                    params.push((format!("{}[{}]", prefix, key), s.clone()))
-                }
+                },
+                serde_json::Value::String(s) => params.push((format!("{}[{}]", prefix, key), s.clone())),
                 _ => params.push((format!("{}[{}]", prefix, key), value.to_string())),
             }
         }
@@ -98,7 +96,7 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
 enum ContentType {
     Json,
     Text,
-    Unsupported(String),
+    Unsupported(String)
 }
 
 impl From<&str> for ContentType {
@@ -113,10 +111,9 @@ impl From<&str> for ContentType {
     }
 }
 
-pub mod activity_monitor_api;
+pub mod aspm_api;
 pub mod alerts_api;
 pub mod api_integrations_api;
-pub mod aspm_api;
 pub mod cao_hunting_api;
 pub mod certificate_based_exclusions_api;
 pub mod cloud_aws_registration_api;
@@ -174,14 +171,13 @@ pub mod image_assessment_policies_api;
 pub mod incidents_api;
 pub mod installation_tokens_api;
 pub mod installation_tokens_settings_api;
-pub mod integration_builder_api;
 pub mod intel_api;
 pub mod intelligence_feeds_api;
 pub mod intelligence_indicator_graph_api;
-pub mod inventories_api;
 pub mod ioa_exclusions_api;
 pub mod ioc_api;
 pub mod iocs_api;
+pub mod it_automation_api;
 pub mod kubernetes_container_compliance_api;
 pub mod kubernetes_protection_api;
 pub mod lookup_files_api;
@@ -198,8 +194,8 @@ pub mod prevention_policies_api;
 pub mod quarantine_api;
 pub mod quick_scan_api;
 pub mod quick_scan_pro_api;
-pub mod real_time_response_admin_api;
 pub mod real_time_response_api;
+pub mod real_time_response_admin_api;
 pub mod real_time_response_audit_api;
 pub mod recon_api;
 pub mod release_notes_api;
@@ -207,10 +203,16 @@ pub mod releases_api;
 pub mod report_executions_api;
 pub mod response_policies_api;
 pub mod runtime_detections_api;
-pub mod saa_s_api;
+pub mod saa_s_security_activity_monitor_api;
+pub mod saa_s_security_alerts_api;
+pub mod saa_s_security_integration_builder_api;
+pub mod saa_s_security_integrations_api;
+pub mod saa_s_security_inventories_api;
+pub mod saa_s_security_security_check_api;
+pub mod saa_s_security_supported_saa_s_api;
+pub mod saa_s_security_system_api;
 pub mod sample_uploads_api;
 pub mod scheduled_reports_api;
-pub mod security_check_api;
 pub mod sensor_download_api;
 pub mod sensor_update_policies_api;
 pub mod sensor_usage_api_api;
@@ -218,7 +220,6 @@ pub mod sensor_visibility_exclusions_api;
 pub mod serverless_vulnerabilities_api;
 pub mod spotlight_evaluation_logic_api;
 pub mod spotlight_vulnerabilities_api;
-pub mod system_api;
 pub mod tailored_intelligence_api;
 pub mod threatgraph_api;
 pub mod unidentified_containers_api;
