@@ -13,21 +13,21 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetSystemUsers {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::ErrorD3d26008b8464eeb912ff06244246cf2>>,
+    pub errors: Option<Vec<models::Error9a4157744f694ba6bb3e79a1ead2336d>>,
     #[serde(
         rename = "meta",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub meta: Option<Option<Box<models::Meta4fda3fb731c54f5480750a508fa0142d>>>,
+    pub meta: Option<Option<Box<models::Meta8720ecb6d4ac466682b8390ad35aa7ca>>>,
     #[serde(
         rename = "resources",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub resources: Option<Option<Vec<models::SystemUser62e536308fad4c7f8f020fb76f162088>>>,
+    pub resources: Option<Option<Vec<models::SystemUser2a8372141a794f33b83821e472972c9a>>>,
 }
 
 impl GetSystemUsers {

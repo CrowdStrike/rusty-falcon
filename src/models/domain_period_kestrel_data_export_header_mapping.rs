@@ -16,16 +16,20 @@ pub struct DomainPeriodKestrelDataExportHeaderMapping {
     pub computation_functions: Vec<models::DomainPeriodKestrelDataExportHeaderComputationFunction>,
     #[serde(rename = "header_name")]
     pub header_name: String,
+    #[serde(rename = "use_data_as_value")]
+    pub use_data_as_value: bool,
 }
 
 impl DomainPeriodKestrelDataExportHeaderMapping {
     pub fn new(
         computation_functions: Vec<models::DomainPeriodKestrelDataExportHeaderComputationFunction>,
         header_name: String,
+        use_data_as_value: bool,
     ) -> DomainPeriodKestrelDataExportHeaderMapping {
         DomainPeriodKestrelDataExportHeaderMapping {
             computation_functions,
             header_name,
+            use_data_as_value,
         }
     }
 }

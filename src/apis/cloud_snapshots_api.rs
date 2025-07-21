@@ -24,10 +24,10 @@ pub enum CreateDeploymentEntityError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_credentials_mixin0_mixin60`]
+/// struct for typed errors of method [`get_credentials_mixin0_mixin61`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetCredentialsMixin0Mixin60Error {
+pub enum GetCredentialsMixin0Mixin61Error {
     Status400(models::MsaspecPeriodError),
     Status401(models::MsaspecPeriodError),
     Status403(models::MsaspecPeriodError),
@@ -133,9 +133,9 @@ pub async fn create_deployment_entity(
     }
 }
 
-pub async fn get_credentials_mixin0_mixin60(
+pub async fn get_credentials_mixin0_mixin61(
     configuration: &configuration::Configuration,
-) -> Result<models::ModelsPeriodRegistryCredentialsResponse, Error<GetCredentialsMixin0Mixin60Error>>
+) -> Result<models::ModelsPeriodRegistryCredentialsResponse, Error<GetCredentialsMixin0Mixin61Error>>
 {
     let uri_str = format!(
         "{}/snapshots/entities/image-registry-credentials/v1",
@@ -170,7 +170,7 @@ pub async fn get_credentials_mixin0_mixin60(
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetCredentialsMixin0Mixin60Error> = serde_json::from_str(&content).ok();
+        let entity: Option<GetCredentialsMixin0Mixin61Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,

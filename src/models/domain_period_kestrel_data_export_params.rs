@@ -14,6 +14,8 @@ use crate::models;
 pub struct DomainPeriodKestrelDataExportParams {
     #[serde(rename = "export_mapping")]
     pub export_mapping: Vec<models::DomainPeriodKestrelDataExportHeaderMapping>,
+    #[serde(rename = "export_mapping_v2")]
+    pub export_mapping_v2: Vec<models::DomainPeriodKestrelDataExportHeaderMappingV2>,
     #[serde(rename = "gqe_query")]
     pub gqe_query: String,
     #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
@@ -25,11 +27,13 @@ pub struct DomainPeriodKestrelDataExportParams {
 impl DomainPeriodKestrelDataExportParams {
     pub fn new(
         export_mapping: Vec<models::DomainPeriodKestrelDataExportHeaderMapping>,
+        export_mapping_v2: Vec<models::DomainPeriodKestrelDataExportHeaderMappingV2>,
         gqe_query: String,
         view_id: String,
     ) -> DomainPeriodKestrelDataExportParams {
         DomainPeriodKestrelDataExportParams {
             export_mapping,
+            export_mapping_v2,
             gqe_query,
             limit: None,
             view_id,

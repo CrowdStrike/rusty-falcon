@@ -19,10 +19,19 @@ pub struct FigapiPeriodIndicator {
     pub affected_customers: Option<String>,
     #[serde(rename = "Certificates", skip_serializing_if = "Option::is_none")]
     pub certificates: Option<Vec<models::FigapiPeriodX509Certificate>>,
+    #[serde(rename = "CoinAddressDetails", skip_serializing_if = "Option::is_none")]
+    pub coin_address_details: Option<Box<models::FigapiPeriodCoinAddress>>,
     #[serde(rename = "Countries", skip_serializing_if = "Option::is_none")]
     pub countries: Option<Vec<models::FigapiPeriodCountry>>,
+    #[serde(rename = "CredentialsDetails", skip_serializing_if = "Option::is_none")]
+    pub credentials_details: Option<Box<models::FigapiPeriodCredentials>>,
     #[serde(rename = "DomainDetails", skip_serializing_if = "Option::is_none")]
     pub domain_details: Option<Box<models::FigapiPeriodDomain>>,
+    #[serde(
+        rename = "EmailAddressDetails",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub email_address_details: Option<Box<models::FigapiPeriodEmailAddressDetails>>,
     #[serde(rename = "FileDetails", skip_serializing_if = "Option::is_none")]
     pub file_details: Option<Box<models::FigapiPeriodFile>>,
     /// Indicators first seen
@@ -70,6 +79,11 @@ pub struct FigapiPeriodIndicator {
     pub r#type: Option<String>,
     #[serde(rename = "URLDetails", skip_serializing_if = "Option::is_none")]
     pub url_details: Option<Box<models::FigapiPeriodUrl>>,
+    #[serde(
+        rename = "UniqueIdentifierDetails",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub unique_identifier_details: Option<Box<models::FigapiPeriodUniqueIdentifier>>,
     #[serde(rename = "Vulnerabilities", skip_serializing_if = "Option::is_none")]
     pub vulnerabilities: Option<Vec<models::FigapiPeriodVulnerability>>,
 }
@@ -80,8 +94,11 @@ impl FigapiPeriodIndicator {
             adversaries: None,
             affected_customers: None,
             certificates: None,
+            coin_address_details: None,
             countries: None,
+            credentials_details: None,
             domain_details: None,
+            email_address_details: None,
             file_details: None,
             first_seen: None,
             id: None,
@@ -99,6 +116,7 @@ impl FigapiPeriodIndicator {
             threats: None,
             r#type: None,
             url_details: None,
+            unique_identifier_details: None,
             vulnerabilities: None,
         }
     }

@@ -22,6 +22,15 @@ pub enum ApiPeriodPreemptPeriodProxyPeriodDeletePeriodPolicyRulesError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`api_period_preempt_period_proxy_period_get_period_by_link_period_mfa_period_ui_html`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ApiPeriodPreemptPeriodProxyPeriodGetPeriodByLinkPeriodMfaPeriodUiHtmlError {
+    Status429(models::MsaPeriodReplyMetaOnly),
+    Status500(models::MsaPeriodReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`api_period_preempt_period_proxy_period_get_period_policy_rules`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -115,6 +124,49 @@ pub async fn api_period_preempt_period_proxy_period_delete_period_policy_rules(
         let content = resp.text().await?;
         let entity: Option<ApiPeriodPreemptPeriodProxyPeriodDeletePeriodPolicyRulesError> =
             serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn api_period_preempt_period_proxy_period_get_period_by_link_period_mfa_period_ui_html(
+    configuration: &configuration::Configuration,
+    id: &str,
+    cid: Option<&str>,
+) -> Result<(), Error<ApiPeriodPreemptPeriodProxyPeriodGetPeriodByLinkPeriodMfaPeriodUiHtmlError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_id = id;
+    let p_cid = cid;
+
+    let uri_str = format!(
+        "{}/identity-protection/entities/mfa/external/mfa-ui.html",
+        configuration.base_path
+    );
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    if let Some(ref param_value) = p_cid {
+        req_builder = req_builder.query(&[("cid", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<
+            ApiPeriodPreemptPeriodProxyPeriodGetPeriodByLinkPeriodMfaPeriodUiHtmlError,
+        > = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,

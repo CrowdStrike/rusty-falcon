@@ -12,18 +12,27 @@
 pub struct InsightsPeriodInsightDetails {
     #[serde(rename = "booleanValue", skip_serializing_if = "Option::is_none")]
     pub boolean_value: Option<bool>,
+    #[serde(rename = "dateValue", skip_serializing_if = "Option::is_none")]
+    pub date_value: Option<String>,
     #[serde(rename = "id")]
     pub id: String,
     #[serde(rename = "integerValue", skip_serializing_if = "Option::is_none")]
     pub integer_value: Option<i32>,
+    #[serde(rename = "stringListValue", skip_serializing_if = "Option::is_none")]
+    pub string_list_value: Option<Vec<String>>,
+    #[serde(rename = "stringValue", skip_serializing_if = "Option::is_none")]
+    pub string_value: Option<String>,
 }
 
 impl InsightsPeriodInsightDetails {
     pub fn new(id: String) -> InsightsPeriodInsightDetails {
         InsightsPeriodInsightDetails {
             boolean_value: None,
+            date_value: None,
             id,
             integer_value: None,
+            string_list_value: None,
+            string_value: None,
         }
     }
 }

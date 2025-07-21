@@ -23,17 +23,21 @@ pub struct DevicecontrolapiPeriodReqUpdateBaseV1External {
     /// Name of the policy (omit to keep current)
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
+    /// For Flight Control enabled CIDs, indicates whether to propagate to child CIDs (omit to keep current)
+    #[serde(rename = "propagated")]
+    pub propagated: bool,
     #[serde(rename = "usb_settings", skip_serializing_if = "Option::is_none")]
     pub usb_settings: Option<Box<models::DevicecontrolapiPeriodReqUpdateUsbBaseV1External>>,
 }
 
 impl DevicecontrolapiPeriodReqUpdateBaseV1External {
-    pub fn new(id: String) -> DevicecontrolapiPeriodReqUpdateBaseV1External {
+    pub fn new(id: String, propagated: bool) -> DevicecontrolapiPeriodReqUpdateBaseV1External {
         DevicecontrolapiPeriodReqUpdateBaseV1External {
             bluetooth_settings: None,
             description: None,
             id,
             name: None,
+            propagated,
             usb_settings: None,
         }
     }

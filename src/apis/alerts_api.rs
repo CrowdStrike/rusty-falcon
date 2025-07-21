@@ -13,16 +13,6 @@ use crate::{apis::ResponseContent, models};
 use reqwest;
 use serde::de::Error as _;
 
-/// struct for typed errors of method [`get_alerts_v3`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetAlertsV3Error {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`get_queries_alerts_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -120,99 +110,6 @@ pub enum PostEntitiesAlertsV2Error {
     Status429(models::MsaPeriodReplyMetaOnly),
     Status500(models::DetectsapiPeriodPostEntitiesAlertsV2ResponseSwagger),
     UnknownValue(serde_json::Value),
-}
-
-/// Get a data on a specific alert or get a list of all alerts  
-pub async fn get_alerts_v3(
-    configuration: &configuration::Configuration,
-    id: Option<&str>,
-    limit: Option<i32>,
-    offset: Option<i32>,
-    last_id: Option<&str>,
-    r#type: Option<&str>,
-    integration_id: Option<&str>,
-    from_date: Option<String>,
-    to_date: Option<String>,
-    ascending: Option<bool>,
-) -> Result<models::GetAlertsResponse, Error<GetAlertsV3Error>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_last_id = last_id;
-    let p_type = r#type;
-    let p_integration_id = integration_id;
-    let p_from_date = from_date;
-    let p_to_date = to_date;
-    let p_ascending = ascending;
-
-    let uri_str = format!(
-        "{}/saas-security/entities/alerts/v3",
-        configuration.base_path
-    );
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref param_value) = p_id {
-        req_builder = req_builder.query(&[("id", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_last_id {
-        req_builder = req_builder.query(&[("last_id", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_type {
-        req_builder = req_builder.query(&[("type", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_integration_id {
-        req_builder = req_builder.query(&[("integration_id", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_from_date {
-        req_builder = req_builder.query(&[("from_date", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_to_date {
-        req_builder = req_builder.query(&[("to_date", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_ascending {
-        req_builder = req_builder.query(&[("ascending", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetAlertsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetAlertsResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<GetAlertsV3Error> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent {
-            status,
-            content,
-            entity,
-        }))
-    }
 }
 
 pub async fn get_queries_alerts_v1(

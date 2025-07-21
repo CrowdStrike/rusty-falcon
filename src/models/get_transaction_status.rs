@@ -13,14 +13,14 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetTransactionStatus {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::Error479167a4d6534b6a85ec7857c5fb14ba>>,
+    pub errors: Option<Vec<models::Error512f0594db3b4cd29ee214f43bf1cccb>>,
     #[serde(
         rename = "meta",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub meta: Option<Option<Box<models::Meta77f6bf58ba0045649e59a4655807a6ab>>>,
+    pub meta: Option<Option<Box<models::Meta939818f582414bcc9b1f513031caa690>>>,
     #[serde(
         rename = "resources",
         default,
@@ -28,7 +28,7 @@ pub struct GetTransactionStatus {
         skip_serializing_if = "Option::is_none"
     )]
     pub resources:
-        Option<Option<Vec<models::DataTransactionResponseDto614da2e1369e44e596d2935db3da0365>>>,
+        Option<Option<Vec<models::DataTransactionResponseDto6c5507f66b3a4983854b24ba495a6458>>>,
 }
 
 impl GetTransactionStatus {

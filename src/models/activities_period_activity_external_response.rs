@@ -17,14 +17,14 @@ pub struct ActivitiesPeriodActivityExternalResponse {
     #[serde(rename = "meta")]
     pub meta: Box<models::MsaspecPeriodMetaInfo>,
     #[serde(rename = "resources")]
-    pub resources: Vec<models::ActivitiesPeriodActivity>,
+    pub resources: Vec<models::ActivitiesPeriodExternalActivity>,
 }
 
 impl ActivitiesPeriodActivityExternalResponse {
     pub fn new(
         errors: Vec<models::MsaspecPeriodError>,
         meta: models::MsaspecPeriodMetaInfo,
-        resources: Vec<models::ActivitiesPeriodActivity>,
+        resources: Vec<models::ActivitiesPeriodExternalActivity>,
     ) -> ActivitiesPeriodActivityExternalResponse {
         ActivitiesPeriodActivityExternalResponse {
             errors,

@@ -32,12 +32,18 @@ pub struct ResourcesPeriodDetections {
     pub iom_counts_by_severity: Option<Box<models::ResourcesPeriodDetectionCount>>,
     #[serde(rename = "non_compliant", skip_serializing_if = "Option::is_none")]
     pub non_compliant: Option<Box<models::ResourcesPeriodCompliance>>,
+    #[serde(rename = "resource_url")]
+    pub resource_url: String,
     #[serde(rename = "severities", skip_serializing_if = "Option::is_none")]
     pub severities: Option<Vec<String>>,
 }
 
 impl ResourcesPeriodDetections {
-    pub fn new(ioa_counts: i32, iom_counts: i32) -> ResourcesPeriodDetections {
+    pub fn new(
+        ioa_counts: i32,
+        iom_counts: i32,
+        resource_url: String,
+    ) -> ResourcesPeriodDetections {
         ResourcesPeriodDetections {
             compliant: None,
             highest_severity: None,
@@ -46,6 +52,7 @@ impl ResourcesPeriodDetections {
             iom_counts,
             iom_counts_by_severity: None,
             non_compliant: None,
+            resource_url,
             severities: None,
         }
     }

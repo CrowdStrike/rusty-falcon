@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowActivitiesCombinedError {
-    Status400(models::ActivitiesPeriodActivityExternalResponse),
+    Status400(models::ActivitiesPeriodLegacyActivityExternalResponse),
     Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ActivitiesPeriodActivityExternalResponse),
+    Status404(models::ActivitiesPeriodLegacyActivityExternalResponse),
     Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ActivitiesPeriodActivityExternalResponse),
+    Status500(models::ActivitiesPeriodLegacyActivityExternalResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -236,8 +236,10 @@ pub async fn workflow_activities_combined(
     offset: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::ActivitiesPeriodActivityExternalResponse, Error<WorkflowActivitiesCombinedError>>
-{
+) -> Result<
+    models::ActivitiesPeriodLegacyActivityExternalResponse,
+    Error<WorkflowActivitiesCombinedError>,
+> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_filter = filter;
     let p_offset = offset;
@@ -284,8 +286,8 @@ pub async fn workflow_activities_combined(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ActivitiesPeriodActivityExternalResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ActivitiesPeriodActivityExternalResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ActivitiesPeriodLegacyActivityExternalResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ActivitiesPeriodLegacyActivityExternalResponse`")))),
         }
     } else {
         let content = resp.text().await?;

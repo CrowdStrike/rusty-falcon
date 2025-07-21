@@ -598,7 +598,7 @@ pub async fn query_combined_sensor_update_builds(
         req_builder = req_builder.query(&[("platform", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_stage {
-        req_builder = match "csv" {
+        req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
                     .into_iter()

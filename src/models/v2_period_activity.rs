@@ -28,6 +28,8 @@ pub struct V2PeriodActivity {
     pub next: Option<Vec<String>>,
     #[serde(rename = "properties")]
     pub properties: serde_json::Value,
+    #[serde(rename = "version_constraint", skip_serializing_if = "Option::is_none")]
+    pub version_constraint: Option<String>,
 }
 
 impl V2PeriodActivity {
@@ -39,6 +41,7 @@ impl V2PeriodActivity {
             name: None,
             next: None,
             properties,
+            version_constraint: None,
         }
     }
 }

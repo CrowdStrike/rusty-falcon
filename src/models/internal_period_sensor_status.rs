@@ -34,6 +34,11 @@ pub struct InternalPeriodSensorStatus {
     pub local_ip: Option<String>,
     #[serde(rename = "machine_domain", skip_serializing_if = "Option::is_none")]
     pub machine_domain: Option<String>,
+    #[serde(
+        rename = "new_enforcement_mode",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub new_enforcement_mode: Option<String>,
     #[serde(rename = "ntlm_config", skip_serializing_if = "Option::is_none")]
     pub ntlm_config: Option<String>,
     #[serde(rename = "os_version", skip_serializing_if = "Option::is_none")]
@@ -65,6 +70,7 @@ impl InternalPeriodSensorStatus {
             ldaps_config: None,
             local_ip: None,
             machine_domain: None,
+            new_enforcement_mode: None,
             ntlm_config: None,
             os_version: None,
             rdp_to_dc_config: None,

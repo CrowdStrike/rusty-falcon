@@ -37,7 +37,7 @@ impl Default for Configuration {
     fn default() -> Self {
         Configuration {
             base_path: "https://api.crowdstrike.com".to_owned(),
-            user_agent: Some("OpenAPI-Generator/2025-07-08T00:00:04Z/rust".to_owned()),
+            user_agent: Some("OpenAPI-Generator/2025-07-18T00:00:03Z/rust".to_owned()),
             client: reqwest::Client::new(),
             basic_auth: None,
             oauth_access_token: None,

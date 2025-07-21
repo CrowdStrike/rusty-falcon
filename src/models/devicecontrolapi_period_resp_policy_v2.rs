@@ -62,6 +62,9 @@ pub struct DevicecontrolapiPeriodRespPolicyV2 {
     /// Order in which a policy is applied (lower values is higher precedence)
     #[serde(rename = "precedence")]
     pub precedence: i64,
+    /// For Flight Control enabled CIDs, indicates whether to propagate to child CIDs
+    #[serde(rename = "propagated", skip_serializing_if = "Option::is_none")]
+    pub propagated: Option<bool>,
     /// The hash of hostgroups assigned to the policy
     #[serde(rename = "settings_hash", skip_serializing_if = "Option::is_none")]
     pub settings_hash: Option<String>,
@@ -107,6 +110,7 @@ impl DevicecontrolapiPeriodRespPolicyV2 {
             platform_id,
             platform_name,
             precedence,
+            propagated: None,
             settings_hash: None,
             usb_channel_version,
             usb_settings: Box::new(usb_settings),

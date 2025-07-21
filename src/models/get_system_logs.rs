@@ -13,21 +13,21 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetSystemLogs {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::ErrorBc084ac4caa243b199e2307fb94184c3>>,
+    pub errors: Option<Vec<models::Error8d770e7eef034a2194544ca4a2800035>>,
     #[serde(
         rename = "meta",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub meta: Option<Option<Box<models::Meta6dbc34e4022d4b5c9fe5785caf9801e7>>>,
+    pub meta: Option<Option<Box<models::Meta1fe9e8fbdbdf4538a1e61f5f22eeced2>>>,
     #[serde(
         rename = "resources",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub resources: Option<Option<Vec<models::SystemLog35829c828fcc41f99005750f1c86b16b>>>,
+    pub resources: Option<Option<Vec<models::SystemLog9a0a0838241f4e21a5eab13091c9b57e>>>,
 }
 
 impl GetSystemLogs {

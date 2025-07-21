@@ -13,21 +13,21 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetUserInventory {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::Error068cf337479748d6ac14b4a9c4043a93>>,
+    pub errors: Option<Vec<models::Error6e441821f6ec457e8663d6fd9cf74bf0>>,
     #[serde(
         rename = "meta",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub meta: Option<Option<Box<models::MetaC84ad721c6a841869874276dd0683cbb>>>,
+    pub meta: Option<Option<Box<models::MetaE55718356ad94a65bc53fe1bd426da2b>>>,
     #[serde(
         rename = "resources",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub resources: Option<Option<Vec<models::UserC59913813fcc4565a44e697480b8846b>>>,
+    pub resources: Option<Option<Vec<models::UserA2de1989810741a6b7a23e28794e50c3>>>,
 }
 
 impl GetUserInventory {

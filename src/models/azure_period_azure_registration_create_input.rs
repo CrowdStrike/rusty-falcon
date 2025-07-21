@@ -84,6 +84,8 @@ pub struct AzurePeriodAzureRegistrationCreateInput {
     pub template_version: Option<String>,
     #[serde(rename = "tenant_id")]
     pub tenant_id: String,
+    #[serde(rename = "tenant_name")]
+    pub tenant_name: String,
 }
 
 impl AzurePeriodAzureRegistrationCreateInput {
@@ -96,6 +98,7 @@ impl AzurePeriodAzureRegistrationCreateInput {
         subscription_ids: Vec<String>,
         tags: std::collections::HashMap<String, String>,
         tenant_id: String,
+        tenant_name: String,
     ) -> AzurePeriodAzureRegistrationCreateInput {
         AzurePeriodAzureRegistrationCreateInput {
             account_type: None,
@@ -122,6 +125,7 @@ impl AzurePeriodAzureRegistrationCreateInput {
             tags,
             template_version: None,
             tenant_id,
+            tenant_name,
         }
     }
 }

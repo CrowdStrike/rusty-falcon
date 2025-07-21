@@ -24,6 +24,8 @@ pub struct V2PeriodTrigger {
     pub schedule: Option<Box<models::GraphPeriodTimerEventDefinition>>,
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
     pub r#type: Option<String>,
+    #[serde(rename = "version_constraint", skip_serializing_if = "Option::is_none")]
+    pub version_constraint: Option<String>,
     #[serde(rename = "webhook_config", skip_serializing_if = "Option::is_none")]
     pub webhook_config: Option<Box<models::WebhooktriggerPeriodApiRequest>>,
 }
@@ -37,6 +39,7 @@ impl V2PeriodTrigger {
             parameters: None,
             schedule: None,
             r#type: None,
+            version_constraint: None,
             webhook_config: None,
         }
     }

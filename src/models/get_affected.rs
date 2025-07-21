@@ -13,16 +13,16 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetAffected {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::Error20dfebe4526641bd81749e954da7890e>>,
+    pub errors: Option<Vec<models::Error95cd66820d3f4aa2852ff4325f7d72b6>>,
     #[serde(
         rename = "meta",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub meta: Option<Option<Box<models::Meta17335150dd1a4934a3a031a7b41e650b>>>,
+    pub meta: Option<Option<Box<models::Meta79ee171c408a4b018722767724cd6ebc>>>,
     #[serde(rename = "resources", skip_serializing_if = "Option::is_none")]
-    pub resources: Option<Vec<models::AffectedEntity9f6cb0be3b91460090c751db2c883b7c>>,
+    pub resources: Option<Vec<models::AffectedEntity230bef079286463fbc2e5e5fcd455587>>,
 }
 
 impl GetAffected {

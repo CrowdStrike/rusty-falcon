@@ -109,6 +109,8 @@ pub struct AzurePeriodTenantRegistration {
     pub template_version: Option<String>,
     #[serde(rename = "tenant_id")]
     pub tenant_id: String,
+    #[serde(rename = "tenant_name")]
+    pub tenant_name: String,
     #[serde(rename = "updated", skip_serializing_if = "Option::is_none")]
     pub updated: Option<String>,
 }
@@ -123,6 +125,7 @@ impl AzurePeriodTenantRegistration {
         subscription_ids: Vec<String>,
         tags: std::collections::HashMap<String, String>,
         tenant_id: String,
+        tenant_name: String,
     ) -> AzurePeriodTenantRegistration {
         AzurePeriodTenantRegistration {
             account_type: None,
@@ -157,6 +160,7 @@ impl AzurePeriodTenantRegistration {
             tags,
             template_version: None,
             tenant_id,
+            tenant_name,
             updated: None,
         }
     }
