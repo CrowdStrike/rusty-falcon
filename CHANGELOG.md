@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Docs: Added initial documentation drop
 - Feature: A script (`run-examples.sh`) to run and display the status (pass/fail) of each example
+- Chore: Added `openssl` and `rustls` feature flags to toggle TLS implementation, with `openssl` enabled by default
 
 ### Changed
 
