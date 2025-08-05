@@ -23,9 +23,9 @@ files = { extend-exclude = [] }
 
 [dependencies]
 # To satisfy minimal version check
-openssl = "0.10.72"
+openssl = "0.10.73"
 # To satisfy minimal version check
-openssl-sys = "0.9.103"
+openssl-sys = "0.9.109"
 reqwest = { version = "0.12.20", features = ["json", "multipart"] }
 serde = "1.0.210"
 serde_derive = "1.0.210"
