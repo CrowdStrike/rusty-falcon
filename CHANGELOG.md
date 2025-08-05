@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update `rust-version` to `1.82.0`
 - Display number of passed examples/tests in `run-examples.sh` script
 - Enable `run-example.sh` script to run a single example
+- Set certain `DetectsPeriodExternalAlert` model fields to optional
 
 - Upgrade dependencies:
   - `clap` to `4.5.18`
