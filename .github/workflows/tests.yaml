@@ -52,7 +52,8 @@ jobs:
         run: cargo test --locked --all-features --all-targets
       # https://github.com/rust-lang/cargo/issues/6669
       - name: cargo test --doc
-        run: cargo test --locked --all-features --doc | grep 'Could not authenticate with `CrowdStrike` API: ClientID'
+        run: |
+          cargo test --locked --all-features --doc | grep 'Could not authenticate with `CrowdStrike` API: ClientID'
 
   nightly:
     name: Rust nightly
