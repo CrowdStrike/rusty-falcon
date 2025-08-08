@@ -21,6 +21,11 @@ default = { extend-ignore-identifiers-re = [
 ] }
 files = { extend-exclude = [] }
 
+[features]
+default = ["openssl"]
+openssl = ["dep:openssl", "dep:openssl-sys", "reqwest/default-tls"]
+rustls = ["reqwest/rustls-tls"]
+
 [dependencies]
 # To satisfy minimal version check
 openssl = { version = "0.10.73", optional = true }
@@ -41,11 +46,6 @@ url = "2.5.2"
 [dev-dependencies]
 clap = { version = "4.5.19", features = ["derive"] }
 tokio = { version = "1.40.0", features = ["rt-multi-thread", "macros"] }
-
-[features]
-default = ["openssl"]
-openssl = ["dep:openssl", "dep:openssl-sys", "reqwest/default-tls"]
-rustls = ["reqwest/rustls-tls"]
 
 [profile.release]
 codegen-units = 1
