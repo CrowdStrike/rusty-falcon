@@ -21,12 +21,21 @@ default = { extend-ignore-identifiers-re = [
 ] }
 files = { extend-exclude = [] }
 
+[features]
+default = ["openssl"]
+openssl = ["dep:openssl", "dep:openssl-sys", "reqwest/default-tls"]
+rustls = ["reqwest/rustls-tls"]
+
 [dependencies]
 # To satisfy minimal version check
-openssl = "0.10.73"
+openssl = { version = "0.10.73", optional = true }
 # To satisfy minimal version check
-openssl-sys = "0.9.109"
-reqwest = { version = "0.12.20", features = ["json", "multipart"] }
+openssl-sys = { version = "0.9.109", optional = true }
+reqwest = { version = "0.12.20", features = [
+    "charset",
+    "json",
+    "multipart",
+], default-features = false }
 serde = "1.0.210"
 serde_derive = "1.0.210"
 serde_json = "1.0.128"
