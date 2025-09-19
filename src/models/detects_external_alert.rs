@@ -13,20 +13,20 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DetectsExternalAlert {
     /// Device or sensor ID for which the Alert was generated
-    #[serde(rename = "agent_id")]
-    pub agent_id: String,
+    #[serde(rename = "agent_id", skip_serializing_if = "Option::is_none")]
+    pub agent_id: Option<String>,
     /// Common linkage between multiple Alerts that belong to the same detection bouquet
     #[serde(rename = "aggregate_id")]
     pub aggregate_id: String,
     /// Name of the person this Alert is assigned to
-    #[serde(rename = "assigned_to_name")]
-    pub assigned_to_name: String,
+    #[serde(rename = "assigned_to_name", skip_serializing_if = "Option::is_none")]
+    pub assigned_to_name: Option<String>,
     /// UserID to which this Alert is assigned to
-    #[serde(rename = "assigned_to_uid")]
-    pub assigned_to_uid: String,
+    #[serde(rename = "assigned_to_uid", skip_serializing_if = "Option::is_none")]
+    pub assigned_to_uid: Option<String>,
     /// UUID to which this Alert is assigned to
-    #[serde(rename = "assigned_to_uuid")]
-    pub assigned_to_uuid: String,
+    #[serde(rename = "assigned_to_uuid", skip_serializing_if = "Option::is_none")]
+    pub assigned_to_uuid: Option<String>,
     /// Unique ID of CrowdStrike customers
     #[serde(rename = "cid")]
     pub cid: String,
@@ -34,8 +34,8 @@ pub struct DetectsExternalAlert {
     #[serde(rename = "composite_id")]
     pub composite_id: String,
     /// Confidence is a 1-100 integer value denoting the confidence that, when this Alert fires, it is indicative of malicious activity
-    #[serde(rename = "confidence")]
-    pub confidence: i32,
+    #[serde(rename = "confidence", skip_serializing_if = "Option::is_none")]
+    pub confidence: Option<i32>,
     /// indicates when ThreatGraph was crawled to gather info for this alert creation/update
     #[serde(rename = "crawled_timestamp")]
     pub crawled_timestamp: String,
@@ -52,11 +52,11 @@ pub struct DetectsExternalAlert {
     #[serde(rename = "display_name")]
     pub display_name: String,
     /// Boolean to know if we sent email regarding this Alert
-    #[serde(rename = "email_sent")]
-    pub email_sent: bool,
+    #[serde(rename = "email_sent", skip_serializing_if = "Option::is_none")]
+    pub email_sent: Option<bool>,
     /// Boolean indicating if this Alert is internal or external
-    #[serde(rename = "external")]
-    pub external: bool,
+    #[serde(rename = "external", skip_serializing_if = "Option::is_none")]
+    pub external: Option<bool>,
     /// Vertex key which triggers the formation of the Alert
     #[serde(rename = "id")]
     pub id: String,
@@ -70,23 +70,23 @@ pub struct DetectsExternalAlert {
     #[serde(rename = "name")]
     pub name: String,
     /// End goal that an attack adversary intends to achieve according to MITRE
-    #[serde(rename = "objective")]
-    pub objective: String,
+    #[serde(rename = "objective", skip_serializing_if = "Option::is_none")]
+    pub objective: Option<String>,
     /// Taxonomy patternID for this Alert
     #[serde(rename = "pattern_id")]
     pub pattern_id: i32,
     /// Platform that this Alert was triggered on e.g. Android, Windows, etc..
-    #[serde(rename = "platform")]
-    pub platform: String,
+    #[serde(rename = "platform", skip_serializing_if = "Option::is_none")]
+    pub platform: Option<String>,
     /// Product specifies the SKU that this Alert belongs to e.g. mobile, idp, epp
     #[serde(rename = "product")]
     pub product: String,
     /// Alert resolution. Could be one of the following values: true_positive, false_positive, ignored
-    #[serde(rename = "resolution")]
-    pub resolution: String,
+    #[serde(rename = "resolution", skip_serializing_if = "Option::is_none")]
+    pub resolution: Option<String>,
     /// Scenario was used pre-Handrails to display additional killchain context for UI alerts. With handrails, this field is mostly  obsolete in favor of tactic/technique. Still, it can be useful for determining specific pattern types that are not straightforward to distinguish from other fields alone
-    #[serde(rename = "scenario")]
-    pub scenario: String,
+    #[serde(rename = "scenario", skip_serializing_if = "Option::is_none")]
+    pub scenario: Option<String>,
     /// Seconds To Resolved represents the seconds elapsed since this alert has been resolved
     #[serde(rename = "seconds_to_resolved")]
     pub seconds_to_resolved: i64,
@@ -112,20 +112,20 @@ pub struct DetectsExternalAlert {
     #[serde(rename = "status")]
     pub status: String,
     /// Tactic and Technique are references to MITRE ATT&CK, which is a public framework for tracking and modeling adversary tools techniques and procedures
-    #[serde(rename = "tactic")]
-    pub tactic: String,
+    #[serde(rename = "tactic", skip_serializing_if = "Option::is_none")]
+    pub tactic: Option<String>,
     /// Unique ID for the tactic seen in the Alert
-    #[serde(rename = "tactic_id")]
-    pub tactic_id: String,
+    #[serde(rename = "tactic_id", skip_serializing_if = "Option::is_none")]
+    pub tactic_id: Option<String>,
     /// Tags are string values associated with the alert that can be added or removed through the API
-    #[serde(rename = "tags")]
-    pub tags: Vec<String>,
+    #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<String>>,
     /// Tactic and Technique are references to MITRE ATT&CK, which is a public framework for tracking and modeling adversary tools techniques and procedures
-    #[serde(rename = "technique")]
-    pub technique: String,
+    #[serde(rename = "technique", skip_serializing_if = "Option::is_none")]
+    pub technique: Option<String>,
     /// Unique ID for the technique seen in the Alert
-    #[serde(rename = "technique_id")]
-    pub technique_id: String,
+    #[serde(rename = "technique_id", skip_serializing_if = "Option::is_none")]
+    pub technique_id: Option<String>,
     /// stored value coming in directly from the ingested event or set by cloud in the absence of it
     #[serde(rename = "timestamp")]
     pub timestamp: String,
@@ -139,31 +139,31 @@ pub struct DetectsExternalAlert {
 
 impl DetectsExternalAlert {
     pub fn new(
-        agent_id: String,
+        agent_id: Option<String>,
         aggregate_id: String,
-        assigned_to_name: String,
-        assigned_to_uid: String,
-        assigned_to_uuid: String,
+        assigned_to_name: Option<String>,
+        assigned_to_uid: Option<String>,
+        assigned_to_uuid: Option<String>,
         cid: String,
         composite_id: String,
-        confidence: i32,
+        confidence: Option<i32>,
         crawled_timestamp: String,
         created_timestamp: String,
         data_domains: Vec<String>,
         description: String,
         display_name: String,
-        email_sent: bool,
-        external: bool,
+        email_sent: Option<bool>,
+        external: Option<bool>,
         id: String,
         linked_case_ids: Vec<String>,
         mitre_attack: Vec<models::DetectsMitreAttackMapping>,
         name: String,
-        objective: String,
+        objective: Option<String>,
         pattern_id: i32,
-        platform: String,
+        platform: Option<String>,
         product: String,
-        resolution: String,
-        scenario: String,
+        resolution: Option<String>,
+        scenario: Option<String>,
         seconds_to_resolved: i64,
         seconds_to_triaged: i64,
         severity: i32,
@@ -172,11 +172,11 @@ impl DetectsExternalAlert {
         source_products: Vec<String>,
         source_vendors: Vec<String>,
         status: String,
-        tactic: String,
-        tactic_id: String,
-        tags: Vec<String>,
-        technique: String,
-        technique_id: String,
+        tactic: Option<String>,
+        tactic_id: Option<String>,
+        tags: Option<Vec<String>>,
+        technique: Option<String>,
+        technique_id: Option<String>,
         timestamp: String,
         r#type: String,
         updated_timestamp: String,

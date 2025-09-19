@@ -68,7 +68,7 @@ pub struct ApimodelsRule {
     #[serde(rename = "overrides")]
     pub overrides: Vec<models::ApimodelsRuleOverride>,
     #[serde(rename = "parent_rule__pk", skip_serializing_if = "Option::is_none")]
-    pub parent_rule__pk: Option<i32>,
+    pub parent_rule_pk: Option<i32>,
     #[serde(
         rename = "parent_rule_short_code",
         skip_serializing_if = "Option::is_none"
@@ -169,7 +169,7 @@ impl ApimodelsRule {
             name,
             origin,
             overrides,
-            parent_rule__pk: None,
+            parent_rule_pk: None,
             parent_rule_short_code: None,
             parent_rule_short_uuid: None,
             platform: None,
