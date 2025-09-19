@@ -15,124 +15,133 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`create_policies`]
+/// struct for typed errors of method [`aggregates_file_details_post_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CreatePoliciesError {
+pub enum AggregatesFileDetailsPostV1Error {
+    Status400(models::MsaspecResponseFields),
     Status403(models::MsaReplyMetaOnly),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::CoreEntitiesResponse),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`create_policy_groups`]
+/// struct for typed errors of method [`combined_file_details_get_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CreatePolicyGroupsError {
+pub enum CombinedFileDetailsGetV1Error {
+    Status400(models::MsaspecResponseFields),
     Status403(models::MsaReplyMetaOnly),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::CoreEntitiesResponse),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`delete_policy`]
+/// struct for typed errors of method [`entities_file_details_get_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum DeletePolicyError {
+pub enum EntitiesFileDetailsGetV1Error {
+    Status400(models::MsaspecResponseFields),
     Status403(models::MsaReplyMetaOnly),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::CoreEntitiesResponse),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`delete_policy_group`]
+/// struct for typed errors of method [`entities_file_details_patch_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum DeletePolicyGroupError {
+pub enum EntitiesFileDetailsPatchV1Error {
+    Status400(models::MsaspecResponseFields),
     Status403(models::MsaReplyMetaOnly),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::CoreEntitiesResponse),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`read_policies`]
+/// struct for typed errors of method [`entities_files_bulk_download_post_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ReadPoliciesError {
+pub enum EntitiesFilesBulkDownloadPostV1Error {
+    Status400(models::MsaspecResponseFields),
     Status403(models::MsaReplyMetaOnly),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::CoreEntitiesResponse),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`read_policy_exclusions`]
+/// struct for typed errors of method [`entities_files_delete_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ReadPolicyExclusionsError {
+pub enum EntitiesFilesDeleteV1Error {
+    Status400(models::MsaspecResponseFields),
     Status403(models::MsaReplyMetaOnly),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::CoreEntitiesResponse),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`read_policy_groups`]
+/// struct for typed errors of method [`entities_files_download_get_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ReadPolicyGroupsError {
+pub enum EntitiesFilesDownloadGetV1Error {
+    Status400(models::MsaspecResponseFields),
     Status403(models::MsaReplyMetaOnly),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::CoreEntitiesResponse),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`update_policies`]
+/// struct for typed errors of method [`entities_files_download_post_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum UpdatePoliciesError {
+pub enum EntitiesFilesDownloadPostV1Error {
+    Status400(models::MsaspecResponseFields),
     Status403(models::MsaReplyMetaOnly),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::CoreEntitiesResponse),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`update_policy_exclusions`]
+/// struct for typed errors of method [`entities_files_upload_post_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum UpdatePolicyExclusionsError {
+pub enum EntitiesFilesUploadPostV1Error {
+    Status400(models::MsaspecResponseFields),
     Status403(models::MsaReplyMetaOnly),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::CoreEntitiesResponse),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`update_policy_groups`]
+/// struct for typed errors of method [`queries_file_details_get_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum UpdatePolicyGroupsError {
+pub enum QueriesFileDetailsGetV1Error {
+    Status400(models::MsaspecResponseFields),
     Status403(models::MsaReplyMetaOnly),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::CoreEntitiesResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`update_policy_precedence`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum UpdatePolicyPrecedenceError {
-    Status403(models::MsaReplyMetaOnly),
-    Status429(models::MsaReplyMetaOnly),
-    Status500(models::CoreEntitiesResponse),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
 
-pub async fn create_policies(configuration: &configuration::Configuration, body: models::ModelsCreatePolicyRequest) -> Result<models::ModelsPolicyEntityResponse, Error<CreatePoliciesError>> {
+pub async fn aggregates_file_details_post_v1(configuration: &configuration::Configuration, ids: Vec<String>, body: Vec<serde_json::Value>, filter: Option<&str>) -> Result<models::ApiAggregatesResponseV1, Error<AggregatesFileDetailsPostV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
     let p_body_body = body;
+    let p_query_filter = filter;
 
-    let uri_str = format!("{}/container-security/entities/image-assessment-policies/v1", configuration.base_path);
+    let uri_str = format!("{}/case-files/aggregates/file-details/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = match "multi" {
+        "multi" => req_builder.query(&p_query_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("ids", &p_query_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref param_value) = p_query_filter {
+        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -156,256 +165,116 @@ pub async fn create_policies(configuration: &configuration::Configuration, body:
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiAggregatesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiAggregatesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<CreatePoliciesError> = serde_json::from_str(&content).ok();
+        let entity: Option<AggregatesFileDetailsPostV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn create_policy_groups(configuration: &configuration::Configuration, body: models::ModelsCreateImageGroupRequest) -> Result<models::ModelsPolicyGroupEntityResponse, Error<CreatePolicyGroupsError>> {
+pub async fn combined_file_details_get_v1(configuration: &configuration::Configuration, filter: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::ApiFileDetailsResponseV1, Error<CombinedFileDetailsGetV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+
+    let uri_str = format!("{}/case-files/combined/file-details/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_filter {
+        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiFileDetailsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiFileDetailsResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CombinedFileDetailsGetV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn entities_file_details_get_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::ApiFileDetailsResponseV1, Error<EntitiesFileDetailsGetV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+
+    let uri_str = format!("{}/case-files/entities/file-details/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = match "multi" {
+        "multi" => req_builder.query(&p_query_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("ids", &p_query_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiFileDetailsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiFileDetailsResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesFileDetailsGetV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn entities_file_details_patch_v1(configuration: &configuration::Configuration, body: models::ApiUpdateRequestV1) -> Result<models::ApiFileDetailsResponseV1, Error<EntitiesFileDetailsPatchV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_body = body;
 
-    let uri_str = format!("{}/container-security/entities/image-assessment-policy-groups/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-    req_builder = req_builder.json(&p_body_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyGroupEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyGroupEntityResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<CreatePolicyGroupsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn delete_policy(configuration: &configuration::Configuration, id: &str) -> Result<models::CoreEntitiesResponse, Error<DeletePolicyError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_id = id;
-
-    let uri_str = format!("{}/container-security/entities/image-assessment-policies/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
-
-    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CoreEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CoreEntitiesResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<DeletePolicyError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn delete_policy_group(configuration: &configuration::Configuration, id: &str) -> Result<models::CoreEntitiesResponse, Error<DeletePolicyGroupError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_id = id;
-
-    let uri_str = format!("{}/container-security/entities/image-assessment-policy-groups/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
-
-    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CoreEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CoreEntitiesResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<DeletePolicyGroupError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn read_policies(configuration: &configuration::Configuration, ) -> Result<models::ModelsPolicyEntityResponse, Error<ReadPoliciesError>> {
-
-    let uri_str = format!("{}/container-security/entities/image-assessment-policies/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyEntityResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ReadPoliciesError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn read_policy_exclusions(configuration: &configuration::Configuration, ) -> Result<models::ModelsPolicyExclusionEntityResponse, Error<ReadPolicyExclusionsError>> {
-
-    let uri_str = format!("{}/container-security/entities/image-assessment-policy-exclusions/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyExclusionEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyExclusionEntityResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ReadPolicyExclusionsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn read_policy_groups(configuration: &configuration::Configuration, ) -> Result<models::ModelsPolicyGroupEntityResponse, Error<ReadPolicyGroupsError>> {
-
-    let uri_str = format!("{}/container-security/entities/image-assessment-policy-groups/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyGroupEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyGroupEntityResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<ReadPolicyGroupsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn update_policies(configuration: &configuration::Configuration, id: &str, body: models::ModelsPatchPolicyRequest) -> Result<models::ModelsPolicyEntityResponse, Error<UpdatePoliciesError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_id = id;
-    let p_body_body = body;
-
-    let uri_str = format!("{}/container-security/entities/image-assessment-policies/v1", configuration.base_path);
+    let uri_str = format!("{}/case-files/entities/file-details/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -429,21 +298,21 @@ pub async fn update_policies(configuration: &configuration::Configuration, id: &
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiFileDetailsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiFileDetailsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<UpdatePoliciesError> = serde_json::from_str(&content).ok();
+        let entity: Option<EntitiesFileDetailsPatchV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn update_policy_exclusions(configuration: &configuration::Configuration, body: models::ModelsUpdateExclusionsRequest) -> Result<models::ModelsPolicyExclusionEntityResponse, Error<UpdatePolicyExclusionsError>> {
+pub async fn entities_files_bulk_download_post_v1(configuration: &configuration::Configuration, body: models::ApiBulkDownloadRequestV1) -> Result<models::ApiDownloadResponseV1, Error<EntitiesFilesBulkDownloadPostV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_body = body;
 
-    let uri_str = format!("{}/container-security/entities/image-assessment-policy-exclusions/v1", configuration.base_path);
+    let uri_str = format!("{}/case-files/entities/files/bulk-download/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -469,23 +338,65 @@ pub async fn update_policy_exclusions(configuration: &configuration::Configurati
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyExclusionEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyExclusionEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiDownloadResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiDownloadResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<UpdatePolicyExclusionsError> = serde_json::from_str(&content).ok();
+        let entity: Option<EntitiesFilesBulkDownloadPostV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn update_policy_groups(configuration: &configuration::Configuration, id: &str, body: models::ModelsPatchImageGroupRequest) -> Result<models::ModelsPolicyGroupEntityResponse, Error<UpdatePolicyGroupsError>> {
+pub async fn entities_files_delete_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::ApiMsaResponseLeftSquareBracketStringRightSquareBracket, Error<EntitiesFilesDeleteV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+
+    let uri_str = format!("{}/case-files/entities/files/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = match "multi" {
+        "multi" => req_builder.query(&p_query_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("ids", &p_query_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMsaResponseLeftSquareBracketStringRightSquareBracket`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMsaResponseLeftSquareBracketStringRightSquareBracket`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesFilesDeleteV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn entities_files_download_get_v1(configuration: &configuration::Configuration, id: &str) -> Result<models::ApiDownloadResponseV1, Error<EntitiesFilesDownloadGetV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_id = id;
-    let p_body_body = body;
 
-    let uri_str = format!("{}/container-security/entities/image-assessment-policy-groups/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+    let uri_str = format!("{}/case-files/entities/files/download/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
@@ -494,7 +405,6 @@ pub async fn update_policy_groups(configuration: &configuration::Configuration, 
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -511,21 +421,21 @@ pub async fn update_policy_groups(configuration: &configuration::Configuration, 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyGroupEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyGroupEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiDownloadResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiDownloadResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<UpdatePolicyGroupsError> = serde_json::from_str(&content).ok();
+        let entity: Option<EntitiesFilesDownloadGetV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn update_policy_precedence(configuration: &configuration::Configuration, body: models::ModelsApiPrecedenceRequest) -> Result<models::ModelsPolicyEntityResponse, Error<UpdatePolicyPrecedenceError>> {
+pub async fn entities_files_download_post_v1(configuration: &configuration::Configuration, body: models::ApiDownloadRequestV1) -> Result<models::ApiDownloadResponseV1, Error<EntitiesFilesDownloadPostV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_body = body;
 
-    let uri_str = format!("{}/container-security/entities/image-assessment-policy-precedence/v1", configuration.base_path);
+    let uri_str = format!("{}/case-files/entities/files/download/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -551,12 +461,99 @@ pub async fn update_policy_precedence(configuration: &configuration::Configurati
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiDownloadResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiDownloadResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<UpdatePolicyPrecedenceError> = serde_json::from_str(&content).ok();
+        let entity: Option<EntitiesFilesDownloadPostV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn entities_files_upload_post_v1(configuration: &configuration::Configuration, ) -> Result<models::ApiFileDetailsResponseV1, Error<EntitiesFilesUploadPostV1Error>> {
+
+    let uri_str = format!("{}/case-files/entities/files/upload/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiFileDetailsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiFileDetailsResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesFilesUploadPostV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn queries_file_details_get_v1(configuration: &configuration::Configuration, filter: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::ApiMsaResponseLeftSquareBracketStringRightSquareBracket, Error<QueriesFileDetailsGetV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+
+    let uri_str = format!("{}/case-files/queries/file-details/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_filter {
+        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMsaResponseLeftSquareBracketStringRightSquareBracket`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMsaResponseLeftSquareBracketStringRightSquareBracket`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<QueriesFileDetailsGetV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

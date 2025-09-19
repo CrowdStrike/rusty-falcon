@@ -15,32 +15,37 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`fdrschema_entities_field_get`]
+/// struct for typed errors of method [`cspm_evaluations_iom_entities`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum FdrschemaEntitiesFieldGetError {
+pub enum CspmEvaluationsIomEntitiesError {
+    Status400(models::RestCursorResponseFields),
     Status403(models::MsaReplyMetaOnly),
+    Status404(models::RestCursorQueryResponse),
+    Status408(models::RestCursorResponseFields),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
+    Status500(models::RestCursorResponseFields),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`fdrschema_queries_field_get`]
+/// struct for typed errors of method [`cspm_evaluations_iom_queries`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum FdrschemaQueriesFieldGetError {
+pub enum CspmEvaluationsIomQueriesError {
+    Status400(models::RestCursorResponseFields),
     Status403(models::MsaReplyMetaOnly),
+    Status408(models::RestCursorResponseFields),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
+    Status500(models::RestCursorResponseFields),
     UnknownValue(serde_json::Value),
 }
 
 
-pub async fn fdrschema_entities_field_get(configuration: &configuration::Configuration, ids: Option<Vec<String>>) -> Result<models::SchemaSensorFieldResponseV1, Error<FdrschemaEntitiesFieldGetError>> {
+pub async fn cspm_evaluations_iom_entities(configuration: &configuration::Configuration, ids: Option<Vec<String>>) -> Result<models::EvaluationsGetIomsResponse, Error<CspmEvaluationsIomEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_ids = ids;
 
-    let uri_str = format!("{}/fdr/entities/schema-fields/v1", configuration.base_path);
+    let uri_str = format!("{}/cloud-security-evaluations/entities/ioms/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_ids {
@@ -71,37 +76,37 @@ pub async fn fdrschema_entities_field_get(configuration: &configuration::Configu
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SchemaSensorFieldResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SchemaSensorFieldResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EvaluationsGetIomsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EvaluationsGetIomsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<FdrschemaEntitiesFieldGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<CspmEvaluationsIomEntitiesError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn fdrschema_queries_field_get(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>, filter: Option<&str>, sort: Option<&str>) -> Result<models::MsaspecQueryResponse, Error<FdrschemaQueriesFieldGetError>> {
+pub async fn cspm_evaluations_iom_queries(configuration: &configuration::Configuration, filter: Option<&str>, sort: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::EvaluationsQueryIomsResponse, Error<CspmEvaluationsIomQueriesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_limit = limit;
-    let p_query_offset = offset;
     let p_query_filter = filter;
     let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
-    let uri_str = format!("{}/fdr/queries/schema-fields/v1", configuration.base_path);
+    let uri_str = format!("{}/cloud-security-evaluations/queries/ioms/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_query_limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
-    }
     if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -125,12 +130,12 @@ pub async fn fdrschema_queries_field_get(configuration: &configuration::Configur
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EvaluationsQueryIomsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EvaluationsQueryIomsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<FdrschemaQueriesFieldGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<CspmEvaluationsIomQueriesError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

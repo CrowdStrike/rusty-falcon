@@ -15,226 +15,254 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`aggregate_alerts`]
+/// struct for typed errors of method [`aggregates_notification_groups_post_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum AggregateAlertsError {
-    Status403(models::MsaReplyMetaOnly),
-    Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`aggregate_allow_list`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum AggregateAllowListError {
-    Status403(models::MsaReplyMetaOnly),
-    Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`aggregate_block_list`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum AggregateBlockListError {
-    Status403(models::MsaReplyMetaOnly),
-    Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`aggregate_detections`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum AggregateDetectionsError {
-    Status403(models::MsaReplyMetaOnly),
-    Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`aggregate_device_count_collection`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum AggregateDeviceCountCollectionError {
-    Status403(models::MsaReplyMetaOnly),
-    Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`aggregate_escalations`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum AggregateEscalationsError {
-    Status403(models::MsaReplyMetaOnly),
-    Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`aggregate_fc_incidents`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum AggregateFcIncidentsError {
-    Status403(models::MsaReplyMetaOnly),
-    Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`aggregate_prevention_policy`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum AggregatePreventionPolicyError {
+pub enum AggregatesNotificationGroupsPostV1Error {
     Status400(models::MsaspecResponseFields),
     Status403(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaspecResponseFields),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`aggregate_remediations`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum AggregateRemediationsError {
-    Status403(models::MsaReplyMetaOnly),
-    Status429(models::MsaReplyMetaOnly),
     Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`aggregate_sensor_update_policy`]
+/// struct for typed errors of method [`aggregates_slas_post_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum AggregateSensorUpdatePolicyError {
+pub enum AggregatesSlasPostV1Error {
     Status400(models::MsaspecResponseFields),
     Status403(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaspecResponseFields),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`aggregate_support_issues`]
+/// struct for typed errors of method [`aggregates_templates_post_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum AggregateSupportIssuesError {
+pub enum AggregatesTemplatesPostV1Error {
     Status400(models::MsaspecResponseFields),
     Status403(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaspecResponseFields),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`aggregate_total_device_counts`]
+/// struct for typed errors of method [`entities_fields_get_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum AggregateTotalDeviceCountsError {
+pub enum EntitiesFieldsGetV1Error {
     Status400(models::MsaspecResponseFields),
     Status403(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaspecResponseFields),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_device_count_collection_queries_by_filter`]
+/// struct for typed errors of method [`entities_notification_groups_delete_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetDeviceCountCollectionQueriesByFilterError {
-    Status403(models::MsaReplyMetaOnly),
+pub enum EntitiesNotificationGroupsDeleteV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
     Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_alert_ids_by_filter`]
+/// struct for typed errors of method [`entities_notification_groups_get_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryAlertIdsByFilterError {
-    Status403(models::MsaReplyMetaOnly),
+pub enum EntitiesNotificationGroupsGetV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
     Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_alert_ids_by_filter_v2`]
+/// struct for typed errors of method [`entities_notification_groups_patch_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryAlertIdsByFilterV2Error {
-    Status403(models::MsaReplyMetaOnly),
+pub enum EntitiesNotificationGroupsPatchV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
     Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_allow_list_filter`]
+/// struct for typed errors of method [`entities_notification_groups_post_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryAllowListFilterError {
-    Status403(models::MsaReplyMetaOnly),
+pub enum EntitiesNotificationGroupsPostV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
     Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_block_list_filter`]
+/// struct for typed errors of method [`entities_slas_delete_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryBlockListFilterError {
-    Status403(models::MsaReplyMetaOnly),
+pub enum EntitiesSlasDeleteV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
     Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_detection_ids_by_filter`]
+/// struct for typed errors of method [`entities_slas_get_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryDetectionIdsByFilterError {
-    Status403(models::MsaReplyMetaOnly),
+pub enum EntitiesSlasGetV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
     Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_escalations_filter`]
+/// struct for typed errors of method [`entities_slas_patch_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryEscalationsFilterError {
-    Status403(models::MsaReplyMetaOnly),
+pub enum EntitiesSlasPatchV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
     Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_incident_ids_by_filter`]
+/// struct for typed errors of method [`entities_slas_post_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryIncidentIdsByFilterError {
-    Status403(models::MsaReplyMetaOnly),
+pub enum EntitiesSlasPostV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
     Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_remediations_filter`]
+/// struct for typed errors of method [`entities_template_snapshots_get_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryRemediationsFilterError {
-    Status403(models::MsaReplyMetaOnly),
+pub enum EntitiesTemplateSnapshotsGetV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`entities_templates_delete_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum EntitiesTemplatesDeleteV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`entities_templates_get_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum EntitiesTemplatesGetV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`entities_templates_patch_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum EntitiesTemplatesPatchV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`entities_templates_post_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum EntitiesTemplatesPostV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`queries_fields_get_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum QueriesFieldsGetV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`queries_notification_groups_get_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum QueriesNotificationGroupsGetV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`queries_slas_get_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum QueriesSlasGetV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`queries_template_snapshots_get_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum QueriesTemplateSnapshotsGetV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`queries_templates_get_v1`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum QueriesTemplatesGetV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
     Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 
-pub async fn aggregate_alerts(configuration: &configuration::Configuration, body: Vec<models::MsaAggregateQueryRequest>) -> Result<models::MsaAggregatesResponse, Error<AggregateAlertsError>> {
+pub async fn aggregates_notification_groups_post_v1(configuration: &configuration::Configuration, body: Vec<models::ApiMsaAggregateQueryRequest>) -> Result<models::ApiMsaAggregatesResponse, Error<AggregatesNotificationGroupsPostV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_body = body;
 
-    let uri_str = format!("{}/falcon-complete-dashboards/aggregates/alerts/GET/v1", configuration.base_path);
+    let uri_str = format!("{}/casemgmt/aggregates/notification-groups/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -260,21 +288,21 @@ pub async fn aggregate_alerts(configuration: &configuration::Configuration, body
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMsaAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMsaAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<AggregateAlertsError> = serde_json::from_str(&content).ok();
+        let entity: Option<AggregatesNotificationGroupsPostV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn aggregate_allow_list(configuration: &configuration::Configuration, body: Vec<models::MsaAggregateQueryRequest>) -> Result<models::MsaAggregatesResponse, Error<AggregateAllowListError>> {
+pub async fn aggregates_slas_post_v1(configuration: &configuration::Configuration, body: Vec<models::ApiMsaAggregateQueryRequest>) -> Result<models::ApiMsaAggregatesResponse, Error<AggregatesSlasPostV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_body = body;
 
-    let uri_str = format!("{}/falcon-complete-dashboards/aggregates/allowlist/GET/v1", configuration.base_path);
+    let uri_str = format!("{}/casemgmt/aggregates/slas/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -300,21 +328,21 @@ pub async fn aggregate_allow_list(configuration: &configuration::Configuration, 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMsaAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMsaAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<AggregateAllowListError> = serde_json::from_str(&content).ok();
+        let entity: Option<AggregatesSlasPostV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn aggregate_block_list(configuration: &configuration::Configuration, body: Vec<models::MsaAggregateQueryRequest>) -> Result<models::MsaAggregatesResponse, Error<AggregateBlockListError>> {
+pub async fn aggregates_templates_post_v1(configuration: &configuration::Configuration, body: Vec<models::ApiMsaAggregateQueryRequest>) -> Result<models::ApiMsaAggregatesResponse, Error<AggregatesTemplatesPostV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_body = body;
 
-    let uri_str = format!("{}/falcon-complete-dashboards/aggregates/blocklist/GET/v1", configuration.base_path);
+    let uri_str = format!("{}/casemgmt/aggregates/templates/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -340,395 +368,630 @@ pub async fn aggregate_block_list(configuration: &configuration::Configuration, 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMsaAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMsaAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<AggregateBlockListError> = serde_json::from_str(&content).ok();
+        let entity: Option<AggregatesTemplatesPostV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-/// Fields allowed to aggregate on:  - indexed_time   - created_time   - detect_time   - ldt   - cid   - aid   - platform_name   - os_version   - device_tags   - host_name   - status   - severity   - adversary_ids   - behavior_ids   - behavior_names   - num_blocked_processes   - num_quarantined_files   - pattern_ids   - first_behavior_time   - last_behavior_time   - show_in_ui   - seconds_to_triaged   - seconds_to_resolved   - assigned_to_uid   - public_tags   - vertical_tags
-pub async fn aggregate_detections(configuration: &configuration::Configuration, body: Vec<models::MsaAggregateQueryRequest>) -> Result<models::MsaAggregatesResponse, Error<AggregateDetectionsError>> {
+pub async fn entities_fields_get_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::ApiFieldV1Response, Error<EntitiesFieldsGetV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_body = body;
+    let p_query_ids = ids;
 
-    let uri_str = format!("{}/falcon-complete-dashboards/aggregates/detects/GET/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-    req_builder = req_builder.json(&p_body_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<AggregateDetectionsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn aggregate_device_count_collection(configuration: &configuration::Configuration, body: Vec<models::MsaAggregateQueryRequest>) -> Result<models::MsaAggregatesResponse, Error<AggregateDeviceCountCollectionError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_body = body;
-
-    let uri_str = format!("{}/falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-    req_builder = req_builder.json(&p_body_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<AggregateDeviceCountCollectionError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn aggregate_escalations(configuration: &configuration::Configuration, body: Vec<models::MsaAggregateQueryRequest>) -> Result<models::MsaAggregatesResponse, Error<AggregateEscalationsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_body = body;
-
-    let uri_str = format!("{}/falcon-complete-dashboards/aggregates/escalations/GET/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-    req_builder = req_builder.json(&p_body_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<AggregateEscalationsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn aggregate_fc_incidents(configuration: &configuration::Configuration, body: Vec<models::MsaAggregateQueryRequest>) -> Result<models::MsaAggregatesResponse, Error<AggregateFcIncidentsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_body = body;
-
-    let uri_str = format!("{}/falcon-complete-dashboards/aggregates/incidents/GET/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-    req_builder = req_builder.json(&p_body_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<AggregateFcIncidentsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn aggregate_prevention_policy(configuration: &configuration::Configuration, body: Vec<models::MsaAggregateQueryRequest>) -> Result<models::MsaAggregatesResponse, Error<AggregatePreventionPolicyError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_body = body;
-
-    let uri_str = format!("{}/falcon-complete-dashboards/aggregates/prevention-policies/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-    req_builder = req_builder.json(&p_body_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<AggregatePreventionPolicyError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn aggregate_remediations(configuration: &configuration::Configuration, body: Vec<models::MsaAggregateQueryRequest>) -> Result<models::MsaAggregatesResponse, Error<AggregateRemediationsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_body = body;
-
-    let uri_str = format!("{}/falcon-complete-dashboards/aggregates/remediations/GET/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-    req_builder = req_builder.json(&p_body_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<AggregateRemediationsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn aggregate_sensor_update_policy(configuration: &configuration::Configuration, body: Vec<models::MsaAggregateQueryRequest>) -> Result<models::MsaAggregatesResponse, Error<AggregateSensorUpdatePolicyError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_body = body;
-
-    let uri_str = format!("{}/falcon-complete-dashboards/aggregates/sensor-update-policies/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-    req_builder = req_builder.json(&p_body_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<AggregateSensorUpdatePolicyError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn aggregate_support_issues(configuration: &configuration::Configuration, body: Vec<models::MsaAggregateQueryRequest>) -> Result<models::MsaAggregatesResponse, Error<AggregateSupportIssuesError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_body = body;
-
-    let uri_str = format!("{}/falcon-complete-dashboards/aggregates/support-issues/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-    req_builder = req_builder.json(&p_body_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<AggregateSupportIssuesError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn aggregate_total_device_counts(configuration: &configuration::Configuration, body: Vec<models::MsaAggregateQueryRequest>) -> Result<models::MsaAggregatesResponse, Error<AggregateTotalDeviceCountsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_body = body;
-
-    let uri_str = format!("{}/falcon-complete-dashboards/aggregates/total-device-counts/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-    req_builder = req_builder.json(&p_body_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<AggregateTotalDeviceCountsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn get_device_count_collection_queries_by_filter(configuration: &configuration::Configuration, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, offset: Option<&str>) -> Result<models::MsaspecQueryResponse, Error<GetDeviceCountCollectionQueriesByFilterError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_limit = limit;
-    let p_query_sort = sort;
-    let p_query_filter = filter;
-    let p_query_offset = offset;
-
-    let uri_str = format!("{}/falcon-complete-dashboards/queries/devicecount-collections/v1", configuration.base_path);
+    let uri_str = format!("{}/casemgmt/entities/fields/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_query_limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    req_builder = match "multi" {
+        "multi" => req_builder.query(&p_query_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("ids", &p_query_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(ref param_value) = p_query_sort {
-        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiFieldV1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiFieldV1Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesFieldsGetV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
+}
+
+pub async fn entities_notification_groups_delete_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::ApiNotificationGroupDeleteV1Response, Error<EntitiesNotificationGroupsDeleteV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+
+    let uri_str = format!("{}/casemgmt/entities/notification-groups/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = match "multi" {
+        "multi" => req_builder.query(&p_query_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("ids", &p_query_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiNotificationGroupDeleteV1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiNotificationGroupDeleteV1Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesNotificationGroupsDeleteV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn entities_notification_groups_get_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::ApiNotificationGroupV1Response, Error<EntitiesNotificationGroupsGetV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+
+    let uri_str = format!("{}/casemgmt/entities/notification-groups/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = match "multi" {
+        "multi" => req_builder.query(&p_query_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("ids", &p_query_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiNotificationGroupV1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiNotificationGroupV1Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesNotificationGroupsGetV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn entities_notification_groups_patch_v1(configuration: &configuration::Configuration, body: models::ApiNotificationGroupV1UpdateRequest) -> Result<models::ApiNotificationGroupV1Response, Error<EntitiesNotificationGroupsPatchV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_body = body;
+
+    let uri_str = format!("{}/casemgmt/entities/notification-groups/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    req_builder = req_builder.json(&p_body_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiNotificationGroupV1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiNotificationGroupV1Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesNotificationGroupsPatchV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn entities_notification_groups_post_v1(configuration: &configuration::Configuration, body: models::ApiNotificationGroupV1CreateRequest) -> Result<models::ApiNotificationGroupV1Response, Error<EntitiesNotificationGroupsPostV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_body = body;
+
+    let uri_str = format!("{}/casemgmt/entities/notification-groups/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    req_builder = req_builder.json(&p_body_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiNotificationGroupV1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiNotificationGroupV1Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesNotificationGroupsPostV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn entities_slas_delete_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::MsaspecQueryResponse, Error<EntitiesSlasDeleteV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+
+    let uri_str = format!("{}/casemgmt/entities/slas/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = match "multi" {
+        "multi" => req_builder.query(&p_query_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("ids", &p_query_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesSlasDeleteV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn entities_slas_get_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::ApiSlav1Response, Error<EntitiesSlasGetV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+
+    let uri_str = format!("{}/casemgmt/entities/slas/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = match "multi" {
+        "multi" => req_builder.query(&p_query_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("ids", &p_query_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiSlav1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiSlav1Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesSlasGetV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn entities_slas_patch_v1(configuration: &configuration::Configuration, body: models::ApiSlav1UpdateRequest) -> Result<models::ApiSlav1Response, Error<EntitiesSlasPatchV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_body = body;
+
+    let uri_str = format!("{}/casemgmt/entities/slas/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    req_builder = req_builder.json(&p_body_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiSlav1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiSlav1Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesSlasPatchV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn entities_slas_post_v1(configuration: &configuration::Configuration, body: models::ApiSlav1CreateRequest) -> Result<models::ApiSlav1Response, Error<EntitiesSlasPostV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_body = body;
+
+    let uri_str = format!("{}/casemgmt/entities/slas/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    req_builder = req_builder.json(&p_body_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiSlav1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiSlav1Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesSlasPostV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn entities_template_snapshots_get_v1(configuration: &configuration::Configuration, ids: Option<Vec<String>>, template_ids: Option<Vec<String>>, versions: Option<Vec<i32>>) -> Result<models::ApiTemplateSnapshotV1Response, Error<EntitiesTemplateSnapshotsGetV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+    let p_query_template_ids = template_ids;
+    let p_query_versions = versions;
+
+    let uri_str = format!("{}/casemgmt/entities/template-snapshots/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = p_query_template_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("template_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("template_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = p_query_versions {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("versions".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("versions", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiTemplateSnapshotV1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiTemplateSnapshotV1Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesTemplateSnapshotsGetV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn entities_templates_delete_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<String, Error<EntitiesTemplatesDeleteV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+
+    let uri_str = format!("{}/casemgmt/entities/templates/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = match "multi" {
+        "multi" => req_builder.query(&p_query_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("ids", &p_query_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `String`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `String`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesTemplatesDeleteV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn entities_templates_get_v1(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::ApiTemplateV1Response, Error<EntitiesTemplatesGetV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+
+    let uri_str = format!("{}/casemgmt/entities/templates/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = match "multi" {
+        "multi" => req_builder.query(&p_query_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("ids", &p_query_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiTemplateV1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiTemplateV1Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesTemplatesGetV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn entities_templates_patch_v1(configuration: &configuration::Configuration, body: models::ApiTemplateV1UpdateRequest) -> Result<models::ApiTemplateV1Response, Error<EntitiesTemplatesPatchV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_body = body;
+
+    let uri_str = format!("{}/casemgmt/entities/templates/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    req_builder = req_builder.json(&p_body_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiTemplateV1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiTemplateV1Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesTemplatesPatchV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn entities_templates_post_v1(configuration: &configuration::Configuration, body: models::ApiTemplateV1CreateRequest) -> Result<models::ApiTemplateV1Response, Error<EntitiesTemplatesPostV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_body = body;
+
+    let uri_str = format!("{}/casemgmt/entities/templates/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    req_builder = req_builder.json(&p_body_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiTemplateV1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiTemplateV1Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesTemplatesPostV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn queries_fields_get_v1(configuration: &configuration::Configuration, filter: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::MsaspecQueryResponse, Error<QueriesFieldsGetV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+
+    let uri_str = format!("{}/casemgmt/queries/fields/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
     if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
@@ -760,29 +1023,25 @@ pub async fn get_device_count_collection_queries_by_filter(configuration: &confi
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetDeviceCountCollectionQueriesByFilterError> = serde_json::from_str(&content).ok();
+        let entity: Option<QueriesFieldsGetV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn query_alert_ids_by_filter(configuration: &configuration::Configuration, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, offset: Option<&str>) -> Result<models::MsaspecQueryResponse, Error<QueryAlertIdsByFilterError>> {
+pub async fn queries_notification_groups_get_v1(configuration: &configuration::Configuration, filter: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::MsaspecQueryResponse, Error<QueriesNotificationGroupsGetV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_limit = limit;
-    let p_query_sort = sort;
     let p_query_filter = filter;
+    let p_query_limit = limit;
     let p_query_offset = offset;
 
-    let uri_str = format!("{}/falcon-complete-dashboards/queries/alerts/v1", configuration.base_path);
+    let uri_str = format!("{}/casemgmt/queries/notification-groups/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_query_limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_sort {
-        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
-    }
     if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
@@ -814,29 +1073,25 @@ pub async fn query_alert_ids_by_filter(configuration: &configuration::Configurat
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<QueryAlertIdsByFilterError> = serde_json::from_str(&content).ok();
+        let entity: Option<QueriesNotificationGroupsGetV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn query_alert_ids_by_filter_v2(configuration: &configuration::Configuration, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, offset: Option<&str>) -> Result<models::MsaspecQueryResponse, Error<QueryAlertIdsByFilterV2Error>> {
+pub async fn queries_slas_get_v1(configuration: &configuration::Configuration, filter: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::MsaspecQueryResponse, Error<QueriesSlasGetV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_limit = limit;
-    let p_query_sort = sort;
     let p_query_filter = filter;
+    let p_query_limit = limit;
     let p_query_offset = offset;
 
-    let uri_str = format!("{}/falcon-complete-dashboards/queries/alerts/v2", configuration.base_path);
+    let uri_str = format!("{}/casemgmt/queries/slas/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_query_limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_sort {
-        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
-    }
     if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
@@ -868,29 +1123,25 @@ pub async fn query_alert_ids_by_filter_v2(configuration: &configuration::Configu
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<QueryAlertIdsByFilterV2Error> = serde_json::from_str(&content).ok();
+        let entity: Option<QueriesSlasGetV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn query_allow_list_filter(configuration: &configuration::Configuration, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, offset: Option<&str>) -> Result<models::MsaspecQueryResponse, Error<QueryAllowListFilterError>> {
+pub async fn queries_template_snapshots_get_v1(configuration: &configuration::Configuration, filter: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::MsaspecQueryResponse, Error<QueriesTemplateSnapshotsGetV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_limit = limit;
-    let p_query_sort = sort;
     let p_query_filter = filter;
+    let p_query_limit = limit;
     let p_query_offset = offset;
 
-    let uri_str = format!("{}/falcon-complete-dashboards/queries/allowlist/v1", configuration.base_path);
+    let uri_str = format!("{}/casemgmt/queries/template-snapshots/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_query_limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_sort {
-        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
-    }
     if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
@@ -922,29 +1173,25 @@ pub async fn query_allow_list_filter(configuration: &configuration::Configuratio
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<QueryAllowListFilterError> = serde_json::from_str(&content).ok();
+        let entity: Option<QueriesTemplateSnapshotsGetV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn query_block_list_filter(configuration: &configuration::Configuration, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, offset: Option<&str>) -> Result<models::MsaspecQueryResponse, Error<QueryBlockListFilterError>> {
+pub async fn queries_templates_get_v1(configuration: &configuration::Configuration, filter: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::MsaspecQueryResponse, Error<QueriesTemplatesGetV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_limit = limit;
-    let p_query_sort = sort;
     let p_query_filter = filter;
+    let p_query_limit = limit;
     let p_query_offset = offset;
 
-    let uri_str = format!("{}/falcon-complete-dashboards/queries/blocklist/v1", configuration.base_path);
+    let uri_str = format!("{}/casemgmt/queries/templates/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_query_limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_sort {
-        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
-    }
     if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
@@ -976,223 +1223,7 @@ pub async fn query_block_list_filter(configuration: &configuration::Configuratio
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<QueryBlockListFilterError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn query_detection_ids_by_filter(configuration: &configuration::Configuration, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, offset: Option<&str>) -> Result<models::MsaspecQueryResponse, Error<QueryDetectionIdsByFilterError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_limit = limit;
-    let p_query_sort = sort;
-    let p_query_filter = filter;
-    let p_query_offset = offset;
-
-    let uri_str = format!("{}/falcon-complete-dashboards/queries/detects/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref param_value) = p_query_limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_sort {
-        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_filter {
-        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<QueryDetectionIdsByFilterError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn query_escalations_filter(configuration: &configuration::Configuration, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, offset: Option<&str>) -> Result<models::MsaspecQueryResponse, Error<QueryEscalationsFilterError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_limit = limit;
-    let p_query_sort = sort;
-    let p_query_filter = filter;
-    let p_query_offset = offset;
-
-    let uri_str = format!("{}/falcon-complete-dashboards/queries/escalations/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref param_value) = p_query_limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_sort {
-        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_filter {
-        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<QueryEscalationsFilterError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn query_incident_ids_by_filter(configuration: &configuration::Configuration, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, offset: Option<&str>) -> Result<models::MsaspecQueryResponse, Error<QueryIncidentIdsByFilterError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_limit = limit;
-    let p_query_sort = sort;
-    let p_query_filter = filter;
-    let p_query_offset = offset;
-
-    let uri_str = format!("{}/falcon-complete-dashboards/queries/incidents/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref param_value) = p_query_limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_sort {
-        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_filter {
-        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<QueryIncidentIdsByFilterError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn query_remediations_filter(configuration: &configuration::Configuration, limit: Option<i32>, sort: Option<&str>, filter: Option<&str>, offset: Option<&str>) -> Result<models::MsaspecQueryResponse, Error<QueryRemediationsFilterError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_limit = limit;
-    let p_query_sort = sort;
-    let p_query_filter = filter;
-    let p_query_offset = offset;
-
-    let uri_str = format!("{}/falcon-complete-dashboards/queries/remediations/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref param_value) = p_query_limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_sort {
-        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_filter {
-        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<QueryRemediationsFilterError> = serde_json::from_str(&content).ok();
+        let entity: Option<QueriesTemplatesGetV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

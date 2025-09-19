@@ -16,7 +16,7 @@ pub enum Error<T> {
     ResponseError(ResponseContent<T>),
 }
 
-impl<T> fmt::Display for Error<T> {
+impl <T> fmt::Display for Error<T> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         let (module, e) = match self {
             Error::Reqwest(e) => ("reqwest", e.to_string()),
@@ -28,7 +28,7 @@ impl<T> fmt::Display for Error<T> {
     }
 }
 
-impl<T: fmt::Debug> error::Error for Error<T> {
+impl <T: fmt::Debug> error::Error for Error<T> {
     fn source(&self) -> Option<&(dyn error::Error + 'static)> {
         Some(match self {
             Error::Reqwest(e) => e,
@@ -39,19 +39,19 @@ impl<T: fmt::Debug> error::Error for Error<T> {
     }
 }
 
-impl<T> From<reqwest::Error> for Error<T> {
+impl <T> From<reqwest::Error> for Error<T> {
     fn from(e: reqwest::Error) -> Self {
         Error::Reqwest(e)
     }
 }
 
-impl<T> From<serde_json::Error> for Error<T> {
+impl <T> From<serde_json::Error> for Error<T> {
     fn from(e: serde_json::Error) -> Self {
         Error::Serde(e)
     }
 }
 
-impl<T> From<std::io::Error> for Error<T> {
+impl <T> From<std::io::Error> for Error<T> {
     fn from(e: std::io::Error) -> Self {
         Error::Io(e)
     }
@@ -78,10 +78,8 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
                             value,
                         ));
                     }
-                }
-                serde_json::Value::String(s) => {
-                    params.push((format!("{}[{}]", prefix, key), s.clone()))
-                }
+                },
+                serde_json::Value::String(s) => params.push((format!("{}[{}]", prefix, key), s.clone())),
                 _ => params.push((format!("{}[{}]", prefix, key), value.to_string())),
             }
         }
@@ -98,7 +96,7 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
 enum ContentType {
     Json,
     Text,
-    Unsupported(String),
+    Unsupported(String)
 }
 
 impl From<&str> for ContentType {
@@ -113,16 +111,22 @@ impl From<&str> for ContentType {
     }
 }
 
+pub mod aspm_api;
 pub mod alerts_api;
 pub mod api_integrations_api;
-pub mod aspm_api;
 pub mod cao_hunting_api;
+pub mod case_files_api;
+pub mod case_management_api;
+pub mod cases_api;
 pub mod certificate_based_exclusions_api;
 pub mod cloud_aws_registration_api;
 pub mod cloud_azure_registration_api;
 pub mod cloud_connect_aws_api;
 pub mod cloud_oci_registration_api;
+pub mod cloud_policies_api;
 pub mod cloud_security_assets_api;
+pub mod cloud_security_compliance_api;
+pub mod cloud_security_detections_api;
 pub mod cloud_snapshots_api;
 pub mod configuration_assessment_api;
 pub mod configuration_assessment_evaluation_logic_api;
@@ -134,6 +138,7 @@ pub mod container_packages_api;
 pub mod container_vulnerabilities_api;
 pub mod content_update_policies_api;
 pub mod correlation_rules_api;
+pub mod correlation_rules_admin_api;
 pub mod cspg_iacapi_api;
 pub mod cspm_registration_api;
 pub mod custom_ioa_api;
@@ -191,13 +196,12 @@ pub mod mssp_api;
 pub mod ngsiem_api;
 pub mod oauth2_api;
 pub mod ods_api;
-pub mod overwatch_dashboard_api;
 pub mod prevention_policies_api;
 pub mod quarantine_api;
 pub mod quick_scan_api;
 pub mod quick_scan_pro_api;
-pub mod real_time_response_admin_api;
 pub mod real_time_response_api;
+pub mod real_time_response_admin_api;
 pub mod real_time_response_audit_api;
 pub mod recon_api;
 pub mod release_notes_api;
@@ -205,14 +209,7 @@ pub mod releases_api;
 pub mod report_executions_api;
 pub mod response_policies_api;
 pub mod runtime_detections_api;
-pub mod saa_s_security_activity_monitor_api;
-pub mod saa_s_security_alerts_api;
-pub mod saa_s_security_integration_builder_api;
-pub mod saa_s_security_integrations_api;
-pub mod saa_s_security_inventories_api;
-pub mod saa_s_security_security_check_api;
-pub mod saa_s_security_supported_saa_s_api;
-pub mod saa_s_security_system_api;
+pub mod saas_security_api;
 pub mod sample_uploads_api;
 pub mod scheduled_reports_api;
 pub mod sensor_download_api;

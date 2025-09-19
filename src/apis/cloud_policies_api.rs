@@ -15,186 +15,161 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`aggregate_query_scan_host_metadata`]
+/// struct for typed errors of method [`create_rule_mixin0`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum AggregateQueryScanHostMetadataError {
+pub enum CreateRuleMixin0Error {
+    Status400(models::CommonCreateRuleResponse),
     Status403(models::MsaReplyMetaOnly),
-    Status404(models::MsaspecResponseFields),
+    Status409(models::CommonEntitiesResponse),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
+    Status500(models::CommonEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`aggregate_scans`]
+/// struct for typed errors of method [`create_rule_override`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum AggregateScansError {
+pub enum CreateRuleOverrideError {
+    Status400(models::CommonEntitiesResponse),
     Status403(models::MsaReplyMetaOnly),
-    Status404(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
+    Status500(models::CommonEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`aggregate_scheduled_scans`]
+/// struct for typed errors of method [`delete_rule_mixin0`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum AggregateScheduledScansError {
+pub enum DeleteRuleMixin0Error {
     Status403(models::MsaReplyMetaOnly),
-    Status404(models::MsaspecResponseFields),
+    Status404(models::CommonDeleteRuleResponse),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
+    Status500(models::CommonEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`cancel_scans`]
+/// struct for typed errors of method [`delete_rule_override`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CancelScansError {
+pub enum DeleteRuleOverrideError {
+    Status400(models::CommonEntitiesResponse),
     Status403(models::MsaReplyMetaOnly),
-    Status404(models::MsaspecResponseFields),
+    Status404(models::CommonDeleteRuleOverrideResponse),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
+    Status500(models::CommonEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`create_scan`]
+/// struct for typed errors of method [`get_compliance_controls`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CreateScanError {
+pub enum GetComplianceControlsError {
+    Status400(models::CommonEntitiesResponse),
     Status403(models::MsaReplyMetaOnly),
+    Status404(models::CommonGetComplianceControlsResponse),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
+    Status500(models::CommonEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`delete_scheduled_scans`]
+/// struct for typed errors of method [`get_compliance_frameworks`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum DeleteScheduledScansError {
+pub enum GetComplianceFrameworksError {
+    Status400(models::CommonEntitiesResponse),
     Status403(models::MsaReplyMetaOnly),
-    Status404(models::MsaspecResponseFields),
+    Status404(models::CommonGetComplianceFrameworksResponse),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
+    Status500(models::CommonEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_malicious_files_by_ids`]
+/// struct for typed errors of method [`get_rule`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetMaliciousFilesByIdsError {
+pub enum GetRuleError {
     Status403(models::MsaReplyMetaOnly),
-    Status404(models::MsaspecResponseFields),
+    Status404(models::CommonGetRulesResponse),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
+    Status500(models::CommonEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_scan_host_metadata_by_ids`]
+/// struct for typed errors of method [`get_rule_override`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetScanHostMetadataByIdsError {
+pub enum GetRuleOverrideError {
     Status403(models::MsaReplyMetaOnly),
-    Status404(models::MsaspecResponseFields),
+    Status404(models::CommonEntitiesResponse),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
+    Status500(models::CommonEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_scans_by_scan_ids`]
+/// struct for typed errors of method [`query_compliance_controls`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetScansByScanIdsError {
+pub enum QueryComplianceControlsError {
+    Status400(models::CommonEntitiesResponse),
     Status403(models::MsaReplyMetaOnly),
-    Status404(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
+    Status500(models::CommonEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_scans_by_scan_ids_v2`]
+/// struct for typed errors of method [`query_compliance_frameworks`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetScansByScanIdsV2Error {
+pub enum QueryComplianceFrameworksError {
+    Status400(models::CommonEntitiesResponse),
     Status403(models::MsaReplyMetaOnly),
-    Status404(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
+    Status500(models::CommonEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_scheduled_scans_by_scan_ids`]
+/// struct for typed errors of method [`query_rule`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetScheduledScansByScanIdsError {
+pub enum QueryRuleError {
+    Status400(models::CommonQueryResponse),
     Status403(models::MsaReplyMetaOnly),
-    Status404(models::MsaspecResponseFields),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
+    Status500(models::CommonQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_malicious_files`]
+/// struct for typed errors of method [`update_rule`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryMaliciousFilesError {
+pub enum UpdateRuleError {
+    Status400(models::CommonEntitiesResponse),
     Status403(models::MsaReplyMetaOnly),
-    Status404(models::MsaspecResponseFields),
+    Status409(models::CommonEntitiesResponse),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
+    Status500(models::CommonEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`query_scan_host_metadata`]
+/// struct for typed errors of method [`update_rule_override`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueryScanHostMetadataError {
+pub enum UpdateRuleOverrideError {
+    Status400(models::CommonUpdateRuleOverrideResponse),
     Status403(models::MsaReplyMetaOnly),
-    Status404(models::MsaspecResponseFields),
+    Status404(models::CommonEntitiesResponse),
     Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`query_scans`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum QueryScansError {
-    Status403(models::MsaReplyMetaOnly),
-    Status404(models::MsaspecResponseFields),
-    Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`query_scheduled_scans`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum QueryScheduledScansError {
-    Status403(models::MsaReplyMetaOnly),
-    Status404(models::MsaspecResponseFields),
-    Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`schedule_scan`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ScheduleScanError {
-    Status403(models::MsaReplyMetaOnly),
-    Status429(models::MsaReplyMetaOnly),
-    Status500(models::MsaReplyMetaOnly),
+    Status500(models::CommonEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
 
-pub async fn aggregate_query_scan_host_metadata(configuration: &configuration::Configuration, body: Vec<models::MsaAggregateQueryRequest>) -> Result<models::MsaAggregatesResponse, Error<AggregateQueryScanHostMetadataError>> {
+pub async fn create_rule_mixin0(configuration: &configuration::Configuration, body: models::CommonCreateRuleRequest) -> Result<models::CommonCreateRuleResponse, Error<CreateRuleMixin0Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_body = body;
 
-    let uri_str = format!("{}/ods/aggregates/scan-hosts/v1", configuration.base_path);
+    let uri_str = format!("{}/cloud-policies/entities/rules/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -220,21 +195,21 @@ pub async fn aggregate_query_scan_host_metadata(configuration: &configuration::C
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonCreateRuleResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonCreateRuleResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<AggregateQueryScanHostMetadataError> = serde_json::from_str(&content).ok();
+        let entity: Option<CreateRuleMixin0Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn aggregate_scans(configuration: &configuration::Configuration, body: Vec<models::MsaAggregateQueryRequest>) -> Result<models::MsaAggregatesResponse, Error<AggregateScansError>> {
+pub async fn create_rule_override(configuration: &configuration::Configuration, body: models::CommonCreateRuleOverrideRequest) -> Result<models::CommonCreateRuleOverrideResponse, Error<CreateRuleOverrideError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_body = body;
 
-    let uri_str = format!("{}/ods/aggregates/scans/v1", configuration.base_path);
+    let uri_str = format!("{}/cloud-policies/entities/rule-overrides/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -260,151 +235,27 @@ pub async fn aggregate_scans(configuration: &configuration::Configuration, body:
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonCreateRuleOverrideResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonCreateRuleOverrideResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<AggregateScansError> = serde_json::from_str(&content).ok();
+        let entity: Option<CreateRuleOverrideError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn aggregate_scheduled_scans(configuration: &configuration::Configuration, body: Vec<models::MsaAggregateQueryRequest>) -> Result<models::MsaAggregatesResponse, Error<AggregateScheduledScansError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_body = body;
-
-    let uri_str = format!("{}/ods/aggregates/scheduled-scans/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-    req_builder = req_builder.json(&p_body_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<AggregateScheduledScansError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn cancel_scans(configuration: &configuration::Configuration, body: models::EntitiesOdsCancelScanRequest) -> Result<models::MsaspecQueryResponse, Error<CancelScansError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_body = body;
-
-    let uri_str = format!("{}/ods/entities/scan-control-actions/cancel/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-    req_builder = req_builder.json(&p_body_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<CancelScansError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn create_scan(configuration: &configuration::Configuration, body: models::EntitiesOdsScanRequest) -> Result<models::EntitiesOdsScanResponse, Error<CreateScanError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body_body = body;
-
-    let uri_str = format!("{}/ods/entities/scans/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-    req_builder = req_builder.json(&p_body_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesOdsScanResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesOdsScanResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<CreateScanError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn delete_scheduled_scans(configuration: &configuration::Configuration, ids: Vec<String>, filter: Option<&str>) -> Result<models::MsaspecQueryResponse, Error<DeleteScheduledScansError>> {
+pub async fn delete_rule_mixin0(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::CommonDeleteRuleResponse, Error<DeleteRuleMixin0Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_ids = ids;
-    let p_query_filter = filter;
 
-    let uri_str = format!("{}/ods/entities/scheduled-scans/v1", configuration.base_path);
+    let uri_str = format!("{}/cloud-policies/entities/rules/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(&p_query_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
         _ => req_builder.query(&[("ids", &p_query_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
     };
-    if let Some(ref param_value) = p_query_filter {
-        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
-    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -427,21 +278,64 @@ pub async fn delete_scheduled_scans(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonDeleteRuleResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonDeleteRuleResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<DeleteScheduledScansError> = serde_json::from_str(&content).ok();
+        let entity: Option<DeleteRuleMixin0Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn get_malicious_files_by_ids(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::EntitiesOdsScanMaliciousFileResponse, Error<GetMaliciousFilesByIdsError>> {
+pub async fn delete_rule_override(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::CommonDeleteRuleOverrideResponse, Error<DeleteRuleOverrideError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_ids = ids;
 
-    let uri_str = format!("{}/ods/entities/malicious-files/v1", configuration.base_path);
+    let uri_str = format!("{}/cloud-policies/entities/rule-overrides/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = match "multi" {
+        "multi" => req_builder.query(&p_query_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("ids", &p_query_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonDeleteRuleOverrideResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonDeleteRuleOverrideResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteRuleOverrideError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_compliance_controls(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::CommonGetComplianceControlsResponse, Error<GetComplianceControlsError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+
+    let uri_str = format!("{}/cloud-policies/entities/compliance/controls/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
@@ -470,21 +364,21 @@ pub async fn get_malicious_files_by_ids(configuration: &configuration::Configura
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesOdsScanMaliciousFileResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesOdsScanMaliciousFileResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonGetComplianceControlsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonGetComplianceControlsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetMaliciousFilesByIdsError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetComplianceControlsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn get_scan_host_metadata_by_ids(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::EntitiesOdsScanHostResponse, Error<GetScanHostMetadataByIdsError>> {
+pub async fn get_compliance_frameworks(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::CommonGetComplianceFrameworksResponse, Error<GetComplianceFrameworksError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_ids = ids;
 
-    let uri_str = format!("{}/ods/entities/scan-hosts/v1", configuration.base_path);
+    let uri_str = format!("{}/cloud-policies/entities/compliance/frameworks/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
@@ -513,21 +407,21 @@ pub async fn get_scan_host_metadata_by_ids(configuration: &configuration::Config
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesOdsScanHostResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesOdsScanHostResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonGetComplianceFrameworksResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonGetComplianceFrameworksResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetScanHostMetadataByIdsError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetComplianceFrameworksError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn get_scans_by_scan_ids(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::EntitiesOdsScanResponse, Error<GetScansByScanIdsError>> {
+pub async fn get_rule(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::CommonGetRulesResponse, Error<GetRuleError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_ids = ids;
 
-    let uri_str = format!("{}/ods/entities/scans/v1", configuration.base_path);
+    let uri_str = format!("{}/cloud-policies/entities/rules/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
@@ -556,21 +450,21 @@ pub async fn get_scans_by_scan_ids(configuration: &configuration::Configuration,
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesOdsScanResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesOdsScanResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonGetRulesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonGetRulesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetScansByScanIdsError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetRuleError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn get_scans_by_scan_ids_v2(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::EntitiesOdsScanResponseV2, Error<GetScansByScanIdsV2Error>> {
+pub async fn get_rule_override(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::CommonGetRuleOverrideResponse, Error<GetRuleOverrideError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_ids = ids;
 
-    let uri_str = format!("{}/ods/entities/scans/v2", configuration.base_path);
+    let uri_str = format!("{}/cloud-policies/entities/rule-overrides/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
@@ -599,77 +493,34 @@ pub async fn get_scans_by_scan_ids_v2(configuration: &configuration::Configurati
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesOdsScanResponseV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesOdsScanResponseV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonGetRuleOverrideResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonGetRuleOverrideResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetScansByScanIdsV2Error> = serde_json::from_str(&content).ok();
+        let entity: Option<GetRuleOverrideError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn get_scheduled_scans_by_scan_ids(configuration: &configuration::Configuration, ids: Vec<String>) -> Result<models::EntitiesOdsScheduleScanResponse, Error<GetScheduledScansByScanIdsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_ids = ids;
-
-    let uri_str = format!("{}/ods/entities/scheduled-scans/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = match "multi" {
-        "multi" => req_builder.query(&p_query_ids.into_iter().map(|p| ("ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => req_builder.query(&[("ids", &p_query_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
-    };
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesOdsScheduleScanResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesOdsScheduleScanResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<GetScheduledScansByScanIdsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn query_malicious_files(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>) -> Result<models::MsaspecQueryResponse, Error<QueryMaliciousFilesError>> {
+pub async fn query_compliance_controls(configuration: &configuration::Configuration, filter: Option<&str>, limit: Option<i32>, offset: Option<i32>, sort: Option<&str>) -> Result<models::CommonQueryResponse, Error<QueryComplianceControlsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_filter = filter;
-    let p_query_offset = offset;
     let p_query_limit = limit;
+    let p_query_offset = offset;
     let p_query_sort = sort;
 
-    let uri_str = format!("{}/ods/queries/malicious-files/v1", configuration.base_path);
+    let uri_str = format!("{}/cloud-policies/queries/compliance/controls/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
@@ -696,34 +547,34 @@ pub async fn query_malicious_files(configuration: &configuration::Configuration,
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<QueryMaliciousFilesError> = serde_json::from_str(&content).ok();
+        let entity: Option<QueryComplianceControlsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn query_scan_host_metadata(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>) -> Result<models::MsaspecQueryResponse, Error<QueryScanHostMetadataError>> {
+pub async fn query_compliance_frameworks(configuration: &configuration::Configuration, filter: Option<&str>, limit: Option<i32>, offset: Option<i32>, sort: Option<&str>) -> Result<models::CommonQueryResponse, Error<QueryComplianceFrameworksError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_filter = filter;
-    let p_query_offset = offset;
     let p_query_limit = limit;
+    let p_query_offset = offset;
     let p_query_sort = sort;
 
-    let uri_str = format!("{}/ods/queries/scan-hosts/v1", configuration.base_path);
+    let uri_str = format!("{}/cloud-policies/queries/compliance/frameworks/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_query_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
-    }
     if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
@@ -750,34 +601,34 @@ pub async fn query_scan_host_metadata(configuration: &configuration::Configurati
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<QueryScanHostMetadataError> = serde_json::from_str(&content).ok();
+        let entity: Option<QueryComplianceFrameworksError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn query_scans(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>) -> Result<models::MsaspecQueryResponse, Error<QueryScansError>> {
+pub async fn query_rule(configuration: &configuration::Configuration, filter: Option<&str>, limit: Option<i32>, offset: Option<i32>, sort: Option<&str>) -> Result<models::CommonQueryResponse, Error<QueryRuleError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_query_filter = filter;
-    let p_query_offset = offset;
     let p_query_limit = limit;
+    let p_query_offset = offset;
     let p_query_sort = sort;
 
-    let uri_str = format!("{}/ods/queries/scans/v1", configuration.base_path);
+    let uri_str = format!("{}/cloud-policies/queries/rules/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_query_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
-    }
     if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
@@ -804,76 +655,22 @@ pub async fn query_scans(configuration: &configuration::Configuration, filter: O
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<QueryScansError> = serde_json::from_str(&content).ok();
+        let entity: Option<QueryRuleError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn query_scheduled_scans(configuration: &configuration::Configuration, filter: Option<&str>, offset: Option<i32>, limit: Option<i32>, sort: Option<&str>) -> Result<models::MsaspecQueryResponse, Error<QueryScheduledScansError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_filter = filter;
-    let p_query_offset = offset;
-    let p_query_limit = limit;
-    let p_query_sort = sort;
-
-    let uri_str = format!("{}/ods/queries/scheduled-scans/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref param_value) = p_query_filter {
-        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_sort {
-        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<QueryScheduledScansError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-pub async fn schedule_scan(configuration: &configuration::Configuration, body: models::EntitiesOdsScheduleScanRequest) -> Result<models::EntitiesOdsScheduleScanResponse, Error<ScheduleScanError>> {
+pub async fn update_rule(configuration: &configuration::Configuration, body: models::CommonUpdateRuleRequest) -> Result<models::CommonGetRulesResponse, Error<UpdateRuleError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_body = body;
 
-    let uri_str = format!("{}/ods/entities/scheduled-scans/v1", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+    let uri_str = format!("{}/cloud-policies/entities/rules/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -898,12 +695,52 @@ pub async fn schedule_scan(configuration: &configuration::Configuration, body: m
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesOdsScheduleScanResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesOdsScheduleScanResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonGetRulesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonGetRulesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ScheduleScanError> = serde_json::from_str(&content).ok();
+        let entity: Option<UpdateRuleError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn update_rule_override(configuration: &configuration::Configuration, body: models::CommonUpdateRuleOverrideRequest) -> Result<models::CommonUpdateRuleOverrideResponse, Error<UpdateRuleOverrideError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_body = body;
+
+    let uri_str = format!("{}/cloud-policies/entities/rule-overrides/v1", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    req_builder = req_builder.json(&p_body_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonUpdateRuleOverrideResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonUpdateRuleOverrideResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateRuleOverrideError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
