@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.4.0] - 2024-08-27
+## [0.4.0] - 2025-09-19
 
 ### Added
 
@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Update Rusty Falcon to use the latest OpenAPI spec (2025-07-08T00:00:04Z)
+- Update Rusty Falcon to use the latest OpenAPI spec (2025-09-19T00:00:03Z)
 - Update example code to follow the latest OpenAPI spec changes
 - Fix links in the README
 - Fix spelling for docs and api files
@@ -26,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update `rust-version` to `1.82.0`
 - Display number of passed examples/tests in `run-examples.sh` script
 - Enable `run-example.sh` script to run a single example
-- Set certain `DetectsPeriodExternalAlert` model fields to optional
+- Set certain `DetectsExternalAlert` model fields to optional
 
 - Upgrade dependencies:
   - `clap` to `4.5.18`
