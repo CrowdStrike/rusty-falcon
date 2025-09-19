@@ -770,7 +770,7 @@ pub async fn get_saved_searches_job_results_download_v1(configuration: &configur
 pub async fn ingest_data_async_v1(configuration: &configuration::Configuration, data_content: Option<&str>, data_file: Option<std::path::PathBuf>, repo: Option<&str>, tag: Option<Vec<String>>, tag_source: Option<&str>, test_data: Option<bool>) -> Result<models::ClientDataIngestResponseWrapperV1, Error<IngestDataAsyncV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_form_data_content = data_content;
-    let p_form_data_file = data_file;
+    let _p_form_data_file = data_file;
     let p_form_repo = repo;
     let p_form_tag = tag;
     let p_form_tag_source = tag_source;
@@ -832,7 +832,7 @@ pub async fn ingest_data_async_v1(configuration: &configuration::Configuration, 
 pub async fn ingest_data_v1(configuration: &configuration::Configuration, data_content: Option<&str>, data_file: Option<std::path::PathBuf>, tag: Option<Vec<String>>, tag_source: Option<&str>, test_data: Option<bool>) -> Result<models::ClientDataIngestResponseWrapperV1, Error<IngestDataV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_form_data_content = data_content;
-    let p_form_data_file = data_file;
+    let _p_form_data_file = data_file;
     let p_form_tag = tag;
     let p_form_tag_source = tag_source;
     let p_form_test_data = test_data;

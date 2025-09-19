@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::Deserialize;
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DataTransactionResponseDtoGetEndTransaction {

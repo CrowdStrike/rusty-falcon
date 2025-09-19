@@ -316,7 +316,7 @@ pub async fn archive_upload_v1(configuration: &configuration::Configuration, nam
 
 pub async fn archive_upload_v2(configuration: &configuration::Configuration, file: std::path::PathBuf, name: &str, password: Option<&str>, is_confidential: Option<bool>, comment: Option<&str>) -> Result<models::ClientArchiveCreateResponseV1, Error<ArchiveUploadV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_form_file = file;
+    let _p_form_file = file;
     let p_form_name = name;
     let p_form_password = password;
     let p_form_is_confidential = is_confidential;
@@ -588,7 +588,7 @@ pub async fn get_sample_v3(configuration: &configuration::Configuration, ids: &s
 
 pub async fn upload_sample_v3(configuration: &configuration::Configuration, sample: std::path::PathBuf, file_name: &str, comment: Option<&str>, is_confidential: Option<bool>) -> Result<models::ClientSampleMetadataResponseV2, Error<UploadSampleV3Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_form_sample = sample;
+    let _p_form_sample = sample;
     let p_form_file_name = file_name;
     let p_form_comment = comment;
     let p_form_is_confidential = is_confidential;

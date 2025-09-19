@@ -309,7 +309,7 @@ pub async fn r_tr_check_admin_command_status(configuration: &configuration::Conf
 
 pub async fn r_tr_create_put_files(configuration: &configuration::Configuration, file: std::path::PathBuf, description: &str, name: Option<&str>, comments_for_audit_log: Option<&str>) -> Result<models::MsaReplyMetaOnly, Error<RTrCreatePutFilesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_form_file = file;
+    let _p_form_file = file;
     let p_form_description = description;
     let p_form_name = name;
     let p_form_comments_for_audit_log = comments_for_audit_log;
@@ -363,7 +363,7 @@ pub async fn r_tr_create_scripts(configuration: &configuration::Configuration, d
     // add a prefix to parameters to efficiently prevent name collisions
     let p_form_description = description;
     let p_form_permission_type = permission_type;
-    let p_form_file = file;
+    let _p_form_file = file;
     let p_form_name = name;
     let p_form_comments_for_audit_log = comments_for_audit_log;
     let p_form_content = content;
@@ -961,7 +961,7 @@ pub async fn r_tr_list_scripts(configuration: &configuration::Configuration, fil
 pub async fn r_tr_update_scripts(configuration: &configuration::Configuration, id: &str, file: Option<std::path::PathBuf>, description: Option<&str>, name: Option<&str>, comments_for_audit_log: Option<&str>, permission_type: Option<&str>, content: Option<&str>, platform: Option<Vec<String>>) -> Result<models::MsaReplyMetaOnly, Error<RTrUpdateScriptsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_form_id = id;
-    let p_form_file = file;
+    let _p_form_file = file;
     let p_form_description = description;
     let p_form_name = name;
     let p_form_comments_for_audit_log = comments_for_audit_log;

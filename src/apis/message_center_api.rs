@@ -199,7 +199,7 @@ pub async fn case_add_attachment(configuration: &configuration::Configuration, c
     // add a prefix to parameters to efficiently prevent name collisions
     let p_form_case_id = case_id;
     let p_form_user_uuid = user_uuid;
-    let p_form_file = file;
+    let _p_form_file = file;
 
     let uri_str = format!("{}/message-center/entities/case-attachment/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);

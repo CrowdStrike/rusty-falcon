@@ -492,7 +492,7 @@ pub async fn workflow_definitions_export(configuration: &configuration::Configur
 
 pub async fn workflow_definitions_import(configuration: &configuration::Configuration, data_file: std::path::PathBuf, name: Option<&str>, validate_only: Option<bool>) -> Result<models::DefinitionsDefinitionImportResponse, Error<WorkflowDefinitionsImportError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_form_data_file = data_file;
+    let _p_form_data_file = data_file;
     let p_query_name = name;
     let p_query_validate_only = validate_only;
 

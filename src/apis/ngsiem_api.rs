@@ -1643,7 +1643,7 @@ pub async fn update_saved_query_from_template(configuration: &configuration::Con
 pub async fn upload_lookup_v1(configuration: &configuration::Configuration, repository: &str, file: std::path::PathBuf) -> Result<(), Error<UploadLookupV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_path_repository = repository;
-    let p_form_file = file;
+    let _p_form_file = file;
 
     let uri_str = format!("{}/humio/api/v1/repositories/{repository}/files", configuration.base_path, repository=crate::apis::urlencode(p_path_repository));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);

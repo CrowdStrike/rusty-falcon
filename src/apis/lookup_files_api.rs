@@ -42,7 +42,7 @@ pub enum UpdateFileV1Error {
 
 pub async fn create_file_v1(configuration: &configuration::Configuration, file: std::path::PathBuf, name: &str, x_cs_username: Option<&str>, x_cs_useruuid: Option<&str>, description: Option<&str>, id: Option<&str>, repo: Option<&str>) -> Result<models::DomainLookupFileWrapper, Error<CreateFileV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_form_file = file;
+    let _p_form_file = file;
     let p_form_name = name;
     let p_header_x_cs_username = x_cs_username;
     let p_header_x_cs_useruuid = x_cs_useruuid;
@@ -107,7 +107,7 @@ pub async fn update_file_v1(configuration: &configuration::Configuration, id: &s
     let p_header_x_cs_username = x_cs_username;
     let p_header_x_cs_useruuid = x_cs_useruuid;
     let p_form_description = description;
-    let p_form_file = file;
+    let _p_form_file = file;
 
     let uri_str = format!("{}/loggingapi/entities/lookup-files/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);

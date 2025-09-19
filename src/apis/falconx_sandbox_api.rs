@@ -826,7 +826,7 @@ pub async fn submit(configuration: &configuration::Configuration, body: models::
 
 pub async fn upload_sample_v2(configuration: &configuration::Configuration, sample: std::path::PathBuf, file_name: &str, comment: Option<&str>, is_confidential: Option<bool>) -> Result<models::ClientSampleMetadataResponseV2, Error<UploadSampleV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_form_sample = sample;
+    let _p_form_sample = sample;
     let p_form_file_name = file_name;
     let p_form_comment = comment;
     let p_form_is_confidential = is_confidential;
