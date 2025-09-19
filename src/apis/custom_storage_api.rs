@@ -13,8 +13,6 @@ use reqwest;
 use serde::{Deserialize, Serialize, de::Error as _};
 use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
-use tokio::fs::File as TokioFile;
-use tokio_util::codec::{BytesCodec, FramedRead};
 
 
 /// struct for typed errors of method [`delete_object`]
@@ -805,9 +803,7 @@ pub async fn put_object(configuration: &configuration::Configuration, collection
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    let file = TokioFile::open(p_body_body).await?;
-    let stream = FramedRead::new(file, BytesCodec::new());
-    req_builder = req_builder.body(reqwest::Body::wrap_stream(stream));
+    req_builder = req_builder.json(p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -854,9 +850,7 @@ pub async fn put_object_by_version(configuration: &configuration::Configuration,
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    let file = TokioFile::open(p_body_body).await?;
-    let stream = FramedRead::new(file, BytesCodec::new());
-    req_builder = req_builder.body(reqwest::Body::wrap_stream(stream));
+    req_builder = req_builder.json(p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
