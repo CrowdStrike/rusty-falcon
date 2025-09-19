@@ -10,7 +10,7 @@
 
 
 use reqwest;
-use serde::{Deserialize, Serialize, de::Error as _};
+use serde::de::Error as _;
 use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 

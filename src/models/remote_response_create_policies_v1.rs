@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// RemoteResponseCreatePoliciesV1 : A req to create realtime policies
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

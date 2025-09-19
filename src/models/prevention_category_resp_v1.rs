@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// PreventionCategoryRespV1 : A prevention policy category
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

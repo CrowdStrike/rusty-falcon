@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// DomainDiscoverApiApplication : Represents information about an application.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

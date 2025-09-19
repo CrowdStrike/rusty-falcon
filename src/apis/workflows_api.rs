@@ -10,7 +10,7 @@
 
 
 use reqwest;
-use serde::{Deserialize, Serialize, de::Error as _};
+use serde::de::Error as _;
 use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
@@ -511,7 +511,7 @@ pub async fn workflow_definitions_import(configuration: &configuration::Configur
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    let mut multipart_form = reqwest::multipart::Form::new();
+    let multipart_form = reqwest::multipart::Form::new();
     // TODO: support file upload for 'data_file' parameter
     req_builder = req_builder.multipart(multipart_form);
 

@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// PreventionCreatePoliciesReqV1 : A request to create prevention policies
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

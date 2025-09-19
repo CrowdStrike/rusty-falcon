@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// DomainDiscoverApiApplicationBrowserExtension : Uniquely identifies a browser extension.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

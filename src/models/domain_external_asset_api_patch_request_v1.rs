@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// DomainExternalAssetApiPatchRequestV1 : Represents the payload for patching multiple assets.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

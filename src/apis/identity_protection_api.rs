@@ -10,9 +10,8 @@
 
 
 use reqwest;
-use serde::{Deserialize, Serialize, de::Error as _};
 use crate::{apis::ResponseContent, models};
-use super::{Error, configuration, ContentType};
+use super::{Error, configuration};
 
 
 /// struct for typed errors of method [`api_preempt_proxy_delete_policy_rules`]

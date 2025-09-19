@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// SensorUpdateUpdatePoliciesReqV2 : A req to update sensorUpdate policies
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

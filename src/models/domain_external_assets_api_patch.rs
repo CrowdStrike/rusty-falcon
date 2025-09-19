@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// DomainExternalAssetsApiPatch : Represents information about a managed, an unmanaged or an unsupported asset.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

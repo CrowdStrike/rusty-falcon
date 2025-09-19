@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// DomainUserActionRequest : ID(s) of users the action(s) are to applied to
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

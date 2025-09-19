@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// HostGroupsCreateGroupsReqV1 : A request to create device groups
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

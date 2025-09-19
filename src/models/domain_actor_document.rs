@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// DomainActorDocument : JSON definition of an Actor, also known as Adversary
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

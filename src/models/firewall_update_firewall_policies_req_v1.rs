@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// FirewallUpdateFirewallPoliciesReqV1 : A req to update firewall policies
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

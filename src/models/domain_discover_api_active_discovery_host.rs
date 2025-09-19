@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// DomainDiscoverApiActiveDiscoveryHost : Information obtained from active discovery.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

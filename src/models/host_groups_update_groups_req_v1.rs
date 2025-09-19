@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// HostGroupsUpdateGroupsReqV1 : A request to update a set of device groups
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// DomainEntityActionRequest : Incident ID(s) for incidents upon which action(s) have to be performed. Action(s) to be performed on Incident(s).
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

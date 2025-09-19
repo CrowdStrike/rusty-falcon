@@ -9,7 +9,6 @@
  */
 
 use crate::models;
-use serde::{Deserialize, Serialize};
 
 /// DeviceControlCreatePoliciesV1 : A req to create DeviceControl policies
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
