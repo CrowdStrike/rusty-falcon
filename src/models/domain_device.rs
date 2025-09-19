@@ -13,8 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DomainDevice {
-    #[serde(rename = "_")]
-    pub _: i32,
+    #[serde(rename = "platform_id_numeric")]
+    pub platform_id_numeric: i32,
     #[serde(rename = "agent_version", skip_serializing_if = "Option::is_none")]
     pub agent_version: Option<String>,
     #[serde(rename = "config_id_base", skip_serializing_if = "Option::is_none")]
@@ -86,9 +86,9 @@ pub struct DomainDevice {
 }
 
 impl DomainDevice {
-    pub fn new(_: i32, device_id: String) -> DomainDevice {
+    pub fn new(platform_id_numeric: i32, device_id: String) -> DomainDevice {
         DomainDevice {
-            _,
+            platform_id_numeric,
             agent_version: None,
             config_id_base: None,
             config_id_build: None,
