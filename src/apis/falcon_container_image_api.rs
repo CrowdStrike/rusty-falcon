@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateRegistryEntitiesError {
-    Status400(models::DomainPeriodExternalRegistryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status409(models::DomainPeriodExternalRegistryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodExternalRegistryResponse),
+    Status400(models::DomainExternalRegistryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status409(models::DomainExternalRegistryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainExternalRegistryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,9 +29,9 @@ pub enum CreateRegistryEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteRegistryEntitiesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,34 @@ pub enum DeleteRegistryEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DownloadExportFileError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_report_by_reference`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetReportByReferenceError {
+    Status400(models::CoreEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::CoreEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_report_by_scan_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetReportByScanIdError {
+    Status400(models::CoreEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::CoreEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,8 +75,8 @@ pub enum DownloadExportFileError {
 #[serde(untagged)]
 pub enum HeadImageScanInventoryError {
     Status400(),
-    Status403(models::CorePeriodEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
+    Status403(models::CoreEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
     Status500(),
     UnknownValue(serde_json::Value),
 }
@@ -61,10 +85,22 @@ pub enum HeadImageScanInventoryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum LaunchExportJobError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaspecPeriodResponseFields),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaspecResponseFields),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`policy_checks`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PolicyChecksError {
+    Status400(models::ApiPolicyEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ApiPolicyEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiPolicyEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -73,8 +109,8 @@ pub enum LaunchExportJobError {
 #[serde(untagged)]
 pub enum PostImageScanInventoryError {
     Status400(),
-    Status403(models::CorePeriodEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
+    Status403(models::CoreEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
     Status500(),
     UnknownValue(serde_json::Value),
 }
@@ -83,10 +119,10 @@ pub enum PostImageScanInventoryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryExportJobsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -94,10 +130,10 @@ pub enum QueryExportJobsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadExportJobsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -105,10 +141,10 @@ pub enum ReadExportJobsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadRegistryEntitiesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodExternalQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodExternalQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainExternalQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainExternalQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -116,10 +152,10 @@ pub enum ReadRegistryEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadRegistryEntitiesByUuidError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodExternalRegistryListResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodExternalRegistryListResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainExternalRegistryListResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainExternalRegistryListResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -127,20 +163,20 @@ pub enum ReadRegistryEntitiesByUuidError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateRegistryEntitiesError {
-    Status400(models::DomainPeriodExternalRegistryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodExternalRegistryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodExternalRegistryResponse),
+    Status400(models::DomainExternalRegistryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainExternalRegistryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainExternalRegistryResponse),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_registry_entities(
     configuration: &configuration::Configuration,
-    body: models::RegistryassessmentPeriodExternalRegistryPayload,
-) -> Result<models::DomainPeriodExternalRegistryResponse, Error<CreateRegistryEntitiesError>> {
+    body: models::RegistryassessmentExternalRegistryPayload,
+) -> Result<models::DomainExternalRegistryResponse, Error<CreateRegistryEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/container-security/entities/registries/v1",
@@ -156,7 +192,7 @@ pub async fn create_registry_entities(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -173,8 +209,8 @@ pub async fn create_registry_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodExternalRegistryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodExternalRegistryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainExternalRegistryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainExternalRegistryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -190,9 +226,9 @@ pub async fn create_registry_entities(
 pub async fn delete_registry_entities(
     configuration: &configuration::Configuration,
     ids: &str,
-) -> Result<models::DomainPeriodExternalRegistryListResponse, Error<DeleteRegistryEntitiesError>> {
+) -> Result<models::DomainExternalRegistryListResponse, Error<DeleteRegistryEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/container-security/entities/registries/v1",
@@ -202,7 +238,7 @@ pub async fn delete_registry_entities(
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("ids", &p_ids.to_string())]);
+    req_builder = req_builder.query(&[("ids", &p_query_ids.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -225,8 +261,8 @@ pub async fn delete_registry_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodExternalRegistryListResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodExternalRegistryListResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainExternalRegistryListResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainExternalRegistryListResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -244,7 +280,7 @@ pub async fn download_export_file(
     id: &str,
 ) -> Result<Vec<i32>, Error<DownloadExportFileError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_query_id = id;
 
     let uri_str = format!(
         "{}/container-security/entities/exports/files/v1",
@@ -252,7 +288,7 @@ pub async fn download_export_file(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -281,6 +317,138 @@ pub async fn download_export_file(
     } else {
         let content = resp.text().await?;
         let entity: Option<DownloadExportFileError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn get_report_by_reference(
+    configuration: &configuration::Configuration,
+    registry: Option<&str>,
+    repository: Option<&str>,
+    tag: Option<&str>,
+    image_id: Option<&str>,
+    digest: Option<&str>,
+    report_format: Option<&str>,
+) -> Result<models::CoreEntitiesResponse, Error<GetReportByReferenceError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_registry = registry;
+    let p_query_repository = repository;
+    let p_query_tag = tag;
+    let p_query_image_id = image_id;
+    let p_query_digest = digest;
+    let p_query_report_format = report_format;
+
+    let uri_str = format!(
+        "{}/image-assessment/entities/reports/v2",
+        configuration.base_path
+    );
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_registry {
+        req_builder = req_builder.query(&[("registry", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_repository {
+        req_builder = req_builder.query(&[("repository", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_tag {
+        req_builder = req_builder.query(&[("tag", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_image_id {
+        req_builder = req_builder.query(&[("image_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_digest {
+        req_builder = req_builder.query(&[("digest", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_report_format {
+        req_builder = req_builder.query(&[("report_format", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CoreEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CoreEntitiesResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetReportByReferenceError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn get_report_by_scan_id(
+    configuration: &configuration::Configuration,
+    uuid: &str,
+    report_format: Option<&str>,
+) -> Result<models::CoreEntitiesResponse, Error<GetReportByScanIdError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_uuid = uuid;
+    let p_query_report_format = report_format;
+
+    let uri_str = format!(
+        "{}/image-assessment/entities/reports/v2/{uuid}",
+        configuration.base_path,
+        uuid = crate::apis::urlencode(p_path_uuid)
+    );
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_report_format {
+        req_builder = req_builder.query(&[("report_format", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CoreEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CoreEntitiesResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetReportByScanIdError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -327,10 +495,10 @@ pub async fn head_image_scan_inventory(
 
 pub async fn launch_export_job(
     configuration: &configuration::Configuration,
-    body: models::ExportsPeriodLaunchExportRequest,
-) -> Result<models::ExportsPeriodLaunchExportResponse, Error<LaunchExportJobError>> {
+    body: models::ExportsLaunchExportRequest,
+) -> Result<models::ExportsLaunchExportResponse, Error<LaunchExportJobError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/container-security/entities/exports/v1",
@@ -346,7 +514,7 @@ pub async fn launch_export_job(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -363,8 +531,8 @@ pub async fn launch_export_job(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ExportsPeriodLaunchExportResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ExportsPeriodLaunchExportResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ExportsLaunchExportResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ExportsLaunchExportResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -377,12 +545,70 @@ pub async fn launch_export_job(
     }
 }
 
+pub async fn policy_checks(
+    configuration: &configuration::Configuration,
+    repository: &str,
+    tag: &str,
+    registry: Option<&str>,
+) -> Result<models::ApiPolicyEntitiesResponse, Error<PolicyChecksError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_repository = repository;
+    let p_query_tag = tag;
+    let p_query_registry = registry;
+
+    let uri_str = format!(
+        "{}/image-assessment/entities/policy-checks/v2",
+        configuration.base_path
+    );
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_registry {
+        req_builder = req_builder.query(&[("registry", &param_value.to_string())]);
+    }
+    req_builder = req_builder.query(&[("repository", &p_query_repository.to_string())]);
+    req_builder = req_builder.query(&[("tag", &p_query_tag.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPolicyEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPolicyEntitiesResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PolicyChecksError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
 pub async fn post_image_scan_inventory(
     configuration: &configuration::Configuration,
-    body: models::ModelsPeriodInventoryScanRequestType,
+    body: models::ModelsInventoryScanRequestType,
 ) -> Result<(), Error<PostImageScanInventoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/image-assessment/entities/image-inventory/v1",
@@ -398,7 +624,7 @@ pub async fn post_image_scan_inventory(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -421,9 +647,9 @@ pub async fn post_image_scan_inventory(
 pub async fn query_export_jobs(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryExportJobsError>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueryExportJobsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/queries/exports/v1",
@@ -431,7 +657,7 @@ pub async fn query_export_jobs(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -456,8 +682,8 @@ pub async fn query_export_jobs(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -473,9 +699,9 @@ pub async fn query_export_jobs(
 pub async fn read_export_jobs(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ExportsPeriodExportsResponse, Error<ReadExportJobsError>> {
+) -> Result<models::ExportsExportsResponse, Error<ReadExportJobsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/container-security/entities/exports/v1",
@@ -485,14 +711,14 @@ pub async fn read_export_jobs(
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -522,8 +748,8 @@ pub async fn read_export_jobs(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ExportsPeriodExportsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ExportsPeriodExportsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ExportsExportsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ExportsExportsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -541,11 +767,11 @@ pub async fn read_registry_entities(
     limit: Option<i32>,
     offset: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::DomainPeriodExternalQueryResponse, Error<ReadRegistryEntitiesError>> {
+) -> Result<models::DomainExternalQueryResponse, Error<ReadRegistryEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/container-security/queries/registries/v1",
@@ -553,13 +779,13 @@ pub async fn read_registry_entities(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -584,8 +810,8 @@ pub async fn read_registry_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodExternalQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodExternalQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainExternalQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainExternalQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -601,10 +827,9 @@ pub async fn read_registry_entities(
 pub async fn read_registry_entities_by_uuid(
     configuration: &configuration::Configuration,
     ids: &str,
-) -> Result<models::DomainPeriodExternalRegistryListResponse, Error<ReadRegistryEntitiesByUuidError>>
-{
+) -> Result<models::DomainExternalRegistryListResponse, Error<ReadRegistryEntitiesByUuidError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/container-security/entities/registries/v1",
@@ -612,7 +837,7 @@ pub async fn read_registry_entities_by_uuid(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("ids", &p_ids.to_string())]);
+    req_builder = req_builder.query(&[("ids", &p_query_ids.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -635,8 +860,8 @@ pub async fn read_registry_entities_by_uuid(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodExternalRegistryListResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodExternalRegistryListResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainExternalRegistryListResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainExternalRegistryListResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -652,11 +877,11 @@ pub async fn read_registry_entities_by_uuid(
 pub async fn update_registry_entities(
     configuration: &configuration::Configuration,
     id: &str,
-    body: models::RegistryassessmentPeriodExternalRegistryPatchPayload,
-) -> Result<models::DomainPeriodExternalRegistryResponse, Error<UpdateRegistryEntitiesError>> {
+    body: models::RegistryassessmentExternalRegistryPatchPayload,
+) -> Result<models::DomainExternalRegistryResponse, Error<UpdateRegistryEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_body = body;
+    let p_query_id = id;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/container-security/entities/registries/v1",
@@ -666,14 +891,14 @@ pub async fn update_registry_entities(
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -690,8 +915,8 @@ pub async fn update_registry_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodExternalRegistryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodExternalRegistryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainExternalRegistryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainExternalRegistryResponse`")))),
         }
     } else {
         let content = resp.text().await?;

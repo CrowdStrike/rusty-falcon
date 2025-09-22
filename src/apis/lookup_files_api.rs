@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateFileV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,11 +29,11 @@ pub enum CreateFileV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateFileV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -46,15 +46,15 @@ pub async fn create_file_v1(
     description: Option<&str>,
     id: Option<&str>,
     repo: Option<&str>,
-) -> Result<models::DomainPeriodLookupFileWrapper, Error<CreateFileV1Error>> {
+) -> Result<models::DomainLookupFileWrapper, Error<CreateFileV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let _p_file = file;
-    let p_name = name;
-    let p_x_cs_username = x_cs_username;
-    let p_x_cs_useruuid = x_cs_useruuid;
-    let p_description = description;
-    let p_id = id;
-    let p_repo = repo;
+    let _p_form_file = file;
+    let p_form_name = name;
+    let p_header_x_cs_username = x_cs_username;
+    let p_header_x_cs_useruuid = x_cs_useruuid;
+    let p_form_description = description;
+    let p_form_id = id;
+    let p_form_repo = repo;
 
     let uri_str = format!(
         "{}/loggingapi/entities/lookup-files/v1",
@@ -67,22 +67,22 @@ pub async fn create_file_v1(
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(param_value) = p_x_cs_username {
+    if let Some(param_value) = p_header_x_cs_username {
         req_builder = req_builder.header("X-CS-USERNAME", param_value.to_string());
     }
-    if let Some(param_value) = p_x_cs_useruuid {
+    if let Some(param_value) = p_header_x_cs_useruuid {
         req_builder = req_builder.header("X-CS-USERUUID", param_value.to_string());
     }
     let mut multipart_form = reqwest::multipart::Form::new();
     // TODO: support file upload for 'file' parameter
-    multipart_form = multipart_form.text("name", p_name.to_string());
-    if let Some(param_value) = p_description {
+    multipart_form = multipart_form.text("name", p_form_name.to_string());
+    if let Some(param_value) = p_form_description {
         multipart_form = multipart_form.text("description", param_value.to_string());
     }
-    if let Some(param_value) = p_id {
+    if let Some(param_value) = p_form_id {
         multipart_form = multipart_form.text("id", param_value.to_string());
     }
-    if let Some(param_value) = p_repo {
+    if let Some(param_value) = p_form_repo {
         multipart_form = multipart_form.text("repo", param_value.to_string());
     }
     req_builder = req_builder.multipart(multipart_form);
@@ -102,8 +102,8 @@ pub async fn create_file_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodLookupFileWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodLookupFileWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainLookupFileWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainLookupFileWrapper`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -123,13 +123,13 @@ pub async fn update_file_v1(
     x_cs_useruuid: Option<&str>,
     description: Option<&str>,
     file: Option<std::path::PathBuf>,
-) -> Result<models::DomainPeriodLookupFileWrapper, Error<UpdateFileV1Error>> {
+) -> Result<models::DomainLookupFileWrapper, Error<UpdateFileV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_x_cs_username = x_cs_username;
-    let p_x_cs_useruuid = x_cs_useruuid;
-    let p_description = description;
-    let _p_file = file;
+    let p_form_id = id;
+    let p_header_x_cs_username = x_cs_username;
+    let p_header_x_cs_useruuid = x_cs_useruuid;
+    let p_form_description = description;
+    let _p_form_file = file;
 
     let uri_str = format!(
         "{}/loggingapi/entities/lookup-files/v1",
@@ -142,15 +142,15 @@ pub async fn update_file_v1(
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(param_value) = p_x_cs_username {
+    if let Some(param_value) = p_header_x_cs_username {
         req_builder = req_builder.header("X-CS-USERNAME", param_value.to_string());
     }
-    if let Some(param_value) = p_x_cs_useruuid {
+    if let Some(param_value) = p_header_x_cs_useruuid {
         req_builder = req_builder.header("X-CS-USERUUID", param_value.to_string());
     }
     let mut multipart_form = reqwest::multipart::Form::new();
-    multipart_form = multipart_form.text("id", p_id.to_string());
-    if let Some(param_value) = p_description {
+    multipart_form = multipart_form.text("id", p_form_id.to_string());
+    if let Some(param_value) = p_form_description {
         multipart_form = multipart_form.text("description", param_value.to_string());
     }
     // TODO: support file upload for 'file' parameter
@@ -171,8 +171,8 @@ pub async fn update_file_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodLookupFileWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodLookupFileWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainLookupFileWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainLookupFileWrapper`")))),
         }
     } else {
         let content = resp.text().await?;

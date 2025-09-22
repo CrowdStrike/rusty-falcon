@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetQueriesAlertsV1Error {
-    Status400(models::DetectsapiPeriodAlertQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DetectsapiPeriodAlertQueryResponse),
+    Status400(models::DetectsapiAlertQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DetectsapiAlertQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum GetQueriesAlertsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetQueriesAlertsV2Error {
-    Status400(models::DetectsapiPeriodAlertQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DetectsapiPeriodAlertQueryResponse),
+    Status400(models::DetectsapiAlertQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DetectsapiAlertQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum GetQueriesAlertsV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PatchEntitiesAlertsV2Error {
-    Status400(models::DetectsapiPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DetectsapiPeriodResponseFields),
+    Status400(models::DetectsapiResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DetectsapiResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +50,10 @@ pub enum PatchEntitiesAlertsV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PatchEntitiesAlertsV3Error {
-    Status400(models::DetectsapiPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DetectsapiPeriodResponseFields),
+    Status400(models::DetectsapiResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DetectsapiResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,10 +61,10 @@ pub enum PatchEntitiesAlertsV3Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostAggregatesAlertsV1Error {
-    Status400(models::DetectsapiPeriodAggregatesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DetectsapiPeriodAggregatesResponse),
+    Status400(models::DetectsapiAggregatesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DetectsapiAggregatesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -72,10 +72,10 @@ pub enum PostAggregatesAlertsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostAggregatesAlertsV2Error {
-    Status400(models::DetectsapiPeriodAggregatesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DetectsapiPeriodAggregatesResponse),
+    Status400(models::DetectsapiAggregatesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DetectsapiAggregatesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -83,10 +83,10 @@ pub enum PostAggregatesAlertsV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostCombinedAlertsV1Error {
-    Status400(models::DetectsapiPeriodPostCombinedAlertsV1ResponseSwagger),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DetectsapiPeriodPostCombinedAlertsV1ResponseSwagger),
+    Status400(models::DetectsapiPostCombinedAlertsV1ResponseSwagger),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DetectsapiPostCombinedAlertsV1ResponseSwagger),
     UnknownValue(serde_json::Value),
 }
 
@@ -94,10 +94,10 @@ pub enum PostCombinedAlertsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostEntitiesAlertsV1Error {
-    Status400(models::DetectsapiPeriodPostEntitiesAlertsV1ResponseSwagger),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DetectsapiPeriodPostEntitiesAlertsV1ResponseSwagger),
+    Status400(models::DetectsapiPostEntitiesAlertsV1ResponseSwagger),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DetectsapiPostEntitiesAlertsV1ResponseSwagger),
     UnknownValue(serde_json::Value),
 }
 
@@ -105,10 +105,10 @@ pub enum PostEntitiesAlertsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostEntitiesAlertsV2Error {
-    Status400(models::DetectsapiPeriodPostEntitiesAlertsV2ResponseSwagger),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DetectsapiPeriodPostEntitiesAlertsV2ResponseSwagger),
+    Status400(models::DetectsapiPostEntitiesAlertsV2ResponseSwagger),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DetectsapiPostEntitiesAlertsV2ResponseSwagger),
     UnknownValue(serde_json::Value),
 }
 
@@ -119,30 +119,30 @@ pub async fn get_queries_alerts_v1(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<models::DetectsapiPeriodAlertQueryResponse, Error<GetQueriesAlertsV1Error>> {
+) -> Result<models::DetectsapiAlertQueryResponse, Error<GetQueriesAlertsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
 
     let uri_str = format!("{}/alerts/queries/alerts/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -167,8 +167,8 @@ pub async fn get_queries_alerts_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiPeriodAlertQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiPeriodAlertQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiAlertQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiAlertQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -189,34 +189,34 @@ pub async fn get_queries_alerts_v2(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<models::DetectsapiPeriodAlertQueryResponse, Error<GetQueriesAlertsV2Error>> {
+) -> Result<models::DetectsapiAlertQueryResponse, Error<GetQueriesAlertsV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_include_hidden = include_hidden;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
+    let p_query_include_hidden = include_hidden;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
 
     let uri_str = format!("{}/alerts/queries/alerts/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_include_hidden {
+    if let Some(ref param_value) = p_query_include_hidden {
         req_builder = req_builder.query(&[("include_hidden", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -241,8 +241,8 @@ pub async fn get_queries_alerts_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiPeriodAlertQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiPeriodAlertQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiAlertQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiAlertQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -257,10 +257,10 @@ pub async fn get_queries_alerts_v2(
 
 pub async fn patch_entities_alerts_v2(
     configuration: &configuration::Configuration,
-    body: models::DetectsapiPeriodPatchEntitiesAlertsV2Request,
-) -> Result<models::DetectsapiPeriodResponseFields, Error<PatchEntitiesAlertsV2Error>> {
+    body: models::DetectsapiPatchEntitiesAlertsV2Request,
+) -> Result<models::DetectsapiResponseFields, Error<PatchEntitiesAlertsV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/alerts/entities/alerts/v2", configuration.base_path);
     let mut req_builder = configuration
@@ -273,7 +273,7 @@ pub async fn patch_entities_alerts_v2(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -290,8 +290,8 @@ pub async fn patch_entities_alerts_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiPeriodResponseFields`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiPeriodResponseFields`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiResponseFields`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiResponseFields`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -306,19 +306,19 @@ pub async fn patch_entities_alerts_v2(
 
 pub async fn patch_entities_alerts_v3(
     configuration: &configuration::Configuration,
-    body: models::DetectsapiPeriodPatchEntitiesAlertsV3Request,
+    body: models::DetectsapiPatchEntitiesAlertsV3Request,
     include_hidden: Option<bool>,
-) -> Result<models::DetectsapiPeriodResponseFields, Error<PatchEntitiesAlertsV3Error>> {
+) -> Result<models::DetectsapiResponseFields, Error<PatchEntitiesAlertsV3Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_include_hidden = include_hidden;
+    let p_body_body = body;
+    let p_query_include_hidden = include_hidden;
 
     let uri_str = format!("{}/alerts/entities/alerts/v3", configuration.base_path);
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    if let Some(ref param_value) = p_include_hidden {
+    if let Some(ref param_value) = p_query_include_hidden {
         req_builder = req_builder.query(&[("include_hidden", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -327,7 +327,7 @@ pub async fn patch_entities_alerts_v3(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -344,8 +344,8 @@ pub async fn patch_entities_alerts_v3(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiPeriodResponseFields`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiPeriodResponseFields`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiResponseFields`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiResponseFields`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -360,10 +360,10 @@ pub async fn patch_entities_alerts_v3(
 
 pub async fn post_aggregates_alerts_v1(
     configuration: &configuration::Configuration,
-    body: Vec<models::DetectsapiPeriodAggregateAlertQueryRequest>,
-) -> Result<models::DetectsapiPeriodAggregatesResponse, Error<PostAggregatesAlertsV1Error>> {
+    body: Vec<models::DetectsapiAggregateAlertQueryRequest>,
+) -> Result<models::DetectsapiAggregatesResponse, Error<PostAggregatesAlertsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/alerts/aggregates/alerts/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -376,7 +376,7 @@ pub async fn post_aggregates_alerts_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -393,8 +393,8 @@ pub async fn post_aggregates_alerts_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -409,19 +409,19 @@ pub async fn post_aggregates_alerts_v1(
 
 pub async fn post_aggregates_alerts_v2(
     configuration: &configuration::Configuration,
-    body: Vec<models::DetectsapiPeriodAggregateAlertQueryRequest>,
+    body: Vec<models::DetectsapiAggregateAlertQueryRequest>,
     include_hidden: Option<bool>,
-) -> Result<models::DetectsapiPeriodAggregatesResponse, Error<PostAggregatesAlertsV2Error>> {
+) -> Result<models::DetectsapiAggregatesResponse, Error<PostAggregatesAlertsV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_include_hidden = include_hidden;
+    let p_body_body = body;
+    let p_query_include_hidden = include_hidden;
 
     let uri_str = format!("{}/alerts/aggregates/alerts/v2", configuration.base_path);
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_include_hidden {
+    if let Some(ref param_value) = p_query_include_hidden {
         req_builder = req_builder.query(&[("include_hidden", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -430,7 +430,7 @@ pub async fn post_aggregates_alerts_v2(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -447,8 +447,8 @@ pub async fn post_aggregates_alerts_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -463,13 +463,11 @@ pub async fn post_aggregates_alerts_v2(
 
 pub async fn post_combined_alerts_v1(
     configuration: &configuration::Configuration,
-    body: models::DetectsapiPeriodPostCombinedAlertsV1RequestSwagger,
-) -> Result<
-    models::DetectsapiPeriodPostCombinedAlertsV1ResponseSwagger,
-    Error<PostCombinedAlertsV1Error>,
-> {
+    body: models::DetectsapiPostCombinedAlertsV1RequestSwagger,
+) -> Result<models::DetectsapiPostCombinedAlertsV1ResponseSwagger, Error<PostCombinedAlertsV1Error>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/alerts/combined/alerts/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -482,7 +480,7 @@ pub async fn post_combined_alerts_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -499,8 +497,8 @@ pub async fn post_combined_alerts_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiPeriodPostCombinedAlertsV1ResponseSwagger`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiPeriodPostCombinedAlertsV1ResponseSwagger`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiPostCombinedAlertsV1ResponseSwagger`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiPostCombinedAlertsV1ResponseSwagger`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -515,13 +513,11 @@ pub async fn post_combined_alerts_v1(
 
 pub async fn post_entities_alerts_v1(
     configuration: &configuration::Configuration,
-    body: models::DetectsapiPeriodPostEntitiesAlertsV1Request,
-) -> Result<
-    models::DetectsapiPeriodPostEntitiesAlertsV1ResponseSwagger,
-    Error<PostEntitiesAlertsV1Error>,
-> {
+    body: models::DetectsapiPostEntitiesAlertsV1Request,
+) -> Result<models::DetectsapiPostEntitiesAlertsV1ResponseSwagger, Error<PostEntitiesAlertsV1Error>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/alerts/entities/alerts/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -534,7 +530,7 @@ pub async fn post_entities_alerts_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -551,8 +547,8 @@ pub async fn post_entities_alerts_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiPeriodPostEntitiesAlertsV1ResponseSwagger`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiPeriodPostEntitiesAlertsV1ResponseSwagger`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiPostEntitiesAlertsV1ResponseSwagger`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiPostEntitiesAlertsV1ResponseSwagger`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -567,22 +563,20 @@ pub async fn post_entities_alerts_v1(
 
 pub async fn post_entities_alerts_v2(
     configuration: &configuration::Configuration,
-    body: models::DetectsapiPeriodPostEntitiesAlertsV2Request,
+    body: models::DetectsapiPostEntitiesAlertsV2Request,
     include_hidden: Option<bool>,
-) -> Result<
-    models::DetectsapiPeriodPostEntitiesAlertsV2ResponseSwagger,
-    Error<PostEntitiesAlertsV2Error>,
-> {
+) -> Result<models::DetectsapiPostEntitiesAlertsV2ResponseSwagger, Error<PostEntitiesAlertsV2Error>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_include_hidden = include_hidden;
+    let p_body_body = body;
+    let p_query_include_hidden = include_hidden;
 
     let uri_str = format!("{}/alerts/entities/alerts/v2", configuration.base_path);
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_include_hidden {
+    if let Some(ref param_value) = p_query_include_hidden {
         req_builder = req_builder.query(&[("include_hidden", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -591,7 +585,7 @@ pub async fn post_entities_alerts_v2(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -608,8 +602,8 @@ pub async fn post_entities_alerts_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiPeriodPostEntitiesAlertsV2ResponseSwagger`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiPeriodPostEntitiesAlertsV2ResponseSwagger`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DetectsapiPostEntitiesAlertsV2ResponseSwagger`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DetectsapiPostEntitiesAlertsV2ResponseSwagger`")))),
         }
     } else {
         let content = resp.text().await?;

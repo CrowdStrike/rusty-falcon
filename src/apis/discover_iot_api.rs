@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIotHostsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum GetIotHostsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIotHostsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,33 +39,33 @@ pub enum QueryIotHostsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIotHostsV2Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn get_iot_hosts(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodDiscoverApiioTHostEntitiesResponse, Error<GetIotHostsError>> {
+) -> Result<models::DomainDiscoverApiioTHostEntitiesResponse, Error<GetIotHostsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/discover/entities/iot-hosts/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -95,8 +95,8 @@ pub async fn get_iot_hosts(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodDiscoverApiioTHostEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodDiscoverApiioTHostEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainDiscoverApiioTHostEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainDiscoverApiioTHostEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -115,26 +115,26 @@ pub async fn query_iot_hosts(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryIotHostsError>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueryIotHostsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
 
     let uri_str = format!("{}/discover/queries/iot-hosts/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -159,8 +159,8 @@ pub async fn query_iot_hosts(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -179,26 +179,26 @@ pub async fn query_iot_hosts_v2(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<models::DomainPeriodDiscoverApiResponse, Error<QueryIotHostsV2Error>> {
+) -> Result<models::DomainDiscoverApiResponse, Error<QueryIotHostsV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_after = after;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
+    let p_query_after = after;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
 
     let uri_str = format!("{}/discover/queries/iot-hosts/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_after {
+    if let Some(ref param_value) = p_query_after {
         req_builder = req_builder.query(&[("after", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -223,8 +223,8 @@ pub async fn query_iot_hosts_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodDiscoverApiResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodDiscoverApiResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainDiscoverApiResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainDiscoverApiResponse`")))),
         }
     } else {
         let content = resp.text().await?;

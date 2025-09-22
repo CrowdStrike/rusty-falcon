@@ -13,15 +13,15 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StringWrapper {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::MsaspecPeriodError>>,
+    pub errors: Option<Vec<models::MsaspecError>>,
     #[serde(rename = "meta")]
-    pub meta: Box<models::MsaspecPeriodMetaInfo>,
+    pub meta: Box<models::MsaspecMetaInfo>,
     #[serde(rename = "resources")]
     pub resources: Vec<String>,
 }
 
 impl StringWrapper {
-    pub fn new(meta: models::MsaspecPeriodMetaInfo, resources: Vec<String>) -> StringWrapper {
+    pub fn new(meta: models::MsaspecMetaInfo, resources: Vec<String>) -> StringWrapper {
         StringWrapper {
             errors: None,
             meta: Box::new(meta),

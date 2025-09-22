@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DownloadSensorInstallerByIdError {
-    Status400(models::MsaspecPeriodQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,11 +29,11 @@ pub enum DownloadSensorInstallerByIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DownloadSensorInstallerByIdV2Error {
-    Status400(models::MsaspecPeriodQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,10 +41,10 @@ pub enum DownloadSensorInstallerByIdV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCombinedSensorInstallersByQueryError {
-    Status400(models::MsaspecPeriodQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -52,10 +52,10 @@ pub enum GetCombinedSensorInstallersByQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCombinedSensorInstallersByQueryV2Error {
-    Status400(models::MsaspecPeriodQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -63,10 +63,10 @@ pub enum GetCombinedSensorInstallersByQueryV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSensorInstallersByQueryError {
-    Status400(models::MsaspecPeriodQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -74,10 +74,10 @@ pub enum GetSensorInstallersByQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSensorInstallersByQueryV2Error {
-    Status400(models::MsaspecPeriodQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -85,10 +85,10 @@ pub enum GetSensorInstallersByQueryV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSensorInstallersCcidbyQueryError {
-    Status400(models::MsaspecPeriodQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -96,11 +96,11 @@ pub enum GetSensorInstallersCcidbyQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSensorInstallersEntitiesError {
-    Status400(models::MsaspecPeriodQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -108,11 +108,11 @@ pub enum GetSensorInstallersEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSensorInstallersEntitiesV2Error {
-    Status400(models::MsaspecPeriodQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -121,7 +121,7 @@ pub async fn download_sensor_installer_by_id(
     id: &str,
 ) -> Result<serde_json::Value, Error<DownloadSensorInstallerByIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_query_id = id;
 
     let uri_str = format!(
         "{}/sensors/entities/download-installer/v1",
@@ -129,7 +129,7 @@ pub async fn download_sensor_installer_by_id(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -171,7 +171,7 @@ pub async fn download_sensor_installer_by_id_v2(
     id: &str,
 ) -> Result<serde_json::Value, Error<DownloadSensorInstallerByIdV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_query_id = id;
 
     let uri_str = format!(
         "{}/sensors/entities/download-installer/v2",
@@ -179,7 +179,7 @@ pub async fn download_sensor_installer_by_id_v2(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -223,27 +223,26 @@ pub async fn get_combined_sensor_installers_by_query(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<models::DomainPeriodSensorInstallersV1, Error<GetCombinedSensorInstallersByQueryError>>
-{
+) -> Result<models::DomainSensorInstallersV1, Error<GetCombinedSensorInstallersByQueryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
 
     let uri_str = format!("{}/sensors/combined/installers/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -268,8 +267,8 @@ pub async fn get_combined_sensor_installers_by_query(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodSensorInstallersV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodSensorInstallersV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainSensorInstallersV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainSensorInstallersV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -289,27 +288,26 @@ pub async fn get_combined_sensor_installers_by_query_v2(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<models::DomainPeriodSensorInstallersV2, Error<GetCombinedSensorInstallersByQueryV2Error>>
-{
+) -> Result<models::DomainSensorInstallersV2, Error<GetCombinedSensorInstallersByQueryV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
 
     let uri_str = format!("{}/sensors/combined/installers/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -334,8 +332,8 @@ pub async fn get_combined_sensor_installers_by_query_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodSensorInstallersV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodSensorInstallersV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainSensorInstallersV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainSensorInstallersV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -355,26 +353,26 @@ pub async fn get_sensor_installers_by_query(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<GetSensorInstallersByQueryError>> {
+) -> Result<models::MsaspecQueryResponse, Error<GetSensorInstallersByQueryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
 
     let uri_str = format!("{}/sensors/queries/installers/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -399,8 +397,8 @@ pub async fn get_sensor_installers_by_query(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -419,26 +417,26 @@ pub async fn get_sensor_installers_by_query_v2(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<GetSensorInstallersByQueryV2Error>> {
+) -> Result<models::MsaspecQueryResponse, Error<GetSensorInstallersByQueryV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
 
     let uri_str = format!("{}/sensors/queries/installers/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -463,8 +461,8 @@ pub async fn get_sensor_installers_by_query_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -479,7 +477,7 @@ pub async fn get_sensor_installers_by_query_v2(
 
 pub async fn get_sensor_installers_ccidby_query(
     configuration: &configuration::Configuration,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<GetSensorInstallersCcidbyQueryError>> {
+) -> Result<models::MsaspecQueryResponse, Error<GetSensorInstallersCcidbyQueryError>> {
     let uri_str = format!(
         "{}/sensors/queries/installers/ccid/v1",
         configuration.base_path
@@ -508,8 +506,8 @@ pub async fn get_sensor_installers_ccidby_query(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -526,23 +524,23 @@ pub async fn get_sensor_installers_ccidby_query(
 pub async fn get_sensor_installers_entities(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodSensorInstallersV1, Error<GetSensorInstallersEntitiesError>> {
+) -> Result<models::DomainSensorInstallersV1, Error<GetSensorInstallersEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/sensors/entities/installers/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -572,8 +570,8 @@ pub async fn get_sensor_installers_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodSensorInstallersV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodSensorInstallersV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainSensorInstallersV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainSensorInstallersV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -589,23 +587,23 @@ pub async fn get_sensor_installers_entities(
 pub async fn get_sensor_installers_entities_v2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodSensorInstallersV2, Error<GetSensorInstallersEntitiesV2Error>> {
+) -> Result<models::DomainSensorInstallersV2, Error<GetSensorInstallersEntitiesV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/sensors/entities/installers/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -635,8 +633,8 @@ pub async fn get_sensor_installers_entities_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodSensorInstallersV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodSensorInstallersV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainSensorInstallersV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainSensorInstallersV2`")))),
         }
     } else {
         let content = resp.text().await?;

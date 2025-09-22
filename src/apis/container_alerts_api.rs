@@ -17,9 +17,9 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadContainerAlertsCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,9 +27,9 @@ pub enum ReadContainerAlertsCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadContainerAlertsCountBySeverityError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,18 +37,18 @@ pub enum ReadContainerAlertsCountBySeverityError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SearchAndReadContainerAlertsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn read_container_alerts_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::AlertsPeriodContainerAlertsCountValue, Error<ReadContainerAlertsCountError>> {
+) -> Result<models::AlertsContainerAlertsCountValue, Error<ReadContainerAlertsCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/container-alerts/count/v1",
@@ -56,7 +56,7 @@ pub async fn read_container_alerts_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -81,8 +81,8 @@ pub async fn read_container_alerts_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AlertsPeriodContainerAlertsCountValue`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AlertsPeriodContainerAlertsCountValue`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AlertsContainerAlertsCountValue`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AlertsContainerAlertsCountValue`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -98,12 +98,10 @@ pub async fn read_container_alerts_count(
 pub async fn read_container_alerts_count_by_severity(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<
-    models::AlertsPeriodContainerAlertsCountValue,
-    Error<ReadContainerAlertsCountBySeverityError>,
-> {
+) -> Result<models::AlertsContainerAlertsCountValue, Error<ReadContainerAlertsCountBySeverityError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/container-alerts/count-by-severity/v1",
@@ -111,7 +109,7 @@ pub async fn read_container_alerts_count_by_severity(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -136,8 +134,8 @@ pub async fn read_container_alerts_count_by_severity(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AlertsPeriodContainerAlertsCountValue`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AlertsPeriodContainerAlertsCountValue`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AlertsContainerAlertsCountValue`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AlertsContainerAlertsCountValue`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -157,15 +155,12 @@ pub async fn search_and_read_container_alerts(
     limit: Option<i32>,
     offset: Option<i32>,
     sort: Option<&str>,
-) -> Result<
-    models::AlertsPeriodContainerAlertsEntityResponse,
-    Error<SearchAndReadContainerAlertsError>,
-> {
+) -> Result<models::AlertsContainerAlertsEntityResponse, Error<SearchAndReadContainerAlertsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/container-security/combined/container-alerts/v1",
@@ -173,16 +168,16 @@ pub async fn search_and_read_container_alerts(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -207,8 +202,8 @@ pub async fn search_and_read_container_alerts(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AlertsPeriodContainerAlertsEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AlertsPeriodContainerAlertsEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AlertsContainerAlertsEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AlertsContainerAlertsEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;

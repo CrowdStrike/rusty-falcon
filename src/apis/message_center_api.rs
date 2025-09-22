@@ -17,9 +17,9 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateCasesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,10 +27,10 @@ pub enum AggregateCasesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CaseAddActivityError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -38,10 +38,10 @@ pub enum CaseAddActivityError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CaseAddAttachmentError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -49,11 +49,11 @@ pub enum CaseAddAttachmentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CaseDownloadAttachmentError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,10 +61,10 @@ pub enum CaseDownloadAttachmentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCaseV2Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -72,10 +72,10 @@ pub enum CreateCaseV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCaseActivityByIdsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -83,10 +83,10 @@ pub enum GetCaseActivityByIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCaseEntitiesByIdsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -94,10 +94,10 @@ pub enum GetCaseEntitiesByIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryActivityByCaseIdError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -105,19 +105,19 @@ pub enum QueryActivityByCaseIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCasesIdsByFilterError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn aggregate_cases(
     configuration: &configuration::Configuration,
-    body: Vec<models::MsaPeriodAggregateQueryRequest>,
-) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateCasesError>> {
+    body: Vec<models::MsaAggregateQueryRequest>,
+) -> Result<models::MsaAggregatesResponse, Error<AggregateCasesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/message-center/aggregates/cases/GET/v1",
@@ -133,7 +133,7 @@ pub async fn aggregate_cases(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -150,8 +150,8 @@ pub async fn aggregate_cases(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -166,10 +166,10 @@ pub async fn aggregate_cases(
 
 pub async fn case_add_activity(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodActivityCreationRequest,
-) -> Result<models::MsaspecPeriodResponseFields, Error<CaseAddActivityError>> {
+    body: models::MessagecenterActivityCreationRequest,
+) -> Result<models::MsaspecResponseFields, Error<CaseAddActivityError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/message-center/entities/case-activity/v1",
@@ -185,7 +185,7 @@ pub async fn case_add_activity(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -202,8 +202,8 @@ pub async fn case_add_activity(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecResponseFields`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecResponseFields`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -222,11 +222,11 @@ pub async fn case_add_attachment(
     case_id: &str,
     user_uuid: &str,
     file: std::path::PathBuf,
-) -> Result<models::ApiPeriodMessageCenterAttachmentUploadResponse, Error<CaseAddAttachmentError>> {
+) -> Result<models::ApiMessageCenterAttachmentUploadResponse, Error<CaseAddAttachmentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_case_id = case_id;
-    let p_user_uuid = user_uuid;
-    let _p_file = file;
+    let p_form_case_id = case_id;
+    let p_form_user_uuid = user_uuid;
+    let _p_form_file = file;
 
     let uri_str = format!(
         "{}/message-center/entities/case-attachment/v1",
@@ -243,8 +243,8 @@ pub async fn case_add_attachment(
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
     let mut multipart_form = reqwest::multipart::Form::new();
-    multipart_form = multipart_form.text("case_id", p_case_id.to_string());
-    multipart_form = multipart_form.text("user_uuid", p_user_uuid.to_string());
+    multipart_form = multipart_form.text("case_id", p_form_case_id.to_string());
+    multipart_form = multipart_form.text("user_uuid", p_form_user_uuid.to_string());
     // TODO: support file upload for 'file' parameter
     req_builder = req_builder.multipart(multipart_form);
 
@@ -263,8 +263,8 @@ pub async fn case_add_attachment(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodMessageCenterAttachmentUploadResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodMessageCenterAttachmentUploadResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMessageCenterAttachmentUploadResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMessageCenterAttachmentUploadResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -282,7 +282,7 @@ pub async fn case_download_attachment(
     id: &str,
 ) -> Result<String, Error<CaseDownloadAttachmentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_query_id = id;
 
     let uri_str = format!(
         "{}/message-center/entities/case-attachment/v1",
@@ -290,7 +290,7 @@ pub async fn case_download_attachment(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -329,10 +329,10 @@ pub async fn case_download_attachment(
 
 pub async fn create_case_v2(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodCaseCreationRequestV2,
-) -> Result<models::MsaPeriodReplyAffectedEntities, Error<CreateCaseV2Error>> {
+    body: models::MessagecenterCaseCreationRequestV2,
+) -> Result<models::MsaReplyAffectedEntities, Error<CreateCaseV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/message-center/entities/case/v2",
@@ -348,7 +348,7 @@ pub async fn create_case_v2(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -365,8 +365,8 @@ pub async fn create_case_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodReplyAffectedEntities`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodReplyAffectedEntities`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaReplyAffectedEntities`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaReplyAffectedEntities`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -381,10 +381,10 @@ pub async fn create_case_v2(
 
 pub async fn get_case_activity_by_ids(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodIdsRequest,
-) -> Result<models::ApiPeriodMessageCenterActivityResponse, Error<GetCaseActivityByIdsError>> {
+    body: models::MsaIdsRequest,
+) -> Result<models::ApiMessageCenterActivityResponse, Error<GetCaseActivityByIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/message-center/entities/case-activities/GET/v1",
@@ -400,7 +400,7 @@ pub async fn get_case_activity_by_ids(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -417,8 +417,8 @@ pub async fn get_case_activity_by_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodMessageCenterActivityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodMessageCenterActivityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMessageCenterActivityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMessageCenterActivityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -433,10 +433,10 @@ pub async fn get_case_activity_by_ids(
 
 pub async fn get_case_entities_by_ids(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodIdsRequest,
-) -> Result<models::ApiPeriodMessageCenterCasesResponse, Error<GetCaseEntitiesByIdsError>> {
+    body: models::MsaIdsRequest,
+) -> Result<models::ApiMessageCenterCasesResponse, Error<GetCaseEntitiesByIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/message-center/entities/cases/GET/v1",
@@ -452,7 +452,7 @@ pub async fn get_case_entities_by_ids(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -469,8 +469,8 @@ pub async fn get_case_entities_by_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodMessageCenterCasesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodMessageCenterCasesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiMessageCenterCasesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiMessageCenterCasesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -490,13 +490,13 @@ pub async fn query_activity_by_case_id(
     sort: Option<&str>,
     filter: Option<&str>,
     offset: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryActivityByCaseIdError>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueryActivityByCaseIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_case_id = case_id;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_offset = offset;
+    let p_query_case_id = case_id;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/message-center/queries/case-activities/v1",
@@ -504,19 +504,19 @@ pub async fn query_activity_by_case_id(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    req_builder = req_builder.query(&[("case_id", &p_case_id.to_string())]);
+    req_builder = req_builder.query(&[("case_id", &p_query_case_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -539,8 +539,8 @@ pub async fn query_activity_by_case_id(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -559,12 +559,12 @@ pub async fn query_cases_ids_by_filter(
     sort: Option<&str>,
     filter: Option<&str>,
     offset: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryCasesIdsByFilterError>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueryCasesIdsByFilterError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/message-center/queries/cases/v1",
@@ -572,16 +572,16 @@ pub async fn query_cases_ids_by_filter(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -606,8 +606,8 @@ pub async fn query_cases_ids_by_filter(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;

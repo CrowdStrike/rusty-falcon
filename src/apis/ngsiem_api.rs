@@ -13,14 +13,157 @@ use crate::{apis::ResponseContent, models};
 use reqwest;
 use serde::de::Error as _;
 
+/// struct for typed errors of method [`create_dashboard_from_template`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateDashboardFromTemplateError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_lookup_file`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateLookupFileError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_parser`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateParserError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_parser_from_template`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateParserFromTemplateError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_saved_query`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateSavedQueryError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_dashboard`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteDashboardError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_lookup_file`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteLookupFileError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_parser`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteParserError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_saved_query`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteSavedQueryError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_dashboard_template`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetDashboardTemplateError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_lookup_file`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetLookupFileError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_lookup_from_package_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLookupFromPackageV1Error {
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +171,10 @@ pub enum GetLookupFromPackageV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLookupFromPackageWithNamespaceV1Error {
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +182,49 @@ pub enum GetLookupFromPackageWithNamespaceV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLookupV1Error {
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_parser`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetParserError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_parser_template`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetParserTemplateError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_saved_query_template`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetSavedQueryTemplateError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,11 +232,63 @@ pub enum GetLookupV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSearchStatusV1Error {
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
     Status404(),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`list_dashboards`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ListDashboardsError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`list_lookup_files`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ListLookupFilesError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`list_parsers`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ListParsersError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`list_saved_queries`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ListSavedQueriesError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,11 +296,11 @@ pub enum GetSearchStatusV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum StartSearchV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -74,10 +308,62 @@ pub enum StartSearchV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum StopSearchV1Error {
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_dashboard_from_template`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateDashboardFromTemplateError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_lookup_file`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateLookupFileError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_parser`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateParserError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_saved_query_from_template`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateSavedQueryFromTemplateError {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -85,12 +371,663 @@ pub enum StopSearchV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UploadLookupV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
+}
+
+pub async fn create_dashboard_from_template(
+    configuration: &configuration::Configuration,
+    search_domain: Option<&str>,
+    name: Option<&str>,
+    yaml_template: Option<&str>,
+) -> Result<models::ApiCreateDashboardFromTemplateResponseV1, Error<CreateDashboardFromTemplateError>>
+{
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_form_search_domain = search_domain;
+    let p_form_name = name;
+    let p_form_yaml_template = yaml_template;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/dashboards-template/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    let mut multipart_form = reqwest::multipart::Form::new();
+    if let Some(param_value) = p_form_search_domain {
+        multipart_form = multipart_form.text("search_domain", param_value.to_string());
+    }
+    if let Some(param_value) = p_form_name {
+        multipart_form = multipart_form.text("name", param_value.to_string());
+    }
+    if let Some(param_value) = p_form_yaml_template {
+        multipart_form = multipart_form.text("yaml_template", param_value.to_string());
+    }
+    req_builder = req_builder.multipart(multipart_form);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiCreateDashboardFromTemplateResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiCreateDashboardFromTemplateResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateDashboardFromTemplateError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn create_lookup_file(
+    configuration: &configuration::Configuration,
+    search_domain: Option<&str>,
+    filename: Option<&str>,
+    file: Option<&str>,
+) -> Result<models::ApiCreateLookupFileResponseV1, Error<CreateLookupFileError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_form_search_domain = search_domain;
+    let p_form_filename = filename;
+    let p_form_file = file;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/lookupfiles/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    let mut multipart_form = reqwest::multipart::Form::new();
+    if let Some(param_value) = p_form_search_domain {
+        multipart_form = multipart_form.text("search_domain", param_value.to_string());
+    }
+    if let Some(param_value) = p_form_filename {
+        multipart_form = multipart_form.text("filename", param_value.to_string());
+    }
+    if let Some(param_value) = p_form_file {
+        multipart_form = multipart_form.text("file", param_value.to_string());
+    }
+    req_builder = req_builder.multipart(multipart_form);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiCreateLookupFileResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiCreateLookupFileResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateLookupFileError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn create_parser(
+    configuration: &configuration::Configuration,
+    body: models::ApiCreateParserRequestV1,
+) -> Result<models::ApiCreateParserResponseV1, Error<CreateParserError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_body = body;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/parsers/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    req_builder = req_builder.json(&p_body_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiCreateParserResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiCreateParserResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateParserError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn create_parser_from_template(
+    configuration: &configuration::Configuration,
+    repository: Option<&str>,
+    name: Option<&str>,
+    yaml_template: Option<&str>,
+) -> Result<models::ApiCreateParserFromTemplateResponseV1, Error<CreateParserFromTemplateError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_form_repository = repository;
+    let p_form_name = name;
+    let p_form_yaml_template = yaml_template;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/parsers-template/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    let mut multipart_form = reqwest::multipart::Form::new();
+    if let Some(param_value) = p_form_repository {
+        multipart_form = multipart_form.text("repository", param_value.to_string());
+    }
+    if let Some(param_value) = p_form_name {
+        multipart_form = multipart_form.text("name", param_value.to_string());
+    }
+    if let Some(param_value) = p_form_yaml_template {
+        multipart_form = multipart_form.text("yaml_template", param_value.to_string());
+    }
+    req_builder = req_builder.multipart(multipart_form);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiCreateParserFromTemplateResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiCreateParserFromTemplateResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateParserFromTemplateError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn create_saved_query(
+    configuration: &configuration::Configuration,
+    search_domain: Option<&str>,
+    yaml_template: Option<&str>,
+) -> Result<models::ApiCreateSavedQueryResponseV1, Error<CreateSavedQueryError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_form_search_domain = search_domain;
+    let p_form_yaml_template = yaml_template;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/savedqueries-template/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    let mut multipart_form = reqwest::multipart::Form::new();
+    if let Some(param_value) = p_form_search_domain {
+        multipart_form = multipart_form.text("search_domain", param_value.to_string());
+    }
+    if let Some(param_value) = p_form_yaml_template {
+        multipart_form = multipart_form.text("yaml_template", param_value.to_string());
+    }
+    req_builder = req_builder.multipart(multipart_form);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiCreateSavedQueryResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiCreateSavedQueryResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateSavedQueryError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn delete_dashboard(
+    configuration: &configuration::Configuration,
+    ids: Option<&str>,
+    search_domain: Option<&str>,
+) -> Result<models::ApiDeleteDashboardResponseV1, Error<DeleteDashboardError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+    let p_query_search_domain = search_domain;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/dashboards/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::DELETE, &uri_str);
+
+    if let Some(ref param_value) = p_query_ids {
+        req_builder = req_builder.query(&[("ids", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_search_domain {
+        req_builder = req_builder.query(&[("search_domain", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiDeleteDashboardResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiDeleteDashboardResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteDashboardError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn delete_lookup_file(
+    configuration: &configuration::Configuration,
+    filename: Option<&str>,
+    search_domain: Option<&str>,
+) -> Result<models::ApiDeleteLookupFileResponseV1, Error<DeleteLookupFileError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_filename = filename;
+    let p_query_search_domain = search_domain;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/lookupfiles/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::DELETE, &uri_str);
+
+    if let Some(ref param_value) = p_query_filename {
+        req_builder = req_builder.query(&[("filename", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_search_domain {
+        req_builder = req_builder.query(&[("search_domain", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiDeleteLookupFileResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiDeleteLookupFileResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteLookupFileError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn delete_parser(
+    configuration: &configuration::Configuration,
+    ids: Option<&str>,
+    repository: Option<&str>,
+) -> Result<models::ApiDeleteParserResponseV1, Error<DeleteParserError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+    let p_query_repository = repository;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/parsers/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::DELETE, &uri_str);
+
+    if let Some(ref param_value) = p_query_ids {
+        req_builder = req_builder.query(&[("ids", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_repository {
+        req_builder = req_builder.query(&[("repository", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiDeleteParserResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiDeleteParserResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteParserError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn delete_saved_query(
+    configuration: &configuration::Configuration,
+    ids: Option<&str>,
+    search_domain: Option<&str>,
+) -> Result<models::ApiDeleteSavedQueryResponseV1, Error<DeleteSavedQueryError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+    let p_query_search_domain = search_domain;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/savedqueries/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::DELETE, &uri_str);
+
+    if let Some(ref param_value) = p_query_ids {
+        req_builder = req_builder.query(&[("ids", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_search_domain {
+        req_builder = req_builder.query(&[("search_domain", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiDeleteSavedQueryResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiDeleteSavedQueryResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteSavedQueryError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn get_dashboard_template(
+    configuration: &configuration::Configuration,
+    ids: Option<&str>,
+    search_domain: Option<&str>,
+) -> Result<models::ApiGetDashboardTemplateResponseV1, Error<GetDashboardTemplateError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+    let p_query_search_domain = search_domain;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/dashboards-template/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_ids {
+        req_builder = req_builder.query(&[("ids", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_search_domain {
+        req_builder = req_builder.query(&[("search_domain", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetDashboardTemplateResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetDashboardTemplateResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetDashboardTemplateError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn get_lookup_file(
+    configuration: &configuration::Configuration,
+    filename: Option<&str>,
+    search_domain: Option<&str>,
+) -> Result<(), Error<GetLookupFileError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_filename = filename;
+    let p_query_search_domain = search_domain;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/lookupfiles/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_filename {
+        req_builder = req_builder.query(&[("filename", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_search_domain {
+        req_builder = req_builder.query(&[("search_domain", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetLookupFileError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
 }
 
 pub async fn get_lookup_from_package_v1(
@@ -100,16 +1037,16 @@ pub async fn get_lookup_from_package_v1(
     filename: &str,
 ) -> Result<(), Error<GetLookupFromPackageV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_repository = repository;
-    let p_package = package;
-    let p_filename = filename;
+    let p_path_repository = repository;
+    let p_path_package = package;
+    let p_path_filename = filename;
 
     let uri_str = format!(
         "{}/humio/api/v1/repositories/{repository}/files/{package}/{filename}",
         configuration.base_path,
-        repository = crate::apis::urlencode(p_repository),
-        package = crate::apis::urlencode(p_package),
-        filename = crate::apis::urlencode(p_filename)
+        repository = crate::apis::urlencode(p_path_repository),
+        package = crate::apis::urlencode(p_path_package),
+        filename = crate::apis::urlencode(p_path_filename)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
@@ -146,18 +1083,18 @@ pub async fn get_lookup_from_package_with_namespace_v1(
     filename: &str,
 ) -> Result<(), Error<GetLookupFromPackageWithNamespaceV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_repository = repository;
-    let p_namespace = namespace;
-    let p_package = package;
-    let p_filename = filename;
+    let p_path_repository = repository;
+    let p_path_namespace = namespace;
+    let p_path_package = package;
+    let p_path_filename = filename;
 
     let uri_str = format!(
         "{}/humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}",
         configuration.base_path,
-        repository = crate::apis::urlencode(p_repository),
-        namespace = crate::apis::urlencode(p_namespace),
-        package = crate::apis::urlencode(p_package),
-        filename = crate::apis::urlencode(p_filename)
+        repository = crate::apis::urlencode(p_path_repository),
+        namespace = crate::apis::urlencode(p_path_namespace),
+        package = crate::apis::urlencode(p_path_package),
+        filename = crate::apis::urlencode(p_path_filename)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
@@ -193,14 +1130,14 @@ pub async fn get_lookup_v1(
     filename: &str,
 ) -> Result<(), Error<GetLookupV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_repository = repository;
-    let p_filename = filename;
+    let p_path_repository = repository;
+    let p_path_filename = filename;
 
     let uri_str = format!(
         "{}/humio/api/v1/repositories/{repository}/files/{filename}",
         configuration.base_path,
-        repository = crate::apis::urlencode(p_repository),
-        filename = crate::apis::urlencode(p_filename)
+        repository = crate::apis::urlencode(p_path_repository),
+        filename = crate::apis::urlencode(p_path_filename)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
@@ -229,20 +1166,191 @@ pub async fn get_lookup_v1(
     }
 }
 
+pub async fn get_parser(
+    configuration: &configuration::Configuration,
+    ids: Option<&str>,
+    repository: Option<&str>,
+) -> Result<models::ApiGetParserResponseV1, Error<GetParserError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+    let p_query_repository = repository;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/parsers/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_ids {
+        req_builder = req_builder.query(&[("ids", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_repository {
+        req_builder = req_builder.query(&[("repository", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetParserResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetParserResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetParserError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn get_parser_template(
+    configuration: &configuration::Configuration,
+    ids: Option<&str>,
+    repository: Option<&str>,
+) -> Result<models::ApiGetParserTemplateResponseV1, Error<GetParserTemplateError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+    let p_query_repository = repository;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/parsers-template/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_ids {
+        req_builder = req_builder.query(&[("ids", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_repository {
+        req_builder = req_builder.query(&[("repository", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetParserTemplateResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetParserTemplateResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetParserTemplateError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn get_saved_query_template(
+    configuration: &configuration::Configuration,
+    ids: Option<&str>,
+    search_domain: Option<&str>,
+) -> Result<models::ApiGetSavedQueryResponseV1, Error<GetSavedQueryTemplateError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+    let p_query_search_domain = search_domain;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/savedqueries-template/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_ids {
+        req_builder = req_builder.query(&[("ids", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_search_domain {
+        req_builder = req_builder.query(&[("search_domain", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetSavedQueryResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetSavedQueryResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetSavedQueryTemplateError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
 pub async fn get_search_status_v1(
     configuration: &configuration::Configuration,
     repository: &str,
     id: &str,
-) -> Result<models::ApiPeriodQueryJobsResults, Error<GetSearchStatusV1Error>> {
+) -> Result<models::ApiQueryJobsResults, Error<GetSearchStatusV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_repository = repository;
-    let p_id = id;
+    let p_path_repository = repository;
+    let p_path_id = id;
 
     let uri_str = format!(
         "{}/humio/api/v1/repositories/{repository}/queryjobs/{id}",
         configuration.base_path,
-        repository = crate::apis::urlencode(p_repository),
-        id = crate::apis::urlencode(p_id)
+        repository = crate::apis::urlencode(p_path_repository),
+        id = crate::apis::urlencode(p_path_id)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
@@ -268,8 +1376,8 @@ pub async fn get_search_status_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodQueryJobsResults`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodQueryJobsResults`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiQueryJobsResults`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiQueryJobsResults`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -282,31 +1390,43 @@ pub async fn get_search_status_v1(
     }
 }
 
-pub async fn start_search_v1(
+pub async fn list_dashboards(
     configuration: &configuration::Configuration,
-    repository: &str,
-    body: models::ApiPeriodQueryJobInput,
-) -> Result<models::ApiPeriodQueryJobResponse, Error<StartSearchV1Error>> {
+    limit: Option<&str>,
+    offset: Option<&str>,
+    filter: Option<&str>,
+    search_domain: Option<&str>,
+) -> Result<models::ApiListDashboardsResponseV1, Error<ListDashboardsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_repository = repository;
-    let p_body = body;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_filter = filter;
+    let p_query_search_domain = search_domain;
 
     let uri_str = format!(
-        "{}/humio/api/v1/repositories/{repository}/queryjobs",
-        configuration.base_path,
-        repository = crate::apis::urlencode(p_repository)
+        "{}/ngsiem-content/queries/dashboards/v1",
+        configuration.base_path
     );
-    let mut req_builder = configuration
-        .client
-        .request(reqwest::Method::POST, &uri_str);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_filter {
+        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_search_domain {
+        req_builder = req_builder.query(&[("search_domain", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -323,8 +1443,264 @@ pub async fn start_search_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodQueryJobResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodQueryJobResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiListDashboardsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiListDashboardsResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ListDashboardsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn list_lookup_files(
+    configuration: &configuration::Configuration,
+    limit: Option<&str>,
+    offset: Option<&str>,
+    filter: Option<&str>,
+    search_domain: Option<&str>,
+) -> Result<models::ApiListLookupFilesResponseV1, Error<ListLookupFilesError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_filter = filter;
+    let p_query_search_domain = search_domain;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/queries/lookupfiles/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_filter {
+        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_search_domain {
+        req_builder = req_builder.query(&[("search_domain", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiListLookupFilesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiListLookupFilesResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ListLookupFilesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn list_parsers(
+    configuration: &configuration::Configuration,
+    limit: Option<&str>,
+    offset: Option<&str>,
+    filter: Option<&str>,
+    repository: Option<&str>,
+) -> Result<models::ApiListParsersResponseV1, Error<ListParsersError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_filter = filter;
+    let p_query_repository = repository;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/queries/parsers/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_filter {
+        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_repository {
+        req_builder = req_builder.query(&[("repository", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiListParsersResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiListParsersResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ListParsersError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn list_saved_queries(
+    configuration: &configuration::Configuration,
+    limit: Option<&str>,
+    offset: Option<&str>,
+    filter: Option<&str>,
+    search_domain: Option<&str>,
+) -> Result<models::ApiListSavedQueriesResponseV1, Error<ListSavedQueriesError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_filter = filter;
+    let p_query_search_domain = search_domain;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/queries/savedqueries/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_filter {
+        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_search_domain {
+        req_builder = req_builder.query(&[("search_domain", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiListSavedQueriesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiListSavedQueriesResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ListSavedQueriesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn start_search_v1(
+    configuration: &configuration::Configuration,
+    repository: &str,
+    body: models::ApiQueryJobInput,
+) -> Result<models::ApiQueryJobResponse, Error<StartSearchV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_path_repository = repository;
+    let p_body_body = body;
+
+    let uri_str = format!(
+        "{}/humio/api/v1/repositories/{repository}/queryjobs",
+        configuration.base_path,
+        repository = crate::apis::urlencode(p_path_repository)
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    req_builder = req_builder.json(&p_body_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiQueryJobResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiQueryJobResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -343,14 +1719,14 @@ pub async fn stop_search_v1(
     id: &str,
 ) -> Result<(), Error<StopSearchV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_repository = repository;
-    let p_id = id;
+    let p_path_repository = repository;
+    let p_path_id = id;
 
     let uri_str = format!(
         "{}/humio/api/v1/repositories/{repository}/queryjobs/{id}",
         configuration.base_path,
-        repository = crate::apis::urlencode(p_repository),
-        id = crate::apis::urlencode(p_id)
+        repository = crate::apis::urlencode(p_path_repository),
+        id = crate::apis::urlencode(p_path_id)
     );
     let mut req_builder = configuration
         .client
@@ -381,19 +1757,270 @@ pub async fn stop_search_v1(
     }
 }
 
+pub async fn update_dashboard_from_template(
+    configuration: &configuration::Configuration,
+    search_domain: Option<&str>,
+    ids: Option<&str>,
+    yaml_template: Option<&str>,
+) -> Result<models::ApiUpdateDashboardFromTemplateResponseV1, Error<UpdateDashboardFromTemplateError>>
+{
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_form_search_domain = search_domain;
+    let p_form_ids = ids;
+    let p_form_yaml_template = yaml_template;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/dashboards-template/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::PATCH, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    let mut multipart_form = reqwest::multipart::Form::new();
+    if let Some(param_value) = p_form_search_domain {
+        multipart_form = multipart_form.text("search_domain", param_value.to_string());
+    }
+    if let Some(param_value) = p_form_ids {
+        multipart_form = multipart_form.text("ids", param_value.to_string());
+    }
+    if let Some(param_value) = p_form_yaml_template {
+        multipart_form = multipart_form.text("yaml_template", param_value.to_string());
+    }
+    req_builder = req_builder.multipart(multipart_form);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiUpdateDashboardFromTemplateResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiUpdateDashboardFromTemplateResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateDashboardFromTemplateError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn update_lookup_file(
+    configuration: &configuration::Configuration,
+    search_domain: Option<&str>,
+    filename: Option<&str>,
+    file: Option<&str>,
+) -> Result<models::ApiUpdateLookupFileResponseV1, Error<UpdateLookupFileError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_form_search_domain = search_domain;
+    let p_form_filename = filename;
+    let p_form_file = file;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/lookupfiles/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::PATCH, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    let mut multipart_form = reqwest::multipart::Form::new();
+    if let Some(param_value) = p_form_search_domain {
+        multipart_form = multipart_form.text("search_domain", param_value.to_string());
+    }
+    if let Some(param_value) = p_form_filename {
+        multipart_form = multipart_form.text("filename", param_value.to_string());
+    }
+    if let Some(param_value) = p_form_file {
+        multipart_form = multipart_form.text("file", param_value.to_string());
+    }
+    req_builder = req_builder.multipart(multipart_form);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiUpdateLookupFileResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiUpdateLookupFileResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateLookupFileError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn update_parser(
+    configuration: &configuration::Configuration,
+    body: models::ApiUpdateParserRequestV1,
+) -> Result<models::ApiUpdateParserResponseV1, Error<UpdateParserError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_body = body;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/parsers/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::PATCH, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    req_builder = req_builder.json(&p_body_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiUpdateParserResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiUpdateParserResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateParserError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn update_saved_query_from_template(
+    configuration: &configuration::Configuration,
+    search_domain: Option<&str>,
+    ids: Option<&str>,
+    yaml_template: Option<&str>,
+) -> Result<models::ApiUpdateSavedQueryResponseV1, Error<UpdateSavedQueryFromTemplateError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_form_search_domain = search_domain;
+    let p_form_ids = ids;
+    let p_form_yaml_template = yaml_template;
+
+    let uri_str = format!(
+        "{}/ngsiem-content/entities/savedqueries-template/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::PATCH, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    let mut multipart_form = reqwest::multipart::Form::new();
+    if let Some(param_value) = p_form_search_domain {
+        multipart_form = multipart_form.text("search_domain", param_value.to_string());
+    }
+    if let Some(param_value) = p_form_ids {
+        multipart_form = multipart_form.text("ids", param_value.to_string());
+    }
+    if let Some(param_value) = p_form_yaml_template {
+        multipart_form = multipart_form.text("yaml_template", param_value.to_string());
+    }
+    req_builder = req_builder.multipart(multipart_form);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiUpdateSavedQueryResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiUpdateSavedQueryResponseV1`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateSavedQueryFromTemplateError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
 pub async fn upload_lookup_v1(
     configuration: &configuration::Configuration,
     repository: &str,
     file: std::path::PathBuf,
 ) -> Result<(), Error<UploadLookupV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_repository = repository;
-    let _p_file = file;
+    let p_path_repository = repository;
+    let _p_form_file = file;
 
     let uri_str = format!(
         "{}/humio/api/v1/repositories/{repository}/files",
         configuration.base_path,
-        repository = crate::apis::urlencode(p_repository)
+        repository = crate::apis::urlencode(p_path_repository)
     );
     let mut req_builder = configuration
         .client

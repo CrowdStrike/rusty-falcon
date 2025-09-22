@@ -17,9 +17,9 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ActionUpdateCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,9 +27,9 @@ pub enum ActionUpdateCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAggregateFilesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,9 +37,9 @@ pub enum GetAggregateFilesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetQuarantineFilesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -47,9 +47,9 @@ pub enum GetQuarantineFilesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryQuarantineFilesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -57,9 +57,9 @@ pub enum QueryQuarantineFilesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateQfByQueryError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -67,18 +67,18 @@ pub enum UpdateQfByQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateQuarantinedDetectsByIdsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn action_update_count(
     configuration: &configuration::Configuration,
     filter: &str,
-) -> Result<models::MsaPeriodAggregatesResponse, Error<ActionUpdateCountError>> {
+) -> Result<models::MsaAggregatesResponse, Error<ActionUpdateCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/quarantine/aggregates/action-update-count/v1",
@@ -86,7 +86,7 @@ pub async fn action_update_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("filter", &p_filter.to_string())]);
+    req_builder = req_builder.query(&[("filter", &p_query_filter.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -109,8 +109,8 @@ pub async fn action_update_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -125,10 +125,10 @@ pub async fn action_update_count(
 
 pub async fn get_aggregate_files(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodAggregateQueryRequest,
-) -> Result<models::MsaPeriodAggregatesResponse, Error<GetAggregateFilesError>> {
+    body: models::MsaAggregateQueryRequest,
+) -> Result<models::MsaAggregatesResponse, Error<GetAggregateFilesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/quarantine/aggregates/quarantined-files/GET/v1",
@@ -144,7 +144,7 @@ pub async fn get_aggregate_files(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -161,8 +161,8 @@ pub async fn get_aggregate_files(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -177,10 +177,10 @@ pub async fn get_aggregate_files(
 
 pub async fn get_quarantine_files(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodIdsRequest,
-) -> Result<models::DomainPeriodMsaQfResponse, Error<GetQuarantineFilesError>> {
+    body: models::MsaIdsRequest,
+) -> Result<models::DomainMsaQfResponse, Error<GetQuarantineFilesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/quarantine/entities/quarantined-files/GET/v1",
@@ -196,7 +196,7 @@ pub async fn get_quarantine_files(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -213,8 +213,8 @@ pub async fn get_quarantine_files(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodMsaQfResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodMsaQfResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainMsaQfResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainMsaQfResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -234,13 +234,13 @@ pub async fn query_quarantine_files(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryQuarantineFilesError>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueryQuarantineFilesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
 
     let uri_str = format!(
         "{}/quarantine/queries/quarantined-files/v1",
@@ -248,19 +248,19 @@ pub async fn query_quarantine_files(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -285,8 +285,8 @@ pub async fn query_quarantine_files(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -301,10 +301,10 @@ pub async fn query_quarantine_files(
 
 pub async fn update_qf_by_query(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodQueriesPatchRequest,
-) -> Result<models::MsaPeriodReplyMetaOnly, Error<UpdateQfByQueryError>> {
+    body: models::DomainQueriesPatchRequest,
+) -> Result<models::MsaReplyMetaOnly, Error<UpdateQfByQueryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/quarantine/queries/quarantined-files/v1",
@@ -320,7 +320,7 @@ pub async fn update_qf_by_query(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -337,8 +337,8 @@ pub async fn update_qf_by_query(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodReplyMetaOnly`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodReplyMetaOnly`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaReplyMetaOnly`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaReplyMetaOnly`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -353,10 +353,10 @@ pub async fn update_qf_by_query(
 
 pub async fn update_quarantined_detects_by_ids(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodEntitiesPatchRequest,
-) -> Result<models::MsaPeriodReplyMetaOnly, Error<UpdateQuarantinedDetectsByIdsError>> {
+    body: models::DomainEntitiesPatchRequest,
+) -> Result<models::MsaReplyMetaOnly, Error<UpdateQuarantinedDetectsByIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/quarantine/entities/quarantined-files/v1",
@@ -372,7 +372,7 @@ pub async fn update_quarantined_detects_by_ids(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -389,8 +389,8 @@ pub async fn update_quarantined_detects_by_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodReplyMetaOnly`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodReplyMetaOnly`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaReplyMetaOnly`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaReplyMetaOnly`")))),
         }
     } else {
         let content = resp.text().await?;

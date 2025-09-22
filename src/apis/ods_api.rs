@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateQueryScanHostMetadataError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum AggregateQueryScanHostMetadataError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateScansError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum AggregateScansError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateScheduledScansError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +50,10 @@ pub enum AggregateScheduledScansError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CancelScansError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,9 +61,9 @@ pub enum CancelScansError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateScanError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -71,10 +71,10 @@ pub enum CreateScanError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteScheduledScansError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -82,10 +82,10 @@ pub enum DeleteScheduledScansError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMaliciousFilesByIdsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -93,10 +93,10 @@ pub enum GetMaliciousFilesByIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetScanHostMetadataByIdsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -104,10 +104,10 @@ pub enum GetScanHostMetadataByIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetScansByScanIdsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -115,10 +115,10 @@ pub enum GetScansByScanIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetScansByScanIdsV2Error {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -126,10 +126,10 @@ pub enum GetScansByScanIdsV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetScheduledScansByScanIdsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -137,10 +137,10 @@ pub enum GetScheduledScansByScanIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryMaliciousFilesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -148,10 +148,10 @@ pub enum QueryMaliciousFilesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryScanHostMetadataError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -159,10 +159,10 @@ pub enum QueryScanHostMetadataError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryScansError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -170,10 +170,10 @@ pub enum QueryScansError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryScheduledScansError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -181,18 +181,18 @@ pub enum QueryScheduledScansError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ScheduleScanError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn aggregate_query_scan_host_metadata(
     configuration: &configuration::Configuration,
-    body: Vec<models::MsaPeriodAggregateQueryRequest>,
-) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateQueryScanHostMetadataError>> {
+    body: Vec<models::MsaAggregateQueryRequest>,
+) -> Result<models::MsaAggregatesResponse, Error<AggregateQueryScanHostMetadataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/ods/aggregates/scan-hosts/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -205,7 +205,7 @@ pub async fn aggregate_query_scan_host_metadata(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -222,8 +222,8 @@ pub async fn aggregate_query_scan_host_metadata(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -239,10 +239,10 @@ pub async fn aggregate_query_scan_host_metadata(
 
 pub async fn aggregate_scans(
     configuration: &configuration::Configuration,
-    body: Vec<models::MsaPeriodAggregateQueryRequest>,
-) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateScansError>> {
+    body: Vec<models::MsaAggregateQueryRequest>,
+) -> Result<models::MsaAggregatesResponse, Error<AggregateScansError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/ods/aggregates/scans/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -255,7 +255,7 @@ pub async fn aggregate_scans(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -272,8 +272,8 @@ pub async fn aggregate_scans(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -288,10 +288,10 @@ pub async fn aggregate_scans(
 
 pub async fn aggregate_scheduled_scans(
     configuration: &configuration::Configuration,
-    body: Vec<models::MsaPeriodAggregateQueryRequest>,
-) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateScheduledScansError>> {
+    body: Vec<models::MsaAggregateQueryRequest>,
+) -> Result<models::MsaAggregatesResponse, Error<AggregateScheduledScansError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/ods/aggregates/scheduled-scans/v1",
@@ -307,7 +307,7 @@ pub async fn aggregate_scheduled_scans(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -324,8 +324,8 @@ pub async fn aggregate_scheduled_scans(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -340,10 +340,10 @@ pub async fn aggregate_scheduled_scans(
 
 pub async fn cancel_scans(
     configuration: &configuration::Configuration,
-    body: models::EntitiesPeriodOdsCancelScanRequest,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<CancelScansError>> {
+    body: models::EntitiesOdsCancelScanRequest,
+) -> Result<models::MsaspecQueryResponse, Error<CancelScansError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/ods/entities/scan-control-actions/cancel/v1",
@@ -359,7 +359,7 @@ pub async fn cancel_scans(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -376,8 +376,8 @@ pub async fn cancel_scans(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -392,10 +392,10 @@ pub async fn cancel_scans(
 
 pub async fn create_scan(
     configuration: &configuration::Configuration,
-    body: models::EntitiesPeriodOdsScanRequest,
-) -> Result<models::EntitiesPeriodOdsScanResponse, Error<CreateScanError>> {
+    body: models::EntitiesOdsScanRequest,
+) -> Result<models::EntitiesOdsScanResponse, Error<CreateScanError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/ods/entities/scans/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -408,7 +408,7 @@ pub async fn create_scan(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -425,8 +425,8 @@ pub async fn create_scan(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesPeriodOdsScanResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesPeriodOdsScanResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesOdsScanResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesOdsScanResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -443,10 +443,10 @@ pub async fn delete_scheduled_scans(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     filter: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<DeleteScheduledScansError>> {
+) -> Result<models::MsaspecQueryResponse, Error<DeleteScheduledScansError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_filter = filter;
+    let p_query_ids = ids;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/ods/entities/scheduled-scans/v1",
@@ -458,14 +458,14 @@ pub async fn delete_scheduled_scans(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -473,7 +473,7 @@ pub async fn delete_scheduled_scans(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -498,8 +498,8 @@ pub async fn delete_scheduled_scans(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -515,10 +515,9 @@ pub async fn delete_scheduled_scans(
 pub async fn get_malicious_files_by_ids(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::EntitiesPeriodOdsScanMaliciousFileResponse, Error<GetMaliciousFilesByIdsError>>
-{
+) -> Result<models::EntitiesOdsScanMaliciousFileResponse, Error<GetMaliciousFilesByIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/ods/entities/malicious-files/v1",
@@ -528,14 +527,14 @@ pub async fn get_malicious_files_by_ids(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -565,8 +564,8 @@ pub async fn get_malicious_files_by_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesPeriodOdsScanMaliciousFileResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesPeriodOdsScanMaliciousFileResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesOdsScanMaliciousFileResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesOdsScanMaliciousFileResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -582,23 +581,23 @@ pub async fn get_malicious_files_by_ids(
 pub async fn get_scan_host_metadata_by_ids(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::EntitiesPeriodOdsScanHostResponse, Error<GetScanHostMetadataByIdsError>> {
+) -> Result<models::EntitiesOdsScanHostResponse, Error<GetScanHostMetadataByIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/ods/entities/scan-hosts/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -628,8 +627,8 @@ pub async fn get_scan_host_metadata_by_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesPeriodOdsScanHostResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesPeriodOdsScanHostResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesOdsScanHostResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesOdsScanHostResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -645,23 +644,23 @@ pub async fn get_scan_host_metadata_by_ids(
 pub async fn get_scans_by_scan_ids(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::EntitiesPeriodOdsScanResponse, Error<GetScansByScanIdsError>> {
+) -> Result<models::EntitiesOdsScanResponse, Error<GetScansByScanIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/ods/entities/scans/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -691,8 +690,8 @@ pub async fn get_scans_by_scan_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesPeriodOdsScanResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesPeriodOdsScanResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesOdsScanResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesOdsScanResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -708,23 +707,23 @@ pub async fn get_scans_by_scan_ids(
 pub async fn get_scans_by_scan_ids_v2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::EntitiesPeriodOdsScanResponseV2, Error<GetScansByScanIdsV2Error>> {
+) -> Result<models::EntitiesOdsScanResponseV2, Error<GetScansByScanIdsV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/ods/entities/scans/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -754,8 +753,8 @@ pub async fn get_scans_by_scan_ids_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesPeriodOdsScanResponseV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesPeriodOdsScanResponseV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesOdsScanResponseV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesOdsScanResponseV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -771,9 +770,9 @@ pub async fn get_scans_by_scan_ids_v2(
 pub async fn get_scheduled_scans_by_scan_ids(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::EntitiesPeriodOdsScheduleScanResponse, Error<GetScheduledScansByScanIdsError>> {
+) -> Result<models::EntitiesOdsScheduleScanResponse, Error<GetScheduledScansByScanIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/ods/entities/scheduled-scans/v1",
@@ -783,14 +782,14 @@ pub async fn get_scheduled_scans_by_scan_ids(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -820,8 +819,8 @@ pub async fn get_scheduled_scans_by_scan_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesPeriodOdsScheduleScanResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesPeriodOdsScheduleScanResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesOdsScheduleScanResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesOdsScheduleScanResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -840,26 +839,26 @@ pub async fn query_malicious_files(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryMaliciousFilesError>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueryMaliciousFilesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!("{}/ods/queries/malicious-files/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -884,8 +883,8 @@ pub async fn query_malicious_files(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -904,26 +903,26 @@ pub async fn query_scan_host_metadata(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryScanHostMetadataError>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueryScanHostMetadataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!("{}/ods/queries/scan-hosts/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -948,8 +947,8 @@ pub async fn query_scan_host_metadata(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -968,26 +967,26 @@ pub async fn query_scans(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryScansError>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueryScansError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!("{}/ods/queries/scans/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1012,8 +1011,8 @@ pub async fn query_scans(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1032,26 +1031,26 @@ pub async fn query_scheduled_scans(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryScheduledScansError>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueryScheduledScansError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!("{}/ods/queries/scheduled-scans/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1076,8 +1075,8 @@ pub async fn query_scheduled_scans(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1092,10 +1091,10 @@ pub async fn query_scheduled_scans(
 
 pub async fn schedule_scan(
     configuration: &configuration::Configuration,
-    body: models::EntitiesPeriodOdsScheduleScanRequest,
-) -> Result<models::EntitiesPeriodOdsScheduleScanResponse, Error<ScheduleScanError>> {
+    body: models::EntitiesOdsScheduleScanRequest,
+) -> Result<models::EntitiesOdsScheduleScanResponse, Error<ScheduleScanError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/ods/entities/scheduled-scans/v1",
@@ -1111,7 +1110,7 @@ pub async fn schedule_scan(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1128,8 +1127,8 @@ pub async fn schedule_scan(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesPeriodOdsScheduleScanResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesPeriodOdsScheduleScanResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::EntitiesOdsScheduleScanResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::EntitiesOdsScheduleScanResponse`")))),
         }
     } else {
         let content = resp.text().await?;

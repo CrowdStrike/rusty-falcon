@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetDeliverySettingsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,16 +28,16 @@ pub enum GetDeliverySettingsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostDeliverySettingsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn get_delivery_settings(
     configuration: &configuration::Configuration,
-) -> Result<models::ModelsPeriodDeliverySettingsEntityResponse, Error<GetDeliverySettingsError>> {
+) -> Result<models::ModelsDeliverySettingsEntityResponse, Error<GetDeliverySettingsError>> {
     let uri_str = format!(
         "{}/delivery-settings/entities/delivery-settings/v1",
         configuration.base_path
@@ -66,8 +66,8 @@ pub async fn get_delivery_settings(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodDeliverySettingsEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodDeliverySettingsEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsDeliverySettingsEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsDeliverySettingsEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -82,10 +82,10 @@ pub async fn get_delivery_settings(
 
 pub async fn post_delivery_settings(
     configuration: &configuration::Configuration,
-    body: models::ModelsPeriodDeliverySettingsRequest,
-) -> Result<models::ModelsPeriodDeliverySettingsEntityResponse, Error<PostDeliverySettingsError>> {
+    body: models::ModelsDeliverySettingsRequest,
+) -> Result<models::ModelsDeliverySettingsEntityResponse, Error<PostDeliverySettingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/delivery-settings/entities/delivery-settings/v1",
@@ -101,7 +101,7 @@ pub async fn post_delivery_settings(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -118,8 +118,8 @@ pub async fn post_delivery_settings(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodDeliverySettingsEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodDeliverySettingsEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsDeliverySettingsEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsDeliverySettingsEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;

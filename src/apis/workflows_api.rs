@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowActivitiesCombinedError {
-    Status400(models::ActivitiesPeriodLegacyActivityExternalResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ActivitiesPeriodLegacyActivityExternalResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ActivitiesPeriodLegacyActivityExternalResponse),
+    Status400(models::ActivitiesActivityExternalResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ActivitiesActivityExternalResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ActivitiesActivityExternalResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,11 +29,23 @@ pub enum WorkflowActivitiesCombinedError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowActivitiesContentCombinedError {
-    Status400(models::ActivitiesPeriodActivityExternalResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ActivitiesPeriodActivityExternalResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ActivitiesPeriodActivityExternalResponse),
+    Status400(models::ActivitiesActivityExternalResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ActivitiesActivityExternalResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ActivitiesActivityExternalResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`workflow_definitions_action`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum WorkflowDefinitionsActionError {
+    Status400(models::DefinitionsDefinitionEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DefinitionsDefinitionEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DefinitionsDefinitionEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,11 +53,11 @@ pub enum WorkflowActivitiesContentCombinedError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowDefinitionsCombinedError {
-    Status400(models::DefinitionsPeriodDefinitionExternalResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DefinitionsPeriodDefinitionExternalResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DefinitionsPeriodDefinitionExternalResponse),
+    Status400(models::DefinitionsDefinitionExternalResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DefinitionsDefinitionExternalResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DefinitionsDefinitionExternalResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -54,9 +66,9 @@ pub enum WorkflowDefinitionsCombinedError {
 #[serde(untagged)]
 pub enum WorkflowDefinitionsExportError {
     Status400(Vec<i32>),
-    Status403(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
     Status404(Vec<i32>),
-    Status429(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
     Status500(Vec<i32>),
     UnknownValue(serde_json::Value),
 }
@@ -65,11 +77,11 @@ pub enum WorkflowDefinitionsExportError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowDefinitionsImportError {
-    Status400(models::DefinitionsPeriodDefinitionImportResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DefinitionsPeriodDefinitionImportResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DefinitionsPeriodDefinitionImportResponse),
+    Status400(models::DefinitionsDefinitionImportResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DefinitionsDefinitionImportResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DefinitionsDefinitionImportResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -77,11 +89,11 @@ pub enum WorkflowDefinitionsImportError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowDefinitionsUpdateError {
-    Status400(models::ApiPeriodResourceIdsResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ApiPeriodResourceIdsResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodResourceIdsResponse),
+    Status400(models::ApiResourceIdsResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ApiResourceIdsResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiResourceIdsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -89,12 +101,12 @@ pub enum WorkflowDefinitionsUpdateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowExecuteError {
-    Status400(models::ApiPeriodResourceIdsResponse),
-    Status401(models::ApiPeriodMfaResourceIdsResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ApiPeriodResourceIdsResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodResourceIdsResponse),
+    Status400(models::ApiResourceIdsResponse),
+    Status401(models::ApiMfaResourceIdsResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ApiResourceIdsResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiResourceIdsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -102,11 +114,11 @@ pub enum WorkflowExecuteError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowExecuteInternalError {
-    Status400(models::ApiPeriodResourceIdsResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ApiPeriodResourceIdsResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodResourceIdsResponse),
+    Status400(models::ApiResourceIdsResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ApiResourceIdsResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiResourceIdsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -114,11 +126,11 @@ pub enum WorkflowExecuteInternalError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowExecutionResultsError {
-    Status400(models::ApiPeriodExecutionResultsResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ApiPeriodExecutionResultsResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodExecutionResultsResponse),
+    Status400(models::ApiExecutionResultsResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ApiExecutionResultsResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiExecutionResultsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -126,11 +138,11 @@ pub enum WorkflowExecutionResultsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowExecutionsActionError {
-    Status400(models::DefinitionsPeriodDefinitionEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DefinitionsPeriodDefinitionEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DefinitionsPeriodDefinitionEntitiesResponse),
+    Status400(models::DefinitionsDefinitionEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DefinitionsDefinitionEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DefinitionsDefinitionEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -138,11 +150,11 @@ pub enum WorkflowExecutionsActionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowExecutionsCombinedError {
-    Status400(models::ApiPeriodExecutionResultsResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ApiPeriodExecutionResultsResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodExecutionResultsResponse),
+    Status400(models::ApiExecutionResultsResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ApiExecutionResultsResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiExecutionResultsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -150,11 +162,11 @@ pub enum WorkflowExecutionsCombinedError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowGetHumanInputV1Error {
-    Status400(models::ModelPeriodUserInputReadResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ModelPeriodUserInputReadResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ModelPeriodUserInputReadResponse),
+    Status400(models::ModelUserInputReadResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ModelUserInputReadResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ModelUserInputReadResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -162,11 +174,11 @@ pub enum WorkflowGetHumanInputV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowMockExecuteError {
-    Status400(models::ApiPeriodResourceIdsResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ApiPeriodResourceIdsResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodResourceIdsResponse),
+    Status400(models::ApiResourceIdsResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ApiResourceIdsResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiResourceIdsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -174,11 +186,11 @@ pub enum WorkflowMockExecuteError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowSystemDefinitionsDeProvisionError {
-    Status400(models::ClientPeriodSystemDefinitionCreateResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ClientPeriodSystemDefinitionCreateResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ClientPeriodSystemDefinitionCreateResponse),
+    Status400(models::ClientSystemDefinitionCreateResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ClientSystemDefinitionCreateResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ClientSystemDefinitionCreateResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -186,11 +198,11 @@ pub enum WorkflowSystemDefinitionsDeProvisionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowSystemDefinitionsPromoteError {
-    Status400(models::ClientPeriodSystemDefinitionCreateResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ClientPeriodSystemDefinitionCreateResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ClientPeriodSystemDefinitionCreateResponse),
+    Status400(models::ClientSystemDefinitionCreateResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ClientSystemDefinitionCreateResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ClientSystemDefinitionCreateResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -198,11 +210,11 @@ pub enum WorkflowSystemDefinitionsPromoteError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowSystemDefinitionsProvisionError {
-    Status400(models::ClientPeriodSystemDefinitionCreateResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ClientPeriodSystemDefinitionCreateResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ClientPeriodSystemDefinitionCreateResponse),
+    Status400(models::ClientSystemDefinitionCreateResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ClientSystemDefinitionCreateResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ClientSystemDefinitionCreateResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -210,11 +222,11 @@ pub enum WorkflowSystemDefinitionsProvisionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowTriggersCombinedError {
-    Status400(models::TriggersPeriodTriggerExternalResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::TriggersPeriodTriggerExternalResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TriggersPeriodTriggerExternalResponse),
+    Status400(models::TriggersTriggerExternalResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::TriggersTriggerExternalResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TriggersTriggerExternalResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -222,11 +234,11 @@ pub enum WorkflowTriggersCombinedError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum WorkflowUpdateHumanInputV1Error {
-    Status400(models::ApiPeriodResourceIdsResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ApiPeriodResourceIdsResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodResourceIdsResponse),
+    Status400(models::ApiResourceIdsResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ApiResourceIdsResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiResourceIdsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -236,15 +248,12 @@ pub async fn workflow_activities_combined(
     offset: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<
-    models::ActivitiesPeriodLegacyActivityExternalResponse,
-    Error<WorkflowActivitiesCombinedError>,
-> {
+) -> Result<models::ActivitiesActivityExternalResponse, Error<WorkflowActivitiesCombinedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/workflows/combined/activities/v1",
@@ -252,16 +261,16 @@ pub async fn workflow_activities_combined(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -286,8 +295,8 @@ pub async fn workflow_activities_combined(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ActivitiesPeriodLegacyActivityExternalResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ActivitiesPeriodLegacyActivityExternalResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ActivitiesActivityExternalResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ActivitiesActivityExternalResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -306,15 +315,13 @@ pub async fn workflow_activities_content_combined(
     offset: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<
-    models::ActivitiesPeriodActivityExternalResponse,
-    Error<WorkflowActivitiesContentCombinedError>,
-> {
+) -> Result<models::ActivitiesActivityExternalResponse, Error<WorkflowActivitiesContentCombinedError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/workflows/combined/activity-content/v1",
@@ -322,16 +329,16 @@ pub async fn workflow_activities_content_combined(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -356,13 +363,65 @@ pub async fn workflow_activities_content_combined(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ActivitiesPeriodActivityExternalResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ActivitiesPeriodActivityExternalResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ActivitiesActivityExternalResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ActivitiesActivityExternalResponse`")))),
         }
     } else {
         let content = resp.text().await?;
         let entity: Option<WorkflowActivitiesContentCombinedError> =
             serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn workflow_definitions_action(
+    configuration: &configuration::Configuration,
+    action_name: &str,
+) -> Result<models::DefinitionsDefinitionEntitiesResponse, Error<WorkflowDefinitionsActionError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_action_name = action_name;
+
+    let uri_str = format!(
+        "{}/workflows/entities/definition-actions/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("action_name", &p_query_action_name.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DefinitionsDefinitionEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DefinitionsDefinitionEntitiesResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<WorkflowDefinitionsActionError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -377,15 +436,13 @@ pub async fn workflow_definitions_combined(
     offset: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<
-    models::DefinitionsPeriodDefinitionExternalResponse,
-    Error<WorkflowDefinitionsCombinedError>,
-> {
+) -> Result<models::DefinitionsDefinitionExternalResponse, Error<WorkflowDefinitionsCombinedError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/workflows/combined/definitions/v1",
@@ -393,16 +450,16 @@ pub async fn workflow_definitions_combined(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -427,8 +484,8 @@ pub async fn workflow_definitions_combined(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DefinitionsPeriodDefinitionExternalResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DefinitionsPeriodDefinitionExternalResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DefinitionsDefinitionExternalResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DefinitionsDefinitionExternalResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -447,8 +504,8 @@ pub async fn workflow_definitions_export(
     sanitize: Option<bool>,
 ) -> Result<Vec<i32>, Error<WorkflowDefinitionsExportError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_sanitize = sanitize;
+    let p_query_id = id;
+    let p_query_sanitize = sanitize;
 
     let uri_str = format!(
         "{}/workflows/entities/definitions/export/v1",
@@ -456,8 +513,8 @@ pub async fn workflow_definitions_export(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    if let Some(ref param_value) = p_sanitize {
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    if let Some(ref param_value) = p_query_sanitize {
         req_builder = req_builder.query(&[("sanitize", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -501,12 +558,11 @@ pub async fn workflow_definitions_import(
     data_file: std::path::PathBuf,
     name: Option<&str>,
     validate_only: Option<bool>,
-) -> Result<models::DefinitionsPeriodDefinitionImportResponse, Error<WorkflowDefinitionsImportError>>
-{
+) -> Result<models::DefinitionsDefinitionImportResponse, Error<WorkflowDefinitionsImportError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let _p_data_file = data_file;
-    let p_name = name;
-    let p_validate_only = validate_only;
+    let _p_form_data_file = data_file;
+    let p_query_name = name;
+    let p_query_validate_only = validate_only;
 
     let uri_str = format!(
         "{}/workflows/entities/definitions/import/v1",
@@ -516,10 +572,10 @@ pub async fn workflow_definitions_import(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_name {
+    if let Some(ref param_value) = p_query_name {
         req_builder = req_builder.query(&[("name", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_validate_only {
+    if let Some(ref param_value) = p_query_validate_only {
         req_builder = req_builder.query(&[("validate_only", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -547,8 +603,8 @@ pub async fn workflow_definitions_import(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DefinitionsPeriodDefinitionImportResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DefinitionsPeriodDefinitionImportResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DefinitionsDefinitionImportResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DefinitionsDefinitionImportResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -563,12 +619,12 @@ pub async fn workflow_definitions_import(
 
 pub async fn workflow_definitions_update(
     configuration: &configuration::Configuration,
-    body: models::ModelsPeriodDefinitionUpdateRequestV2,
+    body: models::ModelsDefinitionUpdateRequestV2,
     validate_only: Option<bool>,
-) -> Result<models::ApiPeriodResourceIdsResponse, Error<WorkflowDefinitionsUpdateError>> {
+) -> Result<models::ApiResourceIdsResponse, Error<WorkflowDefinitionsUpdateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_validate_only = validate_only;
+    let p_body_body = body;
+    let p_query_validate_only = validate_only;
 
     let uri_str = format!(
         "{}/workflows/entities/definitions/v1",
@@ -576,7 +632,7 @@ pub async fn workflow_definitions_update(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
-    if let Some(ref param_value) = p_validate_only {
+    if let Some(ref param_value) = p_query_validate_only {
         req_builder = req_builder.query(&[("validate_only", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -585,7 +641,7 @@ pub async fn workflow_definitions_update(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -602,8 +658,8 @@ pub async fn workflow_definitions_update(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodResourceIdsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodResourceIdsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiResourceIdsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiResourceIdsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -625,22 +681,22 @@ pub async fn workflow_execute(
     key: Option<&str>,
     depth: Option<i32>,
     source_event_url: Option<&str>,
-) -> Result<models::ApiPeriodResourceIdsResponse, Error<WorkflowExecuteError>> {
+) -> Result<models::ApiResourceIdsResponse, Error<WorkflowExecuteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_execution_cid = execution_cid;
-    let p_definition_id = definition_id;
-    let p_name = name;
-    let p_key = key;
-    let p_depth = depth;
-    let p_source_event_url = source_event_url;
+    let p_body_body = body;
+    let p_query_execution_cid = execution_cid;
+    let p_query_definition_id = definition_id;
+    let p_query_name = name;
+    let p_query_key = key;
+    let p_query_depth = depth;
+    let p_query_source_event_url = source_event_url;
 
     let uri_str = format!("{}/workflows/entities/execute/v1", configuration.base_path);
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_execution_cid {
+    if let Some(ref param_value) = p_query_execution_cid {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -659,7 +715,7 @@ pub async fn workflow_execute(
             )]),
         };
     }
-    if let Some(ref param_value) = p_definition_id {
+    if let Some(ref param_value) = p_query_definition_id {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -678,16 +734,16 @@ pub async fn workflow_execute(
             )]),
         };
     }
-    if let Some(ref param_value) = p_name {
+    if let Some(ref param_value) = p_query_name {
         req_builder = req_builder.query(&[("name", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_key {
+    if let Some(ref param_value) = p_query_key {
         req_builder = req_builder.query(&[("key", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_depth {
+    if let Some(ref param_value) = p_query_depth {
         req_builder = req_builder.query(&[("depth", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_source_event_url {
+    if let Some(ref param_value) = p_query_source_event_url {
         req_builder = req_builder.query(&[("source_event_url", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -696,7 +752,7 @@ pub async fn workflow_execute(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -713,8 +769,8 @@ pub async fn workflow_execute(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodResourceIdsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodResourceIdsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiResourceIdsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiResourceIdsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -737,16 +793,16 @@ pub async fn workflow_execute_internal(
     depth: Option<i32>,
     batch_size: Option<i32>,
     source_event_url: Option<&str>,
-) -> Result<models::ApiPeriodResourceIdsResponse, Error<WorkflowExecuteInternalError>> {
+) -> Result<models::ApiResourceIdsResponse, Error<WorkflowExecuteInternalError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_execution_cid = execution_cid;
-    let p_definition_id = definition_id;
-    let p_name = name;
-    let p_key = key;
-    let p_depth = depth;
-    let p_batch_size = batch_size;
-    let p_source_event_url = source_event_url;
+    let p_body_body = body;
+    let p_query_execution_cid = execution_cid;
+    let p_query_definition_id = definition_id;
+    let p_query_name = name;
+    let p_query_key = key;
+    let p_query_depth = depth;
+    let p_query_batch_size = batch_size;
+    let p_query_source_event_url = source_event_url;
 
     let uri_str = format!(
         "{}/workflows/entities/execute/internal/v1",
@@ -756,7 +812,7 @@ pub async fn workflow_execute_internal(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_execution_cid {
+    if let Some(ref param_value) = p_query_execution_cid {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -775,7 +831,7 @@ pub async fn workflow_execute_internal(
             )]),
         };
     }
-    if let Some(ref param_value) = p_definition_id {
+    if let Some(ref param_value) = p_query_definition_id {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -794,19 +850,19 @@ pub async fn workflow_execute_internal(
             )]),
         };
     }
-    if let Some(ref param_value) = p_name {
+    if let Some(ref param_value) = p_query_name {
         req_builder = req_builder.query(&[("name", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_key {
+    if let Some(ref param_value) = p_query_key {
         req_builder = req_builder.query(&[("key", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_depth {
+    if let Some(ref param_value) = p_query_depth {
         req_builder = req_builder.query(&[("depth", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_batch_size {
+    if let Some(ref param_value) = p_query_batch_size {
         req_builder = req_builder.query(&[("batch_size", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_source_event_url {
+    if let Some(ref param_value) = p_query_source_event_url {
         req_builder = req_builder.query(&[("source_event_url", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -815,7 +871,7 @@ pub async fn workflow_execute_internal(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -832,8 +888,8 @@ pub async fn workflow_execute_internal(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodResourceIdsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodResourceIdsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiResourceIdsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiResourceIdsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -849,9 +905,9 @@ pub async fn workflow_execute_internal(
 pub async fn workflow_execution_results(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ApiPeriodExecutionResultsResponse, Error<WorkflowExecutionResultsError>> {
+) -> Result<models::ApiExecutionResultsResponse, Error<WorkflowExecutionResultsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/workflows/entities/execution-results/v1",
@@ -861,14 +917,14 @@ pub async fn workflow_execution_results(
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -898,8 +954,8 @@ pub async fn workflow_execution_results(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodExecutionResultsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodExecutionResultsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiExecutionResultsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiExecutionResultsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -915,12 +971,11 @@ pub async fn workflow_execution_results(
 pub async fn workflow_executions_action(
     configuration: &configuration::Configuration,
     action_name: &str,
-    body: models::ClientPeriodActionRequest,
-) -> Result<models::DefinitionsPeriodDefinitionEntitiesResponse, Error<WorkflowExecutionsActionError>>
-{
+    body: models::ClientActionRequest,
+) -> Result<models::DefinitionsDefinitionEntitiesResponse, Error<WorkflowExecutionsActionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_action_name = action_name;
-    let p_body = body;
+    let p_query_action_name = action_name;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/workflows/entities/execution-actions/v1",
@@ -930,14 +985,14 @@ pub async fn workflow_executions_action(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("action_name", &p_action_name.to_string())]);
+    req_builder = req_builder.query(&[("action_name", &p_query_action_name.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -954,8 +1009,8 @@ pub async fn workflow_executions_action(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DefinitionsPeriodDefinitionEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DefinitionsPeriodDefinitionEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DefinitionsDefinitionEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DefinitionsDefinitionEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -974,12 +1029,12 @@ pub async fn workflow_executions_combined(
     offset: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::ApiPeriodExecutionResultsResponse, Error<WorkflowExecutionsCombinedError>> {
+) -> Result<models::ApiExecutionResultsResponse, Error<WorkflowExecutionsCombinedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/workflows/combined/executions/v1",
@@ -987,16 +1042,16 @@ pub async fn workflow_executions_combined(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1021,8 +1076,8 @@ pub async fn workflow_executions_combined(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodExecutionResultsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodExecutionResultsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiExecutionResultsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiExecutionResultsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1038,9 +1093,9 @@ pub async fn workflow_executions_combined(
 pub async fn workflow_get_human_input_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ModelPeriodUserInputReadResponse, Error<WorkflowGetHumanInputV1Error>> {
+) -> Result<models::ModelUserInputReadResponse, Error<WorkflowGetHumanInputV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/workflows/entities/human-inputs/v1",
@@ -1050,14 +1105,14 @@ pub async fn workflow_get_human_input_v1(
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1087,8 +1142,8 @@ pub async fn workflow_get_human_input_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelPeriodUserInputReadResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelPeriodUserInputReadResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelUserInputReadResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelUserInputReadResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1103,7 +1158,7 @@ pub async fn workflow_get_human_input_v1(
 
 pub async fn workflow_mock_execute(
     configuration: &configuration::Configuration,
-    body: models::ModelsPeriodMockExecutionCreateRequestV1,
+    body: models::ModelsMockExecutionCreateRequestV1,
     execution_cid: Option<Vec<String>>,
     definition_id: Option<&str>,
     name: Option<&str>,
@@ -1111,16 +1166,16 @@ pub async fn workflow_mock_execute(
     depth: Option<i32>,
     source_event_url: Option<&str>,
     validate_only: Option<bool>,
-) -> Result<models::ApiPeriodResourceIdsResponse, Error<WorkflowMockExecuteError>> {
+) -> Result<models::ApiResourceIdsResponse, Error<WorkflowMockExecuteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_execution_cid = execution_cid;
-    let p_definition_id = definition_id;
-    let p_name = name;
-    let p_key = key;
-    let p_depth = depth;
-    let p_source_event_url = source_event_url;
-    let p_validate_only = validate_only;
+    let p_body_body = body;
+    let p_query_execution_cid = execution_cid;
+    let p_query_definition_id = definition_id;
+    let p_query_name = name;
+    let p_query_key = key;
+    let p_query_depth = depth;
+    let p_query_source_event_url = source_event_url;
+    let p_query_validate_only = validate_only;
 
     let uri_str = format!(
         "{}/workflows/entities/mock-executions/v1",
@@ -1130,7 +1185,7 @@ pub async fn workflow_mock_execute(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_execution_cid {
+    if let Some(ref param_value) = p_query_execution_cid {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1149,22 +1204,22 @@ pub async fn workflow_mock_execute(
             )]),
         };
     }
-    if let Some(ref param_value) = p_definition_id {
+    if let Some(ref param_value) = p_query_definition_id {
         req_builder = req_builder.query(&[("definition_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_name {
+    if let Some(ref param_value) = p_query_name {
         req_builder = req_builder.query(&[("name", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_key {
+    if let Some(ref param_value) = p_query_key {
         req_builder = req_builder.query(&[("key", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_depth {
+    if let Some(ref param_value) = p_query_depth {
         req_builder = req_builder.query(&[("depth", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_source_event_url {
+    if let Some(ref param_value) = p_query_source_event_url {
         req_builder = req_builder.query(&[("source_event_url", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_validate_only {
+    if let Some(ref param_value) = p_query_validate_only {
         req_builder = req_builder.query(&[("validate_only", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1173,7 +1228,7 @@ pub async fn workflow_mock_execute(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1190,8 +1245,8 @@ pub async fn workflow_mock_execute(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodResourceIdsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodResourceIdsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiResourceIdsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiResourceIdsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1206,13 +1261,13 @@ pub async fn workflow_mock_execute(
 
 pub async fn workflow_system_definitions_de_provision(
     configuration: &configuration::Configuration,
-    body: models::ClientPeriodSystemDefinitionDeProvisionRequest,
+    body: models::ClientSystemDefinitionDeProvisionRequest,
 ) -> Result<
-    models::ClientPeriodSystemDefinitionCreateResponse,
+    models::ClientSystemDefinitionCreateResponse,
     Error<WorkflowSystemDefinitionsDeProvisionError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/workflows/system-definitions/deprovision/v1",
@@ -1228,7 +1283,7 @@ pub async fn workflow_system_definitions_de_provision(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1245,8 +1300,8 @@ pub async fn workflow_system_definitions_de_provision(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientPeriodSystemDefinitionCreateResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientPeriodSystemDefinitionCreateResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientSystemDefinitionCreateResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientSystemDefinitionCreateResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1262,13 +1317,13 @@ pub async fn workflow_system_definitions_de_provision(
 
 pub async fn workflow_system_definitions_promote(
     configuration: &configuration::Configuration,
-    body: models::ClientPeriodSystemDefinitionPromoteRequest,
+    body: models::ClientSystemDefinitionPromoteRequest,
 ) -> Result<
-    models::ClientPeriodSystemDefinitionCreateResponse,
+    models::ClientSystemDefinitionCreateResponse,
     Error<WorkflowSystemDefinitionsPromoteError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/workflows/system-definitions/promote/v1",
@@ -1284,7 +1339,7 @@ pub async fn workflow_system_definitions_promote(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1301,8 +1356,8 @@ pub async fn workflow_system_definitions_promote(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientPeriodSystemDefinitionCreateResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientPeriodSystemDefinitionCreateResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientSystemDefinitionCreateResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientSystemDefinitionCreateResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1318,13 +1373,13 @@ pub async fn workflow_system_definitions_promote(
 
 pub async fn workflow_system_definitions_provision(
     configuration: &configuration::Configuration,
-    body: models::ClientPeriodSystemDefinitionProvisionRequest,
+    body: models::ClientSystemDefinitionProvisionRequest,
 ) -> Result<
-    models::ClientPeriodSystemDefinitionCreateResponse,
+    models::ClientSystemDefinitionCreateResponse,
     Error<WorkflowSystemDefinitionsProvisionError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/workflows/system-definitions/provision/v1",
@@ -1340,7 +1395,7 @@ pub async fn workflow_system_definitions_provision(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1357,8 +1412,8 @@ pub async fn workflow_system_definitions_provision(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientPeriodSystemDefinitionCreateResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientPeriodSystemDefinitionCreateResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientSystemDefinitionCreateResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientSystemDefinitionCreateResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1375,14 +1430,14 @@ pub async fn workflow_system_definitions_provision(
 pub async fn workflow_triggers_combined(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::TriggersPeriodTriggerExternalResponse, Error<WorkflowTriggersCombinedError>> {
+) -> Result<models::TriggersTriggerExternalResponse, Error<WorkflowTriggersCombinedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!("{}/workflows/combined/triggers/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1407,8 +1462,8 @@ pub async fn workflow_triggers_combined(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TriggersPeriodTriggerExternalResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TriggersPeriodTriggerExternalResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TriggersTriggerExternalResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TriggersTriggerExternalResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1424,11 +1479,11 @@ pub async fn workflow_triggers_combined(
 pub async fn workflow_update_human_input_v1(
     configuration: &configuration::Configuration,
     id: &str,
-    body: models::ModelPeriodUserInputUpdateRequest,
-) -> Result<models::ApiPeriodResourceIdsResponse, Error<WorkflowUpdateHumanInputV1Error>> {
+    body: models::ModelUserInputUpdateRequest,
+) -> Result<models::ApiResourceIdsResponse, Error<WorkflowUpdateHumanInputV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_body = body;
+    let p_query_id = id;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/workflows/entities/human-inputs/v1",
@@ -1438,14 +1493,14 @@ pub async fn workflow_update_human_input_v1(
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1462,8 +1517,8 @@ pub async fn workflow_update_human_input_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodResourceIdsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodResourceIdsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiResourceIdsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiResourceIdsResponse`")))),
         }
     } else {
         let content = resp.text().await?;

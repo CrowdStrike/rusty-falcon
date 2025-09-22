@@ -17,12 +17,12 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMalQueryDownloadV1Error {
-    Status400(models::MsaPeriodReplyMetaOnly),
-    Status401(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaReplyMetaOnly),
+    Status401(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -30,10 +30,10 @@ pub enum GetMalQueryDownloadV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMalQueryEntitiesSamplesFetchV1Error {
-    Status401(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MalqueryPeriodExternalQueryResponse),
+    Status401(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MalqueryExternalQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,11 +41,11 @@ pub enum GetMalQueryEntitiesSamplesFetchV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMalQueryMetadataV1Error {
-    Status400(models::MalqueryPeriodSampleMetadataResponse),
-    Status401(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MalqueryPeriodSampleMetadataResponse),
+    Status400(models::MalquerySampleMetadataResponse),
+    Status401(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MalquerySampleMetadataResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -53,12 +53,12 @@ pub enum GetMalQueryMetadataV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMalQueryQuotasV1Error {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status401(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::MalqueryPeriodRateLimitsResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MalqueryPeriodRateLimitsResponse),
+    Status400(models::MsaErrorsOnly),
+    Status401(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::MalqueryRateLimitsResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MalqueryRateLimitsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -66,11 +66,11 @@ pub enum GetMalQueryQuotasV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMalQueryRequestV1Error {
-    Status400(models::MalqueryPeriodRequestResponse),
-    Status401(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MalqueryPeriodRequestResponse),
+    Status400(models::MalqueryRequestResponse),
+    Status401(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MalqueryRequestResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -78,12 +78,12 @@ pub enum GetMalQueryRequestV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostMalQueryEntitiesSamplesMultidownloadV1Error {
-    Status400(models::MalqueryPeriodExternalQueryResponse),
-    Status401(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::MalqueryPeriodExternalQueryResponse),
-    Status429(models::MalqueryPeriodExternalQueryResponse),
-    Status500(models::MalqueryPeriodExternalQueryResponse),
+    Status400(models::MalqueryExternalQueryResponse),
+    Status401(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::MalqueryExternalQueryResponse),
+    Status429(models::MalqueryExternalQueryResponse),
+    Status500(models::MalqueryExternalQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -91,11 +91,11 @@ pub enum PostMalQueryEntitiesSamplesMultidownloadV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostMalQueryExactSearchV1Error {
-    Status400(models::MalqueryPeriodExternalQueryResponse),
-    Status401(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MalqueryPeriodExternalQueryResponse),
-    Status500(models::MalqueryPeriodExternalQueryResponse),
+    Status400(models::MalqueryExternalQueryResponse),
+    Status401(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MalqueryExternalQueryResponse),
+    Status500(models::MalqueryExternalQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -103,11 +103,11 @@ pub enum PostMalQueryExactSearchV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostMalQueryFuzzySearchV1Error {
-    Status400(models::MalqueryPeriodFuzzySearchResponse),
-    Status401(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MalqueryPeriodFuzzySearchResponse),
+    Status400(models::MalqueryFuzzySearchResponse),
+    Status401(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MalqueryFuzzySearchResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -115,11 +115,11 @@ pub enum PostMalQueryFuzzySearchV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostMalQueryHuntV1Error {
-    Status400(models::MalqueryPeriodExternalQueryResponse),
-    Status401(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MalqueryPeriodExternalQueryResponse),
-    Status500(models::MalqueryPeriodExternalQueryResponse),
+    Status400(models::MalqueryExternalQueryResponse),
+    Status401(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MalqueryExternalQueryResponse),
+    Status500(models::MalqueryExternalQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -128,7 +128,7 @@ pub async fn get_mal_query_download_v1(
     ids: Vec<String>,
 ) -> Result<(), Error<GetMalQueryDownloadV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/malquery/entities/download-files/v1",
@@ -138,14 +138,14 @@ pub async fn get_mal_query_download_v1(
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -183,7 +183,7 @@ pub async fn get_mal_query_entities_samples_fetch_v1(
     ids: &str,
 ) -> Result<(), Error<GetMalQueryEntitiesSamplesFetchV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/malquery/entities/samples-fetch/v1",
@@ -191,7 +191,7 @@ pub async fn get_mal_query_entities_samples_fetch_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("ids", &p_ids.to_string())]);
+    req_builder = req_builder.query(&[("ids", &p_query_ids.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -221,23 +221,23 @@ pub async fn get_mal_query_entities_samples_fetch_v1(
 pub async fn get_mal_query_metadata_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::MalqueryPeriodSampleMetadataResponse, Error<GetMalQueryMetadataV1Error>> {
+) -> Result<models::MalquerySampleMetadataResponse, Error<GetMalQueryMetadataV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/malquery/entities/metadata/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -267,8 +267,8 @@ pub async fn get_mal_query_metadata_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MalqueryPeriodSampleMetadataResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MalqueryPeriodSampleMetadataResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MalquerySampleMetadataResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MalquerySampleMetadataResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -283,7 +283,7 @@ pub async fn get_mal_query_metadata_v1(
 
 pub async fn get_mal_query_quotas_v1(
     configuration: &configuration::Configuration,
-) -> Result<models::MalqueryPeriodRateLimitsResponse, Error<GetMalQueryQuotasV1Error>> {
+) -> Result<models::MalqueryRateLimitsResponse, Error<GetMalQueryQuotasV1Error>> {
     let uri_str = format!("{}/malquery/aggregates/quotas/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
@@ -309,8 +309,8 @@ pub async fn get_mal_query_quotas_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MalqueryPeriodRateLimitsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MalqueryPeriodRateLimitsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MalqueryRateLimitsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MalqueryRateLimitsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -326,23 +326,23 @@ pub async fn get_mal_query_quotas_v1(
 pub async fn get_mal_query_request_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::MalqueryPeriodRequestResponse, Error<GetMalQueryRequestV1Error>> {
+) -> Result<models::MalqueryRequestResponse, Error<GetMalQueryRequestV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/malquery/entities/requests/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -372,8 +372,8 @@ pub async fn get_mal_query_request_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MalqueryPeriodRequestResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MalqueryPeriodRequestResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MalqueryRequestResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MalqueryRequestResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -388,13 +388,13 @@ pub async fn get_mal_query_request_v1(
 
 pub async fn post_mal_query_entities_samples_multidownload_v1(
     configuration: &configuration::Configuration,
-    body: models::MalqueryPeriodMultiDownloadRequestV1,
+    body: models::MalqueryMultiDownloadRequestV1,
 ) -> Result<
-    models::MalqueryPeriodExternalQueryResponse,
+    models::MalqueryExternalQueryResponse,
     Error<PostMalQueryEntitiesSamplesMultidownloadV1Error>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/malquery/entities/samples-multidownload/v1",
@@ -410,7 +410,7 @@ pub async fn post_mal_query_entities_samples_multidownload_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -427,8 +427,8 @@ pub async fn post_mal_query_entities_samples_multidownload_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MalqueryPeriodExternalQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MalqueryPeriodExternalQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MalqueryExternalQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MalqueryExternalQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -444,10 +444,10 @@ pub async fn post_mal_query_entities_samples_multidownload_v1(
 
 pub async fn post_mal_query_exact_search_v1(
     configuration: &configuration::Configuration,
-    body: models::MalqueryPeriodExternalExactSearchParametersV1,
-) -> Result<models::MalqueryPeriodExternalQueryResponse, Error<PostMalQueryExactSearchV1Error>> {
+    body: models::MalqueryExternalExactSearchParametersV1,
+) -> Result<models::MalqueryExternalQueryResponse, Error<PostMalQueryExactSearchV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/malquery/queries/exact-search/v1",
@@ -463,7 +463,7 @@ pub async fn post_mal_query_exact_search_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -480,8 +480,8 @@ pub async fn post_mal_query_exact_search_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MalqueryPeriodExternalQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MalqueryPeriodExternalQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MalqueryExternalQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MalqueryExternalQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -496,10 +496,10 @@ pub async fn post_mal_query_exact_search_v1(
 
 pub async fn post_mal_query_fuzzy_search_v1(
     configuration: &configuration::Configuration,
-    body: models::MalqueryPeriodFuzzySearchParametersV1,
-) -> Result<models::MalqueryPeriodFuzzySearchResponse, Error<PostMalQueryFuzzySearchV1Error>> {
+    body: models::MalqueryFuzzySearchParametersV1,
+) -> Result<models::MalqueryFuzzySearchResponse, Error<PostMalQueryFuzzySearchV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/malquery/combined/fuzzy-search/v1",
@@ -515,7 +515,7 @@ pub async fn post_mal_query_fuzzy_search_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -532,8 +532,8 @@ pub async fn post_mal_query_fuzzy_search_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MalqueryPeriodFuzzySearchResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MalqueryPeriodFuzzySearchResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MalqueryFuzzySearchResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MalqueryFuzzySearchResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -548,10 +548,10 @@ pub async fn post_mal_query_fuzzy_search_v1(
 
 pub async fn post_mal_query_hunt_v1(
     configuration: &configuration::Configuration,
-    body: models::MalqueryPeriodExternalHuntParametersV1,
-) -> Result<models::MalqueryPeriodExternalQueryResponse, Error<PostMalQueryHuntV1Error>> {
+    body: models::MalqueryExternalHuntParametersV1,
+) -> Result<models::MalqueryExternalQueryResponse, Error<PostMalQueryHuntV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/malquery/queries/hunt/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -564,7 +564,7 @@ pub async fn post_mal_query_hunt_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -581,8 +581,8 @@ pub async fn post_mal_query_hunt_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MalqueryPeriodExternalQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MalqueryPeriodExternalQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MalqueryExternalQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MalqueryExternalQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;

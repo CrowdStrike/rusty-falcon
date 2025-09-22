@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BatchActiveResponderCmdError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodApiError),
+    Status400(models::DomainApiError),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum BatchActiveResponderCmdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BatchCmdError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodApiError),
+    Status400(models::DomainApiError),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum BatchCmdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BatchGetCmdError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodApiError),
+    Status400(models::DomainApiError),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,11 +50,11 @@ pub enum BatchGetCmdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BatchGetCmdStatusError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::DomainPeriodApiError),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodApiError),
+    Status400(models::DomainApiError),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::DomainApiError),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,10 +62,10 @@ pub enum BatchGetCmdStatusError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BatchInitSessionsError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodApiError),
+    Status400(models::DomainApiError),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -73,10 +73,10 @@ pub enum BatchInitSessionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BatchRefreshSessionsError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodApiError),
+    Status400(models::DomainApiError),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -84,11 +84,11 @@ pub enum BatchRefreshSessionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrAggregateSessionsError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodApiError),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainApiError),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -96,10 +96,10 @@ pub enum RTrAggregateSessionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrCheckActiveResponderCommandStatusError {
-    Status401(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status401(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -107,10 +107,10 @@ pub enum RTrCheckActiveResponderCommandStatusError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrCheckCommandStatusError {
-    Status401(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status401(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -118,11 +118,11 @@ pub enum RTrCheckCommandStatusError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrDeleteFileError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodApiError),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainApiError),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -130,11 +130,11 @@ pub enum RTrDeleteFileError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrDeleteFileV2Error {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodApiError),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainApiError),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -142,11 +142,11 @@ pub enum RTrDeleteFileV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrDeleteQueuedSessionError {
-    Status400(models::DomainPeriodApiError),
-    Status401(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainApiError),
+    Status401(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -154,11 +154,11 @@ pub enum RTrDeleteQueuedSessionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrDeleteSessionError {
-    Status400(models::DomainPeriodApiError),
-    Status401(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainApiError),
+    Status401(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -166,10 +166,10 @@ pub enum RTrDeleteSessionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrExecuteActiveResponderCommandError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -177,10 +177,10 @@ pub enum RTrExecuteActiveResponderCommandError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrExecuteCommandError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -188,11 +188,11 @@ pub enum RTrExecuteCommandError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrGetExtractedFileContentsError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodApiError),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodApiError),
+    Status400(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainApiError),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -200,10 +200,10 @@ pub enum RTrGetExtractedFileContentsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrInitSessionError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodApiError),
+    Status400(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -211,11 +211,11 @@ pub enum RTrInitSessionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrListAllSessionsError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodApiError),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainApiError),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -223,11 +223,11 @@ pub enum RTrListAllSessionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrListFilesError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodApiError),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainApiError),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -235,11 +235,11 @@ pub enum RTrListFilesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrListFilesV2Error {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodApiError),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainApiError),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -247,12 +247,12 @@ pub enum RTrListFilesV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrListQueuedSessionsError {
-    Status400(models::DomainPeriodApiError),
-    Status401(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodApiError),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainApiError),
+    Status401(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainApiError),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -260,11 +260,11 @@ pub enum RTrListQueuedSessionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrListSessionsError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodApiError),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainApiError),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -272,28 +272,25 @@ pub enum RTrListSessionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrPulseSessionError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodApiError),
+    Status400(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainApiError),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn batch_active_responder_cmd(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodBatchExecuteCommandRequest,
+    body: models::DomainBatchExecuteCommandRequest,
     timeout: Option<i32>,
     timeout_duration: Option<&str>,
     host_timeout_duration: Option<&str>,
-) -> Result<
-    models::DomainPeriodMultiCommandExecuteResponseWrapper,
-    Error<BatchActiveResponderCmdError>,
-> {
+) -> Result<models::DomainMultiCommandExecuteResponseWrapper, Error<BatchActiveResponderCmdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_timeout = timeout;
-    let p_timeout_duration = timeout_duration;
-    let p_host_timeout_duration = host_timeout_duration;
+    let p_body_body = body;
+    let p_query_timeout = timeout;
+    let p_query_timeout_duration = timeout_duration;
+    let p_query_host_timeout_duration = host_timeout_duration;
 
     let uri_str = format!(
         "{}/real-time-response/combined/batch-active-responder-command/v1",
@@ -303,13 +300,13 @@ pub async fn batch_active_responder_cmd(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_timeout {
+    if let Some(ref param_value) = p_query_timeout {
         req_builder = req_builder.query(&[("timeout", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_timeout_duration {
+    if let Some(ref param_value) = p_query_timeout_duration {
         req_builder = req_builder.query(&[("timeout_duration", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_host_timeout_duration {
+    if let Some(ref param_value) = p_query_host_timeout_duration {
         req_builder = req_builder.query(&[("host_timeout_duration", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -318,7 +315,7 @@ pub async fn batch_active_responder_cmd(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -335,8 +332,8 @@ pub async fn batch_active_responder_cmd(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodMultiCommandExecuteResponseWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodMultiCommandExecuteResponseWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainMultiCommandExecuteResponseWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainMultiCommandExecuteResponseWrapper`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -351,16 +348,16 @@ pub async fn batch_active_responder_cmd(
 
 pub async fn batch_cmd(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodBatchExecuteCommandRequest,
+    body: models::DomainBatchExecuteCommandRequest,
     timeout: Option<i32>,
     timeout_duration: Option<&str>,
     host_timeout_duration: Option<&str>,
-) -> Result<models::DomainPeriodMultiCommandExecuteResponseWrapper, Error<BatchCmdError>> {
+) -> Result<models::DomainMultiCommandExecuteResponseWrapper, Error<BatchCmdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_timeout = timeout;
-    let p_timeout_duration = timeout_duration;
-    let p_host_timeout_duration = host_timeout_duration;
+    let p_body_body = body;
+    let p_query_timeout = timeout;
+    let p_query_timeout_duration = timeout_duration;
+    let p_query_host_timeout_duration = host_timeout_duration;
 
     let uri_str = format!(
         "{}/real-time-response/combined/batch-command/v1",
@@ -370,13 +367,13 @@ pub async fn batch_cmd(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_timeout {
+    if let Some(ref param_value) = p_query_timeout {
         req_builder = req_builder.query(&[("timeout", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_timeout_duration {
+    if let Some(ref param_value) = p_query_timeout_duration {
         req_builder = req_builder.query(&[("timeout_duration", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_host_timeout_duration {
+    if let Some(ref param_value) = p_query_host_timeout_duration {
         req_builder = req_builder.query(&[("host_timeout_duration", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -385,7 +382,7 @@ pub async fn batch_cmd(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -402,8 +399,8 @@ pub async fn batch_cmd(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodMultiCommandExecuteResponseWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodMultiCommandExecuteResponseWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainMultiCommandExecuteResponseWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainMultiCommandExecuteResponseWrapper`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -418,16 +415,16 @@ pub async fn batch_cmd(
 
 pub async fn batch_get_cmd(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodBatchGetCommandRequest,
+    body: models::DomainBatchGetCommandRequest,
     timeout: Option<i32>,
     timeout_duration: Option<&str>,
     host_timeout_duration: Option<&str>,
-) -> Result<models::DomainPeriodBatchGetCommandResponse, Error<BatchGetCmdError>> {
+) -> Result<models::DomainBatchGetCommandResponse, Error<BatchGetCmdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_timeout = timeout;
-    let p_timeout_duration = timeout_duration;
-    let p_host_timeout_duration = host_timeout_duration;
+    let p_body_body = body;
+    let p_query_timeout = timeout;
+    let p_query_timeout_duration = timeout_duration;
+    let p_query_host_timeout_duration = host_timeout_duration;
 
     let uri_str = format!(
         "{}/real-time-response/combined/batch-get-command/v1",
@@ -437,13 +434,13 @@ pub async fn batch_get_cmd(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_timeout {
+    if let Some(ref param_value) = p_query_timeout {
         req_builder = req_builder.query(&[("timeout", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_timeout_duration {
+    if let Some(ref param_value) = p_query_timeout_duration {
         req_builder = req_builder.query(&[("timeout_duration", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_host_timeout_duration {
+    if let Some(ref param_value) = p_query_host_timeout_duration {
         req_builder = req_builder.query(&[("host_timeout_duration", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -452,7 +449,7 @@ pub async fn batch_get_cmd(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -469,8 +466,8 @@ pub async fn batch_get_cmd(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodBatchGetCommandResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodBatchGetCommandResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainBatchGetCommandResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainBatchGetCommandResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -488,11 +485,11 @@ pub async fn batch_get_cmd_status(
     batch_get_cmd_req_id: &str,
     timeout: Option<i32>,
     timeout_duration: Option<&str>,
-) -> Result<models::DomainPeriodBatchGetCmdStatusResponse, Error<BatchGetCmdStatusError>> {
+) -> Result<models::DomainBatchGetCmdStatusResponse, Error<BatchGetCmdStatusError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_batch_get_cmd_req_id = batch_get_cmd_req_id;
-    let p_timeout = timeout;
-    let p_timeout_duration = timeout_duration;
+    let p_query_batch_get_cmd_req_id = batch_get_cmd_req_id;
+    let p_query_timeout = timeout;
+    let p_query_timeout_duration = timeout_duration;
 
     let uri_str = format!(
         "{}/real-time-response/combined/batch-get-command/v1",
@@ -500,14 +497,16 @@ pub async fn batch_get_cmd_status(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_timeout {
+    if let Some(ref param_value) = p_query_timeout {
         req_builder = req_builder.query(&[("timeout", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_timeout_duration {
+    if let Some(ref param_value) = p_query_timeout_duration {
         req_builder = req_builder.query(&[("timeout_duration", &param_value.to_string())]);
     }
-    req_builder =
-        req_builder.query(&[("batch_get_cmd_req_id", &p_batch_get_cmd_req_id.to_string())]);
+    req_builder = req_builder.query(&[(
+        "batch_get_cmd_req_id",
+        &p_query_batch_get_cmd_req_id.to_string(),
+    )]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -530,8 +529,8 @@ pub async fn batch_get_cmd_status(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodBatchGetCmdStatusResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodBatchGetCmdStatusResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainBatchGetCmdStatusResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainBatchGetCmdStatusResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -546,16 +545,16 @@ pub async fn batch_get_cmd_status(
 
 pub async fn batch_init_sessions(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodBatchInitSessionRequest,
+    body: models::DomainBatchInitSessionRequest,
     timeout: Option<i32>,
     timeout_duration: Option<&str>,
     host_timeout_duration: Option<&str>,
-) -> Result<models::DomainPeriodBatchInitSessionResponse, Error<BatchInitSessionsError>> {
+) -> Result<models::DomainBatchInitSessionResponse, Error<BatchInitSessionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_timeout = timeout;
-    let p_timeout_duration = timeout_duration;
-    let p_host_timeout_duration = host_timeout_duration;
+    let p_body_body = body;
+    let p_query_timeout = timeout;
+    let p_query_timeout_duration = timeout_duration;
+    let p_query_host_timeout_duration = host_timeout_duration;
 
     let uri_str = format!(
         "{}/real-time-response/combined/batch-init-session/v1",
@@ -565,13 +564,13 @@ pub async fn batch_init_sessions(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_timeout {
+    if let Some(ref param_value) = p_query_timeout {
         req_builder = req_builder.query(&[("timeout", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_timeout_duration {
+    if let Some(ref param_value) = p_query_timeout_duration {
         req_builder = req_builder.query(&[("timeout_duration", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_host_timeout_duration {
+    if let Some(ref param_value) = p_query_host_timeout_duration {
         req_builder = req_builder.query(&[("host_timeout_duration", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -580,7 +579,7 @@ pub async fn batch_init_sessions(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -597,8 +596,8 @@ pub async fn batch_init_sessions(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodBatchInitSessionResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodBatchInitSessionResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainBatchInitSessionResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainBatchInitSessionResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -613,14 +612,14 @@ pub async fn batch_init_sessions(
 
 pub async fn batch_refresh_sessions(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodBatchRefreshSessionRequest,
+    body: models::DomainBatchRefreshSessionRequest,
     timeout: Option<i32>,
     timeout_duration: Option<&str>,
-) -> Result<models::DomainPeriodBatchRefreshSessionResponse, Error<BatchRefreshSessionsError>> {
+) -> Result<models::DomainBatchRefreshSessionResponse, Error<BatchRefreshSessionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_timeout = timeout;
-    let p_timeout_duration = timeout_duration;
+    let p_body_body = body;
+    let p_query_timeout = timeout;
+    let p_query_timeout_duration = timeout_duration;
 
     let uri_str = format!(
         "{}/real-time-response/combined/batch-refresh-session/v1",
@@ -630,10 +629,10 @@ pub async fn batch_refresh_sessions(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_timeout {
+    if let Some(ref param_value) = p_query_timeout {
         req_builder = req_builder.query(&[("timeout", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_timeout_duration {
+    if let Some(ref param_value) = p_query_timeout_duration {
         req_builder = req_builder.query(&[("timeout_duration", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -642,7 +641,7 @@ pub async fn batch_refresh_sessions(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -659,8 +658,8 @@ pub async fn batch_refresh_sessions(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodBatchRefreshSessionResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodBatchRefreshSessionResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainBatchRefreshSessionResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainBatchRefreshSessionResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -675,10 +674,10 @@ pub async fn batch_refresh_sessions(
 
 pub async fn r_tr_aggregate_sessions(
     configuration: &configuration::Configuration,
-    body: Vec<models::MsaPeriodAggregateQueryRequest>,
-) -> Result<models::MsaPeriodAggregatesResponse, Error<RTrAggregateSessionsError>> {
+    body: Vec<models::MsaAggregateQueryRequest>,
+) -> Result<models::MsaAggregatesResponse, Error<RTrAggregateSessionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/real-time-response/aggregates/sessions/GET/v1",
@@ -694,7 +693,7 @@ pub async fn r_tr_aggregate_sessions(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -711,8 +710,8 @@ pub async fn r_tr_aggregate_sessions(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -729,13 +728,10 @@ pub async fn r_tr_check_active_responder_command_status(
     configuration: &configuration::Configuration,
     cloud_request_id: &str,
     sequence_id: i32,
-) -> Result<
-    models::DomainPeriodStatusResponseWrapper,
-    Error<RTrCheckActiveResponderCommandStatusError>,
-> {
+) -> Result<models::DomainStatusResponseWrapper, Error<RTrCheckActiveResponderCommandStatusError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_cloud_request_id = cloud_request_id;
-    let p_sequence_id = sequence_id;
+    let p_query_cloud_request_id = cloud_request_id;
+    let p_query_sequence_id = sequence_id;
 
     let uri_str = format!(
         "{}/real-time-response/entities/active-responder-command/v1",
@@ -743,8 +739,8 @@ pub async fn r_tr_check_active_responder_command_status(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("cloud_request_id", &p_cloud_request_id.to_string())]);
-    req_builder = req_builder.query(&[("sequence_id", &p_sequence_id.to_string())]);
+    req_builder = req_builder.query(&[("cloud_request_id", &p_query_cloud_request_id.to_string())]);
+    req_builder = req_builder.query(&[("sequence_id", &p_query_sequence_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -767,8 +763,8 @@ pub async fn r_tr_check_active_responder_command_status(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodStatusResponseWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodStatusResponseWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainStatusResponseWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainStatusResponseWrapper`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -786,10 +782,10 @@ pub async fn r_tr_check_command_status(
     configuration: &configuration::Configuration,
     cloud_request_id: &str,
     sequence_id: i32,
-) -> Result<models::DomainPeriodStatusResponseWrapper, Error<RTrCheckCommandStatusError>> {
+) -> Result<models::DomainStatusResponseWrapper, Error<RTrCheckCommandStatusError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_cloud_request_id = cloud_request_id;
-    let p_sequence_id = sequence_id;
+    let p_query_cloud_request_id = cloud_request_id;
+    let p_query_sequence_id = sequence_id;
 
     let uri_str = format!(
         "{}/real-time-response/entities/command/v1",
@@ -797,8 +793,8 @@ pub async fn r_tr_check_command_status(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("cloud_request_id", &p_cloud_request_id.to_string())]);
-    req_builder = req_builder.query(&[("sequence_id", &p_sequence_id.to_string())]);
+    req_builder = req_builder.query(&[("cloud_request_id", &p_query_cloud_request_id.to_string())]);
+    req_builder = req_builder.query(&[("sequence_id", &p_query_sequence_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -821,8 +817,8 @@ pub async fn r_tr_check_command_status(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodStatusResponseWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodStatusResponseWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainStatusResponseWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainStatusResponseWrapper`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -839,10 +835,10 @@ pub async fn r_tr_delete_file(
     configuration: &configuration::Configuration,
     ids: &str,
     session_id: &str,
-) -> Result<models::MsaPeriodReplyMetaOnly, Error<RTrDeleteFileError>> {
+) -> Result<models::MsaReplyMetaOnly, Error<RTrDeleteFileError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_session_id = session_id;
+    let p_query_ids = ids;
+    let p_query_session_id = session_id;
 
     let uri_str = format!(
         "{}/real-time-response/entities/file/v1",
@@ -852,8 +848,8 @@ pub async fn r_tr_delete_file(
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("ids", &p_ids.to_string())]);
-    req_builder = req_builder.query(&[("session_id", &p_session_id.to_string())]);
+    req_builder = req_builder.query(&[("ids", &p_query_ids.to_string())]);
+    req_builder = req_builder.query(&[("session_id", &p_query_session_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -876,8 +872,8 @@ pub async fn r_tr_delete_file(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodReplyMetaOnly`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodReplyMetaOnly`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaReplyMetaOnly`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaReplyMetaOnly`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -894,10 +890,10 @@ pub async fn r_tr_delete_file_v2(
     configuration: &configuration::Configuration,
     ids: &str,
     session_id: &str,
-) -> Result<models::MsaPeriodReplyMetaOnly, Error<RTrDeleteFileV2Error>> {
+) -> Result<models::MsaReplyMetaOnly, Error<RTrDeleteFileV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_session_id = session_id;
+    let p_query_ids = ids;
+    let p_query_session_id = session_id;
 
     let uri_str = format!(
         "{}/real-time-response/entities/file/v2",
@@ -907,8 +903,8 @@ pub async fn r_tr_delete_file_v2(
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("ids", &p_ids.to_string())]);
-    req_builder = req_builder.query(&[("session_id", &p_session_id.to_string())]);
+    req_builder = req_builder.query(&[("ids", &p_query_ids.to_string())]);
+    req_builder = req_builder.query(&[("session_id", &p_query_session_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -931,8 +927,8 @@ pub async fn r_tr_delete_file_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodReplyMetaOnly`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodReplyMetaOnly`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaReplyMetaOnly`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaReplyMetaOnly`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -949,10 +945,10 @@ pub async fn r_tr_delete_queued_session(
     configuration: &configuration::Configuration,
     session_id: &str,
     cloud_request_id: &str,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<RTrDeleteQueuedSessionError>> {
+) -> Result<models::MsaspecQueryResponse, Error<RTrDeleteQueuedSessionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_session_id = session_id;
-    let p_cloud_request_id = cloud_request_id;
+    let p_query_session_id = session_id;
+    let p_query_cloud_request_id = cloud_request_id;
 
     let uri_str = format!(
         "{}/real-time-response/entities/queued-sessions/command/v1",
@@ -962,8 +958,8 @@ pub async fn r_tr_delete_queued_session(
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("session_id", &p_session_id.to_string())]);
-    req_builder = req_builder.query(&[("cloud_request_id", &p_cloud_request_id.to_string())]);
+    req_builder = req_builder.query(&[("session_id", &p_query_session_id.to_string())]);
+    req_builder = req_builder.query(&[("cloud_request_id", &p_query_cloud_request_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -986,8 +982,8 @@ pub async fn r_tr_delete_queued_session(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1003,9 +999,9 @@ pub async fn r_tr_delete_queued_session(
 pub async fn r_tr_delete_session(
     configuration: &configuration::Configuration,
     session_id: &str,
-) -> Result<models::MsaPeriodReplyMetaOnly, Error<RTrDeleteSessionError>> {
+) -> Result<models::MsaReplyMetaOnly, Error<RTrDeleteSessionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_session_id = session_id;
+    let p_query_session_id = session_id;
 
     let uri_str = format!(
         "{}/real-time-response/entities/sessions/v1",
@@ -1015,7 +1011,7 @@ pub async fn r_tr_delete_session(
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("session_id", &p_session_id.to_string())]);
+    req_builder = req_builder.query(&[("session_id", &p_query_session_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1038,8 +1034,8 @@ pub async fn r_tr_delete_session(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodReplyMetaOnly`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodReplyMetaOnly`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaReplyMetaOnly`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaReplyMetaOnly`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1054,13 +1050,11 @@ pub async fn r_tr_delete_session(
 
 pub async fn r_tr_execute_active_responder_command(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodCommandExecuteRequest,
-) -> Result<
-    models::DomainPeriodCommandExecuteResponseWrapper,
-    Error<RTrExecuteActiveResponderCommandError>,
-> {
+    body: models::DomainCommandExecuteRequest,
+) -> Result<models::DomainCommandExecuteResponseWrapper, Error<RTrExecuteActiveResponderCommandError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/real-time-response/entities/active-responder-command/v1",
@@ -1076,7 +1070,7 @@ pub async fn r_tr_execute_active_responder_command(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1093,8 +1087,8 @@ pub async fn r_tr_execute_active_responder_command(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodCommandExecuteResponseWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodCommandExecuteResponseWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainCommandExecuteResponseWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainCommandExecuteResponseWrapper`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1110,10 +1104,10 @@ pub async fn r_tr_execute_active_responder_command(
 
 pub async fn r_tr_execute_command(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodCommandExecuteRequest,
-) -> Result<models::DomainPeriodCommandExecuteResponseWrapper, Error<RTrExecuteCommandError>> {
+    body: models::DomainCommandExecuteRequest,
+) -> Result<models::DomainCommandExecuteResponseWrapper, Error<RTrExecuteCommandError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/real-time-response/entities/command/v1",
@@ -1129,7 +1123,7 @@ pub async fn r_tr_execute_command(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1146,8 +1140,8 @@ pub async fn r_tr_execute_command(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodCommandExecuteResponseWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodCommandExecuteResponseWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainCommandExecuteResponseWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainCommandExecuteResponseWrapper`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1167,9 +1161,9 @@ pub async fn r_tr_get_extracted_file_contents(
     filename: Option<&str>,
 ) -> Result<Vec<i32>, Error<RTrGetExtractedFileContentsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_session_id = session_id;
-    let p_sha256 = sha256;
-    let p_filename = filename;
+    let p_query_session_id = session_id;
+    let p_query_sha256 = sha256;
+    let p_query_filename = filename;
 
     let uri_str = format!(
         "{}/real-time-response/entities/extracted-file-contents/v1",
@@ -1177,9 +1171,9 @@ pub async fn r_tr_get_extracted_file_contents(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("session_id", &p_session_id.to_string())]);
-    req_builder = req_builder.query(&[("sha256", &p_sha256.to_string())]);
-    if let Some(ref param_value) = p_filename {
+    req_builder = req_builder.query(&[("session_id", &p_query_session_id.to_string())]);
+    req_builder = req_builder.query(&[("sha256", &p_query_sha256.to_string())]);
+    if let Some(ref param_value) = p_query_filename {
         req_builder = req_builder.query(&[("filename", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1220,14 +1214,14 @@ pub async fn r_tr_get_extracted_file_contents(
 
 pub async fn r_tr_init_session(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodInitRequest,
+    body: models::DomainInitRequest,
     timeout: Option<i32>,
     timeout_duration: Option<&str>,
-) -> Result<models::DomainPeriodInitResponseWrapper, Error<RTrInitSessionError>> {
+) -> Result<models::DomainInitResponseWrapper, Error<RTrInitSessionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_timeout = timeout;
-    let p_timeout_duration = timeout_duration;
+    let p_body_body = body;
+    let p_query_timeout = timeout;
+    let p_query_timeout_duration = timeout_duration;
 
     let uri_str = format!(
         "{}/real-time-response/entities/sessions/v1",
@@ -1237,10 +1231,10 @@ pub async fn r_tr_init_session(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_timeout {
+    if let Some(ref param_value) = p_query_timeout {
         req_builder = req_builder.query(&[("timeout", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_timeout_duration {
+    if let Some(ref param_value) = p_query_timeout_duration {
         req_builder = req_builder.query(&[("timeout_duration", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1249,7 +1243,7 @@ pub async fn r_tr_init_session(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1266,8 +1260,8 @@ pub async fn r_tr_init_session(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodInitResponseWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodInitResponseWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainInitResponseWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainInitResponseWrapper`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1286,12 +1280,12 @@ pub async fn r_tr_list_all_sessions(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<models::DomainPeriodListSessionsResponseMsa, Error<RTrListAllSessionsError>> {
+) -> Result<models::DomainListSessionsResponseMsa, Error<RTrListAllSessionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/real-time-response/queries/sessions/v1",
@@ -1299,16 +1293,16 @@ pub async fn r_tr_list_all_sessions(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1333,8 +1327,8 @@ pub async fn r_tr_list_all_sessions(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodListSessionsResponseMsa`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodListSessionsResponseMsa`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainListSessionsResponseMsa`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainListSessionsResponseMsa`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1350,9 +1344,9 @@ pub async fn r_tr_list_all_sessions(
 pub async fn r_tr_list_files(
     configuration: &configuration::Configuration,
     session_id: &str,
-) -> Result<models::DomainPeriodListFilesResponseWrapper, Error<RTrListFilesError>> {
+) -> Result<models::DomainListFilesResponseWrapper, Error<RTrListFilesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_session_id = session_id;
+    let p_query_session_id = session_id;
 
     let uri_str = format!(
         "{}/real-time-response/entities/file/v1",
@@ -1360,7 +1354,7 @@ pub async fn r_tr_list_files(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("session_id", &p_session_id.to_string())]);
+    req_builder = req_builder.query(&[("session_id", &p_query_session_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1383,8 +1377,8 @@ pub async fn r_tr_list_files(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodListFilesResponseWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodListFilesResponseWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainListFilesResponseWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainListFilesResponseWrapper`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1400,9 +1394,9 @@ pub async fn r_tr_list_files(
 pub async fn r_tr_list_files_v2(
     configuration: &configuration::Configuration,
     session_id: &str,
-) -> Result<models::DomainPeriodListFilesV2ResponseWrapper, Error<RTrListFilesV2Error>> {
+) -> Result<models::DomainListFilesV2ResponseWrapper, Error<RTrListFilesV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_session_id = session_id;
+    let p_query_session_id = session_id;
 
     let uri_str = format!(
         "{}/real-time-response/entities/file/v2",
@@ -1410,7 +1404,7 @@ pub async fn r_tr_list_files_v2(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("session_id", &p_session_id.to_string())]);
+    req_builder = req_builder.query(&[("session_id", &p_query_session_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1433,8 +1427,8 @@ pub async fn r_tr_list_files_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodListFilesV2ResponseWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodListFilesV2ResponseWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainListFilesV2ResponseWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainListFilesV2ResponseWrapper`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1449,10 +1443,10 @@ pub async fn r_tr_list_files_v2(
 
 pub async fn r_tr_list_queued_sessions(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodIdsRequest,
-) -> Result<models::DomainPeriodQueuedSessionResponseWrapper, Error<RTrListQueuedSessionsError>> {
+    body: models::MsaIdsRequest,
+) -> Result<models::DomainQueuedSessionResponseWrapper, Error<RTrListQueuedSessionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/real-time-response/entities/queued-sessions/GET/v1",
@@ -1468,7 +1462,7 @@ pub async fn r_tr_list_queued_sessions(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1485,8 +1479,8 @@ pub async fn r_tr_list_queued_sessions(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodQueuedSessionResponseWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodQueuedSessionResponseWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainQueuedSessionResponseWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainQueuedSessionResponseWrapper`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1501,10 +1495,10 @@ pub async fn r_tr_list_queued_sessions(
 
 pub async fn r_tr_list_sessions(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodIdsRequest,
-) -> Result<models::DomainPeriodSessionResponseWrapper, Error<RTrListSessionsError>> {
+    body: models::MsaIdsRequest,
+) -> Result<models::DomainSessionResponseWrapper, Error<RTrListSessionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/real-time-response/entities/sessions/GET/v1",
@@ -1520,7 +1514,7 @@ pub async fn r_tr_list_sessions(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1537,8 +1531,8 @@ pub async fn r_tr_list_sessions(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodSessionResponseWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodSessionResponseWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainSessionResponseWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainSessionResponseWrapper`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1553,10 +1547,10 @@ pub async fn r_tr_list_sessions(
 
 pub async fn r_tr_pulse_session(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodInitRequest,
-) -> Result<models::DomainPeriodInitResponseWrapper, Error<RTrPulseSessionError>> {
+    body: models::DomainInitRequest,
+) -> Result<models::DomainInitResponseWrapper, Error<RTrPulseSessionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/real-time-response/entities/refresh-session/v1",
@@ -1572,7 +1566,7 @@ pub async fn r_tr_pulse_session(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1589,8 +1583,8 @@ pub async fn r_tr_pulse_session(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodInitResponseWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodInitResponseWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainInitResponseWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainInitResponseWrapper`")))),
         }
     } else {
         let content = resp.text().await?;

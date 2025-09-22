@@ -1,7 +1,7 @@
 use clap::Parser;
 use rusty_falcon::apis::sensor_update_policies_api;
 use rusty_falcon::easy::client::FalconHandle;
-use rusty_falcon::models::SensorUpdatePeriodKernelRespV1;
+use rusty_falcon::models::SensorUpdateKernelRespV1;
 use std::collections::HashSet;
 use std::io;
 use std::io::Write;
@@ -42,7 +42,7 @@ async fn main() {
         .as_ref()
         .and_then(|kernels| kernels.first())
     {
-        let SensorUpdatePeriodKernelRespV1 {
+        let SensorUpdateKernelRespV1 {
             architecture,
             distro,
             ..

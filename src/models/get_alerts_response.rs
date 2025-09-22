@@ -13,21 +13,21 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetAlertsResponse {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::Error9c7e6ed7752842d5a4edc1c038717d13>>,
+    pub errors: Option<Vec<models::ErrorGetAlertsResponse>>,
     #[serde(
         rename = "meta",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub meta: Option<Option<Box<models::MetaC6f996b5d31d4584aeeecddeb5a2a566>>>,
+    pub meta: Option<Option<Box<models::MetaGetAlertsResponse>>>,
     #[serde(
         rename = "resources",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub resources: Option<Option<Vec<models::AlertB01d538f7601448fa7e8338bcd3a68c6>>>,
+    pub resources: Option<Option<Vec<models::AlertGetAlertsResponse>>>,
 }
 
 impl GetAlertsResponse {

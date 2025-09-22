@@ -17,22 +17,22 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateDeploymentEntityError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_credentials_mixin0_mixin61`]
+/// struct for typed errors of method [`get_credentials_mixin0_mixin60`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetCredentialsMixin0Mixin61Error {
-    Status400(models::MsaspecPeriodError),
-    Status401(models::MsaspecPeriodError),
-    Status403(models::MsaspecPeriodError),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ModelsPeriodRegistryCredentialsResponse),
+pub enum GetCredentialsMixin0Mixin60Error {
+    Status400(models::MsaspecError),
+    Status401(models::MsaspecError),
+    Status403(models::MsaspecError),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ModelsRegistryCredentialsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,11 +40,11 @@ pub enum GetCredentialsMixin0Mixin61Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetScanReportError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -52,10 +52,10 @@ pub enum GetScanReportError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadDeploymentsCombinedError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -63,10 +63,10 @@ pub enum ReadDeploymentsCombinedError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadDeploymentsEntitiesError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -74,19 +74,19 @@ pub enum ReadDeploymentsEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RegisterCspmSnapshotAccountError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_deployment_entity(
     configuration: &configuration::Configuration,
-    body: models::ModelsPeriodCreateDeploymentInput,
-) -> Result<models::DeploymentsPeriodEntityResponse, Error<CreateDeploymentEntityError>> {
+    body: models::ModelsCreateDeploymentInput,
+) -> Result<models::DeploymentsEntityResponse, Error<CreateDeploymentEntityError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/snapshots/entities/deployments/v1",
@@ -102,7 +102,7 @@ pub async fn create_deployment_entity(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -119,8 +119,8 @@ pub async fn create_deployment_entity(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeploymentsPeriodEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeploymentsPeriodEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeploymentsEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeploymentsEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -133,10 +133,9 @@ pub async fn create_deployment_entity(
     }
 }
 
-pub async fn get_credentials_mixin0_mixin61(
+pub async fn get_credentials_mixin0_mixin60(
     configuration: &configuration::Configuration,
-) -> Result<models::ModelsPeriodRegistryCredentialsResponse, Error<GetCredentialsMixin0Mixin61Error>>
-{
+) -> Result<models::ModelsRegistryCredentialsResponse, Error<GetCredentialsMixin0Mixin60Error>> {
     let uri_str = format!(
         "{}/snapshots/entities/image-registry-credentials/v1",
         configuration.base_path
@@ -165,12 +164,12 @@ pub async fn get_credentials_mixin0_mixin61(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodRegistryCredentialsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodRegistryCredentialsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsRegistryCredentialsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsRegistryCredentialsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetCredentialsMixin0Mixin61Error> = serde_json::from_str(&content).ok();
+        let entity: Option<GetCredentialsMixin0Mixin60Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -182,9 +181,9 @@ pub async fn get_credentials_mixin0_mixin61(
 pub async fn get_scan_report(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ScanreportsPeriodEntitiesResponse, Error<GetScanReportError>> {
+) -> Result<models::ScanreportsEntitiesResponse, Error<GetScanReportError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/snapshots/entities/scanreports/v1",
@@ -194,14 +193,14 @@ pub async fn get_scan_report(
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -231,8 +230,8 @@ pub async fn get_scan_report(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ScanreportsPeriodEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ScanreportsPeriodEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ScanreportsEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ScanreportsEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -251,12 +250,12 @@ pub async fn read_deployments_combined(
     limit: Option<i32>,
     offset: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::DeploymentsPeriodEntityResponse, Error<ReadDeploymentsCombinedError>> {
+) -> Result<models::DeploymentsEntityResponse, Error<ReadDeploymentsCombinedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/snapshots/combined/deployments/v1",
@@ -264,16 +263,16 @@ pub async fn read_deployments_combined(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -298,8 +297,8 @@ pub async fn read_deployments_combined(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeploymentsPeriodEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeploymentsPeriodEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeploymentsEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeploymentsEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -315,9 +314,9 @@ pub async fn read_deployments_combined(
 pub async fn read_deployments_entities(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
-) -> Result<models::DeploymentsPeriodEntityResponse, Error<ReadDeploymentsEntitiesError>> {
+) -> Result<models::DeploymentsEntityResponse, Error<ReadDeploymentsEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/snapshots/entities/deployments/v1",
@@ -325,7 +324,7 @@ pub async fn read_deployments_entities(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -366,8 +365,8 @@ pub async fn read_deployments_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeploymentsPeriodEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeploymentsPeriodEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeploymentsEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeploymentsEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -382,10 +381,10 @@ pub async fn read_deployments_entities(
 
 pub async fn register_cspm_snapshot_account(
     configuration: &configuration::Configuration,
-    body: models::ModelsPeriodAccountEntitiesInput,
-) -> Result<models::ModelsPeriodAccountStatusResponse, Error<RegisterCspmSnapshotAccountError>> {
+    body: models::ModelsAccountEntitiesInput,
+) -> Result<models::ModelsAccountStatusResponse, Error<RegisterCspmSnapshotAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/snapshots/entities/accounts/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -398,7 +397,7 @@ pub async fn register_cspm_snapshot_account(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -415,8 +414,8 @@ pub async fn register_cspm_snapshot_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAccountStatusResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAccountStatusResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAccountStatusResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAccountStatusResponse`")))),
         }
     } else {
         let content = resp.text().await?;

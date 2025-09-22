@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateMlExclusionsV1Error {
-    Status400(models::ExclusionsPeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ExclusionsPeriodRespV1),
+    Status400(models::ExclusionsRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ExclusionsRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum CreateMlExclusionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteMlExclusionsV1Error {
-    Status400(models::ExclusionsPeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ExclusionsPeriodRespV1),
+    Status400(models::ExclusionsRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ExclusionsRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum DeleteMlExclusionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMlExclusionsV1Error {
-    Status400(models::ExclusionsPeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ExclusionsPeriodRespV1),
+    Status400(models::ExclusionsRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ExclusionsRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +50,10 @@ pub enum GetMlExclusionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryMlExclusionsV1Error {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,19 +61,19 @@ pub enum QueryMlExclusionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateMlExclusionsV1Error {
-    Status400(models::ExclusionsPeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ExclusionsPeriodRespV1),
+    Status400(models::ExclusionsRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ExclusionsRespV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_ml_exclusions_v1(
     configuration: &configuration::Configuration,
-    body: models::ExclusionsPeriodCreateReqV1,
-) -> Result<models::ExclusionsPeriodRespV1, Error<CreateMlExclusionsV1Error>> {
+    body: models::ExclusionsCreateReqV1,
+) -> Result<models::ExclusionsRespV1, Error<CreateMlExclusionsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/ml-exclusions/v1",
@@ -89,7 +89,7 @@ pub async fn create_ml_exclusions_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -106,8 +106,8 @@ pub async fn create_ml_exclusions_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ExclusionsPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ExclusionsPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ExclusionsRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ExclusionsRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -124,10 +124,10 @@ pub async fn delete_ml_exclusions_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     comment: Option<&str>,
-) -> Result<models::ExclusionsPeriodRespV1, Error<DeleteMlExclusionsV1Error>> {
+) -> Result<models::ExclusionsRespV1, Error<DeleteMlExclusionsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_comment = comment;
+    let p_query_ids = ids;
+    let p_query_comment = comment;
 
     let uri_str = format!(
         "{}/policy/entities/ml-exclusions/v1",
@@ -139,14 +139,14 @@ pub async fn delete_ml_exclusions_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -154,7 +154,7 @@ pub async fn delete_ml_exclusions_v1(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_comment {
+    if let Some(ref param_value) = p_query_comment {
         req_builder = req_builder.query(&[("comment", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -179,8 +179,8 @@ pub async fn delete_ml_exclusions_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ExclusionsPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ExclusionsPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ExclusionsRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ExclusionsRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -196,9 +196,9 @@ pub async fn delete_ml_exclusions_v1(
 pub async fn get_ml_exclusions_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ExclusionsPeriodRespV1, Error<GetMlExclusionsV1Error>> {
+) -> Result<models::ExclusionsRespV1, Error<GetMlExclusionsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/policy/entities/ml-exclusions/v1",
@@ -208,14 +208,14 @@ pub async fn get_ml_exclusions_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -245,8 +245,8 @@ pub async fn get_ml_exclusions_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ExclusionsPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ExclusionsPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ExclusionsRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ExclusionsRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -265,12 +265,12 @@ pub async fn query_ml_exclusions_v1(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryMlExclusionsV1Error>> {
+) -> Result<models::MsaQueryResponse, Error<QueryMlExclusionsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/queries/ml-exclusions/v1",
@@ -278,16 +278,16 @@ pub async fn query_ml_exclusions_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -312,8 +312,8 @@ pub async fn query_ml_exclusions_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -328,10 +328,10 @@ pub async fn query_ml_exclusions_v1(
 
 pub async fn update_ml_exclusions_v1(
     configuration: &configuration::Configuration,
-    body: models::SvExclusionsPeriodUpdateReqV1,
-) -> Result<models::ExclusionsPeriodRespV1, Error<UpdateMlExclusionsV1Error>> {
+    body: models::SvExclusionsUpdateReqV1,
+) -> Result<models::ExclusionsRespV1, Error<UpdateMlExclusionsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/ml-exclusions/v1",
@@ -347,7 +347,7 @@ pub async fn update_ml_exclusions_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -364,8 +364,8 @@ pub async fn update_ml_exclusions_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ExclusionsPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ExclusionsPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ExclusionsRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ExclusionsRespV1`")))),
         }
     } else {
         let content = resp.text().await?;

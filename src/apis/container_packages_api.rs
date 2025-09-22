@@ -17,9 +17,9 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadPackagesByFixableVulnCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,9 +27,9 @@ pub enum ReadPackagesByFixableVulnCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadPackagesByImageCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,9 +37,9 @@ pub enum ReadPackagesByImageCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadPackagesByVulnCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -47,9 +47,9 @@ pub enum ReadPackagesByVulnCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadPackagesCombinedError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -57,9 +57,9 @@ pub enum ReadPackagesCombinedError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadPackagesCombinedExportError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -67,9 +67,9 @@ pub enum ReadPackagesCombinedExportError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadPackagesCombinedV2Error {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -77,9 +77,9 @@ pub enum ReadPackagesCombinedV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadPackagesCountByZeroDayError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -88,12 +88,11 @@ pub async fn read_packages_by_fixable_vuln_count(
     filter: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::PackagesPeriodApiPackagesByVulnCount, Error<ReadPackagesByFixableVulnCountError>>
-{
+) -> Result<models::PackagesApiPackagesByVulnCount, Error<ReadPackagesByFixableVulnCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/packages/app-by-fixable-vulnerability-count/v1",
@@ -101,13 +100,13 @@ pub async fn read_packages_by_fixable_vuln_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -132,8 +131,8 @@ pub async fn read_packages_by_fixable_vuln_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PackagesPeriodApiPackagesByVulnCount`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PackagesPeriodApiPackagesByVulnCount`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PackagesApiPackagesByVulnCount`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PackagesApiPackagesByVulnCount`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -151,10 +150,10 @@ pub async fn read_packages_by_image_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
     limit: Option<i32>,
-) -> Result<models::PackagesPeriodApiPackagesByImageCount, Error<ReadPackagesByImageCountError>> {
+) -> Result<models::PackagesApiPackagesByImageCount, Error<ReadPackagesByImageCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/container-security/aggregates/packages/by-image-count/v1",
@@ -162,10 +161,10 @@ pub async fn read_packages_by_image_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -190,8 +189,8 @@ pub async fn read_packages_by_image_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PackagesPeriodApiPackagesByImageCount`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PackagesPeriodApiPackagesByImageCount`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PackagesApiPackagesByImageCount`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PackagesApiPackagesByImageCount`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -209,11 +208,11 @@ pub async fn read_packages_by_vuln_count(
     filter: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::PackagesPeriodApiPackagesByVulnCount, Error<ReadPackagesByVulnCountError>> {
+) -> Result<models::PackagesApiPackagesByVulnCount, Error<ReadPackagesByVulnCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/packages/by-vulnerability-count/v1",
@@ -221,13 +220,13 @@ pub async fn read_packages_by_vuln_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -252,8 +251,8 @@ pub async fn read_packages_by_vuln_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PackagesPeriodApiPackagesByVulnCount`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PackagesPeriodApiPackagesByVulnCount`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PackagesApiPackagesByVulnCount`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PackagesApiPackagesByVulnCount`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -273,13 +272,13 @@ pub async fn read_packages_combined(
     sort: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::PackagesPeriodApiCombinedPackage, Error<ReadPackagesCombinedError>> {
+) -> Result<models::PackagesApiCombinedPackage, Error<ReadPackagesCombinedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_only_zero_day_affected = only_zero_day_affected;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_only_zero_day_affected = only_zero_day_affected;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/packages/v1",
@@ -287,19 +286,19 @@ pub async fn read_packages_combined(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_only_zero_day_affected {
+    if let Some(ref param_value) = p_query_only_zero_day_affected {
         req_builder = req_builder.query(&[("only_zero_day_affected", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -324,8 +323,8 @@ pub async fn read_packages_combined(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PackagesPeriodApiCombinedPackage`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PackagesPeriodApiCombinedPackage`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PackagesApiCombinedPackage`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PackagesApiCombinedPackage`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -345,14 +344,13 @@ pub async fn read_packages_combined_export(
     sort: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::PackagesPeriodApiCombinedPackageExport, Error<ReadPackagesCombinedExportError>>
-{
+) -> Result<models::PackagesApiCombinedPackageExport, Error<ReadPackagesCombinedExportError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_only_zero_day_affected = only_zero_day_affected;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_only_zero_day_affected = only_zero_day_affected;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/packages/export/v1",
@@ -360,19 +358,19 @@ pub async fn read_packages_combined_export(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_only_zero_day_affected {
+    if let Some(ref param_value) = p_query_only_zero_day_affected {
         req_builder = req_builder.query(&[("only_zero_day_affected", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -397,8 +395,8 @@ pub async fn read_packages_combined_export(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PackagesPeriodApiCombinedPackageExport`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PackagesPeriodApiCombinedPackageExport`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PackagesApiCombinedPackageExport`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PackagesApiCombinedPackageExport`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -418,13 +416,13 @@ pub async fn read_packages_combined_v2(
     sort: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::PackagesPeriodApiCombinedPackageV2, Error<ReadPackagesCombinedV2Error>> {
+) -> Result<models::PackagesApiCombinedPackageV2, Error<ReadPackagesCombinedV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_only_zero_day_affected = only_zero_day_affected;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_only_zero_day_affected = only_zero_day_affected;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/packages/v2",
@@ -432,19 +430,19 @@ pub async fn read_packages_combined_v2(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_only_zero_day_affected {
+    if let Some(ref param_value) = p_query_only_zero_day_affected {
         req_builder = req_builder.query(&[("only_zero_day_affected", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -469,8 +467,8 @@ pub async fn read_packages_combined_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PackagesPeriodApiCombinedPackageV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PackagesPeriodApiCombinedPackageV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PackagesApiCombinedPackageV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PackagesApiCombinedPackageV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -486,9 +484,9 @@ pub async fn read_packages_combined_v2(
 pub async fn read_packages_count_by_zero_day(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::CommonPeriodCountResponse, Error<ReadPackagesCountByZeroDayError>> {
+) -> Result<models::CommonCountResponse, Error<ReadPackagesCountByZeroDayError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/packages/count-by-zero-day/v1",
@@ -496,7 +494,7 @@ pub async fn read_packages_count_by_zero_day(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -521,8 +519,8 @@ pub async fn read_packages_count_by_zero_day(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonPeriodCountResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonPeriodCountResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonCountResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonCountResponse`")))),
         }
     } else {
         let content = resp.text().await?;

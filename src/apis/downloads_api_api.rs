@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DownloadFileError {
-    Status400(models::CommonPeriodEntitiesResponse),
-    Status401(models::CommonPeriodEntitiesResponse),
-    Status403(models::CommonPeriodEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CommonPeriodEntitiesResponse),
+    Status400(models::CommonEntitiesResponse),
+    Status401(models::CommonEntitiesResponse),
+    Status403(models::CommonEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CommonEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,11 +29,23 @@ pub enum DownloadFileError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EnumerateFileError {
-    Status400(models::CommonPeriodEntitiesResponse),
-    Status401(models::CommonPeriodEntitiesResponse),
-    Status403(models::CommonPeriodEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CommonPeriodEntitiesResponse),
+    Status400(models::CommonEntitiesResponse),
+    Status401(models::CommonEntitiesResponse),
+    Status403(models::CommonEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CommonEntitiesResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`fetch_files_download_info`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum FetchFilesDownloadInfoError {
+    Status400(models::CommonEntitiesResponse),
+    Status401(models::CommonEntitiesResponse),
+    Status403(models::CommonEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CommonEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,10 +53,10 @@ pub async fn download_file(
     configuration: &configuration::Configuration,
     file_name: &str,
     file_version: &str,
-) -> Result<models::CommonPeriodEntitiesResponse, Error<DownloadFileError>> {
+) -> Result<models::CommonEntitiesResponse, Error<DownloadFileError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_file_name = file_name;
-    let p_file_version = file_version;
+    let p_query_file_name = file_name;
+    let p_query_file_version = file_version;
 
     let uri_str = format!(
         "{}/csdownloads/entities/files/download/v1",
@@ -52,8 +64,8 @@ pub async fn download_file(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("file_name", &p_file_name.to_string())]);
-    req_builder = req_builder.query(&[("file_version", &p_file_version.to_string())]);
+    req_builder = req_builder.query(&[("file_name", &p_query_file_name.to_string())]);
+    req_builder = req_builder.query(&[("file_version", &p_query_file_version.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -76,8 +88,8 @@ pub async fn download_file(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonPeriodEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonPeriodEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -98,14 +110,14 @@ pub async fn enumerate_file(
     os: Option<&str>,
     arch: Option<&str>,
     category: Option<&str>,
-) -> Result<models::CommonPeriodEntitiesResponse, Error<EnumerateFileError>> {
+) -> Result<models::CommonEntitiesResponse, Error<EnumerateFileError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_file_name = file_name;
-    let p_file_version = file_version;
-    let p_platform = platform;
-    let p_os = os;
-    let p_arch = arch;
-    let p_category = category;
+    let p_query_file_name = file_name;
+    let p_query_file_version = file_version;
+    let p_query_platform = platform;
+    let p_query_os = os;
+    let p_query_arch = arch;
+    let p_query_category = category;
 
     let uri_str = format!(
         "{}/csdownloads/entities/files/enumerate/v1",
@@ -113,22 +125,22 @@ pub async fn enumerate_file(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_file_name {
+    if let Some(ref param_value) = p_query_file_name {
         req_builder = req_builder.query(&[("file_name", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_file_version {
+    if let Some(ref param_value) = p_query_file_version {
         req_builder = req_builder.query(&[("file_version", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_platform {
+    if let Some(ref param_value) = p_query_platform {
         req_builder = req_builder.query(&[("platform", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_os {
+    if let Some(ref param_value) = p_query_os {
         req_builder = req_builder.query(&[("os", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_arch {
+    if let Some(ref param_value) = p_query_arch {
         req_builder = req_builder.query(&[("arch", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_category {
+    if let Some(ref param_value) = p_query_category {
         req_builder = req_builder.query(&[("category", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -153,12 +165,69 @@ pub async fn enumerate_file(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonPeriodEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonPeriodEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
         let entity: Option<EnumerateFileError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn fetch_files_download_info(
+    configuration: &configuration::Configuration,
+    filter: Option<&str>,
+    sort: Option<&str>,
+) -> Result<models::CommonEntitiesResponse, Error<FetchFilesDownloadInfoError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+
+    let uri_str = format!(
+        "{}/csdownloads/combined/files-download/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_filter {
+        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_sort {
+        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonEntitiesResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<FetchFilesDownloadInfoError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,

@@ -17,17 +17,17 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCredentialsError {
-    Status400(models::MsaspecPeriodError),
-    Status401(models::MsaspecPeriodError),
-    Status403(models::MsaspecPeriodError),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodRegistryCredentialsResponse),
+    Status400(models::MsaspecError),
+    Status401(models::MsaspecError),
+    Status403(models::MsaspecError),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainRegistryCredentialsResponse),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn get_credentials(
     configuration: &configuration::Configuration,
-) -> Result<models::DomainPeriodRegistryCredentialsResponse, Error<GetCredentialsError>> {
+) -> Result<models::DomainRegistryCredentialsResponse, Error<GetCredentialsError>> {
     let uri_str = format!(
         "{}/container-security/entities/image-registry-credentials/v1",
         configuration.base_path
@@ -56,8 +56,8 @@ pub async fn get_credentials(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodRegistryCredentialsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodRegistryCredentialsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainRegistryCredentialsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainRegistryCredentialsResponse`")))),
         }
     } else {
         let content = resp.text().await?;

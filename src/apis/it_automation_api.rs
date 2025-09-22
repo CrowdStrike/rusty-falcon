@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationCancelTaskExecutionError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,10 +29,10 @@ pub enum ITAutomationCancelTaskExecutionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationCombinedScheduledTasksError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,10 +40,10 @@ pub enum ITAutomationCombinedScheduledTasksError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationCreatePolicyError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,10 +51,10 @@ pub enum ITAutomationCreatePolicyError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationCreateScheduledTaskError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,9 +62,10 @@ pub enum ITAutomationCreateScheduledTaskError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationCreateTaskError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -72,10 +73,21 @@ pub enum ITAutomationCreateTaskError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationCreateTaskGroupError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`i_t_automation_create_user_group`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ITAutomationCreateUserGroupError {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -83,10 +95,10 @@ pub enum ITAutomationCreateTaskGroupError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationDeletePolicyError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -94,11 +106,11 @@ pub enum ITAutomationDeletePolicyError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationDeleteScheduledTasksError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -106,9 +118,10 @@ pub enum ITAutomationDeleteScheduledTasksError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationDeleteTaskError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -116,11 +129,22 @@ pub enum ITAutomationDeleteTaskError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationDeleteTaskGroupsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status409(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status409(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`i_t_automation_delete_user_group`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ITAutomationDeleteUserGroupError {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -128,10 +152,10 @@ pub enum ITAutomationDeleteTaskGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationGetAssociatedTasksError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -139,9 +163,10 @@ pub enum ITAutomationGetAssociatedTasksError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationGetExecutionResultsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -149,9 +174,10 @@ pub enum ITAutomationGetExecutionResultsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationGetExecutionResultsSearchStatusError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -159,10 +185,10 @@ pub enum ITAutomationGetExecutionResultsSearchStatusError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationGetPoliciesError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -170,10 +196,10 @@ pub enum ITAutomationGetPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationGetScheduledTasksError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -181,10 +207,10 @@ pub enum ITAutomationGetScheduledTasksError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationGetTaskExecutionError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -192,10 +218,10 @@ pub enum ITAutomationGetTaskExecutionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationGetTaskExecutionHostStatusError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -203,10 +229,10 @@ pub enum ITAutomationGetTaskExecutionHostStatusError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationGetTaskExecutionsByQueryError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -214,10 +240,10 @@ pub enum ITAutomationGetTaskExecutionsByQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationGetTaskGroupsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -225,10 +251,10 @@ pub enum ITAutomationGetTaskGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationGetTaskGroupsByQueryError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -236,10 +262,11 @@ pub enum ITAutomationGetTaskGroupsByQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationGetTasksError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -247,9 +274,21 @@ pub enum ITAutomationGetTasksError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationGetTasksByQueryError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`i_t_automation_get_user_group`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ITAutomationGetUserGroupError {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -257,10 +296,10 @@ pub enum ITAutomationGetTasksByQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationQueryPoliciesError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -268,11 +307,11 @@ pub enum ITAutomationQueryPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationRerunTaskExecutionError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -280,10 +319,10 @@ pub enum ITAutomationRerunTaskExecutionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationRunLiveQueryError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -291,10 +330,10 @@ pub enum ITAutomationRunLiveQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationSearchScheduledTasksError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -302,10 +341,10 @@ pub enum ITAutomationSearchScheduledTasksError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationSearchTaskExecutionsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -313,10 +352,10 @@ pub enum ITAutomationSearchTaskExecutionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationSearchTaskGroupsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -324,9 +363,21 @@ pub enum ITAutomationSearchTaskGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationSearchTasksError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`i_t_automation_search_user_group`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ITAutomationSearchUserGroupError {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -334,9 +385,10 @@ pub enum ITAutomationSearchTasksError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationStartExecutionResultsSearchError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -344,10 +396,10 @@ pub enum ITAutomationStartExecutionResultsSearchError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationStartTaskExecutionError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -355,10 +407,10 @@ pub enum ITAutomationStartTaskExecutionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationUpdatePoliciesError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -366,12 +418,12 @@ pub enum ITAutomationUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationUpdatePoliciesPrecedenceError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status409(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status409(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -379,11 +431,11 @@ pub enum ITAutomationUpdatePoliciesPrecedenceError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationUpdatePolicyHostGroupsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -391,11 +443,11 @@ pub enum ITAutomationUpdatePolicyHostGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationUpdateScheduledTaskError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -403,9 +455,10 @@ pub enum ITAutomationUpdateScheduledTaskError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationUpdateTaskError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -413,22 +466,34 @@ pub enum ITAutomationUpdateTaskError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ITAutomationUpdateTaskGroupError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`i_t_automation_update_user_group`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ITAutomationUpdateUserGroupError {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn i_t_automation_cancel_task_execution(
     configuration: &configuration::Configuration,
-    body: models::ItautomationPeriodCancelTaskExecutionRequest,
+    body: models::ItautomationCancelTaskExecutionRequest,
 ) -> Result<
-    models::ItautomationPeriodCancelTaskExecutionResponse,
+    models::ItautomationCancelTaskExecutionResponse,
     Error<ITAutomationCancelTaskExecutionError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/it-automation/entities/task-execution-cancel/v1",
@@ -444,7 +509,7 @@ pub async fn i_t_automation_cancel_task_execution(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -461,8 +526,8 @@ pub async fn i_t_automation_cancel_task_execution(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodCancelTaskExecutionResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodCancelTaskExecutionResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationCancelTaskExecutionResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationCancelTaskExecutionResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -483,14 +548,14 @@ pub async fn i_t_automation_combined_scheduled_tasks(
     offset: Option<i32>,
     limit: Option<i32>,
 ) -> Result<
-    models::ItautomationPeriodGetScheduledTaskResponse,
+    models::ItautomationGetScheduledTaskResponse,
     Error<ITAutomationCombinedScheduledTasksError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/it-automation/combined/scheduled-tasks/v1",
@@ -498,16 +563,16 @@ pub async fn i_t_automation_combined_scheduled_tasks(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -532,8 +597,8 @@ pub async fn i_t_automation_combined_scheduled_tasks(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodGetScheduledTaskResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodGetScheduledTaskResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationGetScheduledTaskResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationGetScheduledTaskResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -550,10 +615,10 @@ pub async fn i_t_automation_combined_scheduled_tasks(
 /// After they are created, host groups can be assigned and policy precedence can be set.
 pub async fn i_t_automation_create_policy(
     configuration: &configuration::Configuration,
-    body: models::ItautomationPeriodCreatePolicyRequest,
-) -> Result<models::ItautomationPeriodCreatePolicyResponse, Error<ITAutomationCreatePolicyError>> {
+    body: models::ItautomationCreatePolicyRequest,
+) -> Result<models::ItautomationCreatePolicyResponse, Error<ITAutomationCreatePolicyError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/it-automation/entities/policies/v1",
@@ -569,7 +634,7 @@ pub async fn i_t_automation_create_policy(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -586,8 +651,8 @@ pub async fn i_t_automation_create_policy(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodCreatePolicyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodCreatePolicyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationCreatePolicyResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationCreatePolicyResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -602,13 +667,13 @@ pub async fn i_t_automation_create_policy(
 
 pub async fn i_t_automation_create_scheduled_task(
     configuration: &configuration::Configuration,
-    body: models::ItautomationPeriodCreateScheduledTaskRequest,
+    body: models::ItautomationCreateScheduledTaskRequest,
 ) -> Result<
-    models::ItautomationPeriodCreateScheduledTaskResponse,
+    models::ItautomationCreateScheduledTaskResponse,
     Error<ITAutomationCreateScheduledTaskError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/it-automation/entities/scheduled-tasks/v1",
@@ -624,7 +689,7 @@ pub async fn i_t_automation_create_scheduled_task(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -641,8 +706,8 @@ pub async fn i_t_automation_create_scheduled_task(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodCreateScheduledTaskResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodCreateScheduledTaskResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationCreateScheduledTaskResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationCreateScheduledTaskResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -658,10 +723,10 @@ pub async fn i_t_automation_create_scheduled_task(
 
 pub async fn i_t_automation_create_task(
     configuration: &configuration::Configuration,
-    body: models::ItautomationPeriodCreateTaskRequest,
-) -> Result<models::ItautomationPeriodCreateTaskResponse, Error<ITAutomationCreateTaskError>> {
+    body: models::ItautomationCreateTaskRequest,
+) -> Result<models::ItautomationCreateTaskResponse, Error<ITAutomationCreateTaskError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/it-automation/entities/tasks/v1",
@@ -677,7 +742,7 @@ pub async fn i_t_automation_create_task(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -694,8 +759,8 @@ pub async fn i_t_automation_create_task(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodCreateTaskResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodCreateTaskResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationCreateTaskResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationCreateTaskResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -710,13 +775,10 @@ pub async fn i_t_automation_create_task(
 
 pub async fn i_t_automation_create_task_group(
     configuration: &configuration::Configuration,
-    body: models::ItautomationPeriodCreateTaskGroupRequest,
-) -> Result<
-    models::ItautomationPeriodCreateTaskGroupResponse,
-    Error<ITAutomationCreateTaskGroupError>,
-> {
+    body: models::ItautomationCreateTaskGroupRequest,
+) -> Result<models::ItautomationCreateTaskGroupResponse, Error<ITAutomationCreateTaskGroupError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/it-automation/entities/task-groups/v1",
@@ -732,7 +794,7 @@ pub async fn i_t_automation_create_task_group(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -749,8 +811,8 @@ pub async fn i_t_automation_create_task_group(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodCreateTaskGroupResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodCreateTaskGroupResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationCreateTaskGroupResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationCreateTaskGroupResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -763,13 +825,65 @@ pub async fn i_t_automation_create_task_group(
     }
 }
 
+pub async fn i_t_automation_create_user_group(
+    configuration: &configuration::Configuration,
+    body: models::ItautomationCreateUserGroupRequest,
+) -> Result<models::ItautomationCreateUserGroupResponse, Error<ITAutomationCreateUserGroupError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_body = body;
+
+    let uri_str = format!(
+        "{}/it-automation/entities/it-user-groups/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    req_builder = req_builder.json(&p_body_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationCreateUserGroupResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationCreateUserGroupResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ITAutomationCreateUserGroupError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
 /// Only disabled policies are allowed to be deleted.
 pub async fn i_t_automation_delete_policy(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ItautomationPeriodDeletePolicyResponse, Error<ITAutomationDeletePolicyError>> {
+) -> Result<models::ItautomationDeletePolicyResponse, Error<ITAutomationDeletePolicyError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/it-automation/entities/policies/v1",
@@ -781,14 +895,14 @@ pub async fn i_t_automation_delete_policy(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -818,8 +932,8 @@ pub async fn i_t_automation_delete_policy(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodDeletePolicyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodDeletePolicyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationDeletePolicyResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationDeletePolicyResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -836,11 +950,11 @@ pub async fn i_t_automation_delete_scheduled_tasks(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
 ) -> Result<
-    models::ItautomationPeriodDeleteScheduledTasksResponse,
+    models::ItautomationDeleteScheduledTasksResponse,
     Error<ITAutomationDeleteScheduledTasksError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/it-automation/entities/scheduled-tasks/v1",
@@ -852,14 +966,14 @@ pub async fn i_t_automation_delete_scheduled_tasks(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -889,8 +1003,8 @@ pub async fn i_t_automation_delete_scheduled_tasks(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodDeleteScheduledTasksResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodDeleteScheduledTasksResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationDeleteScheduledTasksResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationDeleteScheduledTasksResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -907,9 +1021,9 @@ pub async fn i_t_automation_delete_scheduled_tasks(
 pub async fn i_t_automation_delete_task(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ItautomationPeriodDeleteTaskResponse, Error<ITAutomationDeleteTaskError>> {
+) -> Result<models::ItautomationDeleteTaskResponse, Error<ITAutomationDeleteTaskError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/it-automation/entities/tasks/v1",
@@ -921,14 +1035,14 @@ pub async fn i_t_automation_delete_task(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -958,8 +1072,8 @@ pub async fn i_t_automation_delete_task(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodDeleteTaskResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodDeleteTaskResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationDeleteTaskResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationDeleteTaskResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -975,12 +1089,10 @@ pub async fn i_t_automation_delete_task(
 pub async fn i_t_automation_delete_task_groups(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    models::ItautomationPeriodDeleteTaskGroupsResponse,
-    Error<ITAutomationDeleteTaskGroupsError>,
-> {
+) -> Result<models::ItautomationDeleteTaskGroupsResponse, Error<ITAutomationDeleteTaskGroupsError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/it-automation/entities/task-groups/v1",
@@ -992,14 +1104,14 @@ pub async fn i_t_automation_delete_task_groups(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1029,12 +1141,80 @@ pub async fn i_t_automation_delete_task_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodDeleteTaskGroupsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodDeleteTaskGroupsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationDeleteTaskGroupsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationDeleteTaskGroupsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
         let entity: Option<ITAutomationDeleteTaskGroupsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn i_t_automation_delete_user_group(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<models::ItautomationDeleteUserGroupsResponse, Error<ITAutomationDeleteUserGroupError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+
+    let uri_str = format!(
+        "{}/it-automation/entities/it-user-groups/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = match "multi" {
+        "multi" => req_builder.query(
+            &p_query_ids
+                .into_iter()
+                .map(|p| ("ids".to_owned(), p.to_string()))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => req_builder.query(&[(
+            "ids",
+            &p_query_ids
+                .into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
+    };
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationDeleteUserGroupsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationDeleteUserGroupsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ITAutomationDeleteUserGroupError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -1051,15 +1231,15 @@ pub async fn i_t_automation_get_associated_tasks(
     offset: Option<i32>,
     limit: Option<i32>,
 ) -> Result<
-    models::ItautomationPeriodFileTaskAssociationResponse,
+    models::ItautomationFileTaskAssociationResponse,
     Error<ITAutomationGetAssociatedTasksError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_id = id;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/it-automation/combined/associated-tasks/v1",
@@ -1067,17 +1247,17 @@ pub async fn i_t_automation_get_associated_tasks(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    if let Some(ref param_value) = p_filter {
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1102,8 +1282,8 @@ pub async fn i_t_automation_get_associated_tasks(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodFileTaskAssociationResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodFileTaskAssociationResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationFileTaskAssociationResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationFileTaskAssociationResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1124,14 +1304,14 @@ pub async fn i_t_automation_get_execution_results(
     limit: Option<i32>,
     sort: Option<&str>,
 ) -> Result<
-    models::ItautomationPeriodTaskExecutionResultsResponse,
+    models::ItautomationTaskExecutionResultsResponse,
     Error<ITAutomationGetExecutionResultsError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_id = id;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/it-automation/entities/task-execution-results/v1",
@@ -1139,14 +1319,14 @@ pub async fn i_t_automation_get_execution_results(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    if let Some(ref param_value) = p_offset {
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1171,8 +1351,8 @@ pub async fn i_t_automation_get_execution_results(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodTaskExecutionResultsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodTaskExecutionResultsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationTaskExecutionResultsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationTaskExecutionResultsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1190,11 +1370,11 @@ pub async fn i_t_automation_get_execution_results_search_status(
     configuration: &configuration::Configuration,
     id: &str,
 ) -> Result<
-    models::ItautomationPeriodSearchStatusResponse,
+    models::ItautomationSearchStatusResponse,
     Error<ITAutomationGetExecutionResultsSearchStatusError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_query_id = id;
 
     let uri_str = format!(
         "{}/it-automation/entities/task-execution-results-search/v1",
@@ -1202,7 +1382,7 @@ pub async fn i_t_automation_get_execution_results_search_status(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1225,8 +1405,8 @@ pub async fn i_t_automation_get_execution_results_search_status(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodSearchStatusResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodSearchStatusResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationSearchStatusResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationSearchStatusResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1244,9 +1424,9 @@ pub async fn i_t_automation_get_execution_results_search_status(
 pub async fn i_t_automation_get_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ItautomationPeriodPoliciesApiResponse, Error<ITAutomationGetPoliciesError>> {
+) -> Result<models::ItautomationPoliciesApiResponse, Error<ITAutomationGetPoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/it-automation/entities/policies/v1",
@@ -1256,14 +1436,14 @@ pub async fn i_t_automation_get_policies(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1293,8 +1473,8 @@ pub async fn i_t_automation_get_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodPoliciesApiResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodPoliciesApiResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPoliciesApiResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPoliciesApiResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1310,12 +1490,10 @@ pub async fn i_t_automation_get_policies(
 pub async fn i_t_automation_get_scheduled_tasks(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    models::ItautomationPeriodGetScheduledTaskResponse,
-    Error<ITAutomationGetScheduledTasksError>,
-> {
+) -> Result<models::ItautomationGetScheduledTaskResponse, Error<ITAutomationGetScheduledTasksError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/it-automation/entities/scheduled-tasks/v1",
@@ -1325,14 +1503,14 @@ pub async fn i_t_automation_get_scheduled_tasks(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1362,8 +1540,8 @@ pub async fn i_t_automation_get_scheduled_tasks(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodGetScheduledTaskResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodGetScheduledTaskResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationGetScheduledTaskResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationGetScheduledTaskResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1380,12 +1558,10 @@ pub async fn i_t_automation_get_scheduled_tasks(
 pub async fn i_t_automation_get_task_execution(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    models::ItautomationPeriodGetTaskExecutionResponse,
-    Error<ITAutomationGetTaskExecutionError>,
-> {
+) -> Result<models::ItautomationGetTaskExecutionResponse, Error<ITAutomationGetTaskExecutionError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/it-automation/entities/task-executions/v1",
@@ -1395,14 +1571,14 @@ pub async fn i_t_automation_get_task_execution(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1432,8 +1608,8 @@ pub async fn i_t_automation_get_task_execution(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodGetTaskExecutionResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodGetTaskExecutionResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationGetTaskExecutionResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationGetTaskExecutionResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1454,15 +1630,15 @@ pub async fn i_t_automation_get_task_execution_host_status(
     offset: Option<i32>,
     limit: Option<i32>,
 ) -> Result<
-    models::ItautomationPeriodGetTaskExecutionHostStatusResponse,
+    models::ItautomationGetTaskExecutionHostStatusResponse,
     Error<ITAutomationGetTaskExecutionHostStatusError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_ids = ids;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/it-automation/entities/task-execution-host-status/v1",
@@ -1472,14 +1648,14 @@ pub async fn i_t_automation_get_task_execution_host_status(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1487,16 +1663,16 @@ pub async fn i_t_automation_get_task_execution_host_status(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1521,8 +1697,8 @@ pub async fn i_t_automation_get_task_execution_host_status(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodGetTaskExecutionHostStatusResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodGetTaskExecutionHostStatusResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationGetTaskExecutionHostStatusResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationGetTaskExecutionHostStatusResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1543,14 +1719,14 @@ pub async fn i_t_automation_get_task_executions_by_query(
     offset: Option<i32>,
     limit: Option<i32>,
 ) -> Result<
-    models::ItautomationPeriodGetTaskExecutionResponse,
+    models::ItautomationGetTaskExecutionResponse,
     Error<ITAutomationGetTaskExecutionsByQueryError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/it-automation/combined/task-executions/v1",
@@ -1558,16 +1734,16 @@ pub async fn i_t_automation_get_task_executions_by_query(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1592,8 +1768,8 @@ pub async fn i_t_automation_get_task_executions_by_query(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodGetTaskExecutionResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodGetTaskExecutionResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationGetTaskExecutionResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationGetTaskExecutionResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1610,10 +1786,9 @@ pub async fn i_t_automation_get_task_executions_by_query(
 pub async fn i_t_automation_get_task_groups(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ItautomationPeriodGetTaskGroupsResponse, Error<ITAutomationGetTaskGroupsError>>
-{
+) -> Result<models::ItautomationGetTaskGroupsResponse, Error<ITAutomationGetTaskGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/it-automation/entities/task-groups/v1",
@@ -1623,14 +1798,14 @@ pub async fn i_t_automation_get_task_groups(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1660,8 +1835,8 @@ pub async fn i_t_automation_get_task_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodGetTaskGroupsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodGetTaskGroupsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationGetTaskGroupsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationGetTaskGroupsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1681,15 +1856,13 @@ pub async fn i_t_automation_get_task_groups_by_query(
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<
-    models::ItautomationPeriodGetTaskGroupsResponse,
-    Error<ITAutomationGetTaskGroupsByQueryError>,
-> {
+) -> Result<models::ItautomationGetTaskGroupsResponse, Error<ITAutomationGetTaskGroupsByQueryError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/it-automation/combined/task-groups/v1",
@@ -1697,16 +1870,16 @@ pub async fn i_t_automation_get_task_groups_by_query(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1731,8 +1904,8 @@ pub async fn i_t_automation_get_task_groups_by_query(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodGetTaskGroupsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodGetTaskGroupsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationGetTaskGroupsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationGetTaskGroupsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1749,9 +1922,9 @@ pub async fn i_t_automation_get_task_groups_by_query(
 pub async fn i_t_automation_get_tasks(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ItautomationPeriodGetTaskResponse, Error<ITAutomationGetTasksError>> {
+) -> Result<models::ItautomationGetTaskResponse, Error<ITAutomationGetTasksError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/it-automation/entities/tasks/v1",
@@ -1761,14 +1934,14 @@ pub async fn i_t_automation_get_tasks(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1798,8 +1971,8 @@ pub async fn i_t_automation_get_tasks(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodGetTaskResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodGetTaskResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationGetTaskResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationGetTaskResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1818,12 +1991,12 @@ pub async fn i_t_automation_get_tasks_by_query(
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<models::ItautomationPeriodGetTaskResponse, Error<ITAutomationGetTasksByQueryError>> {
+) -> Result<models::ItautomationGetTaskResponse, Error<ITAutomationGetTasksByQueryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/it-automation/combined/tasks/v1",
@@ -1831,16 +2004,16 @@ pub async fn i_t_automation_get_tasks_by_query(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1865,12 +2038,78 @@ pub async fn i_t_automation_get_tasks_by_query(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodGetTaskResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodGetTaskResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationGetTaskResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationGetTaskResponse`")))),
         }
     } else {
         let content = resp.text().await?;
         let entity: Option<ITAutomationGetTasksByQueryError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn i_t_automation_get_user_group(
+    configuration: &configuration::Configuration,
+    ids: Vec<String>,
+) -> Result<models::ItautomationGetUserGroupsResponse, Error<ITAutomationGetUserGroupError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_ids = ids;
+
+    let uri_str = format!(
+        "{}/it-automation/entities/it-user-groups/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = match "multi" {
+        "multi" => req_builder.query(
+            &p_query_ids
+                .into_iter()
+                .map(|p| ("ids".to_owned(), p.to_string()))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => req_builder.query(&[(
+            "ids",
+            &p_query_ids
+                .into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
+    };
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationGetUserGroupsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationGetUserGroupsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ITAutomationGetUserGroupError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -1885,12 +2124,12 @@ pub async fn i_t_automation_query_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::ItautomationPeriodQueryPolicyResponse, Error<ITAutomationQueryPoliciesError>> {
+) -> Result<models::ItautomationQueryPolicyResponse, Error<ITAutomationQueryPoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_platform = platform;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_platform = platform;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/it-automation/queries/policies/v1",
@@ -1898,16 +2137,16 @@ pub async fn i_t_automation_query_policies(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    req_builder = req_builder.query(&[("platform", &p_platform.to_string())]);
+    req_builder = req_builder.query(&[("platform", &p_query_platform.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1930,8 +2169,8 @@ pub async fn i_t_automation_query_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodQueryPolicyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodQueryPolicyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationQueryPolicyResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationQueryPolicyResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1946,13 +2185,13 @@ pub async fn i_t_automation_query_policies(
 
 pub async fn i_t_automation_rerun_task_execution(
     configuration: &configuration::Configuration,
-    body: models::ItautomationPeriodRerunTaskExecutionRequest,
+    body: models::ItautomationRerunTaskExecutionRequest,
 ) -> Result<
-    models::ItautomationPeriodRerunTaskExecutionResponse,
+    models::ItautomationRerunTaskExecutionResponse,
     Error<ITAutomationRerunTaskExecutionError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/it-automation/entities/task-execution-rerun/v1",
@@ -1968,7 +2207,7 @@ pub async fn i_t_automation_rerun_task_execution(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1985,8 +2224,8 @@ pub async fn i_t_automation_rerun_task_execution(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodRerunTaskExecutionResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodRerunTaskExecutionResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationRerunTaskExecutionResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationRerunTaskExecutionResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2002,13 +2241,10 @@ pub async fn i_t_automation_rerun_task_execution(
 
 pub async fn i_t_automation_run_live_query(
     configuration: &configuration::Configuration,
-    body: models::ItautomationPeriodRunLiveQueryRequest,
-) -> Result<
-    models::ItautomationPeriodStartTaskExecutionResponse,
-    Error<ITAutomationRunLiveQueryError>,
-> {
+    body: models::ItautomationRunLiveQueryRequest,
+) -> Result<models::ItautomationStartTaskExecutionResponse, Error<ITAutomationRunLiveQueryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/it-automation/entities/live-query-execution/v1",
@@ -2024,7 +2260,7 @@ pub async fn i_t_automation_run_live_query(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2041,8 +2277,8 @@ pub async fn i_t_automation_run_live_query(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodStartTaskExecutionResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodStartTaskExecutionResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationStartTaskExecutionResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationStartTaskExecutionResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2063,14 +2299,14 @@ pub async fn i_t_automation_search_scheduled_tasks(
     offset: Option<i32>,
     limit: Option<i32>,
 ) -> Result<
-    models::ItautomationPeriodSearchScheduledTaskResponse,
+    models::ItautomationSearchScheduledTaskResponse,
     Error<ITAutomationSearchScheduledTasksError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/it-automation/queries/scheduled-tasks/v1",
@@ -2078,16 +2314,16 @@ pub async fn i_t_automation_search_scheduled_tasks(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2112,8 +2348,8 @@ pub async fn i_t_automation_search_scheduled_tasks(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodSearchScheduledTaskResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodSearchScheduledTaskResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationSearchScheduledTaskResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationSearchScheduledTaskResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2134,14 +2370,14 @@ pub async fn i_t_automation_search_task_executions(
     offset: Option<i32>,
     limit: Option<i32>,
 ) -> Result<
-    models::ItautomationPeriodSearchTaskExecutionResponse,
+    models::ItautomationSearchTaskExecutionResponse,
     Error<ITAutomationSearchTaskExecutionsError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/it-automation/queries/task-executions/v1",
@@ -2149,16 +2385,16 @@ pub async fn i_t_automation_search_task_executions(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2183,8 +2419,8 @@ pub async fn i_t_automation_search_task_executions(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodSearchTaskExecutionResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodSearchTaskExecutionResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationSearchTaskExecutionResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationSearchTaskExecutionResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2205,15 +2441,13 @@ pub async fn i_t_automation_search_task_groups(
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<
-    models::ItautomationPeriodSearchTaskGroupsResponse,
-    Error<ITAutomationSearchTaskGroupsError>,
-> {
+) -> Result<models::ItautomationSearchTaskGroupsResponse, Error<ITAutomationSearchTaskGroupsError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/it-automation/queries/task-groups/v1",
@@ -2221,16 +2455,16 @@ pub async fn i_t_automation_search_task_groups(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2255,8 +2489,8 @@ pub async fn i_t_automation_search_task_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodSearchTaskGroupsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodSearchTaskGroupsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationSearchTaskGroupsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationSearchTaskGroupsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2275,26 +2509,26 @@ pub async fn i_t_automation_search_tasks(
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<models::ItautomationPeriodSearchTaskResponse, Error<ITAutomationSearchTasksError>> {
+) -> Result<models::ItautomationSearchTaskResponse, Error<ITAutomationSearchTasksError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!("{}/it-automation/queries/tasks/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2319,8 +2553,8 @@ pub async fn i_t_automation_search_tasks(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodSearchTaskResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodSearchTaskResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationSearchTaskResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationSearchTaskResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2333,15 +2567,82 @@ pub async fn i_t_automation_search_tasks(
     }
 }
 
+pub async fn i_t_automation_search_user_group(
+    configuration: &configuration::Configuration,
+    filter: Option<&str>,
+    sort: Option<&str>,
+    offset: Option<i32>,
+    limit: Option<i32>,
+) -> Result<models::ItautomationSearchUserGroupsResponse, Error<ITAutomationSearchUserGroupError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+
+    let uri_str = format!(
+        "{}/it-automation/queries/it-user-groups/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = p_query_filter {
+        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_sort {
+        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationSearchUserGroupsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationSearchUserGroupsResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ITAutomationSearchUserGroupError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
 pub async fn i_t_automation_start_execution_results_search(
     configuration: &configuration::Configuration,
-    body: models::ItautomationPeriodSearchRequest,
+    body: models::ItautomationSearchRequest,
 ) -> Result<
-    models::ItautomationPeriodSearchStatusResponse,
+    models::ItautomationSearchStatusResponse,
     Error<ITAutomationStartExecutionResultsSearchError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/it-automation/entities/task-execution-results-search/v1",
@@ -2357,7 +2658,7 @@ pub async fn i_t_automation_start_execution_results_search(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2374,8 +2675,8 @@ pub async fn i_t_automation_start_execution_results_search(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodSearchStatusResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodSearchStatusResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationSearchStatusResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationSearchStatusResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2391,13 +2692,13 @@ pub async fn i_t_automation_start_execution_results_search(
 
 pub async fn i_t_automation_start_task_execution(
     configuration: &configuration::Configuration,
-    body: models::ItautomationPeriodStartTaskExecutionRequest,
+    body: models::ItautomationStartTaskExecutionRequest,
 ) -> Result<
-    models::ItautomationPeriodStartTaskExecutionResponse,
+    models::ItautomationStartTaskExecutionResponse,
     Error<ITAutomationStartTaskExecutionError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/it-automation/entities/task-executions/v1",
@@ -2413,7 +2714,7 @@ pub async fn i_t_automation_start_task_execution(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2430,8 +2731,8 @@ pub async fn i_t_automation_start_task_execution(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodStartTaskExecutionResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodStartTaskExecutionResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationStartTaskExecutionResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationStartTaskExecutionResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2448,11 +2749,10 @@ pub async fn i_t_automation_start_task_execution(
 /// Updates multiple fields for a policy.
 pub async fn i_t_automation_update_policies(
     configuration: &configuration::Configuration,
-    body: models::ItautomationPeriodUpdatePolicyRequest,
-) -> Result<models::ItautomationPeriodUpdatePolicyResponse, Error<ITAutomationUpdatePoliciesError>>
-{
+    body: models::ItautomationUpdatePolicyRequest,
+) -> Result<models::ItautomationUpdatePolicyResponse, Error<ITAutomationUpdatePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/it-automation/entities/policies/v1",
@@ -2468,7 +2768,7 @@ pub async fn i_t_automation_update_policies(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2485,8 +2785,8 @@ pub async fn i_t_automation_update_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodUpdatePolicyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodUpdatePolicyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationUpdatePolicyResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationUpdatePolicyResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2503,14 +2803,14 @@ pub async fn i_t_automation_update_policies(
 pub async fn i_t_automation_update_policies_precedence(
     configuration: &configuration::Configuration,
     platform: &str,
-    body: models::ItautomationPeriodUpdatePoliciesPrecedenceRequest,
+    body: models::ItautomationUpdatePoliciesPrecedenceRequest,
 ) -> Result<
-    models::ItautomationPeriodUpdatePoliciesPrecedenceResponse,
+    models::ItautomationUpdatePoliciesPrecedenceResponse,
     Error<ITAutomationUpdatePoliciesPrecedenceError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_platform = platform;
-    let p_body = body;
+    let p_query_platform = platform;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/it-automation/entities/policies-precedence/v1",
@@ -2520,14 +2820,14 @@ pub async fn i_t_automation_update_policies_precedence(
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    req_builder = req_builder.query(&[("platform", &p_platform.to_string())]);
+    req_builder = req_builder.query(&[("platform", &p_query_platform.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2544,8 +2844,8 @@ pub async fn i_t_automation_update_policies_precedence(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodUpdatePoliciesPrecedenceResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodUpdatePoliciesPrecedenceResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationUpdatePoliciesPrecedenceResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationUpdatePoliciesPrecedenceResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2562,13 +2862,11 @@ pub async fn i_t_automation_update_policies_precedence(
 /// Manage host groups assigned to a policy.
 pub async fn i_t_automation_update_policy_host_groups(
     configuration: &configuration::Configuration,
-    body: models::ItautomationPeriodUpdatePoliciesHostGroupsRequest,
-) -> Result<
-    models::ItautomationPeriodUpdatePolicyResponse,
-    Error<ITAutomationUpdatePolicyHostGroupsError>,
-> {
+    body: models::ItautomationUpdatePoliciesHostGroupsRequest,
+) -> Result<models::ItautomationUpdatePolicyResponse, Error<ITAutomationUpdatePolicyHostGroupsError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/it-automation/entities/policies-host-groups/v1",
@@ -2584,7 +2882,7 @@ pub async fn i_t_automation_update_policy_host_groups(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2601,8 +2899,8 @@ pub async fn i_t_automation_update_policy_host_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodUpdatePolicyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodUpdatePolicyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationUpdatePolicyResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationUpdatePolicyResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2619,14 +2917,14 @@ pub async fn i_t_automation_update_policy_host_groups(
 pub async fn i_t_automation_update_scheduled_task(
     configuration: &configuration::Configuration,
     id: &str,
-    body: models::ItautomationPeriodUpdateScheduledTaskRequest,
+    body: models::ItautomationUpdateScheduledTaskRequest,
 ) -> Result<
-    models::ItautomationPeriodUpdateScheduledTasksResponse,
+    models::ItautomationUpdateScheduledTasksResponse,
     Error<ITAutomationUpdateScheduledTaskError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_body = body;
+    let p_query_id = id;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/it-automation/entities/scheduled-tasks/v1",
@@ -2636,14 +2934,14 @@ pub async fn i_t_automation_update_scheduled_task(
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2660,8 +2958,8 @@ pub async fn i_t_automation_update_scheduled_task(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodUpdateScheduledTasksResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodUpdateScheduledTasksResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationUpdateScheduledTasksResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationUpdateScheduledTasksResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2678,11 +2976,11 @@ pub async fn i_t_automation_update_scheduled_task(
 pub async fn i_t_automation_update_task(
     configuration: &configuration::Configuration,
     id: &str,
-    body: models::ItautomationPeriodUpdateTaskRequest,
-) -> Result<models::ItautomationPeriodUpdateTaskResponse, Error<ITAutomationUpdateTaskError>> {
+    body: models::ItautomationUpdateTaskRequest,
+) -> Result<models::ItautomationUpdateTaskResponse, Error<ITAutomationUpdateTaskError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_body = body;
+    let p_query_id = id;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/it-automation/entities/tasks/v1",
@@ -2692,14 +2990,14 @@ pub async fn i_t_automation_update_task(
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2716,8 +3014,8 @@ pub async fn i_t_automation_update_task(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodUpdateTaskResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodUpdateTaskResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationUpdateTaskResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationUpdateTaskResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2733,14 +3031,11 @@ pub async fn i_t_automation_update_task(
 pub async fn i_t_automation_update_task_group(
     configuration: &configuration::Configuration,
     id: &str,
-    body: models::ItautomationPeriodUpdateTaskGroupRequest,
-) -> Result<
-    models::ItautomationPeriodUpdateTaskGroupResponse,
-    Error<ITAutomationUpdateTaskGroupError>,
-> {
+    body: models::ItautomationUpdateTaskGroupRequest,
+) -> Result<models::ItautomationUpdateTaskGroupResponse, Error<ITAutomationUpdateTaskGroupError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_body = body;
+    let p_query_id = id;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/it-automation/entities/task-groups/v1",
@@ -2750,14 +3045,14 @@ pub async fn i_t_automation_update_task_group(
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2774,12 +3069,67 @@ pub async fn i_t_automation_update_task_group(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationPeriodUpdateTaskGroupResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationPeriodUpdateTaskGroupResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationUpdateTaskGroupResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationUpdateTaskGroupResponse`")))),
         }
     } else {
         let content = resp.text().await?;
         let entity: Option<ITAutomationUpdateTaskGroupError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn i_t_automation_update_user_group(
+    configuration: &configuration::Configuration,
+    id: &str,
+    body: models::ItautomationUpdateUserGroupRequest,
+) -> Result<models::ItautomationUpdateUserGroupResponse, Error<ITAutomationUpdateUserGroupError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_query_id = id;
+    let p_body_body = body;
+
+    let uri_str = format!(
+        "{}/it-automation/entities/it-user-groups/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::PATCH, &uri_str);
+
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    req_builder = req_builder.json(&p_body_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ItautomationUpdateUserGroupResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ItautomationUpdateUserGroupResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ITAutomationUpdateUserGroupError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,

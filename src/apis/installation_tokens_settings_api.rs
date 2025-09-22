@@ -17,20 +17,20 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CustomerSettingsUpdateError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn customer_settings_update(
     configuration: &configuration::Configuration,
-    body: models::ApiPeriodCustomerSettingsPatchRequestV1,
-) -> Result<models::ApiPeriodCustomerSettingsResponseV1, Error<CustomerSettingsUpdateError>> {
+    body: models::ApiCustomerSettingsPatchRequestV1,
+) -> Result<models::ApiCustomerSettingsResponseV1, Error<CustomerSettingsUpdateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/installation-tokens/entities/customer-settings/v1",
@@ -46,7 +46,7 @@ pub async fn customer_settings_update(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -63,8 +63,8 @@ pub async fn customer_settings_update(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodCustomerSettingsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodCustomerSettingsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiCustomerSettingsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiCustomerSettingsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;

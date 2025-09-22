@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCombinedVulnerabilitiesSarifError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -31,14 +31,14 @@ pub async fn get_combined_vulnerabilities_sarif(
     offset: Option<i32>,
     sort: Option<&str>,
 ) -> Result<
-    models::VulnerabilitiesPeriodVulnerabilityEntitySarifResponse,
+    models::VulnerabilitiesVulnerabilityEntitySarifResponse,
     Error<GetCombinedVulnerabilitiesSarifError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/lambdas/combined/vulnerabilities/sarif/v1",
@@ -46,16 +46,16 @@ pub async fn get_combined_vulnerabilities_sarif(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -80,8 +80,8 @@ pub async fn get_combined_vulnerabilities_sarif(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesPeriodVulnerabilityEntitySarifResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesPeriodVulnerabilityEntitySarifResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesVulnerabilityEntitySarifResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesVulnerabilityEntitySarifResponse`")))),
         }
     } else {
         let content = resp.text().await?;

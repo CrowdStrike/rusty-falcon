@@ -13,45 +13,45 @@ use crate::{apis::ResponseContent, models};
 use reqwest;
 use serde::de::Error as _;
 
-/// struct for typed errors of method [`scheduled_reports_period_get`]
+/// struct for typed errors of method [`scheduled_reports_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ScheduledReportsPeriodGetError {
-    Status400(models::MsaPeriodReplyMetaOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum ScheduledReportsGetError {
+    Status400(models::MsaReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`scheduled_reports_period_launch`]
+/// struct for typed errors of method [`scheduled_reports_launch`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ScheduledReportsPeriodLaunchError {
-    Status400(models::MsaPeriodReplyMetaOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum ScheduledReportsLaunchError {
+    Status400(models::MsaReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`scheduled_reports_period_query`]
+/// struct for typed errors of method [`scheduled_reports_query`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ScheduledReportsPeriodQueryError {
-    Status400(models::MsaPeriodReplyMetaOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum ScheduledReportsQueryError {
+    Status400(models::MsaReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-pub async fn scheduled_reports_period_get(
+pub async fn scheduled_reports_get(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodScheduledReportsResultV1, Error<ScheduledReportsPeriodGetError>> {
+) -> Result<models::DomainScheduledReportsResultV1, Error<ScheduledReportsGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/reports/entities/scheduled-reports/v1",
@@ -61,14 +61,14 @@ pub async fn scheduled_reports_period_get(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -98,12 +98,12 @@ pub async fn scheduled_reports_period_get(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodScheduledReportsResultV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodScheduledReportsResultV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainScheduledReportsResultV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainScheduledReportsResultV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ScheduledReportsPeriodGetError> = serde_json::from_str(&content).ok();
+        let entity: Option<ScheduledReportsGetError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -112,13 +112,12 @@ pub async fn scheduled_reports_period_get(
     }
 }
 
-pub async fn scheduled_reports_period_launch(
+pub async fn scheduled_reports_launch(
     configuration: &configuration::Configuration,
-    body: Vec<models::DomainPeriodReportExecutionLaunchRequestV1>,
-) -> Result<models::DomainPeriodReportExecutionsResponseV1, Error<ScheduledReportsPeriodLaunchError>>
-{
+    body: Vec<models::DomainReportExecutionLaunchRequestV1>,
+) -> Result<models::DomainReportExecutionsResponseV1, Error<ScheduledReportsLaunchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/reports/entities/scheduled-reports/execution/v1",
@@ -134,7 +133,7 @@ pub async fn scheduled_reports_period_launch(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -151,12 +150,12 @@ pub async fn scheduled_reports_period_launch(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodReportExecutionsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodReportExecutionsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainReportExecutionsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainReportExecutionsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ScheduledReportsPeriodLaunchError> = serde_json::from_str(&content).ok();
+        let entity: Option<ScheduledReportsLaunchError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -165,20 +164,20 @@ pub async fn scheduled_reports_period_launch(
     }
 }
 
-pub async fn scheduled_reports_period_query(
+pub async fn scheduled_reports_query(
     configuration: &configuration::Configuration,
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<models::MsaPeriodQueryResponse, Error<ScheduledReportsPeriodQueryError>> {
+) -> Result<models::MsaQueryResponse, Error<ScheduledReportsQueryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/reports/queries/scheduled-reports/v1",
@@ -186,19 +185,19 @@ pub async fn scheduled_reports_period_query(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -223,12 +222,12 @@ pub async fn scheduled_reports_period_query(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ScheduledReportsPeriodQueryError> = serde_json::from_str(&content).ok();
+        let entity: Option<ScheduledReportsQueryError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,

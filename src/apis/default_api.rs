@@ -17,7 +17,7 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostGraphqlQueryMixin0Error {
-    Status429(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
     Status500(String),
     UnknownValue(serde_json::Value),
 }

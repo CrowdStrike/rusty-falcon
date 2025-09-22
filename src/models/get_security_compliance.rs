@@ -13,16 +13,16 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetSecurityCompliance {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::Error4ee7bc62e7c0460d83a3e01cf3af3e59>>,
+    pub errors: Option<Vec<models::ErrorGetSecurityCompliance>>,
     #[serde(
         rename = "meta",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub meta: Option<Option<Box<models::MetaD6d5865b3f054c3ba60add38eb6076a7>>>,
+    pub meta: Option<Option<Box<models::MetaGetSecurityCompliance>>>,
     #[serde(rename = "resources", skip_serializing_if = "Option::is_none")]
-    pub resources: Option<Vec<models::Criteria4519a63f385e4aa8a2ca304a1c6c038d>>,
+    pub resources: Option<Vec<models::CriteriaGetSecurityCompliance>>,
 }
 
 impl GetSecurityCompliance {

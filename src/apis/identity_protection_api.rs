@@ -12,73 +12,62 @@ use super::{configuration, Error};
 use crate::{apis::ResponseContent, models};
 use reqwest;
 
-/// struct for typed errors of method [`api_period_preempt_period_proxy_period_delete_period_policy_rules`]
+/// struct for typed errors of method [`api_preempt_proxy_delete_policy_rules`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiPeriodPreemptPeriodProxyPeriodDeletePeriodPolicyRulesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum ApiPreemptProxyDeletePolicyRulesError {
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_period_preempt_period_proxy_period_get_period_by_link_period_mfa_period_ui_html`]
+/// struct for typed errors of method [`api_preempt_proxy_get_policy_rules`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiPeriodPreemptPeriodProxyPeriodGetPeriodByLinkPeriodMfaPeriodUiHtmlError {
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum ApiPreemptProxyGetPolicyRulesError {
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_period_preempt_period_proxy_period_get_period_policy_rules`]
+/// struct for typed errors of method [`api_preempt_proxy_get_policy_rules_query`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiPeriodPreemptPeriodProxyPeriodGetPeriodPolicyRulesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum ApiPreemptProxyGetPolicyRulesQueryError {
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_period_preempt_period_proxy_period_get_period_policy_rules_period_query`]
+/// struct for typed errors of method [`api_preempt_proxy_post_graphql`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiPeriodPreemptPeriodProxyPeriodGetPeriodPolicyRulesPeriodQueryError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum ApiPreemptProxyPostGraphqlError {
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_period_preempt_period_proxy_period_post_period_graphql`]
+/// struct for typed errors of method [`api_preempt_proxy_post_policy_rules`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiPeriodPreemptPeriodProxyPeriodPostPeriodGraphqlError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum ApiPreemptProxyPostPolicyRulesError {
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_period_preempt_period_proxy_period_post_period_policy_rules`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiPeriodPreemptPeriodProxyPeriodPostPeriodPolicyRulesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    UnknownValue(serde_json::Value),
-}
-
-pub async fn api_period_preempt_period_proxy_period_delete_period_policy_rules(
+pub async fn api_preempt_proxy_delete_policy_rules(
     configuration: &configuration::Configuration,
-    authorization: &str,
     ids: Vec<String>,
-) -> Result<(), Error<ApiPeriodPreemptPeriodProxyPeriodDeletePeriodPolicyRulesError>> {
+) -> Result<(), Error<ApiPreemptProxyDeletePolicyRulesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_authorization = authorization;
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/identity-protection/entities/policy-rules/v1",
@@ -90,14 +79,14 @@ pub async fn api_period_preempt_period_proxy_period_delete_period_policy_rules(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -108,7 +97,6 @@ pub async fn api_period_preempt_period_proxy_period_delete_period_policy_rules(
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    req_builder = req_builder.header("Authorization", p_authorization.to_string());
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
@@ -122,7 +110,7 @@ pub async fn api_period_preempt_period_proxy_period_delete_period_policy_rules(
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiPeriodPreemptPeriodProxyPeriodDeletePeriodPolicyRulesError> =
+        let entity: Option<ApiPreemptProxyDeletePolicyRulesError> =
             serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
@@ -132,57 +120,12 @@ pub async fn api_period_preempt_period_proxy_period_delete_period_policy_rules(
     }
 }
 
-pub async fn api_period_preempt_period_proxy_period_get_period_by_link_period_mfa_period_ui_html(
+pub async fn api_preempt_proxy_get_policy_rules(
     configuration: &configuration::Configuration,
-    id: &str,
-    cid: Option<&str>,
-) -> Result<(), Error<ApiPeriodPreemptPeriodProxyPeriodGetPeriodByLinkPeriodMfaPeriodUiHtmlError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_cid = cid;
-
-    let uri_str = format!(
-        "{}/identity-protection/entities/mfa/external/mfa-ui.html",
-        configuration.base_path
-    );
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    if let Some(ref param_value) = p_cid {
-        req_builder = req_builder.query(&[("cid", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-
-    if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<
-            ApiPeriodPreemptPeriodProxyPeriodGetPeriodByLinkPeriodMfaPeriodUiHtmlError,
-        > = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent {
-            status,
-            content,
-            entity,
-        }))
-    }
-}
-
-pub async fn api_period_preempt_period_proxy_period_get_period_policy_rules(
-    configuration: &configuration::Configuration,
-    authorization: &str,
     ids: Vec<String>,
-) -> Result<(), Error<ApiPeriodPreemptPeriodProxyPeriodGetPeriodPolicyRulesError>> {
+) -> Result<(), Error<ApiPreemptProxyGetPolicyRulesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_authorization = authorization;
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/identity-protection/entities/policy-rules/v1",
@@ -192,14 +135,14 @@ pub async fn api_period_preempt_period_proxy_period_get_period_policy_rules(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -210,7 +153,6 @@ pub async fn api_period_preempt_period_proxy_period_get_period_policy_rules(
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    req_builder = req_builder.header("Authorization", p_authorization.to_string());
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
@@ -224,7 +166,7 @@ pub async fn api_period_preempt_period_proxy_period_get_period_policy_rules(
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiPeriodPreemptPeriodProxyPeriodGetPeriodPolicyRulesError> =
+        let entity: Option<ApiPreemptProxyGetPolicyRulesError> =
             serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
@@ -234,18 +176,16 @@ pub async fn api_period_preempt_period_proxy_period_get_period_policy_rules(
     }
 }
 
-pub async fn api_period_preempt_period_proxy_period_get_period_policy_rules_period_query(
+pub async fn api_preempt_proxy_get_policy_rules_query(
     configuration: &configuration::Configuration,
-    authorization: &str,
     enabled: Option<bool>,
     simulation_mode: Option<bool>,
     name: Option<&str>,
-) -> Result<(), Error<ApiPeriodPreemptPeriodProxyPeriodGetPeriodPolicyRulesPeriodQueryError>> {
+) -> Result<(), Error<ApiPreemptProxyGetPolicyRulesQueryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_authorization = authorization;
-    let p_enabled = enabled;
-    let p_simulation_mode = simulation_mode;
-    let p_name = name;
+    let p_query_enabled = enabled;
+    let p_query_simulation_mode = simulation_mode;
+    let p_query_name = name;
 
     let uri_str = format!(
         "{}/identity-protection/queries/policy-rules/v1",
@@ -253,19 +193,18 @@ pub async fn api_period_preempt_period_proxy_period_get_period_policy_rules_peri
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_enabled {
+    if let Some(ref param_value) = p_query_enabled {
         req_builder = req_builder.query(&[("enabled", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_simulation_mode {
+    if let Some(ref param_value) = p_query_simulation_mode {
         req_builder = req_builder.query(&[("simulation_mode", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_name {
+    if let Some(ref param_value) = p_query_name {
         req_builder = req_builder.query(&[("name", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    req_builder = req_builder.header("Authorization", p_authorization.to_string());
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
@@ -279,7 +218,7 @@ pub async fn api_period_preempt_period_proxy_period_get_period_policy_rules_peri
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiPeriodPreemptPeriodProxyPeriodGetPeriodPolicyRulesPeriodQueryError> =
+        let entity: Option<ApiPreemptProxyGetPolicyRulesQueryError> =
             serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
@@ -289,12 +228,12 @@ pub async fn api_period_preempt_period_proxy_period_get_period_policy_rules_peri
     }
 }
 
-pub async fn api_period_preempt_period_proxy_period_post_period_graphql(
+pub async fn api_preempt_proxy_post_graphql(
     configuration: &configuration::Configuration,
-    authorization: &str,
-) -> Result<(), Error<ApiPeriodPreemptPeriodProxyPeriodPostPeriodGraphqlError>> {
+    body: models::SwaggerGraphQlQuery,
+) -> Result<(), Error<ApiPreemptProxyPostGraphqlError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_authorization = authorization;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/identity-protection/combined/graphql/v1",
@@ -307,10 +246,10 @@ pub async fn api_period_preempt_period_proxy_period_post_period_graphql(
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    req_builder = req_builder.header("Authorization", p_authorization.to_string());
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -321,8 +260,7 @@ pub async fn api_period_preempt_period_proxy_period_post_period_graphql(
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiPeriodPreemptPeriodProxyPeriodPostPeriodGraphqlError> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<ApiPreemptProxyPostGraphqlError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -331,14 +269,12 @@ pub async fn api_period_preempt_period_proxy_period_post_period_graphql(
     }
 }
 
-pub async fn api_period_preempt_period_proxy_period_post_period_policy_rules(
+pub async fn api_preempt_proxy_post_policy_rules(
     configuration: &configuration::Configuration,
-    authorization: &str,
-    body: models::TypesPeriodPolicyRulesCreateBody,
-) -> Result<(), Error<ApiPeriodPreemptPeriodProxyPeriodPostPeriodPolicyRulesError>> {
+    body: models::TypesPolicyRulesCreateBody,
+) -> Result<(), Error<ApiPreemptProxyPostPolicyRulesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_authorization = authorization;
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/identity-protection/entities/policy-rules/v1",
@@ -351,11 +287,10 @@ pub async fn api_period_preempt_period_proxy_period_post_period_policy_rules(
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    req_builder = req_builder.header("Authorization", p_authorization.to_string());
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -366,7 +301,7 @@ pub async fn api_period_preempt_period_proxy_period_post_period_policy_rules(
         Ok(())
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiPeriodPreemptPeriodProxyPeriodPostPeriodPolicyRulesError> =
+        let entity: Option<ApiPreemptProxyPostPolicyRulesError> =
             serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,

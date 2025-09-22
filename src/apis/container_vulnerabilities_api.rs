@@ -17,9 +17,9 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadCombinedVulnerabilitiesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,11 +27,11 @@ pub enum ReadCombinedVulnerabilitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadCombinedVulnerabilitiesDetailsError {
-    Status400(models::CorePeriodEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::CorePeriodEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status400(models::CoreEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::CoreEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,11 +39,11 @@ pub enum ReadCombinedVulnerabilitiesDetailsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadCombinedVulnerabilitiesInfoError {
-    Status400(models::CorePeriodEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::CorePeriodEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status400(models::CoreEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::CoreEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,9 +51,9 @@ pub enum ReadCombinedVulnerabilitiesInfoError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadVulnerabilitiesByImageCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,9 +61,9 @@ pub enum ReadVulnerabilitiesByImageCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadVulnerabilitiesPublicationDateError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -71,9 +71,9 @@ pub enum ReadVulnerabilitiesPublicationDateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadVulnerabilityCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -81,9 +81,9 @@ pub enum ReadVulnerabilityCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadVulnerabilityCountByActivelyExploitedError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -91,9 +91,9 @@ pub enum ReadVulnerabilityCountByActivelyExploitedError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadVulnerabilityCountByCpsRatingError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -101,9 +101,9 @@ pub enum ReadVulnerabilityCountByCpsRatingError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadVulnerabilityCountByCvssScoreError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -111,9 +111,9 @@ pub enum ReadVulnerabilityCountByCvssScoreError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadVulnerabilityCountBySeverityError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -123,15 +123,13 @@ pub async fn read_combined_vulnerabilities(
     limit: Option<i32>,
     offset: Option<i32>,
     sort: Option<&str>,
-) -> Result<
-    models::VulnerabilitiesPeriodApiCombinedVulnerability,
-    Error<ReadCombinedVulnerabilitiesError>,
-> {
+) -> Result<models::VulnerabilitiesApiCombinedVulnerability, Error<ReadCombinedVulnerabilitiesError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/container-security/combined/vulnerabilities/v1",
@@ -139,16 +137,16 @@ pub async fn read_combined_vulnerabilities(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -173,8 +171,8 @@ pub async fn read_combined_vulnerabilities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiCombinedVulnerability`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiCombinedVulnerability`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesApiCombinedVulnerability`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesApiCombinedVulnerability`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -194,14 +192,14 @@ pub async fn read_combined_vulnerabilities_details(
     limit: Option<i32>,
     offset: Option<i32>,
 ) -> Result<
-    models::VulnerabilitiesPeriodApiCombinedVulnerabilityDetails,
+    models::VulnerabilitiesApiCombinedVulnerabilityDetails,
     Error<ReadCombinedVulnerabilitiesDetailsError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_id = id;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/vulnerabilities/details/v1",
@@ -209,14 +207,14 @@ pub async fn read_combined_vulnerabilities_details(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    if let Some(ref param_value) = p_filter {
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -241,8 +239,8 @@ pub async fn read_combined_vulnerabilities_details(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiCombinedVulnerabilityDetails`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiCombinedVulnerabilityDetails`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesApiCombinedVulnerabilityDetails`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesApiCombinedVulnerabilityDetails`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -262,13 +260,13 @@ pub async fn read_combined_vulnerabilities_info(
     limit: Option<i32>,
     offset: Option<i32>,
 ) -> Result<
-    models::VulnerabilitiesPeriodApiCombinedVulnerabilityInfo,
+    models::VulnerabilitiesApiCombinedVulnerabilityInfo,
     Error<ReadCombinedVulnerabilitiesInfoError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_cve_id = cve_id;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_cve_id = cve_id;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/vulnerabilities/info/v1",
@@ -276,11 +274,11 @@ pub async fn read_combined_vulnerabilities_info(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("cve_id", &p_cve_id.to_string())]);
-    if let Some(ref param_value) = p_limit {
+    req_builder = req_builder.query(&[("cve_id", &p_query_cve_id.to_string())]);
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -305,8 +303,8 @@ pub async fn read_combined_vulnerabilities_info(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiCombinedVulnerabilityInfo`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiCombinedVulnerabilityInfo`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesApiCombinedVulnerabilityInfo`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesApiCombinedVulnerabilityInfo`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -325,14 +323,12 @@ pub async fn read_vulnerabilities_by_image_count(
     filter: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<
-    models::VulnerabilitiesPeriodApiVulnByImageCount,
-    Error<ReadVulnerabilitiesByImageCountError>,
-> {
+) -> Result<models::VulnerabilitiesApiVulnByImageCount, Error<ReadVulnerabilitiesByImageCountError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/vulnerabilities/by-image-count/v1",
@@ -340,13 +336,13 @@ pub async fn read_vulnerabilities_by_image_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -371,8 +367,8 @@ pub async fn read_vulnerabilities_by_image_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiVulnByImageCount`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiVulnByImageCount`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesApiVulnByImageCount`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesApiVulnByImageCount`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -392,13 +388,13 @@ pub async fn read_vulnerabilities_publication_date(
     limit: Option<i32>,
     offset: Option<i32>,
 ) -> Result<
-    models::VulnerabilitiesPeriodApiVulnByPublication,
+    models::VulnerabilitiesApiVulnByPublication,
     Error<ReadVulnerabilitiesPublicationDateError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/vulnerabilities/by-published-date/v1",
@@ -406,13 +402,13 @@ pub async fn read_vulnerabilities_publication_date(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -437,8 +433,8 @@ pub async fn read_vulnerabilities_publication_date(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiVulnByPublication`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiVulnByPublication`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesApiVulnByPublication`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesApiVulnByPublication`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -457,11 +453,11 @@ pub async fn read_vulnerability_count(
     filter: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::VulnerabilitiesPeriodApiVulnCount, Error<ReadVulnerabilityCountError>> {
+) -> Result<models::VulnerabilitiesApiVulnCount, Error<ReadVulnerabilityCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/aggregates/vulnerabilities/count/v1",
@@ -469,13 +465,13 @@ pub async fn read_vulnerability_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -500,8 +496,8 @@ pub async fn read_vulnerability_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiVulnCount`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiVulnCount`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesApiVulnCount`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesApiVulnCount`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -520,13 +516,13 @@ pub async fn read_vulnerability_count_by_actively_exploited(
     limit: Option<i32>,
     offset: Option<i32>,
 ) -> Result<
-    models::VulnerabilitiesPeriodApiVulnCountByActivelyExploited,
+    models::VulnerabilitiesApiVulnCountByActivelyExploited,
     Error<ReadVulnerabilityCountByActivelyExploitedError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/aggregates/vulnerabilities/count-by-actively-exploited/v1",
@@ -534,13 +530,13 @@ pub async fn read_vulnerability_count_by_actively_exploited(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -565,8 +561,8 @@ pub async fn read_vulnerability_count_by_actively_exploited(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiVulnCountByActivelyExploited`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiVulnCountByActivelyExploited`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesApiVulnCountByActivelyExploited`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesApiVulnCountByActivelyExploited`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -586,13 +582,13 @@ pub async fn read_vulnerability_count_by_cps_rating(
     limit: Option<i32>,
     offset: Option<i32>,
 ) -> Result<
-    models::VulnerabilitiesPeriodApiVulnCountByCspRating,
+    models::VulnerabilitiesApiVulnCountByCspRating,
     Error<ReadVulnerabilityCountByCpsRatingError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/aggregates/vulnerabilities/count-by-cps-rating/v1",
@@ -600,13 +596,13 @@ pub async fn read_vulnerability_count_by_cps_rating(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -631,8 +627,8 @@ pub async fn read_vulnerability_count_by_cps_rating(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiVulnCountByCspRating`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiVulnCountByCspRating`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesApiVulnCountByCspRating`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesApiVulnCountByCspRating`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -652,13 +648,13 @@ pub async fn read_vulnerability_count_by_cvss_score(
     limit: Option<i32>,
     offset: Option<i32>,
 ) -> Result<
-    models::VulnerabilitiesPeriodApiVulnCountByCvssScore,
+    models::VulnerabilitiesApiVulnCountByCvssScore,
     Error<ReadVulnerabilityCountByCvssScoreError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/aggregates/vulnerabilities/count-by-cvss-score/v1",
@@ -666,13 +662,13 @@ pub async fn read_vulnerability_count_by_cvss_score(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -697,8 +693,8 @@ pub async fn read_vulnerability_count_by_cvss_score(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiVulnCountByCvssScore`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiVulnCountByCvssScore`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesApiVulnCountByCvssScore`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesApiVulnCountByCvssScore`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -718,13 +714,13 @@ pub async fn read_vulnerability_count_by_severity(
     limit: Option<i32>,
     offset: Option<i32>,
 ) -> Result<
-    models::VulnerabilitiesPeriodApiVulnCountBySeverity,
+    models::VulnerabilitiesApiVulnCountBySeverity,
     Error<ReadVulnerabilityCountBySeverityError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/aggregates/vulnerabilities/count-by-severity/v1",
@@ -732,13 +728,13 @@ pub async fn read_vulnerability_count_by_severity(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -763,8 +759,8 @@ pub async fn read_vulnerability_count_by_severity(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiVulnCountBySeverity`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesPeriodApiVulnCountBySeverity`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VulnerabilitiesApiVulnCountBySeverity`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VulnerabilitiesApiVulnCountBySeverity`")))),
         }
     } else {
         let content = resp.text().await?;

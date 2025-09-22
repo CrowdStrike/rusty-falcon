@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateSavedSearchesDynamicExecuteAltV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,11 +29,11 @@ pub enum CreateSavedSearchesDynamicExecuteAltV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateSavedSearchesDynamicExecuteV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,11 +41,11 @@ pub enum CreateSavedSearchesDynamicExecuteV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateSavedSearchesExecuteAltV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -53,11 +53,11 @@ pub enum CreateSavedSearchesExecuteAltV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateSavedSearchesExecuteV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -65,11 +65,11 @@ pub enum CreateSavedSearchesExecuteV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateSavedSearchesIngestAltV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -77,11 +77,11 @@ pub enum CreateSavedSearchesIngestAltV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateSavedSearchesIngestV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -89,11 +89,11 @@ pub enum CreateSavedSearchesIngestV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSavedSearchesExecuteAltV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -101,11 +101,11 @@ pub enum GetSavedSearchesExecuteAltV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSavedSearchesExecuteV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -113,12 +113,12 @@ pub enum GetSavedSearchesExecuteV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSavedSearchesJobResultsDownloadAltV1Error {
-    Status400(models::ApiPeriodEntitiesResponse),
-    Status401(models::ApiPeriodEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ApiPeriodEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodEntitiesResponse),
+    Status400(models::ApiEntitiesResponse),
+    Status401(models::ApiEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ApiEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -126,12 +126,12 @@ pub enum GetSavedSearchesJobResultsDownloadAltV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSavedSearchesJobResultsDownloadV1Error {
-    Status400(models::ApiPeriodEntitiesResponse),
-    Status401(models::ApiPeriodEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ApiPeriodEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodEntitiesResponse),
+    Status400(models::ApiEntitiesResponse),
+    Status401(models::ApiEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ApiEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -139,11 +139,11 @@ pub enum GetSavedSearchesJobResultsDownloadV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum IngestDataAsyncV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -151,11 +151,11 @@ pub enum IngestDataAsyncV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum IngestDataV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -163,11 +163,11 @@ pub enum IngestDataV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListReposV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -175,17 +175,17 @@ pub enum ListReposV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListViewV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_saved_searches_dynamic_execute_alt_v1(
     configuration: &configuration::Configuration,
-    body: models::ApidomainPeriodDynamicExecuteSearchRequestV1,
+    body: models::ApidomainDynamicExecuteSearchRequestV1,
     app_id: Option<&str>,
     include_schema_generation: Option<bool>,
     include_test_data: Option<bool>,
@@ -195,19 +195,19 @@ pub async fn create_saved_searches_dynamic_execute_alt_v1(
     mode: Option<&str>,
     x_cs_useruuid: Option<&str>,
 ) -> Result<
-    models::ApidomainPeriodQueryResponseWrapperV1,
+    models::ApidomainQueryResponseWrapperV1,
     Error<CreateSavedSearchesDynamicExecuteAltV1Error>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_app_id = app_id;
-    let p_include_schema_generation = include_schema_generation;
-    let p_include_test_data = include_test_data;
-    let p_infer_json_types = infer_json_types;
-    let p_match_response_schema = match_response_schema;
-    let p_metadata = metadata;
-    let p_mode = mode;
-    let p_x_cs_useruuid = x_cs_useruuid;
+    let p_body_body = body;
+    let p_query_app_id = app_id;
+    let p_query_include_schema_generation = include_schema_generation;
+    let p_query_include_test_data = include_test_data;
+    let p_query_infer_json_types = infer_json_types;
+    let p_query_match_response_schema = match_response_schema;
+    let p_query_metadata = metadata;
+    let p_query_mode = mode;
+    let p_header_x_cs_useruuid = x_cs_useruuid;
 
     let uri_str = format!(
         "{}/loggingapi/entities/saved-searches-dynamic-execute/v1",
@@ -217,37 +217,37 @@ pub async fn create_saved_searches_dynamic_execute_alt_v1(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_app_id {
+    if let Some(ref param_value) = p_query_app_id {
         req_builder = req_builder.query(&[("app_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_schema_generation {
+    if let Some(ref param_value) = p_query_include_schema_generation {
         req_builder = req_builder.query(&[("include_schema_generation", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_test_data {
+    if let Some(ref param_value) = p_query_include_test_data {
         req_builder = req_builder.query(&[("include_test_data", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_infer_json_types {
+    if let Some(ref param_value) = p_query_infer_json_types {
         req_builder = req_builder.query(&[("infer_json_types", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_match_response_schema {
+    if let Some(ref param_value) = p_query_match_response_schema {
         req_builder = req_builder.query(&[("match_response_schema", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_metadata {
+    if let Some(ref param_value) = p_query_metadata {
         req_builder = req_builder.query(&[("metadata", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_mode {
+    if let Some(ref param_value) = p_query_mode {
         req_builder = req_builder.query(&[("mode", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(param_value) = p_x_cs_useruuid {
+    if let Some(param_value) = p_header_x_cs_useruuid {
         req_builder = req_builder.header("X-CS-USERUUID", param_value.to_string());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -264,8 +264,8 @@ pub async fn create_saved_searches_dynamic_execute_alt_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApidomainPeriodQueryResponseWrapperV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApidomainPeriodQueryResponseWrapperV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApidomainQueryResponseWrapperV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApidomainQueryResponseWrapperV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -281,7 +281,7 @@ pub async fn create_saved_searches_dynamic_execute_alt_v1(
 
 pub async fn create_saved_searches_dynamic_execute_v1(
     configuration: &configuration::Configuration,
-    body: models::ApidomainPeriodDynamicExecuteSearchRequestV1,
+    body: models::ApidomainDynamicExecuteSearchRequestV1,
     app_id: Option<&str>,
     include_schema_generation: Option<bool>,
     include_test_data: Option<bool>,
@@ -290,20 +290,18 @@ pub async fn create_saved_searches_dynamic_execute_v1(
     metadata: Option<bool>,
     mode: Option<&str>,
     x_cs_useruuid: Option<&str>,
-) -> Result<
-    models::ApidomainPeriodQueryResponseWrapperV1,
-    Error<CreateSavedSearchesDynamicExecuteV1Error>,
-> {
+) -> Result<models::ApidomainQueryResponseWrapperV1, Error<CreateSavedSearchesDynamicExecuteV1Error>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_app_id = app_id;
-    let p_include_schema_generation = include_schema_generation;
-    let p_include_test_data = include_test_data;
-    let p_infer_json_types = infer_json_types;
-    let p_match_response_schema = match_response_schema;
-    let p_metadata = metadata;
-    let p_mode = mode;
-    let p_x_cs_useruuid = x_cs_useruuid;
+    let p_body_body = body;
+    let p_query_app_id = app_id;
+    let p_query_include_schema_generation = include_schema_generation;
+    let p_query_include_test_data = include_test_data;
+    let p_query_infer_json_types = infer_json_types;
+    let p_query_match_response_schema = match_response_schema;
+    let p_query_metadata = metadata;
+    let p_query_mode = mode;
+    let p_header_x_cs_useruuid = x_cs_useruuid;
 
     let uri_str = format!(
         "{}/loggingapi/entities/saved-searches/execute-dynamic/v1",
@@ -313,37 +311,37 @@ pub async fn create_saved_searches_dynamic_execute_v1(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_app_id {
+    if let Some(ref param_value) = p_query_app_id {
         req_builder = req_builder.query(&[("app_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_schema_generation {
+    if let Some(ref param_value) = p_query_include_schema_generation {
         req_builder = req_builder.query(&[("include_schema_generation", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_test_data {
+    if let Some(ref param_value) = p_query_include_test_data {
         req_builder = req_builder.query(&[("include_test_data", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_infer_json_types {
+    if let Some(ref param_value) = p_query_infer_json_types {
         req_builder = req_builder.query(&[("infer_json_types", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_match_response_schema {
+    if let Some(ref param_value) = p_query_match_response_schema {
         req_builder = req_builder.query(&[("match_response_schema", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_metadata {
+    if let Some(ref param_value) = p_query_metadata {
         req_builder = req_builder.query(&[("metadata", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_mode {
+    if let Some(ref param_value) = p_query_mode {
         req_builder = req_builder.query(&[("mode", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(param_value) = p_x_cs_useruuid {
+    if let Some(param_value) = p_header_x_cs_useruuid {
         req_builder = req_builder.header("X-CS-USERUUID", param_value.to_string());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -360,8 +358,8 @@ pub async fn create_saved_searches_dynamic_execute_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApidomainPeriodQueryResponseWrapperV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApidomainPeriodQueryResponseWrapperV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApidomainQueryResponseWrapperV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApidomainQueryResponseWrapperV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -377,7 +375,7 @@ pub async fn create_saved_searches_dynamic_execute_v1(
 
 pub async fn create_saved_searches_execute_alt_v1(
     configuration: &configuration::Configuration,
-    body: models::ApidomainPeriodSavedSearchExecuteRequestV1,
+    body: models::ApidomainSavedSearchExecuteRequestV1,
     app_id: Option<&str>,
     detailed: Option<bool>,
     include_test_data: Option<bool>,
@@ -385,19 +383,16 @@ pub async fn create_saved_searches_execute_alt_v1(
     match_response_schema: Option<bool>,
     metadata: Option<bool>,
     x_cs_useruuid: Option<&str>,
-) -> Result<
-    models::ApidomainPeriodQueryResponseWrapperV1,
-    Error<CreateSavedSearchesExecuteAltV1Error>,
-> {
+) -> Result<models::ApidomainQueryResponseWrapperV1, Error<CreateSavedSearchesExecuteAltV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_app_id = app_id;
-    let p_detailed = detailed;
-    let p_include_test_data = include_test_data;
-    let p_infer_json_types = infer_json_types;
-    let p_match_response_schema = match_response_schema;
-    let p_metadata = metadata;
-    let p_x_cs_useruuid = x_cs_useruuid;
+    let p_body_body = body;
+    let p_query_app_id = app_id;
+    let p_query_detailed = detailed;
+    let p_query_include_test_data = include_test_data;
+    let p_query_infer_json_types = infer_json_types;
+    let p_query_match_response_schema = match_response_schema;
+    let p_query_metadata = metadata;
+    let p_header_x_cs_useruuid = x_cs_useruuid;
 
     let uri_str = format!(
         "{}/loggingapi/entities/saved-searches-execute/v1",
@@ -407,34 +402,34 @@ pub async fn create_saved_searches_execute_alt_v1(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_app_id {
+    if let Some(ref param_value) = p_query_app_id {
         req_builder = req_builder.query(&[("app_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_detailed {
+    if let Some(ref param_value) = p_query_detailed {
         req_builder = req_builder.query(&[("detailed", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_test_data {
+    if let Some(ref param_value) = p_query_include_test_data {
         req_builder = req_builder.query(&[("include_test_data", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_infer_json_types {
+    if let Some(ref param_value) = p_query_infer_json_types {
         req_builder = req_builder.query(&[("infer_json_types", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_match_response_schema {
+    if let Some(ref param_value) = p_query_match_response_schema {
         req_builder = req_builder.query(&[("match_response_schema", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_metadata {
+    if let Some(ref param_value) = p_query_metadata {
         req_builder = req_builder.query(&[("metadata", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(param_value) = p_x_cs_useruuid {
+    if let Some(param_value) = p_header_x_cs_useruuid {
         req_builder = req_builder.header("X-CS-USERUUID", param_value.to_string());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -451,8 +446,8 @@ pub async fn create_saved_searches_execute_alt_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApidomainPeriodQueryResponseWrapperV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApidomainPeriodQueryResponseWrapperV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApidomainQueryResponseWrapperV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApidomainQueryResponseWrapperV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -468,7 +463,7 @@ pub async fn create_saved_searches_execute_alt_v1(
 
 pub async fn create_saved_searches_execute_v1(
     configuration: &configuration::Configuration,
-    body: models::ApidomainPeriodSavedSearchExecuteRequestV1,
+    body: models::ApidomainSavedSearchExecuteRequestV1,
     app_id: Option<&str>,
     detailed: Option<bool>,
     include_test_data: Option<bool>,
@@ -476,17 +471,16 @@ pub async fn create_saved_searches_execute_v1(
     match_response_schema: Option<bool>,
     metadata: Option<bool>,
     x_cs_useruuid: Option<&str>,
-) -> Result<models::ApidomainPeriodQueryResponseWrapperV1, Error<CreateSavedSearchesExecuteV1Error>>
-{
+) -> Result<models::ApidomainQueryResponseWrapperV1, Error<CreateSavedSearchesExecuteV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_app_id = app_id;
-    let p_detailed = detailed;
-    let p_include_test_data = include_test_data;
-    let p_infer_json_types = infer_json_types;
-    let p_match_response_schema = match_response_schema;
-    let p_metadata = metadata;
-    let p_x_cs_useruuid = x_cs_useruuid;
+    let p_body_body = body;
+    let p_query_app_id = app_id;
+    let p_query_detailed = detailed;
+    let p_query_include_test_data = include_test_data;
+    let p_query_infer_json_types = infer_json_types;
+    let p_query_match_response_schema = match_response_schema;
+    let p_query_metadata = metadata;
+    let p_header_x_cs_useruuid = x_cs_useruuid;
 
     let uri_str = format!(
         "{}/loggingapi/entities/saved-searches/execute/v1",
@@ -496,34 +490,34 @@ pub async fn create_saved_searches_execute_v1(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_app_id {
+    if let Some(ref param_value) = p_query_app_id {
         req_builder = req_builder.query(&[("app_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_detailed {
+    if let Some(ref param_value) = p_query_detailed {
         req_builder = req_builder.query(&[("detailed", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_test_data {
+    if let Some(ref param_value) = p_query_include_test_data {
         req_builder = req_builder.query(&[("include_test_data", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_infer_json_types {
+    if let Some(ref param_value) = p_query_infer_json_types {
         req_builder = req_builder.query(&[("infer_json_types", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_match_response_schema {
+    if let Some(ref param_value) = p_query_match_response_schema {
         req_builder = req_builder.query(&[("match_response_schema", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_metadata {
+    if let Some(ref param_value) = p_query_metadata {
         req_builder = req_builder.query(&[("metadata", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(param_value) = p_x_cs_useruuid {
+    if let Some(param_value) = p_header_x_cs_useruuid {
         req_builder = req_builder.header("X-CS-USERUUID", param_value.to_string());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -540,8 +534,8 @@ pub async fn create_saved_searches_execute_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApidomainPeriodQueryResponseWrapperV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApidomainPeriodQueryResponseWrapperV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApidomainQueryResponseWrapperV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApidomainQueryResponseWrapperV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -557,12 +551,9 @@ pub async fn create_saved_searches_execute_v1(
 pub async fn create_saved_searches_ingest_alt_v1(
     configuration: &configuration::Configuration,
     app_id: Option<&str>,
-) -> Result<
-    models::ClientPeriodDataIngestResponseWrapperV1,
-    Error<CreateSavedSearchesIngestAltV1Error>,
-> {
+) -> Result<models::ClientDataIngestResponseWrapperV1, Error<CreateSavedSearchesIngestAltV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_app_id = app_id;
+    let p_query_app_id = app_id;
 
     let uri_str = format!(
         "{}/loggingapi/entities/saved-searches-ingest/v1",
@@ -572,7 +563,7 @@ pub async fn create_saved_searches_ingest_alt_v1(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_app_id {
+    if let Some(ref param_value) = p_query_app_id {
         req_builder = req_builder.query(&[("app_id", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -597,8 +588,8 @@ pub async fn create_saved_searches_ingest_alt_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientPeriodDataIngestResponseWrapperV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientPeriodDataIngestResponseWrapperV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientDataIngestResponseWrapperV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientDataIngestResponseWrapperV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -615,10 +606,9 @@ pub async fn create_saved_searches_ingest_alt_v1(
 pub async fn create_saved_searches_ingest_v1(
     configuration: &configuration::Configuration,
     app_id: Option<&str>,
-) -> Result<models::ClientPeriodDataIngestResponseWrapperV1, Error<CreateSavedSearchesIngestV1Error>>
-{
+) -> Result<models::ClientDataIngestResponseWrapperV1, Error<CreateSavedSearchesIngestV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_app_id = app_id;
+    let p_query_app_id = app_id;
 
     let uri_str = format!(
         "{}/loggingapi/entities/saved-searches/ingest/v1",
@@ -628,7 +618,7 @@ pub async fn create_saved_searches_ingest_v1(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_app_id {
+    if let Some(ref param_value) = p_query_app_id {
         req_builder = req_builder.query(&[("app_id", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -653,8 +643,8 @@ pub async fn create_saved_searches_ingest_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientPeriodDataIngestResponseWrapperV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientPeriodDataIngestResponseWrapperV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientDataIngestResponseWrapperV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientDataIngestResponseWrapperV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -678,18 +668,17 @@ pub async fn get_saved_searches_execute_alt_v1(
     metadata: Option<bool>,
     offset: Option<&str>,
     x_cs_useruuid: Option<&str>,
-) -> Result<models::ApidomainPeriodQueryResponseWrapperV1, Error<GetSavedSearchesExecuteAltV1Error>>
-{
+) -> Result<models::ApidomainQueryResponseWrapperV1, Error<GetSavedSearchesExecuteAltV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_job_id = job_id;
-    let p_app_id = app_id;
-    let p_infer_json_types = infer_json_types;
-    let p_job_status_only = job_status_only;
-    let p_limit = limit;
-    let p_match_response_schema = match_response_schema;
-    let p_metadata = metadata;
-    let p_offset = offset;
-    let p_x_cs_useruuid = x_cs_useruuid;
+    let p_query_job_id = job_id;
+    let p_query_app_id = app_id;
+    let p_query_infer_json_types = infer_json_types;
+    let p_query_job_status_only = job_status_only;
+    let p_query_limit = limit;
+    let p_query_match_response_schema = match_response_schema;
+    let p_query_metadata = metadata;
+    let p_query_offset = offset;
+    let p_header_x_cs_useruuid = x_cs_useruuid;
 
     let uri_str = format!(
         "{}/loggingapi/entities/saved-searches-execute/v1",
@@ -697,32 +686,32 @@ pub async fn get_saved_searches_execute_alt_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("job_id", &p_job_id.to_string())]);
-    if let Some(ref param_value) = p_app_id {
+    req_builder = req_builder.query(&[("job_id", &p_query_job_id.to_string())]);
+    if let Some(ref param_value) = p_query_app_id {
         req_builder = req_builder.query(&[("app_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_infer_json_types {
+    if let Some(ref param_value) = p_query_infer_json_types {
         req_builder = req_builder.query(&[("infer_json_types", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_job_status_only {
+    if let Some(ref param_value) = p_query_job_status_only {
         req_builder = req_builder.query(&[("job_status_only", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_match_response_schema {
+    if let Some(ref param_value) = p_query_match_response_schema {
         req_builder = req_builder.query(&[("match_response_schema", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_metadata {
+    if let Some(ref param_value) = p_query_metadata {
         req_builder = req_builder.query(&[("metadata", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(param_value) = p_x_cs_useruuid {
+    if let Some(param_value) = p_header_x_cs_useruuid {
         req_builder = req_builder.header("X-CS-USERUUID", param_value.to_string());
     }
     if let Some(ref token) = configuration.oauth_access_token {
@@ -744,8 +733,8 @@ pub async fn get_saved_searches_execute_alt_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApidomainPeriodQueryResponseWrapperV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApidomainPeriodQueryResponseWrapperV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApidomainQueryResponseWrapperV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApidomainQueryResponseWrapperV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -769,17 +758,17 @@ pub async fn get_saved_searches_execute_v1(
     metadata: Option<bool>,
     offset: Option<&str>,
     x_cs_useruuid: Option<&str>,
-) -> Result<models::ApidomainPeriodQueryResponseWrapperV1, Error<GetSavedSearchesExecuteV1Error>> {
+) -> Result<models::ApidomainQueryResponseWrapperV1, Error<GetSavedSearchesExecuteV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_job_id = job_id;
-    let p_app_id = app_id;
-    let p_infer_json_types = infer_json_types;
-    let p_job_status_only = job_status_only;
-    let p_limit = limit;
-    let p_match_response_schema = match_response_schema;
-    let p_metadata = metadata;
-    let p_offset = offset;
-    let p_x_cs_useruuid = x_cs_useruuid;
+    let p_query_job_id = job_id;
+    let p_query_app_id = app_id;
+    let p_query_infer_json_types = infer_json_types;
+    let p_query_job_status_only = job_status_only;
+    let p_query_limit = limit;
+    let p_query_match_response_schema = match_response_schema;
+    let p_query_metadata = metadata;
+    let p_query_offset = offset;
+    let p_header_x_cs_useruuid = x_cs_useruuid;
 
     let uri_str = format!(
         "{}/loggingapi/entities/saved-searches/execute/v1",
@@ -787,32 +776,32 @@ pub async fn get_saved_searches_execute_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("job_id", &p_job_id.to_string())]);
-    if let Some(ref param_value) = p_app_id {
+    req_builder = req_builder.query(&[("job_id", &p_query_job_id.to_string())]);
+    if let Some(ref param_value) = p_query_app_id {
         req_builder = req_builder.query(&[("app_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_infer_json_types {
+    if let Some(ref param_value) = p_query_infer_json_types {
         req_builder = req_builder.query(&[("infer_json_types", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_job_status_only {
+    if let Some(ref param_value) = p_query_job_status_only {
         req_builder = req_builder.query(&[("job_status_only", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_match_response_schema {
+    if let Some(ref param_value) = p_query_match_response_schema {
         req_builder = req_builder.query(&[("match_response_schema", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_metadata {
+    if let Some(ref param_value) = p_query_metadata {
         req_builder = req_builder.query(&[("metadata", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(param_value) = p_x_cs_useruuid {
+    if let Some(param_value) = p_header_x_cs_useruuid {
         req_builder = req_builder.header("X-CS-USERUUID", param_value.to_string());
     }
     if let Some(ref token) = configuration.oauth_access_token {
@@ -834,8 +823,8 @@ pub async fn get_saved_searches_execute_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApidomainPeriodQueryResponseWrapperV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApidomainPeriodQueryResponseWrapperV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApidomainQueryResponseWrapperV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApidomainQueryResponseWrapperV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -855,9 +844,9 @@ pub async fn get_saved_searches_job_results_download_alt_v1(
     result_format: Option<&str>,
 ) -> Result<reqwest::Response, Error<GetSavedSearchesJobResultsDownloadAltV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_job_id = job_id;
-    let p_infer_json_types = infer_json_types;
-    let p_result_format = result_format;
+    let p_query_job_id = job_id;
+    let p_query_infer_json_types = infer_json_types;
+    let p_query_result_format = result_format;
 
     let uri_str = format!(
         "{}/loggingapi/entities/saved-searches-job-results-download/v1",
@@ -865,11 +854,11 @@ pub async fn get_saved_searches_job_results_download_alt_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("job_id", &p_job_id.to_string())]);
-    if let Some(ref param_value) = p_infer_json_types {
+    req_builder = req_builder.query(&[("job_id", &p_query_job_id.to_string())]);
+    if let Some(ref param_value) = p_query_infer_json_types {
         req_builder = req_builder.query(&[("infer_json_types", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_result_format {
+    if let Some(ref param_value) = p_query_result_format {
         req_builder = req_builder.query(&[("result_format", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -905,9 +894,9 @@ pub async fn get_saved_searches_job_results_download_v1(
     result_format: Option<&str>,
 ) -> Result<reqwest::Response, Error<GetSavedSearchesJobResultsDownloadV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_job_id = job_id;
-    let p_infer_json_types = infer_json_types;
-    let p_result_format = result_format;
+    let p_query_job_id = job_id;
+    let p_query_infer_json_types = infer_json_types;
+    let p_query_result_format = result_format;
 
     let uri_str = format!(
         "{}/loggingapi/entities/saved-searches/job-results-download/v1",
@@ -915,11 +904,11 @@ pub async fn get_saved_searches_job_results_download_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("job_id", &p_job_id.to_string())]);
-    if let Some(ref param_value) = p_infer_json_types {
+    req_builder = req_builder.query(&[("job_id", &p_query_job_id.to_string())]);
+    if let Some(ref param_value) = p_query_infer_json_types {
         req_builder = req_builder.query(&[("infer_json_types", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_result_format {
+    if let Some(ref param_value) = p_query_result_format {
         req_builder = req_builder.query(&[("result_format", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -956,14 +945,14 @@ pub async fn ingest_data_async_v1(
     tag: Option<Vec<String>>,
     tag_source: Option<&str>,
     test_data: Option<bool>,
-) -> Result<models::ClientPeriodDataIngestResponseWrapperV1, Error<IngestDataAsyncV1Error>> {
+) -> Result<models::ClientDataIngestResponseWrapperV1, Error<IngestDataAsyncV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_data_content = data_content;
-    let _p_data_file = data_file;
-    let p_repo = repo;
-    let p_tag = tag;
-    let p_tag_source = tag_source;
-    let p_test_data = test_data;
+    let p_form_data_content = data_content;
+    let _p_form_data_file = data_file;
+    let p_form_repo = repo;
+    let p_form_tag = tag;
+    let p_form_tag_source = tag_source;
+    let p_form_test_data = test_data;
 
     let uri_str = format!(
         "{}/loggingapi/entities/data-ingestion/ingest-async/v1",
@@ -980,14 +969,14 @@ pub async fn ingest_data_async_v1(
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
     let mut multipart_form = reqwest::multipart::Form::new();
-    if let Some(param_value) = p_data_content {
+    if let Some(param_value) = p_form_data_content {
         multipart_form = multipart_form.text("data_content", param_value.to_string());
     }
     // TODO: support file upload for 'data_file' parameter
-    if let Some(param_value) = p_repo {
+    if let Some(param_value) = p_form_repo {
         multipart_form = multipart_form.text("repo", param_value.to_string());
     }
-    if let Some(param_value) = p_tag {
+    if let Some(param_value) = p_form_tag {
         multipart_form = multipart_form.text(
             "tag",
             param_value
@@ -998,10 +987,10 @@ pub async fn ingest_data_async_v1(
                 .to_string(),
         );
     }
-    if let Some(param_value) = p_tag_source {
+    if let Some(param_value) = p_form_tag_source {
         multipart_form = multipart_form.text("tag_source", param_value.to_string());
     }
-    if let Some(param_value) = p_test_data {
+    if let Some(param_value) = p_form_test_data {
         multipart_form = multipart_form.text("test_data", param_value.to_string());
     }
     req_builder = req_builder.multipart(multipart_form);
@@ -1021,8 +1010,8 @@ pub async fn ingest_data_async_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientPeriodDataIngestResponseWrapperV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientPeriodDataIngestResponseWrapperV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientDataIngestResponseWrapperV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientDataIngestResponseWrapperV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1042,13 +1031,13 @@ pub async fn ingest_data_v1(
     tag: Option<Vec<String>>,
     tag_source: Option<&str>,
     test_data: Option<bool>,
-) -> Result<models::ClientPeriodDataIngestResponseWrapperV1, Error<IngestDataV1Error>> {
+) -> Result<models::ClientDataIngestResponseWrapperV1, Error<IngestDataV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_data_content = data_content;
-    let _p_data_file = data_file;
-    let p_tag = tag;
-    let p_tag_source = tag_source;
-    let p_test_data = test_data;
+    let p_form_data_content = data_content;
+    let _p_form_data_file = data_file;
+    let p_form_tag = tag;
+    let p_form_tag_source = tag_source;
+    let p_form_test_data = test_data;
 
     let uri_str = format!(
         "{}/loggingapi/entities/data-ingestion/ingest/v1",
@@ -1065,11 +1054,11 @@ pub async fn ingest_data_v1(
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
     let mut multipart_form = reqwest::multipart::Form::new();
-    if let Some(param_value) = p_data_content {
+    if let Some(param_value) = p_form_data_content {
         multipart_form = multipart_form.text("data_content", param_value.to_string());
     }
     // TODO: support file upload for 'data_file' parameter
-    if let Some(param_value) = p_tag {
+    if let Some(param_value) = p_form_tag {
         multipart_form = multipart_form.text(
             "tag",
             param_value
@@ -1080,10 +1069,10 @@ pub async fn ingest_data_v1(
                 .to_string(),
         );
     }
-    if let Some(param_value) = p_tag_source {
+    if let Some(param_value) = p_form_tag_source {
         multipart_form = multipart_form.text("tag_source", param_value.to_string());
     }
-    if let Some(param_value) = p_test_data {
+    if let Some(param_value) = p_form_test_data {
         multipart_form = multipart_form.text("test_data", param_value.to_string());
     }
     req_builder = req_builder.multipart(multipart_form);
@@ -1103,8 +1092,8 @@ pub async fn ingest_data_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientPeriodDataIngestResponseWrapperV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientPeriodDataIngestResponseWrapperV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientDataIngestResponseWrapperV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientDataIngestResponseWrapperV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1120,14 +1109,14 @@ pub async fn ingest_data_v1(
 pub async fn list_repos_v1(
     configuration: &configuration::Configuration,
     check_test_data: Option<bool>,
-) -> Result<models::ApidomainPeriodRepoViewListItemWrapperV1, Error<ListReposV1Error>> {
+) -> Result<models::ApidomainRepoViewListItemWrapperV1, Error<ListReposV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_check_test_data = check_test_data;
+    let p_query_check_test_data = check_test_data;
 
     let uri_str = format!("{}/loggingapi/combined/repos/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_check_test_data {
+    if let Some(ref param_value) = p_query_check_test_data {
         req_builder = req_builder.query(&[("check_test_data", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1152,8 +1141,8 @@ pub async fn list_repos_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApidomainPeriodRepoViewListItemWrapperV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApidomainPeriodRepoViewListItemWrapperV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApidomainRepoViewListItemWrapperV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApidomainRepoViewListItemWrapperV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1169,14 +1158,14 @@ pub async fn list_repos_v1(
 pub async fn list_view_v1(
     configuration: &configuration::Configuration,
     check_test_data: Option<bool>,
-) -> Result<models::ApidomainPeriodRepoViewListItemWrapperV1, Error<ListViewV1Error>> {
+) -> Result<models::ApidomainRepoViewListItemWrapperV1, Error<ListViewV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_check_test_data = check_test_data;
+    let p_query_check_test_data = check_test_data;
 
     let uri_str = format!("{}/loggingapi/entities/views/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_check_test_data {
+    if let Some(ref param_value) = p_query_check_test_data {
         req_builder = req_builder.query(&[("check_test_data", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1201,8 +1190,8 @@ pub async fn list_view_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApidomainPeriodRepoViewListItemWrapperV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApidomainPeriodRepoViewListItemWrapperV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApidomainRepoViewListItemWrapperV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApidomainRepoViewListItemWrapperV1`")))),
         }
     } else {
         let content = resp.text().await?;

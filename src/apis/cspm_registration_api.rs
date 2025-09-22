@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AzureDownloadCertificateError {
-    Status400(models::RegistrationPeriodAzureDownloadCertificateResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodAzureDownloadCertificateResponseV1),
+    Status400(models::RegistrationAzureDownloadCertificateResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationAzureDownloadCertificateResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum AzureDownloadCertificateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AzureRefreshCertificateError {
-    Status400(models::RegistrationPeriodAzureDownloadCertificateResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodAzureDownloadCertificateResponseV1),
+    Status400(models::RegistrationAzureDownloadCertificateResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationAzureDownloadCertificateResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,11 +39,11 @@ pub enum AzureRefreshCertificateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ConnectCspmgcpAccountError {
-    Status400(models::RegistrationPeriodGcpAccountResponseExtV2),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status409(models::RegistrationPeriodGcpAccountResponseExtV2),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodGcpAccountResponseExtV2),
+    Status400(models::RegistrationGcpAccountResponseExtV2),
+    Status403(models::MsaReplyMetaOnly),
+    Status409(models::RegistrationGcpAccountResponseExtV2),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationGcpAccountResponseExtV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,11 +51,11 @@ pub enum ConnectCspmgcpAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCspmAwsAccountError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status409(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status409(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -63,11 +63,11 @@ pub enum CreateCspmAwsAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCspmAzureAccountError {
-    Status400(models::RegistrationPeriodAzureAccountResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status409(models::RegistrationPeriodAzureAccountResponseV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodAzureAccountResponseV1),
+    Status400(models::RegistrationAzureAccountResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status409(models::RegistrationAzureAccountResponseV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationAzureAccountResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -75,10 +75,10 @@ pub enum CreateCspmAzureAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCspmAzureManagementGroupError {
-    Status400(models::RegistrationPeriodAzureAccountResponseV1),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodAzureAccountResponseV1),
+    Status400(models::RegistrationAzureAccountResponseV1),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationAzureAccountResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,10 +86,10 @@ pub enum CreateCspmAzureManagementGroupError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCspmgcpAccountError {
-    Status400(models::RegistrationPeriodGcpAccountResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodGcpAccountResponseV1),
+    Status400(models::RegistrationGcpAccountResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationGcpAccountResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -97,10 +97,10 @@ pub enum CreateCspmgcpAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteCspmAwsAccountError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -108,11 +108,11 @@ pub enum DeleteCspmAwsAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteCspmAzureAccountError {
-    Status400(models::MsaPeriodBaseEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaPeriodBaseEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodAzureAccountResponseV1),
+    Status400(models::MsaBaseEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaBaseEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationAzureAccountResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -120,10 +120,10 @@ pub enum DeleteCspmAzureAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteCspmAzureManagementGroupError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -131,10 +131,10 @@ pub enum DeleteCspmAzureManagementGroupError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteCspmgcpAccountError {
-    Status400(models::MsaPeriodBaseEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodBaseEntitiesResponse),
+    Status400(models::MsaBaseEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaBaseEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -142,10 +142,10 @@ pub enum DeleteCspmgcpAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetBehaviorDetectionsError {
-    Status400(models::RegistrationPeriodExternalIoaEventResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodExternalIoaEventResponse),
+    Status400(models::RegistrationExternalIoaEventResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationExternalIoaEventResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -153,10 +153,10 @@ pub enum GetBehaviorDetectionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCloudEventIdsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -164,10 +164,10 @@ pub enum GetCloudEventIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetConfigurationDetectionEntitiesError {
-    Status400(models::MsaPeriodReplyMetaOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -175,10 +175,10 @@ pub enum GetConfigurationDetectionEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetConfigurationDetectionIdsV2Error {
-    Status400(models::MsaspecPeriodMetaInfo),
-    Status403(models::MsaspecPeriodMetaInfo),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodMetaInfo),
+    Status400(models::MsaspecMetaInfo),
+    Status403(models::MsaspecMetaInfo),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecMetaInfo),
     UnknownValue(serde_json::Value),
 }
 
@@ -186,10 +186,10 @@ pub enum GetConfigurationDetectionIdsV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetConfigurationDetectionsError {
-    Status400(models::RegistrationPeriodExternalIomEventResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::RegistrationExternalIomEventResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -197,10 +197,10 @@ pub enum GetConfigurationDetectionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmAwsAccountError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -208,10 +208,10 @@ pub enum GetCspmAwsAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmAwsConsoleSetupUrlsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -219,10 +219,10 @@ pub enum GetCspmAwsConsoleSetupUrlsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmAzureAccountError {
-    Status400(models::RegistrationPeriodAzureAccountResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodAzureAccountResponseV1),
+    Status400(models::RegistrationAzureAccountResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationAzureAccountResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -230,10 +230,10 @@ pub enum GetCspmAzureAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmAzureManagementGroupError {
-    Status400(models::RegistrationPeriodAzureManagementGroupResponseV1),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodAzureManagementGroupResponseV1),
+    Status400(models::RegistrationAzureManagementGroupResponseV1),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationAzureManagementGroupResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -241,10 +241,10 @@ pub enum GetCspmAzureManagementGroupError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmAzureUserScriptsAttachmentError {
-    Status400(models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1),
+    Status400(models::RegistrationAzureProvisionGetUserScriptResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationAzureProvisionGetUserScriptResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -252,10 +252,10 @@ pub enum GetCspmAzureUserScriptsAttachmentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmPoliciesDetailsError {
-    Status400(models::RegistrationPeriodPolicyResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodPolicyResponseV1),
+    Status400(models::RegistrationPolicyResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationPolicyResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -263,10 +263,10 @@ pub enum GetCspmPoliciesDetailsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmPolicyError {
-    Status400(models::RegistrationPeriodPolicyResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodPolicyResponseV1),
+    Status400(models::RegistrationPolicyResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationPolicyResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -274,10 +274,10 @@ pub enum GetCspmPolicyError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmPolicySettingsError {
-    Status400(models::RegistrationPeriodPolicySettingsResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodPolicySettingsResponseV1),
+    Status400(models::RegistrationPolicySettingsResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationPolicySettingsResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -285,10 +285,10 @@ pub enum GetCspmPolicySettingsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmScanScheduleError {
-    Status400(models::RegistrationPeriodScanScheduleResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodScanScheduleResponseV1),
+    Status400(models::RegistrationScanScheduleResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationScanScheduleResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -296,10 +296,10 @@ pub enum GetCspmScanScheduleError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmcgpAccountError {
-    Status400(models::RegistrationPeriodGcpAccountResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodGcpAccountResponseV1),
+    Status400(models::RegistrationGcpAccountResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationGcpAccountResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -307,10 +307,10 @@ pub enum GetCspmcgpAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmgcpServiceAccountsExtError {
-    Status400(models::RegistrationPeriodGcpServiceAccountResponseExtV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodGcpServiceAccountResponseExtV1),
+    Status400(models::RegistrationGcpServiceAccountResponseExtV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationGcpServiceAccountResponseExtV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -318,10 +318,10 @@ pub enum GetCspmgcpServiceAccountsExtError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmgcpUserScriptsAttachmentError {
-    Status400(models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1),
+    Status400(models::RegistrationGcpProvisionGetUserScriptResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationGcpProvisionGetUserScriptResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -329,11 +329,11 @@ pub enum GetCspmgcpUserScriptsAttachmentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmgcpValidateAccountsExtError {
-    Status400(models::RegistrationPeriodGcpAccountValidationResponseV1),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::RegistrationPeriodGcpAccountValidationResponseV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodGcpAccountValidationResponseV1),
+    Status400(models::RegistrationGcpAccountValidationResponseV1),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::RegistrationGcpAccountValidationResponseV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationGcpAccountValidationResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -341,10 +341,10 @@ pub enum GetCspmgcpValidateAccountsExtError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PatchCspmAwsAccountError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -352,10 +352,10 @@ pub enum PatchCspmAwsAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateCspmAzureAccountError {
-    Status400(models::RegistrationPeriodAzureAccountResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodAzureAccountResponseV1),
+    Status400(models::RegistrationAzureAccountResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationAzureAccountResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -363,10 +363,10 @@ pub enum UpdateCspmAzureAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateCspmAzureAccountClientIdError {
-    Status400(models::RegistrationPeriodAzureTenantConfigurationResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodAzureTenantConfigurationResponseV1),
+    Status400(models::RegistrationAzureTenantConfigurationResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationAzureTenantConfigurationResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -374,10 +374,10 @@ pub enum UpdateCspmAzureAccountClientIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateCspmAzureTenantDefaultSubscriptionIdError {
-    Status400(models::RegistrationPeriodAzureTenantDefaultSubscriptionIdResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodAzureTenantDefaultSubscriptionIdResponseV1),
+    Status400(models::RegistrationAzureTenantDefaultSubscriptionIdResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationAzureTenantDefaultSubscriptionIdResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -385,10 +385,10 @@ pub enum UpdateCspmAzureTenantDefaultSubscriptionIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateCspmPolicySettingsError {
-    Status400(models::RegistrationPeriodPolicySettingsResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodPolicySettingsResponseV1),
+    Status400(models::RegistrationPolicySettingsResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationPolicySettingsResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -396,10 +396,10 @@ pub enum UpdateCspmPolicySettingsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateCspmScanScheduleError {
-    Status400(models::RegistrationPeriodScanScheduleResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodScanScheduleResponseV1),
+    Status400(models::RegistrationScanScheduleResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationScanScheduleResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -407,10 +407,10 @@ pub enum UpdateCspmScanScheduleError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateCspmgcpAccountError {
-    Status400(models::RegistrationPeriodGcpAccountResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodGcpAccountResponseV1),
+    Status400(models::RegistrationGcpAccountResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationGcpAccountResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -418,10 +418,10 @@ pub enum UpdateCspmgcpAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateCspmgcpServiceAccountsExtError {
-    Status400(models::RegistrationPeriodGcpServiceAccountResponseExtV1),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodGcpServiceAccountResponseExtV1),
+    Status400(models::RegistrationGcpServiceAccountResponseExtV1),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationGcpServiceAccountResponseExtV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -429,11 +429,11 @@ pub enum UpdateCspmgcpServiceAccountsExtError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ValidateCspmgcpServiceAccountExtError {
-    Status400(models::RegistrationPeriodGcpServiceAccountValidationResponseV1),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::RegistrationPeriodGcpServiceAccountValidationResponseV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RegistrationPeriodGcpServiceAccountValidationResponseV1),
+    Status400(models::RegistrationGcpServiceAccountValidationResponseV1),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::RegistrationGcpServiceAccountValidationResponseV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RegistrationGcpServiceAccountValidationResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -441,11 +441,11 @@ pub async fn azure_download_certificate(
     configuration: &configuration::Configuration,
     tenant_id: Vec<String>,
 ) -> Result<
-    models::RegistrationPeriodAzureDownloadCertificateResponseV1,
+    models::RegistrationAzureDownloadCertificateResponseV1,
     Error<AzureDownloadCertificateError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
+    let p_query_tenant_id = tenant_id;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-azure/entities/download-certificate/v1",
@@ -455,14 +455,14 @@ pub async fn azure_download_certificate(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_tenant_id
+            &p_query_tenant_id
                 .into_iter()
                 .map(|p| ("tenant_id".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "tenant_id",
-            &p_tenant_id
+            &p_query_tenant_id
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -492,8 +492,8 @@ pub async fn azure_download_certificate(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodAzureDownloadCertificateResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodAzureDownloadCertificateResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationAzureDownloadCertificateResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationAzureDownloadCertificateResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -511,12 +511,12 @@ pub async fn azure_refresh_certificate(
     tenant_id: Vec<String>,
     years_valid: Option<&str>,
 ) -> Result<
-    models::RegistrationPeriodAzureDownloadCertificateResponseV1,
+    models::RegistrationAzureDownloadCertificateResponseV1,
     Error<AzureRefreshCertificateError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_years_valid = years_valid;
+    let p_query_tenant_id = tenant_id;
+    let p_query_years_valid = years_valid;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-azure/entities/refresh-certificate/v1",
@@ -528,14 +528,14 @@ pub async fn azure_refresh_certificate(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_tenant_id
+            &p_query_tenant_id
                 .into_iter()
                 .map(|p| ("tenant_id".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "tenant_id",
-            &p_tenant_id
+            &p_query_tenant_id
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -543,7 +543,7 @@ pub async fn azure_refresh_certificate(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_years_valid {
+    if let Some(ref param_value) = p_query_years_valid {
         req_builder = req_builder.query(&[("years_valid", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -568,8 +568,8 @@ pub async fn azure_refresh_certificate(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodAzureDownloadCertificateResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodAzureDownloadCertificateResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationAzureDownloadCertificateResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationAzureDownloadCertificateResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -584,10 +584,10 @@ pub async fn azure_refresh_certificate(
 
 pub async fn connect_cspmgcp_account(
     configuration: &configuration::Configuration,
-    body: models::RegistrationPeriodGcpAccountExtRequestV2,
-) -> Result<models::RegistrationPeriodGcpAccountResponseExtV2, Error<ConnectCspmgcpAccountError>> {
+    body: models::RegistrationGcpAccountExtRequestV2,
+) -> Result<models::RegistrationGcpAccountResponseExtV2, Error<ConnectCspmgcpAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-gcp/entities/account/v2",
@@ -603,7 +603,7 @@ pub async fn connect_cspmgcp_account(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -620,8 +620,8 @@ pub async fn connect_cspmgcp_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodGcpAccountResponseExtV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodGcpAccountResponseExtV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationGcpAccountResponseExtV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationGcpAccountResponseExtV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -636,10 +636,10 @@ pub async fn connect_cspmgcp_account(
 
 pub async fn create_cspm_aws_account(
     configuration: &configuration::Configuration,
-    body: models::RegistrationPeriodAwsAccountCreateRequestExtV2,
-) -> Result<models::RegistrationPeriodAwsAccountResponseV2, Error<CreateCspmAwsAccountError>> {
+    body: models::RegistrationAwsAccountCreateRequestExtV2,
+) -> Result<models::RegistrationAwsAccountResponseV2, Error<CreateCspmAwsAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-aws/entities/account/v1",
@@ -655,7 +655,7 @@ pub async fn create_cspm_aws_account(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -672,8 +672,8 @@ pub async fn create_cspm_aws_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodAwsAccountResponseV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodAwsAccountResponseV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationAwsAccountResponseV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationAwsAccountResponseV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -688,10 +688,10 @@ pub async fn create_cspm_aws_account(
 
 pub async fn create_cspm_azure_account(
     configuration: &configuration::Configuration,
-    body: models::RegistrationPeriodAzureAccountCreateRequestExternalV1,
-) -> Result<models::RegistrationPeriodAzureAccountResponseV1, Error<CreateCspmAzureAccountError>> {
+    body: models::RegistrationAzureAccountCreateRequestExternalV1,
+) -> Result<models::RegistrationAzureAccountResponseV1, Error<CreateCspmAzureAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-azure/entities/account/v1",
@@ -707,7 +707,7 @@ pub async fn create_cspm_azure_account(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -724,8 +724,8 @@ pub async fn create_cspm_azure_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodAzureAccountResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodAzureAccountResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationAzureAccountResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationAzureAccountResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -740,13 +740,11 @@ pub async fn create_cspm_azure_account(
 
 pub async fn create_cspm_azure_management_group(
     configuration: &configuration::Configuration,
-    body: models::RegistrationPeriodAzureManagementGroupCreateRequestExternalV1,
-) -> Result<
-    models::RegistrationPeriodAzureAccountResponseV1,
-    Error<CreateCspmAzureManagementGroupError>,
-> {
+    body: models::RegistrationAzureManagementGroupCreateRequestExternalV1,
+) -> Result<models::RegistrationAzureAccountResponseV1, Error<CreateCspmAzureManagementGroupError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-azure/entities/management-group/v1",
@@ -762,7 +760,7 @@ pub async fn create_cspm_azure_management_group(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -779,8 +777,8 @@ pub async fn create_cspm_azure_management_group(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodAzureAccountResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodAzureAccountResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationAzureAccountResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationAzureAccountResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -796,10 +794,10 @@ pub async fn create_cspm_azure_management_group(
 
 pub async fn create_cspmgcp_account(
     configuration: &configuration::Configuration,
-    body: models::RegistrationPeriodGcpAccountCreateRequestExtV1,
-) -> Result<models::RegistrationPeriodGcpAccountResponseV1, Error<CreateCspmgcpAccountError>> {
+    body: models::RegistrationGcpAccountCreateRequestExtV1,
+) -> Result<models::RegistrationGcpAccountResponseV1, Error<CreateCspmgcpAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-gcp/entities/account/v1",
@@ -815,7 +813,7 @@ pub async fn create_cspmgcp_account(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -832,8 +830,8 @@ pub async fn create_cspmgcp_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodGcpAccountResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodGcpAccountResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationGcpAccountResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationGcpAccountResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -850,10 +848,10 @@ pub async fn delete_cspm_aws_account(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
     organization_ids: Option<Vec<String>>,
-) -> Result<models::MsaspecPeriodResponseFields, Error<DeleteCspmAwsAccountError>> {
+) -> Result<models::MsaspecResponseFields, Error<DeleteCspmAwsAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_organization_ids = organization_ids;
+    let p_query_ids = ids;
+    let p_query_organization_ids = organization_ids;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-aws/entities/account/v1",
@@ -863,7 +861,7 @@ pub async fn delete_cspm_aws_account(
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -882,7 +880,7 @@ pub async fn delete_cspm_aws_account(
             )]),
         };
     }
-    if let Some(ref param_value) = p_organization_ids {
+    if let Some(ref param_value) = p_query_organization_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -923,8 +921,8 @@ pub async fn delete_cspm_aws_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecResponseFields`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecResponseFields`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -942,11 +940,11 @@ pub async fn delete_cspm_azure_account(
     ids: Option<Vec<String>>,
     tenant_ids: Option<Vec<String>>,
     retain_tenant: Option<&str>,
-) -> Result<models::MsaPeriodBaseEntitiesResponse, Error<DeleteCspmAzureAccountError>> {
+) -> Result<models::MsaBaseEntitiesResponse, Error<DeleteCspmAzureAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_tenant_ids = tenant_ids;
-    let p_retain_tenant = retain_tenant;
+    let p_query_ids = ids;
+    let p_query_tenant_ids = tenant_ids;
+    let p_query_retain_tenant = retain_tenant;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-azure/entities/account/v1",
@@ -956,7 +954,7 @@ pub async fn delete_cspm_azure_account(
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -975,7 +973,7 @@ pub async fn delete_cspm_azure_account(
             )]),
         };
     }
-    if let Some(ref param_value) = p_tenant_ids {
+    if let Some(ref param_value) = p_query_tenant_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -994,7 +992,7 @@ pub async fn delete_cspm_azure_account(
             )]),
         };
     }
-    if let Some(ref param_value) = p_retain_tenant {
+    if let Some(ref param_value) = p_query_retain_tenant {
         req_builder = req_builder.query(&[("retain_tenant", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1019,8 +1017,8 @@ pub async fn delete_cspm_azure_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodBaseEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodBaseEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaBaseEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaBaseEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1036,9 +1034,9 @@ pub async fn delete_cspm_azure_account(
 pub async fn delete_cspm_azure_management_group(
     configuration: &configuration::Configuration,
     tenant_ids: Option<Vec<String>>,
-) -> Result<models::MsaspecPeriodResponseFields, Error<DeleteCspmAzureManagementGroupError>> {
+) -> Result<models::MsaspecResponseFields, Error<DeleteCspmAzureManagementGroupError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_ids = tenant_ids;
+    let p_query_tenant_ids = tenant_ids;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-azure/entities/management-group/v1",
@@ -1048,7 +1046,7 @@ pub async fn delete_cspm_azure_management_group(
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    if let Some(ref param_value) = p_tenant_ids {
+    if let Some(ref param_value) = p_query_tenant_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -1089,8 +1087,8 @@ pub async fn delete_cspm_azure_management_group(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecResponseFields`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecResponseFields`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1107,9 +1105,9 @@ pub async fn delete_cspm_azure_management_group(
 pub async fn delete_cspmgcp_account(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
-) -> Result<models::MsaPeriodBaseEntitiesResponse, Error<DeleteCspmgcpAccountError>> {
+) -> Result<models::MsaBaseEntitiesResponse, Error<DeleteCspmgcpAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-gcp/entities/account/v1",
@@ -1119,7 +1117,7 @@ pub async fn delete_cspmgcp_account(
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -1160,8 +1158,8 @@ pub async fn delete_cspmgcp_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodBaseEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodBaseEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaBaseEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaBaseEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1190,63 +1188,63 @@ pub async fn get_behavior_detections(
     limit: Option<i32>,
     resource_id: Option<Vec<String>>,
     resource_uuid: Option<Vec<String>>,
-) -> Result<models::RegistrationPeriodExternalIoaEventResponse, Error<GetBehaviorDetectionsError>> {
+) -> Result<models::RegistrationExternalIoaEventResponse, Error<GetBehaviorDetectionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_cloud_provider = cloud_provider;
-    let p_service = service;
-    let p_account_id = account_id;
-    let p_aws_account_id = aws_account_id;
-    let p_azure_subscription_id = azure_subscription_id;
-    let p_azure_tenant_id = azure_tenant_id;
-    let p_state = state;
-    let p_date_time_since = date_time_since;
-    let p_since = since;
-    let p_severity = severity;
-    let p_next_token = next_token;
-    let p_limit = limit;
-    let p_resource_id = resource_id;
-    let p_resource_uuid = resource_uuid;
+    let p_query_cloud_provider = cloud_provider;
+    let p_query_service = service;
+    let p_query_account_id = account_id;
+    let p_query_aws_account_id = aws_account_id;
+    let p_query_azure_subscription_id = azure_subscription_id;
+    let p_query_azure_tenant_id = azure_tenant_id;
+    let p_query_state = state;
+    let p_query_date_time_since = date_time_since;
+    let p_query_since = since;
+    let p_query_severity = severity;
+    let p_query_next_token = next_token;
+    let p_query_limit = limit;
+    let p_query_resource_id = resource_id;
+    let p_query_resource_uuid = resource_uuid;
 
     let uri_str = format!("{}/detects/entities/ioa/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_cloud_provider {
+    if let Some(ref param_value) = p_query_cloud_provider {
         req_builder = req_builder.query(&[("cloud_provider", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_service {
+    if let Some(ref param_value) = p_query_service {
         req_builder = req_builder.query(&[("service", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_account_id {
+    if let Some(ref param_value) = p_query_account_id {
         req_builder = req_builder.query(&[("account_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_aws_account_id {
+    if let Some(ref param_value) = p_query_aws_account_id {
         req_builder = req_builder.query(&[("aws_account_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_azure_subscription_id {
+    if let Some(ref param_value) = p_query_azure_subscription_id {
         req_builder = req_builder.query(&[("azure_subscription_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_azure_tenant_id {
+    if let Some(ref param_value) = p_query_azure_tenant_id {
         req_builder = req_builder.query(&[("azure_tenant_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_state {
+    if let Some(ref param_value) = p_query_state {
         req_builder = req_builder.query(&[("state", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_date_time_since {
+    if let Some(ref param_value) = p_query_date_time_since {
         req_builder = req_builder.query(&[("date_time_since", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_since {
+    if let Some(ref param_value) = p_query_since {
         req_builder = req_builder.query(&[("since", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_severity {
+    if let Some(ref param_value) = p_query_severity {
         req_builder = req_builder.query(&[("severity", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_next_token {
+    if let Some(ref param_value) = p_query_next_token {
         req_builder = req_builder.query(&[("next_token", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_resource_id {
+    if let Some(ref param_value) = p_query_resource_id {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -1265,7 +1263,7 @@ pub async fn get_behavior_detections(
             )]),
         };
     }
-    if let Some(ref param_value) = p_resource_uuid {
+    if let Some(ref param_value) = p_query_resource_uuid {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -1306,8 +1304,8 @@ pub async fn get_behavior_detections(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodExternalIoaEventResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodExternalIoaEventResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationExternalIoaEventResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationExternalIoaEventResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1324,10 +1322,10 @@ pub async fn get_cloud_event_ids(
     configuration: &configuration::Configuration,
     x_cs_useruuid: &str,
     id: &str,
-) -> Result<models::CdrioamanagerPeriodGetCloudEventIdsResponse, Error<GetCloudEventIdsError>> {
+) -> Result<models::CdrioamanagerGetCloudEventIdsResponse, Error<GetCloudEventIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_x_cs_useruuid = x_cs_useruuid;
-    let p_id = id;
+    let p_header_x_cs_useruuid = x_cs_useruuid;
+    let p_query_id = id;
 
     let uri_str = format!(
         "{}/detects/queries/cloud-events/v1",
@@ -1335,11 +1333,11 @@ pub async fn get_cloud_event_ids(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    req_builder = req_builder.header("X-CS-USERUUID", p_x_cs_useruuid.to_string());
+    req_builder = req_builder.header("X-CS-USERUUID", p_header_x_cs_useruuid.to_string());
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
@@ -1359,8 +1357,8 @@ pub async fn get_cloud_event_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CdrioamanagerPeriodGetCloudEventIdsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CdrioamanagerPeriodGetCloudEventIdsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CdrioamanagerGetCloudEventIdsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CdrioamanagerGetCloudEventIdsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1377,25 +1375,25 @@ pub async fn get_configuration_detection_entities(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
 ) -> Result<
-    models::RegistrationPeriodExternalIomEventResponseV2,
+    models::RegistrationExternalIomEventResponseV2,
     Error<GetConfigurationDetectionEntitiesError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/detects/entities/iom/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1425,8 +1423,8 @@ pub async fn get_configuration_detection_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodExternalIomEventResponseV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodExternalIomEventResponseV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationExternalIomEventResponseV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationExternalIomEventResponseV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1447,33 +1445,30 @@ pub async fn get_configuration_detection_ids_v2(
     limit: Option<i32>,
     offset: Option<i32>,
     next_token: Option<&str>,
-) -> Result<
-    models::RegistrationPeriodIomEventIdsResponseV2,
-    Error<GetConfigurationDetectionIdsV2Error>,
-> {
+) -> Result<models::RegistrationIomEventIdsResponseV2, Error<GetConfigurationDetectionIdsV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_next_token = next_token;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_next_token = next_token;
 
     let uri_str = format!("{}/detects/queries/iom/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_next_token {
+    if let Some(ref param_value) = p_query_next_token {
         req_builder = req_builder.query(&[("next_token", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1498,8 +1493,8 @@ pub async fn get_configuration_detection_ids_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodIomEventIdsResponseV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodIomEventIdsResponseV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationIomEventIdsResponseV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationIomEventIdsResponseV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1525,53 +1520,50 @@ pub async fn get_configuration_detections(
     service: Option<&str>,
     next_token: Option<&str>,
     limit: Option<i32>,
-) -> Result<
-    models::RegistrationPeriodExternalIomEventResponse,
-    Error<GetConfigurationDetectionsError>,
-> {
+) -> Result<models::RegistrationExternalIomEventResponse, Error<GetConfigurationDetectionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_cloud_provider = cloud_provider;
-    let p_account_id = account_id;
-    let p_azure_subscription_id = azure_subscription_id;
-    let p_azure_tenant_id = azure_tenant_id;
-    let p_status = status;
-    let p_region = region;
-    let p_severity = severity;
-    let p_service = service;
-    let p_next_token = next_token;
-    let p_limit = limit;
+    let p_query_cloud_provider = cloud_provider;
+    let p_query_account_id = account_id;
+    let p_query_azure_subscription_id = azure_subscription_id;
+    let p_query_azure_tenant_id = azure_tenant_id;
+    let p_query_status = status;
+    let p_query_region = region;
+    let p_query_severity = severity;
+    let p_query_service = service;
+    let p_query_next_token = next_token;
+    let p_query_limit = limit;
 
     let uri_str = format!("{}/detects/entities/iom/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_cloud_provider {
+    if let Some(ref param_value) = p_query_cloud_provider {
         req_builder = req_builder.query(&[("cloud_provider", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_account_id {
+    if let Some(ref param_value) = p_query_account_id {
         req_builder = req_builder.query(&[("account_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_azure_subscription_id {
+    if let Some(ref param_value) = p_query_azure_subscription_id {
         req_builder = req_builder.query(&[("azure_subscription_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_azure_tenant_id {
+    if let Some(ref param_value) = p_query_azure_tenant_id {
         req_builder = req_builder.query(&[("azure_tenant_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_status {
+    if let Some(ref param_value) = p_query_status {
         req_builder = req_builder.query(&[("status", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_region {
+    if let Some(ref param_value) = p_query_region {
         req_builder = req_builder.query(&[("region", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_severity {
+    if let Some(ref param_value) = p_query_severity {
         req_builder = req_builder.query(&[("severity", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_service {
+    if let Some(ref param_value) = p_query_service {
         req_builder = req_builder.query(&[("service", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_next_token {
+    if let Some(ref param_value) = p_query_next_token {
         req_builder = req_builder.query(&[("next_token", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1596,8 +1588,8 @@ pub async fn get_configuration_detections(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodExternalIomEventResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodExternalIomEventResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationExternalIomEventResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationExternalIomEventResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1622,18 +1614,18 @@ pub async fn get_cspm_aws_account(
     migrated: Option<&str>,
     offset: Option<i32>,
     group_by: Option<&str>,
-) -> Result<models::RegistrationPeriodAwsAccountResponseV2, Error<GetCspmAwsAccountError>> {
+) -> Result<models::RegistrationAwsAccountResponseV2, Error<GetCspmAwsAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_scan_type = scan_type;
-    let p_ids = ids;
-    let p_iam_role_arns = iam_role_arns;
-    let p_organization_ids = organization_ids;
-    let p_status = status;
-    let p_limit = limit;
-    let p_cspm_lite = cspm_lite;
-    let p_migrated = migrated;
-    let p_offset = offset;
-    let p_group_by = group_by;
+    let p_query_scan_type = scan_type;
+    let p_query_ids = ids;
+    let p_query_iam_role_arns = iam_role_arns;
+    let p_query_organization_ids = organization_ids;
+    let p_query_status = status;
+    let p_query_limit = limit;
+    let p_query_cspm_lite = cspm_lite;
+    let p_query_migrated = migrated;
+    let p_query_offset = offset;
+    let p_query_group_by = group_by;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-aws/entities/account/v1",
@@ -1641,10 +1633,10 @@ pub async fn get_cspm_aws_account(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_scan_type {
+    if let Some(ref param_value) = p_query_scan_type {
         req_builder = req_builder.query(&[("scan-type", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -1663,7 +1655,7 @@ pub async fn get_cspm_aws_account(
             )]),
         };
     }
-    if let Some(ref param_value) = p_iam_role_arns {
+    if let Some(ref param_value) = p_query_iam_role_arns {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -1682,7 +1674,7 @@ pub async fn get_cspm_aws_account(
             )]),
         };
     }
-    if let Some(ref param_value) = p_organization_ids {
+    if let Some(ref param_value) = p_query_organization_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -1701,22 +1693,22 @@ pub async fn get_cspm_aws_account(
             )]),
         };
     }
-    if let Some(ref param_value) = p_status {
+    if let Some(ref param_value) = p_query_status {
         req_builder = req_builder.query(&[("status", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_cspm_lite {
+    if let Some(ref param_value) = p_query_cspm_lite {
         req_builder = req_builder.query(&[("cspm_lite", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_migrated {
+    if let Some(ref param_value) = p_query_migrated {
         req_builder = req_builder.query(&[("migrated", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_group_by {
+    if let Some(ref param_value) = p_query_group_by {
         req_builder = req_builder.query(&[("group_by", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1741,8 +1733,8 @@ pub async fn get_cspm_aws_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodAwsAccountResponseV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodAwsAccountResponseV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationAwsAccountResponseV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationAwsAccountResponseV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1762,14 +1754,13 @@ pub async fn get_cspm_aws_console_setup_urls(
     region: Option<&str>,
     tags: Option<&str>,
     template: Option<&str>,
-) -> Result<models::RegistrationPeriodAwsConsoleUrlResponseV2, Error<GetCspmAwsConsoleSetupUrlsError>>
-{
+) -> Result<models::RegistrationAwsConsoleUrlResponseV2, Error<GetCspmAwsConsoleSetupUrlsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_use_existing_cloudtrail = use_existing_cloudtrail;
-    let p_region = region;
-    let p_tags = tags;
-    let p_template = template;
+    let p_query_ids = ids;
+    let p_query_use_existing_cloudtrail = use_existing_cloudtrail;
+    let p_query_region = region;
+    let p_query_tags = tags;
+    let p_query_template = template;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-aws/entities/console-setup-urls/v1",
@@ -1777,7 +1768,7 @@ pub async fn get_cspm_aws_console_setup_urls(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -1796,16 +1787,16 @@ pub async fn get_cspm_aws_console_setup_urls(
             )]),
         };
     }
-    if let Some(ref param_value) = p_use_existing_cloudtrail {
+    if let Some(ref param_value) = p_query_use_existing_cloudtrail {
         req_builder = req_builder.query(&[("use_existing_cloudtrail", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_region {
+    if let Some(ref param_value) = p_query_region {
         req_builder = req_builder.query(&[("region", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_tags {
+    if let Some(ref param_value) = p_query_tags {
         req_builder = req_builder.query(&[("tags", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_template {
+    if let Some(ref param_value) = p_query_template {
         req_builder = req_builder.query(&[("template", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1830,8 +1821,8 @@ pub async fn get_cspm_aws_console_setup_urls(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodAwsConsoleUrlResponseV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodAwsConsoleUrlResponseV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationAwsConsoleUrlResponseV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationAwsConsoleUrlResponseV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1853,15 +1844,15 @@ pub async fn get_cspm_azure_account(
     cspm_lite: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::RegistrationPeriodAzureAccountResponseV1, Error<GetCspmAzureAccountError>> {
+) -> Result<models::RegistrationAzureAccountResponseV1, Error<GetCspmAzureAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_tenant_ids = tenant_ids;
-    let p_scan_type = scan_type;
-    let p_status = status;
-    let p_cspm_lite = cspm_lite;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_ids = ids;
+    let p_query_tenant_ids = tenant_ids;
+    let p_query_scan_type = scan_type;
+    let p_query_status = status;
+    let p_query_cspm_lite = cspm_lite;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-azure/entities/account/v1",
@@ -1869,7 +1860,7 @@ pub async fn get_cspm_azure_account(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -1888,7 +1879,7 @@ pub async fn get_cspm_azure_account(
             )]),
         };
     }
-    if let Some(ref param_value) = p_tenant_ids {
+    if let Some(ref param_value) = p_query_tenant_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -1907,19 +1898,19 @@ pub async fn get_cspm_azure_account(
             )]),
         };
     }
-    if let Some(ref param_value) = p_scan_type {
+    if let Some(ref param_value) = p_query_scan_type {
         req_builder = req_builder.query(&[("scan-type", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_status {
+    if let Some(ref param_value) = p_query_status {
         req_builder = req_builder.query(&[("status", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_cspm_lite {
+    if let Some(ref param_value) = p_query_cspm_lite {
         req_builder = req_builder.query(&[("cspm_lite", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1944,8 +1935,8 @@ pub async fn get_cspm_azure_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodAzureAccountResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodAzureAccountResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationAzureAccountResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationAzureAccountResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1964,13 +1955,13 @@ pub async fn get_cspm_azure_management_group(
     limit: Option<i32>,
     offset: Option<i32>,
 ) -> Result<
-    models::RegistrationPeriodAzureManagementGroupResponseV1,
+    models::RegistrationAzureManagementGroupResponseV1,
     Error<GetCspmAzureManagementGroupError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_ids = tenant_ids;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_tenant_ids = tenant_ids;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-azure/entities/management-group/v1",
@@ -1978,7 +1969,7 @@ pub async fn get_cspm_azure_management_group(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_tenant_ids {
+    if let Some(ref param_value) = p_query_tenant_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -1997,10 +1988,10 @@ pub async fn get_cspm_azure_management_group(
             )]),
         };
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2025,8 +2016,8 @@ pub async fn get_cspm_azure_management_group(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodAzureManagementGroupResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodAzureManagementGroupResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationAzureManagementGroupResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationAzureManagementGroupResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2047,15 +2038,15 @@ pub async fn get_cspm_azure_user_scripts_attachment(
     template: Option<&str>,
     azure_management_group: Option<bool>,
 ) -> Result<
-    models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1,
+    models::RegistrationAzureProvisionGetUserScriptResponseV1,
     Error<GetCspmAzureUserScriptsAttachmentError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_subscription_ids = subscription_ids;
-    let p_account_type = account_type;
-    let p_template = template;
-    let p_azure_management_group = azure_management_group;
+    let p_query_tenant_id = tenant_id;
+    let p_query_subscription_ids = subscription_ids;
+    let p_query_account_type = account_type;
+    let p_query_template = template;
+    let p_query_azure_management_group = azure_management_group;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-azure/entities/user-scripts-download/v1",
@@ -2063,10 +2054,10 @@ pub async fn get_cspm_azure_user_scripts_attachment(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_tenant_id {
+    if let Some(ref param_value) = p_query_tenant_id {
         req_builder = req_builder.query(&[("tenant-id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_subscription_ids {
+    if let Some(ref param_value) = p_query_subscription_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -2085,13 +2076,13 @@ pub async fn get_cspm_azure_user_scripts_attachment(
             )]),
         };
     }
-    if let Some(ref param_value) = p_account_type {
+    if let Some(ref param_value) = p_query_account_type {
         req_builder = req_builder.query(&[("account_type", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_template {
+    if let Some(ref param_value) = p_query_template {
         req_builder = req_builder.query(&[("template", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_azure_management_group {
+    if let Some(ref param_value) = p_query_azure_management_group {
         req_builder = req_builder.query(&[("azure_management_group", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2116,8 +2107,8 @@ pub async fn get_cspm_azure_user_scripts_attachment(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodAzureProvisionGetUserScriptResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationAzureProvisionGetUserScriptResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationAzureProvisionGetUserScriptResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2134,9 +2125,9 @@ pub async fn get_cspm_azure_user_scripts_attachment(
 pub async fn get_cspm_policies_details(
     configuration: &configuration::Configuration,
     ids: Vec<i32>,
-) -> Result<models::RegistrationPeriodPolicyResponseV1, Error<GetCspmPoliciesDetailsError>> {
+) -> Result<models::RegistrationPolicyResponseV1, Error<GetCspmPoliciesDetailsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/settings/entities/policy-details/v2",
@@ -2146,14 +2137,14 @@ pub async fn get_cspm_policies_details(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -2183,8 +2174,8 @@ pub async fn get_cspm_policies_details(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodPolicyResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodPolicyResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPolicyResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPolicyResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2200,9 +2191,9 @@ pub async fn get_cspm_policies_details(
 pub async fn get_cspm_policy(
     configuration: &configuration::Configuration,
     ids: i32,
-) -> Result<models::RegistrationPeriodPolicyResponseV1, Error<GetCspmPolicyError>> {
+) -> Result<models::RegistrationPolicyResponseV1, Error<GetCspmPolicyError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/settings/entities/policy-details/v1",
@@ -2210,7 +2201,7 @@ pub async fn get_cspm_policy(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("ids", &p_ids.to_string())]);
+    req_builder = req_builder.query(&[("ids", &p_query_ids.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -2233,8 +2224,8 @@ pub async fn get_cspm_policy(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodPolicyResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodPolicyResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPolicyResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPolicyResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2252,22 +2243,22 @@ pub async fn get_cspm_policy_settings(
     service: Option<&str>,
     policy_id: Option<&str>,
     cloud_platform: Option<&str>,
-) -> Result<models::RegistrationPeriodPolicySettingsResponseV1, Error<GetCspmPolicySettingsError>> {
+) -> Result<models::RegistrationPolicySettingsResponseV1, Error<GetCspmPolicySettingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_service = service;
-    let p_policy_id = policy_id;
-    let p_cloud_platform = cloud_platform;
+    let p_query_service = service;
+    let p_query_policy_id = policy_id;
+    let p_query_cloud_platform = cloud_platform;
 
     let uri_str = format!("{}/settings/entities/policy/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_service {
+    if let Some(ref param_value) = p_query_service {
         req_builder = req_builder.query(&[("service", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_policy_id {
+    if let Some(ref param_value) = p_query_policy_id {
         req_builder = req_builder.query(&[("policy-id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_cloud_platform {
+    if let Some(ref param_value) = p_query_cloud_platform {
         req_builder = req_builder.query(&[("cloud-platform", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2292,8 +2283,8 @@ pub async fn get_cspm_policy_settings(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodPolicySettingsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodPolicySettingsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPolicySettingsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPolicySettingsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2309,14 +2300,14 @@ pub async fn get_cspm_policy_settings(
 pub async fn get_cspm_scan_schedule(
     configuration: &configuration::Configuration,
     cloud_platform: Option<Vec<String>>,
-) -> Result<models::RegistrationPeriodScanScheduleResponseV1, Error<GetCspmScanScheduleError>> {
+) -> Result<models::RegistrationScanScheduleResponseV1, Error<GetCspmScanScheduleError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_cloud_platform = cloud_platform;
+    let p_query_cloud_platform = cloud_platform;
 
     let uri_str = format!("{}/settings/scan-schedule/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_cloud_platform {
+    if let Some(ref param_value) = p_query_cloud_platform {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -2357,8 +2348,8 @@ pub async fn get_cspm_scan_schedule(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodScanScheduleResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodScanScheduleResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationScanScheduleResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationScanScheduleResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2380,15 +2371,15 @@ pub async fn get_cspmcgp_account(
     limit: Option<i32>,
     offset: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::RegistrationPeriodGcpAccountResponseV1, Error<GetCspmcgpAccountError>> {
+) -> Result<models::RegistrationGcpAccountResponseV1, Error<GetCspmcgpAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_parent_type = parent_type;
-    let p_ids = ids;
-    let p_scan_type = scan_type;
-    let p_status = status;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_sort = sort;
+    let p_query_parent_type = parent_type;
+    let p_query_ids = ids;
+    let p_query_scan_type = scan_type;
+    let p_query_status = status;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-gcp/entities/account/v1",
@@ -2396,10 +2387,10 @@ pub async fn get_cspmcgp_account(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_parent_type {
+    if let Some(ref param_value) = p_query_parent_type {
         req_builder = req_builder.query(&[("parent_type", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -2418,19 +2409,19 @@ pub async fn get_cspmcgp_account(
             )]),
         };
     }
-    if let Some(ref param_value) = p_scan_type {
+    if let Some(ref param_value) = p_query_scan_type {
         req_builder = req_builder.query(&[("scan-type", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_status {
+    if let Some(ref param_value) = p_query_status {
         req_builder = req_builder.query(&[("status", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2455,8 +2446,8 @@ pub async fn get_cspmcgp_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodGcpAccountResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodGcpAccountResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationGcpAccountResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationGcpAccountResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2473,11 +2464,11 @@ pub async fn get_cspmgcp_service_accounts_ext(
     configuration: &configuration::Configuration,
     id: Option<&str>,
 ) -> Result<
-    models::RegistrationPeriodGcpServiceAccountResponseExtV1,
+    models::RegistrationGcpServiceAccountResponseExtV1,
     Error<GetCspmgcpServiceAccountsExtError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_query_id = id;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-gcp/entities/service-accounts/v1",
@@ -2485,7 +2476,7 @@ pub async fn get_cspmgcp_service_accounts_ext(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2510,8 +2501,8 @@ pub async fn get_cspmgcp_service_accounts_ext(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodGcpServiceAccountResponseExtV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodGcpServiceAccountResponseExtV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationGcpServiceAccountResponseExtV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationGcpServiceAccountResponseExtV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2529,12 +2520,12 @@ pub async fn get_cspmgcp_user_scripts_attachment(
     parent_type: Option<&str>,
     ids: Option<Vec<String>>,
 ) -> Result<
-    models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1,
+    models::RegistrationGcpProvisionGetUserScriptResponseV1,
     Error<GetCspmgcpUserScriptsAttachmentError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_parent_type = parent_type;
-    let p_ids = ids;
+    let p_query_parent_type = parent_type;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-gcp/entities/user-scripts-download/v1",
@@ -2542,10 +2533,10 @@ pub async fn get_cspmgcp_user_scripts_attachment(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_parent_type {
+    if let Some(ref param_value) = p_query_parent_type {
         req_builder = req_builder.query(&[("parent_type", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -2586,8 +2577,8 @@ pub async fn get_cspmgcp_user_scripts_attachment(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodGcpProvisionGetUserScriptResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationGcpProvisionGetUserScriptResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationGcpProvisionGetUserScriptResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2603,13 +2594,13 @@ pub async fn get_cspmgcp_user_scripts_attachment(
 
 pub async fn get_cspmgcp_validate_accounts_ext(
     configuration: &configuration::Configuration,
-    body: models::RegistrationPeriodGcpAccountValidationRequestV1,
+    body: models::RegistrationGcpAccountValidationRequestV1,
 ) -> Result<
-    models::RegistrationPeriodGcpAccountValidationResponseV1,
+    models::RegistrationGcpAccountValidationResponseV1,
     Error<GetCspmgcpValidateAccountsExtError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-gcp/entities/account/validate/v1",
@@ -2625,7 +2616,7 @@ pub async fn get_cspmgcp_validate_accounts_ext(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2642,8 +2633,8 @@ pub async fn get_cspmgcp_validate_accounts_ext(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodGcpAccountValidationResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodGcpAccountValidationResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationGcpAccountValidationResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationGcpAccountValidationResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2659,10 +2650,10 @@ pub async fn get_cspmgcp_validate_accounts_ext(
 
 pub async fn patch_cspm_aws_account(
     configuration: &configuration::Configuration,
-    body: models::RegistrationPeriodAwsAccountPatchRequest,
-) -> Result<models::RegistrationPeriodAwsAccountResponseV2, Error<PatchCspmAwsAccountError>> {
+    body: models::RegistrationAwsAccountPatchRequest,
+) -> Result<models::RegistrationAwsAccountResponseV2, Error<PatchCspmAwsAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-aws/entities/account/v1",
@@ -2678,7 +2669,7 @@ pub async fn patch_cspm_aws_account(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2695,8 +2686,8 @@ pub async fn patch_cspm_aws_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodAwsAccountResponseV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodAwsAccountResponseV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationAwsAccountResponseV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationAwsAccountResponseV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2711,10 +2702,10 @@ pub async fn patch_cspm_aws_account(
 
 pub async fn update_cspm_azure_account(
     configuration: &configuration::Configuration,
-    body: models::RegistrationPeriodAzureAccountPatchRequest,
-) -> Result<models::RegistrationPeriodAzureAccountResponseV1, Error<UpdateCspmAzureAccountError>> {
+    body: models::RegistrationAzureAccountPatchRequest,
+) -> Result<models::RegistrationAzureAccountResponseV1, Error<UpdateCspmAzureAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-azure/entities/account/v1",
@@ -2730,7 +2721,7 @@ pub async fn update_cspm_azure_account(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2747,8 +2738,8 @@ pub async fn update_cspm_azure_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodAzureAccountResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodAzureAccountResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationAzureAccountResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationAzureAccountResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2766,12 +2757,12 @@ pub async fn update_cspm_azure_account_client_id(
     id: &str,
     tenant_id: Option<&str>,
 ) -> Result<
-    models::RegistrationPeriodAzureTenantConfigurationResponseV1,
+    models::RegistrationAzureTenantConfigurationResponseV1,
     Error<UpdateCspmAzureAccountClientIdError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_tenant_id = tenant_id;
+    let p_query_id = id;
+    let p_query_tenant_id = tenant_id;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-azure/entities/client-id/v1",
@@ -2781,8 +2772,8 @@ pub async fn update_cspm_azure_account_client_id(
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    if let Some(ref param_value) = p_tenant_id {
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    if let Some(ref param_value) = p_query_tenant_id {
         req_builder = req_builder.query(&[("tenant-id", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2807,8 +2798,8 @@ pub async fn update_cspm_azure_account_client_id(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodAzureTenantConfigurationResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodAzureTenantConfigurationResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationAzureTenantConfigurationResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationAzureTenantConfigurationResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2827,12 +2818,12 @@ pub async fn update_cspm_azure_tenant_default_subscription_id(
     subscription_id: &str,
     tenant_id: Option<&str>,
 ) -> Result<
-    models::RegistrationPeriodAzureTenantDefaultSubscriptionIdResponseV1,
+    models::RegistrationAzureTenantDefaultSubscriptionIdResponseV1,
     Error<UpdateCspmAzureTenantDefaultSubscriptionIdError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_subscription_id = subscription_id;
-    let p_tenant_id = tenant_id;
+    let p_query_subscription_id = subscription_id;
+    let p_query_tenant_id = tenant_id;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-azure/entities/default-subscription-id/v1",
@@ -2842,10 +2833,10 @@ pub async fn update_cspm_azure_tenant_default_subscription_id(
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    if let Some(ref param_value) = p_tenant_id {
+    if let Some(ref param_value) = p_query_tenant_id {
         req_builder = req_builder.query(&[("tenant-id", &param_value.to_string())]);
     }
-    req_builder = req_builder.query(&[("subscription_id", &p_subscription_id.to_string())]);
+    req_builder = req_builder.query(&[("subscription_id", &p_query_subscription_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -2868,8 +2859,8 @@ pub async fn update_cspm_azure_tenant_default_subscription_id(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodAzureTenantDefaultSubscriptionIdResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodAzureTenantDefaultSubscriptionIdResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationAzureTenantDefaultSubscriptionIdResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationAzureTenantDefaultSubscriptionIdResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2885,11 +2876,10 @@ pub async fn update_cspm_azure_tenant_default_subscription_id(
 
 pub async fn update_cspm_policy_settings(
     configuration: &configuration::Configuration,
-    body: models::RegistrationPeriodPolicyRequestExtV1,
-) -> Result<models::RegistrationPeriodPolicySettingsResponseV1, Error<UpdateCspmPolicySettingsError>>
-{
+    body: models::RegistrationPolicyRequestExtV1,
+) -> Result<models::RegistrationPolicySettingsResponseV1, Error<UpdateCspmPolicySettingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/settings/entities/policy/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -2902,7 +2892,7 @@ pub async fn update_cspm_policy_settings(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2919,8 +2909,8 @@ pub async fn update_cspm_policy_settings(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodPolicySettingsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodPolicySettingsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPolicySettingsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPolicySettingsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2935,10 +2925,10 @@ pub async fn update_cspm_policy_settings(
 
 pub async fn update_cspm_scan_schedule(
     configuration: &configuration::Configuration,
-    body: models::RegistrationPeriodScanScheduleUpdateRequestV1,
-) -> Result<models::RegistrationPeriodScanScheduleResponseV1, Error<UpdateCspmScanScheduleError>> {
+    body: models::RegistrationScanScheduleUpdateRequestV1,
+) -> Result<models::RegistrationScanScheduleResponseV1, Error<UpdateCspmScanScheduleError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/settings/scan-schedule/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -2951,7 +2941,7 @@ pub async fn update_cspm_scan_schedule(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2968,8 +2958,8 @@ pub async fn update_cspm_scan_schedule(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodScanScheduleResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodScanScheduleResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationScanScheduleResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationScanScheduleResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2984,10 +2974,10 @@ pub async fn update_cspm_scan_schedule(
 
 pub async fn update_cspmgcp_account(
     configuration: &configuration::Configuration,
-    body: models::RegistrationPeriodGcpAccountPatchRequestV1,
-) -> Result<models::RegistrationPeriodGcpAccountResponseV1, Error<UpdateCspmgcpAccountError>> {
+    body: models::RegistrationGcpAccountPatchRequestV1,
+) -> Result<models::RegistrationGcpAccountResponseV1, Error<UpdateCspmgcpAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-gcp/entities/account/v1",
@@ -3003,7 +2993,7 @@ pub async fn update_cspmgcp_account(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -3020,8 +3010,8 @@ pub async fn update_cspmgcp_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodGcpAccountResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodGcpAccountResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationGcpAccountResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationGcpAccountResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3036,13 +3026,13 @@ pub async fn update_cspmgcp_account(
 
 pub async fn update_cspmgcp_service_accounts_ext(
     configuration: &configuration::Configuration,
-    body: models::RegistrationPeriodGcpServiceAccountPatchRequestV1,
+    body: models::RegistrationGcpServiceAccountPatchRequestV1,
 ) -> Result<
-    models::RegistrationPeriodGcpServiceAccountResponseExtV1,
+    models::RegistrationGcpServiceAccountResponseExtV1,
     Error<UpdateCspmgcpServiceAccountsExtError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-gcp/entities/service-accounts/v1",
@@ -3058,7 +3048,7 @@ pub async fn update_cspmgcp_service_accounts_ext(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -3075,8 +3065,8 @@ pub async fn update_cspmgcp_service_accounts_ext(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodGcpServiceAccountResponseExtV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodGcpServiceAccountResponseExtV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationGcpServiceAccountResponseExtV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationGcpServiceAccountResponseExtV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3092,13 +3082,13 @@ pub async fn update_cspmgcp_service_accounts_ext(
 
 pub async fn validate_cspmgcp_service_account_ext(
     configuration: &configuration::Configuration,
-    body: models::RegistrationPeriodGcpServiceAccountValidationRequestV1,
+    body: models::RegistrationGcpServiceAccountValidationRequestV1,
 ) -> Result<
-    models::RegistrationPeriodGcpServiceAccountValidationResponseV1,
+    models::RegistrationGcpServiceAccountValidationResponseV1,
     Error<ValidateCspmgcpServiceAccountExtError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-connect-cspm-gcp/entities/service-accounts/validate/v1",
@@ -3114,7 +3104,7 @@ pub async fn validate_cspmgcp_service_account_ext(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -3131,8 +3121,8 @@ pub async fn validate_cspmgcp_service_account_ext(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationPeriodGcpServiceAccountValidationResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationPeriodGcpServiceAccountValidationResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RegistrationGcpServiceAccountValidationResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RegistrationGcpServiceAccountValidationResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;

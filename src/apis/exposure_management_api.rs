@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateExternalAssetsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum AggregateExternalAssetsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BlobDownloadExternalAssetsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum BlobDownloadExternalAssetsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BlobPreviewExternalAssetsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +50,10 @@ pub enum BlobPreviewExternalAssetsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedEcosystemSubsidiariesError {
-    Status400(models::DomainPeriodFemEcosystemSubsidiariesResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodFemEcosystemSubsidiariesResponseFields),
+    Status400(models::DomainFemEcosystemSubsidiariesResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainFemEcosystemSubsidiariesResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,10 +61,10 @@ pub enum CombinedEcosystemSubsidiariesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteExternalAssetsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -72,10 +72,10 @@ pub enum DeleteExternalAssetsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetEcosystemSubsidiariesError {
-    Status400(models::DomainPeriodFemEcosystemSubsidiariesResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodFemEcosystemSubsidiariesResponseFields),
+    Status400(models::DomainFemEcosystemSubsidiariesResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainFemEcosystemSubsidiariesResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -83,10 +83,10 @@ pub enum GetEcosystemSubsidiariesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetExternalAssetsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -94,10 +94,10 @@ pub enum GetExternalAssetsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PatchExternalAssetsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -105,10 +105,10 @@ pub enum PatchExternalAssetsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostExternalAssetsInventoryV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -116,10 +116,10 @@ pub enum PostExternalAssetsInventoryV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryEcosystemSubsidiariesError {
-    Status400(models::DomainPeriodFemEcosystemSubsidiariesResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodFemEcosystemSubsidiariesResponseFields),
+    Status400(models::DomainFemEcosystemSubsidiariesResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainFemEcosystemSubsidiariesResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -127,10 +127,10 @@ pub enum QueryEcosystemSubsidiariesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryExternalAssetsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -138,20 +138,20 @@ pub enum QueryExternalAssetsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryExternalAssetsV2Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
 /// Returns external assets aggregates as specified via JSON in request body.
 pub async fn aggregate_external_assets(
     configuration: &configuration::Configuration,
-    body: Vec<models::MsaPeriodAggregateQueryRequest>,
-) -> Result<models::MsaPeriodAggregatesResponse, Error<AggregateExternalAssetsError>> {
+    body: Vec<models::MsaAggregateQueryRequest>,
+) -> Result<models::MsaAggregatesResponse, Error<AggregateExternalAssetsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/fem/aggregates/external-assets/v1",
@@ -167,7 +167,7 @@ pub async fn aggregate_external_assets(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -184,8 +184,8 @@ pub async fn aggregate_external_assets(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -205,14 +205,14 @@ pub async fn blob_download_external_assets(
     hash: &str,
 ) -> Result<Vec<i32>, Error<BlobDownloadExternalAssetsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_asset_id = asset_id;
-    let p_hash = hash;
+    let p_query_asset_id = asset_id;
+    let p_query_hash = hash;
 
     let uri_str = format!("{}/fem/entities/blobs-download/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("assetId", &p_asset_id.to_string())]);
-    req_builder = req_builder.query(&[("hash", &p_hash.to_string())]);
+    req_builder = req_builder.query(&[("assetId", &p_query_asset_id.to_string())]);
+    req_builder = req_builder.query(&[("hash", &p_query_hash.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -254,17 +254,16 @@ pub async fn blob_preview_external_assets(
     configuration: &configuration::Configuration,
     asset_id: &str,
     hash: &str,
-) -> Result<models::DomainPeriodExternalAssetsBlobApiTypeV1, Error<BlobPreviewExternalAssetsError>>
-{
+) -> Result<models::DomainExternalAssetsBlobApiTypeV1, Error<BlobPreviewExternalAssetsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_asset_id = asset_id;
-    let p_hash = hash;
+    let p_query_asset_id = asset_id;
+    let p_query_hash = hash;
 
     let uri_str = format!("{}/fem/entities/blobs-preview/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("assetId", &p_asset_id.to_string())]);
-    req_builder = req_builder.query(&[("hash", &p_hash.to_string())]);
+    req_builder = req_builder.query(&[("assetId", &p_query_asset_id.to_string())]);
+    req_builder = req_builder.query(&[("hash", &p_query_hash.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -287,8 +286,8 @@ pub async fn blob_preview_external_assets(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodExternalAssetsBlobApiTypeV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodExternalAssetsBlobApiTypeV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainExternalAssetsBlobApiTypeV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainExternalAssetsBlobApiTypeV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -309,15 +308,15 @@ pub async fn combined_ecosystem_subsidiaries(
     sort: Option<&str>,
     version_id: Option<&str>,
 ) -> Result<
-    models::DomainPeriodFemEcosystemSubsidiariesEntitiesResponse,
+    models::DomainFemEcosystemSubsidiariesEntitiesResponse,
     Error<CombinedEcosystemSubsidiariesError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_version_id = version_id;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_version_id = version_id;
 
     let uri_str = format!(
         "{}/fem/combined/ecosystem-subsidiaries/v1",
@@ -325,19 +324,19 @@ pub async fn combined_ecosystem_subsidiaries(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_version_id {
+    if let Some(ref param_value) = p_query_version_id {
         req_builder = req_builder.query(&[("version_id", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -362,8 +361,8 @@ pub async fn combined_ecosystem_subsidiaries(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodFemEcosystemSubsidiariesEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodFemEcosystemSubsidiariesEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainFemEcosystemSubsidiariesEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainFemEcosystemSubsidiariesEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -380,11 +379,11 @@ pub async fn combined_ecosystem_subsidiaries(
 pub async fn delete_external_assets(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-    body: models::DomainPeriodExternalAssetApiDeleteRequestV1,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<DeleteExternalAssetsError>> {
+    body: models::DomainExternalAssetApiDeleteRequestV1,
+) -> Result<models::MsaspecQueryResponse, Error<DeleteExternalAssetsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_body = body;
+    let p_query_ids = ids;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/fem/entities/external-assets/v1",
@@ -396,14 +395,14 @@ pub async fn delete_external_assets(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -417,7 +416,7 @@ pub async fn delete_external_assets(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -434,8 +433,8 @@ pub async fn delete_external_assets(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -453,12 +452,12 @@ pub async fn get_ecosystem_subsidiaries(
     ids: Vec<String>,
     version_id: Option<&str>,
 ) -> Result<
-    models::DomainPeriodFemEcosystemSubsidiariesEntitiesResponse,
+    models::DomainFemEcosystemSubsidiariesEntitiesResponse,
     Error<GetEcosystemSubsidiariesError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_version_id = version_id;
+    let p_query_ids = ids;
+    let p_query_version_id = version_id;
 
     let uri_str = format!(
         "{}/fem/entities/ecosystem-subsidiaries/v1",
@@ -468,14 +467,14 @@ pub async fn get_ecosystem_subsidiaries(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -483,7 +482,7 @@ pub async fn get_ecosystem_subsidiaries(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_version_id {
+    if let Some(ref param_value) = p_query_version_id {
         req_builder = req_builder.query(&[("version_id", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -508,8 +507,8 @@ pub async fn get_ecosystem_subsidiaries(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodFemEcosystemSubsidiariesEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodFemEcosystemSubsidiariesEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainFemEcosystemSubsidiariesEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainFemEcosystemSubsidiariesEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -525,9 +524,9 @@ pub async fn get_ecosystem_subsidiaries(
 pub async fn get_external_assets(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodExternalAssetsApiTypeV1, Error<GetExternalAssetsError>> {
+) -> Result<models::DomainExternalAssetsApiTypeV1, Error<GetExternalAssetsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/fem/entities/external-assets/v1",
@@ -537,14 +536,14 @@ pub async fn get_external_assets(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -574,8 +573,8 @@ pub async fn get_external_assets(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodExternalAssetsApiTypeV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodExternalAssetsApiTypeV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainExternalAssetsApiTypeV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainExternalAssetsApiTypeV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -590,10 +589,10 @@ pub async fn get_external_assets(
 
 pub async fn patch_external_assets(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodExternalAssetApiPatchRequestV1,
-) -> Result<models::DomainPeriodExternalAssetsApiTypeV1, Error<PatchExternalAssetsError>> {
+    body: models::DomainExternalAssetApiPatchRequestV1,
+) -> Result<models::DomainExternalAssetsApiTypeV1, Error<PatchExternalAssetsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/fem/entities/external-assets/v1",
@@ -609,7 +608,7 @@ pub async fn patch_external_assets(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -626,8 +625,8 @@ pub async fn patch_external_assets(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodExternalAssetsApiTypeV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodExternalAssetsApiTypeV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainExternalAssetsApiTypeV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainExternalAssetsApiTypeV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -642,13 +641,13 @@ pub async fn patch_external_assets(
 
 pub async fn post_external_assets_inventory_v1(
     configuration: &configuration::Configuration,
-    body: models::InventoryapiPeriodUserExternalAssetCreateRequestV1,
+    body: models::InventoryapiUserExternalAssetCreateRequestV1,
 ) -> Result<
-    models::InventoryapiPeriodUserExternalAssetCreateResponseV1,
+    models::InventoryapiUserExternalAssetCreateResponseV1,
     Error<PostExternalAssetsInventoryV1Error>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/fem/entities/external-asset-inventory/v1",
@@ -664,7 +663,7 @@ pub async fn post_external_assets_inventory_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -681,8 +680,8 @@ pub async fn post_external_assets_inventory_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::InventoryapiPeriodUserExternalAssetCreateResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::InventoryapiPeriodUserExternalAssetCreateResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::InventoryapiUserExternalAssetCreateResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::InventoryapiUserExternalAssetCreateResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -704,15 +703,15 @@ pub async fn query_ecosystem_subsidiaries(
     sort: Option<&str>,
     version_id: Option<&str>,
 ) -> Result<
-    models::DomainPeriodFemEcosystemSubsidiariesQueryResponse,
+    models::DomainFemEcosystemSubsidiariesQueryResponse,
     Error<QueryEcosystemSubsidiariesError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_version_id = version_id;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_version_id = version_id;
 
     let uri_str = format!(
         "{}/fem/queries/ecosystem-subsidiaries/v1",
@@ -720,19 +719,19 @@ pub async fn query_ecosystem_subsidiaries(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_version_id {
+    if let Some(ref param_value) = p_query_version_id {
         req_builder = req_builder.query(&[("version_id", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -757,8 +756,8 @@ pub async fn query_ecosystem_subsidiaries(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodFemEcosystemSubsidiariesQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodFemEcosystemSubsidiariesQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainFemEcosystemSubsidiariesQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainFemEcosystemSubsidiariesQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -777,26 +776,26 @@ pub async fn query_external_assets(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryExternalAssetsError>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueryExternalAssetsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
 
     let uri_str = format!("{}/fem/queries/external-assets/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -821,8 +820,8 @@ pub async fn query_external_assets(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -841,26 +840,26 @@ pub async fn query_external_assets_v2(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<models::DomainPeriodDiscoverApiResponse, Error<QueryExternalAssetsV2Error>> {
+) -> Result<models::DomainDiscoverApiResponse, Error<QueryExternalAssetsV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_after = after;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
+    let p_query_after = after;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
 
     let uri_str = format!("{}/fem/queries/external-assets/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_after {
+    if let Some(ref param_value) = p_query_after {
         req_builder = req_builder.query(&[("after", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -885,8 +884,8 @@ pub async fn query_external_assets_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodDiscoverApiResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodDiscoverApiResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainDiscoverApiResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainDiscoverApiResponse`")))),
         }
     } else {
         let content = resp.text().await?;

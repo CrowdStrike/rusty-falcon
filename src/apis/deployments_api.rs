@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetDeploymentsExternalV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -30,12 +30,11 @@ pub async fn get_deployments_external_v1(
     authorization: &str,
     ids: Vec<String>,
     x_cs_username: Option<&str>,
-) -> Result<models::DeploymentsPeriodApiDeploymentViewWrapper, Error<GetDeploymentsExternalV1Error>>
-{
+) -> Result<models::DeploymentsApiDeploymentViewWrapper, Error<GetDeploymentsExternalV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_authorization = authorization;
-    let p_ids = ids;
-    let p_x_cs_username = x_cs_username;
+    let p_header_authorization = authorization;
+    let p_query_ids = ids;
+    let p_header_x_cs_username = x_cs_username;
 
     let uri_str = format!(
         "{}/deployment-coordinator/entities/deployments/external/v1",
@@ -45,14 +44,14 @@ pub async fn get_deployments_external_v1(
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -63,8 +62,8 @@ pub async fn get_deployments_external_v1(
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    req_builder = req_builder.header("Authorization", p_authorization.to_string());
-    if let Some(param_value) = p_x_cs_username {
+    req_builder = req_builder.header("Authorization", p_header_authorization.to_string());
+    if let Some(param_value) = p_header_x_cs_username {
         req_builder = req_builder.header("X-CS-USERNAME", param_value.to_string());
     }
     if let Some(ref token) = configuration.oauth_access_token {
@@ -86,8 +85,8 @@ pub async fn get_deployments_external_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeploymentsPeriodApiDeploymentViewWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeploymentsPeriodApiDeploymentViewWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeploymentsApiDeploymentViewWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeploymentsApiDeploymentViewWrapper`")))),
         }
     } else {
         let content = resp.text().await?;

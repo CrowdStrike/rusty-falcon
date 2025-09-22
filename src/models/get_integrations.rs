@@ -13,21 +13,21 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetIntegrations {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::Error521a52e1eeef457b889ba8620bbc7101>>,
+    pub errors: Option<Vec<models::ErrorGetIntegrations>>,
     #[serde(
         rename = "meta",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub meta: Option<Option<Box<models::MetaC023be5d64a34c288c0782901ffe1a91>>>,
+    pub meta: Option<Option<Box<models::MetaGetIntegrations>>>,
     #[serde(
         rename = "resources",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub resources: Option<Option<Vec<models::AccountIntegration78516f4af64a473daf4f3cf9a9c08930>>>,
+    pub resources: Option<Option<Vec<models::AccountIntegrationGetIntegrations>>>,
 }
 
 impl GetIntegrations {

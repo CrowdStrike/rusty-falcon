@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateRtResponsePoliciesError {
-    Status400(models::RemoteResponsePeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::RemoteResponsePeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RemoteResponsePeriodRespV1),
+    Status400(models::RemoteResponseRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::RemoteResponseRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RemoteResponseRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,10 +29,10 @@ pub enum CreateRtResponsePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteRtResponsePoliciesError {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,10 +40,10 @@ pub enum DeleteRtResponsePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRtResponsePoliciesError {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::RemoteResponsePeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RemoteResponsePeriodRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::RemoteResponseRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RemoteResponseRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,11 +51,11 @@ pub enum GetRtResponsePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PerformRtResponsePoliciesActionError {
-    Status400(models::RemoteResponsePeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::RemoteResponsePeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RemoteResponsePeriodRespV1),
+    Status400(models::RemoteResponseRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::RemoteResponseRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RemoteResponseRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -63,10 +63,10 @@ pub enum PerformRtResponsePoliciesActionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedRtResponsePoliciesError {
-    Status400(models::RemoteResponsePeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RemoteResponsePeriodRespV1),
+    Status400(models::RemoteResponseRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RemoteResponseRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -74,11 +74,11 @@ pub enum QueryCombinedRtResponsePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedRtResponsePolicyMembersError {
-    Status400(models::BasePeriodPolicyMembersRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::BasePeriodPolicyMembersRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::BasePeriodPolicyMembersRespV1),
+    Status400(models::BasePolicyMembersRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::BasePolicyMembersRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::BasePolicyMembersRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,10 +86,10 @@ pub enum QueryCombinedRtResponsePolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRtResponsePoliciesError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -97,11 +97,11 @@ pub enum QueryRtResponsePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRtResponsePolicyMembersError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -109,10 +109,10 @@ pub enum QueryRtResponsePolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SetRtResponsePoliciesPrecedenceError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -120,20 +120,20 @@ pub enum SetRtResponsePoliciesPrecedenceError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateRtResponsePoliciesError {
-    Status400(models::RemoteResponsePeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::RemoteResponsePeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RemoteResponsePeriodRespV1),
+    Status400(models::RemoteResponseRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::RemoteResponseRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RemoteResponseRespV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_rt_response_policies(
     configuration: &configuration::Configuration,
-    body: models::RemoteResponsePeriodCreatePoliciesV1,
-) -> Result<models::RemoteResponsePeriodRespV1, Error<CreateRtResponsePoliciesError>> {
+    body: models::RemoteResponseCreatePoliciesV1,
+) -> Result<models::RemoteResponseRespV1, Error<CreateRtResponsePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/policy/entities/response/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -146,7 +146,7 @@ pub async fn create_rt_response_policies(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -163,8 +163,8 @@ pub async fn create_rt_response_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RemoteResponsePeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RemoteResponsePeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RemoteResponseRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RemoteResponseRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -180,9 +180,9 @@ pub async fn create_rt_response_policies(
 pub async fn delete_rt_response_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::MsaPeriodQueryResponse, Error<DeleteRtResponsePoliciesError>> {
+) -> Result<models::MsaQueryResponse, Error<DeleteRtResponsePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/policy/entities/response/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -191,14 +191,14 @@ pub async fn delete_rt_response_policies(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -228,8 +228,8 @@ pub async fn delete_rt_response_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -245,23 +245,23 @@ pub async fn delete_rt_response_policies(
 pub async fn get_rt_response_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::RemoteResponsePeriodRespV1, Error<GetRtResponsePoliciesError>> {
+) -> Result<models::RemoteResponseRespV1, Error<GetRtResponsePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/policy/entities/response/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -291,8 +291,8 @@ pub async fn get_rt_response_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RemoteResponsePeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RemoteResponsePeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RemoteResponseRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RemoteResponseRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -308,11 +308,11 @@ pub async fn get_rt_response_policies(
 pub async fn perform_rt_response_policies_action(
     configuration: &configuration::Configuration,
     action_name: &str,
-    body: models::MsaPeriodEntityActionRequestV2,
-) -> Result<models::RemoteResponsePeriodRespV1, Error<PerformRtResponsePoliciesActionError>> {
+    body: models::MsaEntityActionRequestV2,
+) -> Result<models::RemoteResponseRespV1, Error<PerformRtResponsePoliciesActionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_action_name = action_name;
-    let p_body = body;
+    let p_query_action_name = action_name;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/response-actions/v1",
@@ -322,14 +322,14 @@ pub async fn perform_rt_response_policies_action(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("action_name", &p_action_name.to_string())]);
+    req_builder = req_builder.query(&[("action_name", &p_query_action_name.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -346,8 +346,8 @@ pub async fn perform_rt_response_policies_action(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RemoteResponsePeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RemoteResponsePeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RemoteResponseRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RemoteResponseRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -367,26 +367,26 @@ pub async fn query_combined_rt_response_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::RemoteResponsePeriodRespV1, Error<QueryCombinedRtResponsePoliciesError>> {
+) -> Result<models::RemoteResponseRespV1, Error<QueryCombinedRtResponsePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!("{}/policy/combined/response/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -411,8 +411,8 @@ pub async fn query_combined_rt_response_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RemoteResponsePeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RemoteResponsePeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RemoteResponseRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RemoteResponseRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -433,14 +433,13 @@ pub async fn query_combined_rt_response_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::BasePeriodPolicyMembersRespV1, Error<QueryCombinedRtResponsePolicyMembersError>>
-{
+) -> Result<models::BasePolicyMembersRespV1, Error<QueryCombinedRtResponsePolicyMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_id = id;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/combined/response-members/v1",
@@ -448,19 +447,19 @@ pub async fn query_combined_rt_response_policy_members(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -485,8 +484,8 @@ pub async fn query_combined_rt_response_policy_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BasePeriodPolicyMembersRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BasePeriodPolicyMembersRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BasePolicyMembersRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BasePolicyMembersRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -506,26 +505,26 @@ pub async fn query_rt_response_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryRtResponsePoliciesError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryRtResponsePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!("{}/policy/queries/response/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -550,8 +549,8 @@ pub async fn query_rt_response_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -571,13 +570,13 @@ pub async fn query_rt_response_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryRtResponsePolicyMembersError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryRtResponsePolicyMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_id = id;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/queries/response-members/v1",
@@ -585,19 +584,19 @@ pub async fn query_rt_response_policy_members(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -622,8 +621,8 @@ pub async fn query_rt_response_policy_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -638,10 +637,10 @@ pub async fn query_rt_response_policy_members(
 
 pub async fn set_rt_response_policies_precedence(
     configuration: &configuration::Configuration,
-    body: models::BasePeriodSetPolicyPrecedenceReqV1,
-) -> Result<models::MsaPeriodQueryResponse, Error<SetRtResponsePoliciesPrecedenceError>> {
+    body: models::BaseSetPolicyPrecedenceReqV1,
+) -> Result<models::MsaQueryResponse, Error<SetRtResponsePoliciesPrecedenceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/response-precedence/v1",
@@ -657,7 +656,7 @@ pub async fn set_rt_response_policies_precedence(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -674,8 +673,8 @@ pub async fn set_rt_response_policies_precedence(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -691,10 +690,10 @@ pub async fn set_rt_response_policies_precedence(
 
 pub async fn update_rt_response_policies(
     configuration: &configuration::Configuration,
-    body: models::RemoteResponsePeriodUpdatePoliciesReqV1,
-) -> Result<models::RemoteResponsePeriodRespV1, Error<UpdateRtResponsePoliciesError>> {
+    body: models::RemoteResponseUpdatePoliciesReqV1,
+) -> Result<models::RemoteResponseRespV1, Error<UpdateRtResponsePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/policy/entities/response/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -707,7 +706,7 @@ pub async fn update_rt_response_policies(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -724,8 +723,8 @@ pub async fn update_rt_response_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RemoteResponsePeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RemoteResponsePeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RemoteResponseRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RemoteResponseRespV1`")))),
         }
     } else {
         let content = resp.text().await?;

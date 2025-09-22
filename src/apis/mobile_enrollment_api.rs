@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RequestDeviceEnrollmentV3Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,23 +28,23 @@ pub enum RequestDeviceEnrollmentV3Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RequestDeviceEnrollmentV4Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn request_device_enrollment_v3(
     configuration: &configuration::Configuration,
-    body: models::ApiPeriodPostEnrollmentDetails,
+    body: models::ApiPostEnrollmentDetails,
     action_name: Option<&str>,
     filter: Option<&str>,
-) -> Result<models::ApiPeriodPostEnrollmentDetailsResponse, Error<RequestDeviceEnrollmentV3Error>> {
+) -> Result<models::ApiPostEnrollmentDetailsResponse, Error<RequestDeviceEnrollmentV3Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_action_name = action_name;
-    let p_filter = filter;
+    let p_body_body = body;
+    let p_query_action_name = action_name;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/enrollments/entities/details/v3",
@@ -54,10 +54,10 @@ pub async fn request_device_enrollment_v3(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_action_name {
+    if let Some(ref param_value) = p_query_action_name {
         req_builder = req_builder.query(&[("action_name", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -66,7 +66,7 @@ pub async fn request_device_enrollment_v3(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -83,8 +83,8 @@ pub async fn request_device_enrollment_v3(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodPostEnrollmentDetailsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodPostEnrollmentDetailsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPostEnrollmentDetailsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPostEnrollmentDetailsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -99,14 +99,14 @@ pub async fn request_device_enrollment_v3(
 
 pub async fn request_device_enrollment_v4(
     configuration: &configuration::Configuration,
-    body: models::ApiPeriodPostEnrollmentDetailsV4,
+    body: models::ApiPostEnrollmentDetailsV4,
     action_name: Option<&str>,
     filter: Option<&str>,
-) -> Result<models::ApiPeriodPostEnrollmentDetailsResponse, Error<RequestDeviceEnrollmentV4Error>> {
+) -> Result<models::ApiPostEnrollmentDetailsResponse, Error<RequestDeviceEnrollmentV4Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_action_name = action_name;
-    let p_filter = filter;
+    let p_body_body = body;
+    let p_query_action_name = action_name;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/enrollments/entities/details/v4",
@@ -116,10 +116,10 @@ pub async fn request_device_enrollment_v4(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_action_name {
+    if let Some(ref param_value) = p_query_action_name {
         req_builder = req_builder.query(&[("action_name", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -128,7 +128,7 @@ pub async fn request_device_enrollment_v4(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -145,8 +145,8 @@ pub async fn request_device_enrollment_v4(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodPostEnrollmentDetailsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodPostEnrollmentDetailsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPostEnrollmentDetailsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPostEnrollmentDetailsResponse`")))),
         }
     } else {
         let content = resp.text().await?;

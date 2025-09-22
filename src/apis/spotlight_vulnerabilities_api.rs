@@ -17,12 +17,12 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedQueryVulnerabilitiesError {
-    Status400(models::DomainPeriodSpapiCombinedVulnerabilitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodSpapiCombinedVulnerabilitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodSpapiCombinedVulnerabilitiesResponse),
-    Status503(models::DomainPeriodSpapiCombinedVulnerabilitiesResponse),
+    Status400(models::DomainSpapiCombinedVulnerabilitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainSpapiCombinedVulnerabilitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainSpapiCombinedVulnerabilitiesResponse),
+    Status503(models::DomainSpapiCombinedVulnerabilitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -30,10 +30,10 @@ pub enum CombinedQueryVulnerabilitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRemediationsV2Error {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::DomainPeriodSpapiRemediationEntitiesResponseV2),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::DomainSpapiRemediationEntitiesResponseV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,10 +41,10 @@ pub enum GetRemediationsV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetVulnerabilitiesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::DomainPeriodSpapiVulnerabilitiesEntitiesResponseV2),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::DomainSpapiVulnerabilitiesEntitiesResponseV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -52,12 +52,12 @@ pub enum GetVulnerabilitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryVulnerabilitiesError {
-    Status400(models::DomainPeriodSpapiQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodSpapiQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodSpapiQueryResponse),
-    Status503(models::DomainPeriodSpapiQueryResponse),
+    Status400(models::DomainSpapiQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainSpapiQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainSpapiQueryResponse),
+    Status503(models::DomainSpapiQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -69,15 +69,15 @@ pub async fn combined_query_vulnerabilities(
     sort: Option<&str>,
     facet: Option<Vec<String>>,
 ) -> Result<
-    models::DomainPeriodSpapiCombinedVulnerabilitiesResponse,
+    models::DomainSpapiCombinedVulnerabilitiesResponse,
     Error<CombinedQueryVulnerabilitiesError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_after = after;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_facet = facet;
+    let p_query_filter = filter;
+    let p_query_after = after;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_facet = facet;
 
     let uri_str = format!(
         "{}/spotlight/combined/vulnerabilities/v1",
@@ -85,17 +85,17 @@ pub async fn combined_query_vulnerabilities(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_after {
+    if let Some(ref param_value) = p_query_after {
         req_builder = req_builder.query(&[("after", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    req_builder = req_builder.query(&[("filter", &p_filter.to_string())]);
-    if let Some(ref param_value) = p_facet {
+    req_builder = req_builder.query(&[("filter", &p_query_filter.to_string())]);
+    if let Some(ref param_value) = p_query_facet {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -136,8 +136,8 @@ pub async fn combined_query_vulnerabilities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodSpapiCombinedVulnerabilitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodSpapiCombinedVulnerabilitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainSpapiCombinedVulnerabilitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainSpapiCombinedVulnerabilitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -153,9 +153,9 @@ pub async fn combined_query_vulnerabilities(
 pub async fn get_remediations_v2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodSpapiRemediationEntitiesResponseV2, Error<GetRemediationsV2Error>> {
+) -> Result<models::DomainSpapiRemediationEntitiesResponseV2, Error<GetRemediationsV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/spotlight/entities/remediations/v2",
@@ -165,14 +165,14 @@ pub async fn get_remediations_v2(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -202,8 +202,8 @@ pub async fn get_remediations_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodSpapiRemediationEntitiesResponseV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodSpapiRemediationEntitiesResponseV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainSpapiRemediationEntitiesResponseV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainSpapiRemediationEntitiesResponseV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -219,12 +219,9 @@ pub async fn get_remediations_v2(
 pub async fn get_vulnerabilities(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    models::DomainPeriodSpapiVulnerabilitiesEntitiesResponseV2,
-    Error<GetVulnerabilitiesError>,
-> {
+) -> Result<models::DomainSpapiVulnerabilitiesEntitiesResponseV2, Error<GetVulnerabilitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/spotlight/entities/vulnerabilities/v2",
@@ -234,14 +231,14 @@ pub async fn get_vulnerabilities(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -271,8 +268,8 @@ pub async fn get_vulnerabilities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodSpapiVulnerabilitiesEntitiesResponseV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodSpapiVulnerabilitiesEntitiesResponseV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainSpapiVulnerabilitiesEntitiesResponseV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainSpapiVulnerabilitiesEntitiesResponseV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -291,12 +288,12 @@ pub async fn query_vulnerabilities(
     after: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::DomainPeriodSpapiQueryResponse, Error<QueryVulnerabilitiesError>> {
+) -> Result<models::DomainSpapiQueryResponse, Error<QueryVulnerabilitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_after = after;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_after = after;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/spotlight/queries/vulnerabilities/v1",
@@ -304,16 +301,16 @@ pub async fn query_vulnerabilities(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_after {
+    if let Some(ref param_value) = p_query_after {
         req_builder = req_builder.query(&[("after", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    req_builder = req_builder.query(&[("filter", &p_filter.to_string())]);
+    req_builder = req_builder.query(&[("filter", &p_query_filter.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -336,8 +333,8 @@ pub async fn query_vulnerabilities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodSpapiQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodSpapiQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainSpapiQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainSpapiQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;

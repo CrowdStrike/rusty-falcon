@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateOrUpdateAwsSettingsError {
-    Status400(models::ModelsPeriodCustomerConfigurationsV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ModelsPeriodCustomerConfigurationsV1),
+    Status400(models::ModelsCustomerConfigurationsV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ModelsCustomerConfigurationsV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum CreateOrUpdateAwsSettingsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteAwsAccountsError {
-    Status400(models::ModelsPeriodBaseResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ModelsPeriodBaseResponseV1),
+    Status400(models::ModelsBaseResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ModelsBaseResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,11 +39,11 @@ pub enum DeleteAwsAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAwsAccountsError {
-    Status400(models::ModelsPeriodAwsAccountsV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ModelsPeriodAwsAccountsV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ModelsPeriodAwsAccountsV1),
+    Status400(models::ModelsAwsAccountsV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ModelsAwsAccountsV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ModelsAwsAccountsV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,10 +51,10 @@ pub enum GetAwsAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAwsSettingsError {
-    Status400(models::ModelsPeriodCustomerConfigurationsV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ModelsPeriodCustomerConfigurationsV1),
+    Status400(models::ModelsCustomerConfigurationsV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ModelsCustomerConfigurationsV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,10 +62,10 @@ pub enum GetAwsSettingsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProvisionAwsAccountsError {
-    Status400(models::ModelsPeriodAwsAccountsV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ModelsPeriodAwsAccountsV1),
+    Status400(models::ModelsAwsAccountsV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ModelsAwsAccountsV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -73,10 +73,10 @@ pub enum ProvisionAwsAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryAwsAccountsError {
-    Status400(models::ModelsPeriodAwsAccountsV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ModelsPeriodAwsAccountsV1),
+    Status400(models::ModelsAwsAccountsV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ModelsAwsAccountsV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -84,10 +84,10 @@ pub enum QueryAwsAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryAwsAccountsForIdsError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -95,11 +95,11 @@ pub enum QueryAwsAccountsForIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateAwsAccountsError {
-    Status400(models::ModelsPeriodAwsAccountsV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ModelsPeriodAwsAccountsV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ModelsPeriodAwsAccountsV1),
+    Status400(models::ModelsAwsAccountsV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ModelsAwsAccountsV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ModelsAwsAccountsV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -107,19 +107,19 @@ pub enum UpdateAwsAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum VerifyAwsAccountAccessError {
-    Status400(models::ModelsPeriodVerifyAccessResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ModelsPeriodVerifyAccessResponseV1),
+    Status400(models::ModelsVerifyAccessResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ModelsVerifyAccessResponseV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_or_update_aws_settings(
     configuration: &configuration::Configuration,
-    body: models::ModelsPeriodModifyAwsCustomerSettingsV1,
-) -> Result<models::ModelsPeriodCustomerConfigurationsV1, Error<CreateOrUpdateAwsSettingsError>> {
+    body: models::ModelsModifyAwsCustomerSettingsV1,
+) -> Result<models::ModelsCustomerConfigurationsV1, Error<CreateOrUpdateAwsSettingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-connect-aws/entities/settings/v1",
@@ -135,7 +135,7 @@ pub async fn create_or_update_aws_settings(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -152,8 +152,8 @@ pub async fn create_or_update_aws_settings(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodCustomerConfigurationsV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodCustomerConfigurationsV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsCustomerConfigurationsV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsCustomerConfigurationsV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -169,9 +169,9 @@ pub async fn create_or_update_aws_settings(
 pub async fn delete_aws_accounts(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ModelsPeriodBaseResponseV1, Error<DeleteAwsAccountsError>> {
+) -> Result<models::ModelsBaseResponseV1, Error<DeleteAwsAccountsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/cloud-connect-aws/entities/accounts/v1",
@@ -183,14 +183,14 @@ pub async fn delete_aws_accounts(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -220,8 +220,8 @@ pub async fn delete_aws_accounts(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodBaseResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodBaseResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsBaseResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsBaseResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -237,9 +237,9 @@ pub async fn delete_aws_accounts(
 pub async fn get_aws_accounts(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ModelsPeriodAwsAccountsV1, Error<GetAwsAccountsError>> {
+) -> Result<models::ModelsAwsAccountsV1, Error<GetAwsAccountsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/cloud-connect-aws/entities/accounts/v1",
@@ -249,14 +249,14 @@ pub async fn get_aws_accounts(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -286,8 +286,8 @@ pub async fn get_aws_accounts(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAwsAccountsV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAwsAccountsV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAwsAccountsV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAwsAccountsV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -302,7 +302,7 @@ pub async fn get_aws_accounts(
 
 pub async fn get_aws_settings(
     configuration: &configuration::Configuration,
-) -> Result<models::ModelsPeriodCustomerConfigurationsV1, Error<GetAwsSettingsError>> {
+) -> Result<models::ModelsCustomerConfigurationsV1, Error<GetAwsSettingsError>> {
     let uri_str = format!(
         "{}/cloud-connect-aws/combined/settings/v1",
         configuration.base_path
@@ -331,8 +331,8 @@ pub async fn get_aws_settings(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodCustomerConfigurationsV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodCustomerConfigurationsV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsCustomerConfigurationsV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsCustomerConfigurationsV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -347,12 +347,12 @@ pub async fn get_aws_settings(
 
 pub async fn provision_aws_accounts(
     configuration: &configuration::Configuration,
-    body: models::ModelsPeriodCreateAwsAccountsV1,
+    body: models::ModelsCreateAwsAccountsV1,
     mode: Option<&str>,
-) -> Result<models::ModelsPeriodAwsAccountsV1, Error<ProvisionAwsAccountsError>> {
+) -> Result<models::ModelsAwsAccountsV1, Error<ProvisionAwsAccountsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_mode = mode;
+    let p_body_body = body;
+    let p_query_mode = mode;
 
     let uri_str = format!(
         "{}/cloud-connect-aws/entities/accounts/v1",
@@ -362,7 +362,7 @@ pub async fn provision_aws_accounts(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_mode {
+    if let Some(ref param_value) = p_query_mode {
         req_builder = req_builder.query(&[("mode", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -371,7 +371,7 @@ pub async fn provision_aws_accounts(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -388,8 +388,8 @@ pub async fn provision_aws_accounts(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAwsAccountsV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAwsAccountsV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAwsAccountsV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAwsAccountsV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -408,12 +408,12 @@ pub async fn query_aws_accounts(
     offset: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<models::ModelsPeriodAwsAccountsV1, Error<QueryAwsAccountsError>> {
+) -> Result<models::ModelsAwsAccountsV1, Error<QueryAwsAccountsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_sort = sort;
-    let p_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/cloud-connect-aws/combined/accounts/v1",
@@ -421,16 +421,16 @@ pub async fn query_aws_accounts(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -455,8 +455,8 @@ pub async fn query_aws_accounts(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAwsAccountsV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAwsAccountsV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAwsAccountsV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAwsAccountsV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -475,12 +475,12 @@ pub async fn query_aws_accounts_for_ids(
     offset: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryAwsAccountsForIdsError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryAwsAccountsForIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_sort = sort;
-    let p_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/cloud-connect-aws/queries/accounts/v1",
@@ -488,16 +488,16 @@ pub async fn query_aws_accounts_for_ids(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -522,8 +522,8 @@ pub async fn query_aws_accounts_for_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -538,10 +538,10 @@ pub async fn query_aws_accounts_for_ids(
 
 pub async fn update_aws_accounts(
     configuration: &configuration::Configuration,
-    body: models::ModelsPeriodUpdateAwsAccountsV1,
-) -> Result<models::ModelsPeriodAwsAccountsV1, Error<UpdateAwsAccountsError>> {
+    body: models::ModelsUpdateAwsAccountsV1,
+) -> Result<models::ModelsAwsAccountsV1, Error<UpdateAwsAccountsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-connect-aws/entities/accounts/v1",
@@ -557,7 +557,7 @@ pub async fn update_aws_accounts(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -574,8 +574,8 @@ pub async fn update_aws_accounts(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAwsAccountsV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAwsAccountsV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAwsAccountsV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAwsAccountsV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -591,9 +591,9 @@ pub async fn update_aws_accounts(
 pub async fn verify_aws_account_access(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ModelsPeriodVerifyAccessResponseV1, Error<VerifyAwsAccountAccessError>> {
+) -> Result<models::ModelsVerifyAccessResponseV1, Error<VerifyAwsAccountAccessError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/cloud-connect-aws/entities/verify-account-access/v1",
@@ -605,14 +605,14 @@ pub async fn verify_aws_account_access(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -642,8 +642,8 @@ pub async fn verify_aws_account_access(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodVerifyAccessResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodVerifyAccessResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsVerifyAccessResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsVerifyAccessResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;

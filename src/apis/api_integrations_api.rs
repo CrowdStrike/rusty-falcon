@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExecuteCommandError {
-    Status400(models::DomainPeriodExecuteCommandResultsV1),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::DomainPeriodExecuteCommandResultsV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodExecuteCommandResultsV1),
+    Status400(models::DomainExecuteCommandResultsV1),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::DomainExecuteCommandResultsV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainExecuteCommandResultsV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,11 +29,11 @@ pub enum ExecuteCommandError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExecuteCommandProxyError {
-    Status400(models::DomainPeriodExecuteCommandResultsV1),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::DomainPeriodExecuteCommandResultsV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodExecuteCommandResultsV1),
+    Status400(models::DomainExecuteCommandResultsV1),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::DomainExecuteCommandResultsV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainExecuteCommandResultsV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,20 +41,20 @@ pub enum ExecuteCommandProxyError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCombinedPluginConfigsError {
-    Status400(models::DomainPeriodConfigsV1),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::DomainPeriodConfigsV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodConfigsV1),
+    Status400(models::DomainConfigsV1),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::DomainConfigsV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainConfigsV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn execute_command(
     configuration: &configuration::Configuration,
-    resources: Vec<models::DomainPeriodExecuteCommandV1>,
-) -> Result<models::DomainPeriodExecuteCommandResultsV1, Error<ExecuteCommandError>> {
+    resources: Vec<models::DomainExecuteCommandV1>,
+) -> Result<models::DomainExecuteCommandResultsV1, Error<ExecuteCommandError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_resources = resources;
+    let p_form_resources = resources;
 
     let uri_str = format!("{}/plugins/entities/execute/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -70,7 +70,7 @@ pub async fn execute_command(
     let mut multipart_form = reqwest::multipart::Form::new();
     multipart_form = multipart_form.text(
         "resources",
-        p_resources
+        p_form_resources
             .into_iter()
             .map(|p| p.to_string())
             .collect::<Vec<String>>()
@@ -94,8 +94,8 @@ pub async fn execute_command(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodExecuteCommandResultsV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodExecuteCommandResultsV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainExecuteCommandResultsV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainExecuteCommandResultsV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -110,10 +110,10 @@ pub async fn execute_command(
 
 pub async fn execute_command_proxy(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodExecuteCommandRequestV1,
+    body: models::DomainExecuteCommandRequestV1,
 ) -> Result<serde_json::Value, Error<ExecuteCommandProxyError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/plugins/entities/execute-proxy/v1",
@@ -129,7 +129,7 @@ pub async fn execute_command_proxy(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -166,26 +166,26 @@ pub async fn get_combined_plugin_configs(
     limit: Option<i32>,
     offset: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::DomainPeriodConfigsV1, Error<GetCombinedPluginConfigsError>> {
+) -> Result<models::DomainConfigsV1, Error<GetCombinedPluginConfigsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_sort = sort;
 
     let uri_str = format!("{}/plugins/combined/configs/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -210,8 +210,8 @@ pub async fn get_combined_plugin_configs(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodConfigsV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodConfigsV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainConfigsV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainConfigsV1`")))),
         }
     } else {
         let content = resp.text().await?;

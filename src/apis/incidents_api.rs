@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CrowdScoreError {
-    Status400(models::MsaPeriodReplyMetaOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum CrowdScoreError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetBehaviorsError {
-    Status400(models::MsaPeriodReplyMetaOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum GetBehaviorsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIncidentsError {
-    Status400(models::MsaPeriodReplyMetaOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,11 +50,11 @@ pub enum GetIncidentsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PerformIncidentActionError {
-    Status400(models::MsaPeriodReplyMetaOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status409(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status409(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,10 +62,10 @@ pub enum PerformIncidentActionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryBehaviorsError {
-    Status400(models::MsaPeriodReplyMetaOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -73,10 +73,10 @@ pub enum QueryBehaviorsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIncidentsError {
-    Status400(models::MsaPeriodReplyMetaOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,12 +86,12 @@ pub async fn crowd_score(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::DomainPeriodMsaEnvironmentScoreResponse, Error<CrowdScoreError>> {
+) -> Result<models::DomainMsaEnvironmentScoreResponse, Error<CrowdScoreError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/incidents/combined/crowdscores/v1",
@@ -99,16 +99,16 @@ pub async fn crowd_score(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -133,8 +133,8 @@ pub async fn crowd_score(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodMsaEnvironmentScoreResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodMsaEnvironmentScoreResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainMsaEnvironmentScoreResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainMsaEnvironmentScoreResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -149,10 +149,10 @@ pub async fn crowd_score(
 
 pub async fn get_behaviors(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodIdsRequest,
-) -> Result<models::DomainPeriodMsaExternalBehaviorResponse, Error<GetBehaviorsError>> {
+    body: models::MsaIdsRequest,
+) -> Result<models::DomainMsaExternalBehaviorResponse, Error<GetBehaviorsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/incidents/entities/behaviors/GET/v1",
@@ -168,7 +168,7 @@ pub async fn get_behaviors(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -185,8 +185,8 @@ pub async fn get_behaviors(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodMsaExternalBehaviorResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodMsaExternalBehaviorResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainMsaExternalBehaviorResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainMsaExternalBehaviorResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -201,10 +201,10 @@ pub async fn get_behaviors(
 
 pub async fn get_incidents(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodIdsRequest,
-) -> Result<models::DomainPeriodMsaExternalIncidentResponse, Error<GetIncidentsError>> {
+    body: models::MsaIdsRequest,
+) -> Result<models::DomainMsaExternalIncidentResponse, Error<GetIncidentsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/incidents/entities/incidents/GET/v1",
@@ -220,7 +220,7 @@ pub async fn get_incidents(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -237,8 +237,8 @@ pub async fn get_incidents(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodMsaExternalIncidentResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodMsaExternalIncidentResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainMsaExternalIncidentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainMsaExternalIncidentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -253,15 +253,14 @@ pub async fn get_incidents(
 
 pub async fn perform_incident_action(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodEntityActionRequest,
+    body: models::DomainEntityActionRequest,
     update_detects: Option<bool>,
     overwrite_detects: Option<bool>,
-) -> Result<models::DomainPeriodMsaIncidentPerformActionResponse, Error<PerformIncidentActionError>>
-{
+) -> Result<models::DomainMsaIncidentPerformActionResponse, Error<PerformIncidentActionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_update_detects = update_detects;
-    let p_overwrite_detects = overwrite_detects;
+    let p_body_body = body;
+    let p_query_update_detects = update_detects;
+    let p_query_overwrite_detects = overwrite_detects;
 
     let uri_str = format!(
         "{}/incidents/entities/incident-actions/v1",
@@ -271,10 +270,10 @@ pub async fn perform_incident_action(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_update_detects {
+    if let Some(ref param_value) = p_query_update_detects {
         req_builder = req_builder.query(&[("update_detects", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_overwrite_detects {
+    if let Some(ref param_value) = p_query_overwrite_detects {
         req_builder = req_builder.query(&[("overwrite_detects", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -283,7 +282,7 @@ pub async fn perform_incident_action(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -300,8 +299,8 @@ pub async fn perform_incident_action(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodMsaIncidentPerformActionResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodMsaIncidentPerformActionResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainMsaIncidentPerformActionResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainMsaIncidentPerformActionResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -320,26 +319,26 @@ pub async fn query_behaviors(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryBehaviorsError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryBehaviorsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!("{}/incidents/queries/behaviors/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -364,8 +363,8 @@ pub async fn query_behaviors(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -384,26 +383,26 @@ pub async fn query_incidents(
     filter: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<models::DomainPeriodMsaIncidentQueryResponse, Error<QueryIncidentsError>> {
+) -> Result<models::DomainMsaIncidentQueryResponse, Error<QueryIncidentsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!("{}/incidents/queries/incidents/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -428,8 +427,8 @@ pub async fn query_incidents(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodMsaIncidentQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodMsaIncidentQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainMsaIncidentQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainMsaIncidentQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;

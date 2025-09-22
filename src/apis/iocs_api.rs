@@ -17,9 +17,9 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DevicesCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,19 +27,19 @@ pub enum DevicesCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DevicesRanOnError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`entities_period_processes`]
+/// struct for typed errors of method [`entities_processes`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum EntitiesPeriodProcessesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum EntitiesProcessesError {
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -47,9 +47,9 @@ pub enum EntitiesPeriodProcessesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProcessesRanOnError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -57,10 +57,10 @@ pub async fn devices_count(
     configuration: &configuration::Configuration,
     r#type: &str,
     value: &str,
-) -> Result<models::IocapiPeriodMsaReplyIocDevicesCount, Error<DevicesCountError>> {
+) -> Result<models::IocapiMsaReplyIocDevicesCount, Error<DevicesCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_type = r#type;
-    let p_value = value;
+    let p_query_type = r#type;
+    let p_query_value = value;
 
     let uri_str = format!(
         "{}/indicators/aggregates/devices-count/v1",
@@ -68,8 +68,8 @@ pub async fn devices_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("type", &p_type.to_string())]);
-    req_builder = req_builder.query(&[("value", &p_value.to_string())]);
+    req_builder = req_builder.query(&[("type", &p_query_type.to_string())]);
+    req_builder = req_builder.query(&[("value", &p_query_value.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -92,8 +92,8 @@ pub async fn devices_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::IocapiPeriodMsaReplyIocDevicesCount`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::IocapiPeriodMsaReplyIocDevicesCount`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::IocapiMsaReplyIocDevicesCount`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::IocapiMsaReplyIocDevicesCount`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -112,22 +112,22 @@ pub async fn devices_ran_on(
     value: &str,
     limit: Option<&str>,
     offset: Option<&str>,
-) -> Result<models::IocapiPeriodMsaReplyDevicesRanOn, Error<DevicesRanOnError>> {
+) -> Result<models::IocapiMsaReplyDevicesRanOn, Error<DevicesRanOnError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_type = r#type;
-    let p_value = value;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_type = r#type;
+    let p_query_value = value;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!("{}/indicators/queries/devices/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("type", &p_type.to_string())]);
-    req_builder = req_builder.query(&[("value", &p_value.to_string())]);
-    if let Some(ref param_value) = p_limit {
+    req_builder = req_builder.query(&[("type", &p_query_type.to_string())]);
+    req_builder = req_builder.query(&[("value", &p_query_value.to_string())]);
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -152,8 +152,8 @@ pub async fn devices_ran_on(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::IocapiPeriodMsaReplyDevicesRanOn`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::IocapiPeriodMsaReplyDevicesRanOn`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::IocapiMsaReplyDevicesRanOn`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::IocapiMsaReplyDevicesRanOn`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -166,13 +166,12 @@ pub async fn devices_ran_on(
     }
 }
 
-pub async fn entities_period_processes(
+pub async fn entities_processes(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ProcessesapiPeriodMsaProcessDetailResponse, Error<EntitiesPeriodProcessesError>>
-{
+) -> Result<models::ProcessesapiMsaProcessDetailResponse, Error<EntitiesProcessesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/processes/entities/processes/v1",
@@ -182,14 +181,14 @@ pub async fn entities_period_processes(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -219,12 +218,12 @@ pub async fn entities_period_processes(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ProcessesapiPeriodMsaProcessDetailResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ProcessesapiPeriodMsaProcessDetailResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ProcessesapiMsaProcessDetailResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ProcessesapiMsaProcessDetailResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<EntitiesPeriodProcessesError> = serde_json::from_str(&content).ok();
+        let entity: Option<EntitiesProcessesError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -240,13 +239,13 @@ pub async fn processes_ran_on(
     device_id: &str,
     limit: Option<&str>,
     offset: Option<&str>,
-) -> Result<models::IocapiPeriodMsaReplyProcessesRanOn, Error<ProcessesRanOnError>> {
+) -> Result<models::IocapiMsaReplyProcessesRanOn, Error<ProcessesRanOnError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_type = r#type;
-    let p_value = value;
-    let p_device_id = device_id;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_type = r#type;
+    let p_query_value = value;
+    let p_query_device_id = device_id;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/indicators/queries/processes/v1",
@@ -254,13 +253,13 @@ pub async fn processes_ran_on(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("type", &p_type.to_string())]);
-    req_builder = req_builder.query(&[("value", &p_value.to_string())]);
-    req_builder = req_builder.query(&[("device_id", &p_device_id.to_string())]);
-    if let Some(ref param_value) = p_limit {
+    req_builder = req_builder.query(&[("type", &p_query_type.to_string())]);
+    req_builder = req_builder.query(&[("value", &p_query_value.to_string())]);
+    req_builder = req_builder.query(&[("device_id", &p_query_device_id.to_string())]);
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -285,8 +284,8 @@ pub async fn processes_ran_on(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::IocapiPeriodMsaReplyProcessesRanOn`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::IocapiPeriodMsaReplyProcessesRanOn`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::IocapiMsaReplyProcessesRanOn`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::IocapiMsaReplyProcessesRanOn`")))),
         }
     } else {
         let content = resp.text().await?;

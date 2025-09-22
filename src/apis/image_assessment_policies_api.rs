@@ -17,9 +17,9 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreatePoliciesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,9 +27,9 @@ pub enum CreatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreatePolicyGroupsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,9 +37,9 @@ pub enum CreatePolicyGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeletePolicyError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -47,9 +47,9 @@ pub enum DeletePolicyError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeletePolicyGroupError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -57,9 +57,9 @@ pub enum DeletePolicyGroupError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadPoliciesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -67,9 +67,9 @@ pub enum ReadPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadPolicyExclusionsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -77,9 +77,9 @@ pub enum ReadPolicyExclusionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadPolicyGroupsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -87,9 +87,9 @@ pub enum ReadPolicyGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdatePoliciesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -97,9 +97,9 @@ pub enum UpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdatePolicyExclusionsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -107,9 +107,9 @@ pub enum UpdatePolicyExclusionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdatePolicyGroupsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -117,18 +117,18 @@ pub enum UpdatePolicyGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdatePolicyPrecedenceError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_policies(
     configuration: &configuration::Configuration,
-    body: models::ModelsPeriodCreatePolicyRequest,
-) -> Result<models::ModelsPeriodPolicyEntityResponse, Error<CreatePoliciesError>> {
+    body: models::ModelsCreatePolicyRequest,
+) -> Result<models::ModelsPolicyEntityResponse, Error<CreatePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/container-security/entities/image-assessment-policies/v1",
@@ -144,7 +144,7 @@ pub async fn create_policies(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -161,8 +161,8 @@ pub async fn create_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodPolicyEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodPolicyEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -177,10 +177,10 @@ pub async fn create_policies(
 
 pub async fn create_policy_groups(
     configuration: &configuration::Configuration,
-    body: models::ModelsPeriodCreateImageGroupRequest,
-) -> Result<models::ModelsPeriodPolicyGroupEntityResponse, Error<CreatePolicyGroupsError>> {
+    body: models::ModelsCreateImageGroupRequest,
+) -> Result<models::ModelsPolicyGroupEntityResponse, Error<CreatePolicyGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/container-security/entities/image-assessment-policy-groups/v1",
@@ -196,7 +196,7 @@ pub async fn create_policy_groups(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -213,8 +213,8 @@ pub async fn create_policy_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodPolicyGroupEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodPolicyGroupEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyGroupEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyGroupEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -230,9 +230,9 @@ pub async fn create_policy_groups(
 pub async fn delete_policy(
     configuration: &configuration::Configuration,
     id: &str,
-) -> Result<models::CorePeriodEntitiesResponse, Error<DeletePolicyError>> {
+) -> Result<models::CoreEntitiesResponse, Error<DeletePolicyError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_query_id = id;
 
     let uri_str = format!(
         "{}/container-security/entities/image-assessment-policies/v1",
@@ -242,7 +242,7 @@ pub async fn delete_policy(
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -265,8 +265,8 @@ pub async fn delete_policy(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CorePeriodEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CorePeriodEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CoreEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CoreEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -282,9 +282,9 @@ pub async fn delete_policy(
 pub async fn delete_policy_group(
     configuration: &configuration::Configuration,
     id: &str,
-) -> Result<models::CorePeriodEntitiesResponse, Error<DeletePolicyGroupError>> {
+) -> Result<models::CoreEntitiesResponse, Error<DeletePolicyGroupError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_query_id = id;
 
     let uri_str = format!(
         "{}/container-security/entities/image-assessment-policy-groups/v1",
@@ -294,7 +294,7 @@ pub async fn delete_policy_group(
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -317,8 +317,8 @@ pub async fn delete_policy_group(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CorePeriodEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CorePeriodEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CoreEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CoreEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -333,7 +333,7 @@ pub async fn delete_policy_group(
 
 pub async fn read_policies(
     configuration: &configuration::Configuration,
-) -> Result<models::ModelsPeriodPolicyEntityResponse, Error<ReadPoliciesError>> {
+) -> Result<models::ModelsPolicyEntityResponse, Error<ReadPoliciesError>> {
     let uri_str = format!(
         "{}/container-security/entities/image-assessment-policies/v1",
         configuration.base_path
@@ -362,8 +362,8 @@ pub async fn read_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodPolicyEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodPolicyEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -378,7 +378,7 @@ pub async fn read_policies(
 
 pub async fn read_policy_exclusions(
     configuration: &configuration::Configuration,
-) -> Result<models::ModelsPeriodPolicyExclusionEntityResponse, Error<ReadPolicyExclusionsError>> {
+) -> Result<models::ModelsPolicyExclusionEntityResponse, Error<ReadPolicyExclusionsError>> {
     let uri_str = format!(
         "{}/container-security/entities/image-assessment-policy-exclusions/v1",
         configuration.base_path
@@ -407,8 +407,8 @@ pub async fn read_policy_exclusions(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodPolicyExclusionEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodPolicyExclusionEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyExclusionEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyExclusionEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -423,7 +423,7 @@ pub async fn read_policy_exclusions(
 
 pub async fn read_policy_groups(
     configuration: &configuration::Configuration,
-) -> Result<models::ModelsPeriodPolicyGroupEntityResponse, Error<ReadPolicyGroupsError>> {
+) -> Result<models::ModelsPolicyGroupEntityResponse, Error<ReadPolicyGroupsError>> {
     let uri_str = format!(
         "{}/container-security/entities/image-assessment-policy-groups/v1",
         configuration.base_path
@@ -452,8 +452,8 @@ pub async fn read_policy_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodPolicyGroupEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodPolicyGroupEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyGroupEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyGroupEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -469,11 +469,11 @@ pub async fn read_policy_groups(
 pub async fn update_policies(
     configuration: &configuration::Configuration,
     id: &str,
-    body: models::ModelsPeriodPatchPolicyRequest,
-) -> Result<models::ModelsPeriodPolicyEntityResponse, Error<UpdatePoliciesError>> {
+    body: models::ModelsPatchPolicyRequest,
+) -> Result<models::ModelsPolicyEntityResponse, Error<UpdatePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_body = body;
+    let p_query_id = id;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/container-security/entities/image-assessment-policies/v1",
@@ -483,14 +483,14 @@ pub async fn update_policies(
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -507,8 +507,8 @@ pub async fn update_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodPolicyEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodPolicyEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -523,10 +523,10 @@ pub async fn update_policies(
 
 pub async fn update_policy_exclusions(
     configuration: &configuration::Configuration,
-    body: models::ModelsPeriodUpdateExclusionsRequest,
-) -> Result<models::ModelsPeriodPolicyExclusionEntityResponse, Error<UpdatePolicyExclusionsError>> {
+    body: models::ModelsUpdateExclusionsRequest,
+) -> Result<models::ModelsPolicyExclusionEntityResponse, Error<UpdatePolicyExclusionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/container-security/entities/image-assessment-policy-exclusions/v1",
@@ -542,7 +542,7 @@ pub async fn update_policy_exclusions(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -559,8 +559,8 @@ pub async fn update_policy_exclusions(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodPolicyExclusionEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodPolicyExclusionEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyExclusionEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyExclusionEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -576,11 +576,11 @@ pub async fn update_policy_exclusions(
 pub async fn update_policy_groups(
     configuration: &configuration::Configuration,
     id: &str,
-    body: models::ModelsPeriodPatchImageGroupRequest,
-) -> Result<models::ModelsPeriodPolicyGroupEntityResponse, Error<UpdatePolicyGroupsError>> {
+    body: models::ModelsPatchImageGroupRequest,
+) -> Result<models::ModelsPolicyGroupEntityResponse, Error<UpdatePolicyGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_body = body;
+    let p_query_id = id;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/container-security/entities/image-assessment-policy-groups/v1",
@@ -590,14 +590,14 @@ pub async fn update_policy_groups(
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -614,8 +614,8 @@ pub async fn update_policy_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodPolicyGroupEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodPolicyGroupEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyGroupEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyGroupEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -630,10 +630,10 @@ pub async fn update_policy_groups(
 
 pub async fn update_policy_precedence(
     configuration: &configuration::Configuration,
-    body: models::ModelsPeriodApiPrecedenceRequest,
-) -> Result<models::ModelsPeriodPolicyEntityResponse, Error<UpdatePolicyPrecedenceError>> {
+    body: models::ModelsApiPrecedenceRequest,
+) -> Result<models::ModelsPolicyEntityResponse, Error<UpdatePolicyPrecedenceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/container-security/entities/image-assessment-policy-precedence/v1",
@@ -649,7 +649,7 @@ pub async fn update_policy_precedence(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -666,8 +666,8 @@ pub async fn update_policy_precedence(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodPolicyEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodPolicyEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPolicyEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPolicyEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;

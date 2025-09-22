@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum Oauth2AccessTokenError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum Oauth2AccessTokenError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum Oauth2RevokeTokenError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,11 +40,11 @@ pub async fn oauth2_access_token(
     client_id: &str,
     client_secret: &str,
     member_cid: Option<&str>,
-) -> Result<models::DomainPeriodAccessTokenResponseV1, Error<Oauth2AccessTokenError>> {
+) -> Result<models::DomainAccessTokenResponseV1, Error<Oauth2AccessTokenError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_client_id = client_id;
-    let p_client_secret = client_secret;
-    let p_member_cid = member_cid;
+    let p_form_client_id = client_id;
+    let p_form_client_secret = client_secret;
+    let p_form_member_cid = member_cid;
 
     let uri_str = format!("{}/oauth2/token", configuration.base_path);
     let mut req_builder = configuration
@@ -55,9 +55,9 @@ pub async fn oauth2_access_token(
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     let mut multipart_form_params = std::collections::HashMap::new();
-    multipart_form_params.insert("client_id", p_client_id.to_string());
-    multipart_form_params.insert("client_secret", p_client_secret.to_string());
-    if let Some(param_value) = p_member_cid {
+    multipart_form_params.insert("client_id", p_form_client_id.to_string());
+    multipart_form_params.insert("client_secret", p_form_client_secret.to_string());
+    if let Some(param_value) = p_form_member_cid {
         multipart_form_params.insert("member_cid", param_value.to_string());
     }
     req_builder = req_builder.form(&multipart_form_params);
@@ -77,8 +77,8 @@ pub async fn oauth2_access_token(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAccessTokenResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAccessTokenResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAccessTokenResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAccessTokenResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -95,10 +95,10 @@ pub async fn oauth2_revoke_token(
     configuration: &configuration::Configuration,
     token: &str,
     client_id: Option<&str>,
-) -> Result<models::MsaspecPeriodResponseFields, Error<Oauth2RevokeTokenError>> {
+) -> Result<models::MsaspecResponseFields, Error<Oauth2RevokeTokenError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_token = token;
-    let p_client_id = client_id;
+    let p_form_token = token;
+    let p_form_client_id = client_id;
 
     let uri_str = format!("{}/oauth2/revoke", configuration.base_path);
     let mut req_builder = configuration
@@ -109,10 +109,10 @@ pub async fn oauth2_revoke_token(
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     let mut multipart_form_params = std::collections::HashMap::new();
-    if let Some(param_value) = p_client_id {
+    if let Some(param_value) = p_form_client_id {
         multipart_form_params.insert("client_id", param_value.to_string());
     }
-    multipart_form_params.insert("token", p_token.to_string());
+    multipart_form_params.insert("token", p_form_token.to_string());
     req_builder = req_builder.form(&multipart_form_params);
 
     let req = req_builder.build()?;
@@ -130,8 +130,8 @@ pub async fn oauth2_revoke_token(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecResponseFields`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecResponseFields`")))),
         }
     } else {
         let content = resp.text().await?;

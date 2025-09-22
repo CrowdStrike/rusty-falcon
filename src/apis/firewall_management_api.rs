@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateEventsError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum AggregateEventsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregatePolicyRulesError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,9 +39,9 @@ pub enum AggregatePolicyRulesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateRuleGroupsError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
     Status500(),
     UnknownValue(serde_json::Value),
 }
@@ -50,10 +50,10 @@ pub enum AggregateRuleGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateRulesError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,10 +61,10 @@ pub enum AggregateRulesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateNetworkLocationsError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -72,10 +72,10 @@ pub enum CreateNetworkLocationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateRuleGroupError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -83,10 +83,10 @@ pub enum CreateRuleGroupError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateRuleGroupValidationError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -94,10 +94,10 @@ pub enum CreateRuleGroupValidationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteNetworkLocationsError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -105,10 +105,10 @@ pub enum DeleteNetworkLocationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteRuleGroupsError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -116,10 +116,10 @@ pub enum DeleteRuleGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetEventsError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -127,9 +127,9 @@ pub enum GetEventsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetFirewallFieldsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -137,10 +137,10 @@ pub enum GetFirewallFieldsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetNetworkLocationsError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -148,10 +148,10 @@ pub enum GetNetworkLocationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetNetworkLocationsDetailsError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -159,9 +159,9 @@ pub enum GetNetworkLocationsDetailsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetPlatformsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -169,10 +169,10 @@ pub enum GetPlatformsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetPolicyContainersError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -180,10 +180,10 @@ pub enum GetPolicyContainersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRuleGroupsError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -191,10 +191,10 @@ pub enum GetRuleGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRulesError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -202,10 +202,10 @@ pub enum GetRulesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryEventsError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -213,9 +213,9 @@ pub enum QueryEventsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryFirewallFieldsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -223,10 +223,10 @@ pub enum QueryFirewallFieldsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryNetworkLocationsError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -234,9 +234,9 @@ pub enum QueryNetworkLocationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryPlatformsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -244,10 +244,10 @@ pub enum QueryPlatformsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryPolicyRulesError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -255,10 +255,10 @@ pub enum QueryPolicyRulesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRuleGroupsError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -266,10 +266,10 @@ pub enum QueryRuleGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRulesError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -277,10 +277,10 @@ pub enum QueryRulesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateNetworkLocationsError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -288,10 +288,10 @@ pub enum UpdateNetworkLocationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateNetworkLocationsMetadataError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -299,10 +299,10 @@ pub enum UpdateNetworkLocationsMetadataError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateNetworkLocationsPrecedenceError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -310,10 +310,10 @@ pub enum UpdateNetworkLocationsPrecedenceError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdatePolicyContainerError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -321,10 +321,10 @@ pub enum UpdatePolicyContainerError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdatePolicyContainerV1Error {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -332,10 +332,10 @@ pub enum UpdatePolicyContainerV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateRuleGroupError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -343,10 +343,10 @@ pub enum UpdateRuleGroupError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateRuleGroupValidationError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -354,10 +354,10 @@ pub enum UpdateRuleGroupValidationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpsertNetworkLocationsError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -365,19 +365,19 @@ pub enum UpsertNetworkLocationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ValidateFilepathPatternError {
-    Status400(models::FwmgrPeriodMsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::FwmgrMsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn aggregate_events(
     configuration: &configuration::Configuration,
-    body: Vec<models::FwmgrPeriodMsaPeriodAggregateQueryRequest>,
-) -> Result<models::FwmgrPeriodApiPeriodAggregatesResponse, Error<AggregateEventsError>> {
+    body: Vec<models::FwmgrMsaAggregateQueryRequest>,
+) -> Result<models::FwmgrApiAggregatesResponse, Error<AggregateEventsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/fwmgr/aggregates/events/GET/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -390,7 +390,7 @@ pub async fn aggregate_events(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -407,8 +407,8 @@ pub async fn aggregate_events(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -423,10 +423,10 @@ pub async fn aggregate_events(
 
 pub async fn aggregate_policy_rules(
     configuration: &configuration::Configuration,
-    body: Vec<models::FwmgrPeriodMsaPeriodAggregateQueryRequest>,
-) -> Result<models::FwmgrPeriodApiPeriodAggregatesResponse, Error<AggregatePolicyRulesError>> {
+    body: Vec<models::FwmgrMsaAggregateQueryRequest>,
+) -> Result<models::FwmgrApiAggregatesResponse, Error<AggregatePolicyRulesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/fwmgr/aggregates/policy-rules/GET/v1",
@@ -442,7 +442,7 @@ pub async fn aggregate_policy_rules(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -459,8 +459,8 @@ pub async fn aggregate_policy_rules(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -475,10 +475,10 @@ pub async fn aggregate_policy_rules(
 
 pub async fn aggregate_rule_groups(
     configuration: &configuration::Configuration,
-    body: Vec<models::FwmgrPeriodMsaPeriodAggregateQueryRequest>,
-) -> Result<models::FwmgrPeriodApiPeriodAggregatesResponse, Error<AggregateRuleGroupsError>> {
+    body: Vec<models::FwmgrMsaAggregateQueryRequest>,
+) -> Result<models::FwmgrApiAggregatesResponse, Error<AggregateRuleGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/fwmgr/aggregates/rule-groups/GET/v1",
@@ -494,7 +494,7 @@ pub async fn aggregate_rule_groups(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -511,8 +511,8 @@ pub async fn aggregate_rule_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -527,10 +527,10 @@ pub async fn aggregate_rule_groups(
 
 pub async fn aggregate_rules(
     configuration: &configuration::Configuration,
-    body: Vec<models::FwmgrPeriodMsaPeriodAggregateQueryRequest>,
-) -> Result<models::FwmgrPeriodApiPeriodAggregatesResponse, Error<AggregateRulesError>> {
+    body: Vec<models::FwmgrMsaAggregateQueryRequest>,
+) -> Result<models::FwmgrApiAggregatesResponse, Error<AggregateRulesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/fwmgr/aggregates/rules/GET/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -543,7 +543,7 @@ pub async fn aggregate_rules(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -560,8 +560,8 @@ pub async fn aggregate_rules(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -576,17 +576,16 @@ pub async fn aggregate_rules(
 
 pub async fn create_network_locations(
     configuration: &configuration::Configuration,
-    body: models::FwmgrPeriodApiPeriodNetworkLocationCreateRequestV1,
+    body: models::FwmgrApiNetworkLocationCreateRequestV1,
     clone_id: Option<&str>,
     add_fw_rules: Option<bool>,
     comment: Option<&str>,
-) -> Result<models::FwmgrPeriodApiPeriodNetworkLocationsResponse, Error<CreateNetworkLocationsError>>
-{
+) -> Result<models::FwmgrApiNetworkLocationsResponse, Error<CreateNetworkLocationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_clone_id = clone_id;
-    let p_add_fw_rules = add_fw_rules;
-    let p_comment = comment;
+    let p_body_body = body;
+    let p_query_clone_id = clone_id;
+    let p_query_add_fw_rules = add_fw_rules;
+    let p_query_comment = comment;
 
     let uri_str = format!(
         "{}/fwmgr/entities/network-locations/v1",
@@ -596,13 +595,13 @@ pub async fn create_network_locations(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_clone_id {
+    if let Some(ref param_value) = p_query_clone_id {
         req_builder = req_builder.query(&[("clone_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_add_fw_rules {
+    if let Some(ref param_value) = p_query_add_fw_rules {
         req_builder = req_builder.query(&[("add_fw_rules", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_comment {
+    if let Some(ref param_value) = p_query_comment {
         req_builder = req_builder.query(&[("comment", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -611,7 +610,7 @@ pub async fn create_network_locations(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -628,8 +627,8 @@ pub async fn create_network_locations(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodNetworkLocationsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodNetworkLocationsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiNetworkLocationsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiNetworkLocationsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -644,29 +643,29 @@ pub async fn create_network_locations(
 
 pub async fn create_rule_group(
     configuration: &configuration::Configuration,
-    body: models::FwmgrPeriodApiPeriodRuleGroupCreateRequestV1,
+    body: models::FwmgrApiRuleGroupCreateRequestV1,
     clone_id: Option<&str>,
     library: Option<&str>,
     comment: Option<&str>,
-) -> Result<models::FwmgrPeriodApiPeriodQueryResponse, Error<CreateRuleGroupError>> {
+) -> Result<models::FwmgrApiQueryResponse, Error<CreateRuleGroupError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_clone_id = clone_id;
-    let p_library = library;
-    let p_comment = comment;
+    let p_body_body = body;
+    let p_query_clone_id = clone_id;
+    let p_query_library = library;
+    let p_query_comment = comment;
 
     let uri_str = format!("{}/fwmgr/entities/rule-groups/v1", configuration.base_path);
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_clone_id {
+    if let Some(ref param_value) = p_query_clone_id {
         req_builder = req_builder.query(&[("clone_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_library {
+    if let Some(ref param_value) = p_query_library {
         req_builder = req_builder.query(&[("library", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_comment {
+    if let Some(ref param_value) = p_query_comment {
         req_builder = req_builder.query(&[("comment", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -675,7 +674,7 @@ pub async fn create_rule_group(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -692,8 +691,8 @@ pub async fn create_rule_group(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -708,16 +707,16 @@ pub async fn create_rule_group(
 
 pub async fn create_rule_group_validation(
     configuration: &configuration::Configuration,
-    body: models::FwmgrPeriodApiPeriodRuleGroupCreateRequestV1,
+    body: models::FwmgrApiRuleGroupCreateRequestV1,
     clone_id: Option<&str>,
     library: Option<&str>,
     comment: Option<&str>,
-) -> Result<models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<CreateRuleGroupValidationError>> {
+) -> Result<models::FwmgrMsaspecQueryResponse, Error<CreateRuleGroupValidationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_clone_id = clone_id;
-    let p_library = library;
-    let p_comment = comment;
+    let p_body_body = body;
+    let p_query_clone_id = clone_id;
+    let p_query_library = library;
+    let p_query_comment = comment;
 
     let uri_str = format!(
         "{}/fwmgr/entities/rule-groups/validation/v1",
@@ -727,13 +726,13 @@ pub async fn create_rule_group_validation(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_clone_id {
+    if let Some(ref param_value) = p_query_clone_id {
         req_builder = req_builder.query(&[("clone_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_library {
+    if let Some(ref param_value) = p_query_library {
         req_builder = req_builder.query(&[("library", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_comment {
+    if let Some(ref param_value) = p_query_comment {
         req_builder = req_builder.query(&[("comment", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -742,7 +741,7 @@ pub async fn create_rule_group_validation(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -759,8 +758,8 @@ pub async fn create_rule_group_validation(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -776,9 +775,9 @@ pub async fn create_rule_group_validation(
 pub async fn delete_network_locations(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<DeleteNetworkLocationsError>> {
+) -> Result<models::FwmgrMsaspecQueryResponse, Error<DeleteNetworkLocationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/fwmgr/entities/network-locations/v1",
@@ -790,14 +789,14 @@ pub async fn delete_network_locations(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -827,8 +826,8 @@ pub async fn delete_network_locations(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -845,10 +844,10 @@ pub async fn delete_rule_groups(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     comment: Option<&str>,
-) -> Result<models::FwmgrPeriodApiPeriodQueryResponse, Error<DeleteRuleGroupsError>> {
+) -> Result<models::FwmgrApiQueryResponse, Error<DeleteRuleGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_comment = comment;
+    let p_query_ids = ids;
+    let p_query_comment = comment;
 
     let uri_str = format!("{}/fwmgr/entities/rule-groups/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -857,14 +856,14 @@ pub async fn delete_rule_groups(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -872,7 +871,7 @@ pub async fn delete_rule_groups(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_comment {
+    if let Some(ref param_value) = p_query_comment {
         req_builder = req_builder.query(&[("comment", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -897,8 +896,8 @@ pub async fn delete_rule_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -914,23 +913,23 @@ pub async fn delete_rule_groups(
 pub async fn get_events(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::FwmgrPeriodApiPeriodEventsResponse, Error<GetEventsError>> {
+) -> Result<models::FwmgrApiEventsResponse, Error<GetEventsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/fwmgr/entities/events/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -960,8 +959,8 @@ pub async fn get_events(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodEventsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodEventsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiEventsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiEventsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -977,9 +976,9 @@ pub async fn get_events(
 pub async fn get_firewall_fields(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::FwmgrPeriodApiPeriodFirewallFieldsResponse, Error<GetFirewallFieldsError>> {
+) -> Result<models::FwmgrApiFirewallFieldsResponse, Error<GetFirewallFieldsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/fwmgr/entities/firewall-fields/v1",
@@ -989,14 +988,14 @@ pub async fn get_firewall_fields(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1026,8 +1025,8 @@ pub async fn get_firewall_fields(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodFirewallFieldsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodFirewallFieldsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiFirewallFieldsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiFirewallFieldsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1044,12 +1043,9 @@ pub async fn get_firewall_fields(
 pub async fn get_network_locations(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    models::FwmgrPeriodApiPeriodNetworkLocationSummariesResponse,
-    Error<GetNetworkLocationsError>,
-> {
+) -> Result<models::FwmgrApiNetworkLocationSummariesResponse, Error<GetNetworkLocationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/fwmgr/entities/network-locations/v1",
@@ -1059,14 +1055,14 @@ pub async fn get_network_locations(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1096,8 +1092,8 @@ pub async fn get_network_locations(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodNetworkLocationSummariesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodNetworkLocationSummariesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiNetworkLocationSummariesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiNetworkLocationSummariesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1114,12 +1110,9 @@ pub async fn get_network_locations(
 pub async fn get_network_locations_details(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    models::FwmgrPeriodApiPeriodNetworkLocationsResponse,
-    Error<GetNetworkLocationsDetailsError>,
-> {
+) -> Result<models::FwmgrApiNetworkLocationsResponse, Error<GetNetworkLocationsDetailsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/fwmgr/entities/network-locations-details/v1",
@@ -1129,14 +1122,14 @@ pub async fn get_network_locations_details(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1166,8 +1159,8 @@ pub async fn get_network_locations_details(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodNetworkLocationsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodNetworkLocationsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiNetworkLocationsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiNetworkLocationsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1183,23 +1176,23 @@ pub async fn get_network_locations_details(
 pub async fn get_platforms(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::FwmgrPeriodApiPeriodPlatformsResponse, Error<GetPlatformsError>> {
+) -> Result<models::FwmgrApiPlatformsResponse, Error<GetPlatformsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/fwmgr/entities/platforms/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1229,8 +1222,8 @@ pub async fn get_platforms(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodPlatformsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodPlatformsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiPlatformsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiPlatformsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1246,23 +1239,23 @@ pub async fn get_platforms(
 pub async fn get_policy_containers(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::FwmgrPeriodApiPeriodPolicyContainersResponse, Error<GetPolicyContainersError>> {
+) -> Result<models::FwmgrApiPolicyContainersResponse, Error<GetPolicyContainersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/fwmgr/entities/policies/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1292,8 +1285,8 @@ pub async fn get_policy_containers(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodPolicyContainersResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodPolicyContainersResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiPolicyContainersResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiPolicyContainersResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1309,23 +1302,23 @@ pub async fn get_policy_containers(
 pub async fn get_rule_groups(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::FwmgrPeriodApiPeriodRuleGroupsResponse, Error<GetRuleGroupsError>> {
+) -> Result<models::FwmgrApiRuleGroupsResponse, Error<GetRuleGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/fwmgr/entities/rule-groups/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1355,8 +1348,8 @@ pub async fn get_rule_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodRuleGroupsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodRuleGroupsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiRuleGroupsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiRuleGroupsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1372,23 +1365,23 @@ pub async fn get_rule_groups(
 pub async fn get_rules(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::FwmgrPeriodApiPeriodRulesResponse, Error<GetRulesError>> {
+) -> Result<models::FwmgrApiRulesResponse, Error<GetRulesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/fwmgr/entities/rules/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1418,8 +1411,8 @@ pub async fn get_rules(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodRulesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodRulesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiRulesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiRulesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1440,34 +1433,34 @@ pub async fn query_events(
     offset: Option<&str>,
     after: Option<&str>,
     limit: Option<i32>,
-) -> Result<models::FwmgrPeriodApiPeriodQueryResponse, Error<QueryEventsError>> {
+) -> Result<models::FwmgrApiQueryResponse, Error<QueryEventsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
-    let p_offset = offset;
-    let p_after = after;
-    let p_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
+    let p_query_offset = offset;
+    let p_query_after = after;
+    let p_query_limit = limit;
 
     let uri_str = format!("{}/fwmgr/queries/events/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_after {
+    if let Some(ref param_value) = p_query_after {
         req_builder = req_builder.query(&[("after", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1492,8 +1485,8 @@ pub async fn query_events(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1511,11 +1504,11 @@ pub async fn query_firewall_fields(
     platform_id: Option<&str>,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<QueryFirewallFieldsError>> {
+) -> Result<models::FwmgrMsaspecQueryResponse, Error<QueryFirewallFieldsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_platform_id = platform_id;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_platform_id = platform_id;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/fwmgr/queries/firewall-fields/v1",
@@ -1523,13 +1516,13 @@ pub async fn query_firewall_fields(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_platform_id {
+    if let Some(ref param_value) = p_query_platform_id {
         req_builder = req_builder.query(&[("platform_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1554,8 +1547,8 @@ pub async fn query_firewall_fields(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1577,14 +1570,14 @@ pub async fn query_network_locations(
     offset: Option<&str>,
     after: Option<&str>,
     limit: Option<i32>,
-) -> Result<models::FwmgrPeriodApiPeriodQueryResponse, Error<QueryNetworkLocationsError>> {
+) -> Result<models::FwmgrApiQueryResponse, Error<QueryNetworkLocationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
-    let p_offset = offset;
-    let p_after = after;
-    let p_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
+    let p_query_offset = offset;
+    let p_query_after = after;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/fwmgr/queries/network-locations/v1",
@@ -1592,22 +1585,22 @@ pub async fn query_network_locations(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_after {
+    if let Some(ref param_value) = p_query_after {
         req_builder = req_builder.query(&[("after", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1632,8 +1625,8 @@ pub async fn query_network_locations(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1650,18 +1643,18 @@ pub async fn query_platforms(
     configuration: &configuration::Configuration,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<QueryPlatformsError>> {
+) -> Result<models::FwmgrMsaspecQueryResponse, Error<QueryPlatformsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!("{}/fwmgr/queries/platforms/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1686,8 +1679,8 @@ pub async fn query_platforms(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1708,34 +1701,34 @@ pub async fn query_policy_rules(
     q: Option<&str>,
     offset: Option<&str>,
     limit: Option<i32>,
-) -> Result<models::FwmgrPeriodApiPeriodQueryResponse, Error<QueryPolicyRulesError>> {
+) -> Result<models::FwmgrApiQueryResponse, Error<QueryPolicyRulesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_id = id;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!("{}/fwmgr/queries/policy-rules/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1760,8 +1753,8 @@ pub async fn query_policy_rules(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1782,34 +1775,34 @@ pub async fn query_rule_groups(
     offset: Option<&str>,
     after: Option<&str>,
     limit: Option<i32>,
-) -> Result<models::FwmgrPeriodApiPeriodQueryResponse, Error<QueryRuleGroupsError>> {
+) -> Result<models::FwmgrApiQueryResponse, Error<QueryRuleGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
-    let p_offset = offset;
-    let p_after = after;
-    let p_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
+    let p_query_offset = offset;
+    let p_query_after = after;
+    let p_query_limit = limit;
 
     let uri_str = format!("{}/fwmgr/queries/rule-groups/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_after {
+    if let Some(ref param_value) = p_query_after {
         req_builder = req_builder.query(&[("after", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1834,8 +1827,8 @@ pub async fn query_rule_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1856,34 +1849,34 @@ pub async fn query_rules(
     offset: Option<&str>,
     after: Option<&str>,
     limit: Option<i32>,
-) -> Result<models::FwmgrPeriodApiPeriodQueryResponse, Error<QueryRulesError>> {
+) -> Result<models::FwmgrApiQueryResponse, Error<QueryRulesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
-    let p_offset = offset;
-    let p_after = after;
-    let p_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
+    let p_query_offset = offset;
+    let p_query_after = after;
+    let p_query_limit = limit;
 
     let uri_str = format!("{}/fwmgr/queries/rules/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_after {
+    if let Some(ref param_value) = p_query_after {
         req_builder = req_builder.query(&[("after", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1908,8 +1901,8 @@ pub async fn query_rules(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1924,12 +1917,12 @@ pub async fn query_rules(
 
 pub async fn update_network_locations(
     configuration: &configuration::Configuration,
-    body: models::FwmgrPeriodApiPeriodNetworkLocationModifyRequestV1,
+    body: models::FwmgrApiNetworkLocationModifyRequestV1,
     comment: Option<&str>,
-) -> Result<models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<UpdateNetworkLocationsError>> {
+) -> Result<models::FwmgrMsaspecQueryResponse, Error<UpdateNetworkLocationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_comment = comment;
+    let p_body_body = body;
+    let p_query_comment = comment;
 
     let uri_str = format!(
         "{}/fwmgr/entities/network-locations/v1",
@@ -1939,7 +1932,7 @@ pub async fn update_network_locations(
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    if let Some(ref param_value) = p_comment {
+    if let Some(ref param_value) = p_query_comment {
         req_builder = req_builder.query(&[("comment", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1948,7 +1941,7 @@ pub async fn update_network_locations(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1965,8 +1958,8 @@ pub async fn update_network_locations(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1981,13 +1974,12 @@ pub async fn update_network_locations(
 
 pub async fn update_network_locations_metadata(
     configuration: &configuration::Configuration,
-    body: models::FwmgrPeriodApiPeriodNetworkLocationModifyMetadataRequestV1,
+    body: models::FwmgrApiNetworkLocationModifyMetadataRequestV1,
     comment: Option<&str>,
-) -> Result<models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<UpdateNetworkLocationsMetadataError>>
-{
+) -> Result<models::FwmgrMsaspecQueryResponse, Error<UpdateNetworkLocationsMetadataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_comment = comment;
+    let p_body_body = body;
+    let p_query_comment = comment;
 
     let uri_str = format!(
         "{}/fwmgr/entities/network-locations-metadata/v1",
@@ -1997,7 +1989,7 @@ pub async fn update_network_locations_metadata(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_comment {
+    if let Some(ref param_value) = p_query_comment {
         req_builder = req_builder.query(&[("comment", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2006,7 +1998,7 @@ pub async fn update_network_locations_metadata(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2023,8 +2015,8 @@ pub async fn update_network_locations_metadata(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2040,15 +2032,12 @@ pub async fn update_network_locations_metadata(
 
 pub async fn update_network_locations_precedence(
     configuration: &configuration::Configuration,
-    body: models::FwmgrPeriodApiPeriodNetworkLocationModifyPrecedenceRequestV1,
+    body: models::FwmgrApiNetworkLocationModifyPrecedenceRequestV1,
     comment: Option<&str>,
-) -> Result<
-    models::FwmgrPeriodMsaspecPeriodQueryResponse,
-    Error<UpdateNetworkLocationsPrecedenceError>,
-> {
+) -> Result<models::FwmgrMsaspecQueryResponse, Error<UpdateNetworkLocationsPrecedenceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_comment = comment;
+    let p_body_body = body;
+    let p_query_comment = comment;
 
     let uri_str = format!(
         "{}/fwmgr/entities/network-locations-precedence/v1",
@@ -2058,7 +2047,7 @@ pub async fn update_network_locations_precedence(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_comment {
+    if let Some(ref param_value) = p_query_comment {
         req_builder = req_builder.query(&[("comment", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2067,7 +2056,7 @@ pub async fn update_network_locations_precedence(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2084,8 +2073,8 @@ pub async fn update_network_locations_precedence(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2101,10 +2090,10 @@ pub async fn update_network_locations_precedence(
 
 pub async fn update_policy_container(
     configuration: &configuration::Configuration,
-    body: models::FwmgrPeriodApiPeriodPolicyContainerUpsertRequestV1,
-) -> Result<models::FwmgrPeriodMsaspecPeriodResponseFields, Error<UpdatePolicyContainerError>> {
+    body: models::FwmgrApiPolicyContainerUpsertRequestV1,
+) -> Result<models::FwmgrMsaspecResponseFields, Error<UpdatePolicyContainerError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/fwmgr/entities/policies/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
@@ -2115,7 +2104,7 @@ pub async fn update_policy_container(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2132,8 +2121,8 @@ pub async fn update_policy_container(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodResponseFields`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodResponseFields`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrMsaspecResponseFields`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrMsaspecResponseFields`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2148,10 +2137,10 @@ pub async fn update_policy_container(
 
 pub async fn update_policy_container_v1(
     configuration: &configuration::Configuration,
-    body: models::FwmgrPeriodApiPeriodPolicyContainerUpsertRequestV1,
-) -> Result<models::FwmgrPeriodMsaspecPeriodResponseFields, Error<UpdatePolicyContainerV1Error>> {
+    body: models::FwmgrApiPolicyContainerUpsertRequestV1,
+) -> Result<models::FwmgrMsaspecResponseFields, Error<UpdatePolicyContainerV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/fwmgr/entities/policies/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
@@ -2162,7 +2151,7 @@ pub async fn update_policy_container_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2179,8 +2168,8 @@ pub async fn update_policy_container_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodResponseFields`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodResponseFields`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrMsaspecResponseFields`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrMsaspecResponseFields`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2195,19 +2184,19 @@ pub async fn update_policy_container_v1(
 
 pub async fn update_rule_group(
     configuration: &configuration::Configuration,
-    body: models::FwmgrPeriodApiPeriodRuleGroupModifyRequestV1,
+    body: models::FwmgrApiRuleGroupModifyRequestV1,
     comment: Option<&str>,
-) -> Result<models::FwmgrPeriodApiPeriodQueryResponse, Error<UpdateRuleGroupError>> {
+) -> Result<models::FwmgrApiQueryResponse, Error<UpdateRuleGroupError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_comment = comment;
+    let p_body_body = body;
+    let p_query_comment = comment;
 
     let uri_str = format!("{}/fwmgr/entities/rule-groups/v1", configuration.base_path);
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    if let Some(ref param_value) = p_comment {
+    if let Some(ref param_value) = p_query_comment {
         req_builder = req_builder.query(&[("comment", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2216,7 +2205,7 @@ pub async fn update_rule_group(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2233,8 +2222,8 @@ pub async fn update_rule_group(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2249,12 +2238,12 @@ pub async fn update_rule_group(
 
 pub async fn update_rule_group_validation(
     configuration: &configuration::Configuration,
-    body: models::FwmgrPeriodApiPeriodRuleGroupModifyRequestV1,
+    body: models::FwmgrApiRuleGroupModifyRequestV1,
     comment: Option<&str>,
-) -> Result<models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<UpdateRuleGroupValidationError>> {
+) -> Result<models::FwmgrMsaspecQueryResponse, Error<UpdateRuleGroupValidationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_comment = comment;
+    let p_body_body = body;
+    let p_query_comment = comment;
 
     let uri_str = format!(
         "{}/fwmgr/entities/rule-groups/validation/v1",
@@ -2264,7 +2253,7 @@ pub async fn update_rule_group_validation(
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    if let Some(ref param_value) = p_comment {
+    if let Some(ref param_value) = p_query_comment {
         req_builder = req_builder.query(&[("comment", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2273,7 +2262,7 @@ pub async fn update_rule_group_validation(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2290,8 +2279,8 @@ pub async fn update_rule_group_validation(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2306,12 +2295,12 @@ pub async fn update_rule_group_validation(
 
 pub async fn upsert_network_locations(
     configuration: &configuration::Configuration,
-    body: models::FwmgrPeriodApiPeriodNetworkLocationModifyRequestV1,
+    body: models::FwmgrApiNetworkLocationModifyRequestV1,
     comment: Option<&str>,
-) -> Result<models::FwmgrPeriodMsaspecPeriodQueryResponse, Error<UpsertNetworkLocationsError>> {
+) -> Result<models::FwmgrMsaspecQueryResponse, Error<UpsertNetworkLocationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_comment = comment;
+    let p_body_body = body;
+    let p_query_comment = comment;
 
     let uri_str = format!(
         "{}/fwmgr/entities/network-locations/v1",
@@ -2319,7 +2308,7 @@ pub async fn upsert_network_locations(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
-    if let Some(ref param_value) = p_comment {
+    if let Some(ref param_value) = p_query_comment {
         req_builder = req_builder.query(&[("comment", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2328,7 +2317,7 @@ pub async fn upsert_network_locations(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2345,8 +2334,8 @@ pub async fn upsert_network_locations(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodMsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrMsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2361,11 +2350,10 @@ pub async fn upsert_network_locations(
 
 pub async fn validate_filepath_pattern(
     configuration: &configuration::Configuration,
-    body: models::FwmgrPeriodApiPeriodFilepathTestRequest,
-) -> Result<models::FwmgrPeriodApiPeriodValidateFilepathResponse, Error<ValidateFilepathPatternError>>
-{
+    body: models::FwmgrApiFilepathTestRequest,
+) -> Result<models::FwmgrApiValidateFilepathResponse, Error<ValidateFilepathPatternError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/fwmgr/entities/rules/validate-filepath/v1",
@@ -2381,7 +2369,7 @@ pub async fn validate_filepath_pattern(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2398,8 +2386,8 @@ pub async fn validate_filepath_pattern(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodValidateFilepathResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrPeriodApiPeriodValidateFilepathResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FwmgrApiValidateFilepathResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FwmgrApiValidateFilepathResponse`")))),
         }
     } else {
         let content = resp.text().await?;

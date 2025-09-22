@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListAvailableStreamsOAuth2Error {
-    Status400(models::MainPeriodDiscoveryResponseV2),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MainPeriodDiscoveryResponseV2),
+    Status400(models::MainDiscoveryResponseV2),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MainDiscoveryResponseV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum ListAvailableStreamsOAuth2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RefreshActiveStreamSessionError {
-    Status400(models::MsaPeriodReplyMetaOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,16 +39,16 @@ pub async fn list_available_streams_o_auth2(
     configuration: &configuration::Configuration,
     app_id: &str,
     format: Option<&str>,
-) -> Result<models::MainPeriodDiscoveryResponseV2, Error<ListAvailableStreamsOAuth2Error>> {
+) -> Result<models::MainDiscoveryResponseV2, Error<ListAvailableStreamsOAuth2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_app_id = app_id;
-    let p_format = format;
+    let p_query_app_id = app_id;
+    let p_query_format = format;
 
     let uri_str = format!("{}/sensors/entities/datafeed/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("appId", &p_app_id.to_string())]);
-    if let Some(ref param_value) = p_format {
+    req_builder = req_builder.query(&[("appId", &p_query_app_id.to_string())]);
+    if let Some(ref param_value) = p_query_format {
         req_builder = req_builder.query(&[("format", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -73,8 +73,8 @@ pub async fn list_available_streams_o_auth2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MainPeriodDiscoveryResponseV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MainPeriodDiscoveryResponseV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MainDiscoveryResponseV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MainDiscoveryResponseV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -92,23 +92,23 @@ pub async fn refresh_active_stream_session(
     action_name: &str,
     app_id: &str,
     partition: i32,
-) -> Result<models::MsaPeriodReplyMetaOnly, Error<RefreshActiveStreamSessionError>> {
+) -> Result<models::MsaReplyMetaOnly, Error<RefreshActiveStreamSessionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_action_name = action_name;
-    let p_app_id = app_id;
-    let p_partition = partition;
+    let p_query_action_name = action_name;
+    let p_query_app_id = app_id;
+    let p_path_partition = partition;
 
     let uri_str = format!(
         "{}/sensors/entities/datafeed-actions/v1/{partition}",
         configuration.base_path,
-        partition = p_partition
+        partition = p_path_partition
     );
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("action_name", &p_action_name.to_string())]);
-    req_builder = req_builder.query(&[("appId", &p_app_id.to_string())]);
+    req_builder = req_builder.query(&[("action_name", &p_query_action_name.to_string())]);
+    req_builder = req_builder.query(&[("appId", &p_query_app_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -131,8 +131,8 @@ pub async fn refresh_active_stream_session(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodReplyMetaOnly`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodReplyMetaOnly`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaReplyMetaOnly`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaReplyMetaOnly`")))),
         }
     } else {
         let content = resp.text().await?;

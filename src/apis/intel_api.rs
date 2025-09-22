@@ -17,9 +17,9 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntelActorEntitiesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,9 +27,9 @@ pub enum GetIntelActorEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntelIndicatorEntitiesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,9 +37,9 @@ pub enum GetIntelIndicatorEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntelReportEntitiesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -47,10 +47,10 @@ pub enum GetIntelReportEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntelReportPdfError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodErrorsOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -58,9 +58,9 @@ pub enum GetIntelReportPdfError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntelRuleEntitiesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -68,11 +68,11 @@ pub enum GetIntelRuleEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntelRuleFileError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodErrorsOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -80,11 +80,11 @@ pub enum GetIntelRuleFileError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLatestIntelRuleFileError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodErrorsOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -92,9 +92,9 @@ pub enum GetLatestIntelRuleFileError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMalwareEntitiesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -102,9 +102,9 @@ pub enum GetMalwareEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMalwareMitreReportError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -112,9 +112,9 @@ pub enum GetMalwareMitreReportError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMitreReportError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -122,10 +122,10 @@ pub enum GetMitreReportError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetVulnerabilitiesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -133,9 +133,9 @@ pub enum GetVulnerabilitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostMitreAttacksError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -143,10 +143,10 @@ pub enum PostMitreAttacksError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIntelActorEntitiesError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodErrorsOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -154,10 +154,10 @@ pub enum QueryIntelActorEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIntelActorIdsError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodErrorsOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -165,10 +165,10 @@ pub enum QueryIntelActorIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIntelIndicatorEntitiesError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodErrorsOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -176,10 +176,10 @@ pub enum QueryIntelIndicatorEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIntelIndicatorIdsError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodErrorsOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -188,9 +188,9 @@ pub enum QueryIntelIndicatorIdsError {
 #[serde(untagged)]
 pub enum QueryIntelReportEntitiesError {
     Status400(),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -198,10 +198,10 @@ pub enum QueryIntelReportEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIntelReportIdsError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodErrorsOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -209,10 +209,10 @@ pub enum QueryIntelReportIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIntelRuleIdsError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodErrorsOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -220,10 +220,10 @@ pub enum QueryIntelRuleIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryMalwareError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -231,10 +231,10 @@ pub enum QueryMalwareError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryMalwareEntitiesError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -242,9 +242,9 @@ pub enum QueryMalwareEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryMitreAttacksError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -252,9 +252,9 @@ pub enum QueryMitreAttacksError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryMitreAttacksForMalwareError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -262,10 +262,10 @@ pub enum QueryMitreAttacksForMalwareError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryVulnerabilitiesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodErrorsOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -273,24 +273,24 @@ pub async fn get_intel_actor_entities(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     fields: Option<Vec<String>>,
-) -> Result<models::DomainPeriodActorsResponse, Error<GetIntelActorEntitiesError>> {
+) -> Result<models::DomainActorsResponse, Error<GetIntelActorEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_fields = fields;
+    let p_query_ids = ids;
+    let p_query_fields = fields;
 
     let uri_str = format!("{}/intel/entities/actors/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -298,7 +298,7 @@ pub async fn get_intel_actor_entities(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_fields {
+    if let Some(ref param_value) = p_query_fields {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -339,8 +339,8 @@ pub async fn get_intel_actor_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodActorsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodActorsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainActorsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainActorsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -355,10 +355,10 @@ pub async fn get_intel_actor_entities(
 
 pub async fn get_intel_indicator_entities(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodIdsRequest,
-) -> Result<models::DomainPeriodPublicIndicatorsV3Response, Error<GetIntelIndicatorEntitiesError>> {
+    body: models::MsaIdsRequest,
+) -> Result<models::DomainPublicIndicatorsV3Response, Error<GetIntelIndicatorEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/intel/entities/indicators/GET/v1",
@@ -374,7 +374,7 @@ pub async fn get_intel_indicator_entities(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -391,8 +391,8 @@ pub async fn get_intel_indicator_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodPublicIndicatorsV3Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodPublicIndicatorsV3Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPublicIndicatorsV3Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPublicIndicatorsV3Response`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -409,24 +409,24 @@ pub async fn get_intel_report_entities(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     fields: Option<Vec<String>>,
-) -> Result<models::DomainPeriodNewsResponse, Error<GetIntelReportEntitiesError>> {
+) -> Result<models::DomainNewsResponse, Error<GetIntelReportEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_fields = fields;
+    let p_query_ids = ids;
+    let p_query_fields = fields;
 
     let uri_str = format!("{}/intel/entities/reports/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -434,7 +434,7 @@ pub async fn get_intel_report_entities(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_fields {
+    if let Some(ref param_value) = p_query_fields {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -475,8 +475,8 @@ pub async fn get_intel_report_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodNewsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodNewsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainNewsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainNewsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -495,16 +495,16 @@ pub async fn get_intel_report_pdf(
     ids: Option<&str>,
 ) -> Result<(), Error<GetIntelReportPdfError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_ids = ids;
+    let p_query_id = id;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/intel/entities/report-files/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = req_builder.query(&[("ids", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -535,23 +535,23 @@ pub async fn get_intel_report_pdf(
 pub async fn get_intel_rule_entities(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodRulesResponse, Error<GetIntelRuleEntitiesError>> {
+) -> Result<models::DomainRulesResponse, Error<GetIntelRuleEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/intel/entities/rules/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -581,8 +581,8 @@ pub async fn get_intel_rule_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodRulesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodRulesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainRulesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainRulesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -602,21 +602,21 @@ pub async fn get_intel_rule_file(
     format: Option<&str>,
 ) -> Result<(), Error<GetIntelRuleFileError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_accept = accept;
-    let p_format = format;
+    let p_query_id = id;
+    let p_header_accept = accept;
+    let p_query_format = format;
 
     let uri_str = format!("{}/intel/entities/rules-files/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    if let Some(ref param_value) = p_format {
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    if let Some(ref param_value) = p_query_format {
         req_builder = req_builder.query(&[("format", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(param_value) = p_accept {
+    if let Some(param_value) = p_header_accept {
         req_builder = req_builder.header("Accept", param_value.to_string());
     }
     if let Some(ref token) = configuration.oauth_access_token {
@@ -650,11 +650,11 @@ pub async fn get_latest_intel_rule_file(
     format: Option<&str>,
 ) -> Result<(), Error<GetLatestIntelRuleFileError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_type = r#type;
-    let p_accept = accept;
-    let p_if_none_match = if_none_match;
-    let p_if_modified_since = if_modified_since;
-    let p_format = format;
+    let p_query_type = r#type;
+    let p_header_accept = accept;
+    let p_header_if_none_match = if_none_match;
+    let p_header_if_modified_since = if_modified_since;
+    let p_query_format = format;
 
     let uri_str = format!(
         "{}/intel/entities/rules-latest-files/v1",
@@ -662,20 +662,20 @@ pub async fn get_latest_intel_rule_file(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("type", &p_type.to_string())]);
-    if let Some(ref param_value) = p_format {
+    req_builder = req_builder.query(&[("type", &p_query_type.to_string())]);
+    if let Some(ref param_value) = p_query_format {
         req_builder = req_builder.query(&[("format", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(param_value) = p_accept {
+    if let Some(param_value) = p_header_accept {
         req_builder = req_builder.header("Accept", param_value.to_string());
     }
-    if let Some(param_value) = p_if_none_match {
+    if let Some(param_value) = p_header_if_none_match {
         req_builder = req_builder.header("If-None-Match", param_value.to_string());
     }
-    if let Some(param_value) = p_if_modified_since {
+    if let Some(param_value) = p_header_if_modified_since {
         req_builder = req_builder.header("If-Modified-Since", param_value.to_string());
     }
     if let Some(ref token) = configuration.oauth_access_token {
@@ -703,23 +703,23 @@ pub async fn get_latest_intel_rule_file(
 pub async fn get_malware_entities(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodMalwareResponse, Error<GetMalwareEntitiesError>> {
+) -> Result<models::DomainMalwareResponse, Error<GetMalwareEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/intel/entities/malware/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -749,8 +749,8 @@ pub async fn get_malware_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodMalwareResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodMalwareResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainMalwareResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainMalwareResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -770,9 +770,9 @@ pub async fn get_malware_mitre_report(
     x_cs_useruuid: Option<&str>,
 ) -> Result<(), Error<GetMalwareMitreReportError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_format = format;
-    let p_x_cs_useruuid = x_cs_useruuid;
+    let p_query_id = id;
+    let p_query_format = format;
+    let p_header_x_cs_useruuid = x_cs_useruuid;
 
     let uri_str = format!(
         "{}/intel/entities/malware-mitre-reports/v1",
@@ -780,12 +780,12 @@ pub async fn get_malware_mitre_report(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    req_builder = req_builder.query(&[("format", &p_format.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    req_builder = req_builder.query(&[("format", &p_query_format.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(param_value) = p_x_cs_useruuid {
+    if let Some(param_value) = p_header_x_cs_useruuid {
         req_builder = req_builder.header("X-CS-USERUUID", param_value.to_string());
     }
     if let Some(ref token) = configuration.oauth_access_token {
@@ -816,8 +816,8 @@ pub async fn get_mitre_report(
     format: &str,
 ) -> Result<(), Error<GetMitreReportError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_actor_id = actor_id;
-    let p_format = format;
+    let p_query_actor_id = actor_id;
+    let p_query_format = format;
 
     let uri_str = format!(
         "{}/intel/entities/mitre-reports/v1",
@@ -825,8 +825,8 @@ pub async fn get_mitre_report(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("actor_id", &p_actor_id.to_string())]);
-    req_builder = req_builder.query(&[("format", &p_format.to_string())]);
+    req_builder = req_builder.query(&[("actor_id", &p_query_actor_id.to_string())]);
+    req_builder = req_builder.query(&[("format", &p_query_format.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -854,10 +854,10 @@ pub async fn get_mitre_report(
 
 pub async fn get_vulnerabilities(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodIdsRequest,
-) -> Result<models::DomainPeriodVulnerabilityResponse, Error<GetVulnerabilitiesError>> {
+    body: models::MsaIdsRequest,
+) -> Result<models::DomainVulnerabilityResponse, Error<GetVulnerabilitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/intel/entities/vulnerabilities/GET/v1",
@@ -873,7 +873,7 @@ pub async fn get_vulnerabilities(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -890,8 +890,8 @@ pub async fn get_vulnerabilities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodVulnerabilityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodVulnerabilityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainVulnerabilityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainVulnerabilityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -906,10 +906,10 @@ pub async fn get_vulnerabilities(
 
 pub async fn post_mitre_attacks(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodIdsRequest,
+    body: models::MsaIdsRequest,
 ) -> Result<(), Error<PostMitreAttacksError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/intel/entities/mitre/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -922,7 +922,7 @@ pub async fn post_mitre_attacks(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -950,34 +950,34 @@ pub async fn query_intel_actor_entities(
     filter: Option<&str>,
     q: Option<&str>,
     fields: Option<Vec<String>>,
-) -> Result<models::DomainPeriodActorsResponse, Error<QueryIntelActorEntitiesError>> {
+) -> Result<models::DomainActorsResponse, Error<QueryIntelActorEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
-    let p_fields = fields;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
+    let p_query_fields = fields;
 
     let uri_str = format!("{}/intel/combined/actors/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_fields {
+    if let Some(ref param_value) = p_query_fields {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -1018,8 +1018,8 @@ pub async fn query_intel_actor_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodActorsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodActorsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainActorsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainActorsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1039,30 +1039,30 @@ pub async fn query_intel_actor_ids(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryIntelActorIdsError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryIntelActorIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
 
     let uri_str = format!("{}/intel/queries/actors/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1087,8 +1087,8 @@ pub async fn query_intel_actor_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1110,39 +1110,38 @@ pub async fn query_intel_indicator_entities(
     q: Option<&str>,
     include_deleted: Option<bool>,
     include_relations: Option<bool>,
-) -> Result<models::DomainPeriodPublicIndicatorsV3Response, Error<QueryIntelIndicatorEntitiesError>>
-{
+) -> Result<models::DomainPublicIndicatorsV3Response, Error<QueryIntelIndicatorEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
-    let p_include_deleted = include_deleted;
-    let p_include_relations = include_relations;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
+    let p_query_include_deleted = include_deleted;
+    let p_query_include_relations = include_relations;
 
     let uri_str = format!("{}/intel/combined/indicators/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_deleted {
+    if let Some(ref param_value) = p_query_include_deleted {
         req_builder = req_builder.query(&[("include_deleted", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_relations {
+    if let Some(ref param_value) = p_query_include_relations {
         req_builder = req_builder.query(&[("include_relations", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1167,8 +1166,8 @@ pub async fn query_intel_indicator_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodPublicIndicatorsV3Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodPublicIndicatorsV3Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPublicIndicatorsV3Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPublicIndicatorsV3Response`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1190,38 +1189,38 @@ pub async fn query_intel_indicator_ids(
     q: Option<&str>,
     include_deleted: Option<bool>,
     include_relations: Option<bool>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryIntelIndicatorIdsError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryIntelIndicatorIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
-    let p_include_deleted = include_deleted;
-    let p_include_relations = include_relations;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
+    let p_query_include_deleted = include_deleted;
+    let p_query_include_relations = include_relations;
 
     let uri_str = format!("{}/intel/queries/indicators/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_deleted {
+    if let Some(ref param_value) = p_query_include_deleted {
         req_builder = req_builder.query(&[("include_deleted", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_relations {
+    if let Some(ref param_value) = p_query_include_relations {
         req_builder = req_builder.query(&[("include_relations", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1246,8 +1245,8 @@ pub async fn query_intel_indicator_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1268,34 +1267,34 @@ pub async fn query_intel_report_entities(
     filter: Option<&str>,
     q: Option<&str>,
     fields: Option<Vec<String>>,
-) -> Result<models::DomainPeriodNewsResponse, Error<QueryIntelReportEntitiesError>> {
+) -> Result<models::DomainNewsResponse, Error<QueryIntelReportEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
-    let p_fields = fields;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
+    let p_query_fields = fields;
 
     let uri_str = format!("{}/intel/combined/reports/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_fields {
+    if let Some(ref param_value) = p_query_fields {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -1336,8 +1335,8 @@ pub async fn query_intel_report_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodNewsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodNewsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainNewsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainNewsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1357,30 +1356,30 @@ pub async fn query_intel_report_ids(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryIntelReportIdsError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryIntelReportIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
 
     let uri_str = format!("{}/intel/queries/reports/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1405,8 +1404,8 @@ pub async fn query_intel_report_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1431,32 +1430,32 @@ pub async fn query_intel_rule_ids(
     min_created_date: Option<i32>,
     max_created_date: Option<&str>,
     q: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryIntelRuleIdsError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryIntelRuleIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_type = r#type;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_name = name;
-    let p_description = description;
-    let p_tags = tags;
-    let p_min_created_date = min_created_date;
-    let p_max_created_date = max_created_date;
-    let p_q = q;
+    let p_query_type = r#type;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_name = name;
+    let p_query_description = description;
+    let p_query_tags = tags;
+    let p_query_min_created_date = min_created_date;
+    let p_query_max_created_date = max_created_date;
+    let p_query_q = q;
 
     let uri_str = format!("{}/intel/queries/rules/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_name {
+    if let Some(ref param_value) = p_query_name {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1475,8 +1474,8 @@ pub async fn query_intel_rule_ids(
             )]),
         };
     }
-    req_builder = req_builder.query(&[("type", &p_type.to_string())]);
-    if let Some(ref param_value) = p_description {
+    req_builder = req_builder.query(&[("type", &p_query_type.to_string())]);
+    if let Some(ref param_value) = p_query_description {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1495,7 +1494,7 @@ pub async fn query_intel_rule_ids(
             )]),
         };
     }
-    if let Some(ref param_value) = p_tags {
+    if let Some(ref param_value) = p_query_tags {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1514,13 +1513,13 @@ pub async fn query_intel_rule_ids(
             )]),
         };
     }
-    if let Some(ref param_value) = p_min_created_date {
+    if let Some(ref param_value) = p_query_min_created_date {
         req_builder = req_builder.query(&[("min_created_date", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_max_created_date {
+    if let Some(ref param_value) = p_query_max_created_date {
         req_builder = req_builder.query(&[("max_created_date", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1545,8 +1544,8 @@ pub async fn query_intel_rule_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1566,30 +1565,30 @@ pub async fn query_malware(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<models::DomainPeriodQueryResponse, Error<QueryMalwareError>> {
+) -> Result<models::DomainQueryResponse, Error<QueryMalwareError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
 
     let uri_str = format!("{}/intel/queries/malware/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1614,8 +1613,8 @@ pub async fn query_malware(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1636,34 +1635,34 @@ pub async fn query_malware_entities(
     filter: Option<&str>,
     q: Option<&str>,
     fields: Option<Vec<String>>,
-) -> Result<models::DomainPeriodMalwareResponse, Error<QueryMalwareEntitiesError>> {
+) -> Result<models::DomainMalwareResponse, Error<QueryMalwareEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
-    let p_fields = fields;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
+    let p_query_fields = fields;
 
     let uri_str = format!("{}/intel/combined/malware/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_fields {
+    if let Some(ref param_value) = p_query_fields {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -1704,8 +1703,8 @@ pub async fn query_malware_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodMalwareResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodMalwareResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainMalwareResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainMalwareResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1722,18 +1721,18 @@ pub async fn query_mitre_attacks(
     configuration: &configuration::Configuration,
     id: Option<&str>,
     ids: Option<Vec<String>>,
-) -> Result<models::DomainPeriodQueryMitreAttacksResponse, Error<QueryMitreAttacksError>> {
+) -> Result<models::DomainQueryMitreAttacksResponse, Error<QueryMitreAttacksError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_ids = ids;
+    let p_query_id = id;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/intel/queries/mitre/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -1774,8 +1773,8 @@ pub async fn query_mitre_attacks(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodQueryMitreAttacksResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodQueryMitreAttacksResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainQueryMitreAttacksResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainQueryMitreAttacksResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1791,23 +1790,23 @@ pub async fn query_mitre_attacks(
 pub async fn query_mitre_attacks_for_malware(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodQueryResponse, Error<QueryMitreAttacksForMalwareError>> {
+) -> Result<models::DomainQueryResponse, Error<QueryMitreAttacksForMalwareError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/intel/queries/mitre-malware/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1837,8 +1836,8 @@ pub async fn query_mitre_attacks_for_malware(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1858,13 +1857,13 @@ pub async fn query_vulnerabilities(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryVulnerabilitiesError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryVulnerabilitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
 
     let uri_str = format!(
         "{}/intel/queries/vulnerabilities/v1",
@@ -1872,19 +1871,19 @@ pub async fn query_vulnerabilities(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1909,8 +1908,8 @@ pub async fn query_vulnerabilities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;

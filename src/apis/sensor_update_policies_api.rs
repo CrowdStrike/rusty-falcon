@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateSensorUpdatePoliciesError {
-    Status400(models::SensorUpdatePeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::SensorUpdatePeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::SensorUpdatePeriodRespV1),
+    Status400(models::SensorUpdateRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::SensorUpdateRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::SensorUpdateRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,11 +29,11 @@ pub enum CreateSensorUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateSensorUpdatePoliciesV2Error {
-    Status400(models::SensorUpdatePeriodRespV2),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::SensorUpdatePeriodRespV2),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::SensorUpdatePeriodRespV2),
+    Status400(models::SensorUpdateRespV2),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::SensorUpdateRespV2),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::SensorUpdateRespV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,10 +41,10 @@ pub enum CreateSensorUpdatePoliciesV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteSensorUpdatePoliciesError {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -52,10 +52,10 @@ pub enum DeleteSensorUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSensorUpdatePoliciesError {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::SensorUpdatePeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::SensorUpdatePeriodRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::SensorUpdateRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::SensorUpdateRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -63,10 +63,10 @@ pub enum GetSensorUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSensorUpdatePoliciesV2Error {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::SensorUpdatePeriodRespV2),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::SensorUpdatePeriodRespV2),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::SensorUpdateRespV2),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::SensorUpdateRespV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -74,11 +74,11 @@ pub enum GetSensorUpdatePoliciesV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PerformSensorUpdatePoliciesActionError {
-    Status400(models::SensorUpdatePeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::SensorUpdatePeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::SensorUpdatePeriodRespV1),
+    Status400(models::SensorUpdateRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::SensorUpdateRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::SensorUpdateRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,10 +86,10 @@ pub enum PerformSensorUpdatePoliciesActionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedSensorUpdateBuildsError {
-    Status400(models::SensorUpdatePeriodBuildsRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::SensorUpdatePeriodBuildsRespV1),
+    Status400(models::SensorUpdateBuildsRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::SensorUpdateBuildsRespV1),
     DefaultResponse(String),
     UnknownValue(serde_json::Value),
 }
@@ -98,10 +98,10 @@ pub enum QueryCombinedSensorUpdateBuildsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedSensorUpdateKernelsError {
-    Status400(models::SensorUpdatePeriodKernelsRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::SensorUpdatePeriodKernelsRespV1),
+    Status400(models::SensorUpdateKernelsRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::SensorUpdateKernelsRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -109,10 +109,10 @@ pub enum QueryCombinedSensorUpdateKernelsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedSensorUpdatePoliciesError {
-    Status400(models::SensorUpdatePeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::SensorUpdatePeriodRespV1),
+    Status400(models::SensorUpdateRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::SensorUpdateRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -120,10 +120,10 @@ pub enum QueryCombinedSensorUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedSensorUpdatePoliciesV2Error {
-    Status400(models::SensorUpdatePeriodRespV2),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::SensorUpdatePeriodRespV2),
+    Status400(models::SensorUpdateRespV2),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::SensorUpdateRespV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -131,11 +131,11 @@ pub enum QueryCombinedSensorUpdatePoliciesV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedSensorUpdatePolicyMembersError {
-    Status400(models::BasePeriodPolicyMembersRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::BasePeriodPolicyMembersRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::BasePeriodPolicyMembersRespV1),
+    Status400(models::BasePolicyMembersRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::BasePolicyMembersRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::BasePolicyMembersRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -143,10 +143,10 @@ pub enum QueryCombinedSensorUpdatePolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QuerySensorUpdateKernelsDistinctError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -154,10 +154,10 @@ pub enum QuerySensorUpdateKernelsDistinctError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QuerySensorUpdatePoliciesError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -165,11 +165,11 @@ pub enum QuerySensorUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QuerySensorUpdatePolicyMembersError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -177,10 +177,10 @@ pub enum QuerySensorUpdatePolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RevealUninstallTokenError {
-    Status400(models::UninstallTokenPeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::UninstallTokenPeriodRespV1),
+    Status400(models::UninstallTokenRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::UninstallTokenRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -188,10 +188,10 @@ pub enum RevealUninstallTokenError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SetSensorUpdatePoliciesPrecedenceError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -199,11 +199,11 @@ pub enum SetSensorUpdatePoliciesPrecedenceError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateSensorUpdatePoliciesError {
-    Status400(models::SensorUpdatePeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::SensorUpdatePeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::SensorUpdatePeriodRespV1),
+    Status400(models::SensorUpdateRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::SensorUpdateRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::SensorUpdateRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -211,20 +211,20 @@ pub enum UpdateSensorUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateSensorUpdatePoliciesV2Error {
-    Status400(models::SensorUpdatePeriodRespV2),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::SensorUpdatePeriodRespV2),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::SensorUpdatePeriodRespV2),
+    Status400(models::SensorUpdateRespV2),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::SensorUpdateRespV2),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::SensorUpdateRespV2),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_sensor_update_policies(
     configuration: &configuration::Configuration,
-    body: models::SensorUpdatePeriodCreatePoliciesReqV1,
-) -> Result<models::SensorUpdatePeriodRespV1, Error<CreateSensorUpdatePoliciesError>> {
+    body: models::SensorUpdateCreatePoliciesReqV1,
+) -> Result<models::SensorUpdateRespV1, Error<CreateSensorUpdatePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/sensor-update/v1",
@@ -240,7 +240,7 @@ pub async fn create_sensor_update_policies(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -257,8 +257,8 @@ pub async fn create_sensor_update_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdatePeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdatePeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdateRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdateRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -273,10 +273,10 @@ pub async fn create_sensor_update_policies(
 
 pub async fn create_sensor_update_policies_v2(
     configuration: &configuration::Configuration,
-    body: models::SensorUpdatePeriodCreatePoliciesReqV2,
-) -> Result<models::SensorUpdatePeriodRespV2, Error<CreateSensorUpdatePoliciesV2Error>> {
+    body: models::SensorUpdateCreatePoliciesReqV2,
+) -> Result<models::SensorUpdateRespV2, Error<CreateSensorUpdatePoliciesV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/sensor-update/v2",
@@ -292,7 +292,7 @@ pub async fn create_sensor_update_policies_v2(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -309,8 +309,8 @@ pub async fn create_sensor_update_policies_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdatePeriodRespV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdatePeriodRespV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdateRespV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdateRespV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -326,9 +326,9 @@ pub async fn create_sensor_update_policies_v2(
 pub async fn delete_sensor_update_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::MsaPeriodQueryResponse, Error<DeleteSensorUpdatePoliciesError>> {
+) -> Result<models::MsaQueryResponse, Error<DeleteSensorUpdatePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/policy/entities/sensor-update/v1",
@@ -340,14 +340,14 @@ pub async fn delete_sensor_update_policies(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -377,8 +377,8 @@ pub async fn delete_sensor_update_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -394,9 +394,9 @@ pub async fn delete_sensor_update_policies(
 pub async fn get_sensor_update_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::SensorUpdatePeriodRespV1, Error<GetSensorUpdatePoliciesError>> {
+) -> Result<models::SensorUpdateRespV1, Error<GetSensorUpdatePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/policy/entities/sensor-update/v1",
@@ -406,14 +406,14 @@ pub async fn get_sensor_update_policies(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -443,8 +443,8 @@ pub async fn get_sensor_update_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdatePeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdatePeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdateRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdateRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -460,9 +460,9 @@ pub async fn get_sensor_update_policies(
 pub async fn get_sensor_update_policies_v2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::SensorUpdatePeriodRespV2, Error<GetSensorUpdatePoliciesV2Error>> {
+) -> Result<models::SensorUpdateRespV2, Error<GetSensorUpdatePoliciesV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/policy/entities/sensor-update/v2",
@@ -472,14 +472,14 @@ pub async fn get_sensor_update_policies_v2(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -509,8 +509,8 @@ pub async fn get_sensor_update_policies_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdatePeriodRespV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdatePeriodRespV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdateRespV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdateRespV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -526,11 +526,11 @@ pub async fn get_sensor_update_policies_v2(
 pub async fn perform_sensor_update_policies_action(
     configuration: &configuration::Configuration,
     action_name: &str,
-    body: models::MsaPeriodEntityActionRequestV2,
-) -> Result<models::SensorUpdatePeriodRespV1, Error<PerformSensorUpdatePoliciesActionError>> {
+    body: models::MsaEntityActionRequestV2,
+) -> Result<models::SensorUpdateRespV1, Error<PerformSensorUpdatePoliciesActionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_action_name = action_name;
-    let p_body = body;
+    let p_query_action_name = action_name;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/sensor-update-actions/v1",
@@ -540,14 +540,14 @@ pub async fn perform_sensor_update_policies_action(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("action_name", &p_action_name.to_string())]);
+    req_builder = req_builder.query(&[("action_name", &p_query_action_name.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -564,8 +564,8 @@ pub async fn perform_sensor_update_policies_action(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdatePeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdatePeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdateRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdateRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -583,10 +583,10 @@ pub async fn query_combined_sensor_update_builds(
     configuration: &configuration::Configuration,
     platform: Option<&str>,
     stage: Option<Vec<String>>,
-) -> Result<models::SensorUpdatePeriodBuildsRespV1, Error<QueryCombinedSensorUpdateBuildsError>> {
+) -> Result<models::SensorUpdateBuildsRespV1, Error<QueryCombinedSensorUpdateBuildsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_platform = platform;
-    let p_stage = stage;
+    let p_query_platform = platform;
+    let p_query_stage = stage;
 
     let uri_str = format!(
         "{}/policy/combined/sensor-update-builds/v1",
@@ -594,10 +594,10 @@ pub async fn query_combined_sensor_update_builds(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_platform {
+    if let Some(ref param_value) = p_query_platform {
         req_builder = req_builder.query(&[("platform", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_stage {
+    if let Some(ref param_value) = p_query_stage {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -638,8 +638,8 @@ pub async fn query_combined_sensor_update_builds(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdatePeriodBuildsRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdatePeriodBuildsRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdateBuildsRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdateBuildsRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -658,11 +658,11 @@ pub async fn query_combined_sensor_update_kernels(
     filter: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<models::SensorUpdatePeriodKernelsRespV1, Error<QueryCombinedSensorUpdateKernelsError>> {
+) -> Result<models::SensorUpdateKernelsRespV1, Error<QueryCombinedSensorUpdateKernelsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/policy/combined/sensor-update-kernels/v1",
@@ -670,13 +670,13 @@ pub async fn query_combined_sensor_update_kernels(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -701,8 +701,8 @@ pub async fn query_combined_sensor_update_kernels(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdatePeriodKernelsRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdatePeriodKernelsRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdateKernelsRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdateKernelsRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -722,12 +722,12 @@ pub async fn query_combined_sensor_update_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::SensorUpdatePeriodRespV1, Error<QueryCombinedSensorUpdatePoliciesError>> {
+) -> Result<models::SensorUpdateRespV1, Error<QueryCombinedSensorUpdatePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/combined/sensor-update/v1",
@@ -735,16 +735,16 @@ pub async fn query_combined_sensor_update_policies(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -769,8 +769,8 @@ pub async fn query_combined_sensor_update_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdatePeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdatePeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdateRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdateRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -790,12 +790,12 @@ pub async fn query_combined_sensor_update_policies_v2(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::SensorUpdatePeriodRespV2, Error<QueryCombinedSensorUpdatePoliciesV2Error>> {
+) -> Result<models::SensorUpdateRespV2, Error<QueryCombinedSensorUpdatePoliciesV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/combined/sensor-update/v2",
@@ -803,16 +803,16 @@ pub async fn query_combined_sensor_update_policies_v2(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -837,8 +837,8 @@ pub async fn query_combined_sensor_update_policies_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdatePeriodRespV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdatePeriodRespV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdateRespV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdateRespV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -859,14 +859,13 @@ pub async fn query_combined_sensor_update_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::BasePeriodPolicyMembersRespV1, Error<QueryCombinedSensorUpdatePolicyMembersError>>
-{
+) -> Result<models::BasePolicyMembersRespV1, Error<QueryCombinedSensorUpdatePolicyMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_id = id;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/combined/sensor-update-members/v1",
@@ -874,19 +873,19 @@ pub async fn query_combined_sensor_update_policy_members(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -911,8 +910,8 @@ pub async fn query_combined_sensor_update_policy_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BasePeriodPolicyMembersRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BasePeriodPolicyMembersRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BasePolicyMembersRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BasePolicyMembersRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -932,27 +931,27 @@ pub async fn query_sensor_update_kernels_distinct(
     filter: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QuerySensorUpdateKernelsDistinctError>> {
+) -> Result<models::MsaQueryResponse, Error<QuerySensorUpdateKernelsDistinctError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_distinct_field = distinct_field;
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_path_distinct_field = distinct_field;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/policy/queries/sensor-update-kernels/{distinct_field}/v1",
         configuration.base_path,
-        distinct_field = crate::apis::urlencode(p_distinct_field)
+        distinct_field = crate::apis::urlencode(p_path_distinct_field)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -977,8 +976,8 @@ pub async fn query_sensor_update_kernels_distinct(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -998,12 +997,12 @@ pub async fn query_sensor_update_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QuerySensorUpdatePoliciesError>> {
+) -> Result<models::MsaQueryResponse, Error<QuerySensorUpdatePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/queries/sensor-update/v1",
@@ -1011,16 +1010,16 @@ pub async fn query_sensor_update_policies(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1045,8 +1044,8 @@ pub async fn query_sensor_update_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1066,13 +1065,13 @@ pub async fn query_sensor_update_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QuerySensorUpdatePolicyMembersError>> {
+) -> Result<models::MsaQueryResponse, Error<QuerySensorUpdatePolicyMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_id = id;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/queries/sensor-update-members/v1",
@@ -1080,19 +1079,19 @@ pub async fn query_sensor_update_policy_members(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1117,8 +1116,8 @@ pub async fn query_sensor_update_policy_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1134,10 +1133,10 @@ pub async fn query_sensor_update_policy_members(
 
 pub async fn reveal_uninstall_token(
     configuration: &configuration::Configuration,
-    body: models::UninstallTokenPeriodRevealUninstallTokenReqV1,
-) -> Result<models::UninstallTokenPeriodRespV1, Error<RevealUninstallTokenError>> {
+    body: models::UninstallTokenRevealUninstallTokenReqV1,
+) -> Result<models::UninstallTokenRespV1, Error<RevealUninstallTokenError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/combined/reveal-uninstall-token/v1",
@@ -1153,7 +1152,7 @@ pub async fn reveal_uninstall_token(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1170,8 +1169,8 @@ pub async fn reveal_uninstall_token(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UninstallTokenPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UninstallTokenPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UninstallTokenRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UninstallTokenRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1186,10 +1185,10 @@ pub async fn reveal_uninstall_token(
 
 pub async fn set_sensor_update_policies_precedence(
     configuration: &configuration::Configuration,
-    body: models::BasePeriodSetPolicyPrecedenceReqV1,
-) -> Result<models::MsaPeriodQueryResponse, Error<SetSensorUpdatePoliciesPrecedenceError>> {
+    body: models::BaseSetPolicyPrecedenceReqV1,
+) -> Result<models::MsaQueryResponse, Error<SetSensorUpdatePoliciesPrecedenceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/sensor-update-precedence/v1",
@@ -1205,7 +1204,7 @@ pub async fn set_sensor_update_policies_precedence(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1222,8 +1221,8 @@ pub async fn set_sensor_update_policies_precedence(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1239,10 +1238,10 @@ pub async fn set_sensor_update_policies_precedence(
 
 pub async fn update_sensor_update_policies(
     configuration: &configuration::Configuration,
-    body: models::SensorUpdatePeriodUpdatePoliciesReqV1,
-) -> Result<models::SensorUpdatePeriodRespV1, Error<UpdateSensorUpdatePoliciesError>> {
+    body: models::SensorUpdateUpdatePoliciesReqV1,
+) -> Result<models::SensorUpdateRespV1, Error<UpdateSensorUpdatePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/sensor-update/v1",
@@ -1258,7 +1257,7 @@ pub async fn update_sensor_update_policies(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1275,8 +1274,8 @@ pub async fn update_sensor_update_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdatePeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdatePeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdateRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdateRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1291,10 +1290,10 @@ pub async fn update_sensor_update_policies(
 
 pub async fn update_sensor_update_policies_v2(
     configuration: &configuration::Configuration,
-    body: models::SensorUpdatePeriodUpdatePoliciesReqV2,
-) -> Result<models::SensorUpdatePeriodRespV2, Error<UpdateSensorUpdatePoliciesV2Error>> {
+    body: models::SensorUpdateUpdatePoliciesReqV2,
+) -> Result<models::SensorUpdateRespV2, Error<UpdateSensorUpdatePoliciesV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/sensor-update/v2",
@@ -1310,7 +1309,7 @@ pub async fn update_sensor_update_policies_v2(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1327,8 +1326,8 @@ pub async fn update_sensor_update_policies_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdatePeriodRespV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdatePeriodRespV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SensorUpdateRespV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SensorUpdateRespV2`")))),
         }
     } else {
         let content = resp.text().await?;

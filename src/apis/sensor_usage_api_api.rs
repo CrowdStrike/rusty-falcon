@@ -17,19 +17,19 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSensorUsageWeeklyError {
-    Status400(models::ApiPeriodHourlyAverageResponse),
-    Status403(models::ApiPeriodHourlyAverageResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodHourlyAverageResponse),
+    Status400(models::ApiHourlyAverageResponse),
+    Status403(models::ApiHourlyAverageResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiHourlyAverageResponse),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn get_sensor_usage_weekly(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::ApiPeriodWeeklyAverageResponse, Error<GetSensorUsageWeeklyError>> {
+) -> Result<models::ApiWeeklyAverageResponse, Error<GetSensorUsageWeeklyError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/billing-dashboards-usage/aggregates/weekly-average/v1",
@@ -37,7 +37,7 @@ pub async fn get_sensor_usage_weekly(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -62,8 +62,8 @@ pub async fn get_sensor_usage_weekly(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodWeeklyAverageResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodWeeklyAverageResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiWeeklyAverageResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiWeeklyAverageResponse`")))),
         }
     } else {
         let content = resp.text().await?;

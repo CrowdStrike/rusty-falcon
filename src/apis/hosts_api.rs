@@ -17,9 +17,9 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedDevicesByFilterError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,19 +27,19 @@ pub enum CombinedDevicesByFilterError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedHiddenDevicesByFilterError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`entities_period_perform_action`]
+/// struct for typed errors of method [`entities_perform_action`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum EntitiesPeriodPerformActionError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum EntitiesPerformActionError {
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -47,20 +47,20 @@ pub enum EntitiesPeriodPerformActionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetDeviceDetailsV2Error {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_online_state_period_v1`]
+/// struct for typed errors of method [`get_online_state_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetOnlineStatePeriodV1Error {
-    Status400(models::StatePeriodOnlineStateRespV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum GetOnlineStateV1Error {
+    Status400(models::StateOnlineStateRespV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -68,11 +68,11 @@ pub enum GetOnlineStatePeriodV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PerformActionV2Error {
-    Status400(models::MsaPeriodReplyAffectedEntities),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status409(models::MsaPeriodReplyAffectedEntities),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyAffectedEntities),
+    Status400(models::MsaReplyAffectedEntities),
+    Status403(models::MsaReplyMetaOnly),
+    Status409(models::MsaReplyAffectedEntities),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyAffectedEntities),
     UnknownValue(serde_json::Value),
 }
 
@@ -80,9 +80,9 @@ pub enum PerformActionV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostDeviceDetailsV2Error {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -90,9 +90,9 @@ pub enum PostDeviceDetailsV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryDeviceLoginHistoryError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -100,9 +100,9 @@ pub enum QueryDeviceLoginHistoryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryDeviceLoginHistoryV2Error {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -110,9 +110,9 @@ pub enum QueryDeviceLoginHistoryV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryDevicesByFilterError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -120,9 +120,9 @@ pub enum QueryDevicesByFilterError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryDevicesByFilterScrollError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -130,9 +130,9 @@ pub enum QueryDevicesByFilterScrollError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryGetNetworkAddressHistoryV1Error {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -140,9 +140,9 @@ pub enum QueryGetNetworkAddressHistoryV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryHiddenDevicesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -150,10 +150,10 @@ pub enum QueryHiddenDevicesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateDeviceTagsError {
-    Status400(models::MsaPeriodReplyAffectedEntities),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaReplyAffectedEntities),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -164,31 +164,30 @@ pub async fn combined_devices_by_filter(
     sort: Option<&str>,
     filter: Option<&str>,
     fields: Option<&str>,
-) -> Result<models::DeviceapiPeriodDeviceCombinedResponseSwagger, Error<CombinedDevicesByFilterError>>
-{
+) -> Result<models::DeviceapiDeviceCombinedResponseSwagger, Error<CombinedDevicesByFilterError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_fields = fields;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_fields = fields;
 
     let uri_str = format!("{}/devices/combined/devices/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_fields {
+    if let Some(ref param_value) = p_query_fields {
         req_builder = req_builder.query(&[("fields", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -213,8 +212,8 @@ pub async fn combined_devices_by_filter(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiPeriodDeviceCombinedResponseSwagger`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiPeriodDeviceCombinedResponseSwagger`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiDeviceCombinedResponseSwagger`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiDeviceCombinedResponseSwagger`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -234,16 +233,14 @@ pub async fn combined_hidden_devices_by_filter(
     sort: Option<&str>,
     filter: Option<&str>,
     fields: Option<&str>,
-) -> Result<
-    models::DeviceapiPeriodDeviceCombinedResponseSwagger,
-    Error<CombinedHiddenDevicesByFilterError>,
-> {
+) -> Result<models::DeviceapiDeviceCombinedResponseSwagger, Error<CombinedHiddenDevicesByFilterError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_fields = fields;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_fields = fields;
 
     let uri_str = format!(
         "{}/devices/combined/devices-hidden/v1",
@@ -251,19 +248,19 @@ pub async fn combined_hidden_devices_by_filter(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_fields {
+    if let Some(ref param_value) = p_query_fields {
         req_builder = req_builder.query(&[("fields", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -288,8 +285,8 @@ pub async fn combined_hidden_devices_by_filter(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiPeriodDeviceCombinedResponseSwagger`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiPeriodDeviceCombinedResponseSwagger`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiDeviceCombinedResponseSwagger`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiDeviceCombinedResponseSwagger`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -303,18 +300,18 @@ pub async fn combined_hidden_devices_by_filter(
     }
 }
 
-pub async fn entities_period_perform_action(
+pub async fn entities_perform_action(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     action_name: &str,
-    body: models::MsaPeriodEntityActionRequest,
+    body: models::MsaEntityActionRequest,
     disable_hostname_check: Option<bool>,
-) -> Result<models::DeviceapiPeriodGroupsResponseV1, Error<EntitiesPeriodPerformActionError>> {
+) -> Result<models::DeviceapiGroupsResponseV1, Error<EntitiesPerformActionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_action_name = action_name;
-    let p_body = body;
-    let p_disable_hostname_check = disable_hostname_check;
+    let p_query_ids = ids;
+    let p_query_action_name = action_name;
+    let p_body_body = body;
+    let p_query_disable_hostname_check = disable_hostname_check;
 
     let uri_str = format!(
         "{}/devices/entities/group-actions/v1",
@@ -326,14 +323,14 @@ pub async fn entities_period_perform_action(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -341,8 +338,8 @@ pub async fn entities_period_perform_action(
                 .to_string(),
         )]),
     };
-    req_builder = req_builder.query(&[("action_name", &p_action_name.to_string())]);
-    if let Some(ref param_value) = p_disable_hostname_check {
+    req_builder = req_builder.query(&[("action_name", &p_query_action_name.to_string())]);
+    if let Some(ref param_value) = p_query_disable_hostname_check {
         req_builder = req_builder.query(&[("disable_hostname_check", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -351,7 +348,7 @@ pub async fn entities_period_perform_action(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -368,12 +365,12 @@ pub async fn entities_period_perform_action(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiPeriodGroupsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiPeriodGroupsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiGroupsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiGroupsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<EntitiesPeriodPerformActionError> = serde_json::from_str(&content).ok();
+        let entity: Option<EntitiesPerformActionError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -385,23 +382,23 @@ pub async fn entities_period_perform_action(
 pub async fn get_device_details_v2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DeviceapiPeriodDeviceDetailsResponseSwagger, Error<GetDeviceDetailsV2Error>> {
+) -> Result<models::DeviceapiDeviceDetailsResponseSwagger, Error<GetDeviceDetailsV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/devices/entities/devices/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -431,8 +428,8 @@ pub async fn get_device_details_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiPeriodDeviceDetailsResponseSwagger`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiPeriodDeviceDetailsResponseSwagger`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiDeviceDetailsResponseSwagger`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiDeviceDetailsResponseSwagger`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -445,12 +442,12 @@ pub async fn get_device_details_v2(
     }
 }
 
-pub async fn get_online_state_period_v1(
+pub async fn get_online_state_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::StatePeriodOnlineStateRespV1, Error<GetOnlineStatePeriodV1Error>> {
+) -> Result<models::StateOnlineStateRespV1, Error<GetOnlineStateV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/devices/entities/online-state/v1",
@@ -460,14 +457,14 @@ pub async fn get_online_state_period_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -497,12 +494,12 @@ pub async fn get_online_state_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::StatePeriodOnlineStateRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::StatePeriodOnlineStateRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::StateOnlineStateRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::StateOnlineStateRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetOnlineStatePeriodV1Error> = serde_json::from_str(&content).ok();
+        let entity: Option<GetOnlineStateV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -514,11 +511,11 @@ pub async fn get_online_state_period_v1(
 pub async fn perform_action_v2(
     configuration: &configuration::Configuration,
     action_name: &str,
-    body: models::MsaPeriodEntityActionRequestV2,
-) -> Result<models::MsaPeriodReplyAffectedEntities, Error<PerformActionV2Error>> {
+    body: models::MsaEntityActionRequestV2,
+) -> Result<models::MsaReplyAffectedEntities, Error<PerformActionV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_action_name = action_name;
-    let p_body = body;
+    let p_query_action_name = action_name;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/devices/entities/devices-actions/v2",
@@ -528,14 +525,14 @@ pub async fn perform_action_v2(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("action_name", &p_action_name.to_string())]);
+    req_builder = req_builder.query(&[("action_name", &p_query_action_name.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -552,8 +549,8 @@ pub async fn perform_action_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodReplyAffectedEntities`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodReplyAffectedEntities`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaReplyAffectedEntities`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaReplyAffectedEntities`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -568,10 +565,10 @@ pub async fn perform_action_v2(
 
 pub async fn post_device_details_v2(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodIdsRequest,
-) -> Result<models::DeviceapiPeriodDeviceDetailsResponseSwagger, Error<PostDeviceDetailsV2Error>> {
+    body: models::MsaIdsRequest,
+) -> Result<models::DeviceapiDeviceDetailsResponseSwagger, Error<PostDeviceDetailsV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/devices/entities/devices/v2", configuration.base_path);
     let mut req_builder = configuration
@@ -584,7 +581,7 @@ pub async fn post_device_details_v2(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -601,8 +598,8 @@ pub async fn post_device_details_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiPeriodDeviceDetailsResponseSwagger`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiPeriodDeviceDetailsResponseSwagger`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiDeviceDetailsResponseSwagger`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiDeviceDetailsResponseSwagger`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -617,10 +614,10 @@ pub async fn post_device_details_v2(
 
 pub async fn query_device_login_history(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodIdsRequest,
-) -> Result<models::DeviceapiPeriodLoginHistoryResponseV1, Error<QueryDeviceLoginHistoryError>> {
+    body: models::MsaIdsRequest,
+) -> Result<models::DeviceapiLoginHistoryResponseV1, Error<QueryDeviceLoginHistoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/devices/combined/devices/login-history/v1",
@@ -636,7 +633,7 @@ pub async fn query_device_login_history(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -653,8 +650,8 @@ pub async fn query_device_login_history(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiPeriodLoginHistoryResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiPeriodLoginHistoryResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiLoginHistoryResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiLoginHistoryResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -669,10 +666,10 @@ pub async fn query_device_login_history(
 
 pub async fn query_device_login_history_v2(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodIdsRequest,
-) -> Result<models::DeviceapiPeriodLoginHistoryResponseV1, Error<QueryDeviceLoginHistoryV2Error>> {
+    body: models::MsaIdsRequest,
+) -> Result<models::DeviceapiLoginHistoryResponseV1, Error<QueryDeviceLoginHistoryV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/devices/combined/devices/login-history/v2",
@@ -688,7 +685,7 @@ pub async fn query_device_login_history_v2(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -705,8 +702,8 @@ pub async fn query_device_login_history_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiPeriodLoginHistoryResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiPeriodLoginHistoryResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiLoginHistoryResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiLoginHistoryResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -725,26 +722,26 @@ pub async fn query_devices_by_filter(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryDevicesByFilterError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryDevicesByFilterError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
 
     let uri_str = format!("{}/devices/queries/devices/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -769,8 +766,8 @@ pub async fn query_devices_by_filter(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -789,12 +786,12 @@ pub async fn query_devices_by_filter_scroll(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<models::DeviceapiPeriodDeviceResponse, Error<QueryDevicesByFilterScrollError>> {
+) -> Result<models::DeviceapiDeviceResponse, Error<QueryDevicesByFilterScrollError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/devices/queries/devices-scroll/v1",
@@ -802,16 +799,16 @@ pub async fn query_devices_by_filter_scroll(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -836,8 +833,8 @@ pub async fn query_devices_by_filter_scroll(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiPeriodDeviceResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiPeriodDeviceResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiDeviceResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiDeviceResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -852,13 +849,13 @@ pub async fn query_devices_by_filter_scroll(
 
 pub async fn query_get_network_address_history_v1(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodIdsRequest,
+    body: models::MsaIdsRequest,
 ) -> Result<
-    models::DeviceapiPeriodNetworkAddressHistoryResponseV1,
+    models::DeviceapiNetworkAddressHistoryResponseV1,
     Error<QueryGetNetworkAddressHistoryV1Error>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/devices/combined/devices/network-address-history/v1",
@@ -874,7 +871,7 @@ pub async fn query_get_network_address_history_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -891,8 +888,8 @@ pub async fn query_get_network_address_history_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiPeriodNetworkAddressHistoryResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiPeriodNetworkAddressHistoryResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiNetworkAddressHistoryResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiNetworkAddressHistoryResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -912,12 +909,12 @@ pub async fn query_hidden_devices(
     limit: Option<i32>,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryHiddenDevicesError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryHiddenDevicesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/devices/queries/devices-hidden/v1",
@@ -925,16 +922,16 @@ pub async fn query_hidden_devices(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -959,8 +956,8 @@ pub async fn query_hidden_devices(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -975,10 +972,10 @@ pub async fn query_hidden_devices(
 
 pub async fn update_device_tags(
     configuration: &configuration::Configuration,
-    body: models::DeviceapiPeriodUpdateDeviceTagsRequestV1,
-) -> Result<models::DeviceapiPeriodUpdateDeviceTagsSwaggerV1, Error<UpdateDeviceTagsError>> {
+    body: models::DeviceapiUpdateDeviceTagsRequestV1,
+) -> Result<models::DeviceapiUpdateDeviceTagsSwaggerV1, Error<UpdateDeviceTagsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/devices/entities/devices/tags/v1",
@@ -994,7 +991,7 @@ pub async fn update_device_tags(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1011,8 +1008,8 @@ pub async fn update_device_tags(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiPeriodUpdateDeviceTagsSwaggerV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiPeriodUpdateDeviceTagsSwaggerV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceapiUpdateDeviceTagsSwaggerV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceapiUpdateDeviceTagsSwaggerV1`")))),
         }
     } else {
         let content = resp.text().await?;

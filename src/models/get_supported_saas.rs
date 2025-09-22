@@ -13,22 +13,21 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetSupportedSaas {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::Error1f9a4a6fd7dc4316ba6b00ecb1a424df>>,
+    pub errors: Option<Vec<models::ErrorGetSupportedSaas>>,
     #[serde(
         rename = "meta",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub meta: Option<Option<Box<models::MetaCf51e9315520407f9dfae730370a12f0>>>,
+    pub meta: Option<Option<Box<models::MetaGetSupportedSaas>>>,
     #[serde(
         rename = "resources",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub resources:
-        Option<Option<Vec<models::SupportedIntegration7d47ee53413344038bd31c835a8e33ad>>>,
+    pub resources: Option<Option<Vec<models::SupportedIntegrationGetSupportedSaas>>>,
 }
 
 impl GetSupportedSaas {

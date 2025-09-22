@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateFirewallPoliciesError {
-    Status400(models::FirewallPeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::FirewallPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::FirewallPeriodRespV1),
+    Status400(models::FirewallRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::FirewallRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::FirewallRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,10 +29,10 @@ pub enum CreateFirewallPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteFirewallPoliciesError {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,10 +40,10 @@ pub enum DeleteFirewallPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetFirewallPoliciesError {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::FirewallPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::FirewallPeriodRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::FirewallRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::FirewallRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,11 +51,11 @@ pub enum GetFirewallPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PerformFirewallPoliciesActionError {
-    Status400(models::FirewallPeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::FirewallPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::FirewallPeriodRespV1),
+    Status400(models::FirewallRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::FirewallRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::FirewallRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -63,10 +63,10 @@ pub enum PerformFirewallPoliciesActionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedFirewallPoliciesError {
-    Status400(models::FirewallPeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::FirewallPeriodRespV1),
+    Status400(models::FirewallRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::FirewallRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -74,11 +74,11 @@ pub enum QueryCombinedFirewallPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedFirewallPolicyMembersError {
-    Status400(models::BasePeriodPolicyMembersRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::BasePeriodPolicyMembersRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::BasePeriodPolicyMembersRespV1),
+    Status400(models::BasePolicyMembersRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::BasePolicyMembersRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::BasePolicyMembersRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,10 +86,10 @@ pub enum QueryCombinedFirewallPolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryFirewallPoliciesError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -97,11 +97,11 @@ pub enum QueryFirewallPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryFirewallPolicyMembersError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -109,10 +109,10 @@ pub enum QueryFirewallPolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SetFirewallPoliciesPrecedenceError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -120,29 +120,29 @@ pub enum SetFirewallPoliciesPrecedenceError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateFirewallPoliciesError {
-    Status400(models::FirewallPeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::FirewallPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::FirewallPeriodRespV1),
+    Status400(models::FirewallRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::FirewallRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::FirewallRespV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_firewall_policies(
     configuration: &configuration::Configuration,
-    body: models::FirewallPeriodCreateFirewallPoliciesReqV1,
+    body: models::FirewallCreateFirewallPoliciesReqV1,
     clone_id: Option<&str>,
-) -> Result<models::FirewallPeriodRespV1, Error<CreateFirewallPoliciesError>> {
+) -> Result<models::FirewallRespV1, Error<CreateFirewallPoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_clone_id = clone_id;
+    let p_body_body = body;
+    let p_query_clone_id = clone_id;
 
     let uri_str = format!("{}/policy/entities/firewall/v1", configuration.base_path);
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_clone_id {
+    if let Some(ref param_value) = p_query_clone_id {
         req_builder = req_builder.query(&[("clone_id", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -151,7 +151,7 @@ pub async fn create_firewall_policies(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -168,8 +168,8 @@ pub async fn create_firewall_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FirewallPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FirewallPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FirewallRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FirewallRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -185,9 +185,9 @@ pub async fn create_firewall_policies(
 pub async fn delete_firewall_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::MsaPeriodQueryResponse, Error<DeleteFirewallPoliciesError>> {
+) -> Result<models::MsaQueryResponse, Error<DeleteFirewallPoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/policy/entities/firewall/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -196,14 +196,14 @@ pub async fn delete_firewall_policies(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -233,8 +233,8 @@ pub async fn delete_firewall_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -250,23 +250,23 @@ pub async fn delete_firewall_policies(
 pub async fn get_firewall_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::FirewallPeriodRespV1, Error<GetFirewallPoliciesError>> {
+) -> Result<models::FirewallRespV1, Error<GetFirewallPoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/policy/entities/firewall/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -296,8 +296,8 @@ pub async fn get_firewall_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FirewallPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FirewallPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FirewallRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FirewallRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -313,11 +313,11 @@ pub async fn get_firewall_policies(
 pub async fn perform_firewall_policies_action(
     configuration: &configuration::Configuration,
     action_name: &str,
-    body: models::MsaPeriodEntityActionRequestV2,
-) -> Result<models::FirewallPeriodRespV1, Error<PerformFirewallPoliciesActionError>> {
+    body: models::MsaEntityActionRequestV2,
+) -> Result<models::FirewallRespV1, Error<PerformFirewallPoliciesActionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_action_name = action_name;
-    let p_body = body;
+    let p_query_action_name = action_name;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/firewall-actions/v1",
@@ -327,14 +327,14 @@ pub async fn perform_firewall_policies_action(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("action_name", &p_action_name.to_string())]);
+    req_builder = req_builder.query(&[("action_name", &p_query_action_name.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -351,8 +351,8 @@ pub async fn perform_firewall_policies_action(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FirewallPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FirewallPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FirewallRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FirewallRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -372,26 +372,26 @@ pub async fn query_combined_firewall_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::FirewallPeriodRespV1, Error<QueryCombinedFirewallPoliciesError>> {
+) -> Result<models::FirewallRespV1, Error<QueryCombinedFirewallPoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!("{}/policy/combined/firewall/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -416,8 +416,8 @@ pub async fn query_combined_firewall_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FirewallPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FirewallPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FirewallRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FirewallRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -438,13 +438,13 @@ pub async fn query_combined_firewall_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::BasePeriodPolicyMembersRespV1, Error<QueryCombinedFirewallPolicyMembersError>> {
+) -> Result<models::BasePolicyMembersRespV1, Error<QueryCombinedFirewallPolicyMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_id = id;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/combined/firewall-members/v1",
@@ -452,19 +452,19 @@ pub async fn query_combined_firewall_policy_members(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -489,8 +489,8 @@ pub async fn query_combined_firewall_policy_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BasePeriodPolicyMembersRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BasePeriodPolicyMembersRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BasePolicyMembersRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BasePolicyMembersRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -510,26 +510,26 @@ pub async fn query_firewall_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryFirewallPoliciesError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryFirewallPoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!("{}/policy/queries/firewall/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -554,8 +554,8 @@ pub async fn query_firewall_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -575,13 +575,13 @@ pub async fn query_firewall_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryFirewallPolicyMembersError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryFirewallPolicyMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_id = id;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/queries/firewall-members/v1",
@@ -589,19 +589,19 @@ pub async fn query_firewall_policy_members(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -626,8 +626,8 @@ pub async fn query_firewall_policy_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -642,10 +642,10 @@ pub async fn query_firewall_policy_members(
 
 pub async fn set_firewall_policies_precedence(
     configuration: &configuration::Configuration,
-    body: models::BasePeriodSetPolicyPrecedenceReqV1,
-) -> Result<models::MsaPeriodQueryResponse, Error<SetFirewallPoliciesPrecedenceError>> {
+    body: models::BaseSetPolicyPrecedenceReqV1,
+) -> Result<models::MsaQueryResponse, Error<SetFirewallPoliciesPrecedenceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/firewall-precedence/v1",
@@ -661,7 +661,7 @@ pub async fn set_firewall_policies_precedence(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -678,8 +678,8 @@ pub async fn set_firewall_policies_precedence(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -695,10 +695,10 @@ pub async fn set_firewall_policies_precedence(
 
 pub async fn update_firewall_policies(
     configuration: &configuration::Configuration,
-    body: models::FirewallPeriodUpdateFirewallPoliciesReqV1,
-) -> Result<models::FirewallPeriodRespV1, Error<UpdateFirewallPoliciesError>> {
+    body: models::FirewallUpdateFirewallPoliciesReqV1,
+) -> Result<models::FirewallRespV1, Error<UpdateFirewallPoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/policy/entities/firewall/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -711,7 +711,7 @@ pub async fn update_firewall_policies(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -728,8 +728,8 @@ pub async fn update_firewall_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FirewallPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FirewallPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FirewallRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FirewallRespV1`")))),
         }
     } else {
         let content = resp.text().await?;

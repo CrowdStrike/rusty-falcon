@@ -17,9 +17,9 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateUsersV1Error {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,10 +27,10 @@ pub enum AggregateUsersV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedUserRolesV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -38,10 +38,10 @@ pub enum CombinedUserRolesV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedUserRolesV2Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -49,10 +49,10 @@ pub enum CombinedUserRolesV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateUserError {
-    Status400(models::MsaPeriodEntitiesResponse),
-    Status403(models::MsaPeriodEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaEntitiesResponse),
+    Status403(models::MsaEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -60,10 +60,10 @@ pub enum CreateUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateUserV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -71,11 +71,11 @@ pub enum CreateUserV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteUserError {
-    Status400(models::MsaPeriodReplyMetaOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -83,10 +83,22 @@ pub enum DeleteUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteUserV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`entities_roles_getv2`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum EntitiesRolesGetv2Error {
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -94,11 +106,11 @@ pub enum DeleteUserV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EntitiesRolesV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -106,10 +118,10 @@ pub enum EntitiesRolesV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAvailableRoleIdsError {
-    Status403(models::MsaPeriodQueryResponse),
-    Status404(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status403(models::MsaQueryResponse),
+    Status404(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -117,11 +129,11 @@ pub enum GetAvailableRoleIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRolesError {
-    Status400(models::MsaPeriodEntitiesResponse),
-    Status403(models::MsaPeriodEntitiesResponse),
-    Status404(models::MsaPeriodEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodEntitiesResponse),
+    Status400(models::MsaEntitiesResponse),
+    Status403(models::MsaEntitiesResponse),
+    Status404(models::MsaEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -129,10 +141,10 @@ pub enum GetRolesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserRoleIdsError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -140,10 +152,10 @@ pub enum GetUserRoleIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GrantUserRoleIdsError {
-    Status400(models::MsaPeriodEntitiesResponse),
-    Status403(models::MsaPeriodEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaEntitiesResponse),
+    Status403(models::MsaEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -151,10 +163,10 @@ pub enum GrantUserRoleIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueriesRolesV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -162,10 +174,10 @@ pub enum QueriesRolesV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryUserV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -173,10 +185,10 @@ pub enum QueryUserV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RetrieveEmailsByCidError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -184,11 +196,11 @@ pub enum RetrieveEmailsByCidError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RetrieveUserError {
-    Status400(models::MsaPeriodEntitiesResponse),
-    Status403(models::MsaPeriodEntitiesResponse),
-    Status404(models::MsaPeriodEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaEntitiesResponse),
+    Status403(models::MsaEntitiesResponse),
+    Status404(models::MsaEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -196,11 +208,11 @@ pub enum RetrieveUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RetrieveUserUuidError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodQueryResponse),
-    Status404(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaQueryResponse),
+    Status404(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -208,10 +220,10 @@ pub enum RetrieveUserUuidError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RetrieveUserUuidsByCidError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -219,10 +231,10 @@ pub enum RetrieveUserUuidsByCidError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RetrieveUsersGetv1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -230,10 +242,10 @@ pub enum RetrieveUsersGetv1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RevokeUserRoleIdsError {
-    Status400(models::MsaPeriodEntitiesResponse),
-    Status403(models::MsaPeriodEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaEntitiesResponse),
+    Status403(models::MsaEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -241,11 +253,11 @@ pub enum RevokeUserRoleIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateUserError {
-    Status400(models::MsaPeriodEntitiesResponse),
-    Status403(models::MsaPeriodEntitiesResponse),
-    Status404(models::MsaPeriodEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaEntitiesResponse),
+    Status403(models::MsaEntitiesResponse),
+    Status404(models::MsaEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -253,10 +265,10 @@ pub enum UpdateUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateUserV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -264,10 +276,10 @@ pub enum UpdateUserV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UserActionV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -275,19 +287,19 @@ pub enum UserActionV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UserRolesActionV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn aggregate_users_v1(
     configuration: &configuration::Configuration,
-    body: Vec<models::MsaPeriodAggregateQueryRequest>,
-) -> Result<models::FlightcontrolapiPeriodAggregatesResponse, Error<AggregateUsersV1Error>> {
+    body: Vec<models::MsaAggregateQueryRequest>,
+) -> Result<models::FlightcontrolapiAggregatesResponse, Error<AggregateUsersV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/user-management/aggregates/users/v1",
@@ -303,7 +315,7 @@ pub async fn aggregate_users_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -320,8 +332,8 @@ pub async fn aggregate_users_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlightcontrolapiPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlightcontrolapiPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlightcontrolapiAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlightcontrolapiAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -343,18 +355,15 @@ pub async fn combined_user_roles_v1(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<
-    models::FlightcontrolapiPeriodCombinedUserRolesResponseV1,
-    Error<CombinedUserRolesV1Error>,
-> {
+) -> Result<models::FlightcontrolapiCombinedUserRolesResponseV1, Error<CombinedUserRolesV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_user_uuid = user_uuid;
-    let p_cid = cid;
-    let p_direct_only = direct_only;
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_user_uuid = user_uuid;
+    let p_query_cid = cid;
+    let p_query_direct_only = direct_only;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/user-management/combined/user-roles/v1",
@@ -362,23 +371,23 @@ pub async fn combined_user_roles_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("user_uuid", &p_user_uuid.to_string())]);
-    if let Some(ref param_value) = p_cid {
+    req_builder = req_builder.query(&[("user_uuid", &p_query_user_uuid.to_string())]);
+    if let Some(ref param_value) = p_query_cid {
         req_builder = req_builder.query(&[("cid", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_direct_only {
+    if let Some(ref param_value) = p_query_direct_only {
         req_builder = req_builder.query(&[("direct_only", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -403,8 +412,8 @@ pub async fn combined_user_roles_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlightcontrolapiPeriodCombinedUserRolesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlightcontrolapiPeriodCombinedUserRolesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlightcontrolapiCombinedUserRolesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlightcontrolapiCombinedUserRolesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -426,18 +435,15 @@ pub async fn combined_user_roles_v2(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<
-    models::FlightcontrolapiPeriodCombinedUserRolesResponseV2,
-    Error<CombinedUserRolesV2Error>,
-> {
+) -> Result<models::FlightcontrolapiCombinedUserRolesResponseV2, Error<CombinedUserRolesV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_user_uuid = user_uuid;
-    let p_cid = cid;
-    let p_direct_only = direct_only;
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_user_uuid = user_uuid;
+    let p_query_cid = cid;
+    let p_query_direct_only = direct_only;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/user-management/combined/user-roles/v2",
@@ -445,23 +451,23 @@ pub async fn combined_user_roles_v2(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("user_uuid", &p_user_uuid.to_string())]);
-    if let Some(ref param_value) = p_cid {
+    req_builder = req_builder.query(&[("user_uuid", &p_query_user_uuid.to_string())]);
+    if let Some(ref param_value) = p_query_cid {
         req_builder = req_builder.query(&[("cid", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_direct_only {
+    if let Some(ref param_value) = p_query_direct_only {
         req_builder = req_builder.query(&[("direct_only", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -486,8 +492,8 @@ pub async fn combined_user_roles_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlightcontrolapiPeriodCombinedUserRolesResponseV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlightcontrolapiPeriodCombinedUserRolesResponseV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlightcontrolapiCombinedUserRolesResponseV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlightcontrolapiCombinedUserRolesResponseV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -502,10 +508,10 @@ pub async fn combined_user_roles_v2(
 
 pub async fn create_user(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodUserCreateRequest,
-) -> Result<models::ApiPeriodUserMetadataResponse, Error<CreateUserError>> {
+    body: models::DomainUserCreateRequest,
+) -> Result<models::ApiUserMetadataResponse, Error<CreateUserError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/users/entities/users/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -518,7 +524,7 @@ pub async fn create_user(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -535,8 +541,8 @@ pub async fn create_user(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodUserMetadataResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodUserMetadataResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiUserMetadataResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiUserMetadataResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -551,12 +557,12 @@ pub async fn create_user(
 
 pub async fn create_user_v1(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodCreateUserRequest,
+    body: models::DomainCreateUserRequest,
     validate_only: Option<bool>,
-) -> Result<models::FlightcontrolapiPeriodUserResponse, Error<CreateUserV1Error>> {
+) -> Result<models::FlightcontrolapiUserResponse, Error<CreateUserV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_validate_only = validate_only;
+    let p_body_body = body;
+    let p_query_validate_only = validate_only;
 
     let uri_str = format!(
         "{}/user-management/entities/users/v1",
@@ -566,7 +572,7 @@ pub async fn create_user_v1(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_validate_only {
+    if let Some(ref param_value) = p_query_validate_only {
         req_builder = req_builder.query(&[("validate_only", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -575,7 +581,7 @@ pub async fn create_user_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -592,8 +598,8 @@ pub async fn create_user_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlightcontrolapiPeriodUserResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlightcontrolapiPeriodUserResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlightcontrolapiUserResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlightcontrolapiUserResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -609,16 +615,16 @@ pub async fn create_user_v1(
 pub async fn delete_user(
     configuration: &configuration::Configuration,
     user_uuid: &str,
-) -> Result<models::MsaPeriodReplyMetaOnly, Error<DeleteUserError>> {
+) -> Result<models::MsaReplyMetaOnly, Error<DeleteUserError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_user_uuid = user_uuid;
+    let p_query_user_uuid = user_uuid;
 
     let uri_str = format!("{}/users/entities/users/v1", configuration.base_path);
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("user_uuid", &p_user_uuid.to_string())]);
+    req_builder = req_builder.query(&[("user_uuid", &p_query_user_uuid.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -641,8 +647,8 @@ pub async fn delete_user(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodReplyMetaOnly`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodReplyMetaOnly`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaReplyMetaOnly`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaReplyMetaOnly`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -658,9 +664,9 @@ pub async fn delete_user(
 pub async fn delete_user_v1(
     configuration: &configuration::Configuration,
     user_uuid: &str,
-) -> Result<models::MsaspecPeriodResponseFields, Error<DeleteUserV1Error>> {
+) -> Result<models::MsaspecResponseFields, Error<DeleteUserV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_user_uuid = user_uuid;
+    let p_query_user_uuid = user_uuid;
 
     let uri_str = format!(
         "{}/user-management/entities/users/v1",
@@ -670,7 +676,7 @@ pub async fn delete_user_v1(
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("user_uuid", &p_user_uuid.to_string())]);
+    req_builder = req_builder.query(&[("user_uuid", &p_query_user_uuid.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -693,8 +699,8 @@ pub async fn delete_user_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecResponseFields`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecResponseFields`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -707,14 +713,71 @@ pub async fn delete_user_v1(
     }
 }
 
+pub async fn entities_roles_getv2(
+    configuration: &configuration::Configuration,
+    body: models::MsaspecIdsRequest,
+    cid: Option<&str>,
+) -> Result<models::FlightcontrolapiGetRolesResponse, Error<EntitiesRolesGetv2Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_body = body;
+    let p_query_cid = cid;
+
+    let uri_str = format!(
+        "{}/user-management/entities/roles/GET/v2",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref param_value) = p_query_cid {
+        req_builder = req_builder.query(&[("cid", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    req_builder = req_builder.json(&p_body_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlightcontrolapiGetRolesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlightcontrolapiGetRolesResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesRolesGetv2Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
 pub async fn entities_roles_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     cid: Option<&str>,
-) -> Result<models::FlightcontrolapiPeriodGetRolesResponse, Error<EntitiesRolesV1Error>> {
+) -> Result<models::FlightcontrolapiGetRolesResponse, Error<EntitiesRolesV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_cid = cid;
+    let p_query_ids = ids;
+    let p_query_cid = cid;
 
     let uri_str = format!(
         "{}/user-management/entities/roles/v1",
@@ -722,19 +785,19 @@ pub async fn entities_roles_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_cid {
+    if let Some(ref param_value) = p_query_cid {
         req_builder = req_builder.query(&[("cid", &param_value.to_string())]);
     }
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -764,8 +827,8 @@ pub async fn entities_roles_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlightcontrolapiPeriodGetRolesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlightcontrolapiPeriodGetRolesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlightcontrolapiGetRolesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlightcontrolapiGetRolesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -780,7 +843,7 @@ pub async fn entities_roles_v1(
 
 pub async fn get_available_role_ids(
     configuration: &configuration::Configuration,
-) -> Result<models::MsaPeriodQueryResponse, Error<GetAvailableRoleIdsError>> {
+) -> Result<models::MsaQueryResponse, Error<GetAvailableRoleIdsError>> {
     let uri_str = format!(
         "{}/user-roles/queries/user-role-ids-by-cid/v1",
         configuration.base_path
@@ -809,8 +872,8 @@ pub async fn get_available_role_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -826,9 +889,9 @@ pub async fn get_available_role_ids(
 pub async fn get_roles(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ApiPeriodUserRoleResponse, Error<GetRolesError>> {
+) -> Result<models::ApiUserRoleResponse, Error<GetRolesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/user-roles/entities/user-roles/v1",
@@ -838,14 +901,14 @@ pub async fn get_roles(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -875,8 +938,8 @@ pub async fn get_roles(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodUserRoleResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodUserRoleResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiUserRoleResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiUserRoleResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -892,9 +955,9 @@ pub async fn get_roles(
 pub async fn get_user_role_ids(
     configuration: &configuration::Configuration,
     user_uuid: &str,
-) -> Result<models::MsaPeriodQueryResponse, Error<GetUserRoleIdsError>> {
+) -> Result<models::MsaQueryResponse, Error<GetUserRoleIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_user_uuid = user_uuid;
+    let p_query_user_uuid = user_uuid;
 
     let uri_str = format!(
         "{}/user-roles/queries/user-role-ids-by-user-uuid/v1",
@@ -902,7 +965,7 @@ pub async fn get_user_role_ids(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("user_uuid", &p_user_uuid.to_string())]);
+    req_builder = req_builder.query(&[("user_uuid", &p_query_user_uuid.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -925,8 +988,8 @@ pub async fn get_user_role_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -942,11 +1005,11 @@ pub async fn get_user_role_ids(
 pub async fn grant_user_role_ids(
     configuration: &configuration::Configuration,
     user_uuid: &str,
-    body: models::DomainPeriodRoleIds,
-) -> Result<models::ApiPeriodUserRoleIdsResponse, Error<GrantUserRoleIdsError>> {
+    body: models::DomainRoleIds,
+) -> Result<models::ApiUserRoleIdsResponse, Error<GrantUserRoleIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_user_uuid = user_uuid;
-    let p_body = body;
+    let p_query_user_uuid = user_uuid;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/user-roles/entities/user-roles/v1",
@@ -956,14 +1019,14 @@ pub async fn grant_user_role_ids(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("user_uuid", &p_user_uuid.to_string())]);
+    req_builder = req_builder.query(&[("user_uuid", &p_query_user_uuid.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -980,8 +1043,8 @@ pub async fn grant_user_role_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodUserRoleIdsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodUserRoleIdsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiUserRoleIdsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiUserRoleIdsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -999,11 +1062,11 @@ pub async fn queries_roles_v1(
     cid: Option<&str>,
     user_uuid: Option<&str>,
     action: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueriesRolesV1Error>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueriesRolesV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_cid = cid;
-    let p_user_uuid = user_uuid;
-    let p_action = action;
+    let p_query_cid = cid;
+    let p_query_user_uuid = user_uuid;
+    let p_query_action = action;
 
     let uri_str = format!(
         "{}/user-management/queries/roles/v1",
@@ -1011,13 +1074,13 @@ pub async fn queries_roles_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_cid {
+    if let Some(ref param_value) = p_query_cid {
         req_builder = req_builder.query(&[("cid", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_user_uuid {
+    if let Some(ref param_value) = p_query_user_uuid {
         req_builder = req_builder.query(&[("user_uuid", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_action {
+    if let Some(ref param_value) = p_query_action {
         req_builder = req_builder.query(&[("action", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1042,8 +1105,8 @@ pub async fn queries_roles_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1062,12 +1125,12 @@ pub async fn query_user_v1(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryUserV1Error>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueryUserV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/user-management/queries/users/v1",
@@ -1075,16 +1138,16 @@ pub async fn query_user_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1109,8 +1172,8 @@ pub async fn query_user_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1125,7 +1188,7 @@ pub async fn query_user_v1(
 
 pub async fn retrieve_emails_by_cid(
     configuration: &configuration::Configuration,
-) -> Result<models::MsaPeriodQueryResponse, Error<RetrieveEmailsByCidError>> {
+) -> Result<models::MsaQueryResponse, Error<RetrieveEmailsByCidError>> {
     let uri_str = format!("{}/users/queries/emails-by-cid/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
@@ -1151,8 +1214,8 @@ pub async fn retrieve_emails_by_cid(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1168,23 +1231,23 @@ pub async fn retrieve_emails_by_cid(
 pub async fn retrieve_user(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ApiPeriodUserMetadataResponse, Error<RetrieveUserError>> {
+) -> Result<models::ApiUserMetadataResponse, Error<RetrieveUserError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/users/entities/users/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1214,8 +1277,8 @@ pub async fn retrieve_user(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodUserMetadataResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodUserMetadataResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiUserMetadataResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiUserMetadataResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1231,9 +1294,9 @@ pub async fn retrieve_user(
 pub async fn retrieve_user_uuid(
     configuration: &configuration::Configuration,
     uid: Vec<String>,
-) -> Result<models::MsaPeriodQueryResponse, Error<RetrieveUserUuidError>> {
+) -> Result<models::MsaQueryResponse, Error<RetrieveUserUuidError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_uid = uid;
+    let p_query_uid = uid;
 
     let uri_str = format!(
         "{}/users/queries/user-uuids-by-email/v1",
@@ -1243,14 +1306,14 @@ pub async fn retrieve_user_uuid(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_uid
+            &p_query_uid
                 .into_iter()
                 .map(|p| ("uid".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "uid",
-            &p_uid
+            &p_query_uid
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1280,8 +1343,8 @@ pub async fn retrieve_user_uuid(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1296,7 +1359,7 @@ pub async fn retrieve_user_uuid(
 
 pub async fn retrieve_user_uuids_by_cid(
     configuration: &configuration::Configuration,
-) -> Result<models::MsaPeriodQueryResponse, Error<RetrieveUserUuidsByCidError>> {
+) -> Result<models::MsaQueryResponse, Error<RetrieveUserUuidsByCidError>> {
     let uri_str = format!(
         "{}/users/queries/user-uuids-by-cid/v1",
         configuration.base_path
@@ -1325,8 +1388,8 @@ pub async fn retrieve_user_uuids_by_cid(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1341,10 +1404,10 @@ pub async fn retrieve_user_uuids_by_cid(
 
 pub async fn retrieve_users_getv1(
     configuration: &configuration::Configuration,
-    body: models::MsaspecPeriodIdsRequest,
-) -> Result<models::FlightcontrolapiPeriodUserResponse, Error<RetrieveUsersGetv1Error>> {
+    body: models::MsaspecIdsRequest,
+) -> Result<models::FlightcontrolapiUserResponse, Error<RetrieveUsersGetv1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/user-management/entities/users/GET/v1",
@@ -1360,7 +1423,7 @@ pub async fn retrieve_users_getv1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1377,8 +1440,8 @@ pub async fn retrieve_users_getv1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlightcontrolapiPeriodUserResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlightcontrolapiPeriodUserResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlightcontrolapiUserResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlightcontrolapiUserResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1395,10 +1458,10 @@ pub async fn revoke_user_role_ids(
     configuration: &configuration::Configuration,
     user_uuid: &str,
     ids: Vec<String>,
-) -> Result<models::ApiPeriodUserRoleIdsResponse, Error<RevokeUserRoleIdsError>> {
+) -> Result<models::ApiUserRoleIdsResponse, Error<RevokeUserRoleIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_user_uuid = user_uuid;
-    let p_ids = ids;
+    let p_query_user_uuid = user_uuid;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/user-roles/entities/user-roles/v1",
@@ -1408,17 +1471,17 @@ pub async fn revoke_user_role_ids(
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("user_uuid", &p_user_uuid.to_string())]);
+    req_builder = req_builder.query(&[("user_uuid", &p_query_user_uuid.to_string())]);
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1448,8 +1511,8 @@ pub async fn revoke_user_role_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodUserRoleIdsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodUserRoleIdsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiUserRoleIdsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiUserRoleIdsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1465,25 +1528,25 @@ pub async fn revoke_user_role_ids(
 pub async fn update_user(
     configuration: &configuration::Configuration,
     user_uuid: &str,
-    body: models::DomainPeriodUpdateUserFields,
-) -> Result<models::ApiPeriodUserMetadataResponse, Error<UpdateUserError>> {
+    body: models::DomainUpdateUserFields,
+) -> Result<models::ApiUserMetadataResponse, Error<UpdateUserError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_user_uuid = user_uuid;
-    let p_body = body;
+    let p_query_user_uuid = user_uuid;
+    let p_body_body = body;
 
     let uri_str = format!("{}/users/entities/users/v1", configuration.base_path);
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    req_builder = req_builder.query(&[("user_uuid", &p_user_uuid.to_string())]);
+    req_builder = req_builder.query(&[("user_uuid", &p_query_user_uuid.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1500,8 +1563,8 @@ pub async fn update_user(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodUserMetadataResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodUserMetadataResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiUserMetadataResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiUserMetadataResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1517,11 +1580,11 @@ pub async fn update_user(
 pub async fn update_user_v1(
     configuration: &configuration::Configuration,
     user_uuid: &str,
-    body: models::DomainPeriodUpdateUserRequest,
-) -> Result<models::FlightcontrolapiPeriodUserResponse, Error<UpdateUserV1Error>> {
+    body: models::DomainUpdateUserRequest,
+) -> Result<models::FlightcontrolapiUserResponse, Error<UpdateUserV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_user_uuid = user_uuid;
-    let p_body = body;
+    let p_query_user_uuid = user_uuid;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/user-management/entities/users/v1",
@@ -1531,14 +1594,14 @@ pub async fn update_user_v1(
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    req_builder = req_builder.query(&[("user_uuid", &p_user_uuid.to_string())]);
+    req_builder = req_builder.query(&[("user_uuid", &p_query_user_uuid.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1555,8 +1618,8 @@ pub async fn update_user_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlightcontrolapiPeriodUserResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlightcontrolapiPeriodUserResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlightcontrolapiUserResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlightcontrolapiUserResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1571,10 +1634,10 @@ pub async fn update_user_v1(
 
 pub async fn user_action_v1(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodUserActionRequest,
-) -> Result<models::MsaspecPeriodResponseFields, Error<UserActionV1Error>> {
+    body: models::DomainUserActionRequest,
+) -> Result<models::MsaspecResponseFields, Error<UserActionV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/user-management/entities/user-actions/v1",
@@ -1590,7 +1653,7 @@ pub async fn user_action_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1607,8 +1670,8 @@ pub async fn user_action_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecResponseFields`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecResponseFields`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1623,10 +1686,10 @@ pub async fn user_action_v1(
 
 pub async fn user_roles_action_v1(
     configuration: &configuration::Configuration,
-    body: models::FlightcontrolapiPeriodGrantInput,
-) -> Result<models::MsaspecPeriodResponseFields, Error<UserRolesActionV1Error>> {
+    body: models::FlightcontrolapiGrantInput,
+) -> Result<models::MsaspecResponseFields, Error<UserRolesActionV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/user-management/entities/user-role-actions/v1",
@@ -1642,7 +1705,7 @@ pub async fn user_roles_action_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1659,8 +1722,8 @@ pub async fn user_roles_action_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecResponseFields`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecResponseFields`")))),
         }
     } else {
         let content = resp.text().await?;

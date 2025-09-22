@@ -13,97 +13,33 @@ use crate::{apis::ResponseContent, models};
 use reqwest;
 use serde::de::Error as _;
 
-/// struct for typed errors of method [`lookup_indicators`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum LookupIndicatorsError {
-    Status400(),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`search_indicators`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SearchIndicatorsError {
     Status400(),
-    Status403(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
     Status404(),
-    Status429(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
     Status500(),
     UnknownValue(serde_json::Value),
 }
 
-/// Look up intelligence data for multiple indicators. Supports various indicator types including domains, IP addresses, and file hashes (MD5, SHA1, SHA256). Provide up to 100 indicators in a single request.
-pub async fn lookup_indicators(
-    configuration: &configuration::Configuration,
-    body: models::RestapiPeriodIndicatorsLookupRequest,
-) -> Result<models::RestapiPeriodLookupIndicatorResponse, Error<LookupIndicatorsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-
-    let uri_str = format!(
-        "{}/intelligence/combined/lookup-indicators/v1",
-        configuration.base_path
-    );
-    let mut req_builder = configuration
-        .client
-        .request(reqwest::Method::POST, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-    req_builder = req_builder.json(&p_body);
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RestapiPeriodLookupIndicatorResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RestapiPeriodLookupIndicatorResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<LookupIndicatorsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent {
-            status,
-            content,
-            entity,
-        }))
-    }
-}
-
+///  This method supports flexible parameter input through both query parameters and JSON request body.  ## Parameter Precedence Rules  | Parameter | Query Param | JSON Body | Precedence Rule | |-----------|-------------|-----------|-----------------| | filter    | ✅          | ✅        | **EXCLUSIVE** - Cannot specify both | | sort      | ✅          | ✅        | **Query param OVERRIDES** JSON body | | limit     | ✅          | ❌        | Query param only | | offset    | ✅          | ❌        | Query param only |  ### Usage Patterns: - **Query-only:** Use query parameters for simple requests - **Body-only:** Use JSON body for complex configurations - **Hybrid:** Combine both, following precedence rules above
 pub async fn search_indicators(
     configuration: &configuration::Configuration,
-    body: models::RestapiPeriodIndicatorsQueryRequest,
+    body: models::RestapiIndicatorsQueryRequest,
     sort: Option<&str>,
     filter: Option<&str>,
     limit: Option<i32>,
     offset: Option<&str>,
-) -> Result<models::RestapiPeriodIndicatorResponse, Error<SearchIndicatorsError>> {
+) -> Result<models::RestapiIndicatorResponse, Error<SearchIndicatorsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_body_body = body;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/intelligence/combined/indicators/v1",
@@ -113,16 +49,16 @@ pub async fn search_indicators(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -131,7 +67,7 @@ pub async fn search_indicators(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -148,8 +84,8 @@ pub async fn search_indicators(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RestapiPeriodIndicatorResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RestapiPeriodIndicatorResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RestapiIndicatorResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RestapiIndicatorResponse`")))),
         }
     } else {
         let content = resp.text().await?;

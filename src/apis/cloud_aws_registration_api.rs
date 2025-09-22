@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudRegistrationAwsCreateAccountError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum CloudRegistrationAwsCreateAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudRegistrationAwsDeleteAccountError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum CloudRegistrationAwsDeleteAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudRegistrationAwsGetAccountsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +50,10 @@ pub enum CloudRegistrationAwsGetAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudRegistrationAwsQueryAccountsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,22 +61,20 @@ pub enum CloudRegistrationAwsQueryAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudRegistrationAwsUpdateAccountError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn cloud_registration_aws_create_account(
     configuration: &configuration::Configuration,
-    body: models::RestPeriodAwsAccountCreateRequestExtv1,
-) -> Result<
-    models::RestPeriodAwsAccountCreateResponseExtV1,
-    Error<CloudRegistrationAwsCreateAccountError>,
-> {
+    body: models::RestAwsAccountCreateRequestExtv1,
+) -> Result<models::RestAwsAccountCreateResponseExtV1, Error<CloudRegistrationAwsCreateAccountError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-security-registration-aws/entities/account/v1",
@@ -92,7 +90,7 @@ pub async fn cloud_registration_aws_create_account(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -109,8 +107,8 @@ pub async fn cloud_registration_aws_create_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RestPeriodAwsAccountCreateResponseExtV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RestPeriodAwsAccountCreateResponseExtV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RestAwsAccountCreateResponseExtV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RestAwsAccountCreateResponseExtV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -128,10 +126,10 @@ pub async fn cloud_registration_aws_delete_account(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
     organization_ids: Option<Vec<String>>,
-) -> Result<models::MsaspecPeriodResponseFields, Error<CloudRegistrationAwsDeleteAccountError>> {
+) -> Result<models::MsaspecResponseFields, Error<CloudRegistrationAwsDeleteAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_organization_ids = organization_ids;
+    let p_query_ids = ids;
+    let p_query_organization_ids = organization_ids;
 
     let uri_str = format!(
         "{}/cloud-security-registration-aws/entities/account/v1",
@@ -141,7 +139,7 @@ pub async fn cloud_registration_aws_delete_account(
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -160,7 +158,7 @@ pub async fn cloud_registration_aws_delete_account(
             )]),
         };
     }
-    if let Some(ref param_value) = p_organization_ids {
+    if let Some(ref param_value) = p_query_organization_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -201,8 +199,8 @@ pub async fn cloud_registration_aws_delete_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecResponseFields`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecResponseFields`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -219,12 +217,10 @@ pub async fn cloud_registration_aws_delete_account(
 pub async fn cloud_registration_aws_get_accounts(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
-) -> Result<
-    models::RestPeriodAwsAccountCreateResponseExtV1,
-    Error<CloudRegistrationAwsGetAccountsError>,
-> {
+) -> Result<models::RestAwsAccountCreateResponseExtV1, Error<CloudRegistrationAwsGetAccountsError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/cloud-security-registration-aws/entities/account/v1",
@@ -232,7 +228,7 @@ pub async fn cloud_registration_aws_get_accounts(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -273,8 +269,8 @@ pub async fn cloud_registration_aws_get_accounts(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RestPeriodAwsAccountCreateResponseExtV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RestPeriodAwsAccountCreateResponseExtV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RestAwsAccountCreateResponseExtV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RestAwsAccountCreateResponseExtV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -297,18 +293,16 @@ pub async fn cloud_registration_aws_query_accounts(
     limit: Option<i32>,
     offset: Option<i32>,
     group_by: Option<&str>,
-) -> Result<
-    models::RestPeriodAwsAccountCreateResponseExtV1,
-    Error<CloudRegistrationAwsQueryAccountsError>,
-> {
+) -> Result<models::RestAwsAccountCreateResponseExtV1, Error<CloudRegistrationAwsQueryAccountsError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_products = products;
-    let p_features = features;
-    let p_organization_ids = organization_ids;
-    let p_account_status = account_status;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_group_by = group_by;
+    let p_query_products = products;
+    let p_query_features = features;
+    let p_query_organization_ids = organization_ids;
+    let p_query_account_status = account_status;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_group_by = group_by;
 
     let uri_str = format!(
         "{}/cloud-security-registration-aws/queries/account/v1",
@@ -316,7 +310,7 @@ pub async fn cloud_registration_aws_query_accounts(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_organization_ids {
+    if let Some(ref param_value) = p_query_organization_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -337,14 +331,14 @@ pub async fn cloud_registration_aws_query_accounts(
     }
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_products
+            &p_query_products
                 .into_iter()
                 .map(|p| ("products".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "products",
-            &p_products
+            &p_query_products
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -354,14 +348,14 @@ pub async fn cloud_registration_aws_query_accounts(
     };
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_features
+            &p_query_features
                 .into_iter()
                 .map(|p| ("features".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "features",
-            &p_features
+            &p_query_features
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -369,16 +363,16 @@ pub async fn cloud_registration_aws_query_accounts(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_account_status {
+    if let Some(ref param_value) = p_query_account_status {
         req_builder = req_builder.query(&[("account-status", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_group_by {
+    if let Some(ref param_value) = p_query_group_by {
         req_builder = req_builder.query(&[("group_by", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -403,8 +397,8 @@ pub async fn cloud_registration_aws_query_accounts(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RestPeriodAwsAccountCreateResponseExtV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RestPeriodAwsAccountCreateResponseExtV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RestAwsAccountCreateResponseExtV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RestAwsAccountCreateResponseExtV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -420,13 +414,11 @@ pub async fn cloud_registration_aws_query_accounts(
 
 pub async fn cloud_registration_aws_update_account(
     configuration: &configuration::Configuration,
-    body: models::RestPeriodAwsAccountCreateRequestExtv1,
-) -> Result<
-    models::RestPeriodAwsAccountCreateResponseExtV1,
-    Error<CloudRegistrationAwsUpdateAccountError>,
-> {
+    body: models::RestAwsAccountPatchRequestExtV1,
+) -> Result<models::RestAwsAccountCreateResponseExtV1, Error<CloudRegistrationAwsUpdateAccountError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-security-registration-aws/entities/account/v1",
@@ -442,7 +434,7 @@ pub async fn cloud_registration_aws_update_account(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -459,8 +451,8 @@ pub async fn cloud_registration_aws_update_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RestPeriodAwsAccountCreateResponseExtV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RestPeriodAwsAccountCreateResponseExtV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RestAwsAccountCreateResponseExtV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RestAwsAccountCreateResponseExtV1`")))),
         }
     } else {
         let content = resp.text().await?;

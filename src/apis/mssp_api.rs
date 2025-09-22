@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AddCidGroupMembersError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum AddCidGroupMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AddRoleError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum AddRoleError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AddUserGroupMembersError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +50,10 @@ pub enum AddUserGroupMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCidGroupsError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,10 +61,10 @@ pub enum CreateCidGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateUserGroupsError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -72,10 +72,10 @@ pub enum CreateUserGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteCidGroupMembersError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -83,10 +83,10 @@ pub enum DeleteCidGroupMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteCidGroupMembersV2Error {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -94,10 +94,10 @@ pub enum DeleteCidGroupMembersV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteCidGroupsError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -105,10 +105,10 @@ pub enum DeleteCidGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteUserGroupMembersError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -116,10 +116,10 @@ pub enum DeleteUserGroupMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteUserGroupsError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -127,10 +127,10 @@ pub enum DeleteUserGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeletedRolesError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -138,10 +138,10 @@ pub enum DeletedRolesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetChildrenError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -149,10 +149,10 @@ pub enum GetChildrenError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetChildrenV2Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -160,10 +160,10 @@ pub enum GetChildrenV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCidGroupByIdError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -171,10 +171,10 @@ pub enum GetCidGroupByIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCidGroupByIdV2Error {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -182,10 +182,10 @@ pub enum GetCidGroupByIdV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCidGroupMembersByError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -193,10 +193,10 @@ pub enum GetCidGroupMembersByError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCidGroupMembersByV2Error {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -204,10 +204,10 @@ pub enum GetCidGroupMembersByV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRolesByIdError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -215,10 +215,10 @@ pub enum GetRolesByIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserGroupMembersByIdError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -226,10 +226,10 @@ pub enum GetUserGroupMembersByIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserGroupMembersByIdv2Error {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -237,10 +237,10 @@ pub enum GetUserGroupMembersByIdv2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserGroupsByIdError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -248,10 +248,10 @@ pub enum GetUserGroupsByIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserGroupsByIdv2Error {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -259,10 +259,10 @@ pub enum GetUserGroupsByIdv2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryChildrenError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -270,9 +270,9 @@ pub enum QueryChildrenError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCidGroupMembersError {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -280,9 +280,9 @@ pub enum QueryCidGroupMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCidGroupsError {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -290,9 +290,9 @@ pub enum QueryCidGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRolesError {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -300,9 +300,9 @@ pub enum QueryRolesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryUserGroupMembersError {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -310,10 +310,10 @@ pub enum QueryUserGroupMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryUserGroupsError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -321,10 +321,10 @@ pub enum QueryUserGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateCidGroupsError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -332,19 +332,19 @@ pub enum UpdateCidGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateUserGroupsError {
-    Status400(models::MsaPeriodErrorsOnly),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaErrorsOnly),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn add_cid_group_members(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodCidGroupMembersRequestV1,
-) -> Result<models::DomainPeriodCidGroupMembersResponseV1, Error<AddCidGroupMembersError>> {
+    body: models::DomainCidGroupMembersRequestV1,
+) -> Result<models::DomainCidGroupMembersResponseV1, Error<AddCidGroupMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/mssp/entities/cid-group-members/v1",
@@ -360,7 +360,7 @@ pub async fn add_cid_group_members(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -377,8 +377,8 @@ pub async fn add_cid_group_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodCidGroupMembersResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodCidGroupMembersResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainCidGroupMembersResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainCidGroupMembersResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -393,10 +393,10 @@ pub async fn add_cid_group_members(
 
 pub async fn add_role(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodMsspRoleRequestV1,
-) -> Result<models::DomainPeriodMsspRoleResponseV1, Error<AddRoleError>> {
+    body: models::DomainMsspRoleRequestV1,
+) -> Result<models::DomainMsspRoleResponseV1, Error<AddRoleError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/mssp/entities/mssp-roles/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -409,7 +409,7 @@ pub async fn add_role(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -426,8 +426,8 @@ pub async fn add_role(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodMsspRoleResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodMsspRoleResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainMsspRoleResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainMsspRoleResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -442,10 +442,10 @@ pub async fn add_role(
 
 pub async fn add_user_group_members(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodUserGroupMembersRequestV1,
-) -> Result<models::DomainPeriodUserGroupMembersResponseV1, Error<AddUserGroupMembersError>> {
+    body: models::DomainUserGroupMembersRequestV1,
+) -> Result<models::DomainUserGroupMembersResponseV1, Error<AddUserGroupMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/mssp/entities/user-group-members/v1",
@@ -461,7 +461,7 @@ pub async fn add_user_group_members(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -478,8 +478,8 @@ pub async fn add_user_group_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodUserGroupMembersResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodUserGroupMembersResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainUserGroupMembersResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainUserGroupMembersResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -494,10 +494,10 @@ pub async fn add_user_group_members(
 
 pub async fn create_cid_groups(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodCidGroupsRequestV1,
-) -> Result<models::DomainPeriodCidGroupsResponseV1, Error<CreateCidGroupsError>> {
+    body: models::DomainCidGroupsRequestV1,
+) -> Result<models::DomainCidGroupsResponseV1, Error<CreateCidGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/mssp/entities/cid-groups/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -510,7 +510,7 @@ pub async fn create_cid_groups(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -527,8 +527,8 @@ pub async fn create_cid_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodCidGroupsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodCidGroupsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainCidGroupsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainCidGroupsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -543,10 +543,10 @@ pub async fn create_cid_groups(
 
 pub async fn create_user_groups(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodUserGroupsRequestV1,
-) -> Result<models::DomainPeriodUserGroupsResponseV1, Error<CreateUserGroupsError>> {
+    body: models::DomainUserGroupsRequestV1,
+) -> Result<models::DomainUserGroupsResponseV1, Error<CreateUserGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/mssp/entities/user-groups/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -559,7 +559,7 @@ pub async fn create_user_groups(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -576,8 +576,8 @@ pub async fn create_user_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodUserGroupsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodUserGroupsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainUserGroupsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainUserGroupsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -592,10 +592,10 @@ pub async fn create_user_groups(
 
 pub async fn delete_cid_group_members(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodCidGroupMembersRequestV1,
-) -> Result<models::DomainPeriodCidGroupMembersResponseV1, Error<DeleteCidGroupMembersError>> {
+    body: models::DomainCidGroupMembersRequestV1,
+) -> Result<models::DomainCidGroupMembersResponseV1, Error<DeleteCidGroupMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/mssp/entities/cid-group-members/v1",
@@ -611,7 +611,7 @@ pub async fn delete_cid_group_members(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -628,8 +628,8 @@ pub async fn delete_cid_group_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodCidGroupMembersResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodCidGroupMembersResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainCidGroupMembersResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainCidGroupMembersResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -644,10 +644,10 @@ pub async fn delete_cid_group_members(
 
 pub async fn delete_cid_group_members_v2(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodCidGroupMembersRequestV1,
-) -> Result<models::DomainPeriodCidGroupMembersResponseV1, Error<DeleteCidGroupMembersV2Error>> {
+    body: models::DomainCidGroupMembersRequestV1,
+) -> Result<models::DomainCidGroupMembersResponseV1, Error<DeleteCidGroupMembersV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/mssp/entities/cid-group-members/v2",
@@ -663,7 +663,7 @@ pub async fn delete_cid_group_members_v2(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -680,8 +680,8 @@ pub async fn delete_cid_group_members_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodCidGroupMembersResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodCidGroupMembersResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainCidGroupMembersResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainCidGroupMembersResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -697,9 +697,9 @@ pub async fn delete_cid_group_members_v2(
 pub async fn delete_cid_groups(
     configuration: &configuration::Configuration,
     cid_group_ids: Vec<String>,
-) -> Result<models::MsaPeriodEntitiesResponse, Error<DeleteCidGroupsError>> {
+) -> Result<models::MsaEntitiesResponse, Error<DeleteCidGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_cid_group_ids = cid_group_ids;
+    let p_query_cid_group_ids = cid_group_ids;
 
     let uri_str = format!("{}/mssp/entities/cid-groups/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -708,14 +708,14 @@ pub async fn delete_cid_groups(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_cid_group_ids
+            &p_query_cid_group_ids
                 .into_iter()
                 .map(|p| ("cid_group_ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "cid_group_ids",
-            &p_cid_group_ids
+            &p_query_cid_group_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -745,8 +745,8 @@ pub async fn delete_cid_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -761,10 +761,10 @@ pub async fn delete_cid_groups(
 
 pub async fn delete_user_group_members(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodUserGroupMembersRequestV1,
-) -> Result<models::DomainPeriodUserGroupMembersResponseV1, Error<DeleteUserGroupMembersError>> {
+    body: models::DomainUserGroupMembersRequestV1,
+) -> Result<models::DomainUserGroupMembersResponseV1, Error<DeleteUserGroupMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/mssp/entities/user-group-members/v1",
@@ -780,7 +780,7 @@ pub async fn delete_user_group_members(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -797,8 +797,8 @@ pub async fn delete_user_group_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodUserGroupMembersResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodUserGroupMembersResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainUserGroupMembersResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainUserGroupMembersResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -814,9 +814,9 @@ pub async fn delete_user_group_members(
 pub async fn delete_user_groups(
     configuration: &configuration::Configuration,
     user_group_ids: Vec<String>,
-) -> Result<models::MsaPeriodEntitiesResponse, Error<DeleteUserGroupsError>> {
+) -> Result<models::MsaEntitiesResponse, Error<DeleteUserGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_user_group_ids = user_group_ids;
+    let p_query_user_group_ids = user_group_ids;
 
     let uri_str = format!("{}/mssp/entities/user-groups/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -825,14 +825,14 @@ pub async fn delete_user_groups(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_user_group_ids
+            &p_query_user_group_ids
                 .into_iter()
                 .map(|p| ("user_group_ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "user_group_ids",
-            &p_user_group_ids
+            &p_query_user_group_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -862,8 +862,8 @@ pub async fn delete_user_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -878,10 +878,10 @@ pub async fn delete_user_groups(
 
 pub async fn deleted_roles(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodMsspRoleRequestV1,
-) -> Result<models::DomainPeriodMsspRoleResponseV1, Error<DeletedRolesError>> {
+    body: models::DomainMsspRoleRequestV1,
+) -> Result<models::DomainMsspRoleResponseV1, Error<DeletedRolesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/mssp/entities/mssp-roles/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -894,7 +894,7 @@ pub async fn deleted_roles(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -911,8 +911,8 @@ pub async fn deleted_roles(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodMsspRoleResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodMsspRoleResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainMsspRoleResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainMsspRoleResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -928,23 +928,23 @@ pub async fn deleted_roles(
 pub async fn get_children(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodChildrenResponseV1, Error<GetChildrenError>> {
+) -> Result<models::DomainChildrenResponseV1, Error<GetChildrenError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/mssp/entities/children/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -974,8 +974,8 @@ pub async fn get_children(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodChildrenResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodChildrenResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainChildrenResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainChildrenResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -990,10 +990,10 @@ pub async fn get_children(
 
 pub async fn get_children_v2(
     configuration: &configuration::Configuration,
-    body: models::MsaspecPeriodIdsRequest,
-) -> Result<models::DomainPeriodChildrenResponseV1, Error<GetChildrenV2Error>> {
+    body: models::MsaspecIdsRequest,
+) -> Result<models::DomainChildrenResponseV1, Error<GetChildrenV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/mssp/entities/children/GET/v2", configuration.base_path);
     let mut req_builder = configuration
@@ -1006,7 +1006,7 @@ pub async fn get_children_v2(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1023,8 +1023,8 @@ pub async fn get_children_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodChildrenResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodChildrenResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainChildrenResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainChildrenResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1040,23 +1040,23 @@ pub async fn get_children_v2(
 pub async fn get_cid_group_by_id(
     configuration: &configuration::Configuration,
     cid_group_ids: Vec<String>,
-) -> Result<models::DomainPeriodCidGroupsResponseV1, Error<GetCidGroupByIdError>> {
+) -> Result<models::DomainCidGroupsResponseV1, Error<GetCidGroupByIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_cid_group_ids = cid_group_ids;
+    let p_query_cid_group_ids = cid_group_ids;
 
     let uri_str = format!("{}/mssp/entities/cid-groups/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_cid_group_ids
+            &p_query_cid_group_ids
                 .into_iter()
                 .map(|p| ("cid_group_ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "cid_group_ids",
-            &p_cid_group_ids
+            &p_query_cid_group_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1086,8 +1086,8 @@ pub async fn get_cid_group_by_id(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodCidGroupsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodCidGroupsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainCidGroupsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainCidGroupsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1103,23 +1103,23 @@ pub async fn get_cid_group_by_id(
 pub async fn get_cid_group_by_id_v2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodCidGroupsResponseV1, Error<GetCidGroupByIdV2Error>> {
+) -> Result<models::DomainCidGroupsResponseV1, Error<GetCidGroupByIdV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/mssp/entities/cid-groups/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1149,8 +1149,8 @@ pub async fn get_cid_group_by_id_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodCidGroupsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodCidGroupsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainCidGroupsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainCidGroupsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1166,9 +1166,9 @@ pub async fn get_cid_group_by_id_v2(
 pub async fn get_cid_group_members_by(
     configuration: &configuration::Configuration,
     cid_group_ids: Vec<String>,
-) -> Result<models::DomainPeriodCidGroupMembersResponseV1, Error<GetCidGroupMembersByError>> {
+) -> Result<models::DomainCidGroupMembersResponseV1, Error<GetCidGroupMembersByError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_cid_group_ids = cid_group_ids;
+    let p_query_cid_group_ids = cid_group_ids;
 
     let uri_str = format!(
         "{}/mssp/entities/cid-group-members/v1",
@@ -1178,14 +1178,14 @@ pub async fn get_cid_group_members_by(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_cid_group_ids
+            &p_query_cid_group_ids
                 .into_iter()
                 .map(|p| ("cid_group_ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "cid_group_ids",
-            &p_cid_group_ids
+            &p_query_cid_group_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1215,8 +1215,8 @@ pub async fn get_cid_group_members_by(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodCidGroupMembersResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodCidGroupMembersResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainCidGroupMembersResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainCidGroupMembersResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1232,9 +1232,9 @@ pub async fn get_cid_group_members_by(
 pub async fn get_cid_group_members_by_v2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodCidGroupMembersResponseV1, Error<GetCidGroupMembersByV2Error>> {
+) -> Result<models::DomainCidGroupMembersResponseV1, Error<GetCidGroupMembersByV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/mssp/entities/cid-group-members/v2",
@@ -1244,14 +1244,14 @@ pub async fn get_cid_group_members_by_v2(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1281,8 +1281,8 @@ pub async fn get_cid_group_members_by_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodCidGroupMembersResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodCidGroupMembersResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainCidGroupMembersResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainCidGroupMembersResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1298,23 +1298,23 @@ pub async fn get_cid_group_members_by_v2(
 pub async fn get_roles_by_id(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodMsspRoleResponseV1, Error<GetRolesByIdError>> {
+) -> Result<models::DomainMsspRoleResponseV1, Error<GetRolesByIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/mssp/entities/mssp-roles/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1344,8 +1344,8 @@ pub async fn get_roles_by_id(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodMsspRoleResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodMsspRoleResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainMsspRoleResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainMsspRoleResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1361,9 +1361,9 @@ pub async fn get_roles_by_id(
 pub async fn get_user_group_members_by_id(
     configuration: &configuration::Configuration,
     user_group_ids: Vec<String>,
-) -> Result<models::DomainPeriodUserGroupMembersResponseV1, Error<GetUserGroupMembersByIdError>> {
+) -> Result<models::DomainUserGroupMembersResponseV1, Error<GetUserGroupMembersByIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_user_group_ids = user_group_ids;
+    let p_query_user_group_ids = user_group_ids;
 
     let uri_str = format!(
         "{}/mssp/entities/user-group-members/v1",
@@ -1373,14 +1373,14 @@ pub async fn get_user_group_members_by_id(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_user_group_ids
+            &p_query_user_group_ids
                 .into_iter()
                 .map(|p| ("user_group_ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "user_group_ids",
-            &p_user_group_ids
+            &p_query_user_group_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1410,8 +1410,8 @@ pub async fn get_user_group_members_by_id(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodUserGroupMembersResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodUserGroupMembersResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainUserGroupMembersResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainUserGroupMembersResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1427,9 +1427,9 @@ pub async fn get_user_group_members_by_id(
 pub async fn get_user_group_members_by_idv2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodUserGroupMembersResponseV1, Error<GetUserGroupMembersByIdv2Error>> {
+) -> Result<models::DomainUserGroupMembersResponseV1, Error<GetUserGroupMembersByIdv2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/mssp/entities/user-group-members/v2",
@@ -1439,14 +1439,14 @@ pub async fn get_user_group_members_by_idv2(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1476,8 +1476,8 @@ pub async fn get_user_group_members_by_idv2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodUserGroupMembersResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodUserGroupMembersResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainUserGroupMembersResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainUserGroupMembersResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1493,23 +1493,23 @@ pub async fn get_user_group_members_by_idv2(
 pub async fn get_user_groups_by_id(
     configuration: &configuration::Configuration,
     user_group_ids: Vec<String>,
-) -> Result<models::DomainPeriodUserGroupsResponseV1, Error<GetUserGroupsByIdError>> {
+) -> Result<models::DomainUserGroupsResponseV1, Error<GetUserGroupsByIdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_user_group_ids = user_group_ids;
+    let p_query_user_group_ids = user_group_ids;
 
     let uri_str = format!("{}/mssp/entities/user-groups/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_user_group_ids
+            &p_query_user_group_ids
                 .into_iter()
                 .map(|p| ("user_group_ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "user_group_ids",
-            &p_user_group_ids
+            &p_query_user_group_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1539,8 +1539,8 @@ pub async fn get_user_groups_by_id(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodUserGroupsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodUserGroupsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainUserGroupsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainUserGroupsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1556,23 +1556,23 @@ pub async fn get_user_groups_by_id(
 pub async fn get_user_groups_by_idv2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodUserGroupsResponseV1, Error<GetUserGroupsByIdv2Error>> {
+) -> Result<models::DomainUserGroupsResponseV1, Error<GetUserGroupsByIdv2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/mssp/entities/user-groups/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1602,8 +1602,8 @@ pub async fn get_user_groups_by_idv2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodUserGroupsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodUserGroupsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainUserGroupsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainUserGroupsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1622,26 +1622,26 @@ pub async fn query_children(
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryChildrenError>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueryChildrenError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!("{}/mssp/queries/children/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1666,8 +1666,8 @@ pub async fn query_children(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1686,12 +1686,12 @@ pub async fn query_cid_group_members(
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryCidGroupMembersError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryCidGroupMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_cid = cid;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_cid = cid;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/mssp/queries/cid-group-members/v1",
@@ -1699,14 +1699,14 @@ pub async fn query_cid_group_members(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("cid", &p_cid.to_string())]);
-    if let Some(ref param_value) = p_sort {
+    req_builder = req_builder.query(&[("cid", &p_query_cid.to_string())]);
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1731,8 +1731,8 @@ pub async fn query_cid_group_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1751,26 +1751,26 @@ pub async fn query_cid_groups(
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryCidGroupsError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryCidGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_name = name;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_name = name;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!("{}/mssp/queries/cid-groups/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_name {
+    if let Some(ref param_value) = p_query_name {
         req_builder = req_builder.query(&[("name", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1795,8 +1795,8 @@ pub async fn query_cid_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1817,34 +1817,34 @@ pub async fn query_roles(
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryRolesError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryRolesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_user_group_id = user_group_id;
-    let p_cid_group_id = cid_group_id;
-    let p_role_id = role_id;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_user_group_id = user_group_id;
+    let p_query_cid_group_id = cid_group_id;
+    let p_query_role_id = role_id;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!("{}/mssp/queries/mssp-roles/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_user_group_id {
+    if let Some(ref param_value) = p_query_user_group_id {
         req_builder = req_builder.query(&[("user_group_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_cid_group_id {
+    if let Some(ref param_value) = p_query_cid_group_id {
         req_builder = req_builder.query(&[("cid_group_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_role_id {
+    if let Some(ref param_value) = p_query_role_id {
         req_builder = req_builder.query(&[("role_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1869,8 +1869,8 @@ pub async fn query_roles(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1889,12 +1889,12 @@ pub async fn query_user_group_members(
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryUserGroupMembersError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryUserGroupMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_user_uuid = user_uuid;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_user_uuid = user_uuid;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/mssp/queries/user-group-members/v1",
@@ -1902,14 +1902,14 @@ pub async fn query_user_group_members(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("user_uuid", &p_user_uuid.to_string())]);
-    if let Some(ref param_value) = p_sort {
+    req_builder = req_builder.query(&[("user_uuid", &p_query_user_uuid.to_string())]);
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1934,8 +1934,8 @@ pub async fn query_user_group_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1954,26 +1954,26 @@ pub async fn query_user_groups(
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryUserGroupsError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryUserGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_name = name;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_name = name;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!("{}/mssp/queries/user-groups/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_name {
+    if let Some(ref param_value) = p_query_name {
         req_builder = req_builder.query(&[("name", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1998,8 +1998,8 @@ pub async fn query_user_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2014,10 +2014,10 @@ pub async fn query_user_groups(
 
 pub async fn update_cid_groups(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodCidGroupsRequestV1,
-) -> Result<models::DomainPeriodCidGroupsResponseV1, Error<UpdateCidGroupsError>> {
+    body: models::DomainCidGroupsRequestV1,
+) -> Result<models::DomainCidGroupsResponseV1, Error<UpdateCidGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/mssp/entities/cid-groups/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -2030,7 +2030,7 @@ pub async fn update_cid_groups(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2047,8 +2047,8 @@ pub async fn update_cid_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodCidGroupsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodCidGroupsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainCidGroupsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainCidGroupsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2063,10 +2063,10 @@ pub async fn update_cid_groups(
 
 pub async fn update_user_groups(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodUserGroupsRequestV1,
-) -> Result<models::DomainPeriodUserGroupsResponseV1, Error<UpdateUserGroupsError>> {
+    body: models::DomainUserGroupsRequestV1,
+) -> Result<models::DomainUserGroupsResponseV1, Error<UpdateUserGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/mssp/entities/user-groups/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -2079,7 +2079,7 @@ pub async fn update_user_groups(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2096,8 +2096,8 @@ pub async fn update_user_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodUserGroupsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodUserGroupsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainUserGroupsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainUserGroupsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;

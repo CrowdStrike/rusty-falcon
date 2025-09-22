@@ -17,9 +17,9 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadUnidentifiedContainersByDateRangeCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,9 +27,9 @@ pub enum ReadUnidentifiedContainersByDateRangeCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadUnidentifiedContainersCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,9 +37,9 @@ pub enum ReadUnidentifiedContainersCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SearchAndReadUnidentifiedContainersError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -47,11 +47,11 @@ pub async fn read_unidentified_containers_by_date_range_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
 ) -> Result<
-    models::ModelsPeriodAggregateValuesByFieldResponse,
+    models::ModelsAggregateValuesByFieldResponse,
     Error<ReadUnidentifiedContainersByDateRangeCountError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/unidentified-containers/count-by-date/v1",
@@ -59,7 +59,7 @@ pub async fn read_unidentified_containers_by_date_range_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -84,8 +84,8 @@ pub async fn read_unidentified_containers_by_date_range_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -103,11 +103,11 @@ pub async fn read_unidentified_containers_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
 ) -> Result<
-    models::UnidentifiedcontainersPeriodUnidentifiedContainersCountValue,
+    models::UnidentifiedcontainersUnidentifiedContainersCountValue,
     Error<ReadUnidentifiedContainersCountError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/unidentified-containers/count/v1",
@@ -115,7 +115,7 @@ pub async fn read_unidentified_containers_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -140,8 +140,8 @@ pub async fn read_unidentified_containers_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UnidentifiedcontainersPeriodUnidentifiedContainersCountValue`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UnidentifiedcontainersPeriodUnidentifiedContainersCountValue`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UnidentifiedcontainersUnidentifiedContainersCountValue`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UnidentifiedcontainersUnidentifiedContainersCountValue`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -162,14 +162,14 @@ pub async fn search_and_read_unidentified_containers(
     limit: Option<i32>,
     offset: Option<i32>,
 ) -> Result<
-    models::UnidentifiedcontainersPeriodUnidentifiedContainerApiResponse,
+    models::UnidentifiedcontainersUnidentifiedContainerApiResponse,
     Error<SearchAndReadUnidentifiedContainersError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/unidentified-containers/v1",
@@ -177,16 +177,16 @@ pub async fn search_and_read_unidentified_containers(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -211,8 +211,8 @@ pub async fn search_and_read_unidentified_containers(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UnidentifiedcontainersPeriodUnidentifiedContainerApiResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UnidentifiedcontainersPeriodUnidentifiedContainerApiResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UnidentifiedcontainersUnidentifiedContainerApiResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UnidentifiedcontainersUnidentifiedContainerApiResponse`")))),
         }
     } else {
         let content = resp.text().await?;

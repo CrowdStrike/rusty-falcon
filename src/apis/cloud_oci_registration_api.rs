@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudSecurityRegistrationOciCreateAccountError {
-    Status400(models::DomainPeriodOciTenancyCreateResponseExtV1),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodOciTenancyCreateResponseExtV1),
+    Status400(models::DomainOciTenancyCreateResponseExtV1),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainOciTenancyCreateResponseExtV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum CloudSecurityRegistrationOciCreateAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudSecurityRegistrationOciDeleteAccountError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum CloudSecurityRegistrationOciDeleteAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudSecurityRegistrationOciDownloadScriptError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,11 +50,11 @@ pub enum CloudSecurityRegistrationOciDownloadScriptError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudSecurityRegistrationOciGetAccountError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,10 +62,10 @@ pub enum CloudSecurityRegistrationOciGetAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudSecurityRegistrationOciRotateKeyError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -73,10 +73,10 @@ pub enum CloudSecurityRegistrationOciRotateKeyError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudSecurityRegistrationOciUpdateAccountError {
-    Status400(models::DomainPeriodOciTenancyUpdateResponseExtV1),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodOciTenancyUpdateResponseExtV1),
+    Status400(models::DomainOciTenancyUpdateResponseExtV1),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainOciTenancyUpdateResponseExtV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -84,22 +84,22 @@ pub enum CloudSecurityRegistrationOciUpdateAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudSecurityRegistrationOciValidateTenancyError {
-    Status400(models::DomainPeriodOciTenancyValidationResponse),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodOciTenancyValidationResponse),
+    Status400(models::DomainOciTenancyValidationResponse),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainOciTenancyValidationResponse),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn cloud_security_registration_oci_create_account(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodOciTenancyCreateRequestExtV1,
+    body: models::DomainOciTenancyCreateRequestExtV1,
 ) -> Result<
-    models::DomainPeriodOciTenancyCreateResponseExtV1,
+    models::DomainOciTenancyCreateResponseExtV1,
     Error<CloudSecurityRegistrationOciCreateAccountError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-security-registration-oci/entities/accounts/v1",
@@ -115,7 +115,7 @@ pub async fn cloud_security_registration_oci_create_account(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -132,8 +132,8 @@ pub async fn cloud_security_registration_oci_create_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodOciTenancyCreateResponseExtV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodOciTenancyCreateResponseExtV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainOciTenancyCreateResponseExtV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainOciTenancyCreateResponseExtV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -150,12 +150,9 @@ pub async fn cloud_security_registration_oci_create_account(
 pub async fn cloud_security_registration_oci_delete_account(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
-) -> Result<
-    models::MsaspecPeriodResponseFields,
-    Error<CloudSecurityRegistrationOciDeleteAccountError>,
-> {
+) -> Result<models::MsaspecResponseFields, Error<CloudSecurityRegistrationOciDeleteAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/cloud-security-registration-oci/entities/accounts/v1",
@@ -165,7 +162,7 @@ pub async fn cloud_security_registration_oci_delete_account(
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -206,8 +203,8 @@ pub async fn cloud_security_registration_oci_delete_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodResponseFields`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecResponseFields`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecResponseFields`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -223,13 +220,13 @@ pub async fn cloud_security_registration_oci_delete_account(
 
 pub async fn cloud_security_registration_oci_download_script(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodOciDownloadScriptRequestV1,
+    body: models::DomainOciDownloadScriptRequestV1,
 ) -> Result<
-    models::DomainPeriodOciProvisionGetAccountScriptResponseV1,
+    models::DomainOciProvisionGetAccountScriptResponseV1,
     Error<CloudSecurityRegistrationOciDownloadScriptError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-security-registration-oci/entities/scripts/v1",
@@ -245,7 +242,7 @@ pub async fn cloud_security_registration_oci_download_script(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -262,8 +259,8 @@ pub async fn cloud_security_registration_oci_download_script(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodOciProvisionGetAccountScriptResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodOciProvisionGetAccountScriptResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainOciProvisionGetAccountScriptResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainOciProvisionGetAccountScriptResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -284,16 +281,14 @@ pub async fn cloud_security_registration_oci_get_account(
     next_token: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<
-    models::DomainPeriodOciTenancyResponseExtV1,
-    Error<CloudSecurityRegistrationOciGetAccountError>,
-> {
+) -> Result<models::DomainOciTenancyResponseExtV1, Error<CloudSecurityRegistrationOciGetAccountError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_next_token = next_token;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_next_token = next_token;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/cloud-security-registration-oci/combined/accounts/v1",
@@ -301,19 +296,19 @@ pub async fn cloud_security_registration_oci_get_account(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_next_token {
+    if let Some(ref param_value) = p_query_next_token {
         req_builder = req_builder.query(&[("next_token", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -338,8 +333,8 @@ pub async fn cloud_security_registration_oci_get_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodOciTenancyResponseExtV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodOciTenancyResponseExtV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainOciTenancyResponseExtV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainOciTenancyResponseExtV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -355,13 +350,13 @@ pub async fn cloud_security_registration_oci_get_account(
 
 pub async fn cloud_security_registration_oci_rotate_key(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodOciTenancyRotateKeyRequestExtV1,
+    body: models::DomainOciTenancyRotateKeyRequestExtV1,
 ) -> Result<
-    models::DomainPeriodOciTenancyRotateKeyResponseExtV1,
+    models::DomainOciTenancyRotateKeyResponseExtV1,
     Error<CloudSecurityRegistrationOciRotateKeyError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-security-registration-oci/entities/account-rotate-keys/v1",
@@ -377,7 +372,7 @@ pub async fn cloud_security_registration_oci_rotate_key(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -394,8 +389,8 @@ pub async fn cloud_security_registration_oci_rotate_key(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodOciTenancyRotateKeyResponseExtV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodOciTenancyRotateKeyResponseExtV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainOciTenancyRotateKeyResponseExtV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainOciTenancyRotateKeyResponseExtV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -411,13 +406,13 @@ pub async fn cloud_security_registration_oci_rotate_key(
 
 pub async fn cloud_security_registration_oci_update_account(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodOciTenancyUpdateRequestExtV1,
+    body: models::DomainOciTenancyUpdateRequestExtV1,
 ) -> Result<
-    models::DomainPeriodOciTenancyUpdateResponseExtV1,
+    models::DomainOciTenancyUpdateResponseExtV1,
     Error<CloudSecurityRegistrationOciUpdateAccountError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-security-registration-oci/entities/accounts/v1",
@@ -433,7 +428,7 @@ pub async fn cloud_security_registration_oci_update_account(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -450,8 +445,8 @@ pub async fn cloud_security_registration_oci_update_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodOciTenancyUpdateResponseExtV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodOciTenancyUpdateResponseExtV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainOciTenancyUpdateResponseExtV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainOciTenancyUpdateResponseExtV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -467,13 +462,13 @@ pub async fn cloud_security_registration_oci_update_account(
 
 pub async fn cloud_security_registration_oci_validate_tenancy(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodOciValidateRequestV1,
+    body: models::DomainOciValidateRequestV1,
 ) -> Result<
-    models::DomainPeriodOciTenancyValidationResponse,
+    models::DomainOciTenancyValidationResponse,
     Error<CloudSecurityRegistrationOciValidateTenancyError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-security-registration-oci/entities/account-validate/v1",
@@ -489,7 +484,7 @@ pub async fn cloud_security_registration_oci_validate_tenancy(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -506,8 +501,8 @@ pub async fn cloud_security_registration_oci_validate_tenancy(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodOciTenancyValidationResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodOciTenancyValidationResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainOciTenancyValidationResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainOciTenancyValidationResponse`")))),
         }
     } else {
         let content = resp.text().await?;

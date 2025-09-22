@@ -13,85 +13,84 @@ use crate::{apis::ResponseContent, models};
 use reqwest;
 use serde::de::Error as _;
 
-/// struct for typed errors of method [`cb_exclusions_period_create_period_v1`]
+/// struct for typed errors of method [`cb_exclusions_create_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CbExclusionsPeriodCreatePeriodV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum CbExclusionsCreateV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`cb_exclusions_period_delete_period_v1`]
+/// struct for typed errors of method [`cb_exclusions_delete_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CbExclusionsPeriodDeletePeriodV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum CbExclusionsDeleteV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`cb_exclusions_period_get_period_v1`]
+/// struct for typed errors of method [`cb_exclusions_get_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CbExclusionsPeriodGetPeriodV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum CbExclusionsGetV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`cb_exclusions_period_query_period_v1`]
+/// struct for typed errors of method [`cb_exclusions_query_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CbExclusionsPeriodQueryPeriodV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum CbExclusionsQueryV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`cb_exclusions_period_update_period_v1`]
+/// struct for typed errors of method [`cb_exclusions_update_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CbExclusionsPeriodUpdatePeriodV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum CbExclusionsUpdateV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`certificates_period_get_period_v1`]
+/// struct for typed errors of method [`certificates_get_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CertificatesPeriodGetPeriodV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum CertificatesGetV1Error {
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-pub async fn cb_exclusions_period_create_period_v1(
+pub async fn cb_exclusions_create_v1(
     configuration: &configuration::Configuration,
-    body: models::ApiPeriodCertBasedExclusionsCreateReqV1,
-) -> Result<models::ApiPeriodCertBasedExclusionRespV1, Error<CbExclusionsPeriodCreatePeriodV1Error>>
-{
+    body: models::ApiCertBasedExclusionsCreateReqV1,
+) -> Result<models::ApiCertBasedExclusionRespV1, Error<CbExclusionsCreateV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/exclusions/entities/cert-based-exclusions/v1",
@@ -107,7 +106,7 @@ pub async fn cb_exclusions_period_create_period_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -124,13 +123,12 @@ pub async fn cb_exclusions_period_create_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodCertBasedExclusionRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodCertBasedExclusionRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiCertBasedExclusionRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiCertBasedExclusionRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<CbExclusionsPeriodCreatePeriodV1Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<CbExclusionsCreateV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -139,15 +137,14 @@ pub async fn cb_exclusions_period_create_period_v1(
     }
 }
 
-pub async fn cb_exclusions_period_delete_period_v1(
+pub async fn cb_exclusions_delete_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     comment: Option<&str>,
-) -> Result<models::ApiPeriodCertBasedExclusionRespV1, Error<CbExclusionsPeriodDeletePeriodV1Error>>
-{
+) -> Result<models::ApiCertBasedExclusionRespV1, Error<CbExclusionsDeleteV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_comment = comment;
+    let p_query_ids = ids;
+    let p_query_comment = comment;
 
     let uri_str = format!(
         "{}/exclusions/entities/cert-based-exclusions/v1",
@@ -159,14 +156,14 @@ pub async fn cb_exclusions_period_delete_period_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -174,7 +171,7 @@ pub async fn cb_exclusions_period_delete_period_v1(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_comment {
+    if let Some(ref param_value) = p_query_comment {
         req_builder = req_builder.query(&[("comment", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -199,13 +196,12 @@ pub async fn cb_exclusions_period_delete_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodCertBasedExclusionRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodCertBasedExclusionRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiCertBasedExclusionRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiCertBasedExclusionRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<CbExclusionsPeriodDeletePeriodV1Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<CbExclusionsDeleteV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -214,12 +210,12 @@ pub async fn cb_exclusions_period_delete_period_v1(
     }
 }
 
-pub async fn cb_exclusions_period_get_period_v1(
+pub async fn cb_exclusions_get_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ApiPeriodCertBasedExclusionRespV1, Error<CbExclusionsPeriodGetPeriodV1Error>> {
+) -> Result<models::ApiCertBasedExclusionRespV1, Error<CbExclusionsGetV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/exclusions/entities/cert-based-exclusions/v1",
@@ -229,14 +225,14 @@ pub async fn cb_exclusions_period_get_period_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -266,13 +262,12 @@ pub async fn cb_exclusions_period_get_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodCertBasedExclusionRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodCertBasedExclusionRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiCertBasedExclusionRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiCertBasedExclusionRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<CbExclusionsPeriodGetPeriodV1Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<CbExclusionsGetV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -281,18 +276,18 @@ pub async fn cb_exclusions_period_get_period_v1(
     }
 }
 
-pub async fn cb_exclusions_period_query_period_v1(
+pub async fn cb_exclusions_query_v1(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<CbExclusionsPeriodQueryPeriodV1Error>> {
+) -> Result<models::MsaspecQueryResponse, Error<CbExclusionsQueryV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/exclusions/queries/cert-based-exclusions/v1",
@@ -300,16 +295,16 @@ pub async fn cb_exclusions_period_query_period_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -334,13 +329,12 @@ pub async fn cb_exclusions_period_query_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<CbExclusionsPeriodQueryPeriodV1Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<CbExclusionsQueryV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -349,13 +343,12 @@ pub async fn cb_exclusions_period_query_period_v1(
     }
 }
 
-pub async fn cb_exclusions_period_update_period_v1(
+pub async fn cb_exclusions_update_v1(
     configuration: &configuration::Configuration,
-    body: models::ApiPeriodCertBasedExclusionsUpdateReqV1,
-) -> Result<models::ApiPeriodCertBasedExclusionRespV1, Error<CbExclusionsPeriodUpdatePeriodV1Error>>
-{
+    body: models::ApiCertBasedExclusionsUpdateReqV1,
+) -> Result<models::ApiCertBasedExclusionRespV1, Error<CbExclusionsUpdateV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/exclusions/entities/cert-based-exclusions/v1",
@@ -371,7 +364,7 @@ pub async fn cb_exclusions_period_update_period_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -388,13 +381,12 @@ pub async fn cb_exclusions_period_update_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodCertBasedExclusionRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodCertBasedExclusionRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiCertBasedExclusionRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiCertBasedExclusionRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<CbExclusionsPeriodUpdatePeriodV1Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<CbExclusionsUpdateV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -403,12 +395,12 @@ pub async fn cb_exclusions_period_update_period_v1(
     }
 }
 
-pub async fn certificates_period_get_period_v1(
+pub async fn certificates_get_v1(
     configuration: &configuration::Configuration,
     ids: &str,
-) -> Result<models::ApiPeriodRespCertificatesV1, Error<CertificatesPeriodGetPeriodV1Error>> {
+) -> Result<models::ApiRespCertificatesV1, Error<CertificatesGetV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/exclusions/entities/certificates/v1",
@@ -416,7 +408,7 @@ pub async fn certificates_period_get_period_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("ids", &p_ids.to_string())]);
+    req_builder = req_builder.query(&[("ids", &p_query_ids.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -439,13 +431,12 @@ pub async fn certificates_period_get_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodRespCertificatesV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodRespCertificatesV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiRespCertificatesV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiRespCertificatesV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<CertificatesPeriodGetPeriodV1Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<CertificatesGetV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,

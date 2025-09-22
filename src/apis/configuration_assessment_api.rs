@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCombinedAssessmentsQueryError {
-    Status400(models::DomainPeriodApiCombinedFindingsResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodApiCombinedFindingsResponseV1),
+    Status400(models::DomainApiCombinedFindingsResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainApiCombinedFindingsResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,9 +28,9 @@ pub enum GetCombinedAssessmentsQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRuleDetailsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,16 +41,13 @@ pub async fn get_combined_assessments_query(
     limit: Option<i32>,
     sort: Option<&str>,
     facet: Option<Vec<String>>,
-) -> Result<
-    models::DomainPeriodApiCombinedFindingsResponseV1,
-    Error<GetCombinedAssessmentsQueryError>,
-> {
+) -> Result<models::DomainApiCombinedFindingsResponseV1, Error<GetCombinedAssessmentsQueryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_after = after;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_facet = facet;
+    let p_query_filter = filter;
+    let p_query_after = after;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_facet = facet;
 
     let uri_str = format!(
         "{}/configuration-assessment/combined/assessments/v1",
@@ -58,17 +55,17 @@ pub async fn get_combined_assessments_query(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_after {
+    if let Some(ref param_value) = p_query_after {
         req_builder = req_builder.query(&[("after", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    req_builder = req_builder.query(&[("filter", &p_filter.to_string())]);
-    if let Some(ref param_value) = p_facet {
+    req_builder = req_builder.query(&[("filter", &p_query_filter.to_string())]);
+    if let Some(ref param_value) = p_query_facet {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -109,8 +106,8 @@ pub async fn get_combined_assessments_query(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodApiCombinedFindingsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodApiCombinedFindingsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainApiCombinedFindingsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainApiCombinedFindingsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -126,9 +123,9 @@ pub async fn get_combined_assessments_query(
 pub async fn get_rule_details(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodApiRuleDetailsResponseV1, Error<GetRuleDetailsError>> {
+) -> Result<models::DomainApiRuleDetailsResponseV1, Error<GetRuleDetailsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/configuration-assessment/entities/rule-details/v1",
@@ -138,14 +135,14 @@ pub async fn get_rule_details(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -175,8 +172,8 @@ pub async fn get_rule_details(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodApiRuleDetailsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodApiRuleDetailsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainApiRuleDetailsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainApiRuleDetailsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;

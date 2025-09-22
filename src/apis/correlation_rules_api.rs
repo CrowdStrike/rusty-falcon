@@ -13,216 +13,217 @@ use crate::{apis::ResponseContent, models};
 use reqwest;
 use serde::de::Error as _;
 
-/// struct for typed errors of method [`aggregates_period_rule_versions_period_post_period_v1`]
+/// struct for typed errors of method [`aggregates_rule_versions_post_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum AggregatesPeriodRuleVersionsPeriodPostPeriodV1Error {
-    Status400(models::ApiPeriodAggregatesResponseV1),
-    Status401(models::ApiPeriodAggregatesResponseV1),
-    Status403(models::ApiPeriodAggregatesResponseV1),
-    Status404(models::ApiPeriodAggregatesResponseV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodAggregatesResponseV1),
+pub enum AggregatesRuleVersionsPostV1Error {
+    Status400(models::ApiAggregatesResponseV1),
+    Status401(models::ApiAggregatesResponseV1),
+    Status403(models::ApiAggregatesResponseV1),
+    Status404(models::ApiAggregatesResponseV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiAggregatesResponseV1),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`combined_period_rules_period_get_period_v1`]
+/// struct for typed errors of method [`combined_rules_get_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CombinedPeriodRulesPeriodGetPeriodV1Error {
-    Status400(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status401(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status403(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status404(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodGetEntitiesRulesResponseV1),
+pub enum CombinedRulesGetV1Error {
+    Status400(models::ApiGetEntitiesRulesResponseV1),
+    Status401(models::ApiGetEntitiesRulesResponseV1),
+    Status403(models::ApiGetEntitiesRulesResponseV1),
+    Status404(models::ApiGetEntitiesRulesResponseV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiGetEntitiesRulesResponseV1),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`combined_period_rules_period_get_period_v2`]
+/// struct for typed errors of method [`combined_rules_get_v2`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CombinedPeriodRulesPeriodGetPeriodV2Error {
-    Status400(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status401(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status403(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status404(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodGetEntitiesRulesResponseV1),
+pub enum CombinedRulesGetV2Error {
+    Status400(models::ApiGetEntitiesRulesResponseV1),
+    Status401(models::ApiGetEntitiesRulesResponseV1),
+    Status403(models::ApiGetEntitiesRulesResponseV1),
+    Status404(models::ApiGetEntitiesRulesResponseV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiGetEntitiesRulesResponseV1),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`entities_period_latest_rules_period_get_period_v1`]
+/// struct for typed errors of method [`entities_latest_rules_get_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum EntitiesPeriodLatestRulesPeriodGetPeriodV1Error {
-    Status400(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status401(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status403(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status404(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodGetEntitiesRulesResponseV1),
+pub enum EntitiesLatestRulesGetV1Error {
+    Status400(models::ApiGetEntitiesRulesResponseV1),
+    Status401(models::ApiGetEntitiesRulesResponseV1),
+    Status403(models::ApiGetEntitiesRulesResponseV1),
+    Status404(models::ApiGetEntitiesRulesResponseV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiGetEntitiesRulesResponseV1),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`entities_period_rule_versions_export_period_post_period_v1`]
+/// struct for typed errors of method [`entities_rule_versions_delete_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum EntitiesPeriodRuleVersionsExportPeriodPostPeriodV1Error {
-    Status400(models::ApiPeriodJobLinkResponseV1),
-    Status401(models::ApiPeriodJobLinkResponseV1),
-    Status403(models::ApiPeriodJobLinkResponseV1),
-    Status404(models::ApiPeriodJobLinkResponseV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodJobLinkResponseV1),
+pub enum EntitiesRuleVersionsDeleteV1Error {
+    Status400(models::MsaspecQueryResponse),
+    Status401(models::MsaspecQueryResponse),
+    Status403(models::MsaspecQueryResponse),
+    Status404(models::MsaspecQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`entities_period_rule_versions_import_period_post_period_v1`]
+/// struct for typed errors of method [`entities_rule_versions_export_post_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum EntitiesPeriodRuleVersionsImportPeriodPostPeriodV1Error {
-    Status400(models::ApiPeriodGetEntitiesRuleVersionsResponseV1),
-    Status401(models::ApiPeriodGetEntitiesRuleVersionsResponseV1),
-    Status403(models::ApiPeriodGetEntitiesRuleVersionsResponseV1),
-    Status404(models::ApiPeriodGetEntitiesRuleVersionsResponseV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodGetEntitiesRuleVersionsResponseV1),
+pub enum EntitiesRuleVersionsExportPostV1Error {
+    Status400(models::ApiJobLinkResponseV1),
+    Status401(models::ApiJobLinkResponseV1),
+    Status403(models::ApiJobLinkResponseV1),
+    Status404(models::ApiJobLinkResponseV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiJobLinkResponseV1),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`entities_period_rule_versions_period_delete_period_v1`]
+/// struct for typed errors of method [`entities_rule_versions_import_post_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum EntitiesPeriodRuleVersionsPeriodDeletePeriodV1Error {
-    Status400(models::MsaspecPeriodQueryResponse),
-    Status401(models::MsaspecPeriodQueryResponse),
-    Status403(models::MsaspecPeriodQueryResponse),
-    Status404(models::MsaspecPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodQueryResponse),
+pub enum EntitiesRuleVersionsImportPostV1Error {
+    Status400(models::ApiGetEntitiesRuleVersionsResponseV1),
+    Status401(models::ApiGetEntitiesRuleVersionsResponseV1),
+    Status403(models::ApiGetEntitiesRuleVersionsResponseV1),
+    Status404(models::ApiGetEntitiesRuleVersionsResponseV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiGetEntitiesRuleVersionsResponseV1),
+    Status503(models::ApiGetEntitiesRuleVersionsResponseV1),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`entities_period_rule_versions_publish_period_patch_period_v1`]
+/// struct for typed errors of method [`entities_rule_versions_publish_patch_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum EntitiesPeriodRuleVersionsPublishPeriodPatchPeriodV1Error {
-    Status400(models::ApiPeriodGetEntitiesRuleVersionsResponseV1),
-    Status401(models::ApiPeriodGetEntitiesRuleVersionsResponseV1),
-    Status403(models::ApiPeriodGetEntitiesRuleVersionsResponseV1),
-    Status404(models::ApiPeriodGetEntitiesRuleVersionsResponseV1),
-    Status422(models::ApiPeriodGetEntitiesRuleVersionsResponseV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodGetEntitiesRuleVersionsResponseV1),
+pub enum EntitiesRuleVersionsPublishPatchV1Error {
+    Status400(models::ApiGetEntitiesRuleVersionsResponseV1),
+    Status401(models::ApiGetEntitiesRuleVersionsResponseV1),
+    Status403(models::ApiGetEntitiesRuleVersionsResponseV1),
+    Status404(models::ApiGetEntitiesRuleVersionsResponseV1),
+    Status422(models::ApiGetEntitiesRuleVersionsResponseV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiGetEntitiesRuleVersionsResponseV1),
+    Status503(models::ApiGetEntitiesRulesResponseV1),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`entities_period_rules_period_delete_period_v1`]
+/// struct for typed errors of method [`entities_rules_delete_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum EntitiesPeriodRulesPeriodDeletePeriodV1Error {
-    Status400(models::MsaspecPeriodQueryResponse),
-    Status401(models::MsaspecPeriodQueryResponse),
-    Status403(models::MsaspecPeriodQueryResponse),
-    Status404(models::MsaspecPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodQueryResponse),
+pub enum EntitiesRulesDeleteV1Error {
+    Status400(models::MsaspecQueryResponse),
+    Status401(models::MsaspecQueryResponse),
+    Status403(models::MsaspecQueryResponse),
+    Status404(models::MsaspecQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`entities_period_rules_period_get_period_v1`]
+/// struct for typed errors of method [`entities_rules_get_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum EntitiesPeriodRulesPeriodGetPeriodV1Error {
-    Status400(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status401(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status403(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status404(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodGetEntitiesRulesResponseV1),
+pub enum EntitiesRulesGetV1Error {
+    Status400(models::ApiGetEntitiesRulesResponseV1),
+    Status401(models::ApiGetEntitiesRulesResponseV1),
+    Status403(models::ApiGetEntitiesRulesResponseV1),
+    Status404(models::ApiGetEntitiesRulesResponseV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiGetEntitiesRulesResponseV1),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`entities_period_rules_period_get_period_v2`]
+/// struct for typed errors of method [`entities_rules_get_v2`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum EntitiesPeriodRulesPeriodGetPeriodV2Error {
-    Status400(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status401(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status403(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status404(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodGetEntitiesRulesResponseV1),
+pub enum EntitiesRulesGetV2Error {
+    Status400(models::ApiGetEntitiesRulesResponseV1),
+    Status401(models::ApiGetEntitiesRulesResponseV1),
+    Status403(models::ApiGetEntitiesRulesResponseV1),
+    Status404(models::ApiGetEntitiesRulesResponseV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiGetEntitiesRulesResponseV1),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`entities_period_rules_period_patch_period_v1`]
+/// struct for typed errors of method [`entities_rules_patch_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum EntitiesPeriodRulesPeriodPatchPeriodV1Error {
-    Status400(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status401(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status403(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status404(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status422(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodGetEntitiesRulesResponseV1),
+pub enum EntitiesRulesPatchV1Error {
+    Status400(models::ApiGetEntitiesRulesResponseV1),
+    Status401(models::ApiGetEntitiesRulesResponseV1),
+    Status403(models::ApiGetEntitiesRulesResponseV1),
+    Status404(models::ApiGetEntitiesRulesResponseV1),
+    Status422(models::ApiGetEntitiesRulesResponseV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiGetEntitiesRulesResponseV1),
+    Status503(models::ApiGetEntitiesRulesResponseV1),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`entities_period_rules_period_post_period_v1`]
+/// struct for typed errors of method [`entities_rules_post_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum EntitiesPeriodRulesPeriodPostPeriodV1Error {
-    Status400(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status401(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status403(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status404(models::ApiPeriodGetEntitiesRulesResponseV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ApiPeriodGetEntitiesRulesResponseV1),
+pub enum EntitiesRulesPostV1Error {
+    Status400(models::ApiGetEntitiesRulesResponseV1),
+    Status401(models::ApiGetEntitiesRulesResponseV1),
+    Status403(models::ApiGetEntitiesRulesResponseV1),
+    Status404(models::ApiGetEntitiesRulesResponseV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ApiGetEntitiesRulesResponseV1),
+    Status503(models::ApiGetEntitiesRulesResponseV1),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`queries_period_rules_period_get_period_v1`]
+/// struct for typed errors of method [`queries_rules_get_v1`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueriesPeriodRulesPeriodGetPeriodV1Error {
-    Status400(models::MsaspecPeriodQueryResponse),
-    Status401(models::MsaspecPeriodQueryResponse),
-    Status403(models::MsaspecPeriodQueryResponse),
-    Status404(models::MsaspecPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodQueryResponse),
+pub enum QueriesRulesGetV1Error {
+    Status400(models::MsaspecQueryResponse),
+    Status401(models::MsaspecQueryResponse),
+    Status403(models::MsaspecQueryResponse),
+    Status404(models::MsaspecQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`queries_period_rules_period_get_period_v2`]
+/// struct for typed errors of method [`queries_rules_get_v2`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum QueriesPeriodRulesPeriodGetPeriodV2Error {
-    Status400(models::MsaspecPeriodQueryResponse),
-    Status401(models::MsaspecPeriodQueryResponse),
-    Status403(models::MsaspecPeriodQueryResponse),
-    Status404(models::MsaspecPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodQueryResponse),
+pub enum QueriesRulesGetV2Error {
+    Status400(models::MsaspecQueryResponse),
+    Status401(models::MsaspecQueryResponse),
+    Status403(models::MsaspecQueryResponse),
+    Status404(models::MsaspecQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
-pub async fn aggregates_period_rule_versions_period_post_period_v1(
+pub async fn aggregates_rule_versions_post_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     body: Vec<serde_json::Value>,
     filter: Option<&str>,
-) -> Result<
-    models::ApiPeriodAggregatesResponseV1,
-    Error<AggregatesPeriodRuleVersionsPeriodPostPeriodV1Error>,
-> {
+) -> Result<models::ApiAggregatesResponseV1, Error<AggregatesRuleVersionsPostV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_body = body;
-    let p_filter = filter;
+    let p_query_ids = ids;
+    let p_body_body = body;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/correlation-rules/aggregates/rule-versions/v1",
@@ -234,14 +235,14 @@ pub async fn aggregates_period_rule_versions_period_post_period_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -249,7 +250,7 @@ pub async fn aggregates_period_rule_versions_period_post_period_v1(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -258,7 +259,7 @@ pub async fn aggregates_period_rule_versions_period_post_period_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -275,13 +276,12 @@ pub async fn aggregates_period_rule_versions_period_post_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodAggregatesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodAggregatesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiAggregatesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiAggregatesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<AggregatesPeriodRuleVersionsPeriodPostPeriodV1Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<AggregatesRuleVersionsPostV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -290,23 +290,20 @@ pub async fn aggregates_period_rule_versions_period_post_period_v1(
     }
 }
 
-pub async fn combined_period_rules_period_get_period_v1(
+pub async fn combined_rules_get_v1(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
     q: Option<&str>,
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<
-    models::ApiPeriodGetEntitiesRulesResponseV1,
-    Error<CombinedPeriodRulesPeriodGetPeriodV1Error>,
-> {
+) -> Result<models::ApiGetEntitiesRulesResponseV1, Error<CombinedRulesGetV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_q = q;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_filter = filter;
+    let p_query_q = q;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/correlation-rules/combined/rules/v1",
@@ -314,19 +311,19 @@ pub async fn combined_period_rules_period_get_period_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -351,13 +348,12 @@ pub async fn combined_period_rules_period_get_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRulesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRulesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetEntitiesRulesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetEntitiesRulesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<CombinedPeriodRulesPeriodGetPeriodV1Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<CombinedRulesGetV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -366,23 +362,20 @@ pub async fn combined_period_rules_period_get_period_v1(
     }
 }
 
-pub async fn combined_period_rules_period_get_period_v2(
+pub async fn combined_rules_get_v2(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
     q: Option<&str>,
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<
-    models::ApiPeriodGetEntitiesRulesResponseV1,
-    Error<CombinedPeriodRulesPeriodGetPeriodV2Error>,
-> {
+) -> Result<models::ApiGetEntitiesRulesResponseV1, Error<CombinedRulesGetV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_q = q;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_filter = filter;
+    let p_query_q = q;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/correlation-rules/combined/rules/v2",
@@ -390,19 +383,19 @@ pub async fn combined_period_rules_period_get_period_v2(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -427,13 +420,12 @@ pub async fn combined_period_rules_period_get_period_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRulesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRulesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetEntitiesRulesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetEntitiesRulesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<CombinedPeriodRulesPeriodGetPeriodV2Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<CombinedRulesGetV2Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -442,15 +434,12 @@ pub async fn combined_period_rules_period_get_period_v2(
     }
 }
 
-pub async fn entities_period_latest_rules_period_get_period_v1(
+pub async fn entities_latest_rules_get_v1(
     configuration: &configuration::Configuration,
     rule_ids: Vec<String>,
-) -> Result<
-    models::ApiPeriodGetEntitiesRulesResponseV1,
-    Error<EntitiesPeriodLatestRulesPeriodGetPeriodV1Error>,
-> {
+) -> Result<models::ApiGetEntitiesRulesResponseV1, Error<EntitiesLatestRulesGetV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_rule_ids = rule_ids;
+    let p_query_rule_ids = rule_ids;
 
     let uri_str = format!(
         "{}/correlation-rules/entities/latest-rules/v1",
@@ -460,14 +449,14 @@ pub async fn entities_period_latest_rules_period_get_period_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_rule_ids
+            &p_query_rule_ids
                 .into_iter()
                 .map(|p| ("rule_ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "rule_ids",
-            &p_rule_ids
+            &p_query_rule_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -497,13 +486,12 @@ pub async fn entities_period_latest_rules_period_get_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRulesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRulesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetEntitiesRulesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetEntitiesRulesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<EntitiesPeriodLatestRulesPeriodGetPeriodV1Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<EntitiesLatestRulesGetV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -512,15 +500,80 @@ pub async fn entities_period_latest_rules_period_get_period_v1(
     }
 }
 
-pub async fn entities_period_rule_versions_export_period_post_period_v1(
+pub async fn entities_rule_versions_delete_v1(
     configuration: &configuration::Configuration,
-    body: models::ApiPeriodRuleVersionReportRequest,
-) -> Result<
-    models::ApiPeriodJobLinkResponseV1,
-    Error<EntitiesPeriodRuleVersionsExportPeriodPostPeriodV1Error>,
-> {
+    ids: Vec<String>,
+) -> Result<models::MsaspecQueryResponse, Error<EntitiesRuleVersionsDeleteV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_query_ids = ids;
+
+    let uri_str = format!(
+        "{}/correlation-rules/entities/rule-versions/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = match "multi" {
+        "multi" => req_builder.query(
+            &p_query_ids
+                .into_iter()
+                .map(|p| ("ids".to_owned(), p.to_string()))
+                .collect::<Vec<(std::string::String, std::string::String)>>(),
+        ),
+        _ => req_builder.query(&[(
+            "ids",
+            &p_query_ids
+                .into_iter()
+                .map(|p| p.to_string())
+                .collect::<Vec<String>>()
+                .join(",")
+                .to_string(),
+        )]),
+    };
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<EntitiesRuleVersionsDeleteV1Error> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn entities_rule_versions_export_post_v1(
+    configuration: &configuration::Configuration,
+    body: models::ApiRuleVersionReportRequest,
+) -> Result<models::ApiJobLinkResponseV1, Error<EntitiesRuleVersionsExportPostV1Error>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/correlation-rules/entities/rule-versions/export/v1",
@@ -536,7 +589,7 @@ pub async fn entities_period_rule_versions_export_period_post_period_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -553,12 +606,12 @@ pub async fn entities_period_rule_versions_export_period_post_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodJobLinkResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodJobLinkResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiJobLinkResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiJobLinkResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<EntitiesPeriodRuleVersionsExportPeriodPostPeriodV1Error> =
+        let entity: Option<EntitiesRuleVersionsExportPostV1Error> =
             serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
@@ -568,11 +621,11 @@ pub async fn entities_period_rule_versions_export_period_post_period_v1(
     }
 }
 
-pub async fn entities_period_rule_versions_import_period_post_period_v1(
+pub async fn entities_rule_versions_import_post_v1(
     configuration: &configuration::Configuration,
 ) -> Result<
-    models::ApiPeriodGetEntitiesRuleVersionsResponseV1,
-    Error<EntitiesPeriodRuleVersionsImportPeriodPostPeriodV1Error>,
+    models::ApiGetEntitiesRuleVersionsResponseV1,
+    Error<EntitiesRuleVersionsImportPostV1Error>,
 > {
     let uri_str = format!(
         "{}/correlation-rules/entities/rule-versions/import/v1",
@@ -604,12 +657,12 @@ pub async fn entities_period_rule_versions_import_period_post_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRuleVersionsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRuleVersionsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetEntitiesRuleVersionsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetEntitiesRuleVersionsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<EntitiesPeriodRuleVersionsImportPeriodPostPeriodV1Error> =
+        let entity: Option<EntitiesRuleVersionsImportPostV1Error> =
             serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
@@ -619,87 +672,15 @@ pub async fn entities_period_rule_versions_import_period_post_period_v1(
     }
 }
 
-pub async fn entities_period_rule_versions_period_delete_period_v1(
+pub async fn entities_rule_versions_publish_patch_v1(
     configuration: &configuration::Configuration,
-    ids: Vec<String>,
+    body: models::ApiRuleVersionPublishRequestV1,
 ) -> Result<
-    models::MsaspecPeriodQueryResponse,
-    Error<EntitiesPeriodRuleVersionsPeriodDeletePeriodV1Error>,
+    models::ApiGetEntitiesRuleVersionsResponseV1,
+    Error<EntitiesRuleVersionsPublishPatchV1Error>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-
-    let uri_str = format!(
-        "{}/correlation-rules/entities/rule-versions/v1",
-        configuration.base_path
-    );
-    let mut req_builder = configuration
-        .client
-        .request(reqwest::Method::DELETE, &uri_str);
-
-    req_builder = match "multi" {
-        "multi" => req_builder.query(
-            &p_ids
-                .into_iter()
-                .map(|p| ("ids".to_owned(), p.to_string()))
-                .collect::<Vec<(std::string::String, std::string::String)>>(),
-        ),
-        _ => req_builder.query(&[(
-            "ids",
-            &p_ids
-                .into_iter()
-                .map(|p| p.to_string())
-                .collect::<Vec<String>>()
-                .join(",")
-                .to_string(),
-        )]),
-    };
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-    if let Some(ref token) = configuration.oauth_access_token {
-        req_builder = req_builder.bearer_auth(token.to_owned());
-    };
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<EntitiesPeriodRuleVersionsPeriodDeletePeriodV1Error> =
-            serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent {
-            status,
-            content,
-            entity,
-        }))
-    }
-}
-
-pub async fn entities_period_rule_versions_publish_period_patch_period_v1(
-    configuration: &configuration::Configuration,
-    body: models::ApiPeriodRuleVersionPublishRequestV1,
-) -> Result<
-    models::ApiPeriodGetEntitiesRuleVersionsResponseV1,
-    Error<EntitiesPeriodRuleVersionsPublishPeriodPatchPeriodV1Error>,
-> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/correlation-rules/entities/rule-versions/publish/v1",
@@ -715,7 +696,7 @@ pub async fn entities_period_rule_versions_publish_period_patch_period_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -732,12 +713,12 @@ pub async fn entities_period_rule_versions_publish_period_patch_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRuleVersionsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRuleVersionsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetEntitiesRuleVersionsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetEntitiesRuleVersionsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<EntitiesPeriodRuleVersionsPublishPeriodPatchPeriodV1Error> =
+        let entity: Option<EntitiesRuleVersionsPublishPatchV1Error> =
             serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
@@ -747,13 +728,12 @@ pub async fn entities_period_rule_versions_publish_period_patch_period_v1(
     }
 }
 
-pub async fn entities_period_rules_period_delete_period_v1(
+pub async fn entities_rules_delete_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<EntitiesPeriodRulesPeriodDeletePeriodV1Error>>
-{
+) -> Result<models::MsaspecQueryResponse, Error<EntitiesRulesDeleteV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/correlation-rules/entities/rules/v1",
@@ -765,14 +745,14 @@ pub async fn entities_period_rules_period_delete_period_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -802,13 +782,12 @@ pub async fn entities_period_rules_period_delete_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<EntitiesPeriodRulesPeriodDeletePeriodV1Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<EntitiesRulesDeleteV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -817,15 +796,12 @@ pub async fn entities_period_rules_period_delete_period_v1(
     }
 }
 
-pub async fn entities_period_rules_period_get_period_v1(
+pub async fn entities_rules_get_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    models::ApiPeriodGetEntitiesRulesResponseV1,
-    Error<EntitiesPeriodRulesPeriodGetPeriodV1Error>,
-> {
+) -> Result<models::ApiGetEntitiesRulesResponseV1, Error<EntitiesRulesGetV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/correlation-rules/entities/rules/v1",
@@ -835,14 +811,14 @@ pub async fn entities_period_rules_period_get_period_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -872,13 +848,12 @@ pub async fn entities_period_rules_period_get_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRulesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRulesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetEntitiesRulesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetEntitiesRulesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<EntitiesPeriodRulesPeriodGetPeriodV1Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<EntitiesRulesGetV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -887,15 +862,12 @@ pub async fn entities_period_rules_period_get_period_v1(
     }
 }
 
-pub async fn entities_period_rules_period_get_period_v2(
+pub async fn entities_rules_get_v2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    models::ApiPeriodGetEntitiesRulesResponseV1,
-    Error<EntitiesPeriodRulesPeriodGetPeriodV2Error>,
-> {
+) -> Result<models::ApiGetEntitiesRulesResponseV1, Error<EntitiesRulesGetV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/correlation-rules/entities/rules/v2",
@@ -905,14 +877,14 @@ pub async fn entities_period_rules_period_get_period_v2(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -942,13 +914,12 @@ pub async fn entities_period_rules_period_get_period_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRulesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRulesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetEntitiesRulesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetEntitiesRulesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<EntitiesPeriodRulesPeriodGetPeriodV2Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<EntitiesRulesGetV2Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -957,15 +928,12 @@ pub async fn entities_period_rules_period_get_period_v2(
     }
 }
 
-pub async fn entities_period_rules_period_patch_period_v1(
+pub async fn entities_rules_patch_v1(
     configuration: &configuration::Configuration,
-    body: Vec<models::ApiPeriodRulePatchRequestV1>,
-) -> Result<
-    models::ApiPeriodGetEntitiesRulesResponseV1,
-    Error<EntitiesPeriodRulesPeriodPatchPeriodV1Error>,
-> {
+    body: Vec<models::ApiRulePatchRequestV1>,
+) -> Result<models::ApiGetEntitiesRulesResponseV1, Error<EntitiesRulesPatchV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/correlation-rules/entities/rules/v1",
@@ -981,7 +949,7 @@ pub async fn entities_period_rules_period_patch_period_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -998,13 +966,12 @@ pub async fn entities_period_rules_period_patch_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRulesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRulesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetEntitiesRulesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetEntitiesRulesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<EntitiesPeriodRulesPeriodPatchPeriodV1Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<EntitiesRulesPatchV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -1013,15 +980,12 @@ pub async fn entities_period_rules_period_patch_period_v1(
     }
 }
 
-pub async fn entities_period_rules_period_post_period_v1(
+pub async fn entities_rules_post_v1(
     configuration: &configuration::Configuration,
-    body: models::ApiPeriodRuleCreateRequestV1,
-) -> Result<
-    models::ApiPeriodGetEntitiesRulesResponseV1,
-    Error<EntitiesPeriodRulesPeriodPostPeriodV1Error>,
-> {
+    body: models::ApiRuleCreateRequestV1,
+) -> Result<models::ApiGetEntitiesRulesResponseV1, Error<EntitiesRulesPostV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/correlation-rules/entities/rules/v1",
@@ -1037,7 +1001,7 @@ pub async fn entities_period_rules_period_post_period_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1054,13 +1018,12 @@ pub async fn entities_period_rules_period_post_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRulesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodGetEntitiesRulesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetEntitiesRulesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetEntitiesRulesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<EntitiesPeriodRulesPeriodPostPeriodV1Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<EntitiesRulesPostV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -1069,20 +1032,20 @@ pub async fn entities_period_rules_period_post_period_v1(
     }
 }
 
-pub async fn queries_period_rules_period_get_period_v1(
+pub async fn queries_rules_get_v1(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
     q: Option<&str>,
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueriesPeriodRulesPeriodGetPeriodV1Error>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueriesRulesGetV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_q = q;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_filter = filter;
+    let p_query_q = q;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/correlation-rules/queries/rules/v1",
@@ -1090,19 +1053,19 @@ pub async fn queries_period_rules_period_get_period_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1127,13 +1090,12 @@ pub async fn queries_period_rules_period_get_period_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<QueriesPeriodRulesPeriodGetPeriodV1Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<QueriesRulesGetV1Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -1142,20 +1104,20 @@ pub async fn queries_period_rules_period_get_period_v1(
     }
 }
 
-pub async fn queries_period_rules_period_get_period_v2(
+pub async fn queries_rules_get_v2(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
     q: Option<&str>,
     sort: Option<&str>,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueriesPeriodRulesPeriodGetPeriodV2Error>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueriesRulesGetV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_q = q;
-    let p_sort = sort;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_filter = filter;
+    let p_query_q = q;
+    let p_query_sort = sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/correlation-rules/queries/rules/v2",
@@ -1163,19 +1125,19 @@ pub async fn queries_period_rules_period_get_period_v2(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1200,13 +1162,12 @@ pub async fn queries_period_rules_period_get_period_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<QueriesPeriodRulesPeriodGetPeriodV2Error> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<QueriesRulesGetV2Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,

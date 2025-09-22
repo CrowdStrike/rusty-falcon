@@ -18,8 +18,8 @@ use serde::de::Error as _;
 #[serde(untagged)]
 pub enum GetEvaluationLogicMixin0Error {
     Status400(),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
     Status500(),
     UnknownValue(serde_json::Value),
 }
@@ -27,12 +27,10 @@ pub enum GetEvaluationLogicMixin0Error {
 pub async fn get_evaluation_logic_mixin0(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    models::DomainPeriodApiEvaluationLogicEntitiesResponseV1,
-    Error<GetEvaluationLogicMixin0Error>,
-> {
+) -> Result<models::DomainApiEvaluationLogicEntitiesResponseV1, Error<GetEvaluationLogicMixin0Error>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/configuration-assessment/entities/evaluation-logic/v1",
@@ -42,14 +40,14 @@ pub async fn get_evaluation_logic_mixin0(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -79,8 +77,8 @@ pub async fn get_evaluation_logic_mixin0(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodApiEvaluationLogicEntitiesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodApiEvaluationLogicEntitiesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainApiEvaluationLogicEntitiesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainApiEvaluationLogicEntitiesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;

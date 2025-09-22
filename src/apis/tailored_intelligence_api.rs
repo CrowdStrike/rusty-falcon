@@ -19,7 +19,7 @@ use serde::de::Error as _;
 pub enum GetEventsBodyError {
     Status400(String),
     Status403(),
-    Status429(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
     Status500(Vec<i32>),
     UnknownValue(serde_json::Value),
 }
@@ -28,10 +28,10 @@ pub enum GetEventsBodyError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetEventsEntitiesError {
-    Status400(models::DomainPeriodEventEntitiesResponse),
+    Status400(models::DomainEventEntitiesResponse),
     Status403(),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodEventEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainEventEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum GetEventsEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRulesEntitiesError {
-    Status400(models::DomainPeriodRuleEntitiesResponse),
+    Status400(models::DomainRuleEntitiesResponse),
     Status403(),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodRuleEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainRuleEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +50,10 @@ pub enum GetRulesEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryEventsError {
-    Status400(models::DomainPeriodQueryResponse),
+    Status400(models::DomainQueryResponse),
     Status403(),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,10 +61,10 @@ pub enum QueryEventsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRulesError {
-    Status400(models::DomainPeriodQueryResponse),
+    Status400(models::DomainQueryResponse),
     Status403(),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -73,7 +73,7 @@ pub async fn get_events_body(
     id: &str,
 ) -> Result<Vec<i32>, Error<GetEventsBodyError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_query_id = id;
 
     let uri_str = format!(
         "{}/ti/events/entities/events-full-body/v2",
@@ -81,7 +81,7 @@ pub async fn get_events_body(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -120,10 +120,10 @@ pub async fn get_events_body(
 
 pub async fn get_events_entities(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodIdsRequest,
-) -> Result<models::DomainPeriodEventEntitiesResponse, Error<GetEventsEntitiesError>> {
+    body: models::MsaIdsRequest,
+) -> Result<models::DomainEventEntitiesResponse, Error<GetEventsEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/ti/events/entities/events/GET/v2",
@@ -139,7 +139,7 @@ pub async fn get_events_entities(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -156,8 +156,8 @@ pub async fn get_events_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodEventEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodEventEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainEventEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainEventEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -172,10 +172,10 @@ pub async fn get_events_entities(
 
 pub async fn get_rules_entities(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodIdsRequest,
-) -> Result<models::DomainPeriodRuleEntitiesResponse, Error<GetRulesEntitiesError>> {
+    body: models::MsaIdsRequest,
+) -> Result<models::DomainRuleEntitiesResponse, Error<GetRulesEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/ti/rules/entities/rules/GET/v2", configuration.base_path);
     let mut req_builder = configuration
@@ -188,7 +188,7 @@ pub async fn get_rules_entities(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -205,8 +205,8 @@ pub async fn get_rules_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodRuleEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodRuleEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainRuleEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainRuleEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -226,30 +226,30 @@ pub async fn query_events(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<models::DomainPeriodQueryResponse, Error<QueryEventsError>> {
+) -> Result<models::DomainQueryResponse, Error<QueryEventsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
 
     let uri_str = format!("{}/ti/events/queries/events/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -274,8 +274,8 @@ pub async fn query_events(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -295,30 +295,30 @@ pub async fn query_rules(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<models::DomainPeriodQueryResponse, Error<QueryRulesError>> {
+) -> Result<models::DomainQueryResponse, Error<QueryRulesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
 
     let uri_str = format!("{}/ti/rules/queries/rules/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -343,8 +343,8 @@ pub async fn query_rules(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;

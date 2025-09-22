@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RTrAuditSessionsError {
-    Status400(models::DomainPeriodApiError),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodApiError),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainApiError),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainApiError),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -32,13 +32,13 @@ pub async fn r_tr_audit_sessions(
     limit: Option<&str>,
     offset: Option<&str>,
     with_command_info: Option<bool>,
-) -> Result<models::DomainPeriodSessionResponseWrapper, Error<RTrAuditSessionsError>> {
+) -> Result<models::DomainSessionResponseWrapper, Error<RTrAuditSessionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_with_command_info = with_command_info;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_with_command_info = with_command_info;
 
     let uri_str = format!(
         "{}/real-time-response-audit/combined/sessions/v1",
@@ -46,19 +46,19 @@ pub async fn r_tr_audit_sessions(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_with_command_info {
+    if let Some(ref param_value) = p_query_with_command_info {
         req_builder = req_builder.query(&[("with_command_info", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -83,8 +83,8 @@ pub async fn r_tr_audit_sessions(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodSessionResponseWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodSessionResponseWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainSessionResponseWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainSessionResponseWrapper`")))),
         }
     } else {
         let content = resp.text().await?;

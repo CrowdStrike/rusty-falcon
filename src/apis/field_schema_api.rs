@@ -13,40 +13,37 @@ use crate::{apis::ResponseContent, models};
 use reqwest;
 use serde::de::Error as _;
 
-/// struct for typed errors of method [`fdrschema_period_entities_period_field_period_get`]
+/// struct for typed errors of method [`fdrschema_entities_field_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum FdrschemaPeriodEntitiesPeriodFieldPeriodGetError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum FdrschemaEntitiesFieldGetError {
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`fdrschema_period_queries_period_field_period_get`]
+/// struct for typed errors of method [`fdrschema_queries_field_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum FdrschemaPeriodQueriesPeriodFieldPeriodGetError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+pub enum FdrschemaQueriesFieldGetError {
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
-pub async fn fdrschema_period_entities_period_field_period_get(
+pub async fn fdrschema_entities_field_get(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
-) -> Result<
-    models::SchemaPeriodSensorFieldResponseV1,
-    Error<FdrschemaPeriodEntitiesPeriodFieldPeriodGetError>,
-> {
+) -> Result<models::SchemaSensorFieldResponseV1, Error<FdrschemaEntitiesFieldGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/fdr/entities/schema-fields/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -87,13 +84,12 @@ pub async fn fdrschema_period_entities_period_field_period_get(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SchemaPeriodSensorFieldResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SchemaPeriodSensorFieldResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SchemaSensorFieldResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SchemaSensorFieldResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<FdrschemaPeriodEntitiesPeriodFieldPeriodGetError> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<FdrschemaEntitiesFieldGetError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -102,35 +98,32 @@ pub async fn fdrschema_period_entities_period_field_period_get(
     }
 }
 
-pub async fn fdrschema_period_queries_period_field_period_get(
+pub async fn fdrschema_queries_field_get(
     configuration: &configuration::Configuration,
     limit: Option<i32>,
     offset: Option<i32>,
     filter: Option<&str>,
     sort: Option<&str>,
-) -> Result<
-    models::MsaspecPeriodQueryResponse,
-    Error<FdrschemaPeriodQueriesPeriodFieldPeriodGetError>,
-> {
+) -> Result<models::MsaspecQueryResponse, Error<FdrschemaQueriesFieldGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_filter = filter;
-    let p_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
 
     let uri_str = format!("{}/fdr/queries/schema-fields/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -155,13 +148,12 @@ pub async fn fdrschema_period_queries_period_field_period_get(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<FdrschemaPeriodQueriesPeriodFieldPeriodGetError> =
-            serde_json::from_str(&content).ok();
+        let entity: Option<FdrschemaQueriesFieldGetError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,

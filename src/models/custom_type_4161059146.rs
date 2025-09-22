@@ -13,18 +13,18 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CustomType4161059146 {
     #[serde(rename = "errors")]
-    pub errors: Vec<models::MsaspecPeriodError>,
+    pub errors: Vec<models::MsaspecError>,
     #[serde(rename = "meta")]
-    pub meta: Box<models::ApiPeriodMetaInfo>,
+    pub meta: Box<models::ApiMetaInfo>,
     #[serde(rename = "resources")]
-    pub resources: Vec<models::ApiPeriodSchemaMetadata>,
+    pub resources: Vec<models::ApiSchemaMetadata>,
 }
 
 impl CustomType4161059146 {
     pub fn new(
-        errors: Vec<models::MsaspecPeriodError>,
-        meta: models::ApiPeriodMetaInfo,
-        resources: Vec<models::ApiPeriodSchemaMetadata>,
+        errors: Vec<models::MsaspecError>,
+        meta: models::ApiMetaInfo,
+        resources: Vec<models::ApiSchemaMetadata>,
     ) -> CustomType4161059146 {
         CustomType4161059146 {
             errors,

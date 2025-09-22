@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudRegistrationAzureCreateRegistrationError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status409(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status409(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,10 +29,10 @@ pub enum CloudRegistrationAzureCreateRegistrationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudRegistrationAzureDeleteRegistrationError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,10 +40,10 @@ pub enum CloudRegistrationAzureDeleteRegistrationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudRegistrationAzureDownloadScriptError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,11 +51,11 @@ pub enum CloudRegistrationAzureDownloadScriptError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudRegistrationAzureGetRegistrationError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -63,12 +63,12 @@ pub enum CloudRegistrationAzureGetRegistrationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudRegistrationAzureUpdateRegistrationError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status409(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status409(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -76,23 +76,23 @@ pub enum CloudRegistrationAzureUpdateRegistrationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DownloadAzureScriptError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn cloud_registration_azure_create_registration(
     configuration: &configuration::Configuration,
-    body: models::AzurePeriodAzureRegistrationCreateRequestExtV1,
+    body: models::AzureAzureRegistrationCreateRequestExtV1,
 ) -> Result<
-    models::AzurePeriodAzureRegistrationResponseExtV1,
+    models::AzureAzureRegistrationResponseExtV1,
     Error<CloudRegistrationAzureCreateRegistrationError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-security-registration-azure/entities/registrations/v1",
@@ -108,7 +108,7 @@ pub async fn cloud_registration_azure_create_registration(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -125,8 +125,8 @@ pub async fn cloud_registration_azure_create_registration(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AzurePeriodAzureRegistrationResponseExtV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AzurePeriodAzureRegistrationResponseExtV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AzureAzureRegistrationResponseExtV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AzureAzureRegistrationResponseExtV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -144,11 +144,11 @@ pub async fn cloud_registration_azure_delete_registration(
     configuration: &configuration::Configuration,
     tenant_ids: Vec<String>,
 ) -> Result<
-    models::AzurePeriodDeleteRegistrationResponseExtV1,
+    models::AzureDeleteRegistrationResponseExtV1,
     Error<CloudRegistrationAzureDeleteRegistrationError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_ids = tenant_ids;
+    let p_query_tenant_ids = tenant_ids;
 
     let uri_str = format!(
         "{}/cloud-security-registration-azure/entities/registrations/v1",
@@ -160,14 +160,14 @@ pub async fn cloud_registration_azure_delete_registration(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_tenant_ids
+            &p_query_tenant_ids
                 .into_iter()
                 .map(|p| ("tenant_ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "tenant_ids",
-            &p_tenant_ids
+            &p_query_tenant_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -197,8 +197,8 @@ pub async fn cloud_registration_azure_delete_registration(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AzurePeriodDeleteRegistrationResponseExtV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AzurePeriodDeleteRegistrationResponseExtV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AzureDeleteRegistrationResponseExtV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AzureDeleteRegistrationResponseExtV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -214,13 +214,13 @@ pub async fn cloud_registration_azure_delete_registration(
 
 pub async fn cloud_registration_azure_download_script(
     configuration: &configuration::Configuration,
-    body: models::AzurePeriodAzureDownloadScriptRequestV1,
+    body: models::AzureAzureDownloadScriptRequestV1,
 ) -> Result<
-    models::AzurePeriodAzureProvisionGetAccountScriptResponseV1,
+    models::AzureAzureProvisionGetAccountScriptResponseV1,
     Error<CloudRegistrationAzureDownloadScriptError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-security-registration-azure/entities/scripts/v1",
@@ -236,7 +236,7 @@ pub async fn cloud_registration_azure_download_script(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -253,8 +253,8 @@ pub async fn cloud_registration_azure_download_script(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AzurePeriodAzureProvisionGetAccountScriptResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AzurePeriodAzureProvisionGetAccountScriptResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AzureAzureProvisionGetAccountScriptResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AzureAzureProvisionGetAccountScriptResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -272,11 +272,11 @@ pub async fn cloud_registration_azure_get_registration(
     configuration: &configuration::Configuration,
     tenant_id: &str,
 ) -> Result<
-    models::AzurePeriodAzureRegistrationResponseExtV1,
+    models::AzureAzureRegistrationResponseExtV1,
     Error<CloudRegistrationAzureGetRegistrationError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
+    let p_query_tenant_id = tenant_id;
 
     let uri_str = format!(
         "{}/cloud-security-registration-azure/entities/registrations/v1",
@@ -284,7 +284,7 @@ pub async fn cloud_registration_azure_get_registration(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("tenant_id", &p_tenant_id.to_string())]);
+    req_builder = req_builder.query(&[("tenant_id", &p_query_tenant_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -307,8 +307,8 @@ pub async fn cloud_registration_azure_get_registration(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AzurePeriodAzureRegistrationResponseExtV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AzurePeriodAzureRegistrationResponseExtV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AzureAzureRegistrationResponseExtV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AzureAzureRegistrationResponseExtV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -324,13 +324,13 @@ pub async fn cloud_registration_azure_get_registration(
 
 pub async fn cloud_registration_azure_update_registration(
     configuration: &configuration::Configuration,
-    body: models::AzurePeriodAzureRegistrationUpdateRequestExtV1,
+    body: models::AzureAzureRegistrationUpdateRequestExtV1,
 ) -> Result<
-    models::AzurePeriodAzureRegistrationResponseExtV1,
+    models::AzureAzureRegistrationResponseExtV1,
     Error<CloudRegistrationAzureUpdateRegistrationError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/cloud-security-registration-azure/entities/registrations/v1",
@@ -346,7 +346,7 @@ pub async fn cloud_registration_azure_update_registration(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -363,8 +363,8 @@ pub async fn cloud_registration_azure_update_registration(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AzurePeriodAzureRegistrationResponseExtV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AzurePeriodAzureRegistrationResponseExtV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AzureAzureRegistrationResponseExtV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AzureAzureRegistrationResponseExtV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -383,7 +383,7 @@ pub async fn download_azure_script(
     tenant_id: &str,
 ) -> Result<(), Error<DownloadAzureScriptError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
+    let p_query_tenant_id = tenant_id;
 
     let uri_str = format!(
         "{}/cloud-security-registration-azure/entities/scripts/v1",
@@ -391,7 +391,7 @@ pub async fn download_azure_script(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("tenant_id", &p_tenant_id.to_string())]);
+    req_builder = req_builder.query(&[("tenant_id", &p_query_tenant_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }

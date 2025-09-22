@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateExecutorNodeError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,11 +29,11 @@ pub enum CreateExecutorNodeError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateIntegrationError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,11 +41,11 @@ pub enum CreateIntegrationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateIntegrationTaskError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -53,11 +53,11 @@ pub enum CreateIntegrationTaskError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteExecutorNodeError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -65,11 +65,11 @@ pub enum DeleteExecutorNodeError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteIntegrationError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -77,11 +77,11 @@ pub enum DeleteIntegrationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteIntegrationTaskError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -90,10 +90,10 @@ pub enum DeleteIntegrationTaskError {
 #[serde(untagged)]
 pub enum DeleteSlashGroupSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBracketPlusRightCurlyBracketError
 {
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -101,12 +101,12 @@ pub enum DeleteSlashGroupSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBr
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteTagsError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -114,12 +114,12 @@ pub enum DeleteTagsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExecuteFunctionDataError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -127,12 +127,12 @@ pub enum ExecuteFunctionDataError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExecuteFunctionDataCountError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -140,12 +140,12 @@ pub enum ExecuteFunctionDataCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExecuteFunctionDataQueryError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -153,12 +153,12 @@ pub enum ExecuteFunctionDataQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExecuteFunctionDataQueryCountError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -166,12 +166,12 @@ pub enum ExecuteFunctionDataQueryCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExecuteFunctionsError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -179,12 +179,12 @@ pub enum ExecuteFunctionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExecuteFunctionsCountError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -192,12 +192,12 @@ pub enum ExecuteFunctionsCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExecuteFunctionsOvertimeError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -205,12 +205,12 @@ pub enum ExecuteFunctionsOvertimeError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExecuteFunctionsQueryError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -218,12 +218,12 @@ pub enum ExecuteFunctionsQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExecuteFunctionsQueryCountError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -231,12 +231,12 @@ pub enum ExecuteFunctionsQueryCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExecuteFunctionsQueryOvertimeError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -244,12 +244,12 @@ pub enum ExecuteFunctionsQueryOvertimeError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExecuteQueryError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -257,10 +257,10 @@ pub enum ExecuteQueryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCloudSecurityIntegrationStateError {
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -268,12 +268,12 @@ pub enum GetCloudSecurityIntegrationStateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmInventoryBaServicesError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -281,12 +281,12 @@ pub enum GetCspmInventoryBaServicesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCspmInventoryServiceDetailsError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -294,11 +294,11 @@ pub enum GetCspmInventoryServiceDetailsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetExecutorNodesError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -306,11 +306,11 @@ pub enum GetExecutorNodesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetExecutorNodesMetadataError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -318,11 +318,11 @@ pub enum GetExecutorNodesMetadataError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntegrationTasksError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -330,11 +330,11 @@ pub enum GetIntegrationTasksError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntegrationTasksAdminError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -342,11 +342,11 @@ pub enum GetIntegrationTasksAdminError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntegrationTasksMetadataError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -354,11 +354,11 @@ pub enum GetIntegrationTasksMetadataError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntegrationTasksV2Error {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -366,10 +366,10 @@ pub enum GetIntegrationTasksV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntegrationTypesError {
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -377,11 +377,11 @@ pub enum GetIntegrationTypesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntegrationsError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -389,11 +389,11 @@ pub enum GetIntegrationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIntegrationsV2Error {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -401,11 +401,11 @@ pub enum GetIntegrationsV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetServiceArtifactsError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -413,12 +413,12 @@ pub enum GetServiceArtifactsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetServiceViolationTypesError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -426,11 +426,11 @@ pub enum GetServiceViolationTypesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetServicesCountError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -439,11 +439,11 @@ pub enum GetServicesCountError {
 #[serde(untagged)]
 pub enum GetSlashExecutorNodesSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBracketPlusRightCurlyBracketSlashInstancesSlashCsvError
 {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -452,11 +452,11 @@ pub enum GetSlashExecutorNodesSlashLeftCurlyBracketIdLeftSquareBracket09RightSqu
 #[serde(untagged)]
 pub enum GetSlashGroupSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBracketPlusRightCurlyBracketSlashV2Error
 {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -464,11 +464,11 @@ pub enum GetSlashGroupSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBrack
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSlashGroupsSlashHierSlashV2Error {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -476,11 +476,11 @@ pub enum GetSlashGroupsSlashHierSlashV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSlashGroupsSlashListSlashV2Error {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -488,11 +488,11 @@ pub enum GetSlashGroupsSlashListSlashV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSlashUsersSlashV2Error {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -500,11 +500,11 @@ pub enum GetSlashUsersSlashV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTagsError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -513,11 +513,11 @@ pub enum GetTagsError {
 #[serde(untagged)]
 pub enum PostSlashGroupSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBracketPlusRightCurlyBracketSlashUpdateDefaultError
 {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -526,11 +526,11 @@ pub enum PostSlashGroupSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBrac
 #[serde(untagged)]
 pub enum PostSlashGroupSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBracketPlusRightCurlyBracketSlashV2Error
 {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -538,11 +538,11 @@ pub enum PostSlashGroupSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBrac
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostSlashGroupSlashV2Error {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -550,11 +550,11 @@ pub enum PostSlashGroupSlashV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RunIntegrationTaskError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -562,11 +562,11 @@ pub enum RunIntegrationTaskError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RunIntegrationTaskAdminError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -574,11 +574,11 @@ pub enum RunIntegrationTaskAdminError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RunIntegrationTaskV2Error {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -586,11 +586,11 @@ pub enum RunIntegrationTaskV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ServiceNowGetDeploymentsError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -598,11 +598,11 @@ pub enum ServiceNowGetDeploymentsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ServiceNowGetServicesError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -610,11 +610,11 @@ pub enum ServiceNowGetServicesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SetCloudSecurityIntegrationStateError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -622,11 +622,11 @@ pub enum SetCloudSecurityIntegrationStateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateExecutorNodeError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -634,11 +634,11 @@ pub enum UpdateExecutorNodeError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateIntegrationError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -646,11 +646,11 @@ pub enum UpdateIntegrationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateIntegrationTaskError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -658,12 +658,12 @@ pub enum UpdateIntegrationTaskError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpsertBusinessApplicationsError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
@@ -671,21 +671,21 @@ pub enum UpsertBusinessApplicationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpsertTagsError {
-    Status400(models::TypesPeriodErrorMessage),
-    Status401(models::TypesPeriodErrorMessage),
-    Status403(models::TypesPeriodErrorMessage),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
-    Status503(models::TypesPeriodErrorMessage),
+    Status400(models::TypesErrorMessage),
+    Status401(models::TypesErrorMessage),
+    Status403(models::TypesErrorMessage),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
+    Status503(models::TypesErrorMessage),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_executor_node(
     configuration: &configuration::Configuration,
-    body: models::TypesPeriodExecutorNode,
-) -> Result<models::TypesPeriodExecutorNode, Error<CreateExecutorNodeError>> {
+    body: models::TypesExecutorNode,
+) -> Result<models::TypesExecutorNode, Error<CreateExecutorNodeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/executor_nodes",
@@ -701,7 +701,7 @@ pub async fn create_executor_node(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -718,8 +718,8 @@ pub async fn create_executor_node(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodExecutorNode`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodExecutorNode`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesExecutorNode`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesExecutorNode`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -734,10 +734,10 @@ pub async fn create_executor_node(
 
 pub async fn create_integration(
     configuration: &configuration::Configuration,
-    body: models::TypesPeriodCreateIntegrationRequest,
-) -> Result<models::TypesPeriodCreateIntegrationResponse, Error<CreateIntegrationError>> {
+    body: models::TypesCreateIntegrationRequest,
+) -> Result<models::TypesCreateIntegrationResponse, Error<CreateIntegrationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/integrations",
@@ -753,7 +753,7 @@ pub async fn create_integration(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -770,8 +770,8 @@ pub async fn create_integration(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodCreateIntegrationResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodCreateIntegrationResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesCreateIntegrationResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesCreateIntegrationResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -786,10 +786,10 @@ pub async fn create_integration(
 
 pub async fn create_integration_task(
     configuration: &configuration::Configuration,
-    body: models::TypesPeriodCreateIntegrationTaskRequest,
-) -> Result<models::TypesPeriodIntegrationTaskResponse, Error<CreateIntegrationTaskError>> {
+    body: models::TypesCreateIntegrationTaskRequest,
+) -> Result<models::TypesIntegrationTaskResponse, Error<CreateIntegrationTaskError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/integration_tasks",
@@ -805,7 +805,7 @@ pub async fn create_integration_task(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -822,8 +822,8 @@ pub async fn create_integration_task(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodIntegrationTaskResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodIntegrationTaskResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesIntegrationTaskResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesIntegrationTaskResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -841,12 +841,12 @@ pub async fn delete_executor_node(
     id: i32,
 ) -> Result<(), Error<DeleteExecutorNodeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_path_id = id;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/executor_nodes/{ID}",
         configuration.base_path,
-        ID = p_id
+        ID = p_path_id
     );
     let mut req_builder = configuration
         .client
@@ -882,12 +882,12 @@ pub async fn delete_integration(
     id: i32,
 ) -> Result<(), Error<DeleteIntegrationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_path_id = id;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/integrations/{ID}",
         configuration.base_path,
-        ID = p_id
+        ID = p_path_id
     );
     let mut req_builder = configuration
         .client
@@ -923,12 +923,12 @@ pub async fn delete_integration_task(
     id: i32,
 ) -> Result<(), Error<DeleteIntegrationTaskError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_path_id = id;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/integration_tasks/{ID}",
         configuration.base_path,
-        ID = p_id
+        ID = p_path_id
     );
     let mut req_builder = configuration
         .client
@@ -961,12 +961,12 @@ pub async fn delete_integration_task(
 
 pub async fn delete_slash_group_slash_left_curly_bracket_id_left_square_bracket_09_right_square_bracket_plus_right_curly_bracket(configuration: &configuration::Configuration, id: i32) -> Result<(), Error<DeleteSlashGroupSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBracketPlusRightCurlyBracketError>>{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_path_id = id;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/group/{ID}",
         configuration.base_path,
-        ID = p_id
+        ID = p_path_id
     );
     let mut req_builder = configuration
         .client
@@ -999,10 +999,10 @@ pub async fn delete_slash_group_slash_left_curly_bracket_id_left_square_bracket_
 
 pub async fn delete_tags(
     configuration: &configuration::Configuration,
-    body: models::TypesPeriodEditTagRequest,
+    body: models::TypesEditTagRequest,
 ) -> Result<(), Error<DeleteTagsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/aspm-api-gateway/api/v1/tags", configuration.base_path);
     let mut req_builder = configuration
@@ -1015,7 +1015,7 @@ pub async fn delete_tags(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1038,9 +1038,9 @@ pub async fn delete_tags(
 pub async fn execute_function_data(
     configuration: &configuration::Configuration,
     field: &str,
-) -> Result<models::TypesPeriodGeneralQueryResponse, Error<ExecuteFunctionDataError>> {
+) -> Result<models::TypesGeneralQueryResponse, Error<ExecuteFunctionDataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_field = field;
+    let p_query_field = field;
 
     let uri_str = format!(
         "{}/application-security/combined/function-data/v1",
@@ -1048,7 +1048,7 @@ pub async fn execute_function_data(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("field", &p_field.to_string())]);
+    req_builder = req_builder.query(&[("field", &p_query_field.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1071,8 +1071,8 @@ pub async fn execute_function_data(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodGeneralQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodGeneralQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesGeneralQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesGeneralQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1094,15 +1094,15 @@ pub async fn execute_function_data_count(
     azure_site_subscription_id: Option<&str>,
     azure_site_resource_group: Option<&str>,
     azure_function_app_name: Option<&str>,
-) -> Result<models::TypesPeriodCountResponse, Error<ExecuteFunctionDataCountError>> {
+) -> Result<models::TypesCountResponse, Error<ExecuteFunctionDataCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_name = query_name;
-    let p_cloud_provider = cloud_provider;
-    let p_aws_lambda_arn = aws_lambda_arn;
-    let p_gcp_cloud_function_url = gcp_cloud_function_url;
-    let p_azure_site_subscription_id = azure_site_subscription_id;
-    let p_azure_site_resource_group = azure_site_resource_group;
-    let p_azure_function_app_name = azure_function_app_name;
+    let p_query_query_name = query_name;
+    let p_query_cloud_provider = cloud_provider;
+    let p_query_aws_lambda_arn = aws_lambda_arn;
+    let p_query_gcp_cloud_function_url = gcp_cloud_function_url;
+    let p_query_azure_site_subscription_id = azure_site_subscription_id;
+    let p_query_azure_site_resource_group = azure_site_resource_group;
+    let p_query_azure_function_app_name = azure_function_app_name;
 
     let uri_str = format!(
         "{}/application-security/aggregates/function-data/count/v1",
@@ -1112,22 +1112,22 @@ pub async fn execute_function_data_count(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("query_name", &p_query_name.to_string())]);
-    req_builder = req_builder.query(&[("cloud_provider", &p_cloud_provider.to_string())]);
-    if let Some(ref param_value) = p_aws_lambda_arn {
+    req_builder = req_builder.query(&[("query_name", &p_query_query_name.to_string())]);
+    req_builder = req_builder.query(&[("cloud_provider", &p_query_cloud_provider.to_string())]);
+    if let Some(ref param_value) = p_query_aws_lambda_arn {
         req_builder = req_builder.query(&[("aws_lambda_arn", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_gcp_cloud_function_url {
+    if let Some(ref param_value) = p_query_gcp_cloud_function_url {
         req_builder = req_builder.query(&[("gcp_cloud_function_url", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_azure_site_subscription_id {
+    if let Some(ref param_value) = p_query_azure_site_subscription_id {
         req_builder =
             req_builder.query(&[("azure_site_subscription_id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_azure_site_resource_group {
+    if let Some(ref param_value) = p_query_azure_site_resource_group {
         req_builder = req_builder.query(&[("azure_site_resource_group", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_azure_function_app_name {
+    if let Some(ref param_value) = p_query_azure_function_app_name {
         req_builder = req_builder.query(&[("azure_function_app_name", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1152,8 +1152,8 @@ pub async fn execute_function_data_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodCountResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodCountResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesCountResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesCountResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1169,9 +1169,9 @@ pub async fn execute_function_data_count(
 pub async fn execute_function_data_query(
     configuration: &configuration::Configuration,
     field: &str,
-) -> Result<models::TypesPeriodGeneralQueryResponse, Error<ExecuteFunctionDataQueryError>> {
+) -> Result<models::TypesGeneralQueryResponse, Error<ExecuteFunctionDataQueryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_field = field;
+    let p_query_field = field;
 
     let uri_str = format!(
         "{}/application-security/combined/query-function-data/v1",
@@ -1179,7 +1179,7 @@ pub async fn execute_function_data_query(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("field", &p_field.to_string())]);
+    req_builder = req_builder.query(&[("field", &p_query_field.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1202,8 +1202,8 @@ pub async fn execute_function_data_query(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodGeneralQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodGeneralQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesGeneralQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesGeneralQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1219,9 +1219,9 @@ pub async fn execute_function_data_query(
 pub async fn execute_function_data_query_count(
     configuration: &configuration::Configuration,
     field: &str,
-) -> Result<models::TypesPeriodCountResponse, Error<ExecuteFunctionDataQueryCountError>> {
+) -> Result<models::TypesCountResponse, Error<ExecuteFunctionDataQueryCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_field = field;
+    let p_query_field = field;
 
     let uri_str = format!(
         "{}/application-security/aggregates/query-function-data-count/v1",
@@ -1229,7 +1229,7 @@ pub async fn execute_function_data_query_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("field", &p_field.to_string())]);
+    req_builder = req_builder.query(&[("field", &p_query_field.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1252,8 +1252,8 @@ pub async fn execute_function_data_query_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodCountResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodCountResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesCountResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesCountResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1270,9 +1270,9 @@ pub async fn execute_function_data_query_count(
 pub async fn execute_functions(
     configuration: &configuration::Configuration,
     field: &str,
-) -> Result<models::TypesPeriodGeneralQueryResponse, Error<ExecuteFunctionsError>> {
+) -> Result<models::TypesGeneralQueryResponse, Error<ExecuteFunctionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_field = field;
+    let p_query_field = field;
 
     let uri_str = format!(
         "{}/application-security/combined/functions/v1",
@@ -1280,7 +1280,7 @@ pub async fn execute_functions(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("field", &p_field.to_string())]);
+    req_builder = req_builder.query(&[("field", &p_query_field.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1303,8 +1303,8 @@ pub async fn execute_functions(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodGeneralQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodGeneralQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesGeneralQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesGeneralQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1324,13 +1324,13 @@ pub async fn execute_functions_count(
     cloud_account_id: Option<Vec<String>>,
     region: Option<Vec<String>>,
     cid: Option<Vec<String>>,
-) -> Result<models::TypesPeriodCountResponse, Error<ExecuteFunctionsCountError>> {
+) -> Result<models::TypesCountResponse, Error<ExecuteFunctionsCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_name = query_name;
-    let p_cloud_provider = cloud_provider;
-    let p_cloud_account_id = cloud_account_id;
-    let p_region = region;
-    let p_cid = cid;
+    let p_query_query_name = query_name;
+    let p_query_cloud_provider = cloud_provider;
+    let p_query_cloud_account_id = cloud_account_id;
+    let p_query_region = region;
+    let p_query_cid = cid;
 
     let uri_str = format!(
         "{}/application-security/aggregates/functions/count/v1",
@@ -1340,8 +1340,8 @@ pub async fn execute_functions_count(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("query_name", &p_query_name.to_string())]);
-    if let Some(ref param_value) = p_cloud_provider {
+    req_builder = req_builder.query(&[("query_name", &p_query_query_name.to_string())]);
+    if let Some(ref param_value) = p_query_cloud_provider {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1360,7 +1360,7 @@ pub async fn execute_functions_count(
             )]),
         };
     }
-    if let Some(ref param_value) = p_cloud_account_id {
+    if let Some(ref param_value) = p_query_cloud_account_id {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1379,7 +1379,7 @@ pub async fn execute_functions_count(
             )]),
         };
     }
-    if let Some(ref param_value) = p_region {
+    if let Some(ref param_value) = p_query_region {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1398,7 +1398,7 @@ pub async fn execute_functions_count(
             )]),
         };
     }
-    if let Some(ref param_value) = p_cid {
+    if let Some(ref param_value) = p_query_cid {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1439,8 +1439,8 @@ pub async fn execute_functions_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodCountResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodCountResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesCountResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesCountResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1456,9 +1456,9 @@ pub async fn execute_functions_count(
 pub async fn execute_functions_overtime(
     configuration: &configuration::Configuration,
     field: &str,
-) -> Result<models::TypesPeriodOvertimeResponse, Error<ExecuteFunctionsOvertimeError>> {
+) -> Result<models::TypesOvertimeResponse, Error<ExecuteFunctionsOvertimeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_field = field;
+    let p_query_field = field;
 
     let uri_str = format!(
         "{}/application-security/combined/functions-overtime/v1",
@@ -1466,7 +1466,7 @@ pub async fn execute_functions_overtime(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("field", &p_field.to_string())]);
+    req_builder = req_builder.query(&[("field", &p_query_field.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1489,8 +1489,8 @@ pub async fn execute_functions_overtime(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodOvertimeResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodOvertimeResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesOvertimeResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesOvertimeResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1506,9 +1506,9 @@ pub async fn execute_functions_overtime(
 pub async fn execute_functions_query(
     configuration: &configuration::Configuration,
     field: &str,
-) -> Result<models::TypesPeriodGeneralQueryResponse, Error<ExecuteFunctionsQueryError>> {
+) -> Result<models::TypesGeneralQueryResponse, Error<ExecuteFunctionsQueryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_field = field;
+    let p_query_field = field;
 
     let uri_str = format!(
         "{}/application-security/combined/query-functions/v1",
@@ -1516,7 +1516,7 @@ pub async fn execute_functions_query(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("field", &p_field.to_string())]);
+    req_builder = req_builder.query(&[("field", &p_query_field.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1539,8 +1539,8 @@ pub async fn execute_functions_query(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodGeneralQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodGeneralQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesGeneralQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesGeneralQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1556,9 +1556,9 @@ pub async fn execute_functions_query(
 pub async fn execute_functions_query_count(
     configuration: &configuration::Configuration,
     field: &str,
-) -> Result<models::TypesPeriodCountResponse, Error<ExecuteFunctionsQueryCountError>> {
+) -> Result<models::TypesCountResponse, Error<ExecuteFunctionsQueryCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_field = field;
+    let p_query_field = field;
 
     let uri_str = format!(
         "{}/application-security/aggregates/query-functions-count/v1",
@@ -1566,7 +1566,7 @@ pub async fn execute_functions_query_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("field", &p_field.to_string())]);
+    req_builder = req_builder.query(&[("field", &p_query_field.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1589,8 +1589,8 @@ pub async fn execute_functions_query_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodCountResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodCountResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesCountResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesCountResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1606,9 +1606,9 @@ pub async fn execute_functions_query_count(
 pub async fn execute_functions_query_overtime(
     configuration: &configuration::Configuration,
     field: &str,
-) -> Result<models::TypesPeriodOvertimeResponse, Error<ExecuteFunctionsQueryOvertimeError>> {
+) -> Result<models::TypesOvertimeResponse, Error<ExecuteFunctionsQueryOvertimeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_field = field;
+    let p_query_field = field;
 
     let uri_str = format!(
         "{}/application-security/combined/query-functions-overtime/v1",
@@ -1616,7 +1616,7 @@ pub async fn execute_functions_query_overtime(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("field", &p_field.to_string())]);
+    req_builder = req_builder.query(&[("field", &p_query_field.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1639,8 +1639,8 @@ pub async fn execute_functions_query_overtime(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodOvertimeResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodOvertimeResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesOvertimeResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesOvertimeResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1656,10 +1656,10 @@ pub async fn execute_functions_query_overtime(
 
 pub async fn execute_query(
     configuration: &configuration::Configuration,
-    body: models::TypesPeriodQueryRequest,
-) -> Result<models::TypesPeriodQueryResponse, Error<ExecuteQueryError>> {
+    body: models::TypesQueryRequest,
+) -> Result<models::TypesQueryResponse, Error<ExecuteQueryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/aspm-api-gateway/api/v1/query", configuration.base_path);
     let mut req_builder = configuration
@@ -1672,7 +1672,7 @@ pub async fn execute_query(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1689,8 +1689,8 @@ pub async fn execute_query(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1706,7 +1706,7 @@ pub async fn execute_query(
 pub async fn get_cloud_security_integration_state(
     configuration: &configuration::Configuration,
 ) -> Result<
-    models::TypesPeriodGetCloudSecurityIntegrationStateResponse,
+    models::TypesGetCloudSecurityIntegrationStateResponse,
     Error<GetCloudSecurityIntegrationStateError>,
 > {
     let uri_str = format!(
@@ -1737,8 +1737,8 @@ pub async fn get_cloud_security_integration_state(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodGetCloudSecurityIntegrationStateResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodGetCloudSecurityIntegrationStateResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesGetCloudSecurityIntegrationStateResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesGetCloudSecurityIntegrationStateResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1757,11 +1757,11 @@ pub async fn get_cspm_inventory_ba_services(
     business_application_name: &str,
     offset: Option<i32>,
     limit: Option<i32>,
-) -> Result<models::TypesPeriodGeneralQueryResponse, Error<GetCspmInventoryBaServicesError>> {
+) -> Result<models::TypesGeneralQueryResponse, Error<GetCspmInventoryBaServicesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_business_application_name = business_application_name;
-    let p_offset = offset;
-    let p_limit = limit;
+    let p_query_business_application_name = business_application_name;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/application-security/combined/cspm-inventory-ba-services/v1",
@@ -1771,12 +1771,12 @@ pub async fn get_cspm_inventory_ba_services(
 
     req_builder = req_builder.query(&[(
         "business_application_name",
-        &p_business_application_name.to_string(),
+        &p_query_business_application_name.to_string(),
     )]);
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1801,8 +1801,8 @@ pub async fn get_cspm_inventory_ba_services(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodGeneralQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodGeneralQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesGeneralQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesGeneralQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1818,9 +1818,9 @@ pub async fn get_cspm_inventory_ba_services(
 pub async fn get_cspm_inventory_service_details(
     configuration: &configuration::Configuration,
     persistent_signature: &str,
-) -> Result<models::TypesPeriodGeneralQueryResponse, Error<GetCspmInventoryServiceDetailsError>> {
+) -> Result<models::TypesGeneralQueryResponse, Error<GetCspmInventoryServiceDetailsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_persistent_signature = persistent_signature;
+    let p_query_persistent_signature = persistent_signature;
 
     let uri_str = format!(
         "{}/application-security/combined/cspm-inventory-service-data/v1",
@@ -1828,8 +1828,10 @@ pub async fn get_cspm_inventory_service_details(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder =
-        req_builder.query(&[("persistent_signature", &p_persistent_signature.to_string())]);
+    req_builder = req_builder.query(&[(
+        "persistent_signature",
+        &p_query_persistent_signature.to_string(),
+    )]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1852,8 +1854,8 @@ pub async fn get_cspm_inventory_service_details(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodGeneralQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodGeneralQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesGeneralQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesGeneralQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1879,18 +1881,18 @@ pub async fn get_executor_nodes(
     executor_node_names: Option<Vec<String>>,
     executor_node_states: Option<Vec<i32>>,
     executor_node_types: Option<Vec<String>>,
-) -> Result<models::TypesPeriodListExecutorNodesResponse, Error<GetExecutorNodesError>> {
+) -> Result<models::TypesListExecutorNodesResponse, Error<GetExecutorNodesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_node_type = node_type;
-    let p_integration_type = integration_type;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_order_by = order_by;
-    let p_direction = direction;
-    let p_executor_node_ids = executor_node_ids;
-    let p_executor_node_names = executor_node_names;
-    let p_executor_node_states = executor_node_states;
-    let p_executor_node_types = executor_node_types;
+    let p_query_node_type = node_type;
+    let p_query_integration_type = integration_type;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_order_by = order_by;
+    let p_query_direction = direction;
+    let p_query_executor_node_ids = executor_node_ids;
+    let p_query_executor_node_names = executor_node_names;
+    let p_query_executor_node_states = executor_node_states;
+    let p_query_executor_node_types = executor_node_types;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/executor_nodes",
@@ -1898,23 +1900,23 @@ pub async fn get_executor_nodes(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("node_type", &p_node_type.to_string())]);
-    if let Some(ref param_value) = p_integration_type {
+    req_builder = req_builder.query(&[("node_type", &p_query_node_type.to_string())]);
+    if let Some(ref param_value) = p_query_integration_type {
         req_builder = req_builder.query(&[("integration_type", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_order_by {
+    if let Some(ref param_value) = p_query_order_by {
         req_builder = req_builder.query(&[("order_by", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_direction {
+    if let Some(ref param_value) = p_query_direction {
         req_builder = req_builder.query(&[("direction", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_executor_node_ids {
+    if let Some(ref param_value) = p_query_executor_node_ids {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1933,7 +1935,7 @@ pub async fn get_executor_nodes(
             )]),
         };
     }
-    if let Some(ref param_value) = p_executor_node_names {
+    if let Some(ref param_value) = p_query_executor_node_names {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1952,7 +1954,7 @@ pub async fn get_executor_nodes(
             )]),
         };
     }
-    if let Some(ref param_value) = p_executor_node_states {
+    if let Some(ref param_value) = p_query_executor_node_states {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1971,7 +1973,7 @@ pub async fn get_executor_nodes(
             )]),
         };
     }
-    if let Some(ref param_value) = p_executor_node_types {
+    if let Some(ref param_value) = p_query_executor_node_types {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -2012,8 +2014,8 @@ pub async fn get_executor_nodes(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodListExecutorNodesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodListExecutorNodesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesListExecutorNodesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesListExecutorNodesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2032,13 +2034,12 @@ pub async fn get_executor_nodes_metadata(
     executor_node_names: Option<Vec<String>>,
     executor_node_states: Option<Vec<i32>>,
     executor_node_types: Option<Vec<String>>,
-) -> Result<models::TypesPeriodGetExecutorNodesMetadataResponse, Error<GetExecutorNodesMetadataError>>
-{
+) -> Result<models::TypesGetExecutorNodesMetadataResponse, Error<GetExecutorNodesMetadataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_executor_node_ids = executor_node_ids;
-    let p_executor_node_names = executor_node_names;
-    let p_executor_node_states = executor_node_states;
-    let p_executor_node_types = executor_node_types;
+    let p_query_executor_node_ids = executor_node_ids;
+    let p_query_executor_node_names = executor_node_names;
+    let p_query_executor_node_states = executor_node_states;
+    let p_query_executor_node_types = executor_node_types;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/executor_nodes/metadata",
@@ -2046,7 +2047,7 @@ pub async fn get_executor_nodes_metadata(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_executor_node_ids {
+    if let Some(ref param_value) = p_query_executor_node_ids {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -2065,7 +2066,7 @@ pub async fn get_executor_nodes_metadata(
             )]),
         };
     }
-    if let Some(ref param_value) = p_executor_node_names {
+    if let Some(ref param_value) = p_query_executor_node_names {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -2084,7 +2085,7 @@ pub async fn get_executor_nodes_metadata(
             )]),
         };
     }
-    if let Some(ref param_value) = p_executor_node_states {
+    if let Some(ref param_value) = p_query_executor_node_states {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -2103,7 +2104,7 @@ pub async fn get_executor_nodes_metadata(
             )]),
         };
     }
-    if let Some(ref param_value) = p_executor_node_types {
+    if let Some(ref param_value) = p_query_executor_node_types {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -2144,8 +2145,8 @@ pub async fn get_executor_nodes_metadata(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodGetExecutorNodesMetadataResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodGetExecutorNodesMetadataResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesGetExecutorNodesMetadataResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesGetExecutorNodesMetadataResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2169,17 +2170,17 @@ pub async fn get_integration_tasks(
     integration_task_types: Option<i32>,
     ids: Option<i32>,
     names: Option<&str>,
-) -> Result<models::TypesPeriodListIntegrationTasksResponse, Error<GetIntegrationTasksError>> {
+) -> Result<models::TypesListIntegrationTasksResponse, Error<GetIntegrationTasksError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_integration_task_type = integration_task_type;
-    let p_category = category;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_order_by = order_by;
-    let p_direction = direction;
-    let p_integration_task_types = integration_task_types;
-    let p_ids = ids;
-    let p_names = names;
+    let p_query_integration_task_type = integration_task_type;
+    let p_query_category = category;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_order_by = order_by;
+    let p_query_direction = direction;
+    let p_query_integration_task_types = integration_task_types;
+    let p_query_ids = ids;
+    let p_query_names = names;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/integration_tasks",
@@ -2187,31 +2188,31 @@ pub async fn get_integration_tasks(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_integration_task_type {
+    if let Some(ref param_value) = p_query_integration_task_type {
         req_builder = req_builder.query(&[("integration_task_type", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_category {
+    if let Some(ref param_value) = p_query_category {
         req_builder = req_builder.query(&[("category", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_order_by {
+    if let Some(ref param_value) = p_query_order_by {
         req_builder = req_builder.query(&[("orderBy", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_direction {
+    if let Some(ref param_value) = p_query_direction {
         req_builder = req_builder.query(&[("direction", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_integration_task_types {
+    if let Some(ref param_value) = p_query_integration_task_types {
         req_builder = req_builder.query(&[("integration_task_types", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = req_builder.query(&[("ids", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_names {
+    if let Some(ref param_value) = p_query_names {
         req_builder = req_builder.query(&[("names", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2236,8 +2237,8 @@ pub async fn get_integration_tasks(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodListIntegrationTasksResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodListIntegrationTasksResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesListIntegrationTasksResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesListIntegrationTasksResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2261,17 +2262,17 @@ pub async fn get_integration_tasks_admin(
     integration_task_types: Option<i32>,
     ids: Option<i32>,
     names: Option<&str>,
-) -> Result<models::TypesPeriodListIntegrationTasksResponse, Error<GetIntegrationTasksAdminError>> {
+) -> Result<models::TypesListIntegrationTasksResponse, Error<GetIntegrationTasksAdminError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_integration_task_type = integration_task_type;
-    let p_category = category;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_order_by = order_by;
-    let p_direction = direction;
-    let p_integration_task_types = integration_task_types;
-    let p_ids = ids;
-    let p_names = names;
+    let p_query_integration_task_type = integration_task_type;
+    let p_query_category = category;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_order_by = order_by;
+    let p_query_direction = direction;
+    let p_query_integration_task_types = integration_task_types;
+    let p_query_ids = ids;
+    let p_query_names = names;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/integration_tasks/admin",
@@ -2279,31 +2280,31 @@ pub async fn get_integration_tasks_admin(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_integration_task_type {
+    if let Some(ref param_value) = p_query_integration_task_type {
         req_builder = req_builder.query(&[("integration_task_type", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_category {
+    if let Some(ref param_value) = p_query_category {
         req_builder = req_builder.query(&[("category", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_order_by {
+    if let Some(ref param_value) = p_query_order_by {
         req_builder = req_builder.query(&[("orderBy", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_direction {
+    if let Some(ref param_value) = p_query_direction {
         req_builder = req_builder.query(&[("direction", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_integration_task_types {
+    if let Some(ref param_value) = p_query_integration_task_types {
         req_builder = req_builder.query(&[("integration_task_types", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = req_builder.query(&[("ids", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_names {
+    if let Some(ref param_value) = p_query_names {
         req_builder = req_builder.query(&[("names", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2328,8 +2329,8 @@ pub async fn get_integration_tasks_admin(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodListIntegrationTasksResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodListIntegrationTasksResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesListIntegrationTasksResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesListIntegrationTasksResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2348,15 +2349,13 @@ pub async fn get_integration_tasks_metadata(
     integration_task_types: Option<i32>,
     ids: Option<i32>,
     names: Option<&str>,
-) -> Result<
-    models::TypesPeriodGetIntegrationTasksMetadataResponse,
-    Error<GetIntegrationTasksMetadataError>,
-> {
+) -> Result<models::TypesGetIntegrationTasksMetadataResponse, Error<GetIntegrationTasksMetadataError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_category = category;
-    let p_integration_task_types = integration_task_types;
-    let p_ids = ids;
-    let p_names = names;
+    let p_query_category = category;
+    let p_query_integration_task_types = integration_task_types;
+    let p_query_ids = ids;
+    let p_query_names = names;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/integration_tasks/metadata",
@@ -2364,16 +2363,16 @@ pub async fn get_integration_tasks_metadata(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_category {
+    if let Some(ref param_value) = p_query_category {
         req_builder = req_builder.query(&[("category", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_integration_task_types {
+    if let Some(ref param_value) = p_query_integration_task_types {
         req_builder = req_builder.query(&[("integration_task_types", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = req_builder.query(&[("ids", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_names {
+    if let Some(ref param_value) = p_query_names {
         req_builder = req_builder.query(&[("names", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2398,8 +2397,8 @@ pub async fn get_integration_tasks_metadata(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodGetIntegrationTasksMetadataResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodGetIntegrationTasksMetadataResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesGetIntegrationTasksMetadataResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesGetIntegrationTasksMetadataResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2423,17 +2422,17 @@ pub async fn get_integration_tasks_v2(
     integration_task_types: Option<i32>,
     ids: Option<i32>,
     names: Option<&str>,
-) -> Result<models::TypesPeriodListIntegrationTasksResponse, Error<GetIntegrationTasksV2Error>> {
+) -> Result<models::TypesListIntegrationTasksResponse, Error<GetIntegrationTasksV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_integration_task_type = integration_task_type;
-    let p_category = category;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_order_by = order_by;
-    let p_direction = direction;
-    let p_integration_task_types = integration_task_types;
-    let p_ids = ids;
-    let p_names = names;
+    let p_query_integration_task_type = integration_task_type;
+    let p_query_category = category;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_order_by = order_by;
+    let p_query_direction = direction;
+    let p_query_integration_task_types = integration_task_types;
+    let p_query_ids = ids;
+    let p_query_names = names;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/integration_tasks/v2",
@@ -2441,31 +2440,31 @@ pub async fn get_integration_tasks_v2(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_integration_task_type {
+    if let Some(ref param_value) = p_query_integration_task_type {
         req_builder = req_builder.query(&[("integration_task_type", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_category {
+    if let Some(ref param_value) = p_query_category {
         req_builder = req_builder.query(&[("category", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_order_by {
+    if let Some(ref param_value) = p_query_order_by {
         req_builder = req_builder.query(&[("orderBy", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_direction {
+    if let Some(ref param_value) = p_query_direction {
         req_builder = req_builder.query(&[("direction", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_integration_task_types {
+    if let Some(ref param_value) = p_query_integration_task_types {
         req_builder = req_builder.query(&[("integration_task_types", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = req_builder.query(&[("ids", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_names {
+    if let Some(ref param_value) = p_query_names {
         req_builder = req_builder.query(&[("names", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2490,8 +2489,8 @@ pub async fn get_integration_tasks_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodListIntegrationTasksResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodListIntegrationTasksResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesListIntegrationTasksResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesListIntegrationTasksResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2506,7 +2505,7 @@ pub async fn get_integration_tasks_v2(
 
 pub async fn get_integration_types(
     configuration: &configuration::Configuration,
-) -> Result<models::TypesPeriodListIntegrationTypesResponse, Error<GetIntegrationTypesError>> {
+) -> Result<models::TypesListIntegrationTypesResponse, Error<GetIntegrationTypesError>> {
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/integration_types",
         configuration.base_path
@@ -2535,8 +2534,8 @@ pub async fn get_integration_types(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodListIntegrationTypesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodListIntegrationTypesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesListIntegrationTypesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesListIntegrationTypesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2553,10 +2552,10 @@ pub async fn get_integrations(
     configuration: &configuration::Configuration,
     integration_type: Option<i32>,
     category: Option<&str>,
-) -> Result<models::TypesPeriodListIntegrationsResponse, Error<GetIntegrationsError>> {
+) -> Result<models::TypesListIntegrationsResponse, Error<GetIntegrationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_integration_type = integration_type;
-    let p_category = category;
+    let p_query_integration_type = integration_type;
+    let p_query_category = category;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/integrations",
@@ -2564,10 +2563,10 @@ pub async fn get_integrations(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_integration_type {
+    if let Some(ref param_value) = p_query_integration_type {
         req_builder = req_builder.query(&[("integration_type", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_category {
+    if let Some(ref param_value) = p_query_category {
         req_builder = req_builder.query(&[("category", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2592,8 +2591,8 @@ pub async fn get_integrations(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodListIntegrationsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodListIntegrationsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesListIntegrationsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesListIntegrationsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2610,10 +2609,10 @@ pub async fn get_integrations_v2(
     configuration: &configuration::Configuration,
     integration_type: Option<i32>,
     category: Option<&str>,
-) -> Result<models::TypesPeriodListIntegrationsResponse, Error<GetIntegrationsV2Error>> {
+) -> Result<models::TypesListIntegrationsResponse, Error<GetIntegrationsV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_integration_type = integration_type;
-    let p_category = category;
+    let p_query_integration_type = integration_type;
+    let p_query_category = category;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/integrations/v2",
@@ -2621,10 +2620,10 @@ pub async fn get_integrations_v2(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_integration_type {
+    if let Some(ref param_value) = p_query_integration_type {
         req_builder = req_builder.query(&[("integration_type", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_category {
+    if let Some(ref param_value) = p_query_category {
         req_builder = req_builder.query(&[("category", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2649,8 +2648,8 @@ pub async fn get_integrations_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodListIntegrationsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodListIntegrationsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesListIntegrationsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesListIntegrationsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2672,15 +2671,15 @@ pub async fn get_service_artifacts(
     offset: Option<i32>,
     order_by: Option<Vec<String>>,
     direction: Option<&str>,
-) -> Result<models::TypesPeriodArtifacts, Error<GetServiceArtifactsError>> {
+) -> Result<models::TypesArtifacts, Error<GetServiceArtifactsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_persistent_signature = persistent_signature;
-    let p_optional_time = optional_time;
-    let p_revision_id = revision_id;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_order_by = order_by;
-    let p_direction = direction;
+    let p_query_persistent_signature = persistent_signature;
+    let p_query_optional_time = optional_time;
+    let p_query_revision_id = revision_id;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_order_by = order_by;
+    let p_query_direction = direction;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/artifacts",
@@ -2688,21 +2687,23 @@ pub async fn get_service_artifacts(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder =
-        req_builder.query(&[("persistentSignature", &p_persistent_signature.to_string())]);
-    if let Some(ref param_value) = p_optional_time {
+    req_builder = req_builder.query(&[(
+        "persistentSignature",
+        &p_query_persistent_signature.to_string(),
+    )]);
+    if let Some(ref param_value) = p_query_optional_time {
         req_builder = req_builder.query(&[("optionalTime", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_revision_id {
+    if let Some(ref param_value) = p_query_revision_id {
         req_builder = req_builder.query(&[("revisionId", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_order_by {
+    if let Some(ref param_value) = p_query_order_by {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -2721,7 +2722,7 @@ pub async fn get_service_artifacts(
             )]),
         };
     }
-    if let Some(ref param_value) = p_direction {
+    if let Some(ref param_value) = p_query_direction {
         req_builder = req_builder.query(&[("direction", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2746,8 +2747,8 @@ pub async fn get_service_artifacts(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodArtifacts`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodArtifacts`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesArtifacts`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesArtifacts`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2762,10 +2763,10 @@ pub async fn get_service_artifacts(
 
 pub async fn get_service_violation_types(
     configuration: &configuration::Configuration,
-    body: models::TypesPeriodGenericUserFacingRequest,
-) -> Result<models::TypesPeriodGetViolationTypesResponse, Error<GetServiceViolationTypesError>> {
+    body: models::TypesGenericUserFacingRequest,
+) -> Result<models::TypesGetViolationTypesResponse, Error<GetServiceViolationTypesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/services/violations/types",
@@ -2779,7 +2780,7 @@ pub async fn get_service_violation_types(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2796,8 +2797,8 @@ pub async fn get_service_violation_types(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodGetViolationTypesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodGetViolationTypesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesGetViolationTypesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesGetViolationTypesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2812,10 +2813,10 @@ pub async fn get_service_violation_types(
 
 pub async fn get_services_count(
     configuration: &configuration::Configuration,
-    body: models::TypesPeriodGetServicesRequest,
+    body: models::TypesGetServicesRequest,
 ) -> Result<(), Error<GetServicesCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/services/count",
@@ -2831,7 +2832,7 @@ pub async fn get_services_count(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2851,15 +2852,15 @@ pub async fn get_services_count(
     }
 }
 
-pub async fn get_slash_executor_nodes_slash_left_curly_bracket_id_left_square_bracket_09_right_square_bracket_plus_right_curly_bracket_slash_instances_slash_csv(configuration: &configuration::Configuration, id: i32, body: models::TypesPeriodExecutorNode) -> Result<String, Error<GetSlashExecutorNodesSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBracketPlusRightCurlyBracketSlashInstancesSlashCsvError>>{
+pub async fn get_slash_executor_nodes_slash_left_curly_bracket_id_left_square_bracket_09_right_square_bracket_plus_right_curly_bracket_slash_instances_slash_csv(configuration: &configuration::Configuration, id: i32, body: models::TypesExecutorNode) -> Result<String, Error<GetSlashExecutorNodesSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBracketPlusRightCurlyBracketSlashInstancesSlashCsvError>>{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_body = body;
+    let p_path_id = id;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv",
         configuration.base_path,
-        ID = p_id
+        ID = p_path_id
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
@@ -2869,7 +2870,7 @@ pub async fn get_slash_executor_nodes_slash_left_curly_bracket_id_left_square_br
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -2900,14 +2901,14 @@ pub async fn get_slash_executor_nodes_slash_left_curly_bracket_id_left_square_br
     }
 }
 
-pub async fn get_slash_group_slash_left_curly_bracket_id_left_square_bracket_09_right_square_bracket_plus_right_curly_bracket_slash_v2(configuration: &configuration::Configuration, id: i32) -> Result<models::TypesPeriodGroupDetails, Error<GetSlashGroupSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBracketPlusRightCurlyBracketSlashV2Error>>{
+pub async fn get_slash_group_slash_left_curly_bracket_id_left_square_bracket_09_right_square_bracket_plus_right_curly_bracket_slash_v2(configuration: &configuration::Configuration, id: i32) -> Result<models::TypesGroupDetails, Error<GetSlashGroupSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBracketPlusRightCurlyBracketSlashV2Error>>{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_path_id = id;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/group/{ID}/v2",
         configuration.base_path,
-        ID = p_id
+        ID = p_path_id
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
@@ -2933,8 +2934,8 @@ pub async fn get_slash_group_slash_left_curly_bracket_id_left_square_bracket_09_
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodGroupDetails`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodGroupDetails`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesGroupDetails`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesGroupDetails`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2949,7 +2950,7 @@ pub async fn get_slash_group_slash_left_curly_bracket_id_left_square_bracket_09_
 
 pub async fn get_slash_groups_slash_hier_slash_v2(
     configuration: &configuration::Configuration,
-) -> Result<models::TypesPeriodGroupHierarchyResponse, Error<GetSlashGroupsSlashHierSlashV2Error>> {
+) -> Result<models::TypesGroupHierarchyResponse, Error<GetSlashGroupsSlashHierSlashV2Error>> {
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/groups/hier/v2",
         configuration.base_path
@@ -2978,8 +2979,8 @@ pub async fn get_slash_groups_slash_hier_slash_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodGroupHierarchyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodGroupHierarchyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesGroupHierarchyResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesGroupHierarchyResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2996,9 +2997,9 @@ pub async fn get_slash_groups_slash_hier_slash_v2(
 pub async fn get_slash_groups_slash_list_slash_v2(
     configuration: &configuration::Configuration,
     r#type: Option<&str>,
-) -> Result<Vec<models::TypesPeriodGroupListItem>, Error<GetSlashGroupsSlashListSlashV2Error>> {
+) -> Result<Vec<models::TypesGroupListItem>, Error<GetSlashGroupsSlashListSlashV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_type = r#type;
+    let p_query_type = r#type;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/groups/list/v2",
@@ -3006,7 +3007,7 @@ pub async fn get_slash_groups_slash_list_slash_v2(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_type {
+    if let Some(ref param_value) = p_query_type {
         req_builder = req_builder.query(&[("type", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3031,8 +3032,8 @@ pub async fn get_slash_groups_slash_list_slash_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::TypesPeriodGroupListItem&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::TypesPeriodGroupListItem&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::TypesGroupListItem&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::TypesGroupListItem&gt;`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3049,9 +3050,9 @@ pub async fn get_slash_groups_slash_list_slash_v2(
 pub async fn get_slash_users_slash_v2(
     configuration: &configuration::Configuration,
     pagination: Option<&str>,
-) -> Result<models::TypesPeriodUsersResponse, Error<GetSlashUsersSlashV2Error>> {
+) -> Result<models::TypesUsersResponse, Error<GetSlashUsersSlashV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_pagination = pagination;
+    let p_query_pagination = pagination;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/users/v2",
@@ -3059,7 +3060,7 @@ pub async fn get_slash_users_slash_v2(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_pagination {
+    if let Some(ref param_value) = p_query_pagination {
         req_builder = req_builder.query(&[("pagination", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3084,8 +3085,8 @@ pub async fn get_slash_users_slash_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodUsersResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodUsersResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesUsersResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesUsersResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3105,30 +3106,30 @@ pub async fn get_tags(
     limit: Option<i32>,
     offset: Option<i32>,
     name: Option<Vec<String>>,
-) -> Result<models::TypesPeriodTagsDataResponse, Error<GetTagsError>> {
+) -> Result<models::TypesTagsDataResponse, Error<GetTagsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_is_unique = is_unique;
-    let p_tag_name = tag_name;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_name = name;
+    let p_query_is_unique = is_unique;
+    let p_query_tag_name = tag_name;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_name = name;
 
     let uri_str = format!("{}/aspm-api-gateway/api/v1/tags", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_is_unique {
+    if let Some(ref param_value) = p_query_is_unique {
         req_builder = req_builder.query(&[("isUnique", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_tag_name {
+    if let Some(ref param_value) = p_query_tag_name {
         req_builder = req_builder.query(&[("tagName", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_name {
+    if let Some(ref param_value) = p_query_name {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -3169,8 +3170,8 @@ pub async fn get_tags(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodTagsDataResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodTagsDataResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesTagsDataResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesTagsDataResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3185,12 +3186,12 @@ pub async fn get_tags(
 
 pub async fn post_slash_group_slash_left_curly_bracket_id_left_square_bracket_09_right_square_bracket_plus_right_curly_bracket_slash_update_default(configuration: &configuration::Configuration, id: i32) -> Result<(), Error<PostSlashGroupSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBracketPlusRightCurlyBracketSlashUpdateDefaultError>>{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_path_id = id;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/group/{ID}/update_default",
         configuration.base_path,
-        ID = p_id
+        ID = p_path_id
     );
     let mut req_builder = configuration
         .client
@@ -3221,15 +3222,15 @@ pub async fn post_slash_group_slash_left_curly_bracket_id_left_square_bracket_09
     }
 }
 
-pub async fn post_slash_group_slash_left_curly_bracket_id_left_square_bracket_09_right_square_bracket_plus_right_curly_bracket_slash_v2(configuration: &configuration::Configuration, id: i32, body: models::TypesPeriodUpdateGroupRequest) -> Result<(), Error<PostSlashGroupSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBracketPlusRightCurlyBracketSlashV2Error>>{
+pub async fn post_slash_group_slash_left_curly_bracket_id_left_square_bracket_09_right_square_bracket_plus_right_curly_bracket_slash_v2(configuration: &configuration::Configuration, id: i32, body: models::TypesUpdateGroupRequest) -> Result<(), Error<PostSlashGroupSlashLeftCurlyBracketIdLeftSquareBracket09RightSquareBracketPlusRightCurlyBracketSlashV2Error>>{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_body = body;
+    let p_path_id = id;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/group/{ID}/v2",
         configuration.base_path,
-        ID = p_id
+        ID = p_path_id
     );
     let mut req_builder = configuration
         .client
@@ -3241,7 +3242,7 @@ pub async fn post_slash_group_slash_left_curly_bracket_id_left_square_bracket_09
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -3263,10 +3264,10 @@ pub async fn post_slash_group_slash_left_curly_bracket_id_left_square_bracket_09
 
 pub async fn post_slash_group_slash_v2(
     configuration: &configuration::Configuration,
-    body: models::TypesPeriodCreateGroupRequest,
+    body: models::TypesCreateGroupRequest,
 ) -> Result<(), Error<PostSlashGroupSlashV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/group/v2",
@@ -3282,7 +3283,7 @@ pub async fn post_slash_group_slash_v2(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -3305,25 +3306,24 @@ pub async fn post_slash_group_slash_v2(
 pub async fn run_integration_task(
     configuration: &configuration::Configuration,
     id: i32,
-    body: models::TypesPeriodRunIntegrationTaskRequest,
+    body: models::TypesRunIntegrationTaskRequest,
     category: Option<&str>,
-) -> Result<models::TypesPeriodIntegrationTaskTestConnectionResponse, Error<RunIntegrationTaskError>>
-{
+) -> Result<models::TypesIntegrationTaskTestConnectionResponse, Error<RunIntegrationTaskError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_body = body;
-    let p_category = category;
+    let p_path_id = id;
+    let p_body_body = body;
+    let p_query_category = category;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/integration_tasks/{ID}/run",
         configuration.base_path,
-        ID = p_id
+        ID = p_path_id
     );
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_category {
+    if let Some(ref param_value) = p_query_category {
         req_builder = req_builder.query(&[("category", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3332,7 +3332,7 @@ pub async fn run_integration_task(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -3349,8 +3349,8 @@ pub async fn run_integration_task(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodIntegrationTaskTestConnectionResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodIntegrationTaskTestConnectionResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesIntegrationTaskTestConnectionResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesIntegrationTaskTestConnectionResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3366,27 +3366,25 @@ pub async fn run_integration_task(
 pub async fn run_integration_task_admin(
     configuration: &configuration::Configuration,
     id: i32,
-    body: models::TypesPeriodRunIntegrationTaskRequest,
+    body: models::TypesRunIntegrationTaskRequest,
     category: Option<&str>,
-) -> Result<
-    models::TypesPeriodIntegrationTaskTestConnectionResponse,
-    Error<RunIntegrationTaskAdminError>,
-> {
+) -> Result<models::TypesIntegrationTaskTestConnectionResponse, Error<RunIntegrationTaskAdminError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_body = body;
-    let p_category = category;
+    let p_path_id = id;
+    let p_body_body = body;
+    let p_query_category = category;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/integration_tasks/{ID}/run/admin",
         configuration.base_path,
-        ID = p_id
+        ID = p_path_id
     );
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_category {
+    if let Some(ref param_value) = p_query_category {
         req_builder = req_builder.query(&[("category", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3395,7 +3393,7 @@ pub async fn run_integration_task_admin(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -3412,8 +3410,8 @@ pub async fn run_integration_task_admin(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodIntegrationTaskTestConnectionResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodIntegrationTaskTestConnectionResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesIntegrationTaskTestConnectionResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesIntegrationTaskTestConnectionResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3429,27 +3427,24 @@ pub async fn run_integration_task_admin(
 pub async fn run_integration_task_v2(
     configuration: &configuration::Configuration,
     id: i32,
-    body: models::TypesPeriodRunIntegrationTaskRequest,
+    body: models::TypesRunIntegrationTaskRequest,
     category: Option<&str>,
-) -> Result<
-    models::TypesPeriodIntegrationTaskTestConnectionResponse,
-    Error<RunIntegrationTaskV2Error>,
-> {
+) -> Result<models::TypesIntegrationTaskTestConnectionResponse, Error<RunIntegrationTaskV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_body = body;
-    let p_category = category;
+    let p_path_id = id;
+    let p_body_body = body;
+    let p_query_category = category;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2",
         configuration.base_path,
-        ID = p_id
+        ID = p_path_id
     );
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_category {
+    if let Some(ref param_value) = p_query_category {
         req_builder = req_builder.query(&[("category", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3458,7 +3453,7 @@ pub async fn run_integration_task_v2(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -3475,8 +3470,8 @@ pub async fn run_integration_task_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodIntegrationTaskTestConnectionResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodIntegrationTaskTestConnectionResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesIntegrationTaskTestConnectionResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesIntegrationTaskTestConnectionResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3496,14 +3491,13 @@ pub async fn service_now_get_deployments(
     offset: Option<i32>,
     order_by: Option<&str>,
     direction: Option<&str>,
-) -> Result<models::TypesPeriodServiceNowDeploymentsResponse, Error<ServiceNowGetDeploymentsError>>
-{
+) -> Result<models::TypesServiceNowDeploymentsResponse, Error<ServiceNowGetDeploymentsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ql_filters = ql_filters;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_order_by = order_by;
-    let p_direction = direction;
+    let p_query_ql_filters = ql_filters;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_order_by = order_by;
+    let p_query_direction = direction;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/servicenow/deployments",
@@ -3511,19 +3505,19 @@ pub async fn service_now_get_deployments(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_ql_filters {
+    if let Some(ref param_value) = p_query_ql_filters {
         req_builder = req_builder.query(&[("ql_filters", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_order_by {
+    if let Some(ref param_value) = p_query_order_by {
         req_builder = req_builder.query(&[("orderBy", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_direction {
+    if let Some(ref param_value) = p_query_direction {
         req_builder = req_builder.query(&[("direction", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3548,8 +3542,8 @@ pub async fn service_now_get_deployments(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodServiceNowDeploymentsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodServiceNowDeploymentsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesServiceNowDeploymentsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesServiceNowDeploymentsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3570,14 +3564,14 @@ pub async fn service_now_get_services(
     offset: Option<i32>,
     order_by: Option<&str>,
     direction: Option<&str>,
-) -> Result<models::TypesPeriodServiceNowServicesResponse, Error<ServiceNowGetServicesError>> {
+) -> Result<models::TypesServiceNowServicesResponse, Error<ServiceNowGetServicesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ql_filters = ql_filters;
-    let p_exclude_artifacts = exclude_artifacts;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_order_by = order_by;
-    let p_direction = direction;
+    let p_query_ql_filters = ql_filters;
+    let p_query_exclude_artifacts = exclude_artifacts;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_order_by = order_by;
+    let p_query_direction = direction;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/servicenow/services",
@@ -3585,22 +3579,22 @@ pub async fn service_now_get_services(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_ql_filters {
+    if let Some(ref param_value) = p_query_ql_filters {
         req_builder = req_builder.query(&[("ql_filters", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_exclude_artifacts {
+    if let Some(ref param_value) = p_query_exclude_artifacts {
         req_builder = req_builder.query(&[("exclude_artifacts", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_order_by {
+    if let Some(ref param_value) = p_query_order_by {
         req_builder = req_builder.query(&[("orderBy", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_direction {
+    if let Some(ref param_value) = p_query_direction {
         req_builder = req_builder.query(&[("direction", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3625,8 +3619,8 @@ pub async fn service_now_get_services(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodServiceNowServicesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodServiceNowServicesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesServiceNowServicesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesServiceNowServicesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3641,10 +3635,10 @@ pub async fn service_now_get_services(
 
 pub async fn set_cloud_security_integration_state(
     configuration: &configuration::Configuration,
-    body: models::TypesPeriodSetCloudSecurityIntegrationStateRequest,
+    body: models::TypesSetCloudSecurityIntegrationStateRequest,
 ) -> Result<(), Error<SetCloudSecurityIntegrationStateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/cloud_security_config",
@@ -3660,7 +3654,7 @@ pub async fn set_cloud_security_integration_state(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -3683,10 +3677,10 @@ pub async fn set_cloud_security_integration_state(
 
 pub async fn update_executor_node(
     configuration: &configuration::Configuration,
-    body: models::TypesPeriodExecutorNode,
-) -> Result<models::TypesPeriodExecutorNode, Error<UpdateExecutorNodeError>> {
+    body: models::TypesExecutorNode,
+) -> Result<models::TypesExecutorNode, Error<UpdateExecutorNodeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/executor_nodes",
@@ -3700,7 +3694,7 @@ pub async fn update_executor_node(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -3717,8 +3711,8 @@ pub async fn update_executor_node(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodExecutorNode`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodExecutorNode`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesExecutorNode`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesExecutorNode`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3734,16 +3728,16 @@ pub async fn update_executor_node(
 pub async fn update_integration(
     configuration: &configuration::Configuration,
     id: i32,
-    body: models::TypesPeriodUpdateIntegrationRequest,
-) -> Result<models::TypesPeriodIntegrationResponse, Error<UpdateIntegrationError>> {
+    body: models::TypesUpdateIntegrationRequest,
+) -> Result<models::TypesIntegrationResponse, Error<UpdateIntegrationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_body = body;
+    let p_path_id = id;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/integrations/{ID}",
         configuration.base_path,
-        ID = p_id
+        ID = p_path_id
     );
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
@@ -3753,7 +3747,7 @@ pub async fn update_integration(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -3770,8 +3764,8 @@ pub async fn update_integration(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodIntegrationResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodIntegrationResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesIntegrationResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesIntegrationResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3787,16 +3781,16 @@ pub async fn update_integration(
 pub async fn update_integration_task(
     configuration: &configuration::Configuration,
     id: i32,
-    body: models::TypesPeriodUpdateIntegrationTaskRequest,
-) -> Result<models::TypesPeriodIntegrationTaskResponse, Error<UpdateIntegrationTaskError>> {
+    body: models::TypesUpdateIntegrationTaskRequest,
+) -> Result<models::TypesIntegrationTaskResponse, Error<UpdateIntegrationTaskError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_body = body;
+    let p_path_id = id;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/integration_tasks/{ID}",
         configuration.base_path,
-        ID = p_id
+        ID = p_path_id
     );
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
@@ -3806,7 +3800,7 @@ pub async fn update_integration_task(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -3823,8 +3817,8 @@ pub async fn update_integration_task(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesPeriodIntegrationTaskResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesPeriodIntegrationTaskResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::TypesIntegrationTaskResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::TypesIntegrationTaskResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3839,10 +3833,10 @@ pub async fn update_integration_task(
 
 pub async fn upsert_business_applications(
     configuration: &configuration::Configuration,
-    body: models::TypesPeriodUpsertBusinessApplicationRequest,
+    body: models::TypesUpsertBusinessApplicationRequest,
 ) -> Result<(), Error<UpsertBusinessApplicationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/aspm-api-gateway/api/v1/business_applications",
@@ -3856,7 +3850,7 @@ pub async fn upsert_business_applications(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -3878,10 +3872,10 @@ pub async fn upsert_business_applications(
 
 pub async fn upsert_tags(
     configuration: &configuration::Configuration,
-    body: models::TypesPeriodEditUniqueTagRequest,
+    body: models::TypesEditUniqueTagRequest,
 ) -> Result<(), Error<UpsertTagsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/aspm-api-gateway/api/v1/tags", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
@@ -3892,7 +3886,7 @@ pub async fn upsert_tags(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;

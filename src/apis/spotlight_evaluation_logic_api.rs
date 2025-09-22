@@ -18,8 +18,8 @@ use serde::de::Error as _;
 #[serde(untagged)]
 pub enum CombinedQueryEvaluationLogicError {
     Status400(),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
     Status500(),
     Status503(),
     UnknownValue(serde_json::Value),
@@ -30,8 +30,8 @@ pub enum CombinedQueryEvaluationLogicError {
 #[serde(untagged)]
 pub enum GetEvaluationLogicError {
     Status400(),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
     Status500(),
     Status503(),
     UnknownValue(serde_json::Value),
@@ -42,8 +42,8 @@ pub enum GetEvaluationLogicError {
 #[serde(untagged)]
 pub enum QueryEvaluationLogicError {
     Status400(),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
     Status500(),
     Status503(),
     UnknownValue(serde_json::Value),
@@ -56,14 +56,14 @@ pub async fn combined_query_evaluation_logic(
     limit: Option<i32>,
     sort: Option<&str>,
 ) -> Result<
-    models::DomainPeriodSpapiEvaluationLogicCombinedResponseV1,
+    models::DomainSpapiEvaluationLogicCombinedResponseV1,
     Error<CombinedQueryEvaluationLogicError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_after = after;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_after = after;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/spotlight/combined/evaluation-logic/v1",
@@ -71,14 +71,14 @@ pub async fn combined_query_evaluation_logic(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_after {
+    if let Some(ref param_value) = p_query_after {
         req_builder = req_builder.query(&[("after", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    req_builder = req_builder.query(&[("filter", &p_filter.to_string())]);
-    if let Some(ref param_value) = p_sort {
+    req_builder = req_builder.query(&[("filter", &p_query_filter.to_string())]);
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -103,8 +103,8 @@ pub async fn combined_query_evaluation_logic(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodSpapiEvaluationLogicCombinedResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodSpapiEvaluationLogicCombinedResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainSpapiEvaluationLogicCombinedResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainSpapiEvaluationLogicCombinedResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -120,12 +120,9 @@ pub async fn combined_query_evaluation_logic(
 pub async fn get_evaluation_logic(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    models::DomainPeriodSpapiEvaluationLogicEntitiesResponseV1,
-    Error<GetEvaluationLogicError>,
-> {
+) -> Result<models::DomainSpapiEvaluationLogicEntitiesResponseV1, Error<GetEvaluationLogicError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/spotlight/entities/evaluation-logic/v1",
@@ -135,14 +132,14 @@ pub async fn get_evaluation_logic(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -172,8 +169,8 @@ pub async fn get_evaluation_logic(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodSpapiEvaluationLogicEntitiesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodSpapiEvaluationLogicEntitiesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainSpapiEvaluationLogicEntitiesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainSpapiEvaluationLogicEntitiesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -192,12 +189,12 @@ pub async fn query_evaluation_logic(
     after: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::DomainPeriodSpapiQueryResponse, Error<QueryEvaluationLogicError>> {
+) -> Result<models::DomainSpapiQueryResponse, Error<QueryEvaluationLogicError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_after = after;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_after = after;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/spotlight/queries/evaluation-logic/v1",
@@ -205,14 +202,14 @@ pub async fn query_evaluation_logic(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_after {
+    if let Some(ref param_value) = p_query_after {
         req_builder = req_builder.query(&[("after", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    req_builder = req_builder.query(&[("filter", &p_filter.to_string())]);
-    if let Some(ref param_value) = p_sort {
+    req_builder = req_builder.query(&[("filter", &p_query_filter.to_string())]);
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -237,8 +234,8 @@ pub async fn query_evaluation_logic(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodSpapiQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodSpapiQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainSpapiQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainSpapiQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;

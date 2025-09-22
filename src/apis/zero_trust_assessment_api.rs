@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAssessmentV1Error {
-    Status400(models::DomainPeriodAssessmentsResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainAssessmentsResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,11 +28,11 @@ pub enum GetAssessmentV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAssessmentsByScoreV1Error {
-    Status400(models::DomainPeriodAssessmentsByScoreResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodAssessmentsByScoreResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::DomainAssessmentsByScoreResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainAssessmentsByScoreResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,19 +40,19 @@ pub enum GetAssessmentsByScoreV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAuditV1Error {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::DomainPeriodAuditResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::DomainAuditResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn get_assessment_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodAssessmentsResponse, Error<GetAssessmentV1Error>> {
+) -> Result<models::DomainAssessmentsResponse, Error<GetAssessmentV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/zero-trust-assessment/entities/assessments/v1",
@@ -62,14 +62,14 @@ pub async fn get_assessment_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -99,8 +99,8 @@ pub async fn get_assessment_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAssessmentsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAssessmentsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAssessmentsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAssessmentsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -119,12 +119,12 @@ pub async fn get_assessments_by_score_v1(
     limit: Option<i32>,
     after: Option<&str>,
     sort: Option<&str>,
-) -> Result<models::DomainPeriodAssessmentsByScoreResponse, Error<GetAssessmentsByScoreV1Error>> {
+) -> Result<models::DomainAssessmentsByScoreResponse, Error<GetAssessmentsByScoreV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_after = after;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_after = after;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/zero-trust-assessment/queries/assessments/v1",
@@ -132,14 +132,14 @@ pub async fn get_assessments_by_score_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("filter", &p_filter.to_string())]);
-    if let Some(ref param_value) = p_limit {
+    req_builder = req_builder.query(&[("filter", &p_query_filter.to_string())]);
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_after {
+    if let Some(ref param_value) = p_query_after {
         req_builder = req_builder.query(&[("after", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -164,8 +164,8 @@ pub async fn get_assessments_by_score_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAssessmentsByScoreResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAssessmentsByScoreResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAssessmentsByScoreResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAssessmentsByScoreResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -180,7 +180,7 @@ pub async fn get_assessments_by_score_v1(
 
 pub async fn get_audit_v1(
     configuration: &configuration::Configuration,
-) -> Result<models::DomainPeriodAuditResponse, Error<GetAuditV1Error>> {
+) -> Result<models::DomainAuditResponse, Error<GetAuditV1Error>> {
     let uri_str = format!(
         "{}/zero-trust-assessment/entities/audit/v1",
         configuration.base_path
@@ -209,8 +209,8 @@ pub async fn get_audit_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAuditResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAuditResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAuditResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAuditResponse`")))),
         }
     } else {
         let content = resp.text().await?;

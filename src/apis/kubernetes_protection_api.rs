@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateAwsAccountError {
-    Status400(models::K8sregPeriodCreateAwsAccResp),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::K8sregPeriodCreateAwsAccResp),
+    Status400(models::K8sregCreateAwsAccResp),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::K8sregCreateAwsAccResp),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum CreateAwsAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateAzureSubscriptionError {
-    Status400(models::MsaPeriodBaseEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodBaseEntitiesResponse),
+    Status400(models::MsaBaseEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaBaseEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum CreateAzureSubscriptionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteAwsAccountsMixin0Error {
-    Status400(models::MsaspecPeriodMetaInfo),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodMetaInfo),
+    Status400(models::MsaspecMetaInfo),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecMetaInfo),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +50,10 @@ pub enum DeleteAwsAccountsMixin0Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteAzureSubscriptionError {
-    Status400(models::MsaPeriodBaseEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodBaseEntitiesResponse),
+    Status400(models::MsaBaseEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaBaseEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,9 +61,9 @@ pub enum DeleteAzureSubscriptionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum FindContainersByContainerRunTimeVersionError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -71,9 +71,9 @@ pub enum FindContainersByContainerRunTimeVersionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum FindContainersCountAffectedByZeroDayVulnerabilitiesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -81,10 +81,10 @@ pub enum FindContainersCountAffectedByZeroDayVulnerabilitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAwsAccountsMixin0Error {
-    Status400(models::K8sregPeriodGetAwsAccountsResp),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::K8sregPeriodGetAwsAccountsResp),
+    Status400(models::K8sregGetAwsAccountsResp),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::K8sregGetAwsAccountsResp),
     UnknownValue(serde_json::Value),
 }
 
@@ -92,10 +92,10 @@ pub enum GetAwsAccountsMixin0Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAzureInstallScriptError {
-    Status400(models::K8sregPeriodGetAzureBashScriptResp),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::K8sregPeriodGetAzureBashScriptResp),
+    Status400(models::K8sregGetAzureBashScriptResp),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::K8sregGetAzureBashScriptResp),
     UnknownValue(serde_json::Value),
 }
 
@@ -103,10 +103,10 @@ pub enum GetAzureInstallScriptError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAzureTenantConfigError {
-    Status400(models::K8sregPeriodGetAzureTenantConfigResp),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::K8sregPeriodGetAzureTenantConfigResp),
+    Status400(models::K8sregGetAzureTenantConfigResp),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::K8sregGetAzureTenantConfigResp),
     UnknownValue(serde_json::Value),
 }
 
@@ -114,10 +114,10 @@ pub enum GetAzureTenantConfigError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAzureTenantIdsError {
-    Status400(models::K8sregPeriodGetAzureTenantInfoResp),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::K8sregPeriodGetAzureTenantInfoResp),
+    Status400(models::K8sregGetAzureTenantInfoResp),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::K8sregGetAzureTenantInfoResp),
     UnknownValue(serde_json::Value),
 }
 
@@ -125,10 +125,10 @@ pub enum GetAzureTenantIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetClustersError {
-    Status400(models::K8sregPeriodGetClustersResp),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::K8sregPeriodGetClustersResp),
+    Status400(models::K8sregGetClustersResp),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::K8sregGetClustersResp),
     UnknownValue(serde_json::Value),
 }
 
@@ -136,10 +136,10 @@ pub enum GetClustersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCombinedCloudClustersError {
-    Status400(models::K8sregPeriodListClusterCloudResp),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::K8sregPeriodListClusterCloudResp),
+    Status400(models::K8sregListClusterCloudResp),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::K8sregListClusterCloudResp),
     UnknownValue(serde_json::Value),
 }
 
@@ -147,10 +147,10 @@ pub enum GetCombinedCloudClustersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetHelmValuesYamlError {
-    Status400(models::MsaPeriodReplyMetaOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -158,10 +158,10 @@ pub enum GetHelmValuesYamlError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLocationsError {
-    Status400(models::K8sregPeriodGetLocationsResp),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::K8sregPeriodGetLocationsResp),
+    Status400(models::K8sregGetLocationsResp),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::K8sregGetLocationsResp),
     UnknownValue(serde_json::Value),
 }
 
@@ -169,10 +169,10 @@ pub enum GetLocationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetStaticScriptsError {
-    Status400(models::K8sregPeriodGetScriptsResp),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::K8sregPeriodGetScriptsResp),
+    Status400(models::K8sregGetScriptsResp),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::K8sregGetScriptsResp),
     UnknownValue(serde_json::Value),
 }
 
@@ -180,9 +180,9 @@ pub enum GetStaticScriptsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GroupContainersByManagedError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -190,10 +190,10 @@ pub enum GroupContainersByManagedError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListAzureAccountsError {
-    Status400(models::K8sregPeriodGetAzureSubscriptionsResp),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::K8sregPeriodGetAzureSubscriptionsResp),
+    Status400(models::K8sregGetAzureSubscriptionsResp),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::K8sregGetAzureSubscriptionsResp),
     UnknownValue(serde_json::Value),
 }
 
@@ -201,10 +201,21 @@ pub enum ListAzureAccountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PatchAzureServicePrincipalError {
-    Status400(models::K8sregPeriodGetAzureTenantConfigResp),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::K8sregPeriodGetAzureTenantConfigResp),
+    Status400(models::K8sregGetAzureTenantConfigResp),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::K8sregGetAzureTenantConfigResp),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_search_kubernetes_iom_entities`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostSearchKubernetesIomEntitiesError {
+    Status400(models::CoreEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -212,9 +223,9 @@ pub enum PatchAzureServicePrincipalError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadClusterCombinedError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -222,10 +233,10 @@ pub enum ReadClusterCombinedError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadClusterCombinedV2Error {
-    Status400(models::CorePeriodEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status400(models::CoreEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -233,9 +244,9 @@ pub enum ReadClusterCombinedV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadClusterCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -243,9 +254,9 @@ pub enum ReadClusterCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadClusterEnrichmentError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -253,9 +264,9 @@ pub enum ReadClusterEnrichmentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadClustersByDateRangeCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -263,9 +274,9 @@ pub enum ReadClustersByDateRangeCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadClustersByKubernetesVersionCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -273,9 +284,9 @@ pub enum ReadClustersByKubernetesVersionCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadClustersByStatusCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -283,9 +294,9 @@ pub enum ReadClustersByStatusCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadContainerCombinedError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -293,9 +304,9 @@ pub enum ReadContainerCombinedError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadContainerCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -303,9 +314,9 @@ pub enum ReadContainerCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadContainerCountByRegistryError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -313,9 +324,9 @@ pub enum ReadContainerCountByRegistryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadContainerEnrichmentError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -323,9 +334,9 @@ pub enum ReadContainerEnrichmentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadContainerImageDetectionsCountByDateError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -333,9 +344,9 @@ pub enum ReadContainerImageDetectionsCountByDateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadContainerImagesByMostUsedError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -343,9 +354,9 @@ pub enum ReadContainerImagesByMostUsedError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadContainerImagesByStateError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -353,9 +364,9 @@ pub enum ReadContainerImagesByStateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadContainerVulnerabilitiesBySeverityCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -363,9 +374,9 @@ pub enum ReadContainerVulnerabilitiesBySeverityCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadContainersByDateRangeCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -373,9 +384,9 @@ pub enum ReadContainersByDateRangeCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadContainersSensorCoverageError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -383,9 +394,9 @@ pub enum ReadContainersSensorCoverageError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadDeploymentCombinedError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -393,9 +404,9 @@ pub enum ReadDeploymentCombinedError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadDeploymentCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -403,9 +414,9 @@ pub enum ReadDeploymentCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadDeploymentEnrichmentError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -413,9 +424,9 @@ pub enum ReadDeploymentEnrichmentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadDeploymentsByDateRangeCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -423,9 +434,9 @@ pub enum ReadDeploymentsByDateRangeCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadDistinctContainerImageCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -433,9 +444,9 @@ pub enum ReadDistinctContainerImageCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadKubernetesIomByDateRangeError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -443,9 +454,9 @@ pub enum ReadKubernetesIomByDateRangeError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadKubernetesIomCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -453,9 +464,9 @@ pub enum ReadKubernetesIomCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadKubernetesIomEntitiesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -463,9 +474,9 @@ pub enum ReadKubernetesIomEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadNamespaceCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -473,9 +484,9 @@ pub enum ReadNamespaceCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadNamespacesByDateRangeCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -483,9 +494,9 @@ pub enum ReadNamespacesByDateRangeCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadNodeCombinedError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -493,9 +504,9 @@ pub enum ReadNodeCombinedError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadNodeCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -503,9 +514,9 @@ pub enum ReadNodeCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadNodeEnrichmentError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -513,9 +524,9 @@ pub enum ReadNodeEnrichmentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadNodesByCloudCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -523,9 +534,9 @@ pub enum ReadNodesByCloudCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadNodesByContainerEngineVersionCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -533,9 +544,9 @@ pub enum ReadNodesByContainerEngineVersionCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadNodesByDateRangeCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -543,9 +554,9 @@ pub enum ReadNodesByDateRangeCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadPodCombinedError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -553,9 +564,9 @@ pub enum ReadPodCombinedError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadPodCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -563,9 +574,9 @@ pub enum ReadPodCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadPodEnrichmentError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -573,9 +584,9 @@ pub enum ReadPodEnrichmentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadPodsByDateRangeCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -583,9 +594,9 @@ pub enum ReadPodsByDateRangeCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadRunningContainerImagesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -593,9 +604,9 @@ pub enum ReadRunningContainerImagesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadVulnerableContainerImageCountError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -603,10 +614,10 @@ pub enum ReadVulnerableContainerImageCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RegenerateApiKeyError {
-    Status400(models::K8sregPeriodRegenApiKeyResp),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::K8sregPeriodRegenApiKeyResp),
+    Status400(models::K8sregRegenApiKeyResp),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::K8sregRegenApiKeyResp),
     UnknownValue(serde_json::Value),
 }
 
@@ -614,9 +625,9 @@ pub enum RegenerateApiKeyError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SearchAndReadKubernetesIomEntitiesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -624,9 +635,9 @@ pub enum SearchAndReadKubernetesIomEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SearchKubernetesIomsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -634,10 +645,10 @@ pub enum SearchKubernetesIomsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum TriggerScanError {
-    Status400(models::MsaPeriodBaseEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodBaseEntitiesResponse),
+    Status400(models::MsaBaseEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaBaseEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -645,19 +656,19 @@ pub enum TriggerScanError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateAwsAccountError {
-    Status400(models::MsaPeriodBaseEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodBaseEntitiesResponse),
+    Status400(models::MsaBaseEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaBaseEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_aws_account(
     configuration: &configuration::Configuration,
-    body: models::K8sregPeriodCreateAwsAccReq,
-) -> Result<models::K8sregPeriodCreateAwsAccResp, Error<CreateAwsAccountError>> {
+    body: models::K8sregCreateAwsAccReq,
+) -> Result<models::K8sregCreateAwsAccResp, Error<CreateAwsAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/kubernetes-protection/entities/accounts/aws/v1",
@@ -673,7 +684,7 @@ pub async fn create_aws_account(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -690,8 +701,8 @@ pub async fn create_aws_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregPeriodCreateAwsAccResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregPeriodCreateAwsAccResp`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregCreateAwsAccResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregCreateAwsAccResp`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -706,10 +717,10 @@ pub async fn create_aws_account(
 
 pub async fn create_azure_subscription(
     configuration: &configuration::Configuration,
-    body: models::K8sregPeriodCreateAzureSubReq,
-) -> Result<models::MsaPeriodBaseEntitiesResponse, Error<CreateAzureSubscriptionError>> {
+    body: models::K8sregCreateAzureSubReq,
+) -> Result<models::MsaBaseEntitiesResponse, Error<CreateAzureSubscriptionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/kubernetes-protection/entities/accounts/azure/v1",
@@ -725,7 +736,7 @@ pub async fn create_azure_subscription(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -742,8 +753,8 @@ pub async fn create_azure_subscription(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodBaseEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodBaseEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaBaseEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaBaseEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -759,9 +770,9 @@ pub async fn create_azure_subscription(
 pub async fn delete_aws_accounts_mixin0(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::MsaspecPeriodMetaInfo, Error<DeleteAwsAccountsMixin0Error>> {
+) -> Result<models::MsaspecMetaInfo, Error<DeleteAwsAccountsMixin0Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/kubernetes-protection/entities/accounts/aws/v1",
@@ -773,14 +784,14 @@ pub async fn delete_aws_accounts_mixin0(
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -810,8 +821,8 @@ pub async fn delete_aws_accounts_mixin0(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodMetaInfo`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodMetaInfo`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecMetaInfo`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecMetaInfo`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -827,9 +838,9 @@ pub async fn delete_aws_accounts_mixin0(
 pub async fn delete_azure_subscription(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
-) -> Result<models::MsaPeriodBaseEntitiesResponse, Error<DeleteAzureSubscriptionError>> {
+) -> Result<models::MsaBaseEntitiesResponse, Error<DeleteAzureSubscriptionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/kubernetes-protection/entities/accounts/azure/v1",
@@ -839,7 +850,7 @@ pub async fn delete_azure_subscription(
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -880,8 +891,8 @@ pub async fn delete_azure_subscription(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodBaseEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodBaseEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaBaseEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaBaseEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -901,14 +912,14 @@ pub async fn find_containers_by_container_run_time_version(
     sort: Option<&str>,
     filter: Option<&str>,
 ) -> Result<
-    models::ModelsPeriodContainerRuntimePivotResponse,
+    models::ModelsContainerRuntimePivotResponse,
     Error<FindContainersByContainerRunTimeVersionError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_sort = sort;
-    let p_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/containers/find-by-runtimeversion/v1",
@@ -916,16 +927,16 @@ pub async fn find_containers_by_container_run_time_version(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -950,8 +961,8 @@ pub async fn find_containers_by_container_run_time_version(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodContainerRuntimePivotResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodContainerRuntimePivotResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsContainerRuntimePivotResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsContainerRuntimePivotResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -968,7 +979,7 @@ pub async fn find_containers_by_container_run_time_version(
 pub async fn find_containers_count_affected_by_zero_day_vulnerabilities(
     configuration: &configuration::Configuration,
 ) -> Result<
-    models::CommonPeriodCountResponse,
+    models::CommonCountResponse,
     Error<FindContainersCountAffectedByZeroDayVulnerabilitiesError>,
 > {
     let uri_str = format!(
@@ -999,8 +1010,8 @@ pub async fn find_containers_count_affected_by_zero_day_vulnerabilities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonPeriodCountResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonPeriodCountResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonCountResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonCountResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1021,13 +1032,13 @@ pub async fn get_aws_accounts_mixin0(
     status: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::K8sregPeriodGetAwsAccountsResp, Error<GetAwsAccountsMixin0Error>> {
+) -> Result<models::K8sregGetAwsAccountsResp, Error<GetAwsAccountsMixin0Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_is_horizon_acct = is_horizon_acct;
-    let p_status = status;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_ids = ids;
+    let p_query_is_horizon_acct = is_horizon_acct;
+    let p_query_status = status;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/kubernetes-protection/entities/accounts/aws/v1",
@@ -1035,7 +1046,7 @@ pub async fn get_aws_accounts_mixin0(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1054,16 +1065,16 @@ pub async fn get_aws_accounts_mixin0(
             )]),
         };
     }
-    if let Some(ref param_value) = p_is_horizon_acct {
+    if let Some(ref param_value) = p_query_is_horizon_acct {
         req_builder = req_builder.query(&[("is_horizon_acct", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_status {
+    if let Some(ref param_value) = p_query_status {
         req_builder = req_builder.query(&[("status", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1088,8 +1099,8 @@ pub async fn get_aws_accounts_mixin0(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregPeriodGetAwsAccountsResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregPeriodGetAwsAccountsResp`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregGetAwsAccountsResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregGetAwsAccountsResp`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1106,10 +1117,10 @@ pub async fn get_azure_install_script(
     configuration: &configuration::Configuration,
     id: Option<&str>,
     subscription_id: Option<Vec<String>>,
-) -> Result<models::K8sregPeriodGetAzureBashScriptResp, Error<GetAzureInstallScriptError>> {
+) -> Result<models::K8sregGetAzureBashScriptResp, Error<GetAzureInstallScriptError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_subscription_id = subscription_id;
+    let p_query_id = id;
+    let p_query_subscription_id = subscription_id;
 
     let uri_str = format!(
         "{}/kubernetes-protection/entities/user-script/azure/v1",
@@ -1117,10 +1128,10 @@ pub async fn get_azure_install_script(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_subscription_id {
+    if let Some(ref param_value) = p_query_subscription_id {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1161,8 +1172,8 @@ pub async fn get_azure_install_script(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregPeriodGetAzureBashScriptResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregPeriodGetAzureBashScriptResp`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregGetAzureBashScriptResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregGetAzureBashScriptResp`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1180,11 +1191,11 @@ pub async fn get_azure_tenant_config(
     ids: Option<Vec<String>>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::K8sregPeriodGetAzureTenantConfigResp, Error<GetAzureTenantConfigError>> {
+) -> Result<models::K8sregGetAzureTenantConfigResp, Error<GetAzureTenantConfigError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_ids = ids;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/kubernetes-protection/entities/config/azure/v1",
@@ -1192,7 +1203,7 @@ pub async fn get_azure_tenant_config(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1211,10 +1222,10 @@ pub async fn get_azure_tenant_config(
             )]),
         };
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1239,8 +1250,8 @@ pub async fn get_azure_tenant_config(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregPeriodGetAzureTenantConfigResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregPeriodGetAzureTenantConfigResp`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregGetAzureTenantConfigResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregGetAzureTenantConfigResp`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1259,12 +1270,12 @@ pub async fn get_azure_tenant_ids(
     status: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::K8sregPeriodGetAzureTenantInfoResp, Error<GetAzureTenantIdsError>> {
+) -> Result<models::K8sregGetAzureTenantInfoResp, Error<GetAzureTenantIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_status = status;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_ids = ids;
+    let p_query_status = status;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/kubernetes-protection/entities/tenants/azure/v1",
@@ -1272,7 +1283,7 @@ pub async fn get_azure_tenant_ids(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1291,13 +1302,13 @@ pub async fn get_azure_tenant_ids(
             )]),
         };
     }
-    if let Some(ref param_value) = p_status {
+    if let Some(ref param_value) = p_query_status {
         req_builder = req_builder.query(&[("status", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1322,8 +1333,8 @@ pub async fn get_azure_tenant_ids(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregPeriodGetAzureTenantInfoResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregPeriodGetAzureTenantInfoResp`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregGetAzureTenantInfoResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregGetAzureTenantInfoResp`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1345,15 +1356,15 @@ pub async fn get_clusters(
     cluster_service: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::K8sregPeriodGetClustersResp, Error<GetClustersError>> {
+) -> Result<models::K8sregGetClustersResp, Error<GetClustersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_cluster_names = cluster_names;
-    let p_status = status;
-    let p_account_ids = account_ids;
-    let p_locations = locations;
-    let p_cluster_service = cluster_service;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_cluster_names = cluster_names;
+    let p_query_status = status;
+    let p_query_account_ids = account_ids;
+    let p_query_locations = locations;
+    let p_query_cluster_service = cluster_service;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/kubernetes-protection/entities/kubernetes/clusters/v1",
@@ -1361,7 +1372,7 @@ pub async fn get_clusters(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_cluster_names {
+    if let Some(ref param_value) = p_query_cluster_names {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1380,7 +1391,7 @@ pub async fn get_clusters(
             )]),
         };
     }
-    if let Some(ref param_value) = p_status {
+    if let Some(ref param_value) = p_query_status {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1399,7 +1410,7 @@ pub async fn get_clusters(
             )]),
         };
     }
-    if let Some(ref param_value) = p_account_ids {
+    if let Some(ref param_value) = p_query_account_ids {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1418,7 +1429,7 @@ pub async fn get_clusters(
             )]),
         };
     }
-    if let Some(ref param_value) = p_locations {
+    if let Some(ref param_value) = p_query_locations {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1437,13 +1448,13 @@ pub async fn get_clusters(
             )]),
         };
     }
-    if let Some(ref param_value) = p_cluster_service {
+    if let Some(ref param_value) = p_query_cluster_service {
         req_builder = req_builder.query(&[("cluster_service", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1468,8 +1479,8 @@ pub async fn get_clusters(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregPeriodGetClustersResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregPeriodGetClustersResp`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregGetClustersResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregGetClustersResp`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1490,14 +1501,14 @@ pub async fn get_combined_cloud_clusters(
     cluster_status: Option<Vec<String>>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::K8sregPeriodListClusterCloudResp, Error<GetCombinedCloudClustersError>> {
+) -> Result<models::K8sregListClusterCloudResp, Error<GetCombinedCloudClustersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_locations = locations;
-    let p_ids = ids;
-    let p_cluster_service = cluster_service;
-    let p_cluster_status = cluster_status;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_locations = locations;
+    let p_query_ids = ids;
+    let p_query_cluster_service = cluster_service;
+    let p_query_cluster_status = cluster_status;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/kubernetes-protection/entities/cloud_cluster/v1",
@@ -1505,7 +1516,7 @@ pub async fn get_combined_cloud_clusters(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_locations {
+    if let Some(ref param_value) = p_query_locations {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1524,7 +1535,7 @@ pub async fn get_combined_cloud_clusters(
             )]),
         };
     }
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1543,7 +1554,7 @@ pub async fn get_combined_cloud_clusters(
             )]),
         };
     }
-    if let Some(ref param_value) = p_cluster_service {
+    if let Some(ref param_value) = p_query_cluster_service {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1562,7 +1573,7 @@ pub async fn get_combined_cloud_clusters(
             )]),
         };
     }
-    if let Some(ref param_value) = p_cluster_status {
+    if let Some(ref param_value) = p_query_cluster_status {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1581,10 +1592,10 @@ pub async fn get_combined_cloud_clusters(
             )]),
         };
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1609,8 +1620,8 @@ pub async fn get_combined_cloud_clusters(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregPeriodListClusterCloudResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregPeriodListClusterCloudResp`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregListClusterCloudResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregListClusterCloudResp`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1629,8 +1640,8 @@ pub async fn get_helm_values_yaml(
     is_self_managed_cluster: Option<bool>,
 ) -> Result<serde_json::Value, Error<GetHelmValuesYamlError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_cluster_name = cluster_name;
-    let p_is_self_managed_cluster = is_self_managed_cluster;
+    let p_query_cluster_name = cluster_name;
+    let p_query_is_self_managed_cluster = is_self_managed_cluster;
 
     let uri_str = format!(
         "{}/kubernetes-protection/entities/integration/agent/v1",
@@ -1638,8 +1649,8 @@ pub async fn get_helm_values_yaml(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("cluster_name", &p_cluster_name.to_string())]);
-    if let Some(ref param_value) = p_is_self_managed_cluster {
+    req_builder = req_builder.query(&[("cluster_name", &p_query_cluster_name.to_string())]);
+    if let Some(ref param_value) = p_query_is_self_managed_cluster {
         req_builder = req_builder.query(&[("is_self_managed_cluster", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1681,9 +1692,9 @@ pub async fn get_helm_values_yaml(
 pub async fn get_locations(
     configuration: &configuration::Configuration,
     clouds: Option<Vec<String>>,
-) -> Result<models::K8sregPeriodGetLocationsResp, Error<GetLocationsError>> {
+) -> Result<models::K8sregGetLocationsResp, Error<GetLocationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_clouds = clouds;
+    let p_query_clouds = clouds;
 
     let uri_str = format!(
         "{}/kubernetes-protection/entities/cloud-locations/v1",
@@ -1691,7 +1702,7 @@ pub async fn get_locations(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_clouds {
+    if let Some(ref param_value) = p_query_clouds {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1732,8 +1743,8 @@ pub async fn get_locations(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregPeriodGetLocationsResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregPeriodGetLocationsResp`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregGetLocationsResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregGetLocationsResp`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1748,7 +1759,7 @@ pub async fn get_locations(
 
 pub async fn get_static_scripts(
     configuration: &configuration::Configuration,
-) -> Result<models::K8sregPeriodGetScriptsResp, Error<GetStaticScriptsError>> {
+) -> Result<models::K8sregGetScriptsResp, Error<GetStaticScriptsError>> {
     let uri_str = format!(
         "{}/kubernetes-protection/entities/gen/scripts/v1",
         configuration.base_path
@@ -1777,8 +1788,8 @@ pub async fn get_static_scripts(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregPeriodGetScriptsResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregPeriodGetScriptsResp`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregGetScriptsResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregGetScriptsResp`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1794,10 +1805,9 @@ pub async fn get_static_scripts(
 pub async fn group_containers_by_managed(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::ModelsPeriodContainerCoverageResponseEntity, Error<GroupContainersByManagedError>>
-{
+) -> Result<models::ModelsContainerCoverageResponseEntity, Error<GroupContainersByManagedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/containers/group-by-managed/v1",
@@ -1805,7 +1815,7 @@ pub async fn group_containers_by_managed(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1830,8 +1840,8 @@ pub async fn group_containers_by_managed(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodContainerCoverageResponseEntity`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodContainerCoverageResponseEntity`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsContainerCoverageResponseEntity`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsContainerCoverageResponseEntity`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1852,14 +1862,14 @@ pub async fn list_azure_accounts(
     is_horizon_acct: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::K8sregPeriodGetAzureSubscriptionsResp, Error<ListAzureAccountsError>> {
+) -> Result<models::K8sregGetAzureSubscriptionsResp, Error<ListAzureAccountsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_subscription_id = subscription_id;
-    let p_status = status;
-    let p_is_horizon_acct = is_horizon_acct;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_ids = ids;
+    let p_query_subscription_id = subscription_id;
+    let p_query_status = status;
+    let p_query_is_horizon_acct = is_horizon_acct;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/kubernetes-protection/entities/accounts/azure/v1",
@@ -1867,7 +1877,7 @@ pub async fn list_azure_accounts(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1886,7 +1896,7 @@ pub async fn list_azure_accounts(
             )]),
         };
     }
-    if let Some(ref param_value) = p_subscription_id {
+    if let Some(ref param_value) = p_query_subscription_id {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -1905,16 +1915,16 @@ pub async fn list_azure_accounts(
             )]),
         };
     }
-    if let Some(ref param_value) = p_status {
+    if let Some(ref param_value) = p_query_status {
         req_builder = req_builder.query(&[("status", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_is_horizon_acct {
+    if let Some(ref param_value) = p_query_is_horizon_acct {
         req_builder = req_builder.query(&[("is_horizon_acct", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1939,8 +1949,8 @@ pub async fn list_azure_accounts(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregPeriodGetAzureSubscriptionsResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregPeriodGetAzureSubscriptionsResp`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregGetAzureSubscriptionsResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregGetAzureSubscriptionsResp`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1957,10 +1967,10 @@ pub async fn patch_azure_service_principal(
     configuration: &configuration::Configuration,
     id: &str,
     client_id: &str,
-) -> Result<models::K8sregPeriodGetAzureTenantConfigResp, Error<PatchAzureServicePrincipalError>> {
+) -> Result<models::K8sregGetAzureTenantConfigResp, Error<PatchAzureServicePrincipalError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_client_id = client_id;
+    let p_query_id = id;
+    let p_query_client_id = client_id;
 
     let uri_str = format!(
         "{}/kubernetes-protection/entities/service-principal/azure/v1",
@@ -1970,8 +1980,8 @@ pub async fn patch_azure_service_principal(
         .client
         .request(reqwest::Method::PATCH, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    req_builder = req_builder.query(&[("client_id", &p_client_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    req_builder = req_builder.query(&[("client_id", &p_query_client_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1994,12 +2004,80 @@ pub async fn patch_azure_service_principal(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregPeriodGetAzureTenantConfigResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregPeriodGetAzureTenantConfigResp`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregGetAzureTenantConfigResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregGetAzureTenantConfigResp`")))),
         }
     } else {
         let content = resp.text().await?;
         let entity: Option<PatchAzureServicePrincipalError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent {
+            status,
+            content,
+            entity,
+        }))
+    }
+}
+
+pub async fn post_search_kubernetes_iom_entities(
+    configuration: &configuration::Configuration,
+    body: models::K8siomsSearchRequest,
+    filter: Option<&str>,
+    sort: Option<&str>,
+    limit: Option<i32>,
+) -> Result<models::K8siomsSearchResponse, Error<PostSearchKubernetesIomEntitiesError>> {
+    // add a prefix to parameters to efficiently prevent name collisions
+    let p_body_body = body;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+
+    let uri_str = format!(
+        "{}/container-security/combined/kubernetes-ioms/search/v1",
+        configuration.base_path
+    );
+    let mut req_builder = configuration
+        .client
+        .request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref param_value) = p_query_filter {
+        req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_sort {
+        req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref token) = configuration.oauth_access_token {
+        req_builder = req_builder.bearer_auth(token.to_owned());
+    };
+    req_builder = req_builder.json(&p_body_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8siomsSearchResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8siomsSearchResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PostSearchKubernetesIomEntitiesError> =
+            serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent {
             status,
             content,
@@ -2014,12 +2092,12 @@ pub async fn read_cluster_combined(
     sort: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::ModelsPeriodClusterEntityResponse, Error<ReadClusterCombinedError>> {
+) -> Result<models::ModelsClusterEntityResponse, Error<ReadClusterCombinedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/clusters/v1",
@@ -2027,16 +2105,16 @@ pub async fn read_cluster_combined(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2061,8 +2139,8 @@ pub async fn read_cluster_combined(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodClusterEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodClusterEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsClusterEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsClusterEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2082,13 +2160,13 @@ pub async fn read_cluster_combined_v2(
     include_counts: Option<bool>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::V2PeriodClusterEntityResponseV2, Error<ReadClusterCombinedV2Error>> {
+) -> Result<models::V2ClusterEntityResponseV2, Error<ReadClusterCombinedV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_include_counts = include_counts;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_include_counts = include_counts;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/clusters/v2",
@@ -2096,19 +2174,19 @@ pub async fn read_cluster_combined_v2(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_counts {
+    if let Some(ref param_value) = p_query_include_counts {
         req_builder = req_builder.query(&[("include_counts", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2133,8 +2211,8 @@ pub async fn read_cluster_combined_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::V2PeriodClusterEntityResponseV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::V2PeriodClusterEntityResponseV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::V2ClusterEntityResponseV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::V2ClusterEntityResponseV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2150,9 +2228,9 @@ pub async fn read_cluster_combined_v2(
 pub async fn read_cluster_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::CommonPeriodCountResponse, Error<ReadClusterCountError>> {
+) -> Result<models::CommonCountResponse, Error<ReadClusterCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/clusters/count/v1",
@@ -2160,7 +2238,7 @@ pub async fn read_cluster_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2185,8 +2263,8 @@ pub async fn read_cluster_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonPeriodCountResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonPeriodCountResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonCountResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonCountResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2203,10 +2281,10 @@ pub async fn read_cluster_enrichment(
     configuration: &configuration::Configuration,
     cluster_id: Vec<String>,
     filter: Option<&str>,
-) -> Result<models::K8sassetsPeriodClusterEnrichmentResponse, Error<ReadClusterEnrichmentError>> {
+) -> Result<models::K8sassetsClusterEnrichmentResponse, Error<ReadClusterEnrichmentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_cluster_id = cluster_id;
-    let p_filter = filter;
+    let p_query_cluster_id = cluster_id;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/enrichment/clusters/entities/v1",
@@ -2216,14 +2294,14 @@ pub async fn read_cluster_enrichment(
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_cluster_id
+            &p_query_cluster_id
                 .into_iter()
                 .map(|p| ("cluster_id".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "cluster_id",
-            &p_cluster_id
+            &p_query_cluster_id
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -2231,7 +2309,7 @@ pub async fn read_cluster_enrichment(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2256,8 +2334,8 @@ pub async fn read_cluster_enrichment(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sassetsPeriodClusterEnrichmentResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sassetsPeriodClusterEnrichmentResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sassetsClusterEnrichmentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sassetsClusterEnrichmentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2272,10 +2350,8 @@ pub async fn read_cluster_enrichment(
 
 pub async fn read_clusters_by_date_range_count(
     configuration: &configuration::Configuration,
-) -> Result<
-    models::ModelsPeriodAggregateValuesByFieldResponse,
-    Error<ReadClustersByDateRangeCountError>,
-> {
+) -> Result<models::ModelsAggregateValuesByFieldResponse, Error<ReadClustersByDateRangeCountError>>
+{
     let uri_str = format!(
         "{}/container-security/aggregates/clusters/count-by-date/v1",
         configuration.base_path
@@ -2304,8 +2380,8 @@ pub async fn read_clusters_by_date_range_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2322,11 +2398,11 @@ pub async fn read_clusters_by_kubernetes_version_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
 ) -> Result<
-    models::ModelsPeriodAggregateValuesByFieldResponse,
+    models::ModelsAggregateValuesByFieldResponse,
     Error<ReadClustersByKubernetesVersionCountError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/clusters/count-by-kubernetes-version/v1",
@@ -2334,7 +2410,7 @@ pub async fn read_clusters_by_kubernetes_version_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2359,8 +2435,8 @@ pub async fn read_clusters_by_kubernetes_version_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2377,10 +2453,9 @@ pub async fn read_clusters_by_kubernetes_version_count(
 pub async fn read_clusters_by_status_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::ModelsPeriodAggregateValuesByFieldResponse, Error<ReadClustersByStatusCountError>>
-{
+) -> Result<models::ModelsAggregateValuesByFieldResponse, Error<ReadClustersByStatusCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/clusters/count-by-status/v1",
@@ -2388,7 +2463,7 @@ pub async fn read_clusters_by_status_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2413,8 +2488,8 @@ pub async fn read_clusters_by_status_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2433,12 +2508,12 @@ pub async fn read_container_combined(
     sort: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::ModelsPeriodContainerEntityResponse, Error<ReadContainerCombinedError>> {
+) -> Result<models::ModelsContainerEntityResponse, Error<ReadContainerCombinedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/containers/v1",
@@ -2446,16 +2521,16 @@ pub async fn read_container_combined(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2480,8 +2555,8 @@ pub async fn read_container_combined(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodContainerEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodContainerEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsContainerEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsContainerEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2497,9 +2572,9 @@ pub async fn read_container_combined(
 pub async fn read_container_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::CommonPeriodCountResponse, Error<ReadContainerCountError>> {
+) -> Result<models::CommonCountResponse, Error<ReadContainerCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/containers/count/v1",
@@ -2507,7 +2582,7 @@ pub async fn read_container_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2532,8 +2607,8 @@ pub async fn read_container_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonPeriodCountResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonPeriodCountResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonCountResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonCountResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2551,11 +2626,11 @@ pub async fn read_container_count_by_registry(
     under_assessment: Option<bool>,
     limit: Option<i32>,
     filter: Option<&str>,
-) -> Result<models::ModelsPeriodApiFilterResponse, Error<ReadContainerCountByRegistryError>> {
+) -> Result<models::ModelsApiFilterResponse, Error<ReadContainerCountByRegistryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_under_assessment = under_assessment;
-    let p_limit = limit;
-    let p_filter = filter;
+    let p_query_under_assessment = under_assessment;
+    let p_query_limit = limit;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/containers/count-by-registry/v1",
@@ -2563,13 +2638,13 @@ pub async fn read_container_count_by_registry(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_under_assessment {
+    if let Some(ref param_value) = p_query_under_assessment {
         req_builder = req_builder.query(&[("under_assessment", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2594,8 +2669,8 @@ pub async fn read_container_count_by_registry(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodApiFilterResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodApiFilterResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsApiFilterResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsApiFilterResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2612,11 +2687,10 @@ pub async fn read_container_enrichment(
     configuration: &configuration::Configuration,
     container_id: Vec<String>,
     filter: Option<&str>,
-) -> Result<models::K8sassetsPeriodContainerEnrichmentResponse, Error<ReadContainerEnrichmentError>>
-{
+) -> Result<models::K8sassetsContainerEnrichmentResponse, Error<ReadContainerEnrichmentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_container_id = container_id;
-    let p_filter = filter;
+    let p_query_container_id = container_id;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/enrichment/containers/entities/v1",
@@ -2626,14 +2700,14 @@ pub async fn read_container_enrichment(
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_container_id
+            &p_query_container_id
                 .into_iter()
                 .map(|p| ("container_id".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "container_id",
-            &p_container_id
+            &p_query_container_id
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -2641,7 +2715,7 @@ pub async fn read_container_enrichment(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2666,8 +2740,8 @@ pub async fn read_container_enrichment(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sassetsPeriodContainerEnrichmentResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sassetsPeriodContainerEnrichmentResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sassetsContainerEnrichmentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sassetsContainerEnrichmentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2683,12 +2757,9 @@ pub async fn read_container_enrichment(
 pub async fn read_container_image_detections_count_by_date(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<
-    models::ModelsPeriodApiFilterResponse,
-    Error<ReadContainerImageDetectionsCountByDateError>,
-> {
+) -> Result<models::ModelsApiFilterResponse, Error<ReadContainerImageDetectionsCountByDateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/containers/image-detections-count-by-date/v1",
@@ -2696,7 +2767,7 @@ pub async fn read_container_image_detections_count_by_date(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2721,8 +2792,8 @@ pub async fn read_container_image_detections_count_by_date(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodApiFilterResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodApiFilterResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsApiFilterResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsApiFilterResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2739,12 +2810,10 @@ pub async fn read_container_image_detections_count_by_date(
 pub async fn read_container_images_by_most_used(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<
-    models::ModelsPeriodAggregateValuesByFieldResponse,
-    Error<ReadContainerImagesByMostUsedError>,
-> {
+) -> Result<models::ModelsAggregateValuesByFieldResponse, Error<ReadContainerImagesByMostUsedError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/images/most-used/v1",
@@ -2752,7 +2821,7 @@ pub async fn read_container_images_by_most_used(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2777,8 +2846,8 @@ pub async fn read_container_images_by_most_used(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2795,9 +2864,9 @@ pub async fn read_container_images_by_most_used(
 pub async fn read_container_images_by_state(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::ModelsPeriodApiFilterResponse, Error<ReadContainerImagesByStateError>> {
+) -> Result<models::ModelsApiFilterResponse, Error<ReadContainerImagesByStateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/containers/images-by-state/v1",
@@ -2805,7 +2874,7 @@ pub async fn read_container_images_by_state(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2830,8 +2899,8 @@ pub async fn read_container_images_by_state(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodApiFilterResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodApiFilterResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsApiFilterResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsApiFilterResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2848,11 +2917,11 @@ pub async fn read_container_vulnerabilities_by_severity_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
 ) -> Result<
-    models::ModelsPeriodAggregateValuesByFieldResponse,
+    models::ModelsAggregateValuesByFieldResponse,
     Error<ReadContainerVulnerabilitiesBySeverityCountError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/containers/vulnerability-count-by-severity/v1",
@@ -2860,7 +2929,7 @@ pub async fn read_container_vulnerabilities_by_severity_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2885,8 +2954,8 @@ pub async fn read_container_vulnerabilities_by_severity_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2903,12 +2972,10 @@ pub async fn read_container_vulnerabilities_by_severity_count(
 pub async fn read_containers_by_date_range_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<
-    models::ModelsPeriodAggregateValuesByFieldResponse,
-    Error<ReadContainersByDateRangeCountError>,
-> {
+) -> Result<models::ModelsAggregateValuesByFieldResponse, Error<ReadContainersByDateRangeCountError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/containers/count-by-date/v1",
@@ -2916,7 +2983,7 @@ pub async fn read_containers_by_date_range_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2941,8 +3008,8 @@ pub async fn read_containers_by_date_range_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2959,12 +3026,10 @@ pub async fn read_containers_by_date_range_count(
 pub async fn read_containers_sensor_coverage(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<
-    models::ModelsPeriodAggregateValuesByFieldResponse,
-    Error<ReadContainersSensorCoverageError>,
-> {
+) -> Result<models::ModelsAggregateValuesByFieldResponse, Error<ReadContainersSensorCoverageError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/containers/sensor-coverage/v1",
@@ -2972,7 +3037,7 @@ pub async fn read_containers_sensor_coverage(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -2997,8 +3062,8 @@ pub async fn read_containers_sensor_coverage(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3017,12 +3082,12 @@ pub async fn read_deployment_combined(
     sort: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::ModelsPeriodDeploymentEntityResponse, Error<ReadDeploymentCombinedError>> {
+) -> Result<models::ModelsDeploymentEntityResponse, Error<ReadDeploymentCombinedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/deployments/v1",
@@ -3030,16 +3095,16 @@ pub async fn read_deployment_combined(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3064,8 +3129,8 @@ pub async fn read_deployment_combined(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodDeploymentEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodDeploymentEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsDeploymentEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsDeploymentEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3081,9 +3146,9 @@ pub async fn read_deployment_combined(
 pub async fn read_deployment_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::CommonPeriodCountResponse, Error<ReadDeploymentCountError>> {
+) -> Result<models::CommonCountResponse, Error<ReadDeploymentCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/deployments/count/v1",
@@ -3091,7 +3156,7 @@ pub async fn read_deployment_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3116,8 +3181,8 @@ pub async fn read_deployment_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonPeriodCountResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonPeriodCountResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonCountResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonCountResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3134,11 +3199,10 @@ pub async fn read_deployment_enrichment(
     configuration: &configuration::Configuration,
     deployment_id: Vec<String>,
     filter: Option<&str>,
-) -> Result<models::K8sassetsPeriodDeploymentEnrichmentResponse, Error<ReadDeploymentEnrichmentError>>
-{
+) -> Result<models::K8sassetsDeploymentEnrichmentResponse, Error<ReadDeploymentEnrichmentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_deployment_id = deployment_id;
-    let p_filter = filter;
+    let p_query_deployment_id = deployment_id;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/enrichment/deployments/entities/v1",
@@ -3148,14 +3212,14 @@ pub async fn read_deployment_enrichment(
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_deployment_id
+            &p_query_deployment_id
                 .into_iter()
                 .map(|p| ("deployment_id".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "deployment_id",
-            &p_deployment_id
+            &p_query_deployment_id
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -3163,7 +3227,7 @@ pub async fn read_deployment_enrichment(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3188,8 +3252,8 @@ pub async fn read_deployment_enrichment(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sassetsPeriodDeploymentEnrichmentResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sassetsPeriodDeploymentEnrichmentResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sassetsDeploymentEnrichmentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sassetsDeploymentEnrichmentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3204,10 +3268,8 @@ pub async fn read_deployment_enrichment(
 
 pub async fn read_deployments_by_date_range_count(
     configuration: &configuration::Configuration,
-) -> Result<
-    models::ModelsPeriodAggregateValuesByFieldResponse,
-    Error<ReadDeploymentsByDateRangeCountError>,
-> {
+) -> Result<models::ModelsAggregateValuesByFieldResponse, Error<ReadDeploymentsByDateRangeCountError>>
+{
     let uri_str = format!(
         "{}/container-security/aggregates/deployments/count-by-date/v1",
         configuration.base_path
@@ -3236,8 +3298,8 @@ pub async fn read_deployments_by_date_range_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3254,9 +3316,9 @@ pub async fn read_deployments_by_date_range_count(
 pub async fn read_distinct_container_image_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::ModelsPeriodApiFilterResponse, Error<ReadDistinctContainerImageCountError>> {
+) -> Result<models::ModelsApiFilterResponse, Error<ReadDistinctContainerImageCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/images/count-by-distinct/v1",
@@ -3264,7 +3326,7 @@ pub async fn read_distinct_container_image_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3289,8 +3351,8 @@ pub async fn read_distinct_container_image_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodApiFilterResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodApiFilterResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsApiFilterResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsApiFilterResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3307,10 +3369,9 @@ pub async fn read_distinct_container_image_count(
 pub async fn read_kubernetes_iom_by_date_range(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::K8siomsPeriodKubernetesIomFieldValue, Error<ReadKubernetesIomByDateRangeError>>
-{
+) -> Result<models::K8siomsKubernetesIomFieldValue, Error<ReadKubernetesIomByDateRangeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/kubernetes-ioms/count-by-date/v1",
@@ -3318,7 +3379,7 @@ pub async fn read_kubernetes_iom_by_date_range(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3343,8 +3404,8 @@ pub async fn read_kubernetes_iom_by_date_range(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8siomsPeriodKubernetesIomFieldValue`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8siomsPeriodKubernetesIomFieldValue`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8siomsKubernetesIomFieldValue`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8siomsKubernetesIomFieldValue`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3360,9 +3421,9 @@ pub async fn read_kubernetes_iom_by_date_range(
 pub async fn read_kubernetes_iom_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::K8siomsPeriodKubernetesIomCountValue, Error<ReadKubernetesIomCountError>> {
+) -> Result<models::K8siomsKubernetesIomCountValue, Error<ReadKubernetesIomCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/kubernetes-ioms/count/v1",
@@ -3370,7 +3431,7 @@ pub async fn read_kubernetes_iom_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3395,8 +3456,8 @@ pub async fn read_kubernetes_iom_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8siomsPeriodKubernetesIomCountValue`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8siomsPeriodKubernetesIomCountValue`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8siomsKubernetesIomCountValue`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8siomsKubernetesIomCountValue`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3412,10 +3473,9 @@ pub async fn read_kubernetes_iom_count(
 pub async fn read_kubernetes_iom_entities(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
-) -> Result<models::K8siomsPeriodKubernetesIomEntityResponse, Error<ReadKubernetesIomEntitiesError>>
-{
+) -> Result<models::K8siomsKubernetesIomEntityResponse, Error<ReadKubernetesIomEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/container-security/entities/kubernetes-ioms/v1",
@@ -3423,7 +3483,7 @@ pub async fn read_kubernetes_iom_entities(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "csv" {
             "multi" => req_builder.query(
                 &param_value
@@ -3464,8 +3524,8 @@ pub async fn read_kubernetes_iom_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8siomsPeriodKubernetesIomEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8siomsPeriodKubernetesIomEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8siomsKubernetesIomEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8siomsKubernetesIomEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3481,9 +3541,9 @@ pub async fn read_kubernetes_iom_entities(
 pub async fn read_namespace_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::CommonPeriodCountResponse, Error<ReadNamespaceCountError>> {
+) -> Result<models::CommonCountResponse, Error<ReadNamespaceCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/namespaces/count/v1",
@@ -3491,7 +3551,7 @@ pub async fn read_namespace_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3516,8 +3576,8 @@ pub async fn read_namespace_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonPeriodCountResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonPeriodCountResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonCountResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonCountResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3532,10 +3592,8 @@ pub async fn read_namespace_count(
 
 pub async fn read_namespaces_by_date_range_count(
     configuration: &configuration::Configuration,
-) -> Result<
-    models::ModelsPeriodAggregateValuesByFieldResponse,
-    Error<ReadNamespacesByDateRangeCountError>,
-> {
+) -> Result<models::ModelsAggregateValuesByFieldResponse, Error<ReadNamespacesByDateRangeCountError>>
+{
     let uri_str = format!(
         "{}/container-security/aggregates/namespaces/count-by-date/v1",
         configuration.base_path
@@ -3564,8 +3622,8 @@ pub async fn read_namespaces_by_date_range_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3585,12 +3643,12 @@ pub async fn read_node_combined(
     sort: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::ModelsPeriodNodeEntityResponse, Error<ReadNodeCombinedError>> {
+) -> Result<models::ModelsNodeEntityResponse, Error<ReadNodeCombinedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/nodes/v1",
@@ -3598,16 +3656,16 @@ pub async fn read_node_combined(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3632,8 +3690,8 @@ pub async fn read_node_combined(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodNodeEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodNodeEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsNodeEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsNodeEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3649,9 +3707,9 @@ pub async fn read_node_combined(
 pub async fn read_node_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::CommonPeriodCountResponse, Error<ReadNodeCountError>> {
+) -> Result<models::CommonCountResponse, Error<ReadNodeCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/nodes/count/v1",
@@ -3659,7 +3717,7 @@ pub async fn read_node_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3684,8 +3742,8 @@ pub async fn read_node_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonPeriodCountResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonPeriodCountResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonCountResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonCountResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3702,10 +3760,10 @@ pub async fn read_node_enrichment(
     configuration: &configuration::Configuration,
     node_name: Vec<String>,
     filter: Option<&str>,
-) -> Result<models::K8sassetsPeriodNodeEnrichmentResponse, Error<ReadNodeEnrichmentError>> {
+) -> Result<models::K8sassetsNodeEnrichmentResponse, Error<ReadNodeEnrichmentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_node_name = node_name;
-    let p_filter = filter;
+    let p_query_node_name = node_name;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/enrichment/nodes/entities/v1",
@@ -3715,14 +3773,14 @@ pub async fn read_node_enrichment(
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_node_name
+            &p_query_node_name
                 .into_iter()
                 .map(|p| ("node_name".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "node_name",
-            &p_node_name
+            &p_query_node_name
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -3730,7 +3788,7 @@ pub async fn read_node_enrichment(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3755,8 +3813,8 @@ pub async fn read_node_enrichment(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sassetsPeriodNodeEnrichmentResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sassetsPeriodNodeEnrichmentResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sassetsNodeEnrichmentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sassetsNodeEnrichmentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3772,9 +3830,9 @@ pub async fn read_node_enrichment(
 pub async fn read_nodes_by_cloud_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::ModelsPeriodAggregateValuesByFieldResponse, Error<ReadNodesByCloudCountError>> {
+) -> Result<models::ModelsAggregateValuesByFieldResponse, Error<ReadNodesByCloudCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/nodes/count-by-cloud/v1",
@@ -3782,7 +3840,7 @@ pub async fn read_nodes_by_cloud_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3807,8 +3865,8 @@ pub async fn read_nodes_by_cloud_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3825,11 +3883,11 @@ pub async fn read_nodes_by_container_engine_version_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
 ) -> Result<
-    models::ModelsPeriodAggregateValuesByFieldResponse,
+    models::ModelsAggregateValuesByFieldResponse,
     Error<ReadNodesByContainerEngineVersionCountError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/nodes/count-by-container-engine-version/v1",
@@ -3837,7 +3895,7 @@ pub async fn read_nodes_by_container_engine_version_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3862,8 +3920,8 @@ pub async fn read_nodes_by_container_engine_version_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3880,10 +3938,9 @@ pub async fn read_nodes_by_container_engine_version_count(
 pub async fn read_nodes_by_date_range_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::ModelsPeriodAggregateValuesByFieldResponse, Error<ReadNodesByDateRangeCountError>>
-{
+) -> Result<models::ModelsAggregateValuesByFieldResponse, Error<ReadNodesByDateRangeCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/nodes/count-by-date/v1",
@@ -3891,7 +3948,7 @@ pub async fn read_nodes_by_date_range_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3916,8 +3973,8 @@ pub async fn read_nodes_by_date_range_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3936,12 +3993,12 @@ pub async fn read_pod_combined(
     sort: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::ModelsPeriodPodEntityResponse, Error<ReadPodCombinedError>> {
+) -> Result<models::ModelsPodEntityResponse, Error<ReadPodCombinedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/pods/v1",
@@ -3949,16 +4006,16 @@ pub async fn read_pod_combined(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -3983,8 +4040,8 @@ pub async fn read_pod_combined(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodPodEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodPodEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPodEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPodEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4000,9 +4057,9 @@ pub async fn read_pod_combined(
 pub async fn read_pod_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::CommonPeriodCountResponse, Error<ReadPodCountError>> {
+) -> Result<models::CommonCountResponse, Error<ReadPodCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/pods/count/v1",
@@ -4010,7 +4067,7 @@ pub async fn read_pod_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -4035,8 +4092,8 @@ pub async fn read_pod_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonPeriodCountResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonPeriodCountResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonCountResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonCountResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4053,10 +4110,10 @@ pub async fn read_pod_enrichment(
     configuration: &configuration::Configuration,
     pod_id: Vec<String>,
     filter: Option<&str>,
-) -> Result<models::K8sassetsPeriodPodEnrichmentResponse, Error<ReadPodEnrichmentError>> {
+) -> Result<models::K8sassetsPodEnrichmentResponse, Error<ReadPodEnrichmentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_pod_id = pod_id;
-    let p_filter = filter;
+    let p_query_pod_id = pod_id;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/enrichment/pods/entities/v1",
@@ -4066,14 +4123,14 @@ pub async fn read_pod_enrichment(
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_pod_id
+            &p_query_pod_id
                 .into_iter()
                 .map(|p| ("pod_id".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "pod_id",
-            &p_pod_id
+            &p_query_pod_id
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -4081,7 +4138,7 @@ pub async fn read_pod_enrichment(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -4106,8 +4163,8 @@ pub async fn read_pod_enrichment(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sassetsPeriodPodEnrichmentResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sassetsPeriodPodEnrichmentResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sassetsPodEnrichmentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sassetsPodEnrichmentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4122,8 +4179,7 @@ pub async fn read_pod_enrichment(
 
 pub async fn read_pods_by_date_range_count(
     configuration: &configuration::Configuration,
-) -> Result<models::ModelsPeriodAggregateValuesByFieldResponse, Error<ReadPodsByDateRangeCountError>>
-{
+) -> Result<models::ModelsAggregateValuesByFieldResponse, Error<ReadPodsByDateRangeCountError>> {
     let uri_str = format!(
         "{}/container-security/aggregates/pods/count-by-date/v1",
         configuration.base_path
@@ -4152,8 +4208,8 @@ pub async fn read_pods_by_date_range_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodAggregateValuesByFieldResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsAggregateValuesByFieldResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4172,12 +4228,12 @@ pub async fn read_running_container_images(
     sort: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::ModelsPeriodContainerImage, Error<ReadRunningContainerImagesError>> {
+) -> Result<models::ModelsContainerImage, Error<ReadRunningContainerImagesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/container-images/v1",
@@ -4185,16 +4241,16 @@ pub async fn read_running_container_images(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -4219,8 +4275,8 @@ pub async fn read_running_container_images(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodContainerImage`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodContainerImage`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsContainerImage`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsContainerImage`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4236,9 +4292,9 @@ pub async fn read_running_container_images(
 pub async fn read_vulnerable_container_image_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::ModelsPeriodApiFilterResponse, Error<ReadVulnerableContainerImageCountError>> {
+) -> Result<models::ModelsApiFilterResponse, Error<ReadVulnerableContainerImageCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/containers/count-vulnerable-images/v1",
@@ -4246,7 +4302,7 @@ pub async fn read_vulnerable_container_image_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -4271,8 +4327,8 @@ pub async fn read_vulnerable_container_image_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsPeriodApiFilterResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsPeriodApiFilterResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModelsApiFilterResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModelsApiFilterResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4288,7 +4344,7 @@ pub async fn read_vulnerable_container_image_count(
 
 pub async fn regenerate_api_key(
     configuration: &configuration::Configuration,
-) -> Result<models::K8sregPeriodRegenApiKeyResp, Error<RegenerateApiKeyError>> {
+) -> Result<models::K8sregRegenApiKeyResp, Error<RegenerateApiKeyError>> {
     let uri_str = format!(
         "{}/kubernetes-protection/entities/integration/api-key/v1",
         configuration.base_path
@@ -4319,8 +4375,8 @@ pub async fn regenerate_api_key(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregPeriodRegenApiKeyResp`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregPeriodRegenApiKeyResp`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8sregRegenApiKeyResp`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8sregRegenApiKeyResp`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4340,14 +4396,14 @@ pub async fn search_and_read_kubernetes_iom_entities(
     limit: Option<i32>,
     offset: Option<i32>,
 ) -> Result<
-    models::K8siomsPeriodKubernetesIomEntityResponse,
+    models::K8siomsKubernetesIomEntityResponse,
     Error<SearchAndReadKubernetesIomEntitiesError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/kubernetes-ioms/v1",
@@ -4355,16 +4411,16 @@ pub async fn search_and_read_kubernetes_iom_entities(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -4389,8 +4445,8 @@ pub async fn search_and_read_kubernetes_iom_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8siomsPeriodKubernetesIomEntityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8siomsPeriodKubernetesIomEntityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::K8siomsKubernetesIomEntityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::K8siomsKubernetesIomEntityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4411,14 +4467,14 @@ pub async fn search_kubernetes_ioms(
     limit: Option<i32>,
     offset: Option<i32>,
 ) -> Result<
-    models::CommonPeriodGenericEntityResponseLeftSquareBracketStringRightSquareBracket,
+    models::CommonGenericEntityResponseLeftSquareBracketStringRightSquareBracket,
     Error<SearchKubernetesIomsError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/queries/kubernetes-ioms/v1",
@@ -4426,16 +4482,16 @@ pub async fn search_kubernetes_ioms(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -4460,8 +4516,8 @@ pub async fn search_kubernetes_ioms(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonPeriodGenericEntityResponseLeftSquareBracketStringRightSquareBracket`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonPeriodGenericEntityResponseLeftSquareBracketStringRightSquareBracket`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CommonGenericEntityResponseLeftSquareBracketStringRightSquareBracket`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CommonGenericEntityResponseLeftSquareBracketStringRightSquareBracket`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4477,9 +4533,9 @@ pub async fn search_kubernetes_ioms(
 pub async fn trigger_scan(
     configuration: &configuration::Configuration,
     scan_type: &str,
-) -> Result<models::MsaPeriodBaseEntitiesResponse, Error<TriggerScanError>> {
+) -> Result<models::MsaBaseEntitiesResponse, Error<TriggerScanError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_scan_type = scan_type;
+    let p_query_scan_type = scan_type;
 
     let uri_str = format!(
         "{}/kubernetes-protection/entities/scan/trigger/v1",
@@ -4489,7 +4545,7 @@ pub async fn trigger_scan(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("scan_type", &p_scan_type.to_string())]);
+    req_builder = req_builder.query(&[("scan_type", &p_query_scan_type.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -4512,8 +4568,8 @@ pub async fn trigger_scan(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodBaseEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodBaseEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaBaseEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaBaseEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4530,10 +4586,10 @@ pub async fn update_aws_account(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     region: Option<&str>,
-) -> Result<models::MsaPeriodBaseEntitiesResponse, Error<UpdateAwsAccountError>> {
+) -> Result<models::MsaBaseEntitiesResponse, Error<UpdateAwsAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_region = region;
+    let p_query_ids = ids;
+    let p_query_region = region;
 
     let uri_str = format!(
         "{}/kubernetes-protection/entities/accounts/aws/v1",
@@ -4545,14 +4601,14 @@ pub async fn update_aws_account(
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -4560,7 +4616,7 @@ pub async fn update_aws_account(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_region {
+    if let Some(ref param_value) = p_query_region {
         req_builder = req_builder.query(&[("region", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -4585,8 +4641,8 @@ pub async fn update_aws_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodBaseEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodBaseEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaBaseEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaBaseEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;

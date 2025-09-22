@@ -17,12 +17,12 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudSecurityAssetsCombinedComplianceByAccountError {
-    Status400(models::RestPeriodCursorResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::RestPeriodCursorResponseFields),
-    Status408(models::RestPeriodCursorResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RestPeriodCursorResponseFields),
+    Status400(models::RestCursorResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::RestCursorResponseFields),
+    Status408(models::RestCursorResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RestCursorResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -30,12 +30,12 @@ pub enum CloudSecurityAssetsCombinedComplianceByAccountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudSecurityAssetsEntitiesGetError {
-    Status400(models::RestPeriodCursorResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::RestPeriodCursorResponseFields),
-    Status408(models::RestPeriodCursorResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RestPeriodCursorResponseFields),
+    Status400(models::RestCursorResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::RestCursorResponseFields),
+    Status408(models::RestCursorResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RestCursorResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -43,11 +43,11 @@ pub enum CloudSecurityAssetsEntitiesGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CloudSecurityAssetsQueriesError {
-    Status400(models::RestPeriodCursorResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status408(models::RestPeriodCursorResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::RestPeriodCursorResponseFields),
+    Status400(models::RestCursorResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status408(models::RestCursorResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::RestCursorResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -60,36 +60,36 @@ pub async fn cloud_security_assets_combined_compliance_by_account(
     after: Option<&str>,
     include_failing_iom_severity_counts: Option<bool>,
 ) -> Result<
-    models::AssetsPeriodComplianceResponse,
+    models::AssetsComplianceResponse,
     Error<CloudSecurityAssetsCombinedComplianceByAccountError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_after = after;
-    let p_include_failing_iom_severity_counts = include_failing_iom_severity_counts;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_after = after;
+    let p_query_include_failing_iom_severity_counts = include_failing_iom_severity_counts;
 
     let uri_str = format!("{}/cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_after {
+    if let Some(ref param_value) = p_query_after {
         req_builder = req_builder.query(&[("after", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_failing_iom_severity_counts {
+    if let Some(ref param_value) = p_query_include_failing_iom_severity_counts {
         req_builder = req_builder.query(&[(
             "include_failing_iom_severity_counts",
             &param_value.to_string(),
@@ -117,8 +117,8 @@ pub async fn cloud_security_assets_combined_compliance_by_account(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AssetsPeriodComplianceResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AssetsPeriodComplianceResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AssetsComplianceResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AssetsComplianceResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -135,9 +135,9 @@ pub async fn cloud_security_assets_combined_compliance_by_account(
 pub async fn cloud_security_assets_entities_get(
     configuration: &configuration::Configuration,
     ids: Option<Vec<String>>,
-) -> Result<models::AssetsPeriodGetResourcesResponse, Error<CloudSecurityAssetsEntitiesGetError>> {
+) -> Result<models::AssetsGetResourcesResponse, Error<CloudSecurityAssetsEntitiesGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/cloud-security-assets/entities/resources/v1",
@@ -145,7 +145,7 @@ pub async fn cloud_security_assets_entities_get(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_ids {
+    if let Some(ref param_value) = p_query_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(
                 &param_value
@@ -186,8 +186,8 @@ pub async fn cloud_security_assets_entities_get(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AssetsPeriodGetResourcesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AssetsPeriodGetResourcesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AssetsGetResourcesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AssetsGetResourcesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -208,13 +208,13 @@ pub async fn cloud_security_assets_queries(
     sort: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::AssetsPeriodGetResourceIdsResponse, Error<CloudSecurityAssetsQueriesError>> {
+) -> Result<models::AssetsGetResourceIdsResponse, Error<CloudSecurityAssetsQueriesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_after = after;
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_after = after;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/cloud-security-assets/queries/resources/v1",
@@ -222,19 +222,19 @@ pub async fn cloud_security_assets_queries(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_after {
+    if let Some(ref param_value) = p_query_after {
         req_builder = req_builder.query(&[("after", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -259,8 +259,8 @@ pub async fn cloud_security_assets_queries(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AssetsPeriodGetResourceIdsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AssetsPeriodGetResourceIdsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AssetsGetResourceIdsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AssetsGetResourceIdsResponse`")))),
         }
     } else {
         let content = resp.text().await?;

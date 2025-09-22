@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DownloadFeedArchiveError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,8 +29,8 @@ pub enum DownloadFeedArchiveError {
 #[serde(untagged)]
 pub enum ListFeedTypesError {
     Status400(),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
     Status500(),
     UnknownValue(serde_json::Value),
 }
@@ -40,8 +40,8 @@ pub enum ListFeedTypesError {
 #[serde(untagged)]
 pub enum QueryFeedArchivesError {
     Status400(),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
     Status500(),
     UnknownValue(serde_json::Value),
 }
@@ -51,7 +51,7 @@ pub async fn download_feed_archive(
     feed_item_id: &str,
 ) -> Result<(), Error<DownloadFeedArchiveError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_feed_item_id = feed_item_id;
+    let p_query_feed_item_id = feed_item_id;
 
     let uri_str = format!(
         "{}/indicator-feed/entities/feed-download/v1",
@@ -59,7 +59,7 @@ pub async fn download_feed_archive(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("feed_item_id", &p_feed_item_id.to_string())]);
+    req_builder = req_builder.query(&[("feed_item_id", &p_query_feed_item_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -87,7 +87,7 @@ pub async fn download_feed_archive(
 
 pub async fn list_feed_types(
     configuration: &configuration::Configuration,
-) -> Result<models::RestapiPeriodIndicatorGetFeedsResponse, Error<ListFeedTypesError>> {
+) -> Result<models::RestapiIndicatorGetFeedsResponse, Error<ListFeedTypesError>> {
     let uri_str = format!(
         "{}/indicator-feed/entities/feed/v1",
         configuration.base_path
@@ -116,8 +116,8 @@ pub async fn list_feed_types(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RestapiPeriodIndicatorGetFeedsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RestapiPeriodIndicatorGetFeedsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RestapiIndicatorGetFeedsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RestapiIndicatorGetFeedsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -133,20 +133,22 @@ pub async fn list_feed_types(
 pub async fn query_feed_archives(
     configuration: &configuration::Configuration,
     feed_name: &str,
-    feed_interval: &str,
+    feed_interval: Option<&str>,
     since: Option<&str>,
-) -> Result<models::RestapiPeriodIndicatorFeedQueryResponse, Error<QueryFeedArchivesError>> {
+) -> Result<models::RestapiIndicatorFeedQueryResponse, Error<QueryFeedArchivesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_feed_name = feed_name;
-    let p_feed_interval = feed_interval;
-    let p_since = since;
+    let p_query_feed_name = feed_name;
+    let p_query_feed_interval = feed_interval;
+    let p_query_since = since;
 
     let uri_str = format!("{}/indicator-feed/queries/feed/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("feed_name", &p_feed_name.to_string())]);
-    req_builder = req_builder.query(&[("feed_interval", &p_feed_interval.to_string())]);
-    if let Some(ref param_value) = p_since {
+    req_builder = req_builder.query(&[("feed_name", &p_query_feed_name.to_string())]);
+    if let Some(ref param_value) = p_query_feed_interval {
+        req_builder = req_builder.query(&[("feed_interval", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = p_query_since {
         req_builder = req_builder.query(&[("since", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -171,8 +173,8 @@ pub async fn query_feed_archives(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RestapiPeriodIndicatorFeedQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RestapiPeriodIndicatorFeedQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RestapiIndicatorFeedQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RestapiIndicatorFeedQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;

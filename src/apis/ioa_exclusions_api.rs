@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateIoaExclusionsV1Error {
-    Status400(models::IoaExclusionsPeriodIoaExclusionsRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::IoaExclusionsPeriodIoaExclusionsRespV1),
+    Status400(models::IoaExclusionsIoaExclusionsRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::IoaExclusionsIoaExclusionsRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum CreateIoaExclusionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteIoaExclusionsV1Error {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum DeleteIoaExclusionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIoaExclusionsV1Error {
-    Status400(models::IoaExclusionsPeriodIoaExclusionsRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::IoaExclusionsPeriodIoaExclusionsRespV1),
+    Status400(models::IoaExclusionsIoaExclusionsRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::IoaExclusionsIoaExclusionsRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +50,10 @@ pub enum GetIoaExclusionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryIoaExclusionsV1Error {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,19 +61,19 @@ pub enum QueryIoaExclusionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateIoaExclusionsV1Error {
-    Status400(models::IoaExclusionsPeriodIoaExclusionsRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::IoaExclusionsPeriodIoaExclusionsRespV1),
+    Status400(models::IoaExclusionsIoaExclusionsRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::IoaExclusionsIoaExclusionsRespV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_ioa_exclusions_v1(
     configuration: &configuration::Configuration,
-    body: models::IoaExclusionsPeriodIoaExclusionCreateReqV1,
-) -> Result<models::IoaExclusionsPeriodIoaExclusionsRespV1, Error<CreateIoaExclusionsV1Error>> {
+    body: models::IoaExclusionsIoaExclusionCreateReqV1,
+) -> Result<models::IoaExclusionsIoaExclusionsRespV1, Error<CreateIoaExclusionsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/ioa-exclusions/v1",
@@ -89,7 +89,7 @@ pub async fn create_ioa_exclusions_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -106,8 +106,8 @@ pub async fn create_ioa_exclusions_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::IoaExclusionsPeriodIoaExclusionsRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::IoaExclusionsPeriodIoaExclusionsRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::IoaExclusionsIoaExclusionsRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::IoaExclusionsIoaExclusionsRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -124,10 +124,10 @@ pub async fn delete_ioa_exclusions_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     comment: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<DeleteIoaExclusionsV1Error>> {
+) -> Result<models::MsaQueryResponse, Error<DeleteIoaExclusionsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_comment = comment;
+    let p_query_ids = ids;
+    let p_query_comment = comment;
 
     let uri_str = format!(
         "{}/policy/entities/ioa-exclusions/v1",
@@ -139,14 +139,14 @@ pub async fn delete_ioa_exclusions_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -154,7 +154,7 @@ pub async fn delete_ioa_exclusions_v1(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_comment {
+    if let Some(ref param_value) = p_query_comment {
         req_builder = req_builder.query(&[("comment", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -179,8 +179,8 @@ pub async fn delete_ioa_exclusions_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -196,9 +196,9 @@ pub async fn delete_ioa_exclusions_v1(
 pub async fn get_ioa_exclusions_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::IoaExclusionsPeriodIoaExclusionsRespV1, Error<GetIoaExclusionsV1Error>> {
+) -> Result<models::IoaExclusionsIoaExclusionsRespV1, Error<GetIoaExclusionsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/policy/entities/ioa-exclusions/v1",
@@ -208,14 +208,14 @@ pub async fn get_ioa_exclusions_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -245,8 +245,8 @@ pub async fn get_ioa_exclusions_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::IoaExclusionsPeriodIoaExclusionsRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::IoaExclusionsPeriodIoaExclusionsRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::IoaExclusionsIoaExclusionsRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::IoaExclusionsIoaExclusionsRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -267,14 +267,14 @@ pub async fn query_ioa_exclusions_v1(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryIoaExclusionsV1Error>> {
+) -> Result<models::MsaQueryResponse, Error<QueryIoaExclusionsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_ifn_regex = ifn_regex;
-    let p_cl_regex = cl_regex;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_ifn_regex = ifn_regex;
+    let p_query_cl_regex = cl_regex;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/queries/ioa-exclusions/v1",
@@ -282,22 +282,22 @@ pub async fn query_ioa_exclusions_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_ifn_regex {
+    if let Some(ref param_value) = p_query_ifn_regex {
         req_builder = req_builder.query(&[("ifn_regex", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_cl_regex {
+    if let Some(ref param_value) = p_query_cl_regex {
         req_builder = req_builder.query(&[("cl_regex", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -322,8 +322,8 @@ pub async fn query_ioa_exclusions_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -338,10 +338,10 @@ pub async fn query_ioa_exclusions_v1(
 
 pub async fn update_ioa_exclusions_v1(
     configuration: &configuration::Configuration,
-    body: models::IoaExclusionsPeriodIoaExclusionUpdateReqV1,
-) -> Result<models::IoaExclusionsPeriodIoaExclusionsRespV1, Error<UpdateIoaExclusionsV1Error>> {
+    body: models::IoaExclusionsIoaExclusionUpdateReqV1,
+) -> Result<models::IoaExclusionsIoaExclusionsRespV1, Error<UpdateIoaExclusionsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/ioa-exclusions/v1",
@@ -357,7 +357,7 @@ pub async fn update_ioa_exclusions_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -374,8 +374,8 @@ pub async fn update_ioa_exclusions_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::IoaExclusionsPeriodIoaExclusionsRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::IoaExclusionsPeriodIoaExclusionsRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::IoaExclusionsIoaExclusionsRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::IoaExclusionsIoaExclusionsRespV1`")))),
         }
     } else {
         let content = resp.text().await?;

@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetDefaultDeviceControlSettingsError {
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::DeviceControlPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DeviceControlPeriodRespV1),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::DeviceControlRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DeviceControlRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum GetDefaultDeviceControlSettingsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetDeviceControlPoliciesV2Error {
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::DeviceControlPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DeviceControlPeriodRespV1),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::DeviceControlRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DeviceControlRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum GetDeviceControlPoliciesV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PatchDeviceControlPoliciesClassesV1Error {
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::DeviceControlPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DeviceControlPeriodRespV1),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::DeviceControlRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DeviceControlRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +50,10 @@ pub enum PatchDeviceControlPoliciesClassesV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PatchDeviceControlPoliciesV2Error {
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::DeviceControlPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DeviceControlPeriodRespV1),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::DeviceControlRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DeviceControlRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,10 +61,10 @@ pub enum PatchDeviceControlPoliciesV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostDeviceControlPoliciesV2Error {
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::DeviceControlPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DeviceControlPeriodRespV1),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::DeviceControlRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DeviceControlRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -72,19 +72,17 @@ pub enum PostDeviceControlPoliciesV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateDefaultDeviceControlSettingsError {
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::DeviceControlPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DeviceControlPeriodRespV1),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::DeviceControlRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DeviceControlRespV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn get_default_device_control_settings(
     configuration: &configuration::Configuration,
-) -> Result<
-    models::DeviceControlPeriodRespDefaultSettingV1,
-    Error<GetDefaultDeviceControlSettingsError>,
-> {
+) -> Result<models::DeviceControlRespDefaultSettingV1, Error<GetDefaultDeviceControlSettingsError>>
+{
     let uri_str = format!(
         "{}/policy/entities/device-control-default-settings/v1",
         configuration.base_path
@@ -113,8 +111,8 @@ pub async fn get_default_device_control_settings(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlPeriodRespDefaultSettingV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlPeriodRespDefaultSettingV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlRespDefaultSettingV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlRespDefaultSettingV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -131,9 +129,9 @@ pub async fn get_default_device_control_settings(
 pub async fn get_device_control_policies_v2(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DevicecontrolapiPeriodRespPoliciesV2, Error<GetDeviceControlPoliciesV2Error>> {
+) -> Result<models::DevicecontrolapiRespPoliciesV2, Error<GetDeviceControlPoliciesV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/policy/entities/device-control/v2",
@@ -143,14 +141,14 @@ pub async fn get_device_control_policies_v2(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -180,8 +178,8 @@ pub async fn get_device_control_policies_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DevicecontrolapiPeriodRespPoliciesV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DevicecontrolapiPeriodRespPoliciesV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DevicecontrolapiRespPoliciesV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DevicecontrolapiRespPoliciesV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -196,13 +194,11 @@ pub async fn get_device_control_policies_v2(
 
 pub async fn patch_device_control_policies_classes_v1(
     configuration: &configuration::Configuration,
-    body: models::DevicecontrolapiPeriodReqUpdatePoliciesClassesV1,
-) -> Result<
-    models::DevicecontrolapiPeriodRespPoliciesV2,
-    Error<PatchDeviceControlPoliciesClassesV1Error>,
-> {
+    body: models::DevicecontrolapiReqUpdatePoliciesClassesV1,
+) -> Result<models::DevicecontrolapiRespPoliciesV2, Error<PatchDeviceControlPoliciesClassesV1Error>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/device-control-classes/v1",
@@ -218,7 +214,7 @@ pub async fn patch_device_control_policies_classes_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -235,8 +231,8 @@ pub async fn patch_device_control_policies_classes_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DevicecontrolapiPeriodRespPoliciesV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DevicecontrolapiPeriodRespPoliciesV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DevicecontrolapiRespPoliciesV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DevicecontrolapiRespPoliciesV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -252,11 +248,10 @@ pub async fn patch_device_control_policies_classes_v1(
 
 pub async fn patch_device_control_policies_v2(
     configuration: &configuration::Configuration,
-    body: models::DevicecontrolapiPeriodReqUpdateBasesV1External,
-) -> Result<models::DevicecontrolapiPeriodRespPoliciesV2, Error<PatchDeviceControlPoliciesV2Error>>
-{
+    body: models::DevicecontrolapiReqUpdateBasesV1External,
+) -> Result<models::DevicecontrolapiRespPoliciesV2, Error<PatchDeviceControlPoliciesV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/device-control/v2",
@@ -272,7 +267,7 @@ pub async fn patch_device_control_policies_v2(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -289,8 +284,8 @@ pub async fn patch_device_control_policies_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DevicecontrolapiPeriodRespPoliciesV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DevicecontrolapiPeriodRespPoliciesV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DevicecontrolapiRespPoliciesV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DevicecontrolapiRespPoliciesV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -305,10 +300,10 @@ pub async fn patch_device_control_policies_v2(
 
 pub async fn post_device_control_policies_v2(
     configuration: &configuration::Configuration,
-    body: models::DevicecontrolapiPeriodReqCreatePoliciesV1,
-) -> Result<models::DevicecontrolapiPeriodRespPoliciesV2, Error<PostDeviceControlPoliciesV2Error>> {
+    body: models::DevicecontrolapiReqCreatePoliciesV1,
+) -> Result<models::DevicecontrolapiRespPoliciesV2, Error<PostDeviceControlPoliciesV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/device-control/v2",
@@ -324,7 +319,7 @@ pub async fn post_device_control_policies_v2(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -341,8 +336,8 @@ pub async fn post_device_control_policies_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DevicecontrolapiPeriodRespPoliciesV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DevicecontrolapiPeriodRespPoliciesV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DevicecontrolapiRespPoliciesV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DevicecontrolapiRespPoliciesV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -357,13 +352,11 @@ pub async fn post_device_control_policies_v2(
 
 pub async fn update_default_device_control_settings(
     configuration: &configuration::Configuration,
-    body: models::DeviceControlPeriodReqUpdateDefaultSettingsV1,
-) -> Result<
-    models::DeviceControlPeriodRespDefaultSettingV1,
-    Error<UpdateDefaultDeviceControlSettingsError>,
-> {
+    body: models::DeviceControlReqUpdateDefaultSettingsV1,
+) -> Result<models::DeviceControlRespDefaultSettingV1, Error<UpdateDefaultDeviceControlSettingsError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/device-control-default-settings/v1",
@@ -379,7 +372,7 @@ pub async fn update_default_device_control_settings(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -396,8 +389,8 @@ pub async fn update_default_device_control_settings(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlPeriodRespDefaultSettingV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlPeriodRespDefaultSettingV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlRespDefaultSettingV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlRespDefaultSettingV1`")))),
         }
     } else {
         let content = resp.text().await?;

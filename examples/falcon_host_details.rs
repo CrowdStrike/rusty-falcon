@@ -22,8 +22,8 @@ async fn get_all_hosts(
     configuration: &configuration::Configuration,
     sort: Option<&str>,
     filter: Option<&str>,
-) -> Result<Vec<models::DeviceapiPeriodDeviceSwagger>, Box<dyn error::Error>> {
-    let mut details = Vec::<models::DeviceapiPeriodDeviceSwagger>::new();
+) -> Result<Vec<models::DeviceapiDeviceSwagger>, Box<dyn error::Error>> {
+    let mut details = Vec::<models::DeviceapiDeviceSwagger>::new();
     let mut offset = String::new();
     loop {
         let response =
@@ -44,10 +44,10 @@ async fn get_all_hosts(
 async fn get_device_details(
     configuration: &configuration::Configuration,
     ids: &[String],
-) -> Result<Vec<models::DeviceapiPeriodDeviceSwagger>, Box<dyn error::Error>> {
+) -> Result<Vec<models::DeviceapiDeviceSwagger>, Box<dyn error::Error>> {
     let response = hosts_api::post_device_details_v2(
         configuration,
-        models::MsaPeriodIdsRequest::new(ids.to_owned()),
+        models::MsaIdsRequest::new(ids.to_owned()),
     )
     .await?;
 
@@ -67,7 +67,7 @@ async fn query_devices_by_filter_offset(
     sort: Option<&str>,
     filter: Option<&str>,
     offset: &str,
-) -> Result<models::DeviceapiPeriodDeviceResponse, Box<dyn error::Error>> {
+) -> Result<models::DeviceapiDeviceResponse, Box<dyn error::Error>> {
     let response = hosts_api::query_devices_by_filter_scroll(
         configuration,
         Some(offset),

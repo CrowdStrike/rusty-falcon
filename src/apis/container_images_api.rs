@@ -17,9 +17,9 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateImageAssessmentHistoryError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,10 +27,10 @@ pub enum AggregateImageAssessmentHistoryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateImageCountError {
-    Status400(models::CorePeriodEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status400(models::CoreEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -38,9 +38,9 @@ pub enum AggregateImageCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateImageCountByBaseOsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -48,10 +48,10 @@ pub enum AggregateImageCountByBaseOsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateImageCountByStateError {
-    Status400(models::CorePeriodEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status400(models::CoreEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -59,10 +59,10 @@ pub enum AggregateImageCountByStateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedBaseImagesError {
-    Status400(models::CorePeriodEntitiesResponse),
-    Status403(models::MsaspecPeriodError),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status400(models::CoreEntitiesResponse),
+    Status403(models::MsaspecError),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -70,10 +70,10 @@ pub enum CombinedBaseImagesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedImageByVulnerabilityCountError {
-    Status400(models::CorePeriodEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status400(models::CoreEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -81,11 +81,11 @@ pub enum CombinedImageByVulnerabilityCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedImageDetailError {
-    Status400(models::CorePeriodEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::CorePeriodEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status400(models::CoreEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::CoreEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -93,11 +93,11 @@ pub enum CombinedImageDetailError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedImageIssuesSummaryError {
-    Status400(models::CorePeriodEntitiesResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::CorePeriodEntitiesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status400(models::CoreEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::CoreEntitiesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -105,9 +105,9 @@ pub enum CombinedImageIssuesSummaryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedImageVulnerabilitySummaryError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -115,10 +115,10 @@ pub enum CombinedImageVulnerabilitySummaryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateBaseImagesEntitiesError {
-    Status400(models::CorePeriodEntitiesResponse),
-    Status403(models::MsaspecPeriodError),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status400(models::CoreEntitiesResponse),
+    Status403(models::MsaspecError),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -126,10 +126,10 @@ pub enum CreateBaseImagesEntitiesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteBaseImagesError {
-    Status400(models::CorePeriodEntitiesResponse),
-    Status403(models::MsaspecPeriodError),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status400(models::CoreEntitiesResponse),
+    Status403(models::MsaspecError),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -137,10 +137,10 @@ pub enum DeleteBaseImagesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCombinedImagesError {
-    Status403(models::ImagesPeriodExtCombinedImagesResponse),
-    Status404(models::ImagesPeriodExtCombinedImagesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ImagesPeriodExtCombinedImagesResponse),
+    Status403(models::ImagesExtCombinedImagesResponse),
+    Status404(models::ImagesExtCombinedImagesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ImagesExtCombinedImagesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -148,21 +148,18 @@ pub enum GetCombinedImagesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadCombinedImagesExportError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::CorePeriodEntitiesResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::CoreEntitiesResponse),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn aggregate_image_assessment_history(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<
-    models::ImagesPeriodApiImageAssessmentHistory,
-    Error<AggregateImageAssessmentHistoryError>,
-> {
+) -> Result<models::ImagesApiImageAssessmentHistory, Error<AggregateImageAssessmentHistoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/images/assessment-history/v1",
@@ -170,7 +167,7 @@ pub async fn aggregate_image_assessment_history(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -195,8 +192,8 @@ pub async fn aggregate_image_assessment_history(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesPeriodApiImageAssessmentHistory`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesPeriodApiImageAssessmentHistory`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesApiImageAssessmentHistory`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesApiImageAssessmentHistory`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -213,9 +210,9 @@ pub async fn aggregate_image_assessment_history(
 pub async fn aggregate_image_count(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::ImagesPeriodApiImageCount, Error<AggregateImageCountError>> {
+) -> Result<models::ImagesApiImageCount, Error<AggregateImageCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/images/count/v1",
@@ -223,7 +220,7 @@ pub async fn aggregate_image_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -248,8 +245,8 @@ pub async fn aggregate_image_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesPeriodApiImageCount`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesPeriodApiImageCount`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesApiImageCount`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesApiImageCount`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -265,9 +262,9 @@ pub async fn aggregate_image_count(
 pub async fn aggregate_image_count_by_base_os(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::ImagesPeriodApiImageCountByBaseOs, Error<AggregateImageCountByBaseOsError>> {
+) -> Result<models::ImagesApiImageCountByBaseOs, Error<AggregateImageCountByBaseOsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/images/count-by-os-distribution/v1",
@@ -275,7 +272,7 @@ pub async fn aggregate_image_count_by_base_os(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -300,8 +297,8 @@ pub async fn aggregate_image_count_by_base_os(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesPeriodApiImageCountByBaseOs`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesPeriodApiImageCountByBaseOs`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesApiImageCountByBaseOs`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesApiImageCountByBaseOs`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -317,9 +314,9 @@ pub async fn aggregate_image_count_by_base_os(
 pub async fn aggregate_image_count_by_state(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::ImagesPeriodApiImageCountByState, Error<AggregateImageCountByStateError>> {
+) -> Result<models::ImagesApiImageCountByState, Error<AggregateImageCountByStateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/aggregates/images/count-by-state/v1",
@@ -327,7 +324,7 @@ pub async fn aggregate_image_count_by_state(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -352,8 +349,8 @@ pub async fn aggregate_image_count_by_state(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesPeriodApiImageCountByState`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesPeriodApiImageCountByState`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesApiImageCountByState`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesApiImageCountByState`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -369,9 +366,9 @@ pub async fn aggregate_image_count_by_state(
 pub async fn combined_base_images(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::CorePeriodEntitiesResponse, Error<CombinedBaseImagesError>> {
+) -> Result<models::CoreEntitiesResponse, Error<CombinedBaseImagesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-security/combined/base-images/v1",
@@ -379,7 +376,7 @@ pub async fn combined_base_images(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -404,8 +401,8 @@ pub async fn combined_base_images(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CorePeriodEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CorePeriodEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CoreEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CoreEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -423,14 +420,12 @@ pub async fn combined_image_by_vulnerability_count(
     filter: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<
-    models::ImagesPeriodApiImageByVulnerabilityCount,
-    Error<CombinedImageByVulnerabilityCountError>,
-> {
+) -> Result<models::ImagesApiImageByVulnerabilityCount, Error<CombinedImageByVulnerabilityCountError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/images/by-vulnerability-count/v1",
@@ -438,13 +433,13 @@ pub async fn combined_image_by_vulnerability_count(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -469,8 +464,8 @@ pub async fn combined_image_by_vulnerability_count(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesPeriodApiImageByVulnerabilityCount`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesPeriodApiImageByVulnerabilityCount`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesApiImageByVulnerabilityCount`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesApiImageByVulnerabilityCount`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -491,13 +486,13 @@ pub async fn combined_image_detail(
     sort: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::ImagesPeriodApiCustomerAndImage, Error<CombinedImageDetailError>> {
+) -> Result<models::ImagesApiCustomerAndImage, Error<CombinedImageDetailError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_with_config = with_config;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_with_config = with_config;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/images/detail/v1",
@@ -505,19 +500,19 @@ pub async fn combined_image_detail(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_with_config {
+    if let Some(ref param_value) = p_query_with_config {
         req_builder = req_builder.query(&[("with_config", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -542,8 +537,8 @@ pub async fn combined_image_detail(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesPeriodApiCustomerAndImage`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesPeriodApiCustomerAndImage`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesApiCustomerAndImage`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesApiCustomerAndImage`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -564,14 +559,14 @@ pub async fn combined_image_issues_summary(
     tag: &str,
     image_digest: Option<&str>,
     include_base_image_vuln: Option<bool>,
-) -> Result<models::ImagesPeriodApiImageIssuesSummary, Error<CombinedImageIssuesSummaryError>> {
+) -> Result<models::ImagesApiImageIssuesSummary, Error<CombinedImageIssuesSummaryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_cid = cid;
-    let p_registry = registry;
-    let p_repository = repository;
-    let p_tag = tag;
-    let p_image_digest = image_digest;
-    let p_include_base_image_vuln = include_base_image_vuln;
+    let p_query_cid = cid;
+    let p_query_registry = registry;
+    let p_query_repository = repository;
+    let p_query_tag = tag;
+    let p_query_image_digest = image_digest;
+    let p_query_include_base_image_vuln = include_base_image_vuln;
 
     let uri_str = format!(
         "{}/container-security/combined/images/issues-summary/v1",
@@ -579,14 +574,14 @@ pub async fn combined_image_issues_summary(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("cid", &p_cid.to_string())]);
-    req_builder = req_builder.query(&[("registry", &p_registry.to_string())]);
-    req_builder = req_builder.query(&[("repository", &p_repository.to_string())]);
-    req_builder = req_builder.query(&[("tag", &p_tag.to_string())]);
-    if let Some(ref param_value) = p_image_digest {
+    req_builder = req_builder.query(&[("cid", &p_query_cid.to_string())]);
+    req_builder = req_builder.query(&[("registry", &p_query_registry.to_string())]);
+    req_builder = req_builder.query(&[("repository", &p_query_repository.to_string())]);
+    req_builder = req_builder.query(&[("tag", &p_query_tag.to_string())]);
+    if let Some(ref param_value) = p_query_image_digest {
         req_builder = req_builder.query(&[("image_digest", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_base_image_vuln {
+    if let Some(ref param_value) = p_query_include_base_image_vuln {
         req_builder = req_builder.query(&[("include_base_image_vuln", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -611,8 +606,8 @@ pub async fn combined_image_issues_summary(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesPeriodApiImageIssuesSummary`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesPeriodApiImageIssuesSummary`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesApiImageIssuesSummary`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesApiImageIssuesSummary`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -634,16 +629,16 @@ pub async fn combined_image_vulnerability_summary(
     image_digest: Option<&str>,
     include_base_image_vuln: Option<bool>,
 ) -> Result<
-    models::ImagesPeriodApiImageVulnerabilitiesSummary,
+    models::ImagesApiImageVulnerabilitiesSummary,
     Error<CombinedImageVulnerabilitySummaryError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_cid = cid;
-    let p_registry = registry;
-    let p_repository = repository;
-    let p_tag = tag;
-    let p_image_digest = image_digest;
-    let p_include_base_image_vuln = include_base_image_vuln;
+    let p_query_cid = cid;
+    let p_query_registry = registry;
+    let p_query_repository = repository;
+    let p_query_tag = tag;
+    let p_query_image_digest = image_digest;
+    let p_query_include_base_image_vuln = include_base_image_vuln;
 
     let uri_str = format!(
         "{}/container-security/combined/images/vulnerabilities-summary/v1",
@@ -651,14 +646,14 @@ pub async fn combined_image_vulnerability_summary(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("cid", &p_cid.to_string())]);
-    req_builder = req_builder.query(&[("registry", &p_registry.to_string())]);
-    req_builder = req_builder.query(&[("repository", &p_repository.to_string())]);
-    req_builder = req_builder.query(&[("tag", &p_tag.to_string())]);
-    if let Some(ref param_value) = p_image_digest {
+    req_builder = req_builder.query(&[("cid", &p_query_cid.to_string())]);
+    req_builder = req_builder.query(&[("registry", &p_query_registry.to_string())]);
+    req_builder = req_builder.query(&[("repository", &p_query_repository.to_string())]);
+    req_builder = req_builder.query(&[("tag", &p_query_tag.to_string())]);
+    if let Some(ref param_value) = p_query_image_digest {
         req_builder = req_builder.query(&[("image_digest", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_base_image_vuln {
+    if let Some(ref param_value) = p_query_include_base_image_vuln {
         req_builder = req_builder.query(&[("include_base_image_vuln", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -683,8 +678,8 @@ pub async fn combined_image_vulnerability_summary(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesPeriodApiImageVulnerabilitiesSummary`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesPeriodApiImageVulnerabilitiesSummary`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesApiImageVulnerabilitiesSummary`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesApiImageVulnerabilitiesSummary`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -700,10 +695,10 @@ pub async fn combined_image_vulnerability_summary(
 
 pub async fn create_base_images_entities(
     configuration: &configuration::Configuration,
-    body: models::ModelsPeriodCreateBaseImagesRequest,
-) -> Result<models::CorePeriodEntitiesResponse, Error<CreateBaseImagesEntitiesError>> {
+    body: models::ModelsCreateBaseImagesRequest,
+) -> Result<models::CoreEntitiesResponse, Error<CreateBaseImagesEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/container-security/entities/base-images/v1",
@@ -719,7 +714,7 @@ pub async fn create_base_images_entities(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -736,8 +731,8 @@ pub async fn create_base_images_entities(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CorePeriodEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CorePeriodEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CoreEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CoreEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -753,9 +748,9 @@ pub async fn create_base_images_entities(
 pub async fn delete_base_images(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::CorePeriodEntitiesResponse, Error<DeleteBaseImagesError>> {
+) -> Result<models::CoreEntitiesResponse, Error<DeleteBaseImagesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/container-security/entities/base-images/v1",
@@ -767,14 +762,14 @@ pub async fn delete_base_images(
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -804,8 +799,8 @@ pub async fn delete_base_images(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CorePeriodEntitiesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CorePeriodEntitiesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CoreEntitiesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CoreEntitiesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -824,12 +819,12 @@ pub async fn get_combined_images(
     sort: Option<&str>,
     limit: Option<i32>,
     offset: Option<i32>,
-) -> Result<models::ImagesPeriodExtCombinedImagesResponse, Error<GetCombinedImagesError>> {
+) -> Result<models::ImagesExtCombinedImagesResponse, Error<GetCombinedImagesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_sort = sort;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_filter = filter;
+    let p_query_sort = sort;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/container-security/combined/image-assessment/images/v1",
@@ -837,16 +832,16 @@ pub async fn get_combined_images(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -871,8 +866,8 @@ pub async fn get_combined_images(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesPeriodExtCombinedImagesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesPeriodExtCombinedImagesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesExtCombinedImagesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesExtCombinedImagesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -893,14 +888,14 @@ pub async fn read_combined_images_export(
     limit: Option<i32>,
     offset: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::ImagesPeriodApiCombinedImageExport, Error<ReadCombinedImagesExportError>> {
+) -> Result<models::ImagesApiCombinedImageExport, Error<ReadCombinedImagesExportError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_expand_vulnerabilities = expand_vulnerabilities;
-    let p_expand_detections = expand_detections;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_expand_vulnerabilities = expand_vulnerabilities;
+    let p_query_expand_detections = expand_detections;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/container-security/combined/images/export/v1",
@@ -908,22 +903,22 @@ pub async fn read_combined_images_export(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_expand_vulnerabilities {
+    if let Some(ref param_value) = p_query_expand_vulnerabilities {
         req_builder = req_builder.query(&[("expand_vulnerabilities", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_expand_detections {
+    if let Some(ref param_value) = p_query_expand_detections {
         req_builder = req_builder.query(&[("expand_detections", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -948,8 +943,8 @@ pub async fn read_combined_images_export(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesPeriodApiCombinedImageExport`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesPeriodApiCombinedImageExport`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ImagesApiCombinedImageExport`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ImagesApiCombinedImageExport`")))),
         }
     } else {
         let content = resp.text().await?;

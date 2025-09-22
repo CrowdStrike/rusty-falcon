@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteReportError {
-    Status400(models::FalconxPeriodErrorsOnly),
-    Status403(models::FalconxPeriodErrorsOnly),
-    Status404(models::FalconxPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::FalconxPeriodErrorsOnly),
+    Status400(models::FalconxErrorsOnly),
+    Status403(models::FalconxErrorsOnly),
+    Status404(models::FalconxErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::FalconxErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,11 +29,11 @@ pub enum DeleteReportError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteSampleV2Error {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodQueryResponse),
-    Status404(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaQueryResponse),
+    Status404(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,11 +41,11 @@ pub enum DeleteSampleV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetArtifactsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -53,11 +53,11 @@ pub enum GetArtifactsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMemoryDumpError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -65,11 +65,11 @@ pub enum GetMemoryDumpError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMemoryDumpExtractedStringsError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -77,11 +77,11 @@ pub enum GetMemoryDumpExtractedStringsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetMemoryDumpHexDumpError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -89,10 +89,10 @@ pub enum GetMemoryDumpHexDumpError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetReportsError {
-    Status400(models::FalconxPeriodReportV1Response),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::FalconxPeriodReportV1Response),
+    Status400(models::FalconxReportV1Response),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::FalconxReportV1Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -100,11 +100,11 @@ pub enum GetReportsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSampleV2Error {
-    Status400(models::MsaPeriodReplyMetaOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -112,10 +112,10 @@ pub enum GetSampleV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSubmissionsError {
-    Status400(models::FalconxPeriodSubmissionV1Response),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::FalconxPeriodSubmissionV1Response),
+    Status400(models::FalconxSubmissionV1Response),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::FalconxSubmissionV1Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -123,10 +123,10 @@ pub enum GetSubmissionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSummaryReportsError {
-    Status400(models::FalconxPeriodSummaryReportV1Response),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::FalconxPeriodSummaryReportV1Response),
+    Status400(models::FalconxSummaryReportV1Response),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::FalconxSummaryReportV1Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -134,10 +134,10 @@ pub enum GetSummaryReportsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryReportsError {
-    Status400(models::MsaspecPeriodQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodQueryResponse),
+    Status400(models::MsaspecQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -145,10 +145,10 @@ pub enum QueryReportsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QuerySampleV1Error {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -156,10 +156,10 @@ pub enum QuerySampleV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QuerySubmissionsError {
-    Status400(models::MsaspecPeriodQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodQueryResponse),
+    Status400(models::MsaspecQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -167,10 +167,10 @@ pub enum QuerySubmissionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SubmitError {
-    Status400(models::FalconxPeriodSubmissionV1Response),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::FalconxPeriodSubmissionV1Response),
-    Status500(models::FalconxPeriodSubmissionV1Response),
+    Status400(models::FalconxSubmissionV1Response),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::FalconxSubmissionV1Response),
+    Status500(models::FalconxSubmissionV1Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -178,26 +178,26 @@ pub enum SubmitError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UploadSampleV2Error {
-    Status400(models::ClientPeriodSampleMetadataResponseV2),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ClientPeriodSampleMetadataResponseV2),
+    Status400(models::ClientSampleMetadataResponseV2),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ClientSampleMetadataResponseV2),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn delete_report(
     configuration: &configuration::Configuration,
     ids: &str,
-) -> Result<models::FalconxPeriodQueryResponse, Error<DeleteReportError>> {
+) -> Result<models::FalconxQueryResponse, Error<DeleteReportError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/falconx/entities/reports/v1", configuration.base_path);
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("ids", &p_ids.to_string())]);
+    req_builder = req_builder.query(&[("ids", &p_query_ids.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -220,8 +220,8 @@ pub async fn delete_report(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FalconxPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FalconxPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FalconxQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FalconxQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -237,16 +237,16 @@ pub async fn delete_report(
 pub async fn delete_sample_v2(
     configuration: &configuration::Configuration,
     ids: &str,
-) -> Result<models::MsaPeriodQueryResponse, Error<DeleteSampleV2Error>> {
+) -> Result<models::MsaQueryResponse, Error<DeleteSampleV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/samples/entities/samples/v2", configuration.base_path);
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("ids", &p_ids.to_string())]);
+    req_builder = req_builder.query(&[("ids", &p_query_ids.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -269,8 +269,8 @@ pub async fn delete_sample_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -288,23 +288,23 @@ pub async fn get_artifacts(
     id: &str,
     name: Option<&str>,
     accept_encoding: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<GetArtifactsError>> {
+) -> Result<models::MsaspecQueryResponse, Error<GetArtifactsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_name = name;
-    let p_accept_encoding = accept_encoding;
+    let p_query_id = id;
+    let p_query_name = name;
+    let p_header_accept_encoding = accept_encoding;
 
     let uri_str = format!("{}/falconx/entities/artifacts/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    if let Some(ref param_value) = p_name {
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    if let Some(ref param_value) = p_query_name {
         req_builder = req_builder.query(&[("name", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(param_value) = p_accept_encoding {
+    if let Some(param_value) = p_header_accept_encoding {
         req_builder = req_builder.header("Accept-Encoding", param_value.to_string());
     }
     if let Some(ref token) = configuration.oauth_access_token {
@@ -326,8 +326,8 @@ pub async fn get_artifacts(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -345,11 +345,11 @@ pub async fn get_memory_dump(
     id: &str,
     name: Option<&str>,
     accept_encoding: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<GetMemoryDumpError>> {
+) -> Result<models::MsaspecQueryResponse, Error<GetMemoryDumpError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_name = name;
-    let p_accept_encoding = accept_encoding;
+    let p_query_id = id;
+    let p_query_name = name;
+    let p_header_accept_encoding = accept_encoding;
 
     let uri_str = format!(
         "{}/falconx/entities/memory-dump/v1",
@@ -357,14 +357,14 @@ pub async fn get_memory_dump(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    if let Some(ref param_value) = p_name {
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    if let Some(ref param_value) = p_query_name {
         req_builder = req_builder.query(&[("name", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(param_value) = p_accept_encoding {
+    if let Some(param_value) = p_header_accept_encoding {
         req_builder = req_builder.header("Accept-Encoding", param_value.to_string());
     }
     if let Some(ref token) = configuration.oauth_access_token {
@@ -386,8 +386,8 @@ pub async fn get_memory_dump(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -405,11 +405,11 @@ pub async fn get_memory_dump_extracted_strings(
     id: &str,
     name: Option<&str>,
     accept_encoding: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<GetMemoryDumpExtractedStringsError>> {
+) -> Result<models::MsaspecQueryResponse, Error<GetMemoryDumpExtractedStringsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_name = name;
-    let p_accept_encoding = accept_encoding;
+    let p_query_id = id;
+    let p_query_name = name;
+    let p_header_accept_encoding = accept_encoding;
 
     let uri_str = format!(
         "{}/falconx/entities/memory-dump/extracted-strings/v1",
@@ -417,14 +417,14 @@ pub async fn get_memory_dump_extracted_strings(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    if let Some(ref param_value) = p_name {
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    if let Some(ref param_value) = p_query_name {
         req_builder = req_builder.query(&[("name", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(param_value) = p_accept_encoding {
+    if let Some(param_value) = p_header_accept_encoding {
         req_builder = req_builder.header("Accept-Encoding", param_value.to_string());
     }
     if let Some(ref token) = configuration.oauth_access_token {
@@ -446,8 +446,8 @@ pub async fn get_memory_dump_extracted_strings(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -466,11 +466,11 @@ pub async fn get_memory_dump_hex_dump(
     id: &str,
     name: Option<&str>,
     accept_encoding: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<GetMemoryDumpHexDumpError>> {
+) -> Result<models::MsaspecQueryResponse, Error<GetMemoryDumpHexDumpError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_name = name;
-    let p_accept_encoding = accept_encoding;
+    let p_query_id = id;
+    let p_query_name = name;
+    let p_header_accept_encoding = accept_encoding;
 
     let uri_str = format!(
         "{}/falconx/entities/memory-dump/hex-dump/v1",
@@ -478,14 +478,14 @@ pub async fn get_memory_dump_hex_dump(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    if let Some(ref param_value) = p_name {
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    if let Some(ref param_value) = p_query_name {
         req_builder = req_builder.query(&[("name", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    if let Some(param_value) = p_accept_encoding {
+    if let Some(param_value) = p_header_accept_encoding {
         req_builder = req_builder.header("Accept-Encoding", param_value.to_string());
     }
     if let Some(ref token) = configuration.oauth_access_token {
@@ -507,8 +507,8 @@ pub async fn get_memory_dump_hex_dump(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -524,23 +524,23 @@ pub async fn get_memory_dump_hex_dump(
 pub async fn get_reports(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::FalconxPeriodReportV1Response, Error<GetReportsError>> {
+) -> Result<models::FalconxReportV1Response, Error<GetReportsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/falconx/entities/reports/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -570,8 +570,8 @@ pub async fn get_reports(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FalconxPeriodReportV1Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FalconxPeriodReportV1Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FalconxReportV1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FalconxReportV1Response`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -590,14 +590,14 @@ pub async fn get_sample_v2(
     password_protected: Option<bool>,
 ) -> Result<String, Error<GetSampleV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_password_protected = password_protected;
+    let p_query_ids = ids;
+    let p_query_password_protected = password_protected;
 
     let uri_str = format!("{}/samples/entities/samples/v2", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("ids", &p_ids.to_string())]);
-    if let Some(ref param_value) = p_password_protected {
+    req_builder = req_builder.query(&[("ids", &p_query_ids.to_string())]);
+    if let Some(ref param_value) = p_query_password_protected {
         req_builder = req_builder.query(&[("password_protected", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -639,9 +639,9 @@ pub async fn get_sample_v2(
 pub async fn get_submissions(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::FalconxPeriodSubmissionV1Response, Error<GetSubmissionsError>> {
+) -> Result<models::FalconxSubmissionV1Response, Error<GetSubmissionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/falconx/entities/submissions/v1",
@@ -651,14 +651,14 @@ pub async fn get_submissions(
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -688,8 +688,8 @@ pub async fn get_submissions(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FalconxPeriodSubmissionV1Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FalconxPeriodSubmissionV1Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FalconxSubmissionV1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FalconxSubmissionV1Response`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -705,9 +705,9 @@ pub async fn get_submissions(
 pub async fn get_summary_reports(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::FalconxPeriodSummaryReportV1Response, Error<GetSummaryReportsError>> {
+) -> Result<models::FalconxSummaryReportV1Response, Error<GetSummaryReportsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/falconx/entities/report-summaries/v1",
@@ -717,14 +717,14 @@ pub async fn get_summary_reports(
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -754,8 +754,8 @@ pub async fn get_summary_reports(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FalconxPeriodSummaryReportV1Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FalconxPeriodSummaryReportV1Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FalconxSummaryReportV1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FalconxSummaryReportV1Response`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -774,26 +774,26 @@ pub async fn query_reports(
     offset: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryReportsError>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueryReportsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!("{}/falconx/queries/reports/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -818,8 +818,8 @@ pub async fn query_reports(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -834,10 +834,10 @@ pub async fn query_reports(
 
 pub async fn query_sample_v1(
     configuration: &configuration::Configuration,
-    body: models::ClientPeriodQuerySamplesRequest,
-) -> Result<models::MsaPeriodQueryResponse, Error<QuerySampleV1Error>> {
+    body: models::ClientQuerySamplesRequest,
+) -> Result<models::MsaQueryResponse, Error<QuerySampleV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/samples/queries/samples/GET/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -850,7 +850,7 @@ pub async fn query_sample_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -867,8 +867,8 @@ pub async fn query_sample_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -887,26 +887,26 @@ pub async fn query_submissions(
     offset: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QuerySubmissionsError>> {
+) -> Result<models::MsaspecQueryResponse, Error<QuerySubmissionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!("{}/falconx/queries/submissions/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -931,8 +931,8 @@ pub async fn query_submissions(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -947,12 +947,12 @@ pub async fn query_submissions(
 
 pub async fn submit(
     configuration: &configuration::Configuration,
-    body: models::FalconxPeriodSubmissionParametersV1,
+    body: models::FalconxSubmissionParametersV1,
     aid: Option<&str>,
-) -> Result<models::FalconxPeriodSubmissionV1Response, Error<SubmitError>> {
+) -> Result<models::FalconxSubmissionV1Response, Error<SubmitError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
-    let p_aid = aid;
+    let p_body_body = body;
+    let p_query_aid = aid;
 
     let uri_str = format!(
         "{}/falconx/entities/submissions/v1",
@@ -962,7 +962,7 @@ pub async fn submit(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = p_aid {
+    if let Some(ref param_value) = p_query_aid {
         req_builder = req_builder.query(&[("aid", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -971,7 +971,7 @@ pub async fn submit(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -988,8 +988,8 @@ pub async fn submit(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FalconxPeriodSubmissionV1Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FalconxPeriodSubmissionV1Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FalconxSubmissionV1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FalconxSubmissionV1Response`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1008,12 +1008,12 @@ pub async fn upload_sample_v2(
     file_name: &str,
     comment: Option<&str>,
     is_confidential: Option<bool>,
-) -> Result<models::ClientPeriodSampleMetadataResponseV2, Error<UploadSampleV2Error>> {
+) -> Result<models::ClientSampleMetadataResponseV2, Error<UploadSampleV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let _p_sample = sample;
-    let p_file_name = file_name;
-    let p_comment = comment;
-    let p_is_confidential = is_confidential;
+    let _p_form_sample = sample;
+    let p_form_file_name = file_name;
+    let p_form_comment = comment;
+    let p_form_is_confidential = is_confidential;
 
     let uri_str = format!("{}/samples/entities/samples/v2", configuration.base_path);
     let mut req_builder = configuration
@@ -1028,11 +1028,11 @@ pub async fn upload_sample_v2(
     };
     let mut multipart_form = reqwest::multipart::Form::new();
     // TODO: support file upload for 'sample' parameter
-    multipart_form = multipart_form.text("file_name", p_file_name.to_string());
-    if let Some(param_value) = p_comment {
+    multipart_form = multipart_form.text("file_name", p_form_file_name.to_string());
+    if let Some(param_value) = p_form_comment {
         multipart_form = multipart_form.text("comment", param_value.to_string());
     }
-    if let Some(param_value) = p_is_confidential {
+    if let Some(param_value) = p_form_is_confidential {
         multipart_form = multipart_form.text("is_confidential", param_value.to_string());
     }
     req_builder = req_builder.multipart(multipart_form);
@@ -1052,8 +1052,8 @@ pub async fn upload_sample_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientPeriodSampleMetadataResponseV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientPeriodSampleMetadataResponseV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientSampleMetadataResponseV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientSampleMetadataResponseV2`")))),
         }
     } else {
         let content = resp.text().await?;

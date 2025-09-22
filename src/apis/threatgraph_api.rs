@@ -17,9 +17,9 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedEdgesGetError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,9 +27,9 @@ pub enum CombinedEdgesGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedRanOnGetError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,9 +37,9 @@ pub enum CombinedRanOnGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedSummaryGetError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -47,14 +47,14 @@ pub enum CombinedSummaryGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EntitiesVerticesGetError {
-    Status400(models::ThreatgraphPeriodVertexDetailsResponse),
-    Status401(models::ThreatgraphPeriodVertexDetailsResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ThreatgraphPeriodVertexDetailsResponse),
-    Status410(models::ThreatgraphPeriodVertexDetailsResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ThreatgraphPeriodVertexDetailsResponse),
-    Status502(models::ThreatgraphPeriodVertexDetailsResponse),
+    Status400(models::ThreatgraphVertexDetailsResponse),
+    Status401(models::ThreatgraphVertexDetailsResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ThreatgraphVertexDetailsResponse),
+    Status410(models::ThreatgraphVertexDetailsResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ThreatgraphVertexDetailsResponse),
+    Status502(models::ThreatgraphVertexDetailsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,14 +62,14 @@ pub enum EntitiesVerticesGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EntitiesVerticesGetv2Error {
-    Status400(models::ThreatgraphPeriodVertexDetailsResponse),
-    Status401(models::ThreatgraphPeriodVertexDetailsResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::ThreatgraphPeriodVertexDetailsResponse),
-    Status410(models::ThreatgraphPeriodVertexDetailsResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ThreatgraphPeriodVertexDetailsResponse),
-    Status502(models::ThreatgraphPeriodVertexDetailsResponse),
+    Status400(models::ThreatgraphVertexDetailsResponse),
+    Status401(models::ThreatgraphVertexDetailsResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::ThreatgraphVertexDetailsResponse),
+    Status410(models::ThreatgraphVertexDetailsResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ThreatgraphVertexDetailsResponse),
+    Status502(models::ThreatgraphVertexDetailsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -77,9 +77,9 @@ pub enum EntitiesVerticesGetv2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueriesEdgetypesGetError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -94,32 +94,32 @@ pub async fn combined_edges_get(
     nano: Option<bool>,
 ) -> Result<(), Error<CombinedEdgesGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_edge_type = edge_type;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_direction = direction;
-    let p_scope = scope;
-    let p_nano = nano;
+    let p_query_ids = ids;
+    let p_query_edge_type = edge_type;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_direction = direction;
+    let p_query_scope = scope;
+    let p_query_nano = nano;
 
     let uri_str = format!("{}/threatgraph/combined/edges/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("ids", &p_ids.to_string())]);
-    if let Some(ref param_value) = p_limit {
+    req_builder = req_builder.query(&[("ids", &p_query_ids.to_string())]);
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    req_builder = req_builder.query(&[("edge_type", &p_edge_type.to_string())]);
-    if let Some(ref param_value) = p_direction {
+    req_builder = req_builder.query(&[("edge_type", &p_query_edge_type.to_string())]);
+    if let Some(ref param_value) = p_query_direction {
         req_builder = req_builder.query(&[("direction", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_scope {
+    if let Some(ref param_value) = p_query_scope {
         req_builder = req_builder.query(&[("scope", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_nano {
+    if let Some(ref param_value) = p_query_nano {
         req_builder = req_builder.query(&[("nano", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -156,24 +156,24 @@ pub async fn combined_ran_on_get(
     nano: Option<bool>,
 ) -> Result<(), Error<CombinedRanOnGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_value = value;
-    let p_type = r#type;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_nano = nano;
+    let p_query_value = value;
+    let p_query_type = r#type;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_nano = nano;
 
     let uri_str = format!("{}/threatgraph/combined/ran-on/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("value", &p_value.to_string())]);
-    req_builder = req_builder.query(&[("type", &p_type.to_string())]);
-    if let Some(ref param_value) = p_limit {
+    req_builder = req_builder.query(&[("value", &p_query_value.to_string())]);
+    req_builder = req_builder.query(&[("type", &p_query_type.to_string())]);
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_nano {
+    if let Some(ref param_value) = p_query_nano {
         req_builder = req_builder.query(&[("nano", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -209,28 +209,28 @@ pub async fn combined_summary_get(
     nano: Option<bool>,
 ) -> Result<(), Error<CombinedSummaryGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_vertex_type = vertex_type;
-    let p_ids = ids;
-    let p_scope = scope;
-    let p_nano = nano;
+    let p_path_vertex_type = vertex_type;
+    let p_query_ids = ids;
+    let p_query_scope = scope;
+    let p_query_nano = nano;
 
     let uri_str = format!(
         "{}/threatgraph/combined/{vertex_type}/summary/v1",
         configuration.base_path,
-        vertex_type = crate::apis::urlencode(p_vertex_type)
+        vertex_type = crate::apis::urlencode(p_path_vertex_type)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -238,10 +238,10 @@ pub async fn combined_summary_get(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_scope {
+    if let Some(ref param_value) = p_query_scope {
         req_builder = req_builder.query(&[("scope", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_nano {
+    if let Some(ref param_value) = p_query_nano {
         req_builder = req_builder.query(&[("nano", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -275,30 +275,30 @@ pub async fn entities_vertices_get(
     ids: Vec<String>,
     scope: Option<&str>,
     nano: Option<bool>,
-) -> Result<models::ThreatgraphPeriodVertexDetailsResponse, Error<EntitiesVerticesGetError>> {
+) -> Result<models::ThreatgraphVertexDetailsResponse, Error<EntitiesVerticesGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_vertex_type = vertex_type;
-    let p_ids = ids;
-    let p_scope = scope;
-    let p_nano = nano;
+    let p_path_vertex_type = vertex_type;
+    let p_query_ids = ids;
+    let p_query_scope = scope;
+    let p_query_nano = nano;
 
     let uri_str = format!(
         "{}/threatgraph/entities/{vertex_type}/v1",
         configuration.base_path,
-        vertex_type = crate::apis::urlencode(p_vertex_type)
+        vertex_type = crate::apis::urlencode(p_path_vertex_type)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -306,10 +306,10 @@ pub async fn entities_vertices_get(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_scope {
+    if let Some(ref param_value) = p_query_scope {
         req_builder = req_builder.query(&[("scope", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_nano {
+    if let Some(ref param_value) = p_query_nano {
         req_builder = req_builder.query(&[("nano", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -334,8 +334,8 @@ pub async fn entities_vertices_get(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ThreatgraphPeriodVertexDetailsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ThreatgraphPeriodVertexDetailsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ThreatgraphVertexDetailsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ThreatgraphVertexDetailsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -354,30 +354,30 @@ pub async fn entities_vertices_getv2(
     ids: Vec<String>,
     scope: Option<&str>,
     nano: Option<bool>,
-) -> Result<models::ThreatgraphPeriodVertexDetailsResponse, Error<EntitiesVerticesGetv2Error>> {
+) -> Result<models::ThreatgraphVertexDetailsResponse, Error<EntitiesVerticesGetv2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_vertex_type = vertex_type;
-    let p_ids = ids;
-    let p_scope = scope;
-    let p_nano = nano;
+    let p_path_vertex_type = vertex_type;
+    let p_query_ids = ids;
+    let p_query_scope = scope;
+    let p_query_nano = nano;
 
     let uri_str = format!(
         "{}/threatgraph/entities/{vertex_type}/v2",
         configuration.base_path,
-        vertex_type = crate::apis::urlencode(p_vertex_type)
+        vertex_type = crate::apis::urlencode(p_path_vertex_type)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -385,10 +385,10 @@ pub async fn entities_vertices_getv2(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_scope {
+    if let Some(ref param_value) = p_query_scope {
         req_builder = req_builder.query(&[("scope", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_nano {
+    if let Some(ref param_value) = p_query_nano {
         req_builder = req_builder.query(&[("nano", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -413,8 +413,8 @@ pub async fn entities_vertices_getv2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ThreatgraphPeriodVertexDetailsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ThreatgraphPeriodVertexDetailsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ThreatgraphVertexDetailsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ThreatgraphVertexDetailsResponse`")))),
         }
     } else {
         let content = resp.text().await?;

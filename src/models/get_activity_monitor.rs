@@ -13,21 +13,21 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetActivityMonitor {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::Error36f230fe608a4df7b72079ce7de8899e>>,
+    pub errors: Option<Vec<models::ErrorGetActivityMonitor>>,
     #[serde(
         rename = "meta",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub meta: Option<Option<Box<models::MetaF5e4a53725304f1c8cd49a3b9f75eb04>>>,
+    pub meta: Option<Option<Box<models::MetaGetActivityMonitor>>>,
     #[serde(
         rename = "resources",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub resources: Option<Option<Vec<models::Activity25ce0a947219c464f8f073f3b9f191652>>>,
+    pub resources: Option<Option<Vec<models::Activity2GetActivityMonitor>>>,
 }
 
 impl GetActivityMonitor {

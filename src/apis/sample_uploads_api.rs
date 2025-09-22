@@ -18,9 +18,9 @@ use serde::de::Error as _;
 #[serde(untagged)]
 pub enum ArchiveDeleteV1Error {
     Status400(),
-    Status403(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
     Status404(),
-    Status429(models::MsaPeriodReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
     Status500(),
     UnknownValue(serde_json::Value),
 }
@@ -29,10 +29,10 @@ pub enum ArchiveDeleteV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ArchiveGetV1Error {
-    Status400(models::ClientPeriodArchiveCreateResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ClientPeriodArchiveCreateResponseV1),
+    Status400(models::ClientArchiveCreateResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ClientArchiveCreateResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,10 +40,10 @@ pub enum ArchiveGetV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ArchiveListV1Error {
-    Status400(models::ClientPeriodArchiveListFilesResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ClientPeriodArchiveListFilesResponseV1),
+    Status400(models::ClientArchiveListFilesResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ClientArchiveListFilesResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,10 +51,10 @@ pub enum ArchiveListV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ArchiveUploadV1Error {
-    Status400(models::ClientPeriodArchiveCreateResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ClientPeriodArchiveCreateResponseV1),
+    Status400(models::ClientArchiveCreateResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ClientArchiveCreateResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,10 +62,10 @@ pub enum ArchiveUploadV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ArchiveUploadV2Error {
-    Status400(models::ClientPeriodArchiveCreateResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ClientPeriodArchiveCreateResponseV1),
+    Status400(models::ClientArchiveCreateResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ClientArchiveCreateResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -73,11 +73,11 @@ pub enum ArchiveUploadV2Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteSampleV3Error {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodQueryResponse),
-    Status404(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaQueryResponse),
+    Status404(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -85,10 +85,10 @@ pub enum DeleteSampleV3Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtractionCreateV1Error {
-    Status400(models::ClientPeriodExtractionCreateResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ClientPeriodExtractionCreateResponseV1),
+    Status400(models::ClientExtractionCreateResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ClientExtractionCreateResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -96,10 +96,10 @@ pub enum ExtractionCreateV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtractionGetV1Error {
-    Status400(models::ClientPeriodExtractionCreateResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ClientPeriodExtractionCreateResponseV1),
+    Status400(models::ClientExtractionCreateResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ClientExtractionCreateResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -107,10 +107,10 @@ pub enum ExtractionGetV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtractionListV1Error {
-    Status400(models::ClientPeriodExtractionListFilesResponseV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ClientPeriodExtractionListFilesResponseV1),
+    Status400(models::ClientExtractionListFilesResponseV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ClientExtractionListFilesResponseV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -118,11 +118,11 @@ pub enum ExtractionListV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSampleV3Error {
-    Status400(models::MsaPeriodReplyMetaOnly),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status400(models::MsaReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -130,10 +130,10 @@ pub enum GetSampleV3Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UploadSampleV3Error {
-    Status400(models::ClientPeriodSampleMetadataResponseV2),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ClientPeriodSampleMetadataResponseV2),
+    Status400(models::ClientSampleMetadataResponseV2),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ClientSampleMetadataResponseV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -142,14 +142,14 @@ pub async fn archive_delete_v1(
     id: &str,
 ) -> Result<(), Error<ArchiveDeleteV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_query_id = id;
 
     let uri_str = format!("{}/archives/entities/archives/v1", configuration.base_path);
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -179,16 +179,16 @@ pub async fn archive_get_v1(
     configuration: &configuration::Configuration,
     id: &str,
     include_files: Option<bool>,
-) -> Result<models::ClientPeriodArchiveCreateResponseV1, Error<ArchiveGetV1Error>> {
+) -> Result<models::ClientArchiveCreateResponseV1, Error<ArchiveGetV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_include_files = include_files;
+    let p_query_id = id;
+    let p_query_include_files = include_files;
 
     let uri_str = format!("{}/archives/entities/archives/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    if let Some(ref param_value) = p_include_files {
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    if let Some(ref param_value) = p_query_include_files {
         req_builder = req_builder.query(&[("include_files", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -213,8 +213,8 @@ pub async fn archive_get_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientPeriodArchiveCreateResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientPeriodArchiveCreateResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientArchiveCreateResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientArchiveCreateResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -232,11 +232,11 @@ pub async fn archive_list_v1(
     id: &str,
     limit: Option<i32>,
     offset: Option<&str>,
-) -> Result<models::ClientPeriodArchiveListFilesResponseV1, Error<ArchiveListV1Error>> {
+) -> Result<models::ClientArchiveListFilesResponseV1, Error<ArchiveListV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_id = id;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/archives/entities/archive-files/v1",
@@ -244,11 +244,11 @@ pub async fn archive_list_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    if let Some(ref param_value) = p_limit {
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -273,8 +273,8 @@ pub async fn archive_list_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientPeriodArchiveListFilesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientPeriodArchiveListFilesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientArchiveListFilesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientArchiveListFilesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -294,27 +294,27 @@ pub async fn archive_upload_v1(
     password: Option<&str>,
     is_confidential: Option<bool>,
     comment: Option<&str>,
-) -> Result<models::ClientPeriodArchiveCreateResponseV1, Error<ArchiveUploadV1Error>> {
+) -> Result<models::ClientArchiveCreateResponseV1, Error<ArchiveUploadV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_name = name;
-    let p_body = body;
-    let p_password = password;
-    let p_is_confidential = is_confidential;
-    let p_comment = comment;
+    let p_query_name = name;
+    let p_body_body = body;
+    let p_query_password = password;
+    let p_query_is_confidential = is_confidential;
+    let p_query_comment = comment;
 
     let uri_str = format!("{}/archives/entities/archives/v1", configuration.base_path);
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("name", &p_name.to_string())]);
-    if let Some(ref param_value) = p_password {
+    req_builder = req_builder.query(&[("name", &p_query_name.to_string())]);
+    if let Some(ref param_value) = p_query_password {
         req_builder = req_builder.query(&[("password", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_is_confidential {
+    if let Some(ref param_value) = p_query_is_confidential {
         req_builder = req_builder.query(&[("is_confidential", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_comment {
+    if let Some(ref param_value) = p_query_comment {
         req_builder = req_builder.query(&[("comment", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -323,7 +323,7 @@ pub async fn archive_upload_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -340,8 +340,8 @@ pub async fn archive_upload_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientPeriodArchiveCreateResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientPeriodArchiveCreateResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientArchiveCreateResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientArchiveCreateResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -361,13 +361,13 @@ pub async fn archive_upload_v2(
     password: Option<&str>,
     is_confidential: Option<bool>,
     comment: Option<&str>,
-) -> Result<models::ClientPeriodArchiveCreateResponseV1, Error<ArchiveUploadV2Error>> {
+) -> Result<models::ClientArchiveCreateResponseV1, Error<ArchiveUploadV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let _p_file = file;
-    let p_name = name;
-    let p_password = password;
-    let p_is_confidential = is_confidential;
-    let p_comment = comment;
+    let _p_form_file = file;
+    let p_form_name = name;
+    let p_form_password = password;
+    let p_form_is_confidential = is_confidential;
+    let p_form_comment = comment;
 
     let uri_str = format!("{}/archives/entities/archives/v2", configuration.base_path);
     let mut req_builder = configuration
@@ -382,14 +382,14 @@ pub async fn archive_upload_v2(
     };
     let mut multipart_form = reqwest::multipart::Form::new();
     // TODO: support file upload for 'file' parameter
-    if let Some(param_value) = p_password {
+    if let Some(param_value) = p_form_password {
         multipart_form = multipart_form.text("password", param_value.to_string());
     }
-    multipart_form = multipart_form.text("name", p_name.to_string());
-    if let Some(param_value) = p_is_confidential {
+    multipart_form = multipart_form.text("name", p_form_name.to_string());
+    if let Some(param_value) = p_form_is_confidential {
         multipart_form = multipart_form.text("is_confidential", param_value.to_string());
     }
-    if let Some(param_value) = p_comment {
+    if let Some(param_value) = p_form_comment {
         multipart_form = multipart_form.text("comment", param_value.to_string());
     }
     req_builder = req_builder.multipart(multipart_form);
@@ -409,8 +409,8 @@ pub async fn archive_upload_v2(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientPeriodArchiveCreateResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientPeriodArchiveCreateResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientArchiveCreateResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientArchiveCreateResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -426,16 +426,16 @@ pub async fn archive_upload_v2(
 pub async fn delete_sample_v3(
     configuration: &configuration::Configuration,
     ids: &str,
-) -> Result<models::MsaPeriodQueryResponse, Error<DeleteSampleV3Error>> {
+) -> Result<models::MsaQueryResponse, Error<DeleteSampleV3Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/samples/entities/samples/v3", configuration.base_path);
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("ids", &p_ids.to_string())]);
+    req_builder = req_builder.query(&[("ids", &p_query_ids.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -458,8 +458,8 @@ pub async fn delete_sample_v3(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -474,10 +474,10 @@ pub async fn delete_sample_v3(
 
 pub async fn extraction_create_v1(
     configuration: &configuration::Configuration,
-    body: models::ClientPeriodExtractionCreateRequestV1,
-) -> Result<models::ClientPeriodExtractionCreateResponseV1, Error<ExtractionCreateV1Error>> {
+    body: models::ClientExtractionCreateRequestV1,
+) -> Result<models::ClientExtractionCreateResponseV1, Error<ExtractionCreateV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/archives/entities/extractions/v1",
@@ -493,7 +493,7 @@ pub async fn extraction_create_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -510,8 +510,8 @@ pub async fn extraction_create_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientPeriodExtractionCreateResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientPeriodExtractionCreateResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientExtractionCreateResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientExtractionCreateResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -528,10 +528,10 @@ pub async fn extraction_get_v1(
     configuration: &configuration::Configuration,
     id: &str,
     include_files: Option<bool>,
-) -> Result<models::ClientPeriodExtractionCreateResponseV1, Error<ExtractionGetV1Error>> {
+) -> Result<models::ClientExtractionCreateResponseV1, Error<ExtractionGetV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_include_files = include_files;
+    let p_query_id = id;
+    let p_query_include_files = include_files;
 
     let uri_str = format!(
         "{}/archives/entities/extractions/v1",
@@ -539,8 +539,8 @@ pub async fn extraction_get_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    if let Some(ref param_value) = p_include_files {
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    if let Some(ref param_value) = p_query_include_files {
         req_builder = req_builder.query(&[("include_files", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -565,8 +565,8 @@ pub async fn extraction_get_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientPeriodExtractionCreateResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientPeriodExtractionCreateResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientExtractionCreateResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientExtractionCreateResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -584,11 +584,11 @@ pub async fn extraction_list_v1(
     id: &str,
     limit: Option<i32>,
     offset: Option<&str>,
-) -> Result<models::ClientPeriodExtractionListFilesResponseV1, Error<ExtractionListV1Error>> {
+) -> Result<models::ClientExtractionListFilesResponseV1, Error<ExtractionListV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_id = id;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!(
         "{}/archives/entities/extraction-files/v1",
@@ -596,11 +596,11 @@ pub async fn extraction_list_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    if let Some(ref param_value) = p_limit {
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -625,8 +625,8 @@ pub async fn extraction_list_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientPeriodExtractionListFilesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientPeriodExtractionListFilesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientExtractionListFilesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientExtractionListFilesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -645,14 +645,14 @@ pub async fn get_sample_v3(
     password_protected: Option<bool>,
 ) -> Result<String, Error<GetSampleV3Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_password_protected = password_protected;
+    let p_query_ids = ids;
+    let p_query_password_protected = password_protected;
 
     let uri_str = format!("{}/samples/entities/samples/v3", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("ids", &p_ids.to_string())]);
-    if let Some(ref param_value) = p_password_protected {
+    req_builder = req_builder.query(&[("ids", &p_query_ids.to_string())]);
+    if let Some(ref param_value) = p_query_password_protected {
         req_builder = req_builder.query(&[("password_protected", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -697,12 +697,12 @@ pub async fn upload_sample_v3(
     file_name: &str,
     comment: Option<&str>,
     is_confidential: Option<bool>,
-) -> Result<models::ClientPeriodSampleMetadataResponseV2, Error<UploadSampleV3Error>> {
+) -> Result<models::ClientSampleMetadataResponseV2, Error<UploadSampleV3Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let _p_sample = sample;
-    let p_file_name = file_name;
-    let p_comment = comment;
-    let p_is_confidential = is_confidential;
+    let _p_form_sample = sample;
+    let p_form_file_name = file_name;
+    let p_form_comment = comment;
+    let p_form_is_confidential = is_confidential;
 
     let uri_str = format!("{}/samples/entities/samples/v3", configuration.base_path);
     let mut req_builder = configuration
@@ -717,11 +717,11 @@ pub async fn upload_sample_v3(
     };
     let mut multipart_form = reqwest::multipart::Form::new();
     // TODO: support file upload for 'sample' parameter
-    multipart_form = multipart_form.text("file_name", p_file_name.to_string());
-    if let Some(param_value) = p_comment {
+    multipart_form = multipart_form.text("file_name", p_form_file_name.to_string());
+    if let Some(param_value) = p_form_comment {
         multipart_form = multipart_form.text("comment", param_value.to_string());
     }
-    if let Some(param_value) = p_is_confidential {
+    if let Some(param_value) = p_form_is_confidential {
         multipart_form = multipart_form.text("is_confidential", param_value.to_string());
     }
     req_builder = req_builder.multipart(multipart_form);
@@ -741,8 +741,8 @@ pub async fn upload_sample_v3(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientPeriodSampleMetadataResponseV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientPeriodSampleMetadataResponseV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ClientSampleMetadataResponseV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ClientSampleMetadataResponseV2`")))),
         }
     } else {
         let content = resp.text().await?;

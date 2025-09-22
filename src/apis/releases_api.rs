@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombinedReleasesV1Mixin0Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -33,14 +33,14 @@ pub async fn combined_releases_v1_mixin0(
     limit: Option<i32>,
     offset: Option<&str>,
     sort: Option<&str>,
-) -> Result<models::ReleasesPeriodReleaseWrapper, Error<CombinedReleasesV1Mixin0Error>> {
+) -> Result<models::ReleasesReleaseWrapper, Error<CombinedReleasesV1Mixin0Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_authorization = authorization;
-    let p_x_cs_username = x_cs_username;
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_sort = sort;
+    let p_header_authorization = authorization;
+    let p_header_x_cs_username = x_cs_username;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/deployment-coordinator/combined/releases/v1",
@@ -48,23 +48,23 @@ pub async fn combined_releases_v1_mixin0(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    req_builder = req_builder.header("Authorization", p_authorization.to_string());
-    if let Some(param_value) = p_x_cs_username {
+    req_builder = req_builder.header("Authorization", p_header_authorization.to_string());
+    if let Some(param_value) = p_header_x_cs_username {
         req_builder = req_builder.header("X-CS-USERNAME", param_value.to_string());
     }
     if let Some(ref token) = configuration.oauth_access_token {
@@ -86,8 +86,8 @@ pub async fn combined_releases_v1_mixin0(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ReleasesPeriodReleaseWrapper`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ReleasesPeriodReleaseWrapper`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ReleasesReleaseWrapper`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ReleasesReleaseWrapper`")))),
         }
     } else {
         let content = resp.text().await?;

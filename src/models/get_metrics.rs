@@ -13,22 +13,21 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetMetrics {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::Error94f9ac51c55f4fec89a57051edbed431>>,
+    pub errors: Option<Vec<models::ErrorGetMetrics>>,
     #[serde(
         rename = "meta",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub meta: Option<Option<Box<models::Meta09bb6b286221441896cffbaaff395ace>>>,
+    pub meta: Option<Option<Box<models::MetaGetMetrics>>>,
     #[serde(
         rename = "resources",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub resources:
-        Option<Option<Vec<models::SecurityCheckMetrics2c3c230216d249bf9ec93ca3f6fcf330>>>,
+    pub resources: Option<Option<Vec<models::SecurityCheckMetricsGetMetrics>>>,
 }
 
 impl GetMetrics {

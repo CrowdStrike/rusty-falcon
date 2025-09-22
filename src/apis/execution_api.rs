@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReadRequestBodyError {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -32,10 +32,10 @@ pub async fn read_request_body(
     sha256: &str,
 ) -> Result<serde_json::Value, Error<ReadRequestBodyError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_fn = r#fn;
-    let p_filename = filename;
-    let p_sha256 = sha256;
+    let p_query_id = id;
+    let p_query_fn = r#fn;
+    let p_query_filename = filename;
+    let p_query_sha256 = sha256;
 
     let uri_str = format!(
         "{}/faas-gateway/entities/execution-request-body/v2",
@@ -43,10 +43,10 @@ pub async fn read_request_body(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
-    req_builder = req_builder.query(&[("fn", &p_fn.to_string())]);
-    req_builder = req_builder.query(&[("filename", &p_filename.to_string())]);
-    req_builder = req_builder.query(&[("sha256", &p_sha256.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
+    req_builder = req_builder.query(&[("fn", &p_query_fn.to_string())]);
+    req_builder = req_builder.query(&[("filename", &p_query_filename.to_string())]);
+    req_builder = req_builder.query(&[("sha256", &p_query_sha256.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }

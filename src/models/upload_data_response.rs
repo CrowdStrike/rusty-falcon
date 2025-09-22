@@ -13,22 +13,21 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct UploadDataResponse {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::Error8f433289598c4d98a5d32c6ea35c24e3>>,
+    pub errors: Option<Vec<models::ErrorUploadDataResponse>>,
     #[serde(
         rename = "meta",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub meta: Option<Option<Box<models::MetaB98b7ccf337540689c29d661305f352d>>>,
+    pub meta: Option<Option<Box<models::MetaUploadDataResponse>>>,
     #[serde(
         rename = "resources",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub resources:
-        Option<Option<Vec<models::DataTransactionResponseDto85fe65bca8c74e8abd9744f1accd57e5>>>,
+    pub resources: Option<Option<Vec<models::DataTransactionResponseDtoUploadDataResponse>>>,
 }
 
 impl UploadDataResponse {

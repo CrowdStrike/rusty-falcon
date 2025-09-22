@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtAggregateClusterAssessmentsError {
-    Status400(models::DomainPeriodAggregateClusterAssessmentsResponse),
-    Status401(models::DomainPeriodAggregateClusterAssessmentsResponse),
-    Status403(models::DomainPeriodAggregateClusterAssessmentsResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodAggregateClusterAssessmentsResponse),
+    Status400(models::DomainAggregateClusterAssessmentsResponse),
+    Status401(models::DomainAggregateClusterAssessmentsResponse),
+    Status403(models::DomainAggregateClusterAssessmentsResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainAggregateClusterAssessmentsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,11 +29,11 @@ pub enum ExtAggregateClusterAssessmentsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtAggregateFailedContainersByRulesPathError {
-    Status400(models::DomainPeriodAggregateFailedAssetsByRulesResponse),
-    Status401(models::DomainPeriodAggregateFailedAssetsByRulesResponse),
-    Status403(models::DomainPeriodAggregateFailedAssetsByRulesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodAggregateFailedAssetsByRulesResponse),
+    Status400(models::DomainAggregateFailedAssetsByRulesResponse),
+    Status401(models::DomainAggregateFailedAssetsByRulesResponse),
+    Status403(models::DomainAggregateFailedAssetsByRulesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainAggregateFailedAssetsByRulesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,11 +41,11 @@ pub enum ExtAggregateFailedContainersByRulesPathError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtAggregateFailedContainersCountBySeverityError {
-    Status400(models::DomainPeriodAggregateFailedAssetCountBySeverityResponse),
-    Status401(models::DomainPeriodAggregateFailedAssetCountBySeverityResponse),
-    Status403(models::DomainPeriodAggregateFailedAssetCountBySeverityResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodAggregateFailedAssetCountBySeverityResponse),
+    Status400(models::DomainAggregateFailedAssetCountBySeverityResponse),
+    Status401(models::DomainAggregateFailedAssetCountBySeverityResponse),
+    Status403(models::DomainAggregateFailedAssetCountBySeverityResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainAggregateFailedAssetCountBySeverityResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -53,11 +53,11 @@ pub enum ExtAggregateFailedContainersCountBySeverityError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtAggregateFailedImagesByRulesPathError {
-    Status400(models::DomainPeriodAggregateFailedAssetsByRulesResponse),
-    Status401(models::DomainPeriodAggregateFailedAssetsByRulesResponse),
-    Status403(models::DomainPeriodAggregateFailedAssetsByRulesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodAggregateFailedAssetsByRulesResponse),
+    Status400(models::DomainAggregateFailedAssetsByRulesResponse),
+    Status401(models::DomainAggregateFailedAssetsByRulesResponse),
+    Status403(models::DomainAggregateFailedAssetsByRulesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainAggregateFailedAssetsByRulesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -65,11 +65,11 @@ pub enum ExtAggregateFailedImagesByRulesPathError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtAggregateFailedImagesCountBySeverityError {
-    Status400(models::DomainPeriodAggregateFailedAssetCountBySeverityResponse),
-    Status401(models::DomainPeriodAggregateFailedAssetCountBySeverityResponse),
-    Status403(models::DomainPeriodAggregateFailedAssetCountBySeverityResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodAggregateFailedAssetCountBySeverityResponse),
+    Status400(models::DomainAggregateFailedAssetCountBySeverityResponse),
+    Status401(models::DomainAggregateFailedAssetCountBySeverityResponse),
+    Status403(models::DomainAggregateFailedAssetCountBySeverityResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainAggregateFailedAssetCountBySeverityResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -77,11 +77,11 @@ pub enum ExtAggregateFailedImagesCountBySeverityError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtAggregateFailedRulesByClustersError {
-    Status400(models::DomainPeriodAggregateFailedRulesByClustersResponse),
-    Status401(models::DomainPeriodAggregateFailedRulesByClustersResponse),
-    Status403(models::DomainPeriodAggregateFailedRulesByClustersResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodAggregateFailedRulesByClustersResponse),
+    Status400(models::DomainAggregateFailedRulesByClustersResponse),
+    Status401(models::DomainAggregateFailedRulesByClustersResponse),
+    Status403(models::DomainAggregateFailedRulesByClustersResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainAggregateFailedRulesByClustersResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -89,11 +89,11 @@ pub enum ExtAggregateFailedRulesByClustersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtAggregateFailedRulesByImagesError {
-    Status400(models::DomainPeriodAggregateFailedRulesByImagesResponse),
-    Status401(models::DomainPeriodAggregateFailedRulesByImagesResponse),
-    Status403(models::DomainPeriodAggregateFailedRulesByImagesResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodAggregateFailedRulesByImagesResponse),
+    Status400(models::DomainAggregateFailedRulesByImagesResponse),
+    Status401(models::DomainAggregateFailedRulesByImagesResponse),
+    Status403(models::DomainAggregateFailedRulesByImagesResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainAggregateFailedRulesByImagesResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -101,11 +101,11 @@ pub enum ExtAggregateFailedRulesByImagesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtAggregateFailedRulesCountBySeverityError {
-    Status400(models::DomainPeriodAggregateFailedRulesCountBySeverityResponse),
-    Status401(models::DomainPeriodAggregateFailedRulesCountBySeverityResponse),
-    Status403(models::DomainPeriodAggregateFailedRulesCountBySeverityResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodAggregateFailedRulesCountBySeverityResponse),
+    Status400(models::DomainAggregateFailedRulesCountBySeverityResponse),
+    Status401(models::DomainAggregateFailedRulesCountBySeverityResponse),
+    Status403(models::DomainAggregateFailedRulesCountBySeverityResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainAggregateFailedRulesCountBySeverityResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -113,11 +113,11 @@ pub enum ExtAggregateFailedRulesCountBySeverityError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtAggregateImageAssessmentsError {
-    Status400(models::DomainPeriodAggregateImageAssessmentsResponse),
-    Status401(models::DomainPeriodAggregateImageAssessmentsResponse),
-    Status403(models::DomainPeriodAggregateImageAssessmentsResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodAggregateImageAssessmentsResponse),
+    Status400(models::DomainAggregateImageAssessmentsResponse),
+    Status401(models::DomainAggregateImageAssessmentsResponse),
+    Status403(models::DomainAggregateImageAssessmentsResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainAggregateImageAssessmentsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -125,11 +125,11 @@ pub enum ExtAggregateImageAssessmentsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtAggregateRulesAssessmentsError {
-    Status400(models::DomainPeriodAggregateRulesAssessmentsResponse),
-    Status401(models::DomainPeriodAggregateRulesAssessmentsResponse),
-    Status403(models::DomainPeriodAggregateRulesAssessmentsResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodAggregateRulesAssessmentsResponse),
+    Status400(models::DomainAggregateRulesAssessmentsResponse),
+    Status401(models::DomainAggregateRulesAssessmentsResponse),
+    Status403(models::DomainAggregateRulesAssessmentsResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainAggregateRulesAssessmentsResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -137,11 +137,11 @@ pub enum ExtAggregateRulesAssessmentsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExtAggregateRulesByStatusError {
-    Status400(models::DomainPeriodAggregateRulesByStatusResponse),
-    Status401(models::DomainPeriodAggregateRulesByStatusResponse),
-    Status403(models::DomainPeriodAggregateRulesByStatusResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodAggregateRulesByStatusResponse),
+    Status400(models::DomainAggregateRulesByStatusResponse),
+    Status401(models::DomainAggregateRulesByStatusResponse),
+    Status403(models::DomainAggregateRulesByStatusResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainAggregateRulesByStatusResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -149,11 +149,11 @@ pub async fn ext_aggregate_cluster_assessments(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
 ) -> Result<
-    models::DomainPeriodAggregateClusterAssessmentsResponse,
+    models::DomainAggregateClusterAssessmentsResponse,
     Error<ExtAggregateClusterAssessmentsError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-compliance/aggregates/compliance-by-clusters/v2",
@@ -161,7 +161,7 @@ pub async fn ext_aggregate_cluster_assessments(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -186,8 +186,8 @@ pub async fn ext_aggregate_cluster_assessments(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAggregateClusterAssessmentsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAggregateClusterAssessmentsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAggregateClusterAssessmentsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAggregateClusterAssessmentsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -205,11 +205,11 @@ pub async fn ext_aggregate_failed_containers_by_rules_path(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
 ) -> Result<
-    models::DomainPeriodAggregateFailedAssetsByRulesResponse,
+    models::DomainAggregateFailedAssetsByRulesResponse,
     Error<ExtAggregateFailedContainersByRulesPathError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-compliance/aggregates/failed-containers-by-rules/v2",
@@ -217,7 +217,7 @@ pub async fn ext_aggregate_failed_containers_by_rules_path(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -242,8 +242,8 @@ pub async fn ext_aggregate_failed_containers_by_rules_path(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAggregateFailedAssetsByRulesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAggregateFailedAssetsByRulesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAggregateFailedAssetsByRulesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAggregateFailedAssetsByRulesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -261,11 +261,11 @@ pub async fn ext_aggregate_failed_containers_count_by_severity(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
 ) -> Result<
-    models::DomainPeriodAggregateFailedAssetCountBySeverityResponse,
+    models::DomainAggregateFailedAssetCountBySeverityResponse,
     Error<ExtAggregateFailedContainersCountBySeverityError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-compliance/aggregates/failed-containers-count-by-severity/v2",
@@ -273,7 +273,7 @@ pub async fn ext_aggregate_failed_containers_count_by_severity(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -298,8 +298,8 @@ pub async fn ext_aggregate_failed_containers_count_by_severity(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAggregateFailedAssetCountBySeverityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAggregateFailedAssetCountBySeverityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAggregateFailedAssetCountBySeverityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAggregateFailedAssetCountBySeverityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -317,11 +317,11 @@ pub async fn ext_aggregate_failed_images_by_rules_path(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
 ) -> Result<
-    models::DomainPeriodAggregateFailedAssetsByRulesResponse,
+    models::DomainAggregateFailedAssetsByRulesResponse,
     Error<ExtAggregateFailedImagesByRulesPathError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-compliance/aggregates/failed-images-by-rules/v2",
@@ -329,7 +329,7 @@ pub async fn ext_aggregate_failed_images_by_rules_path(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -354,8 +354,8 @@ pub async fn ext_aggregate_failed_images_by_rules_path(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAggregateFailedAssetsByRulesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAggregateFailedAssetsByRulesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAggregateFailedAssetsByRulesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAggregateFailedAssetsByRulesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -373,11 +373,11 @@ pub async fn ext_aggregate_failed_images_count_by_severity(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
 ) -> Result<
-    models::DomainPeriodAggregateFailedAssetCountBySeverityResponse,
+    models::DomainAggregateFailedAssetCountBySeverityResponse,
     Error<ExtAggregateFailedImagesCountBySeverityError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-compliance/aggregates/failed-images-count-by-severity/v2",
@@ -385,7 +385,7 @@ pub async fn ext_aggregate_failed_images_count_by_severity(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -410,8 +410,8 @@ pub async fn ext_aggregate_failed_images_count_by_severity(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAggregateFailedAssetCountBySeverityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAggregateFailedAssetCountBySeverityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAggregateFailedAssetCountBySeverityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAggregateFailedAssetCountBySeverityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -429,11 +429,11 @@ pub async fn ext_aggregate_failed_rules_by_clusters(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
 ) -> Result<
-    models::DomainPeriodAggregateFailedRulesByClustersResponse,
+    models::DomainAggregateFailedRulesByClustersResponse,
     Error<ExtAggregateFailedRulesByClustersError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-compliance/aggregates/failed-rules-by-clusters/v2",
@@ -441,7 +441,7 @@ pub async fn ext_aggregate_failed_rules_by_clusters(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -466,8 +466,8 @@ pub async fn ext_aggregate_failed_rules_by_clusters(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAggregateFailedRulesByClustersResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAggregateFailedRulesByClustersResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAggregateFailedRulesByClustersResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAggregateFailedRulesByClustersResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -485,11 +485,11 @@ pub async fn ext_aggregate_failed_rules_by_images(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
 ) -> Result<
-    models::DomainPeriodAggregateFailedRulesByImagesResponse,
+    models::DomainAggregateFailedRulesByImagesResponse,
     Error<ExtAggregateFailedRulesByImagesError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-compliance/aggregates/failed-rules-by-images/v2",
@@ -497,7 +497,7 @@ pub async fn ext_aggregate_failed_rules_by_images(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -522,8 +522,8 @@ pub async fn ext_aggregate_failed_rules_by_images(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAggregateFailedRulesByImagesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAggregateFailedRulesByImagesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAggregateFailedRulesByImagesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAggregateFailedRulesByImagesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -541,11 +541,11 @@ pub async fn ext_aggregate_failed_rules_count_by_severity(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
 ) -> Result<
-    models::DomainPeriodAggregateFailedRulesCountBySeverityResponse,
+    models::DomainAggregateFailedRulesCountBySeverityResponse,
     Error<ExtAggregateFailedRulesCountBySeverityError>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-compliance/aggregates/failed-rules-count-by-severity/v2",
@@ -553,7 +553,7 @@ pub async fn ext_aggregate_failed_rules_count_by_severity(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -578,8 +578,8 @@ pub async fn ext_aggregate_failed_rules_count_by_severity(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAggregateFailedRulesCountBySeverityResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAggregateFailedRulesCountBySeverityResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAggregateFailedRulesCountBySeverityResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAggregateFailedRulesCountBySeverityResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -598,14 +598,12 @@ pub async fn ext_aggregate_image_assessments(
     filter: Option<&str>,
     after: Option<&str>,
     limit: Option<&str>,
-) -> Result<
-    models::DomainPeriodAggregateImageAssessmentsResponse,
-    Error<ExtAggregateImageAssessmentsError>,
-> {
+) -> Result<models::DomainAggregateImageAssessmentsResponse, Error<ExtAggregateImageAssessmentsError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_after = after;
-    let p_limit = limit;
+    let p_query_filter = filter;
+    let p_query_after = after;
+    let p_query_limit = limit;
 
     let uri_str = format!(
         "{}/container-compliance/aggregates/compliance-by-images/v2",
@@ -613,13 +611,13 @@ pub async fn ext_aggregate_image_assessments(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_after {
+    if let Some(ref param_value) = p_query_after {
         req_builder = req_builder.query(&[("after", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -644,8 +642,8 @@ pub async fn ext_aggregate_image_assessments(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAggregateImageAssessmentsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAggregateImageAssessmentsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAggregateImageAssessmentsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAggregateImageAssessmentsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -661,12 +659,10 @@ pub async fn ext_aggregate_image_assessments(
 pub async fn ext_aggregate_rules_assessments(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<
-    models::DomainPeriodAggregateRulesAssessmentsResponse,
-    Error<ExtAggregateRulesAssessmentsError>,
-> {
+) -> Result<models::DomainAggregateRulesAssessmentsResponse, Error<ExtAggregateRulesAssessmentsError>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-compliance/aggregates/compliance-by-rules/v2",
@@ -674,7 +670,7 @@ pub async fn ext_aggregate_rules_assessments(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -699,8 +695,8 @@ pub async fn ext_aggregate_rules_assessments(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAggregateRulesAssessmentsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAggregateRulesAssessmentsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAggregateRulesAssessmentsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAggregateRulesAssessmentsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -716,10 +712,9 @@ pub async fn ext_aggregate_rules_assessments(
 pub async fn ext_aggregate_rules_by_status(
     configuration: &configuration::Configuration,
     filter: Option<&str>,
-) -> Result<models::DomainPeriodAggregateRulesByStatusResponse, Error<ExtAggregateRulesByStatusError>>
-{
+) -> Result<models::DomainAggregateRulesByStatusResponse, Error<ExtAggregateRulesByStatusError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
+    let p_query_filter = filter;
 
     let uri_str = format!(
         "{}/container-compliance/aggregates/rules-by-status/v2",
@@ -727,7 +722,7 @@ pub async fn ext_aggregate_rules_by_status(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -752,8 +747,8 @@ pub async fn ext_aggregate_rules_by_status(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAggregateRulesByStatusResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAggregateRulesByStatusResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAggregateRulesByStatusResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAggregateRulesByStatusResponse`")))),
         }
     } else {
         let content = resp.text().await?;

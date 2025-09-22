@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetScansError {
-    Status400(models::MlscannerapiPeriodScanV1Response),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MlscannerapiPeriodScanV1Response),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MlscannerapiPeriodScanV1Response),
+    Status400(models::MlscannerapiScanV1Response),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MlscannerapiScanV1Response),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MlscannerapiScanV1Response),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,9 +29,9 @@ pub enum GetScansError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetScansAggregatesError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,10 +39,10 @@ pub enum GetScansAggregatesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QuerySubmissionsMixin0Error {
-    Status400(models::MlscannerapiPeriodQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MlscannerapiPeriodQueryResponse),
+    Status400(models::MlscannerapiQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MlscannerapiQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -50,33 +50,33 @@ pub enum QuerySubmissionsMixin0Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ScanSamplesError {
-    Status400(models::MlscannerapiPeriodQueryResponse),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MlscannerapiPeriodQueryResponse),
+    Status400(models::MlscannerapiQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MlscannerapiQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn get_scans(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::MlscannerapiPeriodScanV1Response, Error<GetScansError>> {
+) -> Result<models::MlscannerapiScanV1Response, Error<GetScansError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/scanner/entities/scans/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -106,8 +106,8 @@ pub async fn get_scans(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MlscannerapiPeriodScanV1Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MlscannerapiPeriodScanV1Response`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MlscannerapiScanV1Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MlscannerapiScanV1Response`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -122,10 +122,10 @@ pub async fn get_scans(
 
 pub async fn get_scans_aggregates(
     configuration: &configuration::Configuration,
-    body: models::MsaPeriodAggregateQueryRequest,
+    body: models::MsaAggregateQueryRequest,
 ) -> Result<(), Error<GetScansAggregatesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/scanner/aggregates/scans/GET/v1",
@@ -141,7 +141,7 @@ pub async fn get_scans_aggregates(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -167,26 +167,26 @@ pub async fn query_submissions_mixin0(
     offset: Option<&str>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MlscannerapiPeriodQueryResponse, Error<QuerySubmissionsMixin0Error>> {
+) -> Result<models::MlscannerapiQueryResponse, Error<QuerySubmissionsMixin0Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!("{}/scanner/queries/scans/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -211,8 +211,8 @@ pub async fn query_submissions_mixin0(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MlscannerapiPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MlscannerapiPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MlscannerapiQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MlscannerapiQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -227,10 +227,10 @@ pub async fn query_submissions_mixin0(
 
 pub async fn scan_samples(
     configuration: &configuration::Configuration,
-    body: models::MlscannerapiPeriodSamplesScanParameters,
-) -> Result<models::MlscannerapiPeriodQueryResponse, Error<ScanSamplesError>> {
+    body: models::MlscannerapiSamplesScanParameters,
+) -> Result<models::MlscannerapiQueryResponse, Error<ScanSamplesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/scanner/entities/scans/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -243,7 +243,7 @@ pub async fn scan_samples(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -260,8 +260,8 @@ pub async fn scan_samples(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MlscannerapiPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MlscannerapiPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MlscannerapiQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MlscannerapiQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;

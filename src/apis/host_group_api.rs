@@ -17,10 +17,10 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateHostGroupsError {
-    Status400(models::HostGroupsPeriodRespV1),
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::HostGroupsPeriodRespV1),
+    Status400(models::HostGroupsRespV1),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::HostGroupsRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum CreateHostGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteHostGroupsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status404(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status403(models::MsaReplyMetaOnly),
+    Status404(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,11 +39,11 @@ pub enum DeleteHostGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetHostGroupsError {
-    Status400(models::HostGroupsPeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::HostGroupsPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::HostGroupsPeriodRespV1),
+    Status400(models::HostGroupsRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::HostGroupsRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::HostGroupsRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,11 +51,11 @@ pub enum GetHostGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PerformGroupActionError {
-    Status400(models::HostGroupsPeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::HostGroupsPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::HostGroupsPeriodRespV1),
+    Status400(models::HostGroupsRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::HostGroupsRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::HostGroupsRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -63,11 +63,11 @@ pub enum PerformGroupActionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedGroupMembersError {
-    Status400(models::HostGroupsPeriodMembersRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::HostGroupsPeriodMembersRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::HostGroupsPeriodMembersRespV1),
+    Status400(models::HostGroupsMembersRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::HostGroupsMembersRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::HostGroupsMembersRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -75,10 +75,10 @@ pub enum QueryCombinedGroupMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedHostGroupsError {
-    Status400(models::HostGroupsPeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::HostGroupsPeriodRespV1),
+    Status400(models::HostGroupsRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::HostGroupsRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,11 +86,11 @@ pub enum QueryCombinedHostGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryGroupMembersError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -98,10 +98,10 @@ pub enum QueryGroupMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryHostGroupsError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -109,20 +109,20 @@ pub enum QueryHostGroupsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateHostGroupsError {
-    Status400(models::HostGroupsPeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::HostGroupsPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::HostGroupsPeriodRespV1),
+    Status400(models::HostGroupsRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::HostGroupsRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::HostGroupsRespV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_host_groups(
     configuration: &configuration::Configuration,
-    body: models::HostGroupsPeriodCreateGroupsReqV1,
-) -> Result<models::HostGroupsPeriodRespV1, Error<CreateHostGroupsError>> {
+    body: models::HostGroupsCreateGroupsReqV1,
+) -> Result<models::HostGroupsRespV1, Error<CreateHostGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/devices/entities/host-groups/v1",
@@ -138,7 +138,7 @@ pub async fn create_host_groups(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -155,8 +155,8 @@ pub async fn create_host_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::HostGroupsPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::HostGroupsPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::HostGroupsRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::HostGroupsRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -172,9 +172,9 @@ pub async fn create_host_groups(
 pub async fn delete_host_groups(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::MsaPeriodQueryResponse, Error<DeleteHostGroupsError>> {
+) -> Result<models::MsaQueryResponse, Error<DeleteHostGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/devices/entities/host-groups/v1",
@@ -186,14 +186,14 @@ pub async fn delete_host_groups(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -223,8 +223,8 @@ pub async fn delete_host_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -240,9 +240,9 @@ pub async fn delete_host_groups(
 pub async fn get_host_groups(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::HostGroupsPeriodRespV1, Error<GetHostGroupsError>> {
+) -> Result<models::HostGroupsRespV1, Error<GetHostGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/devices/entities/host-groups/v1",
@@ -252,14 +252,14 @@ pub async fn get_host_groups(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -289,8 +289,8 @@ pub async fn get_host_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::HostGroupsPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::HostGroupsPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::HostGroupsRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::HostGroupsRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -306,13 +306,13 @@ pub async fn get_host_groups(
 pub async fn perform_group_action(
     configuration: &configuration::Configuration,
     action_name: &str,
-    body: models::MsaPeriodEntityActionRequestV2,
+    body: models::MsaEntityActionRequestV2,
     disable_hostname_check: Option<bool>,
-) -> Result<models::HostGroupsPeriodRespV1, Error<PerformGroupActionError>> {
+) -> Result<models::HostGroupsRespV1, Error<PerformGroupActionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_action_name = action_name;
-    let p_body = body;
-    let p_disable_hostname_check = disable_hostname_check;
+    let p_query_action_name = action_name;
+    let p_body_body = body;
+    let p_query_disable_hostname_check = disable_hostname_check;
 
     let uri_str = format!(
         "{}/devices/entities/host-group-actions/v1",
@@ -322,8 +322,8 @@ pub async fn perform_group_action(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("action_name", &p_action_name.to_string())]);
-    if let Some(ref param_value) = p_disable_hostname_check {
+    req_builder = req_builder.query(&[("action_name", &p_query_action_name.to_string())]);
+    if let Some(ref param_value) = p_query_disable_hostname_check {
         req_builder = req_builder.query(&[("disable_hostname_check", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -332,7 +332,7 @@ pub async fn perform_group_action(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -349,8 +349,8 @@ pub async fn perform_group_action(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::HostGroupsPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::HostGroupsPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::HostGroupsRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::HostGroupsRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -370,13 +370,13 @@ pub async fn query_combined_group_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::HostGroupsPeriodMembersRespV1, Error<QueryCombinedGroupMembersError>> {
+) -> Result<models::HostGroupsMembersRespV1, Error<QueryCombinedGroupMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_id = id;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/devices/combined/host-group-members/v1",
@@ -384,19 +384,19 @@ pub async fn query_combined_group_members(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -421,8 +421,8 @@ pub async fn query_combined_group_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::HostGroupsPeriodMembersRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::HostGroupsPeriodMembersRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::HostGroupsMembersRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::HostGroupsMembersRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -441,12 +441,12 @@ pub async fn query_combined_host_groups(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::HostGroupsPeriodRespV1, Error<QueryCombinedHostGroupsError>> {
+) -> Result<models::HostGroupsRespV1, Error<QueryCombinedHostGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/devices/combined/host-groups/v1",
@@ -454,16 +454,16 @@ pub async fn query_combined_host_groups(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -488,8 +488,8 @@ pub async fn query_combined_host_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::HostGroupsPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::HostGroupsPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::HostGroupsRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::HostGroupsRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -509,13 +509,13 @@ pub async fn query_group_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryGroupMembersError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryGroupMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_id = id;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/devices/queries/host-group-members/v1",
@@ -523,19 +523,19 @@ pub async fn query_group_members(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -560,8 +560,8 @@ pub async fn query_group_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -580,26 +580,26 @@ pub async fn query_host_groups(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryHostGroupsError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryHostGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!("{}/devices/queries/host-groups/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -624,8 +624,8 @@ pub async fn query_host_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -640,10 +640,10 @@ pub async fn query_host_groups(
 
 pub async fn update_host_groups(
     configuration: &configuration::Configuration,
-    body: models::HostGroupsPeriodUpdateGroupsReqV1,
-) -> Result<models::HostGroupsPeriodRespV1, Error<UpdateHostGroupsError>> {
+    body: models::HostGroupsUpdateGroupsReqV1,
+) -> Result<models::HostGroupsRespV1, Error<UpdateHostGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/devices/entities/host-groups/v1",
@@ -659,7 +659,7 @@ pub async fn update_host_groups(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -676,8 +676,8 @@ pub async fn update_host_groups(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::HostGroupsPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::HostGroupsPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::HostGroupsRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::HostGroupsRespV1`")))),
         }
     } else {
         let content = resp.text().await?;

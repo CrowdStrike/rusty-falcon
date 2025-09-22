@@ -17,9 +17,9 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteObjectError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -27,9 +27,9 @@ pub enum DeleteObjectError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteVersionedObjectError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,9 +37,9 @@ pub enum DeleteVersionedObjectError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DescribeCollectionError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -47,9 +47,9 @@ pub enum DescribeCollectionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DescribeCollectionsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -57,9 +57,9 @@ pub enum DescribeCollectionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetObjectError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -67,9 +67,9 @@ pub enum GetObjectError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetObjectMetadataError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -77,9 +77,9 @@ pub enum GetObjectMetadataError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSchemaError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -87,9 +87,9 @@ pub enum GetSchemaError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSchemaMetadataError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -97,9 +97,9 @@ pub enum GetSchemaMetadataError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetVersionedObjectError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -107,9 +107,9 @@ pub enum GetVersionedObjectError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetVersionedObjectMetadataError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -117,9 +117,9 @@ pub enum GetVersionedObjectMetadataError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListCollectionsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -127,9 +127,9 @@ pub enum ListCollectionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListObjectsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -137,9 +137,9 @@ pub enum ListObjectsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListObjectsByVersionError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -147,9 +147,9 @@ pub enum ListObjectsByVersionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListSchemasError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -157,9 +157,9 @@ pub enum ListSchemasError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PutObjectError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -167,9 +167,9 @@ pub enum PutObjectError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PutObjectByVersionError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -177,9 +177,9 @@ pub enum PutObjectByVersionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SearchObjectsError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -187,9 +187,9 @@ pub enum SearchObjectsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SearchObjectsByVersionError {
-    Status403(models::MsaPeriodReplyMetaOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodReplyMetaOnly),
+    Status403(models::MsaReplyMetaOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaReplyMetaOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -200,21 +200,21 @@ pub async fn delete_object(
     dry_run: Option<bool>,
 ) -> Result<models::CustomType3191042536, Error<DeleteObjectError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_name = collection_name;
-    let p_object_key = object_key;
-    let p_dry_run = dry_run;
+    let p_path_collection_name = collection_name;
+    let p_path_object_key = object_key;
+    let p_query_dry_run = dry_run;
 
     let uri_str = format!(
         "{}/customobjects/v1/collections/{collection_name}/objects/{object_key}",
         configuration.base_path,
-        collection_name = crate::apis::urlencode(p_collection_name),
-        object_key = crate::apis::urlencode(p_object_key)
+        collection_name = crate::apis::urlencode(p_path_collection_name),
+        object_key = crate::apis::urlencode(p_path_object_key)
     );
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    if let Some(ref param_value) = p_dry_run {
+    if let Some(ref param_value) = p_query_dry_run {
         req_builder = req_builder.query(&[("dry_run", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -261,17 +261,17 @@ pub async fn delete_versioned_object(
     dry_run: Option<bool>,
 ) -> Result<models::CustomType3191042536, Error<DeleteVersionedObjectError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_name = collection_name;
-    let p_collection_version = collection_version;
-    let p_object_key = object_key;
-    let p_dry_run = dry_run;
+    let p_path_collection_name = collection_name;
+    let p_path_collection_version = collection_version;
+    let p_path_object_key = object_key;
+    let p_query_dry_run = dry_run;
 
-    let uri_str = format!("{}/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}", configuration.base_path, collection_name=crate::apis::urlencode(p_collection_name), collection_version=crate::apis::urlencode(p_collection_version), object_key=crate::apis::urlencode(p_object_key));
+    let uri_str = format!("{}/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}", configuration.base_path, collection_name=crate::apis::urlencode(p_path_collection_name), collection_version=crate::apis::urlencode(p_path_collection_version), object_key=crate::apis::urlencode(p_path_object_key));
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    if let Some(ref param_value) = p_dry_run {
+    if let Some(ref param_value) = p_query_dry_run {
         req_builder = req_builder.query(&[("dry_run", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -315,12 +315,12 @@ pub async fn describe_collection(
     collection_name: &str,
 ) -> Result<models::CustomType1942251022, Error<DescribeCollectionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_name = collection_name;
+    let p_path_collection_name = collection_name;
 
     let uri_str = format!(
         "{}/customobjects/v1/collections/{collection_name}",
         configuration.base_path,
-        collection_name = crate::apis::urlencode(p_collection_name)
+        collection_name = crate::apis::urlencode(p_path_collection_name)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
@@ -365,21 +365,21 @@ pub async fn describe_collections(
     names: Vec<String>,
 ) -> Result<models::CustomType1942251022, Error<DescribeCollectionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_names = names;
+    let p_query_names = names;
 
     let uri_str = format!("{}/customobjects/v1/collections", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     req_builder = match "csv" {
         "multi" => req_builder.query(
-            &p_names
+            &p_query_names
                 .into_iter()
                 .map(|p| ("names".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "names",
-            &p_names
+            &p_query_names
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -429,14 +429,14 @@ pub async fn get_object(
     object_key: &str,
 ) -> Result<reqwest::Response, Error<GetObjectError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_name = collection_name;
-    let p_object_key = object_key;
+    let p_path_collection_name = collection_name;
+    let p_path_object_key = object_key;
 
     let uri_str = format!(
         "{}/customobjects/v1/collections/{collection_name}/objects/{object_key}",
         configuration.base_path,
-        collection_name = crate::apis::urlencode(p_collection_name),
-        object_key = crate::apis::urlencode(p_object_key)
+        collection_name = crate::apis::urlencode(p_path_collection_name),
+        object_key = crate::apis::urlencode(p_path_object_key)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
@@ -471,14 +471,14 @@ pub async fn get_object_metadata(
     object_key: &str,
 ) -> Result<models::CustomType3191042536, Error<GetObjectMetadataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_name = collection_name;
-    let p_object_key = object_key;
+    let p_path_collection_name = collection_name;
+    let p_path_object_key = object_key;
 
     let uri_str = format!(
         "{}/customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata",
         configuration.base_path,
-        collection_name = crate::apis::urlencode(p_collection_name),
-        object_key = crate::apis::urlencode(p_object_key)
+        collection_name = crate::apis::urlencode(p_path_collection_name),
+        object_key = crate::apis::urlencode(p_path_object_key)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
@@ -524,14 +524,14 @@ pub async fn get_schema(
     schema_version: &str,
 ) -> Result<reqwest::Response, Error<GetSchemaError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_name = collection_name;
-    let p_schema_version = schema_version;
+    let p_path_collection_name = collection_name;
+    let p_path_schema_version = schema_version;
 
     let uri_str = format!(
         "{}/customobjects/v1/collections/{collection_name}/schemas/{schema_version}",
         configuration.base_path,
-        collection_name = crate::apis::urlencode(p_collection_name),
-        schema_version = crate::apis::urlencode(p_schema_version)
+        collection_name = crate::apis::urlencode(p_path_collection_name),
+        schema_version = crate::apis::urlencode(p_path_schema_version)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
@@ -566,14 +566,14 @@ pub async fn get_schema_metadata(
     schema_version: &str,
 ) -> Result<models::CustomType4161059146, Error<GetSchemaMetadataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_name = collection_name;
-    let p_schema_version = schema_version;
+    let p_path_collection_name = collection_name;
+    let p_path_schema_version = schema_version;
 
     let uri_str = format!(
         "{}/customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata",
         configuration.base_path,
-        collection_name = crate::apis::urlencode(p_collection_name),
-        schema_version = crate::apis::urlencode(p_schema_version)
+        collection_name = crate::apis::urlencode(p_path_collection_name),
+        schema_version = crate::apis::urlencode(p_path_schema_version)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
@@ -620,11 +620,11 @@ pub async fn get_versioned_object(
     object_key: &str,
 ) -> Result<reqwest::Response, Error<GetVersionedObjectError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_name = collection_name;
-    let p_collection_version = collection_version;
-    let p_object_key = object_key;
+    let p_path_collection_name = collection_name;
+    let p_path_collection_version = collection_version;
+    let p_path_object_key = object_key;
 
-    let uri_str = format!("{}/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}", configuration.base_path, collection_name=crate::apis::urlencode(p_collection_name), collection_version=crate::apis::urlencode(p_collection_version), object_key=crate::apis::urlencode(p_object_key));
+    let uri_str = format!("{}/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}", configuration.base_path, collection_name=crate::apis::urlencode(p_path_collection_name), collection_version=crate::apis::urlencode(p_path_collection_version), object_key=crate::apis::urlencode(p_path_object_key));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -659,11 +659,11 @@ pub async fn get_versioned_object_metadata(
     object_key: &str,
 ) -> Result<models::CustomType3191042536, Error<GetVersionedObjectMetadataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_name = collection_name;
-    let p_collection_version = collection_version;
-    let p_object_key = object_key;
+    let p_path_collection_name = collection_name;
+    let p_path_collection_version = collection_version;
+    let p_path_object_key = object_key;
 
-    let uri_str = format!("{}/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata", configuration.base_path, collection_name=crate::apis::urlencode(p_collection_name), collection_version=crate::apis::urlencode(p_collection_version), object_key=crate::apis::urlencode(p_object_key));
+    let uri_str = format!("{}/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata", configuration.base_path, collection_name=crate::apis::urlencode(p_path_collection_name), collection_version=crate::apis::urlencode(p_path_collection_version), object_key=crate::apis::urlencode(p_path_object_key));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -709,20 +709,20 @@ pub async fn list_collections(
     start: Option<&str>,
 ) -> Result<models::CustomType1255839303, Error<ListCollectionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_end = end;
-    let p_limit = limit;
-    let p_start = start;
+    let p_query_end = end;
+    let p_query_limit = limit;
+    let p_query_start = start;
 
     let uri_str = format!("{}/customobjects/v1/collections", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_end {
+    if let Some(ref param_value) = p_query_end {
         req_builder = req_builder.query(&[("end", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_start {
+    if let Some(ref param_value) = p_query_start {
         req_builder = req_builder.query(&[("start", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -769,25 +769,25 @@ pub async fn list_objects(
     start: Option<&str>,
 ) -> Result<models::CustomType1255839303, Error<ListObjectsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_name = collection_name;
-    let p_end = end;
-    let p_limit = limit;
-    let p_start = start;
+    let p_path_collection_name = collection_name;
+    let p_query_end = end;
+    let p_query_limit = limit;
+    let p_query_start = start;
 
     let uri_str = format!(
         "{}/customobjects/v1/collections/{collection_name}/objects",
         configuration.base_path,
-        collection_name = crate::apis::urlencode(p_collection_name)
+        collection_name = crate::apis::urlencode(p_path_collection_name)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_end {
+    if let Some(ref param_value) = p_query_end {
         req_builder = req_builder.query(&[("end", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_start {
+    if let Some(ref param_value) = p_query_start {
         req_builder = req_builder.query(&[("start", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -835,27 +835,27 @@ pub async fn list_objects_by_version(
     start: Option<&str>,
 ) -> Result<models::CustomType1255839303, Error<ListObjectsByVersionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_name = collection_name;
-    let p_collection_version = collection_version;
-    let p_end = end;
-    let p_limit = limit;
-    let p_start = start;
+    let p_path_collection_name = collection_name;
+    let p_path_collection_version = collection_version;
+    let p_query_end = end;
+    let p_query_limit = limit;
+    let p_query_start = start;
 
     let uri_str = format!(
         "{}/customobjects/v1/collections/{collection_name}/{collection_version}/objects",
         configuration.base_path,
-        collection_name = crate::apis::urlencode(p_collection_name),
-        collection_version = crate::apis::urlencode(p_collection_version)
+        collection_name = crate::apis::urlencode(p_path_collection_name),
+        collection_version = crate::apis::urlencode(p_path_collection_version)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_end {
+    if let Some(ref param_value) = p_query_end {
         req_builder = req_builder.query(&[("end", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_start {
+    if let Some(ref param_value) = p_query_start {
         req_builder = req_builder.query(&[("start", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -902,25 +902,25 @@ pub async fn list_schemas(
     start: Option<&str>,
 ) -> Result<models::CustomType1255839303, Error<ListSchemasError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_name = collection_name;
-    let p_end = end;
-    let p_limit = limit;
-    let p_start = start;
+    let p_path_collection_name = collection_name;
+    let p_query_end = end;
+    let p_query_limit = limit;
+    let p_query_start = start;
 
     let uri_str = format!(
         "{}/customobjects/v1/collections/{collection_name}/schemas",
         configuration.base_path,
-        collection_name = crate::apis::urlencode(p_collection_name)
+        collection_name = crate::apis::urlencode(p_path_collection_name)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_end {
+    if let Some(ref param_value) = p_query_end {
         req_builder = req_builder.query(&[("end", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_start {
+    if let Some(ref param_value) = p_query_start {
         req_builder = req_builder.query(&[("start", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -968,24 +968,24 @@ pub async fn put_object(
     schema_version: Option<&str>,
 ) -> Result<models::CustomType3191042536, Error<PutObjectError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_name = collection_name;
-    let p_object_key = object_key;
-    let p_body = body;
-    let p_dry_run = dry_run;
-    let p_schema_version = schema_version;
+    let p_path_collection_name = collection_name;
+    let p_path_object_key = object_key;
+    let p_body_body = body;
+    let p_query_dry_run = dry_run;
+    let p_query_schema_version = schema_version;
 
     let uri_str = format!(
         "{}/customobjects/v1/collections/{collection_name}/objects/{object_key}",
         configuration.base_path,
-        collection_name = crate::apis::urlencode(p_collection_name),
-        object_key = crate::apis::urlencode(p_object_key)
+        collection_name = crate::apis::urlencode(p_path_collection_name),
+        object_key = crate::apis::urlencode(p_path_object_key)
     );
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
-    if let Some(ref param_value) = p_dry_run {
+    if let Some(ref param_value) = p_query_dry_run {
         req_builder = req_builder.query(&[("dry_run", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_schema_version {
+    if let Some(ref param_value) = p_query_schema_version {
         req_builder = req_builder.query(&[("schema_version", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -994,7 +994,7 @@ pub async fn put_object(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1034,16 +1034,16 @@ pub async fn put_object_by_version(
     dry_run: Option<bool>,
 ) -> Result<models::CustomType3191042536, Error<PutObjectByVersionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_name = collection_name;
-    let p_collection_version = collection_version;
-    let p_object_key = object_key;
-    let p_body = body;
-    let p_dry_run = dry_run;
+    let p_path_collection_name = collection_name;
+    let p_path_collection_version = collection_version;
+    let p_path_object_key = object_key;
+    let p_body_body = body;
+    let p_query_dry_run = dry_run;
 
-    let uri_str = format!("{}/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}", configuration.base_path, collection_name=crate::apis::urlencode(p_collection_name), collection_version=crate::apis::urlencode(p_collection_version), object_key=crate::apis::urlencode(p_object_key));
+    let uri_str = format!("{}/customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}", configuration.base_path, collection_name=crate::apis::urlencode(p_path_collection_name), collection_version=crate::apis::urlencode(p_path_collection_version), object_key=crate::apis::urlencode(p_path_object_key));
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
-    if let Some(ref param_value) = p_dry_run {
+    if let Some(ref param_value) = p_query_dry_run {
         req_builder = req_builder.query(&[("dry_run", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1052,7 +1052,7 @@ pub async fn put_object_by_version(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1092,29 +1092,29 @@ pub async fn search_objects(
     sort: Option<&str>,
 ) -> Result<models::CustomType3191042536, Error<SearchObjectsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_name = collection_name;
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_sort = sort;
+    let p_path_collection_name = collection_name;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/customobjects/v1/collections/{collection_name}/objects",
         configuration.base_path,
-        collection_name = crate::apis::urlencode(p_collection_name)
+        collection_name = crate::apis::urlencode(p_path_collection_name)
     );
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("filter", &p_filter.to_string())]);
-    if let Some(ref param_value) = p_limit {
+    req_builder = req_builder.query(&[("filter", &p_query_filter.to_string())]);
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1163,31 +1163,31 @@ pub async fn search_objects_by_version(
     sort: Option<&str>,
 ) -> Result<models::CustomType3191042536, Error<SearchObjectsByVersionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_collection_name = collection_name;
-    let p_collection_version = collection_version;
-    let p_filter = filter;
-    let p_limit = limit;
-    let p_offset = offset;
-    let p_sort = sort;
+    let p_path_collection_name = collection_name;
+    let p_path_collection_version = collection_version;
+    let p_query_filter = filter;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/customobjects/v1/collections/{collection_name}/{collection_version}/objects",
         configuration.base_path,
-        collection_name = crate::apis::urlencode(p_collection_name),
-        collection_version = crate::apis::urlencode(p_collection_version)
+        collection_name = crate::apis::urlencode(p_path_collection_name),
+        collection_version = crate::apis::urlencode(p_path_collection_version)
     );
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("filter", &p_filter.to_string())]);
-    if let Some(ref param_value) = p_limit {
+    req_builder = req_builder.query(&[("filter", &p_query_filter.to_string())]);
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {

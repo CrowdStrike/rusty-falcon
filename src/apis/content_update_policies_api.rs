@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateContentUpdatePoliciesError {
-    Status400(models::ContentUpdatePeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::ContentUpdatePeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ContentUpdatePeriodRespV1),
+    Status400(models::ContentUpdateRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::ContentUpdateRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ContentUpdateRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,10 +29,10 @@ pub enum CreateContentUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteContentUpdatePoliciesError {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,10 +40,10 @@ pub enum DeleteContentUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetContentUpdatePoliciesError {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::ContentUpdatePeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ContentUpdatePeriodRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::ContentUpdateRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ContentUpdateRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,11 +51,11 @@ pub enum GetContentUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PerformContentUpdatePoliciesActionError {
-    Status400(models::ContentUpdatePeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::ContentUpdatePeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ContentUpdatePeriodRespV1),
+    Status400(models::ContentUpdateRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::ContentUpdateRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ContentUpdateRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -63,10 +63,10 @@ pub enum PerformContentUpdatePoliciesActionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedContentUpdatePoliciesError {
-    Status400(models::ContentUpdatePeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ContentUpdatePeriodRespV1),
+    Status400(models::ContentUpdateRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ContentUpdateRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -74,11 +74,11 @@ pub enum QueryCombinedContentUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedContentUpdatePolicyMembersError {
-    Status400(models::BasePeriodPolicyMembersRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::BasePeriodPolicyMembersRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::BasePeriodPolicyMembersRespV1),
+    Status400(models::BasePolicyMembersRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::BasePolicyMembersRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::BasePolicyMembersRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,10 +86,10 @@ pub enum QueryCombinedContentUpdatePolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryContentUpdatePoliciesError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -97,11 +97,11 @@ pub enum QueryContentUpdatePoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryContentUpdatePolicyMembersError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -109,11 +109,11 @@ pub enum QueryContentUpdatePolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryPinnableContentVersionsError {
-    Status400(models::MsaspecPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::MsaspecPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodQueryResponse),
+    Status400(models::MsaspecQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::MsaspecQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -121,10 +121,10 @@ pub enum QueryPinnableContentVersionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SetContentUpdatePoliciesPrecedenceError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -132,20 +132,20 @@ pub enum SetContentUpdatePoliciesPrecedenceError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateContentUpdatePoliciesError {
-    Status400(models::ContentUpdatePeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::ContentUpdatePeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::ContentUpdatePeriodRespV1),
+    Status400(models::ContentUpdateRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::ContentUpdateRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::ContentUpdateRespV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_content_update_policies(
     configuration: &configuration::Configuration,
-    body: models::ContentUpdatePeriodCreatePoliciesReqV1,
-) -> Result<models::ContentUpdatePeriodRespV1, Error<CreateContentUpdatePoliciesError>> {
+    body: models::ContentUpdateCreatePoliciesReqV1,
+) -> Result<models::ContentUpdateRespV1, Error<CreateContentUpdatePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/content-update/v1",
@@ -161,7 +161,7 @@ pub async fn create_content_update_policies(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -178,8 +178,8 @@ pub async fn create_content_update_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentUpdatePeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentUpdatePeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentUpdateRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentUpdateRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -195,9 +195,9 @@ pub async fn create_content_update_policies(
 pub async fn delete_content_update_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::MsaPeriodQueryResponse, Error<DeleteContentUpdatePoliciesError>> {
+) -> Result<models::MsaQueryResponse, Error<DeleteContentUpdatePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/policy/entities/content-update/v1",
@@ -209,14 +209,14 @@ pub async fn delete_content_update_policies(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -246,8 +246,8 @@ pub async fn delete_content_update_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -263,9 +263,9 @@ pub async fn delete_content_update_policies(
 pub async fn get_content_update_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::ContentUpdatePeriodRespV1, Error<GetContentUpdatePoliciesError>> {
+) -> Result<models::ContentUpdateRespV1, Error<GetContentUpdatePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/policy/entities/content-update/v1",
@@ -275,14 +275,14 @@ pub async fn get_content_update_policies(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -312,8 +312,8 @@ pub async fn get_content_update_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentUpdatePeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentUpdatePeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentUpdateRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentUpdateRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -329,11 +329,11 @@ pub async fn get_content_update_policies(
 pub async fn perform_content_update_policies_action(
     configuration: &configuration::Configuration,
     action_name: &str,
-    body: models::MsaPeriodEntityActionRequestV2,
-) -> Result<models::ContentUpdatePeriodRespV1, Error<PerformContentUpdatePoliciesActionError>> {
+    body: models::MsaEntityActionRequestV2,
+) -> Result<models::ContentUpdateRespV1, Error<PerformContentUpdatePoliciesActionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_action_name = action_name;
-    let p_body = body;
+    let p_query_action_name = action_name;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/content-update-actions/v1",
@@ -343,14 +343,14 @@ pub async fn perform_content_update_policies_action(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("action_name", &p_action_name.to_string())]);
+    req_builder = req_builder.query(&[("action_name", &p_query_action_name.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -367,8 +367,8 @@ pub async fn perform_content_update_policies_action(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentUpdatePeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentUpdatePeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentUpdateRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentUpdateRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -388,12 +388,12 @@ pub async fn query_combined_content_update_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::ContentUpdatePeriodRespV1, Error<QueryCombinedContentUpdatePoliciesError>> {
+) -> Result<models::ContentUpdateRespV1, Error<QueryCombinedContentUpdatePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/combined/content-update/v1",
@@ -401,16 +401,16 @@ pub async fn query_combined_content_update_policies(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -435,8 +435,8 @@ pub async fn query_combined_content_update_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentUpdatePeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentUpdatePeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentUpdateRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentUpdateRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -457,16 +457,13 @@ pub async fn query_combined_content_update_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<
-    models::BasePeriodPolicyMembersRespV1,
-    Error<QueryCombinedContentUpdatePolicyMembersError>,
-> {
+) -> Result<models::BasePolicyMembersRespV1, Error<QueryCombinedContentUpdatePolicyMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_id = id;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/combined/content-update-members/v1",
@@ -474,19 +471,19 @@ pub async fn query_combined_content_update_policy_members(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -511,8 +508,8 @@ pub async fn query_combined_content_update_policy_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BasePeriodPolicyMembersRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BasePeriodPolicyMembersRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BasePolicyMembersRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BasePolicyMembersRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -532,12 +529,12 @@ pub async fn query_content_update_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryContentUpdatePoliciesError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryContentUpdatePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/queries/content-update/v1",
@@ -545,16 +542,16 @@ pub async fn query_content_update_policies(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -579,8 +576,8 @@ pub async fn query_content_update_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -600,13 +597,13 @@ pub async fn query_content_update_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryContentUpdatePolicyMembersError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryContentUpdatePolicyMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_id = id;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/queries/content-update-members/v1",
@@ -614,19 +611,19 @@ pub async fn query_content_update_policy_members(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -651,8 +648,8 @@ pub async fn query_content_update_policy_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -670,10 +667,10 @@ pub async fn query_pinnable_content_versions(
     configuration: &configuration::Configuration,
     category: &str,
     sort: Option<&str>,
-) -> Result<models::MsaspecPeriodQueryResponse, Error<QueryPinnableContentVersionsError>> {
+) -> Result<models::MsaspecQueryResponse, Error<QueryPinnableContentVersionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_category = category;
-    let p_sort = sort;
+    let p_query_category = category;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/queries/content-update-pin-versions/v1",
@@ -681,8 +678,8 @@ pub async fn query_pinnable_content_versions(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("category", &p_category.to_string())]);
-    if let Some(ref param_value) = p_sort {
+    req_builder = req_builder.query(&[("category", &p_query_category.to_string())]);
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -707,8 +704,8 @@ pub async fn query_pinnable_content_versions(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaspecQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaspecQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -723,10 +720,10 @@ pub async fn query_pinnable_content_versions(
 
 pub async fn set_content_update_policies_precedence(
     configuration: &configuration::Configuration,
-    body: models::BasePeriodSetContentUpdatePolicyPrecedenceReqV1,
-) -> Result<models::MsaPeriodQueryResponse, Error<SetContentUpdatePoliciesPrecedenceError>> {
+    body: models::BaseSetContentUpdatePolicyPrecedenceReqV1,
+) -> Result<models::MsaQueryResponse, Error<SetContentUpdatePoliciesPrecedenceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/content-update-precedence/v1",
@@ -742,7 +739,7 @@ pub async fn set_content_update_policies_precedence(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -759,8 +756,8 @@ pub async fn set_content_update_policies_precedence(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -776,10 +773,10 @@ pub async fn set_content_update_policies_precedence(
 
 pub async fn update_content_update_policies(
     configuration: &configuration::Configuration,
-    body: models::ContentUpdatePeriodUpdatePoliciesReqV1,
-) -> Result<models::ContentUpdatePeriodRespV1, Error<UpdateContentUpdatePoliciesError>> {
+    body: models::ContentUpdateUpdatePoliciesReqV1,
+) -> Result<models::ContentUpdateRespV1, Error<UpdateContentUpdatePoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/content-update/v1",
@@ -795,7 +792,7 @@ pub async fn update_content_update_policies(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -812,8 +809,8 @@ pub async fn update_content_update_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentUpdatePeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentUpdatePeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ContentUpdateRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ContentUpdateRespV1`")))),
         }
     } else {
         let content = resp.text().await?;

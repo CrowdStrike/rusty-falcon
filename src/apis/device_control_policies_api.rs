@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateDeviceControlPoliciesError {
-    Status400(models::DeviceControlPeriodRespV2),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::DeviceControlPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DeviceControlPeriodRespV2),
+    Status400(models::DeviceControlRespV2),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::DeviceControlRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DeviceControlRespV2),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,10 +29,10 @@ pub enum CreateDeviceControlPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteDeviceControlPoliciesError {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -40,10 +40,10 @@ pub enum DeleteDeviceControlPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetDefaultDeviceControlPoliciesError {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::DeviceControlPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DeviceControlPeriodRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::DeviceControlRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DeviceControlRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,10 +51,10 @@ pub enum GetDefaultDeviceControlPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetDeviceControlPoliciesError {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::DeviceControlPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DeviceControlPeriodRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::DeviceControlRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DeviceControlRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -62,11 +62,11 @@ pub enum GetDeviceControlPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PerformDeviceControlPoliciesActionError {
-    Status400(models::DeviceControlPeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::DeviceControlPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DeviceControlPeriodRespV1),
+    Status400(models::DeviceControlRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::DeviceControlRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DeviceControlRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -74,10 +74,10 @@ pub enum PerformDeviceControlPoliciesActionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedDeviceControlPoliciesError {
-    Status400(models::DeviceControlPeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DeviceControlPeriodRespV1),
+    Status400(models::DeviceControlRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DeviceControlRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -85,11 +85,11 @@ pub enum QueryCombinedDeviceControlPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryCombinedDeviceControlPolicyMembersError {
-    Status400(models::BasePeriodPolicyMembersRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::BasePeriodPolicyMembersRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::BasePeriodPolicyMembersRespV1),
+    Status400(models::BasePolicyMembersRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::BasePolicyMembersRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::BasePolicyMembersRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -97,10 +97,10 @@ pub enum QueryCombinedDeviceControlPolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryDeviceControlPoliciesError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -108,11 +108,11 @@ pub enum QueryDeviceControlPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryDeviceControlPolicyMembersError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::MsaPeriodQueryResponse),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::MsaQueryResponse),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -120,10 +120,10 @@ pub enum QueryDeviceControlPolicyMembersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SetDeviceControlPoliciesPrecedenceError {
-    Status400(models::MsaPeriodQueryResponse),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaPeriodQueryResponse),
+    Status400(models::MsaQueryResponse),
+    Status403(models::MsaErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaQueryResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -131,10 +131,10 @@ pub enum SetDeviceControlPoliciesPrecedenceError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateDefaultDeviceControlPoliciesError {
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::DeviceControlPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DeviceControlPeriodRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::DeviceControlRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DeviceControlRespV1),
     UnknownValue(serde_json::Value),
 }
 
@@ -142,20 +142,20 @@ pub enum UpdateDefaultDeviceControlPoliciesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateDeviceControlPoliciesError {
-    Status400(models::DeviceControlPeriodRespV1),
-    Status403(models::MsaPeriodErrorsOnly),
-    Status404(models::DeviceControlPeriodRespV1),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DeviceControlPeriodRespV1),
+    Status400(models::DeviceControlRespV1),
+    Status403(models::MsaErrorsOnly),
+    Status404(models::DeviceControlRespV1),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DeviceControlRespV1),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn create_device_control_policies(
     configuration: &configuration::Configuration,
-    body: models::DeviceControlPeriodCreatePoliciesV1,
-) -> Result<models::DeviceControlPeriodRespV2, Error<CreateDeviceControlPoliciesError>> {
+    body: models::DeviceControlCreatePoliciesV1,
+) -> Result<models::DeviceControlRespV2, Error<CreateDeviceControlPoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/device-control/v1",
@@ -171,7 +171,7 @@ pub async fn create_device_control_policies(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -188,8 +188,8 @@ pub async fn create_device_control_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlPeriodRespV2`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlPeriodRespV2`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlRespV2`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlRespV2`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -205,9 +205,9 @@ pub async fn create_device_control_policies(
 pub async fn delete_device_control_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::MsaPeriodQueryResponse, Error<DeleteDeviceControlPoliciesError>> {
+) -> Result<models::MsaQueryResponse, Error<DeleteDeviceControlPoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/policy/entities/device-control/v1",
@@ -219,14 +219,14 @@ pub async fn delete_device_control_policies(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -256,8 +256,8 @@ pub async fn delete_device_control_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -272,7 +272,7 @@ pub async fn delete_device_control_policies(
 
 pub async fn get_default_device_control_policies(
     configuration: &configuration::Configuration,
-) -> Result<models::DeviceControlPeriodRespV1, Error<GetDefaultDeviceControlPoliciesError>> {
+) -> Result<models::DeviceControlRespV1, Error<GetDefaultDeviceControlPoliciesError>> {
     let uri_str = format!(
         "{}/policy/entities/default-device-control/v1",
         configuration.base_path
@@ -301,8 +301,8 @@ pub async fn get_default_device_control_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -319,9 +319,9 @@ pub async fn get_default_device_control_policies(
 pub async fn get_device_control_policies(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DeviceControlPeriodRespV1, Error<GetDeviceControlPoliciesError>> {
+) -> Result<models::DeviceControlRespV1, Error<GetDeviceControlPoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/policy/entities/device-control/v1",
@@ -331,14 +331,14 @@ pub async fn get_device_control_policies(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -368,8 +368,8 @@ pub async fn get_device_control_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -385,11 +385,11 @@ pub async fn get_device_control_policies(
 pub async fn perform_device_control_policies_action(
     configuration: &configuration::Configuration,
     action_name: &str,
-    body: models::MsaPeriodEntityActionRequestV2,
-) -> Result<models::DeviceControlPeriodRespV1, Error<PerformDeviceControlPoliciesActionError>> {
+    body: models::MsaEntityActionRequestV2,
+) -> Result<models::DeviceControlRespV1, Error<PerformDeviceControlPoliciesActionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_action_name = action_name;
-    let p_body = body;
+    let p_query_action_name = action_name;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/device-control-actions/v1",
@@ -399,14 +399,14 @@ pub async fn perform_device_control_policies_action(
         .client
         .request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("action_name", &p_action_name.to_string())]);
+    req_builder = req_builder.query(&[("action_name", &p_query_action_name.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -423,8 +423,8 @@ pub async fn perform_device_control_policies_action(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -444,12 +444,12 @@ pub async fn query_combined_device_control_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::DeviceControlPeriodRespV1, Error<QueryCombinedDeviceControlPoliciesError>> {
+) -> Result<models::DeviceControlRespV1, Error<QueryCombinedDeviceControlPoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/combined/device-control/v1",
@@ -457,16 +457,16 @@ pub async fn query_combined_device_control_policies(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -491,8 +491,8 @@ pub async fn query_combined_device_control_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -513,16 +513,13 @@ pub async fn query_combined_device_control_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<
-    models::BasePeriodPolicyMembersRespV1,
-    Error<QueryCombinedDeviceControlPolicyMembersError>,
-> {
+) -> Result<models::BasePolicyMembersRespV1, Error<QueryCombinedDeviceControlPolicyMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_id = id;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/combined/device-control-members/v1",
@@ -530,19 +527,19 @@ pub async fn query_combined_device_control_policy_members(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -567,8 +564,8 @@ pub async fn query_combined_device_control_policy_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BasePeriodPolicyMembersRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BasePeriodPolicyMembersRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BasePolicyMembersRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BasePolicyMembersRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -588,12 +585,12 @@ pub async fn query_device_control_policies(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryDeviceControlPoliciesError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryDeviceControlPoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/queries/device-control/v1",
@@ -601,16 +598,16 @@ pub async fn query_device_control_policies(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -635,8 +632,8 @@ pub async fn query_device_control_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -656,13 +653,13 @@ pub async fn query_device_control_policy_members(
     offset: Option<i32>,
     limit: Option<i32>,
     sort: Option<&str>,
-) -> Result<models::MsaPeriodQueryResponse, Error<QueryDeviceControlPolicyMembersError>> {
+) -> Result<models::MsaQueryResponse, Error<QueryDeviceControlPolicyMembersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
-    let p_filter = filter;
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
+    let p_query_id = id;
+    let p_query_filter = filter;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
 
     let uri_str = format!(
         "{}/policy/queries/device-control-members/v1",
@@ -670,19 +667,19 @@ pub async fn query_device_control_policy_members(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_id {
+    if let Some(ref param_value) = p_query_id {
         req_builder = req_builder.query(&[("id", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -707,8 +704,8 @@ pub async fn query_device_control_policy_members(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -724,10 +721,10 @@ pub async fn query_device_control_policy_members(
 
 pub async fn set_device_control_policies_precedence(
     configuration: &configuration::Configuration,
-    body: models::BasePeriodSetPolicyPrecedenceReqV1,
-) -> Result<models::MsaPeriodQueryResponse, Error<SetDeviceControlPoliciesPrecedenceError>> {
+    body: models::BaseSetPolicyPrecedenceReqV1,
+) -> Result<models::MsaQueryResponse, Error<SetDeviceControlPoliciesPrecedenceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/device-control-precedence/v1",
@@ -743,7 +740,7 @@ pub async fn set_device_control_policies_precedence(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -760,8 +757,8 @@ pub async fn set_device_control_policies_precedence(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::MsaQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::MsaQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -777,10 +774,10 @@ pub async fn set_device_control_policies_precedence(
 
 pub async fn update_default_device_control_policies(
     configuration: &configuration::Configuration,
-    body: models::DeviceControlPeriodReqUpdateDefaultDcPolicyV1,
-) -> Result<models::DeviceControlPeriodRespV1, Error<UpdateDefaultDeviceControlPoliciesError>> {
+    body: models::DeviceControlReqUpdateDefaultDcPolicyV1,
+) -> Result<models::DeviceControlRespV1, Error<UpdateDefaultDeviceControlPoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/default-device-control/v1",
@@ -796,7 +793,7 @@ pub async fn update_default_device_control_policies(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -813,8 +810,8 @@ pub async fn update_default_device_control_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlRespV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -830,10 +827,10 @@ pub async fn update_default_device_control_policies(
 
 pub async fn update_device_control_policies(
     configuration: &configuration::Configuration,
-    body: models::DeviceControlPeriodUpdatePoliciesReqV1,
-) -> Result<models::DeviceControlPeriodRespV1, Error<UpdateDeviceControlPoliciesError>> {
+    body: models::DeviceControlUpdatePoliciesReqV1,
+) -> Result<models::DeviceControlRespV1, Error<UpdateDeviceControlPoliciesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/policy/entities/device-control/v1",
@@ -849,7 +846,7 @@ pub async fn update_device_control_policies(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -866,8 +863,8 @@ pub async fn update_device_control_policies(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlPeriodRespV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlPeriodRespV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeviceControlRespV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeviceControlRespV1`")))),
         }
     } else {
         let content = resp.text().await?;

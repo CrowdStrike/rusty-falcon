@@ -13,21 +13,21 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetDeviceInventory {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::Error2600620074714c2fa6e23906c9f5e956>>,
+    pub errors: Option<Vec<models::ErrorGetDeviceInventory>>,
     #[serde(
         rename = "meta",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub meta: Option<Option<Box<models::Meta552b5121b8b64e00abfe94fa12dfdb88>>>,
+    pub meta: Option<Option<Box<models::MetaGetDeviceInventory>>>,
     #[serde(
         rename = "resources",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub resources: Option<Option<Vec<models::Device477804a75b244e4a839ea08c361a220c>>>,
+    pub resources: Option<Option<Vec<models::DeviceGetDeviceInventory>>>,
 }
 
 impl GetDeviceInventory {

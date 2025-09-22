@@ -17,11 +17,11 @@ use serde::de::Error as _;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateNotificationsExposedDataRecordsV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,11 +29,11 @@ pub enum AggregateNotificationsExposedDataRecordsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateNotificationsV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -41,12 +41,12 @@ pub enum AggregateNotificationsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateActionsV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status404(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status404(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -54,12 +54,12 @@ pub enum CreateActionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateExportJobsV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status404(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status404(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -67,11 +67,11 @@ pub enum CreateExportJobsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateRulesV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -79,11 +79,11 @@ pub enum CreateRulesV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteActionV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -91,11 +91,11 @@ pub enum DeleteActionV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteExportJobsV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -103,11 +103,11 @@ pub enum DeleteExportJobsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteNotificationsV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -115,11 +115,11 @@ pub enum DeleteNotificationsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteRulesV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -127,11 +127,11 @@ pub enum DeleteRulesV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetActionsV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -139,11 +139,11 @@ pub enum GetActionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetExportJobsV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -151,11 +151,11 @@ pub enum GetExportJobsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetFileContentForExportJobsV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -163,11 +163,11 @@ pub enum GetFileContentForExportJobsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetNotificationsDetailedTranslatedV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -175,11 +175,11 @@ pub enum GetNotificationsDetailedTranslatedV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetNotificationsDetailedV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -187,11 +187,11 @@ pub enum GetNotificationsDetailedV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetNotificationsExposedDataRecordsV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -199,11 +199,11 @@ pub enum GetNotificationsExposedDataRecordsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetNotificationsTranslatedV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -211,11 +211,11 @@ pub enum GetNotificationsTranslatedV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetNotificationsV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -223,11 +223,11 @@ pub enum GetNotificationsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetRulesV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -235,11 +235,11 @@ pub enum GetRulesV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PreviewRuleV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -247,11 +247,11 @@ pub enum PreviewRuleV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryActionsV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -259,11 +259,11 @@ pub enum QueryActionsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryNotificationsExposedDataRecordsV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -271,11 +271,11 @@ pub enum QueryNotificationsExposedDataRecordsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryNotificationsV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -283,11 +283,11 @@ pub enum QueryNotificationsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum QueryRulesV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -295,11 +295,11 @@ pub enum QueryRulesV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateActionV1Error {
-    Status400(models::MsaspecPeriodResponseFields),
-    Status401(models::MsaspecPeriodResponseFields),
-    Status403(models::MsaspecPeriodResponseFields),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::MsaspecPeriodResponseFields),
+    Status400(models::MsaspecResponseFields),
+    Status401(models::MsaspecResponseFields),
+    Status403(models::MsaspecResponseFields),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::MsaspecResponseFields),
     UnknownValue(serde_json::Value),
 }
 
@@ -307,11 +307,11 @@ pub enum UpdateActionV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateNotificationsV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
@@ -319,23 +319,21 @@ pub enum UpdateNotificationsV1Error {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateRulesV1Error {
-    Status400(models::DomainPeriodErrorsOnly),
-    Status401(models::DomainPeriodErrorsOnly),
-    Status403(models::DomainPeriodErrorsOnly),
-    Status429(models::MsaPeriodReplyMetaOnly),
-    Status500(models::DomainPeriodErrorsOnly),
+    Status400(models::DomainErrorsOnly),
+    Status401(models::DomainErrorsOnly),
+    Status403(models::DomainErrorsOnly),
+    Status429(models::MsaReplyMetaOnly),
+    Status500(models::DomainErrorsOnly),
     UnknownValue(serde_json::Value),
 }
 
 pub async fn aggregate_notifications_exposed_data_records_v1(
     configuration: &configuration::Configuration,
-    body: Vec<models::MsaPeriodAggregateQueryRequest>,
-) -> Result<
-    models::DomainPeriodAggregatesResponse,
-    Error<AggregateNotificationsExposedDataRecordsV1Error>,
-> {
+    body: Vec<models::MsaAggregateQueryRequest>,
+) -> Result<models::DomainAggregatesResponse, Error<AggregateNotificationsExposedDataRecordsV1Error>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/recon/aggregates/notifications-exposed-data-records/GET/v1",
@@ -351,7 +349,7 @@ pub async fn aggregate_notifications_exposed_data_records_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -368,8 +366,8 @@ pub async fn aggregate_notifications_exposed_data_records_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -385,10 +383,10 @@ pub async fn aggregate_notifications_exposed_data_records_v1(
 
 pub async fn aggregate_notifications_v1(
     configuration: &configuration::Configuration,
-    body: Vec<models::MsaPeriodAggregateQueryRequest>,
-) -> Result<models::DomainPeriodAggregatesResponse, Error<AggregateNotificationsV1Error>> {
+    body: Vec<models::MsaAggregateQueryRequest>,
+) -> Result<models::DomainAggregatesResponse, Error<AggregateNotificationsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/recon/aggregates/notifications/GET/v1",
@@ -404,7 +402,7 @@ pub async fn aggregate_notifications_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -421,8 +419,8 @@ pub async fn aggregate_notifications_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -437,10 +435,10 @@ pub async fn aggregate_notifications_v1(
 
 pub async fn create_actions_v1(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodRegisterActionsRequest,
-) -> Result<models::DomainPeriodActionEntitiesResponseV1, Error<CreateActionsV1Error>> {
+    body: models::DomainRegisterActionsRequest,
+) -> Result<models::DomainActionEntitiesResponseV1, Error<CreateActionsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/recon/entities/actions/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -453,7 +451,7 @@ pub async fn create_actions_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -470,8 +468,8 @@ pub async fn create_actions_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodActionEntitiesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodActionEntitiesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainActionEntitiesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainActionEntitiesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -486,10 +484,10 @@ pub async fn create_actions_v1(
 
 pub async fn create_export_jobs_v1(
     configuration: &configuration::Configuration,
-    body: Vec<models::DomainPeriodLaunchExportJobRequestV1>,
-) -> Result<models::DomainPeriodLaunchExportJobResponseV1, Error<CreateExportJobsV1Error>> {
+    body: Vec<models::DomainLaunchExportJobRequestV1>,
+) -> Result<models::DomainLaunchExportJobResponseV1, Error<CreateExportJobsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/recon/entities/exports/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -502,7 +500,7 @@ pub async fn create_export_jobs_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -519,8 +517,8 @@ pub async fn create_export_jobs_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodLaunchExportJobResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodLaunchExportJobResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainLaunchExportJobResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainLaunchExportJobResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -535,10 +533,10 @@ pub async fn create_export_jobs_v1(
 
 pub async fn create_rules_v1(
     configuration: &configuration::Configuration,
-    body: Vec<models::SadomainPeriodCreateRuleRequestV1>,
-) -> Result<models::DomainPeriodRulesEntitiesResponseV1, Error<CreateRulesV1Error>> {
+    body: Vec<models::SadomainCreateRuleRequestV1>,
+) -> Result<models::DomainRulesEntitiesResponseV1, Error<CreateRulesV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/recon/entities/rules/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -551,7 +549,7 @@ pub async fn create_rules_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -568,8 +566,8 @@ pub async fn create_rules_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodRulesEntitiesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodRulesEntitiesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainRulesEntitiesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainRulesEntitiesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -585,16 +583,16 @@ pub async fn create_rules_v1(
 pub async fn delete_action_v1(
     configuration: &configuration::Configuration,
     id: &str,
-) -> Result<models::DomainPeriodQueryResponse, Error<DeleteActionV1Error>> {
+) -> Result<models::DomainQueryResponse, Error<DeleteActionV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_query_id = id;
 
     let uri_str = format!("{}/recon/entities/actions/v1", configuration.base_path);
     let mut req_builder = configuration
         .client
         .request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -617,8 +615,8 @@ pub async fn delete_action_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -634,9 +632,9 @@ pub async fn delete_action_v1(
 pub async fn delete_export_jobs_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodExportJobIdResponseV1, Error<DeleteExportJobsV1Error>> {
+) -> Result<models::DomainExportJobIdResponseV1, Error<DeleteExportJobsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/recon/entities/exports/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -645,14 +643,14 @@ pub async fn delete_export_jobs_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -682,8 +680,8 @@ pub async fn delete_export_jobs_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodExportJobIdResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodExportJobIdResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainExportJobIdResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainExportJobIdResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -699,9 +697,9 @@ pub async fn delete_export_jobs_v1(
 pub async fn delete_notifications_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodNotificationIdResponse, Error<DeleteNotificationsV1Error>> {
+) -> Result<models::DomainNotificationIdResponse, Error<DeleteNotificationsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/recon/entities/notifications/v1",
@@ -713,14 +711,14 @@ pub async fn delete_notifications_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -750,8 +748,8 @@ pub async fn delete_notifications_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodNotificationIdResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodNotificationIdResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainNotificationIdResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainNotificationIdResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -768,10 +766,10 @@ pub async fn delete_rules_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
     notifications_deletion_requested: Option<bool>,
-) -> Result<models::DomainPeriodRuleQueryResponseV1, Error<DeleteRulesV1Error>> {
+) -> Result<models::DomainRuleQueryResponseV1, Error<DeleteRulesV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
-    let p_notifications_deletion_requested = notifications_deletion_requested;
+    let p_query_ids = ids;
+    let p_query_notifications_deletion_requested = notifications_deletion_requested;
 
     let uri_str = format!("{}/recon/entities/rules/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -780,14 +778,14 @@ pub async fn delete_rules_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -795,7 +793,7 @@ pub async fn delete_rules_v1(
                 .to_string(),
         )]),
     };
-    if let Some(ref param_value) = p_notifications_deletion_requested {
+    if let Some(ref param_value) = p_query_notifications_deletion_requested {
         req_builder =
             req_builder.query(&[("notificationsDeletionRequested", &param_value.to_string())]);
     }
@@ -821,8 +819,8 @@ pub async fn delete_rules_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodRuleQueryResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodRuleQueryResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainRuleQueryResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainRuleQueryResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -838,23 +836,23 @@ pub async fn delete_rules_v1(
 pub async fn get_actions_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodActionEntitiesResponseV1, Error<GetActionsV1Error>> {
+) -> Result<models::DomainActionEntitiesResponseV1, Error<GetActionsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/recon/entities/actions/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -884,8 +882,8 @@ pub async fn get_actions_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodActionEntitiesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodActionEntitiesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainActionEntitiesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainActionEntitiesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -901,23 +899,23 @@ pub async fn get_actions_v1(
 pub async fn get_export_jobs_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodExportJobEntitiesResponseV1, Error<GetExportJobsV1Error>> {
+) -> Result<models::DomainExportJobEntitiesResponseV1, Error<GetExportJobsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/recon/entities/exports/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -947,8 +945,8 @@ pub async fn get_export_jobs_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodExportJobEntitiesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodExportJobEntitiesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainExportJobEntitiesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainExportJobEntitiesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -966,12 +964,12 @@ pub async fn get_file_content_for_export_jobs_v1(
     id: &str,
 ) -> Result<Vec<i32>, Error<GetFileContentForExportJobsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_query_id = id;
 
     let uri_str = format!("{}/recon/entities/export-files/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("id", &p_id.to_string())]);
+    req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1014,11 +1012,11 @@ pub async fn get_notifications_detailed_translated_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
 ) -> Result<
-    models::DomainPeriodNotificationDetailsResponseV1,
+    models::DomainNotificationDetailsResponseV1,
     Error<GetNotificationsDetailedTranslatedV1Error>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/recon/entities/notifications-detailed-translated/v1",
@@ -1028,14 +1026,14 @@ pub async fn get_notifications_detailed_translated_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1065,8 +1063,8 @@ pub async fn get_notifications_detailed_translated_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodNotificationDetailsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodNotificationDetailsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainNotificationDetailsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainNotificationDetailsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1084,10 +1082,9 @@ pub async fn get_notifications_detailed_translated_v1(
 pub async fn get_notifications_detailed_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodNotificationDetailsResponseV1, Error<GetNotificationsDetailedV1Error>>
-{
+) -> Result<models::DomainNotificationDetailsResponseV1, Error<GetNotificationsDetailedV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/recon/entities/notifications-detailed/v1",
@@ -1097,14 +1094,14 @@ pub async fn get_notifications_detailed_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1134,8 +1131,8 @@ pub async fn get_notifications_detailed_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodNotificationDetailsResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodNotificationDetailsResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainNotificationDetailsResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainNotificationDetailsResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1152,11 +1149,11 @@ pub async fn get_notifications_exposed_data_records_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
 ) -> Result<
-    models::ApiPeriodNotificationExposedDataRecordEntitiesResponseV1,
+    models::ApiNotificationExposedDataRecordEntitiesResponseV1,
     Error<GetNotificationsExposedDataRecordsV1Error>,
 > {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/recon/entities/notifications-exposed-data-records/v1",
@@ -1166,14 +1163,14 @@ pub async fn get_notifications_exposed_data_records_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1203,8 +1200,8 @@ pub async fn get_notifications_exposed_data_records_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiPeriodNotificationExposedDataRecordEntitiesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiPeriodNotificationExposedDataRecordEntitiesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiNotificationExposedDataRecordEntitiesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiNotificationExposedDataRecordEntitiesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1221,12 +1218,10 @@ pub async fn get_notifications_exposed_data_records_v1(
 pub async fn get_notifications_translated_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<
-    models::DomainPeriodNotificationEntitiesResponseV1,
-    Error<GetNotificationsTranslatedV1Error>,
-> {
+) -> Result<models::DomainNotificationEntitiesResponseV1, Error<GetNotificationsTranslatedV1Error>>
+{
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/recon/entities/notifications-translated/v1",
@@ -1236,14 +1231,14 @@ pub async fn get_notifications_translated_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1273,8 +1268,8 @@ pub async fn get_notifications_translated_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodNotificationEntitiesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodNotificationEntitiesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainNotificationEntitiesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainNotificationEntitiesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1290,9 +1285,9 @@ pub async fn get_notifications_translated_v1(
 pub async fn get_notifications_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodNotificationEntitiesResponseV1, Error<GetNotificationsV1Error>> {
+) -> Result<models::DomainNotificationEntitiesResponseV1, Error<GetNotificationsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!(
         "{}/recon/entities/notifications/v1",
@@ -1302,14 +1297,14 @@ pub async fn get_notifications_v1(
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1339,8 +1334,8 @@ pub async fn get_notifications_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodNotificationEntitiesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodNotificationEntitiesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainNotificationEntitiesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainNotificationEntitiesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1356,23 +1351,23 @@ pub async fn get_notifications_v1(
 pub async fn get_rules_v1(
     configuration: &configuration::Configuration,
     ids: Vec<String>,
-) -> Result<models::DomainPeriodRulesEntitiesResponseV1, Error<GetRulesV1Error>> {
+) -> Result<models::DomainRulesEntitiesResponseV1, Error<GetRulesV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_ids = ids;
+    let p_query_ids = ids;
 
     let uri_str = format!("{}/recon/entities/rules/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
         "multi" => req_builder.query(
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| ("ids".to_owned(), p.to_string()))
                 .collect::<Vec<(std::string::String, std::string::String)>>(),
         ),
         _ => req_builder.query(&[(
             "ids",
-            &p_ids
+            &p_query_ids
                 .into_iter()
                 .map(|p| p.to_string())
                 .collect::<Vec<String>>()
@@ -1402,8 +1397,8 @@ pub async fn get_rules_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodRulesEntitiesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodRulesEntitiesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainRulesEntitiesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainRulesEntitiesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1418,10 +1413,10 @@ pub async fn get_rules_v1(
 
 pub async fn preview_rule_v1(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodRulePreviewRequest,
-) -> Result<models::DomainPeriodAggregatesResponse, Error<PreviewRuleV1Error>> {
+    body: models::DomainRulePreviewRequest,
+) -> Result<models::DomainAggregatesResponse, Error<PreviewRuleV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/recon/aggregates/rules-preview/GET/v1",
@@ -1437,7 +1432,7 @@ pub async fn preview_rule_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1454,8 +1449,8 @@ pub async fn preview_rule_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodAggregatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodAggregatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainAggregatesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainAggregatesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1475,30 +1470,30 @@ pub async fn query_actions_v1(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<models::DomainPeriodQueryResponse, Error<QueryActionsV1Error>> {
+) -> Result<models::DomainQueryResponse, Error<QueryActionsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
 
     let uri_str = format!("{}/recon/queries/actions/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1523,8 +1518,8 @@ pub async fn query_actions_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1544,13 +1539,13 @@ pub async fn query_notifications_exposed_data_records_v1(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<models::DomainPeriodQueryResponse, Error<QueryNotificationsExposedDataRecordsV1Error>> {
+) -> Result<models::DomainQueryResponse, Error<QueryNotificationsExposedDataRecordsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
 
     let uri_str = format!(
         "{}/recon/queries/notifications-exposed-data-records/v1",
@@ -1558,19 +1553,19 @@ pub async fn query_notifications_exposed_data_records_v1(
     );
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1595,8 +1590,8 @@ pub async fn query_notifications_exposed_data_records_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1617,30 +1612,30 @@ pub async fn query_notifications_v1(
     sort: Option<&str>,
     filter: Option<&str>,
     q: Option<&str>,
-) -> Result<models::DomainPeriodQueryResponse, Error<QueryNotificationsV1Error>> {
+) -> Result<models::DomainQueryResponse, Error<QueryNotificationsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
 
     let uri_str = format!("{}/recon/queries/notifications/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1665,8 +1660,8 @@ pub async fn query_notifications_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodQueryResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodQueryResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainQueryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainQueryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1687,34 +1682,34 @@ pub async fn query_rules_v1(
     filter: Option<&str>,
     q: Option<&str>,
     secondary_sort: Option<&str>,
-) -> Result<models::DomainPeriodRuleQueryResponseV1, Error<QueryRulesV1Error>> {
+) -> Result<models::DomainRuleQueryResponseV1, Error<QueryRulesV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_offset = offset;
-    let p_limit = limit;
-    let p_sort = sort;
-    let p_filter = filter;
-    let p_q = q;
-    let p_secondary_sort = secondary_sort;
+    let p_query_offset = offset;
+    let p_query_limit = limit;
+    let p_query_sort = sort;
+    let p_query_filter = filter;
+    let p_query_q = q;
+    let p_query_secondary_sort = secondary_sort;
 
     let uri_str = format!("{}/recon/queries/rules/v1", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sort {
+    if let Some(ref param_value) = p_query_sort {
         req_builder = req_builder.query(&[("sort", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_filter {
+    if let Some(ref param_value) = p_query_filter {
         req_builder = req_builder.query(&[("filter", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_q {
+    if let Some(ref param_value) = p_query_q {
         req_builder = req_builder.query(&[("q", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_secondary_sort {
+    if let Some(ref param_value) = p_query_secondary_sort {
         req_builder = req_builder.query(&[("secondarySort", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1739,8 +1734,8 @@ pub async fn query_rules_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodRuleQueryResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodRuleQueryResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainRuleQueryResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainRuleQueryResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1755,10 +1750,10 @@ pub async fn query_rules_v1(
 
 pub async fn update_action_v1(
     configuration: &configuration::Configuration,
-    body: models::DomainPeriodUpdateActionRequest,
-) -> Result<models::DomainPeriodActionEntitiesResponseV1, Error<UpdateActionV1Error>> {
+    body: models::DomainUpdateActionRequest,
+) -> Result<models::DomainActionEntitiesResponseV1, Error<UpdateActionV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/recon/entities/actions/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -1771,7 +1766,7 @@ pub async fn update_action_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1788,8 +1783,8 @@ pub async fn update_action_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodActionEntitiesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodActionEntitiesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainActionEntitiesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainActionEntitiesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1804,10 +1799,10 @@ pub async fn update_action_v1(
 
 pub async fn update_notifications_v1(
     configuration: &configuration::Configuration,
-    body: Vec<models::DomainPeriodUpdateNotificationRequestV1>,
-) -> Result<models::DomainPeriodNotificationEntitiesResponseV1, Error<UpdateNotificationsV1Error>> {
+    body: Vec<models::DomainUpdateNotificationRequestV1>,
+) -> Result<models::DomainNotificationEntitiesResponseV1, Error<UpdateNotificationsV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!(
         "{}/recon/entities/notifications/v1",
@@ -1823,7 +1818,7 @@ pub async fn update_notifications_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1840,8 +1835,8 @@ pub async fn update_notifications_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodNotificationEntitiesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodNotificationEntitiesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainNotificationEntitiesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainNotificationEntitiesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1856,10 +1851,10 @@ pub async fn update_notifications_v1(
 
 pub async fn update_rules_v1(
     configuration: &configuration::Configuration,
-    body: Vec<models::DomainPeriodUpdateRuleRequestV1>,
-) -> Result<models::DomainPeriodRulesEntitiesResponseV1, Error<UpdateRulesV1Error>> {
+    body: Vec<models::DomainUpdateRuleRequestV1>,
+) -> Result<models::DomainRulesEntitiesResponseV1, Error<UpdateRulesV1Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_body = body;
+    let p_body_body = body;
 
     let uri_str = format!("{}/recon/entities/rules/v1", configuration.base_path);
     let mut req_builder = configuration
@@ -1872,7 +1867,7 @@ pub async fn update_rules_v1(
     if let Some(ref token) = configuration.oauth_access_token {
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
-    req_builder = req_builder.json(&p_body);
+    req_builder = req_builder.json(&p_body_body);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -1889,8 +1884,8 @@ pub async fn update_rules_v1(
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainPeriodRulesEntitiesResponseV1`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainPeriodRulesEntitiesResponseV1`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DomainRulesEntitiesResponseV1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DomainRulesEntitiesResponseV1`")))),
         }
     } else {
         let content = resp.text().await?;

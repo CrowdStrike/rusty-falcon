@@ -52,7 +52,7 @@ async fn get_vulnerabilities(
     sort: Option<&str>,
     filter: &str,
     after: Option<&str>,
-) -> Result<models::DomainPeriodSpapiCombinedVulnerabilitiesResponse, Box<dyn error::Error>> {
+) -> Result<models::DomainSpapiCombinedVulnerabilitiesResponse, Box<dyn error::Error>> {
     let mut response = spotlight_vulnerabilities_api::combined_query_vulnerabilities(
         cfg,
         filter,
@@ -77,7 +77,7 @@ pub trait PaginationHelper {
     fn next(&self) -> Option<&str>;
 }
 
-impl PaginationHelper for models::DomainPeriodSpapiQueryMeta {
+impl PaginationHelper for models::DomainSpapiQueryMeta {
     fn next(&self) -> Option<&str> {
         match &self.pagination {
             None => None,

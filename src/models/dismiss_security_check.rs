@@ -13,16 +13,16 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DismissSecurityCheck {
     #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::ErrorC5175aa2f0184c20ae65d07a40dd43dd>>,
+    pub errors: Option<Vec<models::ErrorDismissSecurityCheck>>,
     #[serde(
         rename = "meta",
         default,
         with = "::serde_with::rust::double_option",
         skip_serializing_if = "Option::is_none"
     )]
-    pub meta: Option<Option<Box<models::Meta11e9329a360144c1b9482ff64cc8f1e7>>>,
+    pub meta: Option<Option<Box<models::MetaDismissSecurityCheck>>>,
     #[serde(rename = "resources", skip_serializing_if = "Option::is_none")]
-    pub resources: Option<Vec<models::ReasonResult3b32f1b57f4e41a28f19faef56528a85>>,
+    pub resources: Option<Vec<models::ReasonResultDismissSecurityCheck>>,
 }
 
 impl DismissSecurityCheck {
