@@ -1,0 +1,18 @@
+name: Publish to crates.io
+on:
+  push:
+    # Triggers when pushing tags in a certain format (e.g. 1.2.3)
+    tags: ['[0-9]+.[0-9]+.[0-9]+']
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: crates-io-publishing
+    permissions:
+      id-token: write
+    steps:
+    - uses: actions/checkout@v5
+    - uses: rust-lang/crates-io-auth-action@v1
+      id: auth
+    - run: cargo publish
+      env:
+        CARGO_REGISTRY_TOKEN: ${{ steps.auth.outputs.token }}
