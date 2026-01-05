@@ -3,6 +3,9 @@ on:
   push:
     # Triggers when pushing tags in a certain format (e.g. 1.2.3)
     tags: ['[0-9]+.[0-9]+.[0-9]+']
+permissions:  # added using https://github.com/step-security/secure-repo
+  contents: read
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -10,8 +13,13 @@ jobs:
     permissions:
       id-token: write
     steps:
-    - uses: actions/checkout@v5
-    - uses: rust-lang/crates-io-auth-action@v1
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+    - uses: rust-lang/crates-io-auth-action@b7e9a28eded4986ec6b1fa40eeee8f8f165559ec # v1.0.3
       id: auth
     - run: cargo publish
       env:
