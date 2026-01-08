@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Chore: Added `openssl` and `rustls` feature flags to toggle TLS implementation, with `openssl` enabled by default
 - Deps: Added `serde_with` version `3.14.0`
+- Docs: Added instructions for installing on various OS'es
 
 ### Changed
 
