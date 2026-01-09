@@ -9,6 +9,7 @@ permissions:  # added using https://github.com/step-security/secure-repo
 jobs:
   publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     environment: crates-io-publishing
     permissions:
       id-token: write
