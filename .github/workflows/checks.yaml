@@ -14,6 +14,7 @@ jobs:
   fmt:
     runs-on: ubuntu-latest
     name: stable / fmt
+    timeout-minutes: 60
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
@@ -33,6 +34,7 @@ jobs:
   clippy:
     runs-on: ubuntu-latest
     name: ${{ matrix.toolchain }} / clippy
+    timeout-minutes: 60
     permissions:
       contents: read
       checks: write
@@ -62,6 +64,7 @@ jobs:
   doc:
     runs-on: ubuntu-latest
     name: nightly / doc
+    timeout-minutes: 60
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
@@ -82,6 +85,7 @@ jobs:
   # Provides some checks for mixed versions of dependencies.
     runs-on: ubuntu-latest
     name: ubuntu / stable / features
+    timeout-minutes: 60
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
@@ -106,6 +110,7 @@ jobs:
       matrix:
         msrv: [1.85.0]
     name: ubuntu / ${{ matrix.msrv }}
+    timeout-minutes: 60
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
@@ -125,6 +130,7 @@ jobs:
   outdated:
     name: Outdated
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     if: github.event_name != 'pull_request'
     steps:
       - name: Harden the runner (Audit all outbound calls)
@@ -138,6 +144,7 @@ jobs:
   block-fixup:
     name: Block fixup commits
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
@@ -154,6 +161,7 @@ jobs:
   cargo-sort:
     name: Run cargo sort
     runs-on: ubuntu-latest
+    timeout-minutes: 60
 
     steps:
       - name: Harden the runner (Audit all outbound calls)
@@ -176,6 +184,7 @@ jobs:
   cargo-fmt:
     name: Run cargo fmt
     runs-on: ubuntu-latest
+    timeout-minutes: 60
 
     steps:
       - name: Harden the runner (Audit all outbound calls)
@@ -200,6 +209,7 @@ jobs:
   cargo-audit:
     name: Run cargo audit
     runs-on: ubuntu-latest
+    timeout-minutes: 60
 
     steps:
       - name: Harden the runner (Audit all outbound calls)
@@ -222,6 +232,7 @@ jobs:
   shellcheck:
     name: Shellcheck
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
     - name: Harden the runner (Audit all outbound calls)
       uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
@@ -235,6 +246,7 @@ jobs:
   typos:
     name: Spell Check with Typos
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
     - name: Harden the runner (Audit all outbound calls)
       uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
