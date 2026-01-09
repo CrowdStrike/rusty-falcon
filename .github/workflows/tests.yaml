@@ -12,6 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Build Ubuntu / ${{ matrix.toolchain }}
+    timeout-minutes: 60
     strategy:
       matrix:
         toolchain: [stable, beta]
@@ -39,6 +40,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     name: Test Ubuntu / ${{ matrix.toolchain }}
+    timeout-minutes: 60
     strategy:
       matrix:
         toolchain: [stable, beta]
@@ -68,6 +70,7 @@ jobs:
   nightly:
     name: Rust nightly
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
@@ -87,6 +90,7 @@ jobs:
   minimal:
     runs-on: ubuntu-latest
     name: ubuntu / stable / minimal-versions
+    timeout-minutes: 60
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
@@ -110,6 +114,7 @@ jobs:
   os-check:
     runs-on: ${{ matrix.os }}
     name: ${{ matrix.os }} / stable
+    timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
