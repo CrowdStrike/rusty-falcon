@@ -20,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix links in the README
 - Fix spelling for docs and api files
 - Handle `intel_indicators` example case in `run-examples.sh` script
-- Update `rust-version` to `1.82.0`
+- Update `rust-version` to `1.83.0`
 - Display number of passed examples/tests in `run-examples.sh` script
 - Enable `run-example.sh` script to run a single example
 - Set certain `DetectsExternalAlert` model fields to optional
