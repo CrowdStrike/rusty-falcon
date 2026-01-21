@@ -1,13 +1,13 @@
 [package]
 name = "rusty_falcon"
-version = "0.5.0"
+version = "0.6.0"
 authors = ["CrowdStrike Inc"]
 description = "Rust bindings for CrowdStrike Falcon API"
 homepage = "https://github.com/CrowdStrike/rusty-falcon"
 repository = "https://github.com/CrowdStrike/rusty-falcon"
 readme = "README.md"
-edition = "2021"
-rust-version = "1.83.0"
+edition = "2024"
+rust-version = "1.91.1"
 license-file = "LICENSE"
 keywords = ["api", "crowdstrike", "falcon", "security", "vulnerability"]
 categories = ["api-bindings", "asynchronous", "web-programming"]
@@ -28,24 +28,24 @@ rustls = ["reqwest/rustls-tls"]
 
 [dependencies]
 # To satisfy minimal version check
-openssl = { version = "0.10.73", optional = true }
+openssl = { version = "0.10.75", optional = true }
 # To satisfy minimal version check
-openssl-sys = { version = "0.9.109", optional = true }
-reqwest = { version = "0.12.20", features = [
+openssl-sys = { version = "0.9.111", optional = true }
+reqwest = { version = "0.12.28", features = [
     "charset",
     "json",
     "multipart",
 ], default-features = false }
-serde = "1.0.210"
-serde_derive = "1.0.210"
-serde_json = "1.0.128"
-serde_with = "3.14.0"
-thiserror = "2.0.3"
-url = "2.5.2"
+serde = "1.0.228"
+serde_derive = "1.0.228"
+serde_json = "1.0.149"
+serde_with = "3.16.1"
+thiserror = "2.0.18"
+url = "2.5.8"
 
 [dev-dependencies]
-clap = { version = "4.5.19", features = ["derive"] }
-tokio = { version = "1.40.0", features = ["rt-multi-thread", "macros"] }
+clap = { version = "4.5.54", features = ["derive"] }
+tokio = { version = "1.49.0", features = ["rt-multi-thread", "macros"] }
 
 [profile.release]
 codegen-units = 1
