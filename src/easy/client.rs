@@ -1,6 +1,6 @@
-use crate::apis::configuration::Configuration;
-use crate::apis::oauth2_api::{oauth2_access_token, Oauth2AccessTokenError};
 use crate::apis::Error;
+use crate::apis::configuration::Configuration;
+use crate::apis::oauth2_api::{Oauth2AccessTokenError, oauth2_access_token};
 use crate::easy::cloud::FalconCloud;
 use crate::error::CredentialsError;
 use std::env;
