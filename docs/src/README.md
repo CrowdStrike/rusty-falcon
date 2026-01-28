@@ -22,17 +22,24 @@ After installing the Rust toolchain, clone this repository:
 git clone https://github.com/crowdstrike/rusty-falcon
 ```
 
-The project uses the OpenSSL sys crate thereby you might need to make `cargo` aware
-of the whereabouts of the OpenSSL library. Below, you'll find instructions for
-various OS'es.
+### TLS Backend
 
-Chances are, your system has already got all that's needed of the OpenSSL library.
-If `cargo check` succeeds, you're all set. If it complains about not finding
-OpenSSL, read on.
+By default, rusty-falcon uses `rustls` as its TLS backend.
 
-### APT-based Linux distro's (e.g. Debian and Ubuntu)
+For most users, no additional setup is required. Just run `cargo build` and it will work.
 
-Installing the OpenSSL development files should be all that is required:
+### Using `native-tls` (OpenSSL) Instead
+
+If you need `OpenSSL/native-tls` (for legacy server compatibility), add the `native-tls` feature:
+
+```toml
+[dependencies]
+rusty_falcon = { version = "0.7", features = ["native-tls"] }
+```
+
+When using `native-tls`, you may need to install OpenSSL development files on your system.
+
+### APT-based Linux distros (e.g. Debian and Ubuntu)
 
 ```sh
 sudo apt-get install -y openssl-dev
@@ -54,12 +61,13 @@ Installing the OpenSSL development files should be all that is required:
 brew install openssl
 ```
 
-If `cargo` can't still find the OpenSSL library, please provide a configuration
-files pointing to it like so:
+If `cargo` can't find the OpenSSL library, provide a configuration file pointing to it:
 
-1. Create `.cargo/config.tmol`
+1. Create `.cargo/config.toml`
 2. Add the paths to the configuration file:
+
 ```toml
+[env]
 OPENSSL_INCLUDE_DIR="/usr/local/opt/openssl/include"
 OPENSSL_LIB_DIR="/usr/local/opt/openssl/lib"
 ```
@@ -68,7 +76,7 @@ OPENSSL_LIB_DIR="/usr/local/opt/openssl/lib"
 
 Assuming that the source code is stored at `C:/Users/<ME>/src` and you're using
 the MSVC toolchain with Rust (the most common scenario on Windows), all that's
-needed is cloning the `vcpkg` repo, building and installing the OpenSLL like so:
+needed is cloning the `vcpkg` repo, building and installing OpenSSL:
 
 ```pwsh
 cd C:/Users/<ME>/src
@@ -86,8 +94,9 @@ cd vcpkg
 
 Now, tell `cargo` where to find OpenSSL:
 
-1. Create `.cargo/config.tmol`
+1. Create `.cargo/config.toml`
 2. Add the paths to the configuration file:
+
 ```toml
 [env]
 OPENSSL_LIB_DIR="C:/Users/<ME>/src/vcpkg/packages/openssl_x64-windows/lib"
