@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] - 2026-01-28
+
+### Changed
+
+- `BREAKING`: Default TLS backend changed from OpenSSL to rustls - Removed `openssl` and `rustls` feature flags
+- Upgraded `reqwest` to `0.13.1`
+
+### Added
+
+- `native-tls` feature flag for users requiring OpenSSL/native-tls backend
+
+### Removed
+
+- Direct `openssl` and `openssl-sys` dependencies (no longer needed)
+
 ## [0.5.0] - 2025-09-24
 
 ### Added
