@@ -254,6 +254,6 @@ jobs:
         egress-policy: audit
 
     - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
-    - uses: crate-ci/typos@f12cee1d8f3c79282a98ecb41d235aef17dfa8fd # v1.25.0
+    - uses: crate-ci/typos@7c572958218557a3272c2d6719629443b5cc26fd # v1.45.2
       continue-on-error: true
     - run: exit 0
