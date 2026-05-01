@@ -12,8 +12,12 @@ use crate::models;
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MsaspecQueryResponse {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::MsaspecError>>,
+    #[serde(
+        rename = "errors",
+        default,
+        deserialize_with = "crate::serde_helpers::deserialize_null_default"
+    )]
+    pub errors: Vec<models::MsaspecError>,
     #[serde(rename = "meta")]
     pub meta: Box<models::MsaspecMetaInfo>,
     #[serde(rename = "resources")]
@@ -21,9 +25,13 @@ pub struct MsaspecQueryResponse {
 }
 
 impl MsaspecQueryResponse {
-    pub fn new(meta: models::MsaspecMetaInfo, resources: Vec<String>) -> MsaspecQueryResponse {
+    pub fn new(
+        errors: Vec<models::MsaspecError>, 
+        meta: models::MsaspecMetaInfo, 
+        resources: Vec<String>
+    ) -> MsaspecQueryResponse {
         MsaspecQueryResponse {
-            errors: None,
+            errors,
             meta: Box::new(meta),
             resources,
         }
