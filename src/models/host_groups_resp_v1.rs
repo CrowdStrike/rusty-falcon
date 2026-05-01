@@ -13,7 +13,11 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct HostGroupsRespV1 {
     /// A collection of any errors which occurred during execution of the request
-    #[serde(rename = "errors")]
+    #[serde(
+        rename = "errors",
+        default,
+        deserialize_with = "crate::serde_helpers::deserialize_null_default"
+    )]
     pub errors: Vec<models::MsaspecError>,
     #[serde(rename = "meta")]
     pub meta: Box<models::MsaspecMetaInfo>,

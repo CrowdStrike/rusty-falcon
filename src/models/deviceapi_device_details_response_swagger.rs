@@ -12,8 +12,12 @@ use crate::models;
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DeviceapiDeviceDetailsResponseSwagger {
-    #[serde(rename = "errors", skip_serializing_if = "Option::is_none")]
-    pub errors: Option<Vec<models::MsaspecError>>,
+    #[serde(
+        rename = "errors",
+        default,
+        deserialize_with = "crate::serde_helpers::deserialize_null_default"
+    )]
+    pub errors: Vec<models::MsaspecError>,
     #[serde(rename = "meta")]
     pub meta: Box<models::MsaspecMetaInfo>,
     #[serde(rename = "resources")]
@@ -27,7 +31,7 @@ impl DeviceapiDeviceDetailsResponseSwagger {
         resources: Vec<models::DeviceapiDeviceSwagger>,
     ) -> DeviceapiDeviceDetailsResponseSwagger {
         DeviceapiDeviceDetailsResponseSwagger {
-            errors: Some(errors),
+            errors,
             meta: Box::new(meta),
             resources,
         }
