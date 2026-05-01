@@ -46,7 +46,7 @@ async fn main() {
         .await
         .expect("Could not fetch CCID");
 
-        if response.errors.is_some() {
+        if !response.errors.is_empty() {
             eprintln!(
                 "Errors occurred while getting Falcon CCID: {:?}",
                 response.errors

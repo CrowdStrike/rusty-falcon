@@ -12,7 +12,11 @@ use crate::models;
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DeviceapiDeviceResponse {
-    #[serde(rename = "errors")]
+    #[serde(
+        rename = "errors",
+        default,
+        deserialize_with = "crate::serde_helpers::deserialize_null_default"
+    )]
     pub errors: Vec<models::MsaspecError>,
     #[serde(rename = "meta")]
     pub meta: Box<models::DeviceapiRequestMeta>,
