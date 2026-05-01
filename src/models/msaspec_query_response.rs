@@ -26,9 +26,9 @@ pub struct MsaspecQueryResponse {
 
 impl MsaspecQueryResponse {
     pub fn new(
-        errors: Vec<models::MsaspecError>, 
-        meta: models::MsaspecMetaInfo, 
-        resources: Vec<String>
+        errors: Vec<models::MsaspecError>,
+        meta: models::MsaspecMetaInfo,
+        resources: Vec<String>,
     ) -> MsaspecQueryResponse {
         MsaspecQueryResponse {
             errors,

@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `reqwest` to `0.13.3`
 - Updated `serde_with` to `3.18.0`
 - Updated `msrv` to `1.88.0`
+- Updated deserialization to not fail on api responses
+- Updated examples
 
 ## [0.7.0] - 2026-01-28
 

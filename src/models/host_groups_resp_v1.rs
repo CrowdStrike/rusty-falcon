@@ -14,7 +14,7 @@ use crate::models;
 pub struct HostGroupsRespV1 {
     /// A collection of any errors which occurred during execution of the request
     #[serde(
-        rename = "errors", 
+        rename = "errors",
         default,
         deserialize_with = "crate::serde_helpers::deserialize_null_default"
     )]
