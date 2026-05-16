@@ -40,6 +40,7 @@ serde_json = "1.0.149"
 serde_with = "3.18.0"
 thiserror = "2.0.18"
 url = "2.5.8"
+wiremock = "0.6.5"
 
 [dev-dependencies]
 clap = { version = "4.5.54", features = ["derive"] }
