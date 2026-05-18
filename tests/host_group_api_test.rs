@@ -1,28 +1,13 @@
+mod common;
+
 #[cfg(test)]
 mod host_group_api_tests {
-    use rusty_falcon::apis::{configuration, host_group_api};
+    use rusty_falcon::apis::host_group_api;
     use rusty_falcon::models::host_groups_host_group_v1::GroupType;
-    use serde_json::{Value, json};
-    use wiremock::{
-        Mock, MockServer, ResponseTemplate,
-        http::Method,
-        matchers::{method, path},
-    };
+    use serde_json::json;
+    use wiremock::http::Method;
 
-    // Helper function to create mock endpoints
-    async fn setup_mock(
-        mock_server: &MockServer,
-        http_method: Method,
-        endpoint_path: &str,
-        status_code: u16,
-        response_body: Value,
-    ) {
-        Mock::given(method(http_method.as_str()))
-            .and(path(endpoint_path))
-            .respond_with(ResponseTemplate::new(status_code).set_body_json(response_body))
-            .mount(mock_server)
-            .await;
-    }
+    use crate::common::{create_test_config, setup_mock};
 
     #[tokio::test]
     async fn test_query_combined_host_groups_success() {
@@ -53,9 +38,7 @@ mod host_group_api_tests {
                 ]
             }
         );
-        let mock_server = MockServer::start().await;
-        setup_mock(
-            &mock_server,
+        let mock_server = setup_mock(
             Method::GET,
             "/devices/combined/host-groups/v1",
             200,
@@ -63,8 +46,7 @@ mod host_group_api_tests {
         )
         .await;
 
-        let mut configuration = configuration::Configuration::default();
-        configuration.base_path = mock_server.uri();
+        let configuration = create_test_config(&mock_server);
         let response =
             host_group_api::query_combined_host_groups(&configuration, None, None, None, None)
                 .await
@@ -106,9 +88,7 @@ mod host_group_api_tests {
                 ]
             }
         );
-        let mock_server = MockServer::start().await;
-        setup_mock(
-            &mock_server,
+        let mock_server = setup_mock(
             Method::GET,
             "/devices/combined/host-groups/v1",
             403,
@@ -116,8 +96,7 @@ mod host_group_api_tests {
         )
         .await;
 
-        let mut configuration = configuration::Configuration::default();
-        configuration.base_path = mock_server.uri();
+        let configuration = create_test_config(&mock_server);
 
         let result =
             host_group_api::query_combined_host_groups(&configuration, None, None, None, None)
