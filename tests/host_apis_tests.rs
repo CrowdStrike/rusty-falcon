@@ -1,27 +1,12 @@
+mod common;
+
 #[cfg(test)]
 mod query_combined_host_groups_tests {
-    use rusty_falcon::apis::{configuration, hosts_api};
-    use serde_json::{Value, json};
-    use wiremock::{
-        Mock, MockServer, ResponseTemplate,
-        http::Method,
-        matchers::{method, path},
-    };
+    use rusty_falcon::apis::hosts_api;
+    use serde_json::json;
+    use wiremock::http::Method;
 
-    // Helper function to create mock endpoints
-    async fn setup_mock(
-        mock_server: &MockServer,
-        http_method: Method,
-        endpoint_path: &str,
-        status_code: u16,
-        response_body: Value,
-    ) {
-        Mock::given(method(http_method.as_str()))
-            .and(path(endpoint_path))
-            .respond_with(ResponseTemplate::new(status_code).set_body_json(response_body))
-            .mount(mock_server)
-            .await;
-    }
+    use crate::common::{create_test_config, setup_mock};
 
     #[tokio::test]
     async fn test_get_device_details_v2_success() {
@@ -46,18 +31,10 @@ mod query_combined_host_groups_tests {
                 ]
             }
         );
-        let mock_server = MockServer::start().await;
-        setup_mock(
-            &mock_server,
-            Method::GET,
-            "/devices/entities/devices/v2",
-            200,
-            response,
-        )
-        .await;
+        let mock_server =
+            setup_mock(Method::GET, "/devices/entities/devices/v2", 200, response).await;
 
-        let mut configuration = configuration::Configuration::default();
-        configuration.base_path = mock_server.uri();
+        let configuration = create_test_config(&mock_server);
         let ids = vec!["123".to_owned()];
 
         let response = hosts_api::get_device_details_v2(&configuration, ids)
@@ -91,9 +68,7 @@ mod query_combined_host_groups_tests {
                 ]
             }
         );
-        let mock_server = MockServer::start().await;
-        setup_mock(
-            &mock_server,
+        let mock_server = setup_mock(
             Method::GET,
             "/devices/entities/devices/v2",
             403,
@@ -101,8 +76,7 @@ mod query_combined_host_groups_tests {
         )
         .await;
 
-        let mut configuration = configuration::Configuration::default();
-        configuration.base_path = mock_server.uri();
+        let configuration = create_test_config(&mock_server);
         let ids = vec!["123".to_owned()];
         let result = hosts_api::get_device_details_v2(&configuration, ids).await;
 
@@ -139,9 +113,7 @@ mod query_combined_host_groups_tests {
                 ]
             }
         );
-        let mock_server = MockServer::start().await;
-        setup_mock(
-            &mock_server,
+        let mock_server = setup_mock(
             Method::GET,
             "/devices/queries/devices-scroll/v1",
             200,
@@ -149,8 +121,7 @@ mod query_combined_host_groups_tests {
         )
         .await;
 
-        let mut configuration = configuration::Configuration::default();
-        configuration.base_path = mock_server.uri();
+        let configuration = create_test_config(&mock_server);
 
         let response =
             hosts_api::query_devices_by_filter_scroll(&configuration, None, None, None, None)
@@ -182,9 +153,7 @@ mod query_combined_host_groups_tests {
                 ]
             }
         );
-        let mock_server = MockServer::start().await;
-        setup_mock(
-            &mock_server,
+        let mock_server = setup_mock(
             Method::GET,
             "/devices/queries/devices-scroll/v1",
             403,
@@ -192,8 +161,7 @@ mod query_combined_host_groups_tests {
         )
         .await;
 
-        let mut configuration = configuration::Configuration::default();
-        configuration.base_path = mock_server.uri();
+        let configuration = create_test_config(&mock_server);
 
         let result =
             hosts_api::query_devices_by_filter_scroll(&configuration, None, None, None, None).await;
