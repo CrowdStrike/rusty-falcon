@@ -138,8 +138,17 @@ jobs:
         with:
           egress-policy: audit
 
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
-      - run: cargo outdated --exit-code 1
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Install stable
+        uses: dtolnay/rust-toolchain@4be9e76fd7c4901c61fb841f559994984270fce7 # stable
+      
+      - name: Install outdated
+        run: cargo install cargo-outdated
+        
+      - name: Cargo outdated
+        run: cargo outdated --exit-code 1
 
   block-fixup:
     name: Block fixup commits
