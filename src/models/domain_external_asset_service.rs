@@ -52,9 +52,9 @@ pub struct DomainExternalAssetService {
     /// The availability status for this service
     #[serde(rename = "status")]
     pub status: String,
-    /// The status code returned by the service
+    /// The status code returned by the service, or None when it is unknown
     #[serde(rename = "status_code")]
-    pub status_code: i32,
+    pub status_code: Option<i32>,
     /// List of subsidiaries that the asset belongs to
     #[serde(rename = "subsidiaries", skip_serializing_if = "Option::is_none")]
     pub subsidiaries: Option<Vec<models::DomainExternalAssetSubsidiary>>,
@@ -90,7 +90,7 @@ impl DomainExternalAssetService {
             port,
             protocol,
             status,
-            status_code,
+            status_code: Some(status_code),
             subsidiaries: None,
             tls: None,
             transport,
