@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- Deserialize external asset services with a null `status_code` instead of rejecting the entire response (#214).
+
+### Changed
+
+- `BREAKING`: `DomainExternalAssetService.status_code` is now `Option<i32>`. Null or omitted values become `None`, which serializes as JSON null; integers remain `Some(code)`. Direct field users must handle the option. The existing integer argument to `DomainExternalAssetService::new` is preserved.
+
 ## [0.7.1] - 2026-05-16
 
 ### Added
